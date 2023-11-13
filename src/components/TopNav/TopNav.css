@@ -1,0 +1,11 @@
+.nav-list-top{
+transition: 300ma ease-in;
+}
+
+.navlinks:hover{
+    color: #4FC8E8;
+}
+
+.active-top{
+    color: #4FC8E8;
+}
