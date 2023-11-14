@@ -125,7 +125,7 @@ function RaffleDashbord() {
             </div>
 
             {/* right-side */}
-            <div className="flex flex-col flex-1">
+            <div className="flex flex-col flex-1 ">
               <div className="invisible lg:visible pt-5">
                 <TopNav />
               </div>
@@ -134,7 +134,7 @@ function RaffleDashbord() {
 
               <RaffleDashboardComponent />
 
-              <div className="flex flex-col gap-4 lg:flex-row">
+              <div className="flex flex-col gap-4 lg:flex-row mt-2">
                 <div className="flex-1">
                   <CustomChart height={250} />
                 </div>
