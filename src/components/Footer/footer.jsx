@@ -1,124 +1,50 @@
-import logo from "../../assets/images/logo/logo.png";
-import "./footer.css";
-
+import logo2 from "../../assets/images/logo/logo2.png";
 function Footer() {
   return (
-    <div className="flex flex-col ssl px-5 xl:px-10">
-      <div className="flex flex-col xl:flex-row justify-between">
-        <div className="flex justify-between items-center">
-          <div className="flex flex-col">
-            <img src={logo} alt="Your Logo" className="f-logo" />
-            <p className="text-white mt-5">
-              We provide one-stop solutions for all IT items. your bliss is just
-              <br />a click away. Star Tech trusts in quality clien.
-            </p>
-          </div>
+    <div style={{ background: "black" }}>
+      <div className="lg:grid grid-cols-9 gap-1">
+        <div className="col-span-1"></div>
+        <div className="pl-4 pt-5 col-span-4 lg:pl-0">
+          <img src={logo2} alt="" />
+          <p className="text-sm" style={{ color: "#fff" }}>
+            We provide one-stop solutions for all IT items. your bliss is <br />
+            just click away. Star Tech trusts in quality clien.
+          </p>
         </div>
-        <div className="flex flex-col">
-          <div className="footer-title">
-            <h4 className="f-tittle">Links</h4>
-          </div>
-          <div>
+        <div className="lg:grid grid-cols-3 gap-1 col-span-4 pb-2">
+          {/* <div></div> */}
+          {/* <div className="flex p-5 justify-end" style={{ color: "#fff" }}> */}
+          <div className="m-5" style={{ color: "#fff" }}>
+            <p className="font-bold mb-3">Links</p>
             <ul>
-              <li>
-                <a className="fbottomlink" href="/">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a className="fbottomlink" href="/">
-                  Service
-                </a>
-              </li>
-              <li>
-                <a className="fbottomlink" href="/">
-                  Pricing
-                </a>
-              </li>
-              <li>
-                <a className="fbottomlink" href="/">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a className="fbottomlink" href="/">
-                  Feature
-                </a>
-              </li>
+              <li>Home</li>
+              <li>Service</li>
+              <li>Pricing</li>
+              <li>About Us</li>
+              <li>Feature</li>
             </ul>
           </div>
-        </div>
-        <div className="flex flex-col">
-          <div
-   
-          >
-            <div className="footer-title">
-              <h4 className="f-tittle">Product</h4>
-            </div>
+          <div className="m-5" style={{ color: "#fff" }}>
+            <p className="font-bold mb-3">Product</p>
             <ul>
-              <li>
-                <a className="fbottomlink" href="/">
-                  Membership T&C
-                </a>
-              </li>
-              <li>
-                <a className="fbottomlink" href="/">
-                  Cars
-                </a>
-              </li>
-              <li>
-                <a className="fbottomlink" href="/">
-                  Drive
-                </a>
-              </li>
-              <li>
-                <a className="fbottomlink" href="/">
-                  Winners
-                </a>
-              </li>
+              <li>Membership T&C</li>
+              <li>Cars</li>
+              <li>Drive</li>
+              <li>Winners</li>
             </ul>
           </div>
-        </div>
-        <div className="flex flex-col">
-          <div
-    
-          >
-            <div className="footer-title">
-              <h4 className="f-tittle">Community</h4>
-            </div>
+          <div className="m-5" style={{ color: "#fff" }}>
+            <p className="font-bold mb-3">Community</p>
             <ul>
-              <li>
-                <a className="fbottomlink" href="/">
-                  Global Partners
-                </a>
-              </li>
-              <li>
-                <a className="fbottomlink" href="/">
-                  Forum
-                </a>
-              </li>
-              <li>
-                <a className="fbottomlink" href="/">
-                  Careers
-                </a>
-              </li>
-              <li>
-                <a className="fbottomlink" href="/">
-                  Community
-                </a>
-              </li>
-              <li>
-                <a className="fbottomlink" href="/">
-                  Brand Assets
-                </a>
-              </li>
+              <li>Global Partners</li>
+              <li>Forum</li>
+              <li>Careers</li>
+              <li>Community</li>
+              <li>Brand Assets</li>
             </ul>
           </div>
+          {/* </div> */}
         </div>
-      </div>
-
-      <div className="text-center mt-10 text-white font-semibold mb-5">
-        <p>Copyright @ 2023 Winlads</p>
       </div>
     </div>
   );
