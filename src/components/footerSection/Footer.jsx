@@ -1,4 +1,6 @@
 import logo2 from "../../assets/images/logo/logo2.png";
+
+
 function Footer() {
   return (
     <div style={{ background: "black" }}>
