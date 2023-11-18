@@ -150,7 +150,7 @@ function Secondpage() {
           <div className="transition duration-700 hover:scale-105">
             <h3 className="font-bold mb-2 2xl:text-4xl">Merchandise</h3>
             <p className="pb-2 2xl:text-4xl">
-              Exclusive merchandise offers and designs from both LMCT+ and our
+              Exclusive merchandise offers and designs from both Winlads and our
               Benefits. Great quality swag from your favourite brands. Including
               some exclusive designs from bags, T shirts and more.
             </p>
