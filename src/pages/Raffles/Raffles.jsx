@@ -345,7 +345,7 @@ function PopUpLotto({ onClose }) {
           <div className="flex flex-row gap-4 items-center">
             <img src={Blue} alt="" className="w-3 h-3" />
             <p className="text-white xl:text-sm md:text-sm">
-              10% off LMTC+Merch
+              10% off WinladsMerch
             </p>
           </div>
         </div>

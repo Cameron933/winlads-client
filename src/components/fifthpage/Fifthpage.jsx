@@ -56,8 +56,8 @@ function Fifthpage() {
                 <p className="2xl:text-2xl">User/Month</p>
                 <div className="flex flex-col space-y-2 text-center">
                   <p className="2xl:text-2xl">2 Day database discount Access</p>
-                  <p className="2xl:text-2xl">Winlands+ Events Invites</p>
-                  <p className="2xl:text-2xl">10% off LMTC+Merch</p>
+                  <p className="2xl:text-2xl">Winlands Events Invites</p>
+                  <p className="2xl:text-2xl">10% off Winlads Merch</p>
                 </div>
 
                 <button
@@ -87,8 +87,8 @@ function Fifthpage() {
                   <p className="2xl:text-2xl">
                     1 Week database discount Access
                   </p>
-                  <p className="2xl:text-2xl">Winlands+ Events Invites</p>
-                  <p className="2xl:text-2xl">10% off LMTC+Merch</p>
+                  <p className="2xl:text-2xl">Winlands Events Invites</p>
+                  <p className="2xl:text-2xl">10% off Winlads Merch</p>
                 </div>
 
                 <button
@@ -117,8 +117,8 @@ function Fifthpage() {
                   <p className="2xl:text-2xl">
                     1 Month database discount Access
                   </p>
-                  <p className="2xl:text-2xl">Winlands+ Events Invites</p>
-                  <p className="2xl:text-2xl">10% off LMTC+Merch</p>
+                  <p className="2xl:text-2xl">Winlands Events Invites</p>
+                  <p className="2xl:text-2xl">10% off WinladsMerch</p>
                 </div>
 
                 <button
@@ -149,8 +149,8 @@ function Fifthpage() {
                   <p className="2xl:text-2xl">
                     6 Month database discount Access
                   </p>
-                  <p className="2xl:text-2xl">Winlands+ Events Invites</p>
-                  <p className="2xl:text-2xl">15% off LMTC+Merch</p>
+                  <p className="2xl:text-2xl">Winlands Events Invites</p>
+                  <p className="2xl:text-2xl">15% off Winlads Merch</p>
                 </div>
 
                 <button
