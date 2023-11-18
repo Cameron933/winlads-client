@@ -21,7 +21,14 @@
 
 .buttonBg {
   background: linear-gradient(93deg, #43E3ED 1.1%, #01819D 97.54%);
+  filter: drop-shadow(5px 5px 10px #bde5e8);
 }
+
+.buttonBg:hover {
+  background: linear-gradient(93deg, #36b7c1 1.1%, #03b0d6 97.54%);
+}
+
+
 
 .dashbtn-group {
   justify-content: flex-end;
@@ -107,7 +114,7 @@ code {
 }
 
 .input-div > img {
-  width: 30px;
+  width: 27px;
 }
 
 .btn-main {
@@ -253,4 +260,12 @@ code {
     background-position:center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.prevent{
+  pointer-events: none;
+}
+
+.blackbtns:hover{
+  background-color: rgb(58, 58, 58);
 }

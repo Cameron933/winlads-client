@@ -2,6 +2,7 @@ import "./Login.css";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import MainImg from "../../assets/images/jip.png";
+import MainJeepNp from "../../assets/images/jeepnp.png";
 import Phone from "../../assets/images/smartphone.png";
 import { MdOutlineNavigateNext } from "react-icons/md";
 import Loader from "../../components/Loader/Loader";
@@ -15,7 +16,7 @@ import OtpInput from "react-otp-input";
 import Cookies from 'universal-cookie';
 import { motion } from "framer-motion";
 import XlJeep from "../../assets/images/Xljeep.png"
-
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -51,18 +52,39 @@ const Login = () => {
           `${import.meta.env.VITE_SERVER_API}/checkMobile?mobile=${ph}`
         );
         if (!response.data.exists) {
-          alert("Mobile number is not registered. Please register first.");
+          // alert("Mobile number is not registered. Please register first.");
+          toast.error("Mobile number is not registered. Please register first.", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          });
         } else {
           const result = await auth.signInWithPhoneNumber(ph, verify);
           setfinal(result);
-          console.log(final, "code sent final");
+          // console.log(final, "code sent final");
           setshow(true);
           setShowOTPBox(true);
           setButtonText("Login");
         }
       } catch (error) {
         console.error("Error checking mobile:", error);
-        alert("An error occurred while checking the mobile number.");
+        setButtonText("Get OTP");
+        // alert("An error occurred while checking the mobile number.");
+        toast.error("An error occurred while checking the mobile number.", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
       }
     }
   }
@@ -87,11 +109,30 @@ const Login = () => {
             }
           })
           .catch((error) => {
+            toast.error("Error checking mobile number. Please try again", {
+              position: "top-center",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "colored",
+            });
             console.error("Error checking mobile:", error);
           });
       })
       .catch((err) => {
-        alert("Wrong code");
+        toast.error("Invalid OTP Code", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
       });
   };
 
@@ -121,7 +162,7 @@ const Login = () => {
 
           <div className="container mx-auto login-section">
             <div className="login-contain flex items-center justify-center md:flex-row flex-col">
-              <div className="img-container w-2/4 scale-150 mb-9 md:mb-0">
+              <div className="img-container w-2/4 scale-150 mb-9 md:mb-0 prevent">
                 {/* Dekstop VIew Jeep */}
                 <div className="hidden md:block w-full">
                   <motion.img
@@ -129,7 +170,7 @@ const Login = () => {
                     whileInView={{ opacity: 1, x: '-25%' }}
 
                     transition={{ duration: 0.8 }}
-                    src={MainImg}
+                    src={MainJeepNp}
                     className="w-full h-full object-contain md:object-cover "
                     alt="main-img"
                   />
@@ -238,8 +279,8 @@ const Login = () => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                       /> */}
-                      <input type="checkbox" name="" id="" />
-                      <label htmlFor="remember">Remember me</label>
+                      <input type="checkbox" name="" id="rem" />
+                      <label htmlFor="rem" className="ml-2">Remember me</label>
                     </div>
 
                     <span className="text-yellow-600">Re-try?</span>
@@ -256,7 +297,7 @@ const Login = () => {
                   </button> */}
 
                   <button
-                    className="bg-black px-12 w-full py-2 rounded-lg "
+                    className="bg-black px-12 w-full py-2 rounded-lg blackbtns"
                     onClick={(e) => onSignup(e)}
                   >
                     <span className="xl:text-2xl text-lg text-white font-bold">
@@ -268,7 +309,7 @@ const Login = () => {
                       />
                     </span>
                   </button>
-                  <div className="text-blue-500 font-semibold">
+                  <div className=" font-semibold">
                     <span>New Member? </span>
                     <span>
                       <Link to="/register" className="react-link">

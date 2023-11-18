@@ -40,7 +40,7 @@ function Showcase() {
     <motion.div
       initial={"offscreen"}
       whileInView={"onscreen"}
-      viewport={{ once: false, amount: 0.5 }}
+      viewport={{ once: true, amount: 0.5 }}
       transition={{ staggerChildren: 0.5 }}
       className="grid grid-cols-1 gap-2 lg:grid-cols-2"
       style={{
@@ -50,7 +50,7 @@ function Showcase() {
       }}
     >
       <div
-        className="flex justify-center border-2 border-black 2xl:text-4xl px-4 py-2 2xl:px-8 2xl:py-6 items-center text-white buttonBg"
+        className="flex justify-center border-black 2xl:text-4xl px-4 py-3 2xl:px-8 2xl:py-6 items-center text-white buttonBg"
         style={{
           //   display: "inline-block",
           borderRadius: "5px",
@@ -152,7 +152,7 @@ function Showcase() {
             <div className="flex mt-4 dashbtn-group">
               <Link to="/register">
               <div
-                className="flex justify-center px-4 py-2 2xl:px-8 border-2 border-black 2xl:py-6 2xl:text-4xl text-md font-bold items-center text-white buttonBg frontbtns"
+                className="flex justify-center px-4 py-4 2xl:px-8  border-black 2xl:py-6 2xl:text-4xl text-md font-bold items-center text-white buttonBg frontbtns"
                 style={{
                   //   display: "inline-block",
                   borderRadius: "5px",

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import MainImg from "../../assets/images/jip.png";
+import MainJeepNp from "../../assets/images/jeepnp.png";
 import Phone from "../../assets/images/smartphone.png";
 import User from "../../assets/images/user.png";
 import Passport from "../../assets/images/pass.png";
@@ -61,9 +62,19 @@ const Register = () => {
         `${import.meta.env.VITE_SERVER_API}/register`,
         data
       );
-      console.log(response.data);
+      // console.log(response.data);
       cookies.set("wr_token", response.data.data._id);
     } catch (error) {
+      toast.error("Error submitting login credentials", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
       console.error("Error submitting form:", error);
     }
   };
@@ -79,7 +90,18 @@ const Register = () => {
         .get(`${import.meta.env.VITE_SERVER_API}/checkMobile?mobile=${ph}`)
         .then((response) => {
           if (response.data.exists) {
-            alert("Mobile number is already registered!");
+            
+            toast.error("Mobile number is already registered!", {
+              position: "top-center",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "colored",
+            });
+            // alert("Mobile number is already registered!");
             setButtonText("Get OTP");
           } else {
             auth
@@ -93,7 +115,16 @@ const Register = () => {
                 setButtonText("Register");
               })
               .catch((err) => {
-                alert(err);
+                toast.error(err.message, {
+                  position: "top-center",
+                  autoClose: 5000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                  theme: "colored",
+                });
                 window.location.reload();
                 setButtonText("Get OTP");
               });
@@ -101,7 +132,17 @@ const Register = () => {
         })
         .catch((error) => {
           console.error("Error checking mobile:", error);
-          alert("An error occurred while checking the mobile number.");
+          toast.error('An error occurred while checking the mobile number.', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          });
+          // alert("An error occurred while checking the mobile number.");
           setButtonText("Get OTP");
         });
     }
@@ -113,7 +154,7 @@ const Register = () => {
       .confirm(otp)
       .then((result) => {
         // success
-        console.log("success", result);
+        // console.log("success", result);
         saveFormData(values, result.user.uid);
 
         navigate("/welcome");
@@ -122,7 +163,16 @@ const Register = () => {
         }, 3000);
       })
       .catch((err) => {
-        alert("Wrong code");
+        toast.error("Invalid OTP Code", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
       });
   };
 
@@ -148,15 +198,15 @@ const Register = () => {
         <div className="h-screen  flex flex-col justify-center bg-image">
           <div className="container mx-auto login-section">
             <div className="login-contain flex items-center justify-center md:flex-row flex-col">
-              <div className="img-container w-2/4 scale-150 mb-9 md:mb-0">
+              <div className="img-container w-2/4 scale-150 mb-9 md:mb-0 prevent">
                 {/* <img src={MainImg} className="w-full h-full object-contain md:object-cover transform md:-translate-x-1/4" alt="main-img" /> */}
                 {/* Desktop View Jeep */}
-                <div className="hidden md:block w-full">
+                <div className="hidden md:block w-full prevent" >
                   <motion.img
                     initial={{ opacity: 0, x: "-50%" }}
                     whileInView={{ opacity: 1, x: "-25%" }}
                     transition={{ duration: 0.8 }}
-                    src={MainImg}
+                    src={MainJeepNp}
                     className="w-full h-full object-contain md:object-cover "
                     alt="main-img"
                   />
@@ -342,7 +392,7 @@ const Register = () => {
                           placeholder="OTP Code"
                           value={otp}
                           onChange={(e) => setOtp(e.target.value)}
-                          // id="tin"
+                        // id="tin"
                         />
 
                         {/* <AiOutlineSend
@@ -365,21 +415,24 @@ const Register = () => {
                       id="agree"
                     /> */}
                       <div>
-                        <input type="checkbox" name="" id="" />
+                        <input type="checkbox" name="" id="checker" />
                       </div>
 
                       <div>
-                        <span>
+                      <label htmlFor="checker">
+                      <span>
                           By checking the box you agree to our{" "}
                           <span className="yellow-text">Terms</span> and{" "}
                           <span className="yellow-text">Conditions.</span>
                         </span>
+                      </label>
+                    
                       </div>
                     </div>
                     {!final && <div id="recaptcha-container"></div>}
 
                     <button
-                      className="bg-black px-24 items-center flex justify-between py-2 flex-row rounded-lg text-center"
+                      className="bg-black px-24 items-center flex justify-between py-2 flex-row rounded-lg text-center blackbtns"
                       onClick={(e) => onSignup(e)}
                     >
                       <span className="text-2xl text-white font-bold">

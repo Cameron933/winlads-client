@@ -17,7 +17,7 @@ function Fifthpage() {
     <motion.div
       initial={"offscreen"}
       whileInView={"onscreen"}
-      viewport={{ once: false, amount: 0.5 }}
+      viewport={{ once: true, amount: 0.5 }}
       transition={{ staggerChildren: 0.1 }}
       className="relative pt-[150px] 2xl:pt-[300px] pb-10"
       style={{
