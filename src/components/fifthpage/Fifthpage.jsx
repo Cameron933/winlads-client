@@ -43,7 +43,7 @@ function Fifthpage() {
               className="lg:grid grid-cols-2 gap-y-10 relative"
               style={{ zIndex: "2" }}
             >
-              <div className="p-0 mb-2 lg:mb-0" style={{ background: "" }}>
+              <div className="p-0 mb-2 lg:mb-0 text-white" style={{ background: "" }}>
                 <div
                   className="flex allcolor-white flex-col justify-center items-center rounded-xl m-auto transition duration-700 hover:scale-105 lg:mr-0"
                   style={{
@@ -137,7 +137,7 @@ function Fifthpage() {
                   bg="linear-gradient(99deg, #46ED43 19.06%, #0D9D01 80.34%)"
                 /> */}
               </div>
-              <div className="p-0 mb-2 lg:mb-0" style={{ background: "" }}>
+              <div className="p-0 mb-2 lg:mb-0 text-white" style={{ background: "" }}>
                 <Plancard
                 
                   price="$250"
