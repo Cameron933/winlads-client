@@ -5,6 +5,7 @@ import ellipse from "../../assets/images/ellipse.png";
 import ham from "../../assets/images/ham.png";
 import googleplay from "../../assets/images/googleplay.png";
 import appstore from "../../assets/images/appstore.png";
+import { Link } from "react-router-dom";
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -39,7 +40,7 @@ function Showcase() {
       whileInView={"onscreen"}
       viewport={{ once: false, amount: 0.5 }}
       transition={{ staggerChildren: 0.5 }}
-      className="grid grid-cols-1 gap-2 lg:grid-cols-2 gap-0"
+      className="grid grid-cols-1 gap-2 lg:grid-cols-2"
       style={{
         minHeight: "100vh",
         position: "relative",
@@ -138,14 +139,14 @@ function Showcase() {
         >
           <div className="pt-4 dashcontent-group">
             <p
-              className="font-light text-right uppercase text-sm"
+              className="font-semibold text-right uppercase text-sm"
 
             >
               With over 650+ businesses across 1000+ stores where you can
               accessexclusive discounts
             </p>
             <p
-              className="font-light text-right uppercase text-md"
+              className="font-semibold text-right uppercase text-md"
 
             >
               Australia Widefrom only $19.99 per month, opt-out anytime
@@ -153,6 +154,7 @@ function Showcase() {
           </div>
           <div className="mt-4">
             <div className="flex mt-4 dashbtn-group">
+              <Link to="/register">
               <div
                 className="flex justify-center text-md font-bold items-center text-white buttonBg frontbtns"
                 style={{
@@ -167,6 +169,8 @@ function Showcase() {
               >
                 Continue to Dashboard
               </div>
+              </Link>
+            
             </div>
             <div className="flex mobile-btns">
               <img src={appstore} style={{ cursor: "pointer" }} />

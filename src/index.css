@@ -1,74 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital@1&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 
-.buttonBg {
-    background: linear-gradient(93deg, #43E3ED 1.1%, #01819D 97.54%);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
-.buttonBg:hover {
-    background: linear-gradient(93deg, #36b7c1 1.1%, #03b0d6 97.54%);
+.paymentCardBorder {
+  border-radius: 66.29px;
+}
+
+.mobile-btns {
+  justify-content: flex-end;
+}
+
+.buttonBg {
+  background: linear-gradient(93deg, #43E3ED 1.1%, #01819D 97.54%);
+}
+
+.dashbtn-group {
+  justify-content: flex-end;
 }
 
 
 .mobile-btns {
-    justify-content: flex-end;
-}
-
-.frontbtns {
-    /* width: 63%; */
-}
-
-.ticker{
-    height: 50px;
-    width: 50px;
-    max-width: unset;
-}
-
-.dashbtn-group {
-    justify-content: flex-end;
+  justify-content: flex-end;
 }
 
 .allcontent-group {
-    margin-right: 20px;
-}
-
-.allcolor-white * {
-    color: white;
-}
-
-.linklist li {
-    cursor: pointer;
-    margin-bottom: 10px;
-    transition: color 0.2s ease-in-out;
-}
-
-.linklist li:hover {
-    color: #7CE5EC;
+  margin-right: 20px;
 }
 
 @media (max-width: 600px) {
-    .mobile-btns {
-        justify-content: unset;
-    }
+  .mobile-btns {
+      justify-content: unset;
+  }
 
-    .dashbtn-group {
-        justify-content: unset;
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
+  .dashbtn-group {
+      justify-content: unset;
+      padding-left: 1rem;
+      padding-right: 1rem;
+  }
 
-    .dashcontent-group {
-        margin-top: 20px;
-        margin-right: 10px;
-    }
+  .dashcontent-group {
+      margin-top: 20px;
+      margin-right: 10px;
+  }
 
-    .frontbtns {
-        width: 100%;
-    }
+  .frontbtns {
+      width: 100%;
+  }
 
-    .allcontent-group {
-        margin-right: 0px;
-    }
+  .allcontent-group {
+      margin-right: 0px;
+  }
+}
+
+
+.react-link {
+  text-decoration: none;
+}
+
+body {
+  font-family: "Mulish", sans-serif;
+  color: #252525;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.my-border {
+  border: 1px solid red;
+}
+
+/* common css */
+
+.input-div {
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 8px;
+  background: #fff7d9;
+  font-size: 18px;
+  font-weight: 300;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 45px;
+
+  position: relative;
+}
+
+.input-div > input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.input-div > img {
+  width: 30px;
+}
+
+.btn-main {
+  box-shadow: none;
+  outline: none;
+  border: none;
+  background: transparent;
+
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border-radius: 8px;
+  background: #252525;
+  color: #fff;
+  cursor: pointer;
+  height: 45px;
+
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+}
+.btn-main > span {
+  font-weight: 500;
+  font-size: 30px;
+}
+.btn-main > :last-child {
+  font-size: 40px;
+}
+
+/* animation for button */
+.btn-main:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  left: 0;
+  direction: rtl;
+  z-index: -1;
+  border-radius: 8px;
+  box-shadow: -7px -7px 20px 0px rgba(255, 255, 255, 0.781),
+    -4px -4px 5px 0px #fff9, 7px 7px 20px 0px rgba(0, 0, 0, 0.133),
+    4px 4px 5px 0px rgba(8, 8, 8, 0.067);
+  transition: all 0.3s ease;
+}
+.btn-main:hover {
+  color: #fff;
+}
+.btn-main:hover:after {
+  left: auto;
+  right: 0;
+  width: 100%;
+}
+.btn-main:active {
+  top: 2px;
+}
+
+.yellow-text {
+  color: #e7b600;
+}
+
+.blue-text {
+  color: #23859f;
+}
+
+.input-error {
+  border: 2px solid #eb4d4b !important;
+}
+.text-error {
+  color: #eb4d4b;
+  font-weight: 500;
+
+  position: absolute;
+  left: 0px;
+  bottom: -20px;
+  font-size: 12px;
+}
+
+.text-gold {
+  color: #F38744
+ !important;
+}
+.text-green {
+  color: #12b76a !important;
+}
+
+/* set responsive */
+
+@media (max-width: 576px) {
+  .text-error {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 390px) {
+  .input-div {
+    font-size: 16px;
+    height: 40px;
+  }
+
+  .input-div > img {
+    width: 25px;
+  }
+
+  .btn-main {
+    height: 40px;
+  }
+  .btn-main > span {
+    font-size: 20px;
+  }
+
+  .btn-main > :last-child {
+    font-size: 30px;
+  }
+}
+
+
+
+
+/* animat */
+
+.custom-card{
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in;
+}
+
+.custom-card:hover{
+  transform: scale(1.05);
+}
+
+.apexcharts-menu-icon{
+  display: none !important;
+}
+
+
+
+/* notice-inner */
+.bg-notice-inner{
+  background-image: url('../src/assets/images/hiddenCarN.png');
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
