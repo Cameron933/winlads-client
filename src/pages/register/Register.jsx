@@ -17,9 +17,9 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineSend } from "react-icons/ai";
 import Protect from "../../assets/images/Protect.png";
-import User2 from "../../assets/images/User2.png"
-import Cookies from 'universal-cookie';
-import '../Login/Login.css';
+import User2 from "../../assets/images/User2.png";
+import Cookies from "universal-cookie";
+import "../Login/Login.css";
 import { motion } from "framer-motion";
 
 const Register = () => {
@@ -35,7 +35,7 @@ const Register = () => {
   const navigate = useNavigate();
   const [buttonText, setButtonText] = useState("Get OTP");
   const [UserData, setUserData] = useState(null);
-  const cookies = new Cookies(null, { path: '/' });
+  const cookies = new Cookies(null, { path: "/" });
   // set loading
   useEffect(() => {
     setTimeout(() => {
@@ -44,7 +44,7 @@ const Register = () => {
   }, []);
 
   const saveFormData = async (temp_values, uid) => {
-    console.log(temp_values, uid)
+    console.log(temp_values, uid);
     const data = {
       name: values.name,
       email: values.email,
@@ -52,7 +52,7 @@ const Register = () => {
       passport: values.passport,
       tin: values.tin,
       rafflesId: values.rafflesId,
-      uid: uid
+      uid: uid,
     };
 
     try {
@@ -61,7 +61,7 @@ const Register = () => {
         data
       );
       console.log(response.data);
-      cookies.set('wr_token', response.data.data._id);
+      cookies.set("wr_token", response.data.data._id);
     } catch (error) {
       console.error("Error submitting form:", error);
     }
@@ -119,7 +119,6 @@ const Register = () => {
         setTimeout(() => {
           navigate("/dashboard");
         }, 3000);
-
       })
       .catch((err) => {
         alert("Wrong code");
@@ -146,7 +145,6 @@ const Register = () => {
         <Loader />
       ) : (
         <div className="h-screen  flex flex-col justify-center bg-image">
-
           <div className="container mx-auto login-section">
             <div className="login-contain flex items-center justify-center md:flex-row flex-col">
               <div className="img-container w-2/4 scale-150 mb-9 md:mb-0">
@@ -154,22 +152,30 @@ const Register = () => {
                 {/* Desktop View Jeep */}
                 <div className="hidden md:block w-full">
                   <motion.img
-                    initial={{ opacity: 0, x: '-50%' }}
-                    whileInView={{ opacity: 1, x: '-25%' }}
-
+                    initial={{ opacity: 0, x: "-50%" }}
+                    whileInView={{ opacity: 1, x: "-25%" }}
                     transition={{ duration: 0.8 }}
                     src={MainImg}
                     className="w-full h-full object-contain md:object-cover "
                     alt="main-img"
                   />
                 </div>
-              
+                <div className="hidden 2xl:block w-full">
+                  <motion.img
+                    initial={{ opacity: 0, x: "-50%" }}
+                    whileInView={{ opacity: 1, x: "-25%" }}
+                    transition={{ duration: 0.8 }}
+                    src={MainImg}
+                    className="w-full h-full object-contain md:object-cover "
+                    alt="main-img"
+                  />
+                </div>
+
                 {/* Mobile View Jeep */}
                 <div className="block md:hidden w-full">
                   <motion.img
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: -10 }}
-
                     transition={{ duration: 0.8 }}
                     src={MainImg}
                     className="w-full h-full object-contain md:object-cover "
@@ -179,7 +185,11 @@ const Register = () => {
                 {/* Mobile view Jeep End */}
               </div>
 
-              <form onSubmit={handleSubmit} autoComplete="off" className="form-contain text-center">
+              <form
+                onSubmit={handleSubmit}
+                autoComplete="off"
+                className="form-contain text-center"
+              >
                 <span className="text-2xl md:text-3xl lg:text-4xl fw-bold font-bold">
                   Create an Account
                 </span>
@@ -329,7 +339,7 @@ const Register = () => {
                         placeholder="OTP Code"
                         value={otp}
                         onChange={(e) => setOtp(e.target.value)}
-                      // id="tin"
+                        // id="tin"
                       />
 
                       {/* <AiOutlineSend
@@ -343,19 +353,25 @@ const Register = () => {
                     </div>
                   )}
 
-                  <div className="reg-condition">
-                    <input
+                  <div className="flex flex-row gap-2">
+                    {/* <input
                       type="checkbox"
                       value={values.agree}
                       onChange={handleChange}
                       onBlur={handleBlur}
                       id="agree"
-                    />
-                    <span>
-                      By checking the box you agree to our{" "}
-                      <span className="yellow-text">Terms</span> and{" "}
-                      <span className="yellow-text">Conditions.</span>
-                    </span>
+                    /> */}
+                    <div>
+                      <input type="checkbox" name="" id="" />
+                    </div>
+
+                    <div>
+                      <span>
+                        By checking the box you agree to our{" "}
+                        <span className="yellow-text">Terms</span> and{" "}
+                        <span className="yellow-text">Conditions.</span>
+                      </span>
+                    </div>
                   </div>
                   {!final && <div id="recaptcha-container"></div>}
 
@@ -394,7 +410,6 @@ const Register = () => {
         //       <img src={MainImg} className="img-fluid" alt="main-img" />
 
         //       <span className="h1 text-center fw-bold">Create an Account</span>
-
 
         //     </div>
         //   </div>

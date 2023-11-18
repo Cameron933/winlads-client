@@ -3,7 +3,7 @@ import logo2 from "../../assets/images/logo/logo2.png";
 
 function Footer() {
   return (
-    <div style={{ background: "black" }}>
+    <div style={{ background: "black" }} className="md:pl-16">
       <div className="lg:grid grid-cols-9 gap-1">
         <div className="col-span-1"></div>
         <div className="pl-4 pt-5 2xl:pt-10 col-span-4 lg:pl-0">

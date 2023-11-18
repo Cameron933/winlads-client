@@ -43,7 +43,8 @@ function Thirdpage() {
         background: "linear-gradient(88deg, #43E3ED -21.82%, #FFE9E9 131.12%)",
       }}
     >
-      <div className="lg:grid grid-cols-2 gap-2">
+
+      <div className="lg:grid grid-cols-2 gap-2 md:pl-8">
         <div className=" flex justify-center p-2 2xl:p-4 relative">
           <motion.div
             variants={textAnimate}

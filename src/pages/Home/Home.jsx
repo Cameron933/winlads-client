@@ -1,4 +1,4 @@
-import './Home.css'
+import "./Home.css";
 // import Footer from "../../components/Footer/footer";
 import Header from "../../components/Header/header";
 import Main from "../../components/Main/Main";
@@ -14,7 +14,7 @@ import Secondpage from "../../components/secondpage/Secondpage";
 import Thirdpage from "../../components/thirdpage/Thirdpage";
 import Fourthpage from "../../components/fourthpage/Fourthpage";
 import Fifthpage from "../../components/fifthpage/Fifthpage";
-import Footer from "../../components/footerSection/Footer"
+import Footer from "../../components/footerSection/Footer";
 
 const Home = () => {
   return (
@@ -37,6 +37,6 @@ const Home = () => {
       <Footer />
     </div>
   );
-}
+};
 
-export default Home
+export default Home;

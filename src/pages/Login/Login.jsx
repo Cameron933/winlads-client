@@ -216,7 +216,7 @@ const Login = () => {
 
                   <div className="flex items-center justify-between w-full text-md">
                     <div>
-                      <input
+                      {/* <input
                         className="mr-1"
                         type="checkbox"
                         id="remind"
@@ -224,7 +224,8 @@ const Login = () => {
                         value={values.remind}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                      />
+                      /> */}
+                      <input type="checkbox" name="" id="" />
                       <label htmlFor="remember">Remember me</label>
                     </div>
 

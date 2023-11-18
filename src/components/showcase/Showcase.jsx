@@ -68,7 +68,7 @@ function Showcase() {
           <img src={ellipse} className="h-auto lg:h-screen" />
         </div>
         <img
-          className="hidden lg:inline"
+          className="hidden lg:inline md:pl-16"
           src={logo}
           alt="logo"
           style={{ position: "absolute", top: "0px" }}
@@ -84,26 +84,24 @@ function Showcase() {
           }}
         />
         <img
-          className="block lg:hidden"
+          className="block lg:hidden md:hidden"
           src={ham}
           alt="logo"
           style={{
             position: "absolute",
             top: "85px",
             left: "40px",
-            width: "30px",
           }}
         />
         <motion.img
           variants={logoAnimate}
-          className="block lg:hidden"
+          className="block lg:hidden md:pl-16 w-[200px] md:w-[400px]"
           src={win}
           alt="logo"
           style={{
             position: "absolute",
             top: "220px",
             left: "40px",
-            width: "200px",
           }}
         />
         <motion.img
@@ -114,7 +112,6 @@ function Showcase() {
             position: "absolute",
             top: "300px",
             left: "40px",
-            // width: "800px",
             zIndex: "2",
           }}
         />
@@ -136,7 +133,7 @@ function Showcase() {
           className="relative pt-6 pb-6 allcontent-group"
           style={{ height: "60%", zIndex: "4" }}
         >
-          <div className="pt-4 dashcontent-group">
+          <div className="pt-4 dashcontent-group md:pl-16">
             <p
               className="font-semibold text-right uppercase text-sm 2xl:text-4xl"
 

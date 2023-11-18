@@ -1,14 +1,13 @@
 function Sidebar() {
   return (
     <div
-      className="hidden lg:flex flex-col w-[111px] 2xl:w-[222px]"
+      className="hidden md:flex lg:flex flex-col lg:w-[111px] 2xl:w-[222px] h-screen md:w-[36px]"
       style={{
-        height: "100vh",
         position: "fixed",
         top: "0px",
         zIndex: "1000",
       }}
-    >
+    > 
       <div
         className="flex justify-center items-center transition duration-700 hover:scale-x-125"
         style={{

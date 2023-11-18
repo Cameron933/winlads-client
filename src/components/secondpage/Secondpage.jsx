@@ -57,7 +57,7 @@ function Secondpage() {
         background: "linear-gradient(88deg, #43E3ED -21.82%, #FFE9E9 131.12%)",
       }}
     >
-      <div className="p-5 h-auto lg:h-screen lg:px-40 2xl:px-80" style={{ position: "relative" }}>
+      <div className="p-5 md:pl-16 h-auto lg:h-screen lg:px-40 2xl:px-80" style={{ position: "relative" }}>
         <motion.div
           variants={textAnimate}
           className="static lg:absolute xl:w-[300px] 2xl:w-[600px]"

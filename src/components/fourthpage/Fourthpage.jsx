@@ -30,13 +30,13 @@ function Fourthpage() {
         whileInView={"onscreen"}
         viewport={{ once: false, amount: 0.5 }}
         transition={{ staggerChildren: 0.1 }}
-        className="lg:hidden"
+        className="lg:hidden md:pl-16"
         style={{
           background:
             "linear-gradient(88deg, #43E3ED -21.82%, #FFE9E9 131.12%)",
         }}
       >
-        <p className="text-lg  font-bold text-center uppercase tracking-widest p-4">
+        <p className="text-lg font-bold text-center uppercase tracking-widest p-4">
           Explore Exclusive MemberBenefit
         </p>
         <motion.div variants={textAnimate}>
