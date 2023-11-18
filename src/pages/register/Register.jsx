@@ -21,6 +21,7 @@ import User2 from "../../assets/images/User2.png";
 import Cookies from "universal-cookie";
 import "../Login/Login.css";
 import { motion } from "framer-motion";
+import XlJeep from "../../assets/images/Xljeep.png";
 
 const Register = () => {
   const [otp, setOtp] = useState("");
@@ -165,7 +166,7 @@ const Register = () => {
                     initial={{ opacity: 0, x: "-50%" }}
                     whileInView={{ opacity: 1, x: "-25%" }}
                     transition={{ duration: 0.8 }}
-                    src={MainImg}
+                    src={XlJeep}
                     className="w-full h-full object-contain md:object-cover "
                     alt="main-img"
                   />
@@ -184,221 +185,224 @@ const Register = () => {
                 </div>
                 {/* Mobile view Jeep End */}
               </div>
-
-              <form
-                onSubmit={handleSubmit}
-                autoComplete="off"
-                className="form-contain text-center"
-              >
-                <span className="text-2xl md:text-3xl lg:text-4xl fw-bold font-bold">
+              <div className="flex flex-col space-y-4 text-center mt-5">
+                <span className="text-2xl md:text-3xl lg:text-4xl fw-bold font-bold 2xl:text-8xl">
                   Create an Account
                 </span>
-                <div className="flex items-center flex-col justify-center gap-5 w-3/4 mx-auto mt-10">
-                  <div
-                    className={
-                      errors.name && touched.name
-                        ? "input-div input-error"
-                        : "input-div"
-                    }
-                  >
-                    <input
-                      type="text"
-                      placeholder="Full Name"
-                      value={values.name}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      id="name"
-                    />
-                    <img src={User} alt="user" />
-                    <small className="text-error">
-                      {errors.name && touched.name && errors.name}
-                    </small>
-                  </div>
-
-                  <div
-                    className={
-                      errors.email && touched.email
-                        ? "input-div input-error"
-                        : "input-div"
-                    }
-                  >
-                    <input
-                      type="email"
-                      placeholder="Email Address"
-                      value={values.email}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      id="email"
-                    />
-                    <img src={Mail} alt="mail" />
-                    <small className="text-error">
-                      {errors.email && touched.email && errors.email}
-                    </small>
-                  </div>
-
-                  <div
-                    className={
-                      errors.passport && touched.passport
-                        ? "input-div input-error"
-                        : "input-div"
-                    }
-                  >
-                    <input
-                      type="text"
-                      placeholder="Passport"
-                      value={values.passport}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      id="passport"
-                    />
-                    <img src={Passport} alt="passport" />
-                    {/* <small className="text-error">
-                      {errors.passport && touched.passport && errors.passport}
-                    </small> */}
-                  </div>
-
-                  <div
-                    className={
-                      errors.tin && touched.tin
-                        ? "input-div input-error"
-                        : "input-div"
-                    }
-                  >
-                    <input
-                      type="text"
-                      placeholder="Tin Number"
-                      value={values.tin}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      id="tin"
-                    />
-
-                    <img src={Taxt} alt="tin" />
-                    {/* <small className="text-error">
-                      {errors.tin && touched.tin && errors.tin}
-                    </small> */}
-                  </div>
-
-                  <div
-                    className={
-                      errors.mobile && touched.mobile
-                        ? "input-div input-error"
-                        : "input-div"
-                    }
-                  >
-                    <input
-                      type="text"
-                      placeholder="+1(Phone Number)"
-                      value={ph}
-                      onChange={(e) => setPh(e.target.value)}
-                      onBlur={handleBlur}
-                      id="mobile"
-                    />
-                    <img src={Phone} alt="phone" />
-                    <small className="text-error">
-                      {errors.mobile && touched.mobile && errors.mobile}
-                    </small>
-                  </div>
-
-                  <div
-                    className={
-                      errors.rafflesId && touched.rafflesId
-                        ? "input-div input-error"
-                        : "input-div"
-                    }
-                  >
-                    <input
-                      type="text"
-                      placeholder="Reference Id"
-                      value={values.rafflesId}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      id="Reference Id"
-                    />
-
-                    <div className="flex flex-row items-center">
-                      <img src={User2} alt="rafflesId" className="w-6 h-6" />
-                      <img src={Protect} alt="rafflesId" className="w-6 h-6" />
-                    </div>
-
-                    {/* <small className="text-error">
-                      {errors.tin && touched.tin && errors.tin}
-                    </small> */}
-                  </div>
-
-                  {showOTPBox && (
+                <form
+                  onSubmit={handleSubmit}
+                  autoComplete="off"
+                  className="form-contain text-center"
+                >
+                  <div className="flex items-center flex-col justify-center gap-5 w-3/4 2xl:w-1 mx-auto mt-10 2xl:mt-20">
                     <div
                       className={
-                        errors.otp && touched.opt
+                        errors.name && touched.name
                           ? "input-div input-error"
                           : "input-div"
                       }
                     >
                       <input
                         type="text"
-                        placeholder="OTP Code"
-                        value={otp}
-                        onChange={(e) => setOtp(e.target.value)}
-                        // id="tin"
+                        placeholder="Full Name"
+                        value={values.name}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        id="name"
+                        className="placeholder:2xl:text-xl"
+                      />
+                      <img src={User} alt="user" />
+                      <small className="text-error">
+                        {errors.name && touched.name && errors.name}
+                      </small>
+                    </div>
+
+                    <div
+                      className={
+                        errors.email && touched.email
+                          ? "input-div input-error"
+                          : "input-div"
+                      }
+                    >
+                      <input
+                        type="email"
+                        placeholder="Email Address"
+                        value={values.email}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        id="email"
+                      />
+                      <img src={Mail} alt="mail" />
+                      <small className="text-error">
+                        {errors.email && touched.email && errors.email}
+                      </small>
+                    </div>
+
+                    <div
+                      className={
+                        errors.passport && touched.passport
+                          ? "input-div input-error"
+                          : "input-div"
+                      }
+                    >
+                      <input
+                        type="text"
+                        placeholder="Passport"
+                        value={values.passport}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        id="passport"
+                      />
+                      <img src={Passport} alt="passport" />
+                      {/* <small className="text-error">
+                      {errors.passport && touched.passport && errors.passport}
+                    </small> */}
+                    </div>
+
+                    <div
+                      className={
+                        errors.tin && touched.tin
+                          ? "input-div input-error"
+                          : "input-div"
+                      }
+                    >
+                      <input
+                        type="text"
+                        placeholder="Tin Number"
+                        value={values.tin}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        id="tin"
                       />
 
-                      {/* <AiOutlineSend
+                      <img src={Taxt} alt="tin" />
+                      {/* <small className="text-error">
+                      {errors.tin && touched.tin && errors.tin}
+                    </small> */}
+                    </div>
+
+                    <div
+                      className={
+                        errors.mobile && touched.mobile
+                          ? "input-div input-error"
+                          : "input-div"
+                      }
+                    >
+                      <input
+                        type="text"
+                        placeholder="+1(Phone Number)"
+                        value={ph}
+                        onChange={(e) => setPh(e.target.value)}
+                        onBlur={handleBlur}
+                        id="mobile"
+                      />
+                      <img src={Phone} alt="phone" />
+                      <small className="text-error">
+                        {errors.mobile && touched.mobile && errors.mobile}
+                      </small>
+                    </div>
+
+                    <div
+                      className={
+                        errors.rafflesId && touched.rafflesId
+                          ? "input-div input-error"
+                          : "input-div"
+                      }
+                    >
+                      <input
+                        type="text"
+                        placeholder="Reference Id"
+                        value={values.rafflesId}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        id="Reference Id"
+                      />
+
+                      {/* <div className="flex flex-row items-center">
+                      <img src={User2} alt="rafflesId" className="w-6 h-6" />
+                      <img src={Protect} alt="rafflesId" className="w-6 h-6" />
+                    </div> */}
+                      <img src={Protect} alt="rafflesId" className="w-6 h-6" />
+
+                      {/* <small className="text-error">
+                      {errors.tin && touched.tin && errors.tin}
+                    </small> */}
+                    </div>
+
+                    {showOTPBox && (
+                      <div
+                        className={
+                          errors.otp && touched.opt
+                            ? "input-div input-error"
+                            : "input-div"
+                        }
+                      >
+                        <input
+                          type="text"
+                          placeholder="OTP Code"
+                          value={otp}
+                          onChange={(e) => setOtp(e.target.value)}
+                          // id="tin"
+                        />
+
+                        {/* <AiOutlineSend
                         onClick={(e) => ValidateOtp(e)}
                         size={30}
                         className="hover:scale-110 cursor-pointer text-green-800"
                       /> */}
-                      <small className="text-error">
-                        {errors.otp && touched.opt && errors.otp}
-                      </small>
-                    </div>
-                  )}
+                        <small className="text-error">
+                          {errors.otp && touched.opt && errors.otp}
+                        </small>
+                      </div>
+                    )}
 
-                  <div className="flex flex-row gap-2">
-                    {/* <input
+                    <div className="flex flex-row gap-2">
+                      {/* <input
                       type="checkbox"
                       value={values.agree}
                       onChange={handleChange}
                       onBlur={handleBlur}
                       id="agree"
                     /> */}
-                    <div>
-                      <input type="checkbox" name="" id="" />
+                      <div>
+                        <input type="checkbox" name="" id="" />
+                      </div>
+
+                      <div>
+                        <span>
+                          By checking the box you agree to our{" "}
+                          <span className="yellow-text">Terms</span> and{" "}
+                          <span className="yellow-text">Conditions.</span>
+                        </span>
+                      </div>
                     </div>
+                    {!final && <div id="recaptcha-container"></div>}
+
+                    <button
+                      className="bg-black px-24 items-center flex justify-between py-2 flex-row rounded-lg text-center"
+                      onClick={(e) => onSignup(e)}
+                    >
+                      <span className="text-2xl text-white font-bold">
+                        {buttonText}
+                      </span>
+                      <MdOutlineNavigateNext
+                        color={"#fff"}
+                        size={40}
+                        className="mt-1"
+                      />
+                    </button>
 
                     <div>
+                      <span>Already a member? </span>
                       <span>
-                        By checking the box you agree to our{" "}
-                        <span className="yellow-text">Terms</span> and{" "}
-                        <span className="yellow-text">Conditions.</span>
+                        <Link className="react-link" to="/login">
+                          Login
+                        </Link>
                       </span>
                     </div>
                   </div>
-                  {!final && <div id="recaptcha-container"></div>}
-
-                  <button
-                    className="bg-black px-24 items-center flex justify-between py-2 flex-row rounded-lg text-center"
-                    onClick={(e) => onSignup(e)}
-                  >
-                    <span className="text-2xl text-white font-bold">
-                      {buttonText}
-                    </span>
-                    <MdOutlineNavigateNext
-                      color={"#fff"}
-                      size={40}
-                      className="mt-1"
-                    />
-                  </button>
-
-                  <div>
-                    <span>Already a member? </span>
-                    <span>
-                      <Link className="react-link" to="/login">
-                        Login
-                      </Link>
-                    </span>
-                  </div>
-                </div>
-              </form>
+                </form>
+              </div>
             </div>
           </div>
         </div>

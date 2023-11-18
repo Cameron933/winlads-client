@@ -14,6 +14,7 @@ import axios from "axios";
 import OtpInput from "react-otp-input";
 import Cookies from 'universal-cookie';
 import { motion } from "framer-motion";
+import XlJeep from "../../assets/images/Xljeep.png"
 
 
 const Login = () => {
@@ -133,6 +134,16 @@ const Login = () => {
                     alt="main-img"
                   />
                 </div>
+                <div className="hidden 2xl:block w-full">
+                  <motion.img
+                    initial={{ opacity: 0, x: '-50%' }}
+                    whileInView={{ opacity: 1, x: '-25%' }}
+                    transition={{ duration: 0.8 }}
+                    src={XlJeep}
+                    className="w-full h-full object-contain md:object-cover "
+                    alt="main-img"
+                  />
+                </div>
                 {/* Mobile View Jeep */}
                 <div className="block md:hidden w-full">
                   <motion.img
@@ -145,6 +156,8 @@ const Login = () => {
                     alt="main-img"
                   />
                 </div>
+
+              
                 {/* Mobile View Jeep End */}
 
 
