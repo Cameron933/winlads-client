@@ -3,6 +3,9 @@ import partner1 from "../../assets/images/partners/partner1.png";
 import partner2 from "../../assets/images/partners/partner2.png";
 import partner3 from "../../assets/images/partners/partner3.png";
 import partner4 from "../../assets/images/partners/partner4.png";
+import partner5 from "../../assets/images/partners/partner5.png";
+import partner6 from "../../assets/images/partners/partner6.png";
+import tick from "../../assets/images/tick.png";
 
 import { motion, useInView, useAnimation } from "framer-motion";
 
@@ -44,23 +47,41 @@ function Thirdpage() {
         <div className=" flex justify-center p-2 relative">
           <motion.div
             variants={textAnimate}
-            className="border border-black rounded-xl lg:absolute right-0"
+            className="border bg-white rounded-xl lg:absolute right-0"
             style={{ right: "-100px" }}
           >
-            <div className="p-12 py-10 font-bold text-xl">
-              600+
-              <br />
-              Australian business Benefits
+            <div className="p-12 py-8 font-bold text-xl flex flex-row items-center gap-2">
+              <div>
+                <img src={tick} alt="tick" className="ticker" />
+              </div>
+              <div>
+                600+
+                <br />
+                Australian business Benefits
+              </div>
             </div>
-            <div className="p-12 py-10 font-bold text-xl border-t rounded-xl border-black">
-              1000s
-              <br />
-              In savings through our mates rates discounts
+            <div className="p-12 py-8 font-bold text-xl border-t rounded-xl flex flex-row items-center gap-2">
+              <div>
+                <img src={tick} alt="tick" className="ticker" />
+              </div>
+              <div>
+                1000s
+                <br />
+                In savings through our mates rates discounts
+              </div>
+
             </div>
-            <div className="p-12 py-10 font-bold text-xl border-t rounded-xl border-black">
-              1000s
-              <br />
-              Stores you can redeem offers in person or online
+            <div className="p-12 py-8 font-bold text-xl border-t rounded-xl flex flex-row items-center gap-2">
+              <div>
+                <img src={tick} alt="tick" className="ticker" />
+              </div>
+
+              <div>
+                1000s
+                <br />
+                Stores you can redeem offers in person or online
+              </div>
+
             </div>
           </motion.div>
         </div>
@@ -84,17 +105,17 @@ function Thirdpage() {
         </p>
         <div className="flex justify-end">
           <div className="m-5">
-            <img src={partner1} alt="" style={{ width: "180px" }} />
+            <img src={partner5} alt="" style={{ width: "180px" }} />
           </div>
           <div className="m-5">
-            <img src={partner2} alt="" style={{ width: "180px" }} />
+            <img src={partner6} alt="" style={{ width: "180px" }} />
           </div>
-          <div className="m-5">
+          {/* <div className="m-5">
             <img src={partner3} alt="" style={{ width: "180px" }} />
           </div>
           <div className="m-5">
             <img src={partner4} alt="" style={{ width: "180px" }} />
-          </div>
+          </div> */}
         </div>
       </div>
     </motion.div>

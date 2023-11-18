@@ -49,7 +49,7 @@ function Fourthpage() {
               the anticipation, and the joy of winning!
             </p>
           </div>
-          <div className="my-4 px-3">
+          <div className="my-4 px-3 ">
             <h3>Thrill of the draw</h3>
             <p className="text-xs">
               Experience the rush of our exciting class-leading promotions.
@@ -160,7 +160,7 @@ function Fourthpage() {
             >
               <div>
                 <motion.div variants={textAnimate}>
-                  <div className="border-2 border-black p-2 rounded-xl my-9 transition duration-700 hover:scale-105">
+                  <div className=" p-5 rounded-xl my-9 transition duration-700 hover:scale-105 bg-white">
                     <h3 className="">Thrill of the draw</h3>
                     <p className="text-xs">
                       Experience the rush of our exciting class-leading
@@ -169,7 +169,7 @@ function Fourthpage() {
                   </div>
                 </motion.div>
                 <motion.div variants={textAnimate}>
-                  <div className="border-2 border-black p-2 rounded-xl my-9 transition duration-700 hover:scale-105">
+                  <div className=" p-5 rounded-xl my-9 transition duration-700 hover:scale-105 bg-white">
                     <h3>Expert support</h3>
                     <p className="text-xs">
                       Got questions or need assistance? Our professional support
@@ -179,7 +179,7 @@ function Fourthpage() {
                   </div>
                 </motion.div>
                 <motion.div variants={textAnimate}>
-                  <div className="border-2 border-black p-2 rounded-xl my-9 transition duration-700 hover:scale-105">
+                  <div className=" p-5 rounded-xl my-9 transition duration-700 hover:scale-105 bg-white">
                     <h3>Exclusive discounts</h3>
                     <p className="text-xs">
                       Unlock access to substantial discounts at businesses
@@ -189,8 +189,8 @@ function Fourthpage() {
                   </div>
                 </motion.div>
                 <motion.div variants={textAnimate}>
-                  <div className="border-2 border-black p-2 rounded-xl my-9 transition duration-700 hover:scale-105">
-                    <h3>TAustralia-Wide Rewards</h3>
+                  <div className=" p-5 rounded-xl my-9 transition duration-700 hover:scale-105 bg-white">
+                    <h3>Australia-Wide Rewards</h3>
                     <p className="text-xs">
                       Enjoy exclusive discounts and benefits across Australia,
                       from Sydney to Perth,
@@ -202,7 +202,7 @@ function Fourthpage() {
               </div>
             </motion.div>
           </div>
-          <div className="h-auto p-3" style={{}}>
+          <div className="h-auto p-3 z-50" style={{}}>
             <motion.div
               // variants={{
               //   hidden: { opacity: 0, y: -75 },
@@ -214,10 +214,10 @@ function Fourthpage() {
               className="flex justify-end"
             >
               <div>
-                <div className="transition duration-700 hover:scale-105">
+                <div className="transition duration-700 hover:scale-105 bg-white rounded-xl">
                   <motion.div
                     variants={textAnimate}
-                    className="border-2 border-black p-2 rounded-xl my-9"
+                    className="  p-5 rounded-xl my-9"
                     style={{ borderColor: "#01819D" }}
                   >
                     <h3 className="text-right" style={{ color: "#01819D" }}>
@@ -233,10 +233,10 @@ function Fourthpage() {
                     </p>
                   </motion.div>
                 </div>
-                <div className="transition duration-700 hover:scale-105">
+                <div className="transition duration-700 hover:scale-105 bg-white rounded-xl">
                   <motion.div
                     variants={textAnimate}
-                    className="border-2 border-black p-2 rounded-xl my-9"
+                    className="  p-5 rounded-xl my-9"
                     style={{ borderColor: "#01819D" }}
                   >
                     <h3 className="text-right" style={{ color: "#01819D" }}>
@@ -251,10 +251,10 @@ function Fourthpage() {
                     </p>
                   </motion.div>
                 </div>
-                <div className="transition duration-700 hover:scale-105">
+                <div className="transition duration-700 hover:scale-105 bg-white rounded-xl">
                   <motion.div
                     variants={textAnimate}
-                    className="border-2 border-black p-2 rounded-xl my-9"
+                    className="  p-5 rounded-xl my-9"
                     style={{ borderColor: "#01819D" }}
                   >
                     <h3 className="text-right" style={{ color: "#01819D" }}>
@@ -271,10 +271,10 @@ function Fourthpage() {
                     </p>
                   </motion.div>
                 </div>
-                <div className="transition duration-700 hover:scale-105">
+                <div className="transition duration-700 hover:scale-105 bg-white rounded-xl">
                   <motion.div
                     variants={textAnimate}
-                    className="border-2 border-black p-2 rounded-xl my-9"
+                    className="  p-5 rounded-xl my-9"
                     style={{ borderColor: "#01819D" }}
                   >
                     <h3 className="text-right" style={{ color: "#01819D" }}>
@@ -290,10 +290,10 @@ function Fourthpage() {
                     </p>
                   </motion.div>
                 </div>
-                <div className="transition duration-700 hover:scale-105">
+                <div className="transition duration-700 hover:scale-105 bg-white rounded-xl">
                   <motion.div
                     variants={textAnimate}
-                    className="border-2 border-black p-2 rounded-xl my-9"
+                    className="  p-5 rounded-xl my-9"
                     style={{ borderColor: "#01819D" }}
                   >
                     <h3 className="text-right" style={{ color: "#01819D" }}>

@@ -1,3 +1,74 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.buttonBg {
+    background: linear-gradient(93deg, #43E3ED 1.1%, #01819D 97.54%);
+}
+
+.buttonBg:hover {
+    background: linear-gradient(93deg, #36b7c1 1.1%, #03b0d6 97.54%);
+}
+
+
+.mobile-btns {
+    justify-content: flex-end;
+}
+
+.frontbtns {
+    /* width: 63%; */
+}
+
+.ticker{
+    height: 50px;
+    width: 50px;
+    max-width: unset;
+}
+
+.dashbtn-group {
+    justify-content: flex-end;
+}
+
+.allcontent-group {
+    margin-right: 20px;
+}
+
+.allcolor-white * {
+    color: white;
+}
+
+.linklist li {
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: color 0.2s ease-in-out;
+}
+
+.linklist li:hover {
+    color: #7CE5EC;
+}
+
+@media (max-width: 600px) {
+    .mobile-btns {
+        justify-content: unset;
+    }
+
+    .dashbtn-group {
+        justify-content: unset;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .dashcontent-group {
+        margin-top: 20px;
+        margin-right: 10px;
+    }
+
+    .frontbtns {
+        width: 100%;
+    }
+
+    .allcontent-group {
+        margin-right: 0px;
+    }
+}

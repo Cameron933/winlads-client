@@ -47,7 +47,7 @@ function Showcase() {
       }}
     >
       <div
-        className="flex justify-center items-center"
+        className="flex justify-center items-center text-white buttonBg"
         style={{
           //   display: "inline-block",
           borderRadius: "5px",
@@ -56,11 +56,10 @@ function Showcase() {
           top: "80px",
           width: "131px",
           height: "49px",
-          background: "linear-gradient(93deg, #43E3ED 1.1%, #01819D 97.54%)",
           cursor: "pointer",
         }}
       >
-        Sign Up
+        Contact Us
       </div>
 
       <div>
@@ -134,31 +133,46 @@ function Showcase() {
       <div className="h-auto lg:h-screen">
         <div className="hidden lg:block" style={{ height: "40%" }}></div>
         <div
-          className="pr-10 relative pt-6 pb-6"
+          className="relative pt-6 pb-6 allcontent-group"
           style={{ height: "60%", zIndex: "4" }}
         >
-          <div className="pt-4">
+          <div className="pt-4 dashcontent-group">
             <p
-              className="font-light text-right uppercase"
-              style={{ fontSize: "12.3px" }}
+              className="font-light text-right uppercase text-sm"
+
             >
               With over 650+ businesses across 1000+ stores where you can
               accessexclusive discounts
             </p>
             <p
-              className="font-light text-right uppercase"
-              style={{ fontSize: "12.3px" }}
+              className="font-light text-right uppercase text-md"
+
             >
               Australia Widefrom only $19.99 per month, opt-out anytime
             </p>
           </div>
           <div className="mt-4">
-            <div className="flex justify-end">
-              <img src={appstore} style={{ cursor: "pointer" }} />
+            <div className="flex mt-4 dashbtn-group">
+              <div
+                className="flex justify-center text-md font-bold items-center text-white buttonBg frontbtns"
+                style={{
+                  //   display: "inline-block",
+                  borderRadius: "5px",
+               
+                  padding: 10,
+                  height: "49px",
+                  marginBottom: 10,
+                  cursor: "pointer",
+                }}
+              >
+                Continue to Dashboard
+              </div>
             </div>
-            <div className="flex justify-end mt-4">
+            <div className="flex mobile-btns">
+              <img src={appstore} style={{ cursor: "pointer" }} />
               <img src={googleplay} style={{ cursor: "pointer" }} />
             </div>
+
           </div>
         </div>
       </div>

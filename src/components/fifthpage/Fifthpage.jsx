@@ -45,27 +45,27 @@ function Fifthpage() {
             >
               <div className="p-0 mb-2 lg:mb-0" style={{ background: "" }}>
                 <div
-                  className="flex flex-col justify-center items-center rounded-xl m-auto transition duration-700 hover:scale-105 lg:mr-0"
+                  className="flex allcolor-white flex-col justify-center items-center rounded-xl m-auto transition duration-700 hover:scale-105 lg:mr-0"
                   style={{
                     width: "80%",
                     background:
-                      "linear-gradient(99deg, #43E3ED 19.06%, #01819D 80.34%)",
+                      "linear-gradient(0deg, rgba(22,13,16,1) 0%, rgba(15,15,15,1) 33%)",
                     //margin: "auto",
                     //marginRight: "0px",
                   }}
                 >
-                  <p className="mt-4 border-2 p-2 border-black rounded-md">
+                  <p className="mt-4 font-bold p-2 border-black rounded-md">
                     Standard
                   </p>
                   <p className="my-1" style={{ fontSize: "50px" }}>
                     $10
                   </p>
-                  <p>user/month</p>
+                  <p>User/Month</p>
                   <p className="my-1">2 Day database discount Access</p>
                   <p>Winlands+ Events Invites</p>
                   <p className="my-1">10% off LMTC+Merch</p>
                   <button
-                    className="my-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    className="my-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded border-white border-2"
                     style={{ background: "black", marginBottom: "10px" }}
                   >
                     Choose Plan
@@ -78,17 +78,17 @@ function Fifthpage() {
                   style={{
                     width: "80%",
                     background:
-                      "linear-gradient(99deg, #ED4343 19.06%, #9D1D01 80.34%)",
+                      "linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(237,237,237,1) 33%)",
                     margin: "auto",
                   }}
                 >
-                  <p className="mt-4 border-2 p-2 border-black rounded-md">
+                  <p className="mt-4 font-bold  p-2 border-black rounded-md">
                     Bronz
                   </p>
                   <p className="my-1" style={{ fontSize: "50px" }}>
                     $30
                   </p>
-                  <p>user/month</p>
+                  <p>User/Month</p>
                   <p className="my-1">1 Week database discount Access</p>
                   <p>Winlands+ Events Invites</p>
                   <p className="my-1">10% off LMTC+Merch</p>
@@ -106,23 +106,23 @@ function Fifthpage() {
                   style={{
                     width: "80%",
                     background:
-                      "linear-gradient(99deg, #46ED43 19.06%, #0D9D01 80.34%)",
+                      "linear-gradient(99deg, #FFF400 19.06%, #CA9E03 80.34%)",
                     //margin: "auto",
                     //marginRight: "0px",
                   }}
                 >
-                  <p className="mt-4 border-2 p-2 border-black rounded-md">
+                  <p className="mt-4 font-bold p-2 border-black rounded-md">
                     Silver
                   </p>
                   <p className="my-1" style={{ fontSize: "50px" }}>
                     $100
                   </p>
-                  <p>user/month</p>
+                  <p>User/Month</p>
                   <p className="my-1">1 Month database discount Access</p>
                   <p>Winlands+ Events Invites</p>
                   <p className="my-1">10% off LMTC+Merch</p>
                   <button
-                    className="my-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    className="my-1 border-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                     style={{ background: "black", marginBottom: "10px" }}
                   >
                     Choose Plan
@@ -139,12 +139,13 @@ function Fifthpage() {
               </div>
               <div className="p-0 mb-2 lg:mb-0" style={{ background: "" }}>
                 <Plancard
+                
                   price="$250"
                   plan="Gold"
                   a="6 Month database discount Access"
                   b="Winlands+ Events Invites"
                   c="15% off LMTC+Merch"
-                  bg="linear-gradient(99deg, #FFF400 19.06%, #CA9E03 80.34%)"
+                  bg="linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(37,32,32,1) 33%)"
                 />
                 {/* lll */}
               </div>
