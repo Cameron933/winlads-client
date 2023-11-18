@@ -57,21 +57,19 @@ function Secondpage() {
         background: "linear-gradient(88deg, #43E3ED -21.82%, #FFE9E9 131.12%)",
       }}
     >
-      <div className="p-5 h-auto lg:h-screen" style={{ position: "relative" }}>
+      <div className="p-5 h-auto lg:h-screen lg:px-40 2xl:px-80" style={{ position: "relative" }}>
         <motion.div
           variants={textAnimate}
-          className="static lg:absolute "
+          className="static lg:absolute xl:w-[300px] 2xl:w-[600px]"
           style={{
-            width: "300px",
             // position: "absolute",
-            left: "310px",
             top: "25px",
             zIndex: "10",
           }}
         >
           <div className="transition duration-700 hover:scale-105">
-            <h3 className="font-bold mb-2">Homewares, Trades & Services</h3>
-            <p className="pb-2">
+            <h3 className="font-bold mb-2 text-md 2xl:text-4xl">Homewares, Trades & Services</h3>
+            <p className="pb-2 text-md 2xl:text-4xl">
               Homewares, Trades & Services We ve teamed up with the best in the
               business. Get great deals on Furniture, homeware & decor,
               electrical, plumbing and more!
@@ -81,39 +79,33 @@ function Secondpage() {
 
         <motion.img
           variants={stickAnimate}
-          className="hidden lg:block"
+          className="hidden lg:block lg:w-[170px] 2xl:w-[340px] lg:right-[620px] 2xl:right-[1200px]"
           src={Vector1}
           alt=""
           style={{
-            width: "170px",
             position: "absolute",
-            right: "620px",
             top: "35px",
             zIndex: "2",
           }}
         />
         <motion.img
           variants={stickAnimate}
-          className="hidden lg:block"
+          className="hidden lg:block lg:w-[170px] 2xl:w-[340px] lg:right-[750px] 2xl:right-[2000px]"
           src={Vector2}
           alt=""
           style={{
-            width: "170px",
             position: "absolute",
-            right: "750px",
             top: "35px",
             zIndex: "2",
           }}
         />
         <motion.img
           variants={stickAnimate}
-          className="hidden lg:block"
+          className="hidden lg:block lg:w-[190px] 2xl:w-[380px] lg:right-[750px] 2xl:right-[2000px]"
           src={Vector3}
           alt=""
           style={{
-            width: "190px",
             position: "absolute",
-            right: "780px",
             top: "280px",
             zIndex: "2",
           }}
@@ -130,17 +122,16 @@ function Secondpage() {
         />
         <motion.div
           variants={textAnimate2}
-          className="static lg:absolute"
+          className="static lg:absolute xl:w-[350px] 2xl:w-[700px]"
           style={{
-            width: "350px",
             //position: "absolute",
-            right: "220px",
+            right: "240px",
             zIndex: "2",
           }}
         >
           <div className="transition duration-700 hover:scale-105">
-            <h3 className="font-bold mb-2">Automotive</h3>
-            <p className="pb-2">
+            <h3 className="font-bold mb-2 2xl:text-4xl">Automotive</h3>
+            <p className="pb-2 2xl:text-4xl">
               Your one-stop-shop for exclusive offers from Australia's leading
               performance & tuning workshops, panel beaters, aftermarket part &
               accessories, and everything else automotive
@@ -149,18 +140,16 @@ function Secondpage() {
         </motion.div>
         <motion.div
           variants={textAnimate}
-          className="static lg:absolute"
+          className="static lg:absolute xl:w-[350px] 2xl:w-[700px]"
           style={{
-            width: "350px",
             //position: "absolute",
-            left: "300px",
             top: "320px",
             zIndex: "2",
           }}
         >
           <div className="transition duration-700 hover:scale-105">
-            <h3 className="font-bold mb-2">Merchandise</h3>
-            <p className="pb-2">
+            <h3 className="font-bold mb-2 2xl:text-4xl">Merchandise</h3>
+            <p className="pb-2 2xl:text-4xl">
               Exclusive merchandise offers and designs from both LMCT+ and our
               Benefits. Great quality swag from your favourite brands. Including
               some exclusive designs from bags, T shirts and more.
@@ -168,10 +157,9 @@ function Secondpage() {
           </div>
         </motion.div>
         <div
-          className="static lg:absolute"
+          className="static lg:absolute lg:w-[700px] 2xl:w-[1500px] lg:right-[300px] 2xl:right-[800px]"
           style={{
             //position: "absolute",
-            right: "300px",
             top: "130px",
             zIndex: "2",
           }}
@@ -184,8 +172,7 @@ function Secondpage() {
             // }}
             // initial="hidden"
             // animate="visible"
-            // transition={{ duration: 0.5, delay: 0.25 }}
-            style={{ width: "700px" }}
+            // transition={{ duration: 0.5, delay: 0.25 }
             src={jeep2}
           />
         </div>

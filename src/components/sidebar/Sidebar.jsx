@@ -1,9 +1,8 @@
 function Sidebar() {
   return (
     <div
-      className="hidden lg:flex flex-col"
+      className="hidden lg:flex flex-col w-[111px] 2xl:w-[222px]"
       style={{
-        width: "111px",
         height: "100vh",
         position: "fixed",
         top: "0px",
@@ -27,6 +26,7 @@ function Sidebar() {
             transform: "rotate(270deg)",
             letterSpacing: "5px",
           }}
+          className="2xl:text-4xl"
         >
           winlands
         </p>
@@ -48,6 +48,7 @@ function Sidebar() {
             transform: "rotate(270deg)",
             letterSpacing: "5px",
           }}
+          className="2xl:text-4xl"
         >
           benifits
         </p>
@@ -69,6 +70,7 @@ function Sidebar() {
             transform: "rotate(270deg)",
             letterSpacing: "5px",
           }}
+          className="2xl:text-4xl"
         >
           promotions
         </p>

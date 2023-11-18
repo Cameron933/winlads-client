@@ -44,44 +44,39 @@ function Thirdpage() {
       }}
     >
       <div className="lg:grid grid-cols-2 gap-2">
-        <div className=" flex justify-center p-2 relative">
+        <div className=" flex justify-center p-2 2xl:p-4 relative">
           <motion.div
             variants={textAnimate}
             className="border bg-white rounded-xl lg:absolute right-0"
             style={{ right: "-100px" }}
           >
-            <div className="p-12 py-8 font-bold text-xl flex flex-row items-center gap-2">
+            <div className="p-12 py-8 2xl:py-12 font-bold text-xl flex flex-row items-center gap-2 2xl:gap-4">
               <div>
                 <img src={tick} alt="tick" className="ticker" />
               </div>
-              <div>
-                600+
-                <br />
-                Australian business Benefits
+              <div className="flex flex-col">
+                <p className="2xl:text-6xl">600+</p>
+                <p className="2xl:text-6xl">Australian business Benefits</p>
               </div>
             </div>
             <div className="p-12 py-8 font-bold text-xl border-t rounded-xl flex flex-row items-center gap-2">
               <div>
                 <img src={tick} alt="tick" className="ticker" />
               </div>
-              <div>
-                1000s
-                <br />
-                In savings through our mates rates discounts
+              <div className="flex flex-col">
+                <p className="2xl:text-6xl">1000s</p>
+                <p className="2xl:text-6xl">In savings through our mates rates discounts</p>
               </div>
-
             </div>
             <div className="p-12 py-8 font-bold text-xl border-t rounded-xl flex flex-row items-center gap-2">
               <div>
                 <img src={tick} alt="tick" className="ticker" />
               </div>
 
-              <div>
-                1000s
-                <br />
-                Stores you can redeem offers in person or online
+              <div className="flex flex-col">
+                <p className="2xl:text-6xl">1000s</p>
+                <p className="2xl:text-6xl">Stores you can redeem offers in person or online</p>
               </div>
-
             </div>
           </motion.div>
         </div>
@@ -100,15 +95,15 @@ function Thirdpage() {
         </motion.div>
       </div>
       <div>
-        <p className="text-lg font-bold uppercase tracking-widest p-4 text-center lg:text-4xl lg:text-right ">
+        <p className="text-lg 2xl:text-8xl font-bold uppercase tracking-widest p-4 text-center lg:text-4xl lg:text-right ">
           Some our Partners
         </p>
         <div className="flex justify-end">
           <div className="m-5">
-            <img src={partner5} alt="" style={{ width: "180px" }} />
+            <img src={partner5} alt="" className="w-[180px] 2xl:w-[360px]" />
           </div>
           <div className="m-5">
-            <img src={partner6} alt="" style={{ width: "180px" }} />
+            <img src={partner6} alt="" className="w-[180px] 2xl:w-[360px]" />
           </div>
           {/* <div className="m-5">
             <img src={partner3} alt="" style={{ width: "180px" }} />

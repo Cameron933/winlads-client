@@ -48,15 +48,13 @@ function Showcase() {
       }}
     >
       <div
-        className="flex justify-center items-center text-white buttonBg"
+        className="flex justify-center 2xl:text-4xl px-4 py-2 2xl:px-8 2xl:py-6 items-center text-white buttonBg"
         style={{
           //   display: "inline-block",
           borderRadius: "5px",
           position: "absolute",
           right: "45px",
           top: "80px",
-          width: "131px",
-          height: "49px",
           cursor: "pointer",
         }}
       >
@@ -74,14 +72,13 @@ function Showcase() {
           style={{ position: "absolute", top: "0px" }}
         />
         <img
-          className="hidden lg:block"
+          className="hidden lg:block w-[400px] 2xl:w-[800px]"
           src={win}
           alt="logo"
           style={{
             position: "absolute",
             top: "230px",
             left: "340px",
-            width: "400px",
           }}
         />
         <img
@@ -109,13 +106,13 @@ function Showcase() {
         />
         <motion.img
           variants={imageAnimate}
-          className="hidden lg:block"
+          className="hidden lg:block lg:w-[800px] 2xl:w-[1600px]"
           src={jeepImg}
           style={{
             position: "absolute",
             top: "300px",
             left: "40px",
-            width: "800px",
+            // width: "800px",
             zIndex: "2",
           }}
         />
@@ -126,7 +123,7 @@ function Showcase() {
             position: "absolute",
             top: "250px",
             left: "0px",
-            width: "700px",
+            // width: "700px",
             zIndex: "2",
           }}
         />
@@ -139,14 +136,14 @@ function Showcase() {
         >
           <div className="pt-4 dashcontent-group">
             <p
-              className="font-semibold text-right uppercase text-sm"
+              className="font-semibold text-right uppercase text-sm 2xl:text-4xl"
 
             >
               With over 650+ businesses across 1000+ stores where you can
               accessexclusive discounts
             </p>
             <p
-              className="font-semibold text-right uppercase text-md"
+              className="font-semibold text-right uppercase text-md 2xl:text-4xl"
 
             >
               Australia Widefrom only $19.99 per month, opt-out anytime
@@ -156,14 +153,10 @@ function Showcase() {
             <div className="flex mt-4 dashbtn-group">
               <Link to="/register">
               <div
-                className="flex justify-center text-md font-bold items-center text-white buttonBg frontbtns"
+                className="flex justify-center px-4 py-2 2xl:px-8 2xl:py-6 2xl:text-4xl text-md font-bold items-center text-white buttonBg frontbtns"
                 style={{
                   //   display: "inline-block",
                   borderRadius: "5px",
-               
-                  padding: 10,
-                  height: "49px",
-                  marginBottom: 10,
                   cursor: "pointer",
                 }}
               >
@@ -172,9 +165,9 @@ function Showcase() {
               </Link>
             
             </div>
-            <div className="flex mobile-btns">
-              <img src={appstore} style={{ cursor: "pointer" }} />
-              <img src={googleplay} style={{ cursor: "pointer" }} />
+            <div className="flex mobile-btns mt-4">
+              <img src={appstore} style={{ cursor: "pointer" }} className="2xl:w-96" />
+              <img src={googleplay} style={{ cursor: "pointer" }} className="2xl:w-96" />
             </div>
 
           </div>
