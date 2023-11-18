@@ -83,7 +83,7 @@ function Showcase() {
             left: "340px",
           }}
         />
-        <img
+        {/* <img
           className="block lg:hidden md:hidden"
           src={ham}
           alt="logo"
@@ -92,7 +92,7 @@ function Showcase() {
             top: "85px",
             left: "40px",
           }}
-        />
+        /> */}
         <motion.img
           variants={logoAnimate}
           className="block lg:hidden md:pl-16 w-[200px] md:w-[400px]"
@@ -133,7 +133,7 @@ function Showcase() {
           className="relative pt-6 pb-6 allcontent-group"
           style={{ height: "60%", zIndex: "4" }}
         >
-          <div className="pt-4 dashcontent-group md:pl-16">
+          <div className="pt-4 dashcontent-group md:pl-16 pl-12">
             <p
               className="font-semibold text-right uppercase text-sm 2xl:text-4xl"
 
@@ -148,7 +148,7 @@ function Showcase() {
               Australia Widefrom only $19.99 per month, opt-out anytime
             </p>
           </div>
-          <div className="mt-4">
+          <div className="mt-4 px-6 md:px-0 lg:px-0 2xl:px-0">
             <div className="flex mt-4 dashbtn-group">
               <Link to="/register">
               <div
