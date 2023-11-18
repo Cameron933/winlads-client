@@ -5,6 +5,8 @@ import ellipse from "../../assets/images/ellipse.png";
 import ham from "../../assets/images/ham.png";
 import googleplay from "../../assets/images/googleplay.png";
 import appstore from "../../assets/images/appstore.png";
+import Xlgoogleplay from "../../assets/images/2Xlgoogleplay.png";
+import Xlappstore from "../../assets/images/2Xlappstore.png";
 import { Link } from "react-router-dom";
 
 import { motion } from "framer-motion";
@@ -166,8 +168,10 @@ function Showcase() {
             
             </div>
             <div className="flex mobile-btns mt-4">
-              <img src={appstore} style={{ cursor: "pointer" }} className="2xl:w-96" />
-              <img src={googleplay} style={{ cursor: "pointer" }} className="2xl:w-96" />
+              <img src={appstore} style={{ cursor: "pointer" }} className="2xl:hidden"  />
+              <img src={googleplay} style={{ cursor: "pointer" }} className="2xl:hidden" />
+              <img src={Xlappstore} style={{ cursor: "pointer" }} className="hidden 2xl:block"  />
+              <img src={Xlgoogleplay} style={{ cursor: "pointer" }} className="hidden 2xl:block" />
             </div>
 
           </div>
