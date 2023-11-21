@@ -244,7 +244,7 @@ const Register = () => {
                   autoComplete="off"
                   className="form-contain text-center"
                 >
-                  <div className="flex items-center flex-col justify-center gap-5 w-3/4 2xl:w-1 mx-auto mt-10 2xl:mt-20">
+                  <div className="flex items-center flex-col justify-center gap-5 w-3/4  mx-auto mt-10 2xl:mt-20">
                     <div
                       className={
                         errors.name && touched.name
