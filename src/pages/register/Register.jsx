@@ -201,7 +201,7 @@ const Register = () => {
               <div className="img-container w-2/4 scale-150 mb-9 md:mb-0 prevent">
                 {/* <img src={MainImg} className="w-full h-full object-contain md:object-cover transform md:-translate-x-1/4" alt="main-img" /> */}
                 {/* Desktop View Jeep */}
-                <div className="hidden md:block w-full prevent" >
+                <div className="hidden md:block 2xl:hidden lg:hidden w-full prevent" >
                   <motion.img
                     initial={{ opacity: 0, x: "-50%" }}
                     whileInView={{ opacity: 1, x: "-25%" }}
@@ -211,7 +211,7 @@ const Register = () => {
                     alt="main-img"
                   />
                 </div>
-                <div className="hidden 2xl:block w-full">
+                <div className="hidden 2xl:block md:hidden  lg:block w-full">
                   <motion.img
                     initial={{ opacity: 0, x: "-50%" }}
                     whileInView={{ opacity: 1, x: "-25%" }}
@@ -223,7 +223,7 @@ const Register = () => {
                 </div>
 
                 {/* Mobile View Jeep */}
-                <div className="block md:hidden w-full">
+                <div className="block md:hidden 2xl:hidden w-full">
                   <motion.img
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: -10 }}
