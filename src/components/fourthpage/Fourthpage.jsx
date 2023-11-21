@@ -134,7 +134,7 @@ function Fourthpage() {
         }}
       >
         <p
-          className="text-4xl 2xl:text-8xl font-bold text-right uppercase tracking-widest p-4 relative"
+          className="text-4xl 2xl:text-8xl lg:text-4xl xl:text-4xl font-bold text-right uppercase tracking-widest p-4 relative"
           style={{ zIndex: "2" }}
         >
           Explore Exclusive MemberBenefit
@@ -213,7 +213,7 @@ function Fourthpage() {
               // transition={{ duration: 0.5, delay: 0.25 }}
               className="flex justify-end"
             >
-              <div className="flex flex-col space-y-4 2xl:space-y-6">
+              <div className="flex flex-col space-y-4 2xl:space-y-6 2xl:mr-12">
                 <div className="transition duration-700 hover:scale-105 bg-white rounded-xl">
                   <motion.div
                     variants={textAnimate}
@@ -326,14 +326,14 @@ function Fourthpage() {
           // transition={{ duration: 0.5, delay: 0.25 }}
           src={jeep2}
           alt=""
-          className="absolute w-[750px] 2xl:w-[1500px] left-[30%]"
+          className="absolute w-[750px] 2xl:w-[1500px] lg:left-[400px] lg:w-[600px] 2xl:left-[100px] xl:left-[500px]"
           style={{ top: "40%", zIndex: "2" }}
         />
         <img
           src={Ellipse3}
           alt=""
           className="absolute"
-          style={{ top: "-50px", right: "0px", zIndex: "1", width: "63%" }}
+          style={{ top: "-50px", right: "0px", zIndex: "1", }}
         />
       </motion.div>
     </>

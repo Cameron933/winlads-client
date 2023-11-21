@@ -1,7 +1,7 @@
 function Sidebar() {
   return (
     <div
-      className="md:flex lg:flex flex-col lg:w-[111px] 2xl:w-[222px] h-screen md:w-[36px] w-[24px]"
+      className="md:flex lg:flex flex-col lg:w-[111px] 2xl:w-[222px] xl:w-[111px] h-screen md:w-[36px] w-[24px]"
       style={{
         position: "fixed",
         top: "0px",

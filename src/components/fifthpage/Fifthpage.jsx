@@ -169,7 +169,7 @@ function Fifthpage() {
         //variants={imageAnimate}
         src={jeep}
         alt=""
-        className="static lg:absolute w-[750px] 2xl:w-[1500px]"
+        className="static lg:absolute w-[750px] 2xl:w-[1500px] xl:w-[800px] lg:w-[800px]"
         style={{ top: "48%", left: "0px", zIndex: "3" }}
       />
     </motion.div>
