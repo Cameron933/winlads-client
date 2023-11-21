@@ -68,8 +68,8 @@ function Secondpage() {
           }}
         >
           <div className="transition duration-700 hover:scale-105">
-            <h3 className="font-bold mb-2 text-md 2xl:text-4xl">Homewares, Trades & Services</h3>
-            <p className="pb-2 text-md 2xl:text-4xl">
+            <h3 className="font-bold mb-2 text-md 2xl:text-3xl">Homewares, Trades & Services</h3>
+            <p className="pb-2 text-md 2xl:text-3xl">
               Homewares, Trades & Services We ve teamed up with the best in the
               business. Get great deals on Furniture, homeware & decor,
               electrical, plumbing and more!
@@ -130,8 +130,8 @@ function Secondpage() {
           }}
         >
           <div className="transition duration-700 hover:scale-105">
-            <h3 className="font-bold mb-2 2xl:text-4xl">Automotive</h3>
-            <p className="pb-2 2xl:text-4xl">
+            <h3 className="font-bold mb-2 2xl:text-3xl">Automotive</h3>
+            <p className="pb-2 2xl:text-3xl">
               Your one-stop-shop for exclusive offers from Australia's leading
               performance & tuning workshops, panel beaters, aftermarket part &
               accessories, and everything else automotive
@@ -148,8 +148,8 @@ function Secondpage() {
           }}
         >
           <div className="transition duration-700 hover:scale-105">
-            <h3 className="font-bold mb-2 2xl:text-4xl">Merchandise</h3>
-            <p className="pb-2 2xl:text-4xl">
+            <h3 className="font-bold mb-2 2xl:text-3xl">Merchandise</h3>
+            <p className="pb-2 2xl:text-3xl">
               Exclusive merchandise offers and designs from both Winlads and our
               Benefits. Great quality swag from your favourite brands. Including
               some exclusive designs from bags, T shirts and more.
@@ -161,6 +161,7 @@ function Secondpage() {
           style={{
             //position: "absolute",
             top: "130px",
+            left: "400px",
             zIndex: "2",
           }}
         >

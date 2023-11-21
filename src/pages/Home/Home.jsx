@@ -18,7 +18,7 @@ import Footer from "../../components/footerSection/Footer";
 
 const Home = () => {
   return (
-    <div>
+    <div className="">
       {/* <Header />
       <Main />
       <Join />

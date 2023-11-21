@@ -42,7 +42,7 @@ function Showcase() {
       whileInView={"onscreen"}
       viewport={{ once: true, amount: 0.5 }}
       transition={{ staggerChildren: 0.5 }}
-      className="grid grid-cols-1 gap-2 lg:grid-cols-2"
+      className="grid grid-cols-1 gap-2 lg:grid-cols-2 pb-16"
       style={{
         minHeight: "100vh",
         position: "relative",
@@ -106,7 +106,7 @@ function Showcase() {
         />
         <motion.img
           variants={imageAnimate}
-          className="hidden lg:block lg:w-[800px] 2xl:w-[1600px]"
+          className="hidden lg:block lg:w-[800px] 2xl:w-[1200px]"
           src={jeepImg}
           style={{
             position: "absolute",
