@@ -28,7 +28,7 @@ const Home = () => {
       <Benefits />
       <Payments />
       <Footer /> */}
-      <Sidebar />
+      {/* <Sidebar /> */}
       <Showcase />
       <Secondpage />
       <Thirdpage />
