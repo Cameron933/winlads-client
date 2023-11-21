@@ -220,7 +220,10 @@ function Fourthpage() {
                     className="p-5 2xl:p-10 flex flex-col space-y-2 2xl:space-y-3 rounded-xl"
                     style={{ borderColor: "#01819D" }}
                   >
-                    <h3 className="text-right 2xl:text-4xl" style={{ color: "#01819D" }}>
+                    <h3
+                      className="text-right 2xl:text-4xl"
+                      style={{ color: "#01819D" }}
+                    >
                       Community of Enthusiast
                     </h3>
                     <p
@@ -239,7 +242,10 @@ function Fourthpage() {
                     className="p-5 2xl:p-10 flex flex-col space-y-2 2xl:space-y-3 rounded-xl"
                     style={{ borderColor: "#01819D" }}
                   >
-                    <h3 className="text-right 2xl:text-4xl" style={{ color: "#01819D" }}>
+                    <h3
+                      className="text-right 2xl:text-4xl"
+                      style={{ color: "#01819D" }}
+                    >
                       Frequent draws
                     </h3>
                     <p
@@ -257,7 +263,10 @@ function Fourthpage() {
                     className="p-5 2xl:p-10 flex flex-col space-y-2 2xl:space-y-3 rounded-xl"
                     style={{ borderColor: "#01819D" }}
                   >
-                    <h3 className="text-right 2xl:text-4xl" style={{ color: "#01819D" }}>
+                    <h3
+                      className="text-right 2xl:text-4xl"
+                      style={{ color: "#01819D" }}
+                    >
                       Trusted Benefitship
                     </h3>
                     <p
@@ -277,7 +286,10 @@ function Fourthpage() {
                     className="p-5 2xl:p-10 flex flex-col space-y-2 2xl:space-y-3 rounded-xl"
                     style={{ borderColor: "#01819D" }}
                   >
-                    <h3 className="text-right 2xl:text-4xl" style={{ color: "#01819D" }}>
+                    <h3
+                      className="text-right 2xl:text-4xl"
+                      style={{ color: "#01819D" }}
+                    >
                       Expertise at Your Service
                     </h3>
                     <p
@@ -296,7 +308,10 @@ function Fourthpage() {
                     className="p-5 2xl:p-10 flex flex-col space-y-2 2xl:space-y-3 rounded-xl"
                     style={{ borderColor: "#01819D" }}
                   >
-                    <h3 className="text-right 2xl:text-4xl" style={{ color: "#01819D" }}>
+                    <h3
+                      className="text-right 2xl:text-4xl"
+                      style={{ color: "#01819D" }}
+                    >
                       Winlads Lux
                     </h3>
                     <p
@@ -314,26 +329,27 @@ function Fourthpage() {
             </motion.div>
           </div>
         </div>
-
-        <motion.img
-          variants={imageAnimate}
-          // variants={{
-          //   hidden: { opacity: 0, y: 75 },
-          //   visible: { opacity: 1, y: 0 },
-          // }}
-          // initial="hidden"
-          // animate={"visible"}
-          // transition={{ duration: 0.5, delay: 0.25 }}
-          src={jeep2}
-          alt=""
-          className="absolute w-[750px] 2xl:w-[1500px] lg:left-[400px] lg:w-[600px] 2xl:left-[100px] xl:left-[500px]"
-          style={{ top: "40%", zIndex: "2" }}
-        />
+        <div className="flex justify-center">
+          <motion.img
+            variants={imageAnimate}
+            // variants={{
+            //   hidden: { opacity: 0, y: 75 },
+            //   visible: { opacity: 1, y: 0 },
+            // }}
+            // initial="hidden"
+            // animate={"visible"}
+            // transition={{ duration: 0.5, delay: 0.25 }}
+            src={jeep2}
+            alt=""
+            className="absolute w-[750px] 2xl:w-[1500px] lg:w-[600px]"
+            style={{ top: "40%", zIndex: "2" }}
+          />
+        </div>
         <img
           src={Ellipse3}
           alt=""
           className="absolute"
-          style={{ top: "-50px", right: "0px", zIndex: "1", }}
+          style={{ top: "-50px", right: "0px", zIndex: "1" }}
         />
       </motion.div>
     </>
@@ -341,3 +357,5 @@ function Fourthpage() {
 }
 
 export default Fourthpage;
+
+// lg:left-[400px] 2xl:left-[400px] xl:left-[500px]
