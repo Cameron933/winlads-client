@@ -42,7 +42,7 @@ function Showcase() {
       whileInView={"onscreen"}
       viewport={{ once: true, amount: 0.5 }}
       transition={{ staggerChildren: 0.5 }}
-      className="grid grid-cols-1 gap-2 lg:grid-cols-2 pb-16"
+      className="grid grid-cols-1 gap-2 lg:grid-cols-2"
       style={{
         minHeight: "100vh",
         position: "relative",
@@ -106,7 +106,7 @@ function Showcase() {
         />
         <motion.img
           variants={imageAnimate}
-          className="hidden lg:block lg:w-[800px] 2xl:w-[1200px]"
+          className="hidden lg:block lg:w-[800px] 2xl:w-[1600px]"
           src={jeepImg}
           style={{
             position: "absolute",
@@ -135,14 +135,14 @@ function Showcase() {
         >
           <div className="pt-4 dashcontent-group md:pl-16 pl-12">
             <p
-              className="font-semibold text-right uppercase text-sm 2xl:text-3xl"
+              className="font-semibold text-right uppercase text-sm 2xl:text-4xl"
 
             >
               With over 650+ businesses across 1000+ stores where you can
               accessexclusive discounts
             </p>
             <p
-              className="font-semibold text-right uppercase text-md 2xl:text-3xl"
+              className="font-semibold text-right uppercase text-md 2xl:text-4xl"
 
             >
               Australia Widefrom only $19.99 per month, opt-out anytime

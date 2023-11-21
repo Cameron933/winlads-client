@@ -45,7 +45,7 @@ function Thirdpage() {
     >
 
       <div className="lg:grid grid-cols-2 gap-2 md:pl-8">
-        <div className=" flex justify-center p-2 relative">
+        <div className=" flex justify-center p-2 2xl:p-4 relative">
           <motion.div
             variants={textAnimate}
             className="border bg-white rounded-xl lg:absolute right-0"
@@ -56,8 +56,8 @@ function Thirdpage() {
                 <img src={tick} alt="tick" className="ticker" />
               </div>
               <div className="flex flex-col">
-                <p className="2xl:text-4xl">600+</p>
-                <p className="2xl:text-4xl">Australian business Benefits</p>
+                <p className="2xl:text-6xl">600+</p>
+                <p className="2xl:text-6xl">Australian business Benefits</p>
               </div>
             </div>
             <div className="p-12 py-8 font-bold text-xl border-t rounded-xl flex flex-row items-center gap-2">
@@ -65,8 +65,8 @@ function Thirdpage() {
                 <img src={tick} alt="tick" className="ticker" />
               </div>
               <div className="flex flex-col">
-                <p className="2xl:text-4xl">1000s</p>
-                <p className="2xl:text-4xl">In savings through our mates rates discounts</p>
+                <p className="2xl:text-6xl">1000s</p>
+                <p className="2xl:text-6xl">In savings through our mates rates discounts</p>
               </div>
             </div>
             <div className="p-12 py-8 font-bold text-xl border-t rounded-xl flex flex-row items-center gap-2">
@@ -75,8 +75,8 @@ function Thirdpage() {
               </div>
 
               <div className="flex flex-col">
-                <p className="2xl:text-4xl">1000s</p>
-                <p className="2xl:text-4xl">Stores you can redeem offers in person or online</p>
+                <p className="2xl:text-6xl">1000s</p>
+                <p className="2xl:text-6xl">Stores you can redeem offers in person or online</p>
               </div>
             </div>
           </motion.div>

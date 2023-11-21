@@ -68,8 +68,8 @@ function Secondpage() {
           }}
         >
           <div className="transition duration-700 hover:scale-105">
-            <h3 className="font-bold mb-2 text-md 2xl:text-3xl">Homewares, Trades & Services</h3>
-            <p className="pb-2 text-md 2xl:text-3xl">
+            <h3 className="font-bold mb-2 text-md 2xl:text-4xl">Homewares, Trades & Services</h3>
+            <p className="pb-2 text-md 2xl:text-4xl">
               Homewares, Trades & Services We ve teamed up with the best in the
               business. Get great deals on Furniture, homeware & decor,
               electrical, plumbing and more!
@@ -79,7 +79,7 @@ function Secondpage() {
 
         <motion.img
           variants={stickAnimate}
-          className="hidden lg:block lg:w-[170px] 2xl:w-[160px] lg:right-[620px] 2xl:right-[1200px]"
+          className="hidden lg:block lg:w-[170px] 2xl:w-[340px] lg:right-[620px] 2xl:right-[1200px]"
           src={Vector1}
           alt=""
           style={{
@@ -122,16 +122,16 @@ function Secondpage() {
         />
         <motion.div
           variants={textAnimate2}
-          className="static lg:absolute xl:w-[350px] 2xl:w-[800px]"
+          className="static lg:absolute xl:w-[350px] 2xl:w-[700px]"
           style={{
             //position: "absolute",
             right: "240px",
             zIndex: "2",
           }}
         >
-          <div className="transition duration-700 hover:scale-105 2xl:ml-80">
-            <h3 className="font-bold mb-2 2xl:text-3xl">Automotive</h3>
-            <p className="pb-2 2xl:text-3xl">
+          <div className="transition duration-700 hover:scale-105">
+            <h3 className="font-bold mb-2 2xl:text-4xl">Automotive</h3>
+            <p className="pb-2 2xl:text-4xl">
               Your one-stop-shop for exclusive offers from Australia's leading
               performance & tuning workshops, panel beaters, aftermarket part &
               accessories, and everything else automotive
@@ -147,9 +147,9 @@ function Secondpage() {
             zIndex: "2",
           }}
         >
-          <div className="transition duration-700 hover:scale-105 mr-12">
-            <h3 className="font-bold mb-2 2xl:text-3xl">Merchandise</h3>
-            <p className="pb-2 2xl:text-3xl">
+          <div className="transition duration-700 hover:scale-105">
+            <h3 className="font-bold mb-2 2xl:text-4xl">Merchandise</h3>
+            <p className="pb-2 2xl:text-4xl">
               Exclusive merchandise offers and designs from both Winlads and our
               Benefits. Great quality swag from your favourite brands. Including
               some exclusive designs from bags, T shirts and more.
@@ -157,13 +157,12 @@ function Secondpage() {
           </div>
         </motion.div>
         <div
-          className="static flex justify-center"
-          // style={{
-          //   //position: "absolute",
-          //   top: "130px",
-          //   // left: "400px",
-          //   zIndex: "2",
-          // }}
+          className="static lg:absolute lg:w-[700px] 2xl:w-[1500px] lg:right-[300px] 2xl:right-[800px]"
+          style={{
+            //position: "absolute",
+            top: "130px",
+            zIndex: "2",
+          }}
         >
           <motion.img
             variants={imageAnimate}
@@ -175,7 +174,6 @@ function Secondpage() {
             // animate="visible"
             // transition={{ duration: 0.5, delay: 0.25 }
             src={jeep2}
-            className="w-[750px] z-10"
           />
         </div>
       </div>

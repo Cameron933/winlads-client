@@ -326,7 +326,7 @@ function Fourthpage() {
           // transition={{ duration: 0.5, delay: 0.25 }}
           src={jeep2}
           alt=""
-          className="absolute w-[750px] 2xl:w-[1000px] left-[30%]"
+          className="absolute w-[750px] 2xl:w-[1500px] left-[30%]"
           style={{ top: "40%", zIndex: "2" }}
         />
         <img
