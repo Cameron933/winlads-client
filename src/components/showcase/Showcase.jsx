@@ -106,7 +106,7 @@ function Showcase() {
         />
         <motion.img
           variants={imageAnimate}
-          className="hidden lg:block lg:w-[800px] 2xl:w-[1600px]"
+          className="hidden lg:block lg:w-[800px] 4xl:w-[1600px] xl:w-[800px]"
           src={jeepImg}
           style={{
             position: "absolute",
@@ -135,14 +135,14 @@ function Showcase() {
         >
           <div className="pt-4 dashcontent-group md:pl-16 pl-12">
             <p
-              className="font-semibold text-right uppercase text-sm 2xl:text-4xl"
+              className="font-semibold text-right uppercase text-sm 4xl:text-4xl xl:text-2xl"
 
             >
               With over 650+ businesses across 1000+ stores where you can
               accessexclusive discounts
             </p>
             <p
-              className="font-semibold text-right uppercase text-md 2xl:text-4xl"
+              className="font-semibold text-right uppercase text-md 4xl:text-4xl xl:text-2xl"
 
             >
               Australia Widefrom only $19.99 per month, opt-out anytime
@@ -165,10 +165,10 @@ function Showcase() {
             
             </div>
             <div className="flex mobile-btns mt-4">
-              <img src={appstore} style={{ cursor: "pointer" }} className="2xl:hidden"  />
-              <img src={googleplay} style={{ cursor: "pointer" }} className="2xl:hidden" />
-              <img src={Xlappstore} style={{ cursor: "pointer" }} className="hidden 2xl:block"  />
-              <img src={Xlgoogleplay} style={{ cursor: "pointer" }} className="hidden 2xl:block" />
+              <img src={appstore} style={{ cursor: "pointer" }} className="4xl:hidden"  />
+              <img src={googleplay} style={{ cursor: "pointer" }} className="4xl:hidden" />
+              <img src={Xlappstore} style={{ cursor: "pointer" }} className="hidden 4xl:block"  />
+              <img src={Xlgoogleplay} style={{ cursor: "pointer" }} className="hidden 4xl:block" />
             </div>
 
           </div>

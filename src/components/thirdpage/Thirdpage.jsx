@@ -44,39 +44,48 @@ function Thirdpage() {
       }}
     >
 
-      <div className="lg:grid grid-cols-2 gap-2 md:pl-8">
-        <div className=" flex justify-center p-2 2xl:p-4 relative">
+      <div className="lg:grid grid-cols-2 gap-2 md:pl-8 ">
+        <div className=" flex justify-center p-2 4xl:p-4 relative xl:mx-32 lg:mx-24 items-center">
           <motion.div
             variants={textAnimate}
-            className="border bg-white rounded-xl lg:absolute right-0"
-            style={{ right: "-100px" }}
+            className="border bg-white rounded-xl lg:absolute right-0 z-10"
+            // style={{ right: "-100px" }}
           >
-            <div className="p-12 py-8 2xl:py-12 font-bold text-xl flex flex-row items-center gap-2 2xl:gap-4">
+            {/* <div className="px-4 py-4 font-bold text-xl border-t rounded-xl flex flex-row items-center gap-2">
+              <div>
+              <img src={tick} alt="tick" className="ticker" />
+              </div>
+              <div className="flex flex-col">
+                <p className="4xl:text-6xl text-2xl xl:text-2xl md:text-2xl">600+</p>
+                <p className="4xl:text-6xl text-2xl xl:text-2xl md:text-2xl">Australian business Benefits</p>
+              </div>
+            </div> */}
+             <div className="px-4 py-4 font-bold text-xl border-t rounded-xl flex flex-row items-center gap-2">
               <div>
                 <img src={tick} alt="tick" className="ticker" />
               </div>
               <div className="flex flex-col">
-                <p className="2xl:text-6xl">600+</p>
-                <p className="2xl:text-6xl">Australian business Benefits</p>
+                <p className="4xl:text-6xl text-2xl xl:text-2xl md:text-2xl">600+</p>
+                <p className="4xl:text-6xl text-2xl xl:text-2xl md:text-2xl">Australian business Benefits</p>
               </div>
             </div>
-            <div className="p-12 py-8 font-bold text-xl border-t rounded-xl flex flex-row items-center gap-2">
+            <div className="px-4 py-4 font-bold text-xl border-t rounded-xl flex flex-row items-center gap-2">
               <div>
                 <img src={tick} alt="tick" className="ticker" />
               </div>
               <div className="flex flex-col">
-                <p className="2xl:text-6xl">1000s</p>
-                <p className="2xl:text-6xl">In savings through our mates rates discounts</p>
+                <p className="4xl:text-6xl text-2xl xl:text-2xl md:text-2xl">1000s</p>
+                <p className="4xl:text-6xl text-2xl xl:text-2xl md:text-2xl">In savings through our mates rates discounts</p>
               </div>
             </div>
-            <div className="p-12 py-8 font-bold text-xl border-t rounded-xl flex flex-row items-center gap-2">
+            <div className="px-4 py-4 font-bold text-xl border-t rounded-xl flex flex-row items-center gap-2">
               <div>
                 <img src={tick} alt="tick" className="ticker" />
               </div>
 
               <div className="flex flex-col">
-                <p className="2xl:text-6xl">1000s</p>
-                <p className="2xl:text-6xl">Stores you can redeem offers in person or online</p>
+                <p className="4xl:text-6xl text-2xl xl:text-2xl md:text-2xl">1000s</p>
+                <p className="4xl:text-6xl text-2xl xl:text-2xl md:text-2xl">Stores you can redeem offers in person or online</p>
               </div>
             </div>
           </motion.div>
@@ -96,7 +105,7 @@ function Thirdpage() {
         </motion.div>
       </div>
       <div>
-        <p className="text-lg 2xl:text-8xl font-bold uppercase tracking-widest p-4 text-center lg:text-4xl lg:text-right ">
+        <p className="text-lg 4xl:text-8xl xl:text-6xl md:text-4xl font-bold uppercase tracking-widest p-4 text-center lg:text-4xl lg:text-right 4xl:text-right xl:text-right">
           Some our Partners
         </p>
         <div className="flex justify-end">
