@@ -30,7 +30,7 @@ function Fourthpage() {
         whileInView={"onscreen"}
         viewport={{ once: true, amount: 0.5 }}
         transition={{ staggerChildren: 0.1 }}
-        className="lg:hidden md:pl-16 pl-4"
+        className="lg:hidden md:pl-16 pl-4 block mg:hidden 2xl:hidden"
         style={{
           background:
             "linear-gradient(88deg, #43E3ED -21.82%, #FFE9E9 131.12%)",
@@ -127,14 +127,14 @@ function Fourthpage() {
         whileInView={"onscreen"}
         viewport={{ once: true, amount: 0.5 }}
         transition={{ staggerChildren: 0.1 }}
-        className="relative hidden lg:block"
+        className="relative hidden lg:block 2xl:block md:hidden"
         style={{
           background:
             "linear-gradient(88deg, #43E3ED -21.82%, #FFE9E9 131.12%)",
         }}
       >
         <p
-          className="text-4xl 2xl:text-8xl lg:text-4xl xl:text-4xl font-bold text-right uppercase tracking-widest p-4 relative"
+          className="text-4xl 4xl:text-8xl lg:text-4xl xl:text-4xl font-bold text-right uppercase tracking-widest p-4 relative"
           style={{ zIndex: "2" }}
         >
           Explore Exclusive MemberBenefit
@@ -160,18 +160,18 @@ function Fourthpage() {
             >
               <div className="flex flex-col space-y-4 2xl:space-y-6">
                 <motion.div variants={textAnimate}>
-                  <div className="p-5 2xl:p-10 rounded-xl flex flex-col space-y-2 2xl:space-y-3 transition duration-700 hover:scale-105 bg-white">
-                    <h3 className="2xl:text-4xl">Thrill of the draw</h3>
-                    <p className="text-xs 2xl:text-2xl">
+                  <div className="xl:p-5 lg:p-5 p-5 4xl:p-10 rounded-xl flex flex-col space-y-2 4xl:space-y-3 transition duration-700 hover:scale-105 bg-white">
+                    <h3 className="4xl:text-4xl text-2xl">Thrill of the draw</h3>
+                    <p className="text-xl 4xl:text-2xl">
                       Experience the rush of our exciting class-leading
                       promotions. Could you be <br /> the next lucky winner?
                     </p>
                   </div>
                 </motion.div>
                 <motion.div variants={textAnimate}>
-                  <div className="p-5 2xl:p-10 rounded-xl flex flex-col space-y-2 2xl:space-y-3 transition duration-700 hover:scale-105 bg-white">
-                    <h3 className="2xl:text-4xl">Expert support</h3>
-                    <p className="text-xs 2xl:text-2xl">
+                  <div className="xl:p-5 lg:p-5 p-5 4xl:p-10 flex flex-col space-y-2 4xl:space-y-3 transition duration-700 hover:scale-105 bg-white">
+                    <h3 className="4xl:text-4xl text-2xl">Expert support</h3>
+                    <p className="4xl:text-2xl text-xl">
                       Got questions or need assistance? Our professional support
                       team is always
                       <br /> ready to help you navigate your journey with us.
@@ -179,9 +179,9 @@ function Fourthpage() {
                   </div>
                 </motion.div>
                 <motion.div variants={textAnimate}>
-                  <div className="p-5 2xl:p-10 rounded-xl flex flex-col space-y-2 2xl:space-y-3 transition duration-700 hover:scale-105 bg-white">
-                    <h3 className="2xl:text-4xl">Exclusive discounts</h3>
-                    <p className="text-xs 2xl:text-2xl">
+                  <div className="xl:p-5 lg:p-5 p-5 4xl:p-10 flex flex-col space-y-2 4xl:space-y-3 transition duration-700 hover:scale-105 bg-white">
+                    <h3 className="4xl:text-4xl text-2xl">Exclusive discounts</h3>
+                    <p className="4xl:text-2xl text-xl">
                       Unlock access to substantial discounts at businesses
                       across Australia, all for a <br />
                       low monthly membership fee.
@@ -189,9 +189,9 @@ function Fourthpage() {
                   </div>
                 </motion.div>
                 <motion.div variants={textAnimate}>
-                  <div className="p-5 2xl:p-10 rounded-xl flex flex-col space-y-2 2xl:space-y-3 transition duration-700 hover:scale-105 bg-white">
-                    <h3 className="2xl:text-4xl">Australia-Wide Rewards</h3>
-                    <p className="text-xs 2xl:text-2xl">
+                  <div className="xl:p-5 lg:p-5 p-5 4xl:p-10 flex flex-col space-y-2 4xl:space-y-3 transition duration-700 hover:scale-105 bg-white">
+                    <h3 className="4xl:text-4xl text-2xl">Australia-Wide Rewards</h3>
+                    <p className="text-xl 4xl:text-2xl">
                       Enjoy exclusive discounts and benefits across Australia,
                       from Sydney to Perth,
                       <br /> making your membership truly worthwhile, no matter
@@ -217,17 +217,17 @@ function Fourthpage() {
                 <div className="transition duration-700 hover:scale-105 bg-white rounded-xl">
                   <motion.div
                     variants={textAnimate}
-                    className="p-5 2xl:p-10 flex flex-col space-y-2 2xl:space-y-3 rounded-xl"
+                    className="xl:p-5 lg:p-5 p-5 4xl:p-10 flex flex-col space-y-2 4xl:space-y-3 rounded-xl"
                     style={{ borderColor: "#01819D" }}
                   >
                     <h3
-                      className="text-right 2xl:text-4xl"
+                      className="text-right 4xl:text-4xl text-2xl"
                       style={{ color: "#01819D" }}
                     >
                       Community of Enthusiast
                     </h3>
                     <p
-                      className="text-xs text-right 2xl:text-2xl"
+                      className="text-xs text-right 4xl:text-2xl text-xl"
                       style={{ color: "#01819D" }}
                     >
                       Join a community of classic car enthusiasts. Share the
@@ -239,17 +239,17 @@ function Fourthpage() {
                 <div className="transition duration-700 hover:scale-105 bg-white rounded-xl">
                   <motion.div
                     variants={textAnimate}
-                    className="p-5 2xl:p-10 flex flex-col space-y-2 2xl:space-y-3 rounded-xl"
+                    className="xl:p-5 lg:p-5 p-5 4xl:p-10 flex flex-col space-y-2 4xl:space-y-3 rounded-xl"
                     style={{ borderColor: "#01819D" }}
                   >
                     <h3
-                      className="text-right 2xl:text-4xl"
+                      className="text-right 4xl:text-4xl text-2xl"
                       style={{ color: "#01819D" }}
                     >
                       Frequent draws
                     </h3>
                     <p
-                      className="text-xs text-right 2xl:text-2xl"
+                      className="text-xl text-right 4xl:text-2xl"
                       style={{ color: "#01819D" }}
                     >
                       We conduct our membership draws frequently, increasing
@@ -260,17 +260,17 @@ function Fourthpage() {
                 <div className="transition duration-700 hover:scale-105 bg-white rounded-xl">
                   <motion.div
                     variants={textAnimate}
-                    className="p-5 2xl:p-10 flex flex-col space-y-2 2xl:space-y-3 rounded-xl"
+                    className="xl:p-5 lg:p-5 p-5 4xl:p-10 flex flex-col space-y-2 4xl:space-y-3 rounded-xl"
                     style={{ borderColor: "#01819D" }}
                   >
                     <h3
-                      className="text-right 2xl:text-4xl"
+                      className="text-right text-2xl 4xl:text-4xl"
                       style={{ color: "#01819D" }}
                     >
                       Trusted Benefitship
                     </h3>
                     <p
-                      className="text-xs text-right 2xl:text-2xl"
+                      className="text-xl text-right 4xl:text-2xl"
                       style={{ color: "#01819D" }}
                     >
                       We ve partnered with reputable businesses nationwide to
@@ -283,17 +283,17 @@ function Fourthpage() {
                 <div className="transition duration-700 hover:scale-105 bg-white rounded-xl">
                   <motion.div
                     variants={textAnimate}
-                    className="p-5 2xl:p-10 flex flex-col space-y-2 2xl:space-y-3 rounded-xl"
+                    className="xl:p-5 lg:p-5 p-5 4xl:p-10 flex flex-col space-y-2 4xl:space-y-3 rounded-xl"
                     style={{ borderColor: "#01819D" }}
                   >
                     <h3
-                      className="text-right 2xl:text-4xl"
+                      className="text-right text-2xl 4xl:text-4xl"
                       style={{ color: "#01819D" }}
                     >
                       Expertise at Your Service
                     </h3>
                     <p
-                      className="text-xs text-right 2xl:text-2xl"
+                      className="text-xl text-right 4xl:text-2xl"
                       style={{ color: "#01819D" }}
                     >
                       Our specialized teams ensure smooth operations, while
@@ -305,17 +305,17 @@ function Fourthpage() {
                 <div className="transition duration-700 hover:scale-105 bg-white rounded-xl">
                   <motion.div
                     variants={textAnimate}
-                    className="p-5 2xl:p-10 flex flex-col space-y-2 2xl:space-y-3 rounded-xl"
+                    className="xl:p-5 lg:p-5 p-5 4xl:p-10 flex flex-col space-y-2 2xl:space-y-3 rounded-xl"
                     style={{ borderColor: "#01819D" }}
                   >
                     <h3
-                      className="text-right 2xl:text-4xl"
+                      className="text-right text-2xl 4xl:text-4xl"
                       style={{ color: "#01819D" }}
                     >
                       Winlads Lux
                     </h3>
                     <p
-                      className="text-xs text-right 2xl:text-2xl"
+                      className="text-xl text-right 4xl:text-2xl"
                       style={{ color: "#01819D" }}
                     >
                       Elevate your journey with Winlads Lux and get access to
@@ -341,7 +341,7 @@ function Fourthpage() {
             // transition={{ duration: 0.5, delay: 0.25 }}
             src={jeep2}
             alt=""
-            className="absolute w-[750px] 2xl:w-[1500px] lg:w-[600px]"
+            className="absolute 4xl:w-[1500px] lg:w-[400px] xl:w-[700px]"
             style={{ top: "40%", zIndex: "2" }}
           />
         </div>
@@ -358,4 +358,3 @@ function Fourthpage() {
 
 export default Fourthpage;
 
-// lg:left-[400px] 2xl:left-[400px] xl:left-[500px]
