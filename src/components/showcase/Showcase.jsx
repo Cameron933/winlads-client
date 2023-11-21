@@ -135,14 +135,14 @@ function Showcase() {
         >
           <div className="pt-4 dashcontent-group md:pl-16 pl-12">
             <p
-              className="font-semibold text-right uppercase text-sm 2xl:text-4xl"
+              className="font-semibold text-right uppercase text-sm 2xl:text-3xl"
 
             >
               With over 650+ businesses across 1000+ stores where you can
               accessexclusive discounts
             </p>
             <p
-              className="font-semibold text-right uppercase text-md 2xl:text-4xl"
+              className="font-semibold text-right uppercase text-md 2xl:text-3xl"
 
             >
               Australia Widefrom only $19.99 per month, opt-out anytime
