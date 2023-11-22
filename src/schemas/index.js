@@ -20,9 +20,9 @@ export const basicSchemasRegister = Yup.object().shape({
       .string()
       .email("Please enter a valid email")
       .required("Email is required"),
-  mobile: Yup.string()
-      .matches(phoneRegExp, 'Enter valid mobile number')
-      .required('Mobile number is required'),
+//   mobile: Yup.string()
+//       .matches(phoneRegExp, 'Enter valid mobile number')
+//       .required('Mobile number is required'),
   password: Yup.string()
       .min(8, 'Password should be 8 chars.')
       .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.')
@@ -30,8 +30,8 @@ export const basicSchemasRegister = Yup.object().shape({
   passport: Yup
       .string()
       .matches(passportNum, 'Enter valid passport number'),
-  tin: Yup
-      .string(),
+//   tin: Yup
+//       .string(),
   agree: Yup.boolean()
       .required()
 });

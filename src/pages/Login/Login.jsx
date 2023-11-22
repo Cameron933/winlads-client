@@ -31,9 +31,9 @@ const Login = () => {
   const cookies = new Cookies(null, { path: '/' });
   const onSubmit = async (values, actions) => {
     // console.log(value, actions)
-    setTimeout(() => {
-      navigate("/authentication");
-    }, 1500);
+    // setTimeout(() => {
+    //   navigate("/authentication");
+    // }, 1500);
 
     await new Promise((resolve) => setTimeout(resolve, 1000));
     actions.resetForm();
@@ -149,7 +149,7 @@ const Login = () => {
         mobile: "",
         remind: "",
       },
-      validationSchema: basicSchemasLogin,
+      // validationSchema: basicSchemasLogin,
       onSubmit,
     });
 

@@ -269,3 +269,8 @@ code {
 .blackbtns:hover{
   background-color: rgb(58, 58, 58);
 }
+.moonloader-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

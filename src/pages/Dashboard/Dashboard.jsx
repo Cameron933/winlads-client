@@ -25,7 +25,7 @@ import { carAnimation } from "../../animation/animation";
 
 const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(true);
-
+  const [valUser, setValUser] = useState({});
   const cookies = new Cookies(null, { path: "/" });
   const navigate = useNavigate();
 
@@ -55,14 +55,16 @@ const Dashboard = () => {
   //   ],
   // });
   const currentUserValidation = async () => {
-    if (await validateCurrentUser()) {
-      console.log("Session OK");
+    const validator = await validateCurrentUser();
+    if (validator.validatorBl) {
+      console.log("Session OK", validator.user.balance);
+      setValUser(validator.user);
     } else {
       navigate("/login");
     }
   };
   useEffect(() => {
-    //currentUserValidation();
+    currentUserValidation();
   }, []);
 
   return (
@@ -128,7 +130,7 @@ const Dashboard = () => {
                   <GoldCard />
                 </div>
                 <div className="hidden lg:block w-full">
-                  <EarningCard />
+                  <EarningCard balance={valUser.balance} />
                 </div>
               </div>
             </div>
@@ -143,9 +145,9 @@ const Dashboard = () => {
               <div className="graph-section ">
                 <CustomChart height={300} />
               </div>
-              <div className="lg:w-full md:w-1/2">
+              {/* <div className="lg:w-full md:w-1/2">
                 <GucciCard />
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

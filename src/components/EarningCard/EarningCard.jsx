@@ -1,12 +1,12 @@
 import React from "react";
 import EaringChart from "../../assets/images/EarningChart.png"
-;
+  ;
 import CardChart from "../chart/CardChart";
 
-const EarningCard = () => {
+const EarningCard = ({ balance }) => {
 
 
-  
+  console.log(balance)
   return (
     <div>
       <div className=" rounded-lg flex flex-col bg-black px-5 py-3 space-y-2 cursor-pointer">
@@ -19,11 +19,11 @@ const EarningCard = () => {
           </div>
         </div>
         <div className="flex flex-row justify-between items-center">
-            <p className="text-white text-xl md:text-5xl xl:text-7xl">$0.00</p>
-            <div className="flex flex-col items-end justify-end bottom-0">
+          <p className="text-white text-xl md:text-5xl xl:text-7xl">${parseFloat(balance).toFixed(2) || '0.00'}</p>
+          <div className="flex flex-col items-end justify-end bottom-0">
             <img src={EaringChart} alt="" className="w-16  xl:w-48  md:w-48 " />
-        
-            </div>
+
+          </div>
         </div>
       </div>
     </div>

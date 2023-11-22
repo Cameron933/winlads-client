@@ -33,15 +33,16 @@ function RaffleDashbord() {
 
   const navigate = useNavigate();
   const currentUserValidation = async () => {
-    if (await validateCurrentUser()) {
+    const validator = await validateCurrentUser();
+    if (validator.validatorBl) {
       console.log("Session OK");
     } else {
       navigate("/login");
     }
   };
   useEffect(() => {
-    //currentUserValidation();
-    // getRaffles();
+    currentUserValidation();
+    getRaffles();
   }, []);
 
   const getRaffles = async () => {
