@@ -31,6 +31,9 @@ const Trasfer = () => {
       chart: {
         type: "donut",
       },
+      legend:{
+        position:'left'
+      },
       labels: [
         "Card Transactions",
         "Digital Transactions",
@@ -39,14 +42,14 @@ const Trasfer = () => {
     },
   };
 
-  const chartWidth = windowWidth > 768 ? 350 : windowWidth - 40;
+  const chartWidth = windowWidth > 768 ? 350 : windowWidth - 150;
 
   return (
     <div>
       <div className="flex relative">
         <SideNav screen="full" />
-        <div className="flex xl:flex-row flex-col xl:justify-between flex-1 px-4 xl:gap-6 py-5 space-y-4 xl:space-y-0">
-          <div className="flex flex-col space-y-4 flex-1">
+        <div className="flex xl:flex-row flex-col xl:justify-between flex-1 px-4 xl:gap-6 space-y-4 xl:space-y-0 ">
+          <div className="flex flex-col space-y-4 flex-1 py-5">
             <div className="xl:hidden">
               <TopNav />
             </div>
@@ -55,7 +58,7 @@ const Trasfer = () => {
               <p className="font bold text-2xl xl:text-4xl">$576,000.00</p>
             </div>
             <div className="flex flex-row gap-2 xl:gap-6 md:gap-6">
-              <div className="bg-[#FF6363] justify-between flex-1 items-center gap-2 md:gap-4 xl:gap-4 rounded-2xl xl:px-4 px-2 py-2 md:px-4 md:py-4 flex flex-row">
+              <div className="bg-[#FF6363] justify-between flex-1 items-center gap-2 md:gap-4 xl:gap-4 rounded-xl xl:px-4 px-2 py-2 md:px-4 md:py-4 flex flex-row">
                 <img src={Tax} alt="" className="md:h-20 md:w-20 xl:h-16 xl:w-16" />
                 <div className="flex flex-col">
                   <p className="text-sm xl:text-xl text-[#000000] md:text-2xl">
@@ -66,7 +69,7 @@ const Trasfer = () => {
                   </p>
                 </div>
               </div>
-              <div className="bg-[#79FF63] flex-1 justify-between items-center xl:gap-4 gap-2 md:gap-4 rounded-2xl xl:px-4 px-2 py-2 md:px-4 md:py-4 flex flex-row">
+              <div className="bg-[#79FF63] flex-1 justify-between items-center xl:gap-4 gap-2 md:gap-4 rounded-xl xl:px-4 px-2 py-2 md:px-4 md:py-4 flex flex-row">
                 <img src={Ticket} alt="" className="md:h-20 md:w-20 xl:h-16 xl:w-16" />
                 <div className="flex flex-col">
                   <p className="text-sm xl:text-xl text-[#000000] md:text-2xl">
@@ -111,15 +114,15 @@ const Trasfer = () => {
               <img src={MainCar} alt="" />
             </div>
           </div>
-          <div className="flex-col flex-1 space-y-4">
-            <div className="invisible xl:visible">
-              <TopNav />
+          <div className="flex-col flex-1 mt-0 relative">
+            <div className="invisible xl:visible absolute w-full mt-4">
+              <TopNav textColor={'white'}/>
             </div>
             <div className="flex flex-col bg-black h-full xl:px-16 px-8 xl:pt-12 pt-4 pb-4 md:pt-8 space-y-8">
-              <div className="flex flex-col space-y-2">
+              <div className="flex flex-col space-y-2 mt-10">
                 <p className="text-[#FFFFFF]">Bank Name</p>
                 <input
-                  className="bg-[#FFF7D9] rounded-2xl px-2 py-2 focus:outline-none placeholder:text-sm"
+                  className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm"
                   placeholder="Enter Account Number"
                   type="text"
                 ></input>
@@ -127,7 +130,7 @@ const Trasfer = () => {
               <div className="flex flex-col space-y-2">
                 <p className="text-[#FFFFFF]">Account Number</p>
                 <input
-                  className="bg-[#FFF7D9] rounded-2xl px-2 py-2 focus:outline-none placeholder:text-sm"
+                  className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm"
                   placeholder="Enter Account Number"
                   type="number"
                 ></input>
@@ -135,7 +138,7 @@ const Trasfer = () => {
               <div className="flex flex-col space-y-2">
                 <p className="text-[#FFFFFF]">Holder Name</p>
                 <input
-                  className="bg-[#FFF7D9] rounded-2xl px-2 py-2 focus:outline-none placeholder:text-sm"
+                  className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm"
                   placeholder="Enter Holder Name"
                   type="text"
                 ></input>
@@ -143,7 +146,7 @@ const Trasfer = () => {
               <div className="flex flex-col space-y-2">
                 <p className="text-[#FFFFFF]">Purpose of Payment</p>
                 <input
-                  className="bg-[#FFF7D9] rounded-2xl px-2 py-2 focus:outline-none placeholder:text-sm"
+                  className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm"
                   placeholder="Enter Purpose Payment"
                   type="text"
                 ></input>
@@ -151,7 +154,7 @@ const Trasfer = () => {
               <div className="flex flex-col space-y-2">
                 <p className="text-[#FFFFFF]">Amount</p>
                 <input
-                  className="bg-[#FFF7D9] rounded-2xl px-2 py-2 focus:outline-none placeholder:text-sm"
+                  className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm"
                   placeholder="Enter Amount"
                   type="number"
                 ></input>
@@ -171,7 +174,7 @@ const Trasfer = () => {
                 </label>
               </div>
               <div className="flex justify-center pt-4">
-                <button className="bg-[#4FC8E8] rounded-2xl px-12 py-1">
+                <button className="bg-[#4FC8E8] rounded-xl px-12 py-1">
                   Confirm
                 </button>
               </div>

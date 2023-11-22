@@ -35,15 +35,19 @@ const Transaction = () => {
       chart: {
         type: "donut",
       },
+      legend:{
+        position:'left'
+      },
       labels: [
         "Card Transactions",
         "Digital Transactions",
         "Earning Transactions",
       ],
     },
+    
   };
 
-  const chartWidth = windowWidth > 768 ? 400 : windowWidth - 70;
+  const chartWidth = windowWidth > 768 ? 400 : windowWidth - 150;
   return (
     <div>
       <div className="flex relative min-h-screen">

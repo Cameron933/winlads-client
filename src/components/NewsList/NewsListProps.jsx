@@ -4,18 +4,17 @@ import newsimage2 from "../../assets/images/news/2.png";
 import newsimage3 from "../../assets/images/news/3.png";
 import newsimage4 from "../../assets/images/news/4.png";
 import "./newsListProps.css"; // Import the external CSS file
-
+import { IoIosOptions } from "react-icons/io";
 function NewsListProps() {
   return (
     <div>
-      <form className="form-inline">
+      <form className="form-inline relative">
         <input
-          className="form-control mr-sm-2"
+          className="form-control mr-sm-2 outline-none bg-gray-300"
           type="search"
           placeholder="Search"
           aria-label="Search"
           style={{
-            background: "#FFF7D9",
             border: "none",
             marginBottom: "40px",
             width: "100%",
@@ -24,6 +23,9 @@ function NewsListProps() {
             padding: "10px",
           }}
         />
+        <button className="absolute top-3 right-5">
+          <IoIosOptions className="text-2xl"/>
+        </button>
       </form>
 
       <div className="flex flex-col space-y-4">
