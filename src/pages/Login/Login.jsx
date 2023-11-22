@@ -164,7 +164,7 @@ const Login = () => {
             <div className="login-contain flex items-center justify-center md:flex-row flex-col">
               <div className="img-container w-2/4 scale-150 mb-9 md:mb-0 prevent">
                 {/* Dekstop VIew Jeep */}
-                <div className="hidden md:block 2xl:hidden lg:hidden w-full">
+                <div className="hidden md:block w-full">
                   <motion.img
                     initial={{ opacity: 0, x: '-50%' }}
                     whileInView={{ opacity: 1, x: '-25%' }}
@@ -175,7 +175,7 @@ const Login = () => {
                     alt="main-img"
                   />
                 </div>
-                <div className="hidden 2xl:block lg:block md:hidden w-full">
+                <div className="hidden 2xl:block w-full">
                   <motion.img
                     initial={{ opacity: 0, x: '-50%' }}
                     whileInView={{ opacity: 1, x: '-25%' }}
@@ -186,7 +186,7 @@ const Login = () => {
                   />
                 </div>
                 {/* Mobile View Jeep */}
-                <div className="block md:hidden 2xl:hidden lg:hidden w-full">
+                <div className="block md:hidden w-full">
                   <motion.img
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: -10 }}
