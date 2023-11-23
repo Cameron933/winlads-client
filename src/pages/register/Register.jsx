@@ -211,7 +211,7 @@ const Register = () => {
                     alt="main-img"
                   />
                 </div>
-                <div className="hidden 2xl:block w-full">
+                {/* <div className="hidden 2xl:block w-full">
                   <motion.img
                     initial={{ opacity: 0, x: "-50%" }}
                     whileInView={{ opacity: 1, x: "-25%" }}
@@ -220,7 +220,7 @@ const Register = () => {
                     className="w-full h-full object-contain md:object-cover "
                     alt="main-img"
                   />
-                </div>
+                </div> */}
 
                 {/* Mobile View Jeep */}
                 <div className="block md:hidden w-full">
@@ -236,7 +236,7 @@ const Register = () => {
                 {/* Mobile view Jeep End */}
               </div>
               <div className="flex flex-col space-y-4 text-center mt-5">
-                <span className="text-2xl md:text-3xl lg:text-4xl fw-bold font-bold 2xl:text-8xl">
+                <span className="text-2xl md:text-3xl lg:text-4xl fw-bold font-bold 2xl:text-4xl">
                   Create an Account
                 </span>
                 <form
@@ -244,7 +244,7 @@ const Register = () => {
                   autoComplete="off"
                   className="form-contain text-center"
                 >
-                  <div className="flex items-center flex-col justify-center gap-5 w-3/4 2xl:w-1 mx-auto mt-10 2xl:mt-20">
+                  <div className="flex items-center flex-col justify-center gap-5 w-3/4 mx-auto mt-10 2xl:mt-20">
                     <div
                       className={
                         errors.name && touched.name

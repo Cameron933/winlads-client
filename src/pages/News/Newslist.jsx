@@ -17,7 +17,7 @@ function Newslist() {
         {/* home-content */}
         <div className="xl:flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-4 pb-5 space-y-4 xl:space-y-0">
           {/* left side */}
-          <div className="lex flex-col space-y-4 flex-1">
+          <div className="left-side flex flex-col space-y-4 flex-1">
             <div className="visible xl:hidden space-y-4">
               <div className="bg-black rounded-b-3xl py-4">
                 <TopNav textColor={"white"} />
@@ -27,16 +27,13 @@ function Newslist() {
               </div>
 
               <div className="flex md:flex-row flex-col space-y-2 md:space-y-0 gap-2">
-                <div className="lg:w-2/3">
+                <div className="w-full">
                   <GoldCard />
-                </div>
-                <div>
-                  <EarningCard />
                 </div>
               </div>
             </div>
             <NewsListProps />
-            <GucciCard />
+           
           </div>
 
           {/* right-side */}
@@ -48,12 +45,8 @@ function Newslist() {
                   <img className="" src={MainCar} alt="main" />
                 </div>
               </div>
-              <div className="lg:w-2/3">
+              <div className="w-full">
                 <GoldCard />
-              </div>
-
-              <div>
-                <EarningCard />
               </div>
             </div>
           </div>

@@ -3,7 +3,7 @@ import EaringChart from "../../assets/images/EarningChart.png"
   ;
 import CardChart from "../chart/CardChart";
 
-const EarningCard = ({ balance }) => {
+const EarningCard = ({ balance = 0 }) => {
 
 
   console.log(balance)

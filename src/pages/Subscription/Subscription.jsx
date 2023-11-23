@@ -7,6 +7,7 @@ import TopNav from "../../components/TopNav/TopNav";
 import SubscribeCard from "../../components/SubscribeCard/SubscribeCard";
 import { motion } from "framer-motion";
 import Loader from "../../components/Loader/Loader";
+import { IoIosOptions } from "react-icons/io";
 
 import "./subscription.css";
 import { useEffect, useState } from "react";
@@ -15,17 +16,17 @@ function Subscription() {
 
   const [isLoading, setIsLoading] = useState(true);
 
-     // set loading
-     useEffect(() => {
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 1000);
-    }, []);
+  // set loading
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+  }, []);
 
 
   return (
-   <>
-   {isLoading?(<Loader/>):(<div className="flex relative min-h-screen">
+    <>
+      {isLoading ? (<Loader />) : (<div className="flex relative min-h-screen">
         <SideNav screen="screen" />
 
         {/* home-content */}
@@ -41,17 +42,33 @@ function Subscription() {
               </div>
 
               <div className="flex md:flex-row flex-col space-y-2 md:space-y-0 gap-2">
-                <div className="lg:w-2/3">
+                <div className="w-full">
                   <GoldCard />
                 </div>
-                <div>
-                  <EarningCard />
-                </div>
+
               </div>
             </div>
-
+            <form className="form-inline relative">
+              <input
+                className="form-control mr-sm-2 outline-none bg-gray-300"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+                style={{
+                  border: "none",
+                  marginBottom: "0px",
+                  width: "100%",
+                  height: "50px",
+                  borderRadius: "10px",
+                  padding: "10px",
+                }}
+              />
+              <button className="absolute top-3 right-5">
+                <IoIosOptions className="text-2xl" />
+              </button>
+            </form>
             <SubscribeCard />
-            <GucciCard />
+            {/* <GucciCard /> */}
           </div>
 
           {/* right-side */}
@@ -70,18 +87,14 @@ function Subscription() {
                   />
                 </div>
               </div>
-              <div className="lg:w-2/3">
+              <div className="w-full">
                 <GoldCard />
-              </div>
-
-              <div>
-                <EarningCard />
               </div>
             </div>
           </div>
         </div>
       </div>)}
-   </>
+    </>
   );
 }
 

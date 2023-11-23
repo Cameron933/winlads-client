@@ -11,10 +11,11 @@ import OutsideClickHandler from "react-outside-click-handler";
 import { Link } from "react-router-dom";
 import Modal from "react-modal";
 import Auth from "../../assets/images/dashboard-icon/1.png";
-import Transaction from "../../assets/images/dashboard-icon/2.png";
-import News from "../../assets/images/dashboard-icon/3.png";
-import Sub from "../../assets/images/dashboard-icon/4.png";
-import Business from "../../assets/images/dashboard-icon/5.png";
+import Transaction from "../../assets/images/side-bar/Transactions.png";
+import News from "../../assets/images/side-bar/News.png";
+import Sub from "../../assets/images/side-bar/PayWall.png";
+import Messages from "../../assets/images/side-bar/Messages.png";
+import Business from "../../assets/images/side-bar/Credit.png";
 
 const SideNav = ({ screen }) => {
   const [expanded, setExpanded] = useState(false);
@@ -30,7 +31,7 @@ const SideNav = ({ screen }) => {
   return (
     <OutsideClickHandler onOutsideClick={notExpandSidebar}>
       <div
-        className={ `pt-20  min-h-${screen} h-full pr-2 rounded-r-xl space-y-4 bg-black ${
+        className={ `pt-20  min-h-${screen} h-full pr-2 rounded-r-xl space-y-4 bg-cyan-200 ${
           expanded ? "" : "side-nav-half"
         } w-12 xl:w-full    `}
       >
@@ -38,9 +39,13 @@ const SideNav = ({ screen }) => {
           onClick={expandSidebar}
           className="flex flex-row items-center mb-10"
         >
-          <Link to="/profile">
+          <Link to="/profile" className="flex items-center overflow-hidden relative w-full">
             <div>
               <img src={User} alt="user" />
+            </div>
+            <div className="mobile-hide side-nav-name">
+              <h6>Windy Sahel</h6>
+              <p>@windy_sahel</p>
             </div>
           </Link>
 
@@ -53,12 +58,12 @@ const SideNav = ({ screen }) => {
         </div>
 
         <div className="flex flex-col space-y-4">
-          <div onClick={expandSidebar}>
+          <div onClick={expandSidebar} >
             <Link to="/transaction">
               <button className="side-nav-contain">
                 <img src={Transaction} alt="protect" />
                 <span className="mobile-hide">
-                  <p className="link-no-underlin font-bold invisible xl:visible text-white">
+                  <p className="link-no-underlin  invisible xl:visible ">
                     Transaction
                   </p>
                 </span>
@@ -71,8 +76,21 @@ const SideNav = ({ screen }) => {
               <button className="side-nav-contain">
                 <img src={News} alt="protect" />
                 <span className="mobile-hide">
-                  <p className="link-no-underlin font-bold invisible xl:visible text-white">
+                  <p className="link-no-underlin invisible xl:visible ">
                     News
+                  </p>
+                </span>
+              </button>
+            </Link>
+          </div>
+
+          <div onClick={expandSidebar}>
+            <Link to="/messages">
+              <button className="side-nav-contain">
+                <img src={Messages} alt="protect" />
+                <span className="mobile-hide">
+                  <p className="link-no-underlin invisible xl:visible ">
+                    Messages
                   </p>
                 </span>
               </button>
@@ -85,7 +103,7 @@ const SideNav = ({ screen }) => {
                 <img src={Sub} alt="protect" />
 
                 <span className="mobile-hide">
-                  <p className="link-no-underlin font-bold invisible xl:visible text-white">
+                  <p className="link-no-underlin  invisible xl:visible ">
                     Subscription
                   </p>
                 </span>
@@ -98,7 +116,7 @@ const SideNav = ({ screen }) => {
               <button  className="side-nav-contain">
                 <img src={Business} alt="protect" />
                 <span className="mobile-hide">
-                  <p className="link-no-underlin font-bold invisible xl:visible text-white">
+                  <p className="link-no-underlin  invisible xl:visible ">
                     Business card
                   </p>
                 </span>

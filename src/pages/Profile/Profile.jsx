@@ -8,9 +8,9 @@ import EarningCard from "../../components/EarningCard/EarningCard";
 import backgroundcar from "../../assets/images/background/Background-car.png";
 import axios from "axios";
 import Cookies from "universal-cookie";
-
+import { MdOutlinePhotoCamera } from "react-icons/md";
 import { toast } from "react-toastify";
-import {  HashLoader } from 'react-spinners';
+import { HashLoader } from 'react-spinners';
 
 
 const Profile = () => {
@@ -126,19 +126,29 @@ const Profile = () => {
               </div>
             </div>
 
-            <div className="lg:w-2/3">
+            <div className="w-full">
               <GoldCard />
-            </div>
-
-            <div>
-              <EarningCard />
             </div>
           </div>
           <div className="flex flex-col space-y-4 flex-1 xl:mx-12">
             <div className="flex flex-col space-y-3">
-              <div className="flex justify-center">
-                <img src={User} alt="" />
+              <form className="mx-auto relative">
+                <img src={User} alt="profile-pic" />
+                <label htmlFor="profile" className="z-10 absolute bottom-0 right-0 text-2xl bg-gray-200 rounded-full p-1 cursor-pointer">
+                  <MdOutlinePhotoCamera/>
+                </label>
+                <input type="file" className="hidden" name="profile" id="profile" />
+                
+              </form>
+              <div className="flex items-center justify-center gap-2">
+                <div className="bg-green-300 border border-0.5 border-black p-0.5 w-fit">
+                  <p className="w-fit" style={{fontSize:'8px'}}>Level 1</p>
+                </div>
+                <p className="">Verified User</p>
               </div>
+
+
+
 
               {
                 loading ? <div className="moonloader-center"><HashLoader
@@ -150,9 +160,9 @@ const Profile = () => {
                   data-testid="loader"
                 /> </div> : <div className="flex flex-col space-y-2">
                   <div className="flex flex-col space-y-2">
-                    <p className="text-black text-sm xl:text-md">My Refferal ID</p>
+                    <p className="text-black text-sm xl:text-md">User ID</p>
                     <input
-                      className="bg-[#FFECA8] rounded-2xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm"
+                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm"
                       placeholder="Enter User Name"
                       type="text"
                       value={userData?.uid}
@@ -163,7 +173,7 @@ const Profile = () => {
                     <p className="text-black text-sm xl:text-md">First Name</p>
                     <input
 
-                      className="bg-[#FFECA8] rounded-2xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm"
+                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm"
                       placeholder="Enter First Name"
                       type="text"
                       onChange={(e) => setName(e.target.value)}
@@ -173,7 +183,7 @@ const Profile = () => {
                   <div className="flex flex-col space-y-2">
                     <p className="text-black text-sm xl:text-md">Last Name</p>
                     <input
-                      className="bg-[#FFECA8] rounded-2xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm"
+                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm"
                       placeholder="Enter Last Name"
                       type="text"
                       onChange={(e) => setName(e.target.value)}
@@ -183,9 +193,9 @@ const Profile = () => {
                   <div className="flex flex-col space-y-2">
                     <p className="text-black text-sm xl:text-md">Valid Email</p>
                     <input
-                      className="bg-[#FFECA8] rounded-2xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm"
+                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm"
                       placeholder="Enter Valid EMail"
-                      type="text"
+                      type="email"
                       onChange={(e) => setEmail(e.target.value)}
                       value={email}
                     ></input>
@@ -193,9 +203,9 @@ const Profile = () => {
                   <div className="flex flex-col space-y-2">
                     <p className="text-black text-sm xl:text-md">Phone Number</p>
                     <input
-                      className="bg-[#FFECA8] rounded-2xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm"
+                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm"
                       placeholder="Enter Phone Number"
-                      type="number"
+                      type="tel"
                       onChange={(e) => setMobile(e.target.value)}
                       value={mobile}
                     ></input>
@@ -205,7 +215,7 @@ const Profile = () => {
                       Passport Number
                     </p>
                     <input
-                      className="bg-[#FFECA8] rounded-2xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm"
+                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm"
                       placeholder="Enter Passport Number"
                       type="text"
                       onChange={(e) => setPassport(e.target.value)}
@@ -215,9 +225,9 @@ const Profile = () => {
                   <div className="flex flex-col space-y-2">
                     <p className="text-black text-sm xl:text-md">Date of Birth</p>
                     <input
-                      className="bg-[#FFECA8] rounded-2xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm"
+                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm"
                       placeholder="Enter Date of Birth"
-                      type="text"
+                      type="date"
                       value={dob}
                       onChange={(e) => setDob(e.target.value)}
                     ></input>
@@ -227,7 +237,7 @@ const Profile = () => {
                       Postal Address
                     </p>
                     <input
-                      className="bg-[#FFECA8] rounded-2xl px-2 py-2 focus:outline-none placeholder:text-sm"
+                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm"
                       placeholder="Enter Postal Address"
                       type="text"
                       value={address}
@@ -237,22 +247,22 @@ const Profile = () => {
                   <div className="flex flex-col space-y-2">
                     <p className="text-black text-sm xl:text-md">Tin</p>
                     <input
-                      className="bg-[#FFECA8] rounded-2xl px-2 py-2 focus:outline-none placeholder:text-sm"
+                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm"
                       placeholder="Enter Tin"
                       type="text"
                       value={tin}
                       onChange={(e) => setAddress(e.target.value)}
                     ></input>
                   </div>
-                  {/* <div className="flex flex-col space-y-2">
-                  <p className="text-black text-sm xl:text-md">Reference Id</p>
-                  <input
-                    className="bg-[#FFECA8] rounded-2xl px-2 py-2 focus:outline-none placeholder:text-sm"
-                    placeholder="Enter Reference Id"
-                    type="text"
-                    value={userData?.rafflesId}
-                  ></input>
-                </div> */}
+                  <div className="flex flex-col space-y-2">
+                    <p className="text-black text-sm xl:text-md">Reference Id</p>
+                    <input
+                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm"
+                      placeholder="Enter Reference Id"
+                      type="text"
+                      value={userData?.rafflesId}
+                    ></input>
+                  </div>
                   <div className="flex flex-row justify-between items-center pt-4">
                     {/* <div className="flex items-center xl:gap-6 gap-3">
                     <input
@@ -271,11 +281,14 @@ const Profile = () => {
                       </p>
                     </label>
                   </div> */}
-                    <div className="flex justify-center">
-                      <button onClick={() => updateUserDatails()} className="bg-[#4FC8E8] rounded-2xl px-12 py-1 font-semibold">
+
+
+                      <p> <input type="checkbox" name="agree" /> I agree with the terms of use</p>
+
+                      <button onClick={() => updateUserDatails()} className="bg-black text-white rounded-xl px-12 py-3 font-semibold">
                         Confirm
                       </button>
-                    </div>
+              
                   </div>
                 </div>
 
@@ -285,7 +298,7 @@ const Profile = () => {
 
             </div>
           </div>
-          <div className="flex flex-col space-y-4 flex-1 invisible xl:visible">
+          <div className="xl:flex flex-col space-y-4 flex-1 hidden">
             <div className="bg-black rounded-b-3xl py-4">
               <TopNav textColor={"white"} />
               <div className="pt-10">
@@ -293,12 +306,8 @@ const Profile = () => {
               </div>
             </div>
 
-            <div className="lg:w-2/3">
+            <div className="w-full">
               <GoldCard />
-            </div>
-
-            <div>
-              <EarningCard />
             </div>
           </div>
         </div>

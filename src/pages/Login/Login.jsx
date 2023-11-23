@@ -175,7 +175,7 @@ const Login = () => {
                     alt="main-img"
                   />
                 </div>
-                <div className="hidden 2xl:block w-full">
+                {/* <div className="hidden 2xl:block w-full">
                   <motion.img
                     initial={{ opacity: 0, x: '-50%' }}
                     whileInView={{ opacity: 1, x: '-25%' }}
@@ -184,7 +184,7 @@ const Login = () => {
                     className="w-full h-full object-contain md:object-cover "
                     alt="main-img"
                   />
-                </div>
+                </div> */}
                 {/* Mobile View Jeep */}
                 <div className="block md:hidden w-full">
                   <motion.img

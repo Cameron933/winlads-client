@@ -15,7 +15,9 @@
 
 .side-nav-half{
   width: 100px;
-
+  .side-nav-name{
+    display: none;
+  }
   .side-nav-contain, 
   .side-nav-profile{
       justify-content: center;
@@ -50,7 +52,7 @@
 }
 
 .side-nav-contain:hover{
-  background-color: #292929;
+  background-color: rgb(154, 228, 255);
 }
 
 
