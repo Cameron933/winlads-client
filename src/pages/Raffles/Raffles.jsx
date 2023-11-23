@@ -33,6 +33,15 @@ import { carAnimation } from "../../animation/animation";
 import HiddenCar from "../../assets/images/hiddenCar.png";
 import RaffleViewer from "../../components/RaffleComponent/RaffleViewer";
 import { IoCloseSharp } from "react-icons/io5";
+import { RxCounterClockwiseClock } from "react-icons/rx";
+import bgCar from '../../assets/images/hiddenCar.png';
+
+export const bgStyle = {
+  backgroundImage: `url(${bgCar})`,
+  backgroundPosition: 'center',
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: 'contain' 
+}
 
 function Raffles() {
   const [value, onChange] = useState(new Date());
@@ -42,6 +51,7 @@ function Raffles() {
   const [isLoading, setIsLoading] = useState(true);
 
   const params = useParams();
+
 
   useEffect(() => {
     getRafflesRounds();
@@ -78,6 +88,7 @@ function Raffles() {
 
           {/* home-content */}
           <div className="flex-1 mx-5 w-full  max-w-[2048px] 3xl:mx-auto">
+          <div className="side-bg" style={{ height: "500px" }}></div>
             <div className="flex flex-col lg:flex-row-reverse   gap-5">
               {/* right side */}
               <div className="flex flex-col flex-1 ">
@@ -128,7 +139,7 @@ function Raffles() {
                     Your golden card is about to expire in 30 days. Renew now!
                   </span>
                 </div>
-                <div className="side-bg" style={{ height: "500px" }}></div>
+         
 
                 {/* Search Bar */}
                 <div className="rounded-xl flex flex-row justify-between px-4 py-2  items-center bg-gray-300 lg:mt-1">
@@ -139,15 +150,17 @@ function Raffles() {
                   />
                   <img src={Frame} alt="" width={30} />
                 </div>
-
+                <Link to='/history' className="text-3xl ml-auto">
+                  <RxCounterClockwiseClock/>
+                </Link>
                 {/* Calender */}
-                <div className="flex flex-col gap-4  lg:flex-row lg:items-end lg:mt-1">
+                <div className="flex flex-col gap-4  lg:flex-row lg:items-end lg:mt-1" style={bgStyle}>
                   <Calendar
                     value={value}
                     onChange={onChange}
-                    className="flex-1"
+                    className="flex-1 bg-transparent"
                   />
-
+                 
                   <div className="flex-1">
                     <Link to="/live-raffle">
                       <div
