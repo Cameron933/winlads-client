@@ -146,6 +146,15 @@ const Profile = () => {
                 </div>
                 <p className="">Verified User</p>
               </div>
+              <div className="flex items-center justify-center gap-2">
+              <div className="bg-green-300 border border-1 border-black p-0.5 w-fit">
+              <p className="text-xs w-fit">Level 1</p>
+              </div>
+              <p className="">Verified User</p>
+              </div>
+              
+              
+              
 
 
 
