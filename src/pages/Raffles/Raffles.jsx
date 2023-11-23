@@ -32,6 +32,7 @@ import Loader from "../../components/Loader/Loader";
 import { carAnimation } from "../../animation/animation";
 import HiddenCar from "../../assets/images/hiddenCar.png";
 import RaffleViewer from "../../components/RaffleComponent/RaffleViewer";
+import { IoCloseSharp } from "react-icons/io5";
 
 function Raffles() {
   const [value, onChange] = useState(new Date());
