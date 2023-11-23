@@ -31,6 +31,7 @@ import { motion } from "framer-motion";
 import Loader from "../../components/Loader/Loader";
 import { carAnimation } from "../../animation/animation";
 import HiddenCar from "../../assets/images/hiddenCar.png";
+import RaffleViewer from "../../components/RaffleComponent/RaffleViewer";
 
 function Raffles() {
   const [value, onChange] = useState(new Date());
@@ -71,235 +72,148 @@ function Raffles() {
       {isLoading ? (
         <Loader />
       ) : (
-        <div className="flex relative max-w-[2048px] mx-auto">
+        <div className="flex relative mx-auto justify-between">
           <SideNav screen="full" />
 
           {/* home-content */}
-          <div className="flex flex-col lg:flex-row  flex-1 mx-5 gap-5">
-            {/* left side */}
-            <div className="flex flex-col flex-1 ">
-              <div className="visible lg:hidden space-y-4">
-                <div className="bg-black rounded-b-3xl py-4">
-                  <TopNav textColor={"white"} />
-                  <div className="pt-10">
-                    <motion.img
-                      initial={carAnimation.initialMobile}
-                      animate={carAnimation.animate}
-                      transition={carAnimation.transition}
-                      className="w-4/5"
-                      src={MainCar}
-                      alt="main"
-                    />
-                  </div>
-                </div>
-
-                <div className="lg:w-2/3 md:w-1/2">
-                  <GoldCard />
-                </div>
-
-                <EarningCard />
-              </div>
-              <div className="hidden lg:flex flex-col space-y-4">
-                <div className="bg-black rounded-b-3xl space-y-4">
-                  <div className="flex flex-row items-center bg-[#333333] gap-4 mx-5 rounded-full px-4 mt-5">
-                    <img src={Spicker} alt="" className="w-8 h-8" />
-                    <span className="text-sm text-white">
-                      Your golden card is about to expire in 30 days. Renew now!
-                    </span>
-                  </div>
-                  <div className="flex flex-row items-center bottom-0  relative h-[500px]">
-                    <img
-                      src={HiddenCar}
-                      alt="hidden-car"
-                      className="w-84 h-48"
-                    />
-
-                    <motion.img
-                      initial={carAnimation.initial}
-                      animate={carAnimation.animate}
-                      transition={carAnimation.transition}
-                      src={MainCar}
-                      alt="main"
-                      className="absolute right-5"
-                    />
-                  </div>
-                </div>
-                <div className="lg:w-2/3 md:w-1/2">
-                  <GoldCard />
-                </div>
-                <div className="hidden lg:block">
-                  <EarningCard />
-                </div>
-              </div>
-            </div>
-
-            {/* right-side */}
-            <div className="flex flex-col flex-1 gap-5">
-              <div className="invisible lg:visible pt-5">
-                <TopNav />
-              </div>
-              <div className="side-bg " style={{ height: "500px" }}></div>
-              
-              <div className="rounded-3xl flex flex-row justify-between px-4 py-2  items-center bg-[#FFECA8] lg:mt-5">
-                <input
-                  className="bg-[#FFECA8] placeholder:text-gray-800 w-full py-3 border-none outline-none shadow-none "
-                  type="text"
-                  placeholder="Search"
-                />
-                <img src={Frame} alt="" width={30} />
-              </div>
-             
-              <div className="flex flex-col gap-4  lg:flex-row lg:items-end lg:mt-10">
-                <Calendar
-                  value={value}
-                  onChange={onChange}
-                  className="flex-1"
-                />
-
-                <div className="flex-1">
-                  <Link to="/live-raffle">
-                    <div
-                      className="flex flex-col rounded-3xl px-2 py-1 space-y-2 flex-1 hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1"
-                      style={{
-                        background:
-                          "linear-gradient(98.92deg, #E9BA0D 45%, #000000 83%)",
-                      }}
-                    >
-                      <img src={Jeep} alt="" className="absolute flex w-48" />
-                      <div className="justify-end flex">
-                        <div className="flex-col flex">
-                          <img src={six} alt="" className="w-16" />
-
-                          <div className="flex-row flex justify-end gap-1">
-                            <p className="text-white text-xs uppercase">live</p>
-                            <img
-                              src={RedDot}
-                              alt=""
-                              className="w-1.5 h-1 flex flex-col justify-start items-start"
-                            />
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="flex text-end flex-col z-10">
-                        <p className="text-white font-bold xl:text-sm text-xs">
-                          1991 Land Rover
-                          <br /> Defender 110
-                        </p>
-                        <p className="text-xs text-white">
-                          2023-SEP-19 TUESDAY
-                        </p>
-                      </div>
-                      <div className="grid grid-cols-3 px-5 items-center">
-                        <div className="col-span-2 flex justify-end gap-2 z-10">
-                          <p className="text-[#4FC8E8] font-bold">R</p>
-                          <p className="text-white font-bold">14</p>
-                          <p className="text-white font-bold">34</p>
-                          <p className="text-white font-bold">38</p>
-                          <p className="text-white font-bold">76</p>
-                        </div>
-                        <div className="col-span-1 justify-end flex">
-                          <GoQuestion />
-                        </div>
-                      </div>
+          <div className="flex-1 mx-5 w-full  max-w-[2048px] 3xl:mx-auto">
+            <div className="flex flex-col lg:flex-row-reverse   gap-5">
+              {/* right side */}
+              <div className="flex flex-col flex-1 ">
+                <div className="visible lg:hidden space-y-4">
+                  <div className="bg-black rounded-b-3xl py-4">
+                    <TopNav textColor={"white"} />
+                    <div className="pt-10">
+                      <motion.img
+                        initial={carAnimation.initialMobile}
+                        animate={carAnimation.animate}
+                        transition={carAnimation.transition}
+                        className="w-4/5"
+                        src={MainCar}
+                        alt="main"
+                      />
                     </div>
-                  </Link>
+                  </div>
+                </div>
+                <div className="hidden lg:flex flex-col space-y-4">
+                  <div className="bg-black rounded-b-3xl space-y-4 pt-6">
+                    <TopNav textColor={'white'} />
+                    <div className="flex flex-row items-center bottom-0  relative h-[500px]">
+
+                      <img
+                        src={HiddenCar}
+                        alt="hidden-car"
+                        className="w-84 h-48"
+                      />
+
+                      <motion.img
+                        initial={carAnimation.initial}
+                        animate={carAnimation.animate}
+                        transition={carAnimation.transition}
+                        src={MainCar}
+                        alt="main"
+                        className="absolute right-5"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              
-                <div className="flex flex-col gap-4  lg:flex-row  lg:justify-center lg:mt-5">
-                  {raffleRounds.map((round) => (
-                    <>
+              {/* left-side */}
+              <div className="flex flex-col flex-1 gap-5 relative mb-5">
+                <div className=" flex flex-row items-center bg-[#333333] gap-4 rounded-full px-4 mt-5">
+                  <img src={Spicker} alt="" className="w-8 h-8" />
+                  <span className="text-sm text-white">
+                    Your golden card is about to expire in 30 days. Renew now!
+                  </span>
+                </div>
+                <div className="side-bg" style={{ height: "500px" }}></div>
+
+                {/* Search Bar */}
+                <div className="rounded-xl flex flex-row justify-between px-4 py-2  items-center bg-gray-300 lg:mt-1">
+                  <input
+                    className="bg-inherit placeholder:text-gray-800 w-full py-3 border-none outline-none shadow-none "
+                    type="text"
+                    placeholder="Search"
+                  />
+                  <img src={Frame} alt="" width={30} />
+                </div>
+
+                {/* Calender */}
+                <div className="flex flex-col gap-4  lg:flex-row lg:items-end lg:mt-1">
+                  <Calendar
+                    value={value}
+                    onChange={onChange}
+                    className="flex-1"
+                  />
+
+                  <div className="flex-1">
+                    <Link to="/live-raffle">
                       <div
-                        className="flex cursor-pointer flex-col rounded-3xl px-2 py-3 space-y-2 hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 "
+                        className="flex flex-col rounded-3xl px-2 py-1 space-y-2 flex-1 hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1"
                         style={{
                           background:
-                            "linear-gradient(98.92deg, #1A8BC0 45%, #000000 83%)",
+                            "linear-gradient(98.92deg, #E9BA0D 45%, #000000 83%)",
                         }}
-                        onClick={() => setShowPopup(true)}
                       >
                         <img src={Jeep} alt="" className="absolute flex w-48" />
-                        <div className="flex justify-end">
-                          <img src={max} alt="" className="w-16" />
+                        <div className="justify-end flex">
+                          <div className="flex-col flex">
+                            <img src={six} alt="" className="w-16" />
+
+                            <div className="flex-row flex justify-end gap-1">
+                              <p className="text-white text-xs uppercase">live</p>
+                              <img
+                                src={RedDot}
+                                alt=""
+                                className="w-1.5 h-1 flex flex-col justify-start items-start"
+                              />
+                            </div>
+                          </div>
                         </div>
+
                         <div className="flex text-end flex-col z-10">
                           <p className="text-white font-bold xl:text-sm text-xs">
-                            {round.name}
+                            1991 Land Rover
+                            <br /> Defender 110
                           </p>
-                          <p className="text-xs text-white">{round.date}</p>
+                          <p className="text-xs text-white">
+                            2023-SEP-19 TUESDAY
+                          </p>
                         </div>
                         <div className="grid grid-cols-3 px-5 items-center">
                           <div className="col-span-2 flex justify-end gap-2 z-10">
-                            {/* <p className="text-[#4FC8E8] font-bold">R</p>
-                          <p className="text-white font-bold">14</p>
-                          <p className="text-white font-bold">34</p>
-                          <p className="text-white font-bold">38</p>
-                          <p className="text-white font-bold">76</p> */}
-                            <p className="text-white">{round.desc}</p>
+                            <p className="text-[#4FC8E8] font-bold">R</p>
+                            <p className="text-white font-bold">14</p>
+                            <p className="text-white font-bold">34</p>
+                            <p className="text-white font-bold">38</p>
+                            <p className="text-white font-bold">76</p>
                           </div>
-
                           <div className="col-span-1 justify-end flex">
                             <GoQuestion />
                           </div>
                         </div>
                       </div>
-                      <br />
-                    </>
-                  ))}
+                    </Link>
+                  </div>
                 </div>
+              </div>
 
-                
-                <div className="flex flex-col gap-4  lg:flex-row  lg:justify-center lg:mt-5">
-                  {raffleRounds.map((round) => (
-                    <>
-                      <div
-                        className="flex cursor-pointer flex-col rounded-3xl px-2 py-3 space-y-2 hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 "
-                        style={{
-                          background:
-                            "linear-gradient(98.92deg, #1A8BC0 45%, #000000 83%)",
-                        }}
-                        onClick={() => setShowPopup(true)}
-                      >
-                        <img src={Jeep} alt="" className="absolute flex w-48" />
-                        <div className="flex justify-end">
-                          <img src={max} alt="" className="w-16" />
-                        </div>
-                        <div className="flex text-end flex-col z-10">
-                          <p className="text-white font-bold xl:text-sm text-xs">
-                            {round.name}
-                          </p>
-                          <p className="text-xs text-white">{round.date}</p>
-                        </div>
-                        <div className="grid grid-cols-3 px-5 items-center">
-                          <div className="col-span-2 flex justify-end gap-2 z-10">
-                            {/* <p className="text-[#4FC8E8] font-bold">R</p>
-                          <p className="text-white font-bold">14</p>
-                          <p className="text-white font-bold">34</p>
-                          <p className="text-white font-bold">38</p>
-                          <p className="text-white font-bold">76</p> */}
-                            <p className="text-white">{round.desc}</p>
-                          </div>
+              {showPopup && <PopUpLotto onClose={() => setShowPopup(false)} />}
 
-                          <div className="col-span-1 justify-end flex">
-                            <GoQuestion />
-                          </div>
-                        </div>
-                      </div>
-                      <br />
-                    </>
-                  ))}
-                </div>
-                
-              
-              
+              {showLessPopup && (
+                <PopUpLess onClose={() => setShowLessPopup(false)} />
+              )}
             </div>
 
-            {showPopup && <PopUpLotto onClose={() => setShowPopup(false)} />}
-
-            {showLessPopup && (
-              <PopUpLess onClose={() => setShowLessPopup(false)} />
-            )}
+            {/* SMALL JEEPS CONTAINER */}
+            
+             {/* Raffle View Tabpane */}
+             {
+              raffleRounds && <RaffleViewer raffleRounds={raffleRounds} setShowPopup={setShowPopup}/>
+             }
+            
+            
           </div>
         </div>
       )}
