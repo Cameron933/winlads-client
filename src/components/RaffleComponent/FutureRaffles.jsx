@@ -3,7 +3,7 @@ import Jeep from "../../assets/images/Lottery/Jeep.png";
 import max from "../../assets/images/rafflesImages/max.png";
 import { GoQuestion } from 'react-icons/go';
 
-const FutureRaffles = () => {
+const FutureRaffles = ({setShowPopup}) => {
      // Common raffleid for all arrays
      const commonRaffleId = "6543e08c2076f209adae93a2";
         // Array 3
