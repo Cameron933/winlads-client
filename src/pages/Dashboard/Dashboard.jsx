@@ -60,7 +60,7 @@ const Dashboard = () => {
       console.log("Session OK", validator.user.balance);
       setValUser(validator.user);
     } else {
-      //navigate("/login");
+      navigate("/login");
     }
   };
   useEffect(() => {
