@@ -30,72 +30,71 @@ function NewsListProps() {
 
       <div className="flex flex-col space-y-4">
         <Link to="/news">
-          <div className="flex flex-row gap-2 xl:mb-5">
+          <div className="flex flex-row gap-8 xl:mb-5 items-center">
             <img
               src={newsimage1}
               alt=""
-              className="w-16 h-16 xl:w-20 xl:h-20"
+              className="w-16 h-16 xl:w-16 xl:h-16 rounded-full"
             />
-            <div className="flex flex-col">
-              <p className="text-md font-bold xl:text-2xl md:text-xl">
+            <div className="flex flex-col overflow-x-hidden">
+              <p className="text-md xl:text-3xl md:text-xl">
                 winlads
               </p>
 
               <p className="text-sm xl:text-xl">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit...Lorem ipsum dolor sit amet, consectetur adipiscing elit...
               </p>
-              <p className="text-xs">0m ago</p>
+              <p className="text-xs text-right mt-3">0m ago</p>
             </div>
           </div>
         </Link>
-        {/* 
+       
         <Link to="/news">
-          <div className="flex flex-row gap-2 xl:mb-5">
+          <div className="flex flex-row gap-8 xl:mb-5 items-center">
             <img
               src={newsimage2}
               alt=""
-              className="w-16 h-16 xl:w-20 xl:h-20"
+              className="w-16 h-16 xl:w-16 xl:h-16 rounded-full"
             />
             <div className="flex flex-col">
-              <p className="text-md font-bold xl:text-2xl md:text-xl">winlads</p>
+              <p className="text-md xl:text-3xl md:text-xl">winlads</p>
 
               <p className="text-sm xl:text-xl">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit...Lorem ipsum dolor sit amet, consectetur adipiscing elit...
               </p>
-              <p className="text-xs">0m ago</p>
+              <p className="text-xs text-right mt-3">0m ago</p>
             </div>
           </div>
         </Link>
-
         <Link to="/news">
-          <div className="flex flex-row gap-2 xl:mb-5">
+          <div className="flex flex-row gap-8 xl:mb-5 items-center">
             <img
               src={newsimage3}
               alt=""
-              className="w-16 h-16 xl:w-20 xl:h-20"
+              className="w-16 h-16 xl:w-16 xl:h-16 rounded-full"
             />
             <div className="flex flex-col">
-              <h3 className="text-md font-bold xl:text-2xl md:text-xl">winlads</h3>
+              <h3 className="text-md xl:text-3xl md:text-xl">winlads</h3>
               <p className="text-sm xl:text-xl">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit...Lorem ipsum dolor sit amet, consectetur adipiscing elit...
               </p>
-              <p className="text-xs">0m ago</p>
+              <p className="text-xs text-right mt-3">0m ago</p>
             </div>
           </div>
         </Link>
 
         <Link to="/news">
-          <div className="flex flex-row gap-2 xl:mb-5">
-            <img src={newsimage4} alt="" className="w-16 h-16 xl:w-20 xl:h-20" />
+          <div className="flex flex-row gap-8 xl:mb-5 items-center">
+            <img src={newsimage4} alt="" className="w-16 h-16 xl:w-16 xl:h-16 rounded-full" />
             <div className="flex flex-col">
-              <h3 className="text-md font-bold xl:text-2xl md:text-xl">winlads</h3>
+              <h3 className="text-md xl:text-3xl md:text-xl">winlads</h3>
               <p className="text-sm xl:text-xl">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit...Lorem ipsum dolor sit amet, consectetur adipiscing elit...
               </p>
-              <p className="text-xs">0m ago</p>
+              <p className="text-xs text-right mt-3">0m ago</p>
             </div>
           </div>
-        </Link> */}
+        </Link>
       </div>
     </div>
   );

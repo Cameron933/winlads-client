@@ -7,6 +7,7 @@ import wallet from "../../assets/images/rafflesImages/wallet.png";
 import savelotto from "../../assets/images/rafflesImages/savelotto.png";
 import bitcoin from "../../assets/images/rafflesImages/bitcoin.png";
 import { ImCancelCircle } from "react-icons/im";
+import { IoCloseSharp } from "react-icons/io5";
 
 const PaymentModal = ({ handleClose, show }) => {
   return (
@@ -89,6 +90,7 @@ function SubscribeCard() {
         </div>
 
         <div className="bg-gradient-to-br from-gray-200 to-white border border-1 border-gray-500 justify-center items-center py-2 px-4 rounded-3xl flex flex-col ">
+          
           <div className="flex justify-center mb-2">
             <div className="border border-1 w-26 text-center border-black rounded-xl px-4 py-1">
               <p className="text-black">Bronze</p>
@@ -215,7 +217,8 @@ function PopUpSubscribeBlue({ onClose }) {
       className="subCard fixed top-0 left-0 w-full h-full flex justify-start items-center bg-opacity-50 backdrop-blur-sm z-10"
       onClick={handleBackdropClick}
     >
-      <div className=" popup-content bg-black text-white items-center py-6 xl:px-12 rounded-3xl flex flex-col xl:ml-68 ml-60 xl:mt-32 mt-60 md:ml-72 md:mt-60">
+      <div className=" popup-content bg-black text-white items-center py-6 xl:px-12 rounded-xl flex flex-col xl:ml-68 ml-60 xl:mt-32 mt-60 md:ml-72 md:mt-60">
+      <button className="absolute top-1 right-1 text-3xl text-inherit" onClick={onClose}><IoCloseSharp/></button>
         <div className="border-2 w-26 text-center border-black rounded-xl px-4 py-1 mb-2">
           <p>Standard</p>
         </div>
@@ -272,7 +275,8 @@ function PopUpSubscribeRed({ onClose }) {
       className="subCard2 fixed top-0 left-0 w-full h-full flex justify-start items-center  bg-opacity-50  backdrop-blur-sm z-10"
       onClick={handleBackdropClick2}
     >
-      <div className=" popup-content bg-gradient-to-br  from-gray-400 to-white   items-center py-6  xl:px-12 rounded-3xl flex flex-col xl:ml-68  ml-60 xl:mt-32 mt-60 md:ml-72 md:mt-60">
+      <div className=" popup-content bg-gradient-to-br  from-gray-400 to-white   items-center py-6  xl:px-12 rounded-xl flex flex-col xl:ml-68  ml-60 xl:mt-32 mt-60 md:ml-72 md:mt-60 relative">
+      <button className="absolute top-1 right-1 text-3xl text-inherit" onClick={onClose}><IoCloseSharp/></button>
         <div className="border-2 w-26 text-center border-black rounded-xl px-4 py-1 mb-2">
           <p className="text-black">Bronze</p>
         </div>
@@ -330,7 +334,8 @@ function PopUpSubscribeGreen({ onClose }) {
       className="subCard3 fixed top-0 left-0 w-full h-full flex justify-start items-center  bg-opacity-50  backdrop-blur-sm z-10"
       onClick={handleBackdropClick3}
     >
-      <div className=" popup-content bg-gradient-to-br from-[#FFDF37] to-[#9D7C00]  items-center py-6  xl:px-12 rounded-3xl flex flex-col xl:ml-68  xl:mt-32 ml-52 md:ml-72 md:mt-60 mt-60">
+      <div className=" popup-content bg-gradient-to-br from-[#FFDF37] to-[#9D7C00]  items-center py-6  xl:px-12 rounded-xl flex flex-col xl:ml-68  xl:mt-32 ml-52 md:ml-72 md:mt-60 mt-60">
+      <button className="absolute top-1 right-1 text-3xl text-inherit" onClick={onClose}><IoCloseSharp/></button>
         <div className="border-2 w-26 text-center border-black rounded-xl px-4 py-1 mb-2">
           <p className="text-black">Silver</p>
         </div>
@@ -386,7 +391,8 @@ function PopUpSubscribeYellow({ onClose }) {
       className="subCard4 fixed top-0 left-0 w-full h-full flex justify-start items-center  bg-opacity-50 backdrop-blur-sm z-10"
       onClick={handleBackdropClick3}
     >
-      <div className=" popup-content bg-black text-white items-center py-6 xl:px-12 rounded-3xl flex flex-col xl:ml-68  xl:mt-32 ml-52 md:ml-72 md:mt-60 mt-60 ">
+      <div className=" popup-content bg-black text-white items-center py-6 xl:px-12 rounded-xl flex flex-col xl:ml-68  xl:mt-32 ml-52 md:ml-72 md:mt-60 mt-60 ">
+      <button className="absolute top-1 right-1 text-3xl text-inherit" onClick={onClose}><IoCloseSharp/></button>
         <div className="border-2 w-26 text-center border-black rounded-xl px-4 py-1 mb-2">
           <p >Gold</p>
         </div>

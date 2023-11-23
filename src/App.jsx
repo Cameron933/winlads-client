@@ -30,6 +30,7 @@ import Transfer from "./pages/Transaction/Trasfer"
 import LiveRaffle from "./pages/LiveRaffle/LiveRaffle";
 import Profile from "./pages/Profile/Profile";
 import NoticeInner from "./pages/Notice/NoticeInner";
+import Messages from "./pages/Messages/Messages";
 
 
 function App() {
@@ -114,6 +115,11 @@ function App() {
     {
       path: "/live-raffle",
       element: <LiveRaffle />,
+    },
+    ,
+    {
+      path: "/messages",
+      element: <Messages />,
     },
   ]);
 

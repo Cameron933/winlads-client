@@ -11,16 +11,15 @@ import "./news.css";
 
 function News() {
   return (
-    <div>
-      <div className="flex relative">
-        {/* side-nav */}
+    <div className="flex relative">
+      {/* side-nav */}
 
-        <SideNav screen="full" />
-        {/* home-content */}
-        <div className="flex xl:flex-row flex-col xl:justify-between mx-5 xl:gap-8 py-5">
-          {/* left side */}
-          <div className="flex flex-col flex-1 space-y-4">
-            <div className="visible xl:hidden space-y-4">
+      <SideNav screen="screen" />
+      {/* home-content */}
+      <div className="flex xl:flex-row flex-col xl:justify-between mx-5 xl:gap-8 py-0">
+        {/* left side */}
+        <div className="flex flex-col flex-1">
+          {/* <div className="visible xl:hidden space-y-4">
               <div className="bg-black rounded-b-3xl py-4">
                 <TopNav textColor={"white"} />
                 <div className="pt-10">
@@ -29,77 +28,73 @@ function News() {
               </div>
 
               <div className="flex md:flex-row flex-col space-y-2 md:space-y-0 gap-2">
-                <div className="lg:w-2/3">
+                <div className="w-full">
                   <GoldCard />
                 </div>
-                <div>
-                  <EarningCard />
-                </div>
-              </div>
-            </div>
 
-            <div className="top-img-inner-subscription">
-              <img className="" src={MainCar} alt="main" />
-            </div>
-            <div className="hidden xl:block space-y-4">
-              <div className="gold-card">
-                <GoldCard />
               </div>
-              <div className="purchase-card">
-                <EarningCard />
-              </div>
-            </div>
+            </div> */}
+
+          <div className="top-img-inner-subscription mb-4 xl:h-2/4 lg:h-96 h-4/5">
+            <img className="" src={MainCar} alt="main" />
           </div>
 
-          {/* right-side */}
-          <div className="flex flex-col flex-1 space-y-4">
-            <div className="invisible xl:visible">
-              <TopNav />
-            </div>
-            <div
-              className="mx-4 space-y-4"
-              style={{
-                backgroundImage: `url(${backgroundcar})`,
-                backgroundPosition: "right",
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                zIndex: -10,
-              }}
-            >
-              <div className="flex flex-col">
-                <p className="font-bold text-3xl xl:text-4xl">Winland News</p>
-                <p className="text-xs">
-                  14m ago <br /> Europe
-                </p>
-              </div>
+          <div className="w-full">
+            <GoldCard />
+          </div>
 
-              <p className="text-lg xl:text-5xl md:text-4xl">
-                Weekly Market Highlights - TradFi adoption takes spotlight
+
+        </div>
+
+        {/* right-side */}
+        <div className="flex flex-col flex-1 space-y-4 py-4">
+          <div className="invisible xl:visible">
+            <TopNav />
+          </div>
+          <div
+            className="mx-4 space-y-4"
+            style={{
+              backgroundImage: `url(${backgroundcar})`,
+              backgroundPosition: "right",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+              zIndex: -10,
+            }}
+          >
+            <div className="flex flex-col">
+              <p className="font-bold text-3xl xl:text-4xl">Winland News</p>
+              <p className="text-xs">
+                14m ago <br /> Europe
               </p>
-
-              <div className="xl:ml-5">
-                <p>
-                  So what are the hallmarks of an Imperial news story? When a
-                  researcher comes to us ready to announce some fascinating new
-                  study,
-                </p>
-                <p>
-                  So what are the hallmarks of an Imperial news story? When a
-                  researcher comes to us ready to announce some fascinating new
-                  study,
-                </p>
-                <p>
-                  So what are the hallmarks of an Imperial news story? When a
-                  researcher comes to us ready to announce some fascinating new
-                  study,
-                </p>
-              </div>
             </div>
-            <GucciCard />
+
+            <p className="text-lg xl:text-5xl md:text-4xl">
+              Weekly Market Highlights - TradFi adoption takes spotlight
+            </p>
+
+            <ul className="xl:ml-5 space-y-3">
+              <li>
+                So what are the hallmarks of an Imperial news story? When a
+                researcher comes to us ready to announce some fascinating new
+                study,
+              </li>
+              <li>
+                So what are the hallmarks of an Imperial news story? When a
+                researcher comes to us ready to announce some fascinating new
+                study,
+              </li>
+              <li>
+                So what are the hallmarks of an Imperial news story? When a
+                researcher comes to us ready to announce some fascinating new
+                study,
+              </li>
+            </ul>
           </div>
+
         </div>
       </div>
     </div>
+
   );
 }
 

@@ -11,9 +11,9 @@ import MainCar from "../../assets/images/MainCar.png";
 import Blue from "../../assets/images/transaction/Blue.png";
 import Green from "../../assets/images/transaction/Green.png";
 import Red from "../../assets/images/transaction/Red.png";
-import Transfer from "../../assets/images/transaction/Transfer.jpeg";
-import Save from "../../assets/images/transaction/Save.jpeg";
-import Slip from "../../assets/images/transaction/Slip.jpeg";
+import Transfer from "../../assets/images/transaction/transfer-outlined.png";
+import Save from "../../assets/images/transaction/save-outlined.png";
+import Slip from "../../assets/images/transaction/slip-outlined.png";
 import { BiSolidDownArrow } from "react-icons/bi";
 import Chart from "react-apexcharts";
 import EarningCard from "../../components/EarningCard/EarningCard";
@@ -63,11 +63,8 @@ const Transaction = () => {
               </div>
 
               <div className="flex md:flex-row flex-col space-y-2 md:space-y-0 gap-2">
-              <div className="lg:w-2/3">
+              <div className="w-full">
                 <GoldCard />
-              </div>
-              <div>
-                <EarningCard />
               </div>
               </div>
 
@@ -75,11 +72,11 @@ const Transaction = () => {
             </div>
 
             <div className="flex flex-col space-y-1">
-              <p className="font-bold text-xl xl:text-2xl md:text-3xl">Your Balance</p>
-              <p className="font bold text-2xl xl:text-4xl">$576,000.00</p>
+              <p className="font-extrabold text-xl xl:text-2xl md:text-3xl">Your Balance</p>
+              <p className="font-extrabold text-2xl xl:text-4xl">$576,000.00</p>
             </div>
             <div className="flex flex-row gap-2 xl:gap-6 md:gap-6">
-              <div className="bg-[#FF6363] justify-between flex-1 items-center gap-2 md:gap-4 xl:gap-4 rounded-2xl xl:px-4 px-2 py-2 md:px-4 md:py-4 flex flex-row">
+              <div className="bg-blue-300 justify-between flex-1 items-center gap-2 md:gap-4 xl:gap-4 rounded-2xl xl:px-4 px-2 py-2 md:px-4 md:py-4 flex flex-row">
                 <img src={Tax} alt="" className="md:h-20 md:w-20 xl:h-16 xl:w-16" />
                 <div className="flex flex-col">
                   <p className="text-sm xl:text-xl text-[#000000] md:text-2xl">
@@ -90,7 +87,7 @@ const Transaction = () => {
                   </p>
                 </div>
               </div>
-              <div className="bg-[#79FF63] flex-1 justify-between items-center xl:gap-4 gap-2 md:gap-4 rounded-2xl xl:px-4 px-2 py-2 md:px-4 md:py-4 flex flex-row">
+              <div className="bg-orange-300 flex-1 justify-between items-center xl:gap-4 gap-2 md:gap-4 rounded-2xl xl:px-4 px-2 py-2 md:px-4 md:py-4 flex flex-row">
                 <img src={Ticket} alt="" className="md:h-20 md:w-20 xl:h-16 xl:w-16" />
                 <div className="flex flex-col">
                   <p className="text-sm xl:text-xl text-[#000000] md:text-2xl">
@@ -145,10 +142,10 @@ const Transaction = () => {
                   <p className="md:text-2xl xl:text-xl">Transactions</p>
                 </Link>
               </div>
-              <div className="flex flex-row justify-between items-center">
+              <div className="flex justify-between items-center">
                 <p className="font-bold text-xl md:text-2xl xl:text-xl">Transactions</p>
                 <div className="flex flex-row items-center gap-4">
-                  <p className="md:text-xl xl:text-xl">See All</p>
+                  <p className="text-md">See All</p>
                   <BiSolidDownArrow />
                 </div>
               </div>
@@ -221,13 +218,11 @@ const Transaction = () => {
                     <img className="" src={MainCar} alt="main" />
                   </div>
                 </div>
-                <div className="lg:w-2/3">
+                <div className="w-full">
                   <GoldCard />
                 </div>
 
-                <div>
-                  <EarningCard />
-                </div>
+
               </div>
             </div>
           </div>

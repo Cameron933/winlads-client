@@ -27,16 +27,13 @@ function Newslist() {
               </div>
 
               <div className="flex md:flex-row flex-col space-y-2 md:space-y-0 gap-2">
-                <div className="lg:w-2/3">
+                <div className="w-full">
                   <GoldCard />
-                </div>
-                <div>
-                  <EarningCard />
                 </div>
               </div>
             </div>
             <NewsListProps />
-            <GucciCard />
+           
           </div>
 
           {/* right-side */}
@@ -48,12 +45,8 @@ function Newslist() {
                   <img className="" src={MainCar} alt="main" />
                 </div>
               </div>
-              <div className="lg:w-2/3">
+              <div className="w-full">
                 <GoldCard />
-              </div>
-
-              <div>
-                <EarningCard />
               </div>
             </div>
           </div>

@@ -10,6 +10,10 @@ import smartphoneBUS from "../../assets/images/BusinessCard/smartphoneBUS.png";
 import basketballBUS from "../../assets/images/BusinessCard/basketballBUS.png";
 import mailBUS from "../../assets/images/BusinessCard/mailBUS.png";
 import orderNow from "../../assets/images/BusinessCard/OrderNow.png";
+import { IoMdShare } from "react-icons/io";
+import { IoMdSave } from "react-icons/io";
+import { MdPersonAddAlt1 } from "react-icons/md";
+import { MdOutlineAddShoppingCart } from "react-icons/md";
 import "./modal.css";
 
 function BusinessCard() {
@@ -23,11 +27,11 @@ function BusinessCard() {
 
   return (
     <div>
-      <div className="xl:mb-12 md:mb-20 mb-10 flex flex-col">
+      <div className="xl:mb-8 md:mb-10 mb-10 flex flex-col">
         <p className="text-md font-bold xl:text-4xl md:text-4xl mb-4">
           Get My NFC
         </p>
-        <p className="text-black">
+        <p className="text-black text-lg">
           {isOrderNow ? "Let’s Get Your Card !!" : ""}
         </p>
       </div>
@@ -39,42 +43,34 @@ function BusinessCard() {
           backgroundPosition: "right",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
+
         }}
       >
-        <div className="flex flex-col justify-center items-center gap-4 xl:mx-40">
-          <img src={BS1} alt="" className="w-56 md:w-64" />
-          <img src={BS2} alt="" className="w-56 md:w-64" />
-          <div className="flex row flex-col">
+        <div className="gap-4 text-left xl:w-fit w-full">
+
+          {
+            isOrderNow ? <ShareForm /> : <><img src={BS1} alt="" className="w-56 md:w-72 mx-auto xl:mx-0" />
+              <img src={BS2} alt="" className="w-56 md:w-72 mt-3  mx-auto xl:mx-0" /></>
+          }
+
+          <div className="flex row flex-col mx-auto w-fit">
             <div className="flex gap-3 mt-3">
               <div className="flex flex-col items-center">
-                <img src={share} alt="" className="w-10 h-10 xl:w-12 xl:h-12 md:w-12 md:h-12" />
+                <button className="text-2xl p-3 rounded-lg bg-gray-400"><IoMdShare /></button>
                 <label className="text-sm"> Share</label>
               </div>
               <div className="flex flex-col items-center">
-                <img src={save} alt="" className="w-10 h-10 xl:w-12 xl:h-12 md:w-12 md:h-12" />
+                <button className="text-2xl p-3 rounded-lg bg-gray-400"><IoMdSave /></button>
                 <label className="text-sm">Save</label>
               </div>
               <div className="flex flex-col items-center">
                 {isOrderNow ? (
                   // Display "orderNow" image when isOrderNow is true
 
-                  <img
-                    src={orderNow}
-                    alt="Order Now"
-                    className="w-10 h-10 xl:w-12 xl:h-12 md:w-12 md:h-12"
-                    onClick={handleShareClick}
-                  />
+                  <button className="text-2xl p-3 rounded-lg bg-gray-400" onClick={handleShareClick}><MdOutlineAddShoppingCart /></button>
                 ) : (
                   // Display "add" image when isOrderNow is false
-                  <img
-                    src={add}
-                    alt="Add"
-                    className="w-10 h-10 xl:w-12 xl:h-12 md:w-12 md:h-12"
-                    onClick={handleShareClick}
-                  />
+                  <button className="text-2xl p-3 rounded-lg bg-gray-400" onClick={handleShareClick}><MdPersonAddAlt1 /></button>
                 )}
                 <label className="text-sm">
                   {isOrderNow ? "Order Now" : "Request"}
@@ -82,10 +78,11 @@ function BusinessCard() {
               </div>
             </div>
           </div>
+        
         </div>
       </div>
 
-      {showForm && <ShareForm onClose={() => setShowForm(false)} />}
+      
     </div>
   );
 }
@@ -96,51 +93,47 @@ function ShareForm({ onClose }) {
   // Make sure to call `onClose` when the form is closed to update the state
 
   return (
-    <div className="fixed md:ml-48 md:mt-80 md:pt-72 xl:pt-48 top-0 xl:mx-32 xl:mt-24 mt-44 mb-20 xl:h-4/6 flex justify-center items-center custom-backdrop-blur">
-      <div className="rounded-2xl">
-        {/* <form autoComplete="off"> */}
-          <div className="form-contain-reg">
-            <div className="bg-[#FFECA8] flex flex-row items-center py-2 px-4 rounded-2xl justify-between xl:gap-24 md:gap-24">
-              <input
-                type="text"
-                placeholder="Full Name"
-                id="name"
-                className="bg-[#FFECA8] placeholder:text-black"
-              />
-              <img src={userBUS} alt="user" className="w-8 xl:w-12 md:w-12" />
-            </div>
-
-            <div className="bg-[#FFECA8] flex flex-row items-center py-2 px-4 rounded-2xl justify-between xl:gap-24 md:gap-24">
-              <input
-                type="text"
-                placeholder="Passport"
-                id="passport"
-                className="bg-[#FFECA8] placeholder:text-black"
-              />
-              <img src={basketballBUS} alt="passport" className="w-8 xl:w-12 md:w-12"/>
-            </div>
-            <div className="bg-[#FFECA8] flex flex-row items-center py-2 px-4 rounded-2xl justify-between xl:gap-24 md:gap-24">
-              <input
-                type="text"
-                placeholder="Phone Number"
-                id="mobile"
-                className="bg-[#FFECA8] placeholder:text-black"
-              />
-              <img src={smartphoneBUS} alt="phone" className="w-8 xl:w-12 md:w-12"/>
-            </div>
-            <div className="bg-[#FFECA8] flex flex-row items-center py-2 px-4 gap-8 rounded-2xl justify-between xl:gap-24 md:gap-24">
-              <input
-                type="text"
-                placeholder="Postal Address"
-                id="address"
-                className="bg-[#FFECA8] placeholder:text-black"
-              />
-              <img src={mailBUS} alt="mail" className="w-8 xl:w-12 md:w-12" />
-            </div>
+        <form className="form-contain-reg space-y-7 w-full mb-3">
+          <div className="bg-gray-300 flex flex-row-reverse items-center py-3 px-4 gap-3 rounded-2xl justify-end">
+            <input
+              type="text"
+              placeholder="Full Name"
+              id="name"
+              className="bg-gray-300 placeholder:text-gray-500 outline-none"
+            />
+            <img src={userBUS} alt="user" className="w-8" />
           </div>
-        {/* </form> */}
-      </div>
-    </div>
+
+          <div className="bg-gray-300 flex flex-row-reverse items-center py-3 px-4 gap-3 rounded-2xl justify-end">
+            <input
+              type="text"
+              placeholder="Passport"
+              id="passport"
+              className="bg-gray-300 placeholder:text-gray-500 outline-none"
+            />
+            <img src={basketballBUS} alt="passport" className="w-8" />
+          </div>
+          <div className="bg-gray-300 flex flex-row-reverse items-center py-3 px-4 gap-3 rounded-2xl justify-end">
+            <input
+              type="text"
+              placeholder="Phone Number"
+              id="mobile"
+              className="bg-gray-300 placeholder:text-gray-500 outline-none"
+            />
+            <img src={smartphoneBUS} alt="phone" className="w-8" />
+          </div>
+          <div className="bg-gray-300 flex flex-row-reverse items-center py-3 px-4 gap-3 rounded-2xl justify-end">
+            <input
+              type="text"
+              placeholder="Postal Address"
+              id="address"
+              className="bg-gray-300 placeholder:text-gray-500 outline-none"
+            />
+            <img src={mailBUS} alt="mail" className="w-8" />
+          </div>
+        </form>
+
+
   );
 }
 

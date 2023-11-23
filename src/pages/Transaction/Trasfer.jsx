@@ -42,7 +42,7 @@ const Trasfer = () => {
     },
   };
 
-  const chartWidth = windowWidth > 768 ? 350 : windowWidth - 150;
+  const chartWidth = windowWidth > 768 ? 400 : windowWidth - 150;
 
   return (
     <div>
@@ -55,10 +55,10 @@ const Trasfer = () => {
             </div>
             <div className="flex flex-col space-y-1">
               <p className="font-bold text-xl xl:text-2xl md:text-3xl">Your Balance</p>
-              <p className="font bold text-2xl xl:text-4xl">$576,000.00</p>
+              <p className="font bold text-2xl xl:text-6xl">$576,000.00</p>
             </div>
             <div className="flex flex-row gap-2 xl:gap-6 md:gap-6">
-              <div className="bg-[#FF6363] justify-between flex-1 items-center gap-2 md:gap-4 xl:gap-4 rounded-xl xl:px-4 px-2 py-2 md:px-4 md:py-4 flex flex-row">
+              <div className="bg-blue-300 justify-between flex-1 items-center gap-2 md:gap-4 xl:gap-4 rounded-xl xl:px-4 px-2 py-2 md:px-4 md:py-4 flex flex-row">
                 <img src={Tax} alt="" className="md:h-20 md:w-20 xl:h-16 xl:w-16" />
                 <div className="flex flex-col">
                   <p className="text-sm xl:text-xl text-[#000000] md:text-2xl">
@@ -69,7 +69,7 @@ const Trasfer = () => {
                   </p>
                 </div>
               </div>
-              <div className="bg-[#79FF63] flex-1 justify-between items-center xl:gap-4 gap-2 md:gap-4 rounded-xl xl:px-4 px-2 py-2 md:px-4 md:py-4 flex flex-row">
+              <div className="bg-orange-300 flex-1 justify-between items-center xl:gap-4 gap-2 md:gap-4 rounded-xl xl:px-4 px-2 py-2 md:px-4 md:py-4 flex flex-row">
                 <img src={Ticket} alt="" className="md:h-20 md:w-20 xl:h-16 xl:w-16" />
                 <div className="flex flex-col">
                   <p className="text-sm xl:text-xl text-[#000000] md:text-2xl">
@@ -83,7 +83,7 @@ const Trasfer = () => {
             </div>
             <div className="flex flex-col">
               <div className="flex flex-row items-center justify-center gap-2 mb-5">
-                <p className="text-center uppercase md:text-xl xl:text-lg">DECEMBER</p>
+                <p className="text-center uppercase md:text-xl xl:text-lg">DECEMBER 2022</p>
                 <img src={Arrow} alt="" />
               </div>
 
@@ -174,7 +174,7 @@ const Trasfer = () => {
                 </label>
               </div>
               <div className="flex justify-center pt-4">
-                <button className="bg-[#4FC8E8] rounded-xl px-12 py-1">
+                <button className="bg-[#4FC8E8] rounded-xl px-20 py-1">
                   Confirm
                 </button>
               </div>
