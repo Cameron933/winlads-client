@@ -90,7 +90,6 @@ const Register = () => {
         .get(`${import.meta.env.VITE_SERVER_API}/checkMobile?mobile=${ph}`)
         .then((response) => {
           if (response.data.exists) {
-            
             toast.error("Mobile number is already registered!", {
               position: "top-center",
               autoClose: 5000,
@@ -132,7 +131,7 @@ const Register = () => {
         })
         .catch((error) => {
           console.error("Error checking mobile:", error);
-          toast.error('An error occurred while checking the mobile number.', {
+          toast.error("An error occurred while checking the mobile number.", {
             position: "top-center",
             autoClose: 5000,
             hideProgressBar: false,
@@ -211,7 +210,7 @@ const Register = () => {
                     alt="main-img"
                   />
                 </div>
-                {/* <div className="hidden 2xl:block w-full">
+                <div className="hidden 2xl:block w-full">
                   <motion.img
                     initial={{ opacity: 0, x: "-50%" }}
                     whileInView={{ opacity: 1, x: "-25%" }}
@@ -220,8 +219,7 @@ const Register = () => {
                     className="w-full h-full object-contain md:object-cover "
                     alt="main-img"
                   />
-                </div> */}
-
+                </div>
                 {/* Mobile View Jeep */}
                 <div className="block md:hidden w-full">
                   <motion.img
@@ -233,10 +231,9 @@ const Register = () => {
                     alt="main-img"
                   />
                 </div>
-                {/* Mobile view Jeep End */}
               </div>
               <div className="flex flex-col space-y-4 text-center mt-5">
-                <span className="text-2xl md:text-3xl lg:text-4xl fw-bold font-bold 2xl:text-4xl">
+                <span className="text-2xl md:text-3xl lg:text-4xl fw-bold font-bold 2xl:text-8xl">
                   Create an Account
                 </span>
                 <form
@@ -244,7 +241,7 @@ const Register = () => {
                   autoComplete="off"
                   className="form-contain text-center"
                 >
-                  <div className="flex items-center flex-col justify-center gap-5 w-3/4 mx-auto mt-10 2xl:mt-20">
+                  <div className="flex items-center flex-col justify-center gap-5 w-3/4 2xl:w-1 mx-auto mt-10 2xl:mt-20">
                     <div
                       className={
                         errors.name && touched.name
@@ -252,6 +249,7 @@ const Register = () => {
                           : "input-div"
                       }
                     >
+                      <img src={User} alt="user" />
                       <input
                         type="text"
                         placeholder="Full Name"
@@ -261,7 +259,6 @@ const Register = () => {
                         id="name"
                         className="placeholder:2xl:text-xl"
                       />
-                      <img src={User} alt="user" />
                       <small className="text-error">
                         {errors.name && touched.name && errors.name}
                       </small>
@@ -274,6 +271,7 @@ const Register = () => {
                           : "input-div"
                       }
                     >
+                      <img src={Mail} alt="mail" />
                       <input
                         type="email"
                         placeholder="Email Address"
@@ -282,7 +280,6 @@ const Register = () => {
                         onBlur={handleBlur}
                         id="email"
                       />
-                      <img src={Mail} alt="mail" />
                       <small className="text-error">
                         {errors.email && touched.email && errors.email}
                       </small>
@@ -295,6 +292,7 @@ const Register = () => {
                           : "input-div"
                       }
                     >
+                      <img src={Passport} alt="passport" />
                       <input
                         type="text"
                         placeholder="Passport"
@@ -303,7 +301,6 @@ const Register = () => {
                         onBlur={handleBlur}
                         id="passport"
                       />
-                      <img src={Passport} alt="passport" />
                       {/* <small className="text-error">
                       {errors.passport && touched.passport && errors.passport}
                     </small> */}
@@ -316,6 +313,7 @@ const Register = () => {
                           : "input-div"
                       }
                     >
+                      <img src={Taxt} alt="tin" />
                       <input
                         type="text"
                         placeholder="Tin Number"
@@ -325,7 +323,6 @@ const Register = () => {
                         id="tin"
                       />
 
-                      <img src={Taxt} alt="tin" />
                       {/* <small className="text-error">
                       {errors.tin && touched.tin && errors.tin}
                     </small> */}
@@ -338,6 +335,7 @@ const Register = () => {
                           : "input-div"
                       }
                     >
+                      <img src={Phone} alt="phone" />
                       <input
                         type="text"
                         placeholder="+1(Phone Number)"
@@ -346,7 +344,6 @@ const Register = () => {
                         onBlur={handleBlur}
                         id="mobile"
                       />
-                      <img src={Phone} alt="phone" />
                       <small className="text-error">
                         {errors.mobile && touched.mobile && errors.mobile}
                       </small>
@@ -359,6 +356,7 @@ const Register = () => {
                           : "input-div"
                       }
                     >
+                      <img src={Protect} alt="rafflesId" className="w-6 h-6" />
                       <input
                         type="text"
                         placeholder="Reference Id"
@@ -372,7 +370,6 @@ const Register = () => {
                       <img src={User2} alt="rafflesId" className="w-6 h-6" />
                       <img src={Protect} alt="rafflesId" className="w-6 h-6" />
                     </div> */}
-                      <img src={Protect} alt="rafflesId" className="w-6 h-6" />
 
                       {/* <small className="text-error">
                       {errors.tin && touched.tin && errors.tin}
@@ -392,7 +389,7 @@ const Register = () => {
                           placeholder="OTP Code"
                           value={otp}
                           onChange={(e) => setOtp(e.target.value)}
-                        // id="tin"
+                          // id="tin"
                         />
 
                         {/* <AiOutlineSend
@@ -419,14 +416,13 @@ const Register = () => {
                       </div>
 
                       <div>
-                      <label htmlFor="checker">
-                      <span>
-                          By checking the box you agree to our{" "}
-                          <span className="yellow-text">Terms</span> and{" "}
-                          <span className="yellow-text">Conditions.</span>
-                        </span>
-                      </label>
-                    
+                        <label htmlFor="checker">
+                          <span>
+                            By checking the box you agree to our{" "}
+                            <span className="yellow-text">Terms</span> and{" "}
+                            <span className="yellow-text">Conditions.</span>
+                          </span>
+                        </label>
                       </div>
                     </div>
                     {!final && <div id="recaptcha-container"></div>}
@@ -445,10 +441,10 @@ const Register = () => {
                       />
                     </button>
 
-                    <div>
+                    <div className="font-semibold text-lg">
                       <span>Already a member? </span>
                       <span>
-                        <Link className="react-link" to="/login">
+                        <Link className="react-link text-[#157D98]" to="/login">
                           Login
                         </Link>
                       </span>
