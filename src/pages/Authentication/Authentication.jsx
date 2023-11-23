@@ -4,6 +4,7 @@ import { BsCheck } from "react-icons/bs";
 import { useState, useRef } from "react";
 import OtpInput from "react-otp-input";
 import { useLocation } from "react-router-dom";
+import { color } from "framer-motion";
 
 const Authentication = () => {
   // const [otpDigits, setOTPDigits] = useState(["", "", "", "", "", ""]);
@@ -74,11 +75,11 @@ const Authentication = () => {
     <div className="authentication-section">
       <div className="authentication-bg"></div>
 
-      <div className="container">
+      <div>
         <div className="authentication-contain">
           <img src={MainImg} className="img-fluid" alt="main-img" />
 
-          <span className="h1 text-center fw-bold">Authentication</span>
+          <span className="text-2xl md:text-3xl lg:text-4xl fw-bold font-bold">Authentication</span>
 
           {/* {color === "" ? (
             <p style={{ fontWeight: "bold" }}>processing....</p>
@@ -90,7 +91,7 @@ const Authentication = () => {
 
           <div className="form-contain-auth">
             <div>
-              <span>
+              <span className="text-lg">
                 Please enter the 6-digit code sent to your email{" "}
                 <span className="blue-text">winlads@gmail.com</span> for
                 verification.
@@ -113,14 +114,16 @@ const Authentication = () => {
             <OtpInput
               value={otp}
               onChange={setOtp}
+              isInputNum={true}
               numInputs={6}
-              renderSeparator={<span>-</span>}
+              containerStyle={'otp-container'}
+              // renderSeparator={<span>-</span>}
               renderInput={(props) => <input {...props} />}
             />
 
             <div onClick={ValidateOtp} className="btn-main">
               <span>Verify</span>
-              <BsCheck color={"#fff"} size={40} className="mt-1" />
+              {/* <BsCheck color={"#fff"} size={40} className="mt-1" /> */}
             </div>
 
             <div className="get-code">

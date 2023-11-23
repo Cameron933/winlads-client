@@ -229,6 +229,7 @@ const Login = () => {
                         : "input-div"
                     }
                   >
+                    <img src={Phone} alt="phone"/>
                     <input
                       type="text"
                       placeholder="+1(Phone Number)"
@@ -237,7 +238,6 @@ const Login = () => {
                       onBlur={handleBlur}
                       id="mobile"
                     />
-                    <img src={Phone} alt="phone" />
                     <small className="text-error">
                       {errors.mobile && touched.mobile && errors.mobile}
                     </small>
@@ -309,10 +309,10 @@ const Login = () => {
                       />
                     </span>
                   </button>
-                  <div className=" font-semibold">
+                  <div className="font-semibold text-lg">
                     <span>New Member? </span>
                     <span>
-                      <Link to="/register" className="react-link">
+                      <Link to="/register" className="react-link text-[#157D98]">
                         Register now
                       </Link>
                     </span>

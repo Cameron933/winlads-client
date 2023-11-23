@@ -138,7 +138,17 @@ const Profile = () => {
             <div className="flex flex-col space-y-3">
               <div className="flex justify-center">
                 <img src={User} alt="" />
+                
               </div>
+              <div className="flex items-center justify-center gap-2">
+              <div className="bg-green-300 border border-1 border-black p-0.5 w-fit">
+              <p className="text-xs w-fit">Level 1</p>
+              </div>
+              <p className="">Verified User</p>
+              </div>
+              
+              
+              
 
               {
                 loading ? <div className="moonloader-center"><HashLoader
@@ -152,7 +162,7 @@ const Profile = () => {
                   <div className="flex flex-col space-y-2">
                     <p className="text-black text-sm xl:text-md">My Refferal ID</p>
                     <input
-                      className="bg-[#FFECA8] rounded-2xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm"
+                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm"
                       placeholder="Enter User Name"
                       type="text"
                       value={userData?.uid}
@@ -163,7 +173,7 @@ const Profile = () => {
                     <p className="text-black text-sm xl:text-md">First Name</p>
                     <input
 
-                      className="bg-[#FFECA8] rounded-2xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm"
+                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm"
                       placeholder="Enter First Name"
                       type="text"
                       onChange={(e) => setName(e.target.value)}
@@ -173,7 +183,7 @@ const Profile = () => {
                   <div className="flex flex-col space-y-2">
                     <p className="text-black text-sm xl:text-md">Last Name</p>
                     <input
-                      className="bg-[#FFECA8] rounded-2xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm"
+                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm"
                       placeholder="Enter Last Name"
                       type="text"
                       onChange={(e) => setName(e.target.value)}
@@ -183,7 +193,7 @@ const Profile = () => {
                   <div className="flex flex-col space-y-2">
                     <p className="text-black text-sm xl:text-md">Valid Email</p>
                     <input
-                      className="bg-[#FFECA8] rounded-2xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm"
+                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm"
                       placeholder="Enter Valid EMail"
                       type="text"
                       onChange={(e) => setEmail(e.target.value)}
@@ -193,7 +203,7 @@ const Profile = () => {
                   <div className="flex flex-col space-y-2">
                     <p className="text-black text-sm xl:text-md">Phone Number</p>
                     <input
-                      className="bg-[#FFECA8] rounded-2xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm"
+                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm"
                       placeholder="Enter Phone Number"
                       type="number"
                       onChange={(e) => setMobile(e.target.value)}
@@ -205,7 +215,7 @@ const Profile = () => {
                       Passport Number
                     </p>
                     <input
-                      className="bg-[#FFECA8] rounded-2xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm"
+                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm"
                       placeholder="Enter Passport Number"
                       type="text"
                       onChange={(e) => setPassport(e.target.value)}
@@ -215,7 +225,7 @@ const Profile = () => {
                   <div className="flex flex-col space-y-2">
                     <p className="text-black text-sm xl:text-md">Date of Birth</p>
                     <input
-                      className="bg-[#FFECA8] rounded-2xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm"
+                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm"
                       placeholder="Enter Date of Birth"
                       type="text"
                       value={dob}
@@ -227,7 +237,7 @@ const Profile = () => {
                       Postal Address
                     </p>
                     <input
-                      className="bg-[#FFECA8] rounded-2xl px-2 py-2 focus:outline-none placeholder:text-sm"
+                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm"
                       placeholder="Enter Postal Address"
                       type="text"
                       value={address}
@@ -237,7 +247,7 @@ const Profile = () => {
                   <div className="flex flex-col space-y-2">
                     <p className="text-black text-sm xl:text-md">Tin</p>
                     <input
-                      className="bg-[#FFECA8] rounded-2xl px-2 py-2 focus:outline-none placeholder:text-sm"
+                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm"
                       placeholder="Enter Tin"
                       type="text"
                       value={tin}
@@ -247,7 +257,7 @@ const Profile = () => {
                   {/* <div className="flex flex-col space-y-2">
                   <p className="text-black text-sm xl:text-md">Reference Id</p>
                   <input
-                    className="bg-[#FFECA8] rounded-2xl px-2 py-2 focus:outline-none placeholder:text-sm"
+                    className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm"
                     placeholder="Enter Reference Id"
                     type="text"
                     value={userData?.rafflesId}
@@ -272,7 +282,7 @@ const Profile = () => {
                     </label>
                   </div> */}
                     <div className="flex justify-center">
-                      <button onClick={() => updateUserDatails()} className="bg-[#4FC8E8] rounded-2xl px-12 py-1 font-semibold">
+                      <button onClick={() => updateUserDatails()} className="bg-black text-white rounded-xl px-12 py-3 font-semibold">
                         Confirm
                       </button>
                     </div>
@@ -285,7 +295,7 @@ const Profile = () => {
 
             </div>
           </div>
-          <div className="flex flex-col space-y-4 flex-1 invisible xl:visible">
+          <div className="xl:flex flex-col space-y-4 flex-1 hidden">
             <div className="bg-black rounded-b-3xl py-4">
               <TopNav textColor={"white"} />
               <div className="pt-10">

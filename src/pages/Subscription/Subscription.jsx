@@ -51,7 +51,7 @@ function Subscription() {
             </div>
 
             <SubscribeCard />
-            <GucciCard />
+            {/* <GucciCard /> */}
           </div>
 
           {/* right-side */}

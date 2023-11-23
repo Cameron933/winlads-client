@@ -93,7 +93,7 @@ code {
   width: 100%;
   padding: 10px 15px;
   border-radius: 8px;
-  background: #fff7d9;
+  background: #DEDEDE;
   font-size: 18px;
   font-weight: 300;
 
@@ -111,6 +111,7 @@ code {
   border: none;
   outline: none;
   background: transparent;
+  padding-left: 5%;
 }
 
 .input-div > img {
@@ -122,14 +123,14 @@ code {
   outline: none;
   border: none;
   background: transparent;
-
+  padding: 10%;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
   border-radius: 8px;
-  background: #252525;
+  background: #000;
   color: #fff;
   cursor: pointer;
   height: 45px;
