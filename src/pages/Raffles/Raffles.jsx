@@ -316,12 +316,12 @@ function PopUpLotto({ onClose }) {
 
   return (
     <div
-      className="popup-container backdrop backdrop-blur-sm lg:justify-end justify-center"
+      className="popup-container backdrop backdrop-blur-sm lg:justify-center justify-center"
       onClick={handleBackdropClick}
     >
       <div className=" popup-content text-white bg-gradient-to-br  from-[#000000] space-y-4  to-[#000000]  justify-center items-center  pt-5 pb-10 xl:px-20 md:px-20 px-10 flex flex-col lg:mr-[10%]">
         <button
-          className="absolute top-1 right-1 text-3xl text-inherit"
+          className="absolute top-1 right-1 text-3xl text-inherit hover:scale-105"
           onClick={onClose}
         >
           <IoCloseSharp />
@@ -376,12 +376,12 @@ function PopUpLess({ onClose }) {
 
   return (
     <div
-      className="popup-container backdrop2 backdrop-blur-sm lg:justify-end justify-center"
+      className="popup-container backdrop2 backdrop-blur-sm lg:justify-center justify-center"
       onClick={handleBackdropClick2}
     >
       <div className=" popup-content text-white bg-gradient-to-br  from-[#000000] space-y-4  to-[#000000]  justify-center items-center  pt-5 pb-10 xl:px-20 md:px-20 px-10 flex flex-col lg:mr-[10%]">
         <button
-          className="absolute top-1 right-1 text-3xl text-inherit"
+          className="absolute top-1 right-1 text-3xl text-inherit hover:scale-105"
           onClick={onClose}
         >
           <IoCloseSharp />
