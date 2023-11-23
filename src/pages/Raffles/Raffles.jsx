@@ -19,18 +19,20 @@ import max from "../../assets/images/rafflesImages/max.png";
 import lotto from "../../assets/images/rafflesImages/lotto.png";
 import Loto from "../../assets/images/rafflesImages/loto.png";
 import { Link } from "react-router-dom";
-import wallet from "../../assets/images/rafflesImages/wallet.png";
-import savelotto from "../../assets/images/rafflesImages/savelotto.png";
+import Visa from "../../assets/images/rafflesImages/Visa.png";
+import Usd from "../../assets/images/rafflesImages/Usd.png";
 import bitcoin from "../../assets/images/rafflesImages/bitcoin.png";
 import Red from "../../assets/images/subscribers/red.png";
 import RedDot from "../../assets/images/RedDot.png";
-import Blue from "../../assets/images/subscribers/blue.png";
+import white from "../../assets/images/subscribers/white.png";
 import { useParams } from "react-router";
 import axios from "axios";
 import { motion } from "framer-motion";
 import Loader from "../../components/Loader/Loader";
 import { carAnimation } from "../../animation/animation";
 import HiddenCar from "../../assets/images/hiddenCar.png";
+import { IoCloseSharp } from "react-icons/io5";
+
 
 function Raffles() {
   const [value, onChange] = useState(new Date());
@@ -139,7 +141,7 @@ function Raffles() {
                 <TopNav />
               </div>
               <div className="side-bg " style={{ height: "500px" }}></div>
-              
+
               <div className="rounded-3xl flex flex-row justify-between px-4 py-2  items-center bg-[#FFECA8] lg:mt-5">
                 <input
                   className="bg-[#FFECA8] placeholder:text-gray-800 w-full py-3 border-none outline-none shadow-none "
@@ -148,7 +150,7 @@ function Raffles() {
                 />
                 <img src={Frame} alt="" width={30} />
               </div>
-             
+
               <div className="flex flex-col gap-4  lg:flex-row lg:items-end lg:mt-10">
                 <Calendar
                   value={value}
@@ -207,92 +209,87 @@ function Raffles() {
                 </div>
               </div>
 
-              
-                <div className="flex flex-col gap-4  lg:flex-row  lg:justify-center lg:mt-5">
-                  {raffleRounds.map((round) => (
-                    <>
-                      <div
-                        className="flex cursor-pointer flex-col rounded-3xl px-2 py-3 space-y-2 hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 "
-                        style={{
-                          background:
-                            "linear-gradient(98.92deg, #1A8BC0 45%, #000000 83%)",
-                        }}
-                        onClick={() => setShowPopup(true)}
-                      >
-                        <img src={Jeep} alt="" className="absolute flex w-48" />
-                        <div className="flex justify-end">
-                          <img src={max} alt="" className="w-16" />
-                        </div>
-                        <div className="flex text-end flex-col z-10">
-                          <p className="text-white font-bold xl:text-sm text-xs">
-                            {round.name}
-                          </p>
-                          <p className="text-xs text-white">{round.date}</p>
-                        </div>
-                        <div className="grid grid-cols-3 px-5 items-center">
-                          <div className="col-span-2 flex justify-end gap-2 z-10">
-                            {/* <p className="text-[#4FC8E8] font-bold">R</p>
+              <div className="flex flex-col gap-4  lg:flex-row  lg:justify-center lg:mt-5">
+                {raffleRounds.map((round) => (
+                  <>
+                    <div
+                      className="flex cursor-pointer flex-col rounded-3xl px-2 py-3 space-y-2 hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 "
+                      style={{
+                        background:
+                          "linear-gradient(98.92deg, #1A8BC0 45%, #000000 83%)",
+                      }}
+                      onClick={() => setShowPopup(true)}
+                    >
+                      <img src={Jeep} alt="" className="absolute flex w-48" />
+                      <div className="flex justify-end">
+                        <img src={max} alt="" className="w-16" />
+                      </div>
+                      <div className="flex text-end flex-col z-10">
+                        <p className="text-white font-bold xl:text-sm text-xs">
+                          {round.name}
+                        </p>
+                        <p className="text-xs text-white">{round.date}</p>
+                      </div>
+                      <div className="grid grid-cols-3 px-5 items-center">
+                        <div className="col-span-2 flex justify-end gap-2 z-10">
+                          {/* <p className="text-[#4FC8E8] font-bold">R</p>
                           <p className="text-white font-bold">14</p>
                           <p className="text-white font-bold">34</p>
                           <p className="text-white font-bold">38</p>
                           <p className="text-white font-bold">76</p> */}
-                            <p className="text-white">{round.desc}</p>
-                          </div>
+                          <p className="text-white">{round.desc}</p>
+                        </div>
 
-                          <div className="col-span-1 justify-end flex">
-                            <GoQuestion />
-                          </div>
+                        <div className="col-span-1 justify-end flex">
+                          <GoQuestion />
                         </div>
                       </div>
-                      <br />
-                    </>
-                  ))}
-                </div>
+                    </div>
+                    <br />
+                  </>
+                ))}
+              </div>
 
-                
-                <div className="flex flex-col gap-4  lg:flex-row  lg:justify-center lg:mt-5">
-                  {raffleRounds.map((round) => (
-                    <>
-                      <div
-                        className="flex cursor-pointer flex-col rounded-3xl px-2 py-3 space-y-2 hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 "
-                        style={{
-                          background:
-                            "linear-gradient(98.92deg, #1A8BC0 45%, #000000 83%)",
-                        }}
-                        onClick={() => setShowPopup(true)}
-                      >
-                        <img src={Jeep} alt="" className="absolute flex w-48" />
-                        <div className="flex justify-end">
-                          <img src={max} alt="" className="w-16" />
-                        </div>
-                        <div className="flex text-end flex-col z-10">
-                          <p className="text-white font-bold xl:text-sm text-xs">
-                            {round.name}
-                          </p>
-                          <p className="text-xs text-white">{round.date}</p>
-                        </div>
-                        <div className="grid grid-cols-3 px-5 items-center">
-                          <div className="col-span-2 flex justify-end gap-2 z-10">
-                            {/* <p className="text-[#4FC8E8] font-bold">R</p>
+              <div className="flex flex-col gap-4  lg:flex-row  lg:justify-center lg:mt-5">
+                {raffleRounds.map((round) => (
+                  <>
+                    <div
+                      className="flex cursor-pointer flex-col rounded-3xl px-2 py-3 space-y-2 hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 "
+                      style={{
+                        background:
+                          "linear-gradient(98.92deg, #1A8BC0 45%, #000000 83%)",
+                      }}
+                      onClick={() => setShowLessPopup(true)}
+                    >
+                      <img src={Jeep} alt="" className="absolute flex w-48" />
+                      <div className="flex justify-end">
+                        <img src={max} alt="" className="w-16" />
+                      </div>
+                      <div className="flex text-end flex-col z-10">
+                        <p className="text-white font-bold xl:text-sm text-xs">
+                          {round.name}
+                        </p>
+                        <p className="text-xs text-white">{round.date}</p>
+                      </div>
+                      <div className="grid grid-cols-3 px-5 items-center">
+                        <div className="col-span-2 flex justify-end gap-2 z-10">
+                          {/* <p className="text-[#4FC8E8] font-bold">R</p>
                           <p className="text-white font-bold">14</p>
                           <p className="text-white font-bold">34</p>
                           <p className="text-white font-bold">38</p>
                           <p className="text-white font-bold">76</p> */}
-                            <p className="text-white">{round.desc}</p>
-                          </div>
+                          <p className="text-white">{round.desc}</p>
+                        </div>
 
-                          <div className="col-span-1 justify-end flex">
-                            <GoQuestion />
-                          </div>
+                        <div className="col-span-1 justify-end flex">
+                          <GoQuestion />
                         </div>
                       </div>
-                      <br />
-                    </>
-                  ))}
-                </div>
-                
-              
-              
+                    </div>
+                    <br />
+                  </>
+                ))}
+              </div>
             </div>
 
             {showPopup && <PopUpLotto onClose={() => setShowPopup(false)} />}
@@ -322,7 +319,13 @@ function PopUpLotto({ onClose }) {
       className="popup-container backdrop backdrop-blur-sm lg:justify-end justify-center"
       onClick={handleBackdropClick}
     >
-      <div className=" popup-content bg-gradient-to-br  from-[#D65252] space-y-4  to-[#404040]  justify-center items-center py-2  xl:px-20 md:px-20 px-10 paymentCardBorder flex flex-col lg:mr-[10%]">
+      <div className=" popup-content text-white bg-gradient-to-br  from-[#000000] space-y-4  to-[#000000]  justify-center items-center  pt-5 pb-10 xl:px-20 md:px-20 px-10 flex flex-col lg:mr-[10%]">
+        <button
+          className="absolute top-1 right-1 text-3xl text-inherit"
+          onClick={onClose}
+        >
+          <IoCloseSharp />
+        </button>
         <img src={Loto} alt="" className="xl:w-16 md:w-14 w-12 h-auto" />
         <p className="font-bold text-white text-center xl:text-7xl md:5xl text-3xl mb-1">
           $10
@@ -330,20 +333,20 @@ function PopUpLotto({ onClose }) {
         <p className="text-white mb-2 text-center  ">User/Month</p>
         <div className="flex justify-center flex-col space-y-2">
           <div className="flex flex-row gap-4 items-center">
-            <img src={Blue} alt="" className="w-3 h-3" />
+            <img src={white} alt="" className="w-3 h-3" />
             <p className="text-white text-xs xl:text-sm md:text-sm">
               1991 Land Rover Defender 110
             </p>
           </div>
           <div className="flex flex-row gap-4 items-center">
-            <img src={Blue} alt="" className="w-3 h-3" />
+            <img src={white} alt="" className="w-3 h-3" />
             <p className="text-white xl:text-sm md:text-sm">
               {" "}
               2023-SEP-19 TUESDAY
             </p>
           </div>
           <div className="flex flex-row gap-4 items-center">
-            <img src={Blue} alt="" className="w-3 h-3" />
+            <img src={white} alt="" className="w-3 h-3" />
             <p className="text-white xl:text-sm md:text-sm">
               10% off WinladsMerch
             </p>
@@ -351,10 +354,10 @@ function PopUpLotto({ onClose }) {
         </div>
 
         <p className="text-white text-lg 	font-bold mt-3">Payment Methods</p>
-        <div className="flex justify-center gap-5 bg-black p-4 rounded-xl mt-3 px-12 cursor-pointer hover:scale-105">
-          <img src={wallet} alt="" className="w-7 h-7" />
-          <img src={savelotto} alt="" className="w-7 h-7" />
+        <div className="flex justify-center gap-5 bg-white p-4 rounded-xl mt-3 px-12 cursor-pointer hover:scale-105">
           <img src={bitcoin} alt="" className="w-7 h-7" />
+          <img src={Usd} alt="" className="w-7 h-7" />
+          <img src={Visa} alt="" className="w-7 h-7" />
         </div>
       </div>
     </div>
@@ -376,12 +379,18 @@ function PopUpLess({ onClose }) {
       className="popup-container backdrop2 backdrop-blur-sm lg:justify-end justify-center"
       onClick={handleBackdropClick2}
     >
-      <div className=" popup-content bg-gradient-to-br from-[#D65252] to-[#404040] justify-center items-center py-2 paymentCardBorder flex flex-col md:px-20 xl:px-20 px-10 lg:mr-[10%]">
-        <img src={Loto} alt="" className="w-16 h-auto mb-2" />
-        <p className="font-bold text-white text-center xl:text-7xl md:text-5xl text-3xl mb-1">
+      <div className=" popup-content text-white bg-gradient-to-br  from-[#000000] space-y-4  to-[#000000]  justify-center items-center  pt-5 pb-10 xl:px-20 md:px-20 px-10 flex flex-col lg:mr-[10%]">
+        <button
+          className="absolute top-1 right-1 text-3xl text-inherit"
+          onClick={onClose}
+        >
+          <IoCloseSharp />
+        </button>
+        <img src={Loto} alt="" className="xl:w-16 md:w-14 w-12 h-auto" />
+        <p className="font-bold text-white text-center xl:text-5xl md:5xl text-3xl mb-1">
           $10
         </p>
-        <p className="text-white mb-2 text-center ">User/Month</p>
+        <p className="text-white mb-2 text-center  ">User/Month</p>
         <div className="flex justify-center flex-col space-y-4">
           <p className="text-white text-xs md:text-sm xl:text-sm text-start w-48">
             You have purchased x number of raffles from the amount of
@@ -394,7 +403,7 @@ function PopUpLess({ onClose }) {
 
         <button
           type="button"
-          className="border border-black bg-black text-[#D65252] py-2 px-8 rounded-lg mt-4 mb-2"
+          className="flex justify-center gap-5 bg-white text-[#000]  font-bold p-4 rounded-xl mt-3 px-12 cursor-pointer hover:scale-105"
         >
           Confirm
         </button>
@@ -403,3 +412,15 @@ function PopUpLess({ onClose }) {
   );
 }
 export default Raffles;
+
+
+
+
+
+
+
+
+
+
+
+

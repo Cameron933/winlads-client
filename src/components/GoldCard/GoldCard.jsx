@@ -6,10 +6,10 @@ const GoldCard = () => {
       {/* <div className="gold-card-inner-sec1"> */}
       <div className="flex flex-col xl:space-y-2 space-y-1 px-2">
         <span className="xl:text-4xl font-bold text-3xl">Gold</span>
-        <span className="text-xs xl:text-md">Expires on 2023.00.00</span>
+        <span className="text-xs font-bold xl:text-xl">Expires on 2023.00.00</span>
       </div>
       <div className="flex flex-row xl:gap-2 gap-1 items-center xl:mr-4 px-2">
-        <p className="font-bold text-xs xl:text-sm">Auto Renewal</p>
+        <p className="font-bold text-xs xl:text-xl">Auto Renewal</p>
         <input
           type="checkbox"
           id="hs-basic-usage"

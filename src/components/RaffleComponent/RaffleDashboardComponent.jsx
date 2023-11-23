@@ -35,6 +35,134 @@ function RaffleDashboardComponent() {
   return (
     <div className="lg:mt-80 lg:pt-20">
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-2">
+        {raffles.map((raffle) => (
+          <Link to={`/raffles/${raffle._id}`}>
+            <div
+              className="flex flex-col rounded-3xl px-2 py-1 space-y-2 hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1"
+              style={{
+                background:
+                  "linear-gradient(98.92deg, #1A8BC0 45%, #000000 83%",
+              }}
+            >
+              <img src={Jeep} alt="" className="absolute flex w-48" />
+              <div className="flex justify-end">
+                <img src={max} alt="" className="w-16" />
+              </div>
+              <div className="flex text-end flex-col z-10">
+                <p className="text-white font-bold xl:text-sm text-xs">
+                  {raffle.name}
+                </p>
+                <p className="text-xs text-white">{raffle.date}</p>
+              </div>
+              <div className="grid grid-cols-3 px-5 items-center">
+                <div className="col-span-2 flex justify-end gap-2 z-10">
+                  <br />
+                  <br />
+                </div>
+                <div className="col-span-1 justify-end flex">
+                  <GoQuestion />
+                </div>
+              </div>
+            </div>
+          </Link>
+        ))}
+
+        {/* {raffles.map((raffle) => (
+          <Link to={`/raffles/${raffle._id}`}>
+            <div
+              className="flex flex-col rounded-3xl px-2 py-1 space-y-2 hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1"
+              style={{
+                background:
+                  "linear-gradient(98.92deg, #E9BA0D 45%, #000000 83%)",
+              }}
+            >
+              <img src={Jeep} alt="" className="absolute flex w-48" />
+              <div className="flex justify-end">
+                <img src={six} alt="" className="w-16" />
+              </div>
+              <div className="flex text-end flex-col z-10">
+                <p className="text-white font-bold xl:text-sm text-xs">
+                  {raffle.name}
+                </p>
+                <p className="text-xs text-white">{raffle.date}</p>
+              </div>
+              <div className="grid grid-cols-3 px-5 items-center">
+                <div className="col-span-2 flex justify-end gap-2 z-10">
+                  <br />
+                  <br />
+                </div>
+                <div className="col-span-1 justify-end flex">
+                  <GoQuestion />
+                </div>
+              </div>
+            </div>
+          </Link>
+        ))}
+
+        {raffles.map((raffle) => (
+          <Link to={`/raffles/${raffle._id}`}>
+            <div
+              className="flex flex-col rounded-3xl px-2 py-1 space-y-2 hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1"
+              style={{
+                background:
+                  "linear-gradient(98.92deg, #C51B1B 45%, #000000 83%)",
+              }}
+            >
+              <img src={Jeep} alt="" className="absolute flex w-48" />
+              <div className="flex justify-end">
+                <img src={Loto} alt="" className="w-10" />
+              </div>
+              <div className="flex text-end flex-col z-10">
+                <p className="text-white font-bold xl:text-sm text-xs">
+                  {raffle.name}
+                </p>
+                <p className="text-xs text-white">{raffle.date}</p>
+              </div>
+              <div className="grid grid-cols-3 px-5 items-center">
+                <div className="col-span-2 flex justify-end gap-2 z-10">
+                  <br />
+                  <br />
+                </div>
+                <div className="col-span-1 justify-end flex">
+                  <GoQuestion />
+                </div>
+              </div>
+            </div>
+          </Link>
+        ))}
+
+        {raffles.map((raffle) => (
+          <Link to={`/raffles/${raffle._id}`}>
+            <div
+              className="flex flex-col rounded-3xl px-2 py-1 space-y-2 hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1"
+              style={{
+                background:
+                  "linear-gradient(98.92deg, #26BD35 45%, #000000 83%)",
+              }}
+            >
+              <img src={Jeep} alt="" className="absolute flex w-48" />
+              <div className="flex justify-end">
+                <img src={lotto} alt="" className="w-16" />
+              </div>
+              <div className="flex text-end flex-col z-10">
+                <p className="text-white font-bold xl:text-sm text-xs">
+                  {raffle.name}
+                </p>
+                <p className="text-xs text-white">{raffle.date}</p>
+              </div>
+              <div className="grid grid-cols-3 px-5 items-center">
+                <div className="col-span-2 flex justify-end gap-2 z-10">
+                  <br />
+                  <br />
+                </div>
+                <div className="col-span-1 justify-end flex">
+                  <GoQuestion />
+                </div>
+              </div>
+            </div>
+          </Link>
+        ))} */}
+
         {/* <Link to="/raffles">
           <div
             className="flex flex-col rounded-3xl px-2 py-1 space-y-2"
@@ -67,35 +195,6 @@ function RaffleDashboardComponent() {
             </div>
           </div>
         </Link> */}
-        {
-          raffles.map((raffle) => (
-            <Link to={`/raffles/${raffle._id}`}>
-              <div className="flex flex-col rounded-3xl px-2 py-1 space-y-2 hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1"
-                style={{
-                  background: "linear-gradient(98.92deg, #E9BA0D 45%, #000000 83%)",
-                }}>
-                <img src={Jeep} alt="" className="absolute flex w-48" />
-                <div className="flex justify-end">
-                  <img src={six} alt="" className="w-16" />
-                </div>
-                <div className="flex text-end flex-col z-10">
-                  <p className="text-white font-bold xl:text-sm text-xs">
-                    {raffle.name}
-                  </p>
-                  <p className="text-xs text-white">{raffle.date}</p>
-                </div>
-                <div className="grid grid-cols-3 px-5 items-center">
-                  <div className="col-span-2 flex justify-end gap-2 z-10">
-                    <br /><br />
-                  </div>
-                  <div className="col-span-1 justify-end flex">
-                    <GoQuestion />
-                  </div>
-                </div>
-              </div>
-            </Link>
-          ))
-        }
 
         {/* <Link to="/raffles">
           <div
