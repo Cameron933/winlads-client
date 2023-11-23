@@ -31,6 +31,7 @@ import LiveRaffle from "./pages/LiveRaffle/LiveRaffle";
 import Profile from "./pages/Profile/Profile";
 import NoticeInner from "./pages/Notice/NoticeInner";
 import Messages from "./pages/Messages/Messages";
+import History from "./pages/History/History";
 
 
 function App() {
@@ -120,6 +121,10 @@ function App() {
     {
       path: "/messages",
       element: <Messages />,
+    },
+    {
+      path: "/history",
+      element: <History />,
     },
   ]);
 
