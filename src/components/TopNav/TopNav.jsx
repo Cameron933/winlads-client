@@ -13,7 +13,7 @@ const TopNav = ({ textColor }) => {
         <Link to="/notice">Notice</Link>
       </span>
       <span className="navlinks">
-        <Link to="/raffles">Raffles</Link>
+        <Link to="/raffles">Giveaway</Link>
       </span>
       <span className="navlinks">
         <Link to="/faq">FAQ</Link>
