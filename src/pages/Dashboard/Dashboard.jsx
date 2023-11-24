@@ -55,18 +55,18 @@ const Dashboard = () => {
   //     },
   //   ],
   // });
-  const currentUserValidation = async () => {
-    const validator = await validateCurrentUser();
-    if (validator.validatorBl) {
-      console.log("Session OK", validator.user.balance);
-      setValUser(validator.user);
-    } else {
-      navigate("/login");
-    }
-  };
-  useEffect(() => {
-    currentUserValidation();
-  }, []);
+  // const currentUserValidation = async () => {
+  //   const validator = await validateCurrentUser();
+  //   if (validator.validatorBl) {
+  //     console.log("Session OK", validator.user.balance);
+  //     setValUser(validator.user);
+  //   } else {
+  //     navigate("/login");
+  //   }
+  // };
+  // useEffect(() => {
+  //   currentUserValidation();
+  // }, []);
 
   return (
     <>
@@ -108,7 +108,9 @@ const Dashboard = () => {
                 </div>
 
                 <EarningCard /> */}
+                <p className="text-2xl font-semibold">Next Giveaways</p>
                  <DashboardVehicleCard />
+                  <DashboardVehicleCard />
                   <DashboardVehicleCard />
               </div>
               <div className="hidden lg:flex flex-col space-y-4 items-end">
@@ -162,7 +164,7 @@ const Dashboard = () => {
               <div className="side-bg"></div>
               <div className="graph-section ">
                 {/* <CustomChart height={300} /> */}
-                <div className="xl:pt-16">
+                <div className="xl:pt-16 hidden xl:flex">
                   <DashboardVehicleCard />
                 </div>
               </div>
