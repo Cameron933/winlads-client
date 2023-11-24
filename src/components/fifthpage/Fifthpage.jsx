@@ -25,7 +25,7 @@ function Fifthpage() {
       }}
     >
       <p
-        className="text-lg 2xl:text-8xl text-center font-bold uppercase tracking-widest p-4 2xl:pb-8 lg:text-4xl lg:text-right relative"
+        className="text-lg 4xl:text-8xl text-center font-bold uppercase tracking-widest p-4 4xl:pb-8 lg:text-4xl xl:text-right relative"
         style={{ zIndex: "2" }}
       >
         Choose a server plan
