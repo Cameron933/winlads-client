@@ -262,6 +262,11 @@ code {
     background-repeat: no-repeat;
     background-size: cover;
 }
+.bg-notice-inner-2{
+  background-image: url('../src/assets/images/hiddenCarN.png');
+    background-repeat: no-repeat;
+    width: 50%;
+}
 
 .prevent{
   pointer-events: none;

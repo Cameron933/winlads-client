@@ -31,54 +31,46 @@ function LiveRaffle() {
         </div>
 
         <div className="grid xl:grid-cols-3 bottom-0 absolute xl:justify-between grid-cols-1">
-          <div className="col-span-1 hidden xl:flex ">
-            <EarningCard />
-          </div>
+          <div className=" xl:flex items-center justify-center "></div>
 
-          <div className="flex flex-col items-center xl:justify-between col-span-1 space-y-4 xl:space-y-0 md:ml-60 ml-3 xl:ml-0">
+          <div className="flex flex-col items-center xl:justify-between col-span-1 space-y-4 xl:space-y-0 md:ml-60  ml-5 xl:mr-20 ">
             <div className="flex flex-row justify-between items-center gap-4 xl:gap-6">
               <img src={soundicon} alt="" className="w-10 h-10" />
               <img src={displayicon} alt="" className="w-10 h-10" />
               <img src={cutIcon} alt="" className="w-10 h-10" />
             </div>
-            <div
-              className="rounded-full px-6 pb-1 pt-3"
-              style={{
-                background:
-                  "linear-gradient(98.92deg, #37DBFF 45%, #00529D 83%)",
-              }}
-            >
-              <div className="flex flex-col space-y-1">
-                <div className="flex flex-row items-center gap-5">
-                  <div className="text-white font-bold rounded-full bg-[#157D98] xl:h-11 xl:w-11 h-9 w-9 items-center flex justify-center">
-                    R
+            <div className="py-5">
+              <div
+                className="rounded-full px-6 pb-1 pt-3"
+                style={{
+                  background:
+                    "linear-gradient(98.92deg, #37DBFF 45%, #00529D 83%)",
+                }}
+              >
+                <div className="flex flex-col space-y-1">
+                  <div className="flex flex-row items-center gap-5">
+                    <div className="text-white font-bold rounded-full bg-[#157D98] xl:h-11 xl:w-11 h-9 w-9 items-center flex justify-center">
+                      R
+                    </div>
+                    <div className="text-black font-bold xl:h-11 xl:w-11 h-9 w-9 rounded-full bg-[#D6F6FF] items-center flex justify-center">
+                      14
+                    </div>
+                    <div className="text-black font-bold xl:h-11 xl:w-11 h-9 w-9 rounded-full bg-[#D6F6FF] items-center flex justify-center">
+                      34
+                    </div>
+                    <div className="text-black font-bold xl:h-11 xl:w-11 h-9 w-9 rounded-full bg-[#D6F6FF] items-center flex justify-center">
+                      ?
+                    </div>
+                    <div className="text-black font-bold xl:h-11 xl:w-11 h-9 w-9 rounded-full bg-[#D6F6FF] items-center flex justify-center">
+                      ?
+                    </div>
                   </div>
-                  <div className="text-black font-bold xl:h-11 xl:w-11 h-9 w-9 rounded-full bg-[#D6F6FF] items-center flex justify-center">
-                    14
-                  </div>
-                  <div className="text-black font-bold xl:h-11 xl:w-11 h-9 w-9 rounded-full bg-[#D6F6FF] items-center flex justify-center">
-                    34
-                  </div>
-                  <div className="text-black font-bold xl:h-11 xl:w-11 h-9 w-9 rounded-full bg-[#D6F6FF] items-center flex justify-center">
-                    ?
-                  </div>
-                  <div className="text-black font-bold xl:h-11 xl:w-11 h-9 w-9 rounded-full bg-[#D6F6FF] items-center flex justify-center">
-                    ?
-                  </div>
+                  <p className="xl:text-sm text-xs text-center font-bold text-black">
+                    Brisko - 2042 | 2023-SEP-17 TUESDAY
+                  </p>
                 </div>
-                <p className="xl:text-sm text-xs text-center font-bold text-black">
-                  Brisko - 2042 | 2023-SEP-17 TUESDAY
-                </p>
               </div>
             </div>
-          </div>
-
-          <div>
-            <img
-              src={ChartDark}
-              alt="chart"
-              className="col-span-1 hidden xl:flex"
-            />
           </div>
         </div>
       </div>
