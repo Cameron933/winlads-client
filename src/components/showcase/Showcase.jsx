@@ -49,32 +49,24 @@ function Showcase() {
         background: "linear-gradient(88deg, #43E3ED -21.82%, #FFE9E9 131.12%)",
       }}
     >
-      <div
-        className="flex justify-center border-black 2xl:text-4xl px-4 py-3 2xl:px-8 2xl:py-6 items-center text-white buttonBg"
-        style={{
-          //   display: "inline-block",
-          borderRadius: "5px",
-          position: "absolute",
-          right: "45px",
-          top: "80px",
-          cursor: "pointer",
-        }}
+      <button
+        className="border-black 4xl:text-4xl px-4 py-3 rounded-md 2xl:py-6 items-center text-white buttonBg absolute top-20 right-2"
       >
         Contact Us
-      </div>
+      </button>
 
       <div>
         <div>
           <img src={ellipse} className="h-auto lg:h-screen" />
         </div>
         <img
-          className="hidden lg:inline md:pl-16"
+          className="hidden lg:inline"
           src={logo}
           alt="logo"
           style={{ position: "absolute", top: "0px" }}
         />
         <img
-          className="hidden lg:block w-[400px] 2xl:w-[800px]"
+          className="hidden xl:block w-[600px] 4xl:w-[800px]"
           src={win}
           alt="logo"
           style={{
@@ -95,7 +87,7 @@ function Showcase() {
         /> */}
         <motion.img
           variants={logoAnimate}
-          className="block lg:hidden md:pl-16 w-[200px] md:w-[400px]"
+          className="block xl:hidden md:pl-16 w-[200px] md:w-[400px]"
           src={win}
           alt="logo"
           style={{
@@ -127,51 +119,52 @@ function Showcase() {
           }}
         />
       </div>
-      <div className="h-auto lg:h-screen">
+      <div className="flex flex-col space-y-4 mx-2">
         <div className="hidden lg:block" style={{ height: "40%" }}></div>
-        <div
-          className="relative pt-6 pb-6 allcontent-group"
-          style={{ height: "60%", zIndex: "4" }}
-        >
-          <div className="pt-4 dashcontent-group md:pl-16 pl-12">
-            <p
-              className="font-semibold text-right uppercase text-sm 4xl:text-4xl xl:text-2xl"
-
+        <div className="pt-4 dashcontent-group z-10">
+          <p className="font-semibold text-right uppercase text-sm 4xl:text-4xl xl:text-2xl">
+            With over 650+ businesses across 1000+ stores where you can
+            accessexclusive discounts
+          </p>
+          <p className="font-semibold text-right uppercase text-md 4xl:text-4xl xl:text-2xl">
+            Australia Widefrom only $19.99 per month, opt-out anytime
+          </p>
+        </div>
+        <div className="flex justify-end z-10">
+          <Link to="/register">
+            <div
+              className="flex justify-center px-4 py-4 2xl:px-8  border-black 2xl:py-6 2xl:text-4xl text-md font-bold items-center text-white buttonBg frontbtns"
+              style={{
+                //   display: "inline-block",
+                borderRadius: "5px",
+                cursor: "pointer",
+              }}
             >
-              With over 650+ businesses across 1000+ stores where you can
-              accessexclusive discounts
-            </p>
-            <p
-              className="font-semibold text-right uppercase text-md 4xl:text-4xl xl:text-2xl"
-
-            >
-              Australia Widefrom only $19.99 per month, opt-out anytime
-            </p>
-          </div>
-          <div className="mt-4 px-6 md:px-0 lg:px-0 2xl:px-0">
-            <div className="flex mt-4 dashbtn-group">
-              <Link to="/register">
-              <div
-                className="flex justify-center px-4 py-4 2xl:px-8  border-black 2xl:py-6 2xl:text-4xl text-md font-bold items-center text-white buttonBg frontbtns"
-                style={{
-                  //   display: "inline-block",
-                  borderRadius: "5px",
-                  cursor: "pointer",
-                }}
-              >
-                Continue to Dashboard
-              </div>
-              </Link>
-            
+              Continue to Dashboard
             </div>
-            <div className="flex mobile-btns mt-4">
-              <img src={appstore} style={{ cursor: "pointer" }} className="4xl:hidden"  />
-              <img src={googleplay} style={{ cursor: "pointer" }} className="4xl:hidden" />
-              <img src={Xlappstore} style={{ cursor: "pointer" }} className="hidden 4xl:block"  />
-              <img src={Xlgoogleplay} style={{ cursor: "pointer" }} className="hidden 4xl:block" />
-            </div>
-
-          </div>
+          </Link>
+        </div>
+        <div className="flex justify-end mt-4 z-10">
+          <img
+            src={appstore}
+            style={{ cursor: "pointer" }}
+            className="4xl:hidden"
+          />
+          <img
+            src={googleplay}
+            style={{ cursor: "pointer" }}
+            className="4xl:hidden"
+          />
+          <img
+            src={Xlappstore}
+            style={{ cursor: "pointer" }}
+            className="hidden 4xl:block"
+          />
+          <img
+            src={Xlgoogleplay}
+            style={{ cursor: "pointer" }}
+            className="hidden 4xl:block"
+          />
         </div>
       </div>
     </motion.div>
