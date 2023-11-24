@@ -33,7 +33,7 @@ function LiveRaffle() {
         <div className="grid xl:grid-cols-3 bottom-0 absolute xl:justify-between grid-cols-1">
           <div className=" xl:flex items-center justify-center "></div>
 
-          <div className="flex flex-col items-center xl:justify-between col-span-1 space-y-4 xl:space-y-0 md:ml-60 ">
+          <div className="flex flex-col items-center xl:justify-between col-span-1 space-y-4 xl:space-y-0 md:ml-60  ml-5 xl:mr-20 ">
             <div className="flex flex-row justify-between items-center gap-4 xl:gap-6">
               <img src={soundicon} alt="" className="w-10 h-10" />
               <img src={displayicon} alt="" className="w-10 h-10" />
