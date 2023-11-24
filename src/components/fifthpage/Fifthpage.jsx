@@ -19,7 +19,7 @@ function Fifthpage() {
       whileInView={"onscreen"}
       viewport={{ once: true, amount: 0.5 }}
       transition={{ staggerChildren: 0.1 }}
-      className="relative pt-[150px] 2xl:pt-[300px] pb-10"
+      className="relative pt-[150px] 4xl:pt-[300px] pb-10"
       style={{
         background: "linear-gradient(88deg, #43E3ED -21.82%, #FFE9E9 131.12%)",
       }}
@@ -169,7 +169,7 @@ function Fifthpage() {
         //variants={imageAnimate}
         src={jeep}
         alt=""
-        className="static lg:absolute w-[750px] 4xl:w-[1500px] xl:w-[1200px] lg:w-[800px]"
+        className="static lg:absolute w-[750px] 4xl:w-[1500px] xl:w-[800px] lg:w-[800px]"
         style={{ top: "48%", left: "0px", zIndex: "3" }}
       />
     </motion.div>
