@@ -1,7 +1,6 @@
 import NoticeComponent from "../../components/NoticeComponent/NoticeComponent";
 import SideNav from "../../components/SideNav/SideNav";
 import Spicker from "../../assets/images/spicker.png";
-import HiddenCar from "../../assets/images/hiddenCar.png";
 import MainCar from "../../assets/images/MainCar.png";
 import GoldCard from "../../components/GoldCard/GoldCard";
 import TopNav from "../../components/TopNav/TopNav";
@@ -112,7 +111,7 @@ function Notice() {
           <SideNav screen="screen" />
 
           {/* home-content */}
-          <div className="xl:flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-4 pb-5 space-y-4 xl:space-y-0">
+          <div className="xl:flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-4 pb-5 space-y-4 xl:space-y-0 bg-notice-inner-2  ">
             {/* left side */}
             <div className="flex flex-col space-y-4 flex-1">
               <div className="visible xl:hidden space-y-4">
