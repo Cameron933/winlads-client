@@ -8,7 +8,7 @@ import Protect from "../../assets/images/side-bar/Protect.png";
 import User from "../../assets/images/side-bar/User.png";
 import { useState } from "react";
 import OutsideClickHandler from "react-outside-click-handler";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Modal from "react-modal";
 import Auth from "../../assets/images/dashboard-icon/1.png";
 import Transaction from "../../assets/images/side-bar/Transactions.png";
@@ -19,6 +19,7 @@ import Business from "../../assets/images/side-bar/Credit.png";
 
 const SideNav = ({ screen }) => {
   const [expanded, setExpanded] = useState(false);
+  const navigate = useNavigate();
 
   const expandSidebar = () => {
     setExpanded((pre) => true);
@@ -31,7 +32,7 @@ const SideNav = ({ screen }) => {
   return (
     <OutsideClickHandler onOutsideClick={notExpandSidebar}>
       <div
-        className={ `pt-20  min-h-${screen} h-full pr-2 rounded-r-xl space-y-4 bg-cyan-200 ${
+        className={ `pt-20 relative min-h-${screen} h-full pr-2 rounded-r-xl space-y-4 bg-cyan-200 ${
           expanded ? "" : "side-nav-half"
         } w-12 xl:w-full    `}
       >
@@ -127,13 +128,13 @@ const SideNav = ({ screen }) => {
           
         </div>
 
-        {/* <button
-          onClick={expandSidebar}
-          className="side-nav-contain side-nav-logout"
+        <button
+          onClick={()=>navigate('/login')}
+          className="side-nav-contain side-nav-logout absolute top-3/4 w-full left-0"
         >
           <img src={Logout} alt="protect" />
           <span className="mobile-hidden">Sign out</span>
-        </button> */}
+        </button>
       </div>
     </OutsideClickHandler>
   );

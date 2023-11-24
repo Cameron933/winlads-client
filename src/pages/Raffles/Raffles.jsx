@@ -87,7 +87,7 @@ function Raffles() {
           <SideNav screen="full" />
 
           {/* home-content */}
-          <div className="flex-1 mx-5 w-full  max-w-[2048px] 3xl:mx-auto">
+          <div className="flex-1 mx-5 w-full 3xl:mx-auto">
           <div className="side-bg" style={{ height: "500px" }}></div>
             <div className="flex flex-col lg:flex-row-reverse   gap-5">
               {/* right side */}
@@ -224,7 +224,7 @@ function Raffles() {
             
              {/* Raffle View Tabpane */}
              {
-              raffleRounds && <RaffleViewer raffleRounds={raffleRounds} setShowPopup={setShowPopup}/>
+              raffleRounds && <RaffleViewer raffleRounds={raffleRounds} setShowPopup={setShowPopup} showLessPopUp={setShowLessPopup}/>
              }
             
             
