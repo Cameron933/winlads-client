@@ -6,6 +6,7 @@ import GucciCard from "../../components/GucciCard/GucciCard";
 import TopNav from "../../components/TopNav/TopNav";
 import BusinessCardComponent from "../../components/BCard/BusinessCard";
 import { IoIosOptions } from "react-icons/io";
+import SearchField from "../../components/SearchField/SearchField";
 function BusinessCard() {
   return (
     <div>
@@ -33,20 +34,7 @@ function BusinessCard() {
               </div>
 
             </div>
-            <form className="form-inline relative">
-              <input
-                className="form-control mr-sm-2 outline-none bg-gray-300 mb-0 w-full border-none rounded-lg p-3"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-                style={{
-                  height: "50px",
-                }}
-              />
-              <button className="absolute top-3 right-5">
-                <IoIosOptions className="text-2xl" />
-              </button>
-            </form>
+           <SearchField/>
             <div className="">
               <BusinessCardComponent />
             </div>

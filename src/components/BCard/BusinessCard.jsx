@@ -17,18 +17,18 @@ import { MdOutlineAddShoppingCart } from "react-icons/md";
 import "./modal.css";
 
 function BusinessCard() {
-  const [showForm, setShowForm] = useState(false);
+
   const [isOrderNow, setOrderNow] = useState(false);
 
   const handleShareClick = () => {
-    setShowForm(!showForm);
+
     setOrderNow(!isOrderNow); // Toggle the state
   };
 
   return (
     <div>
       <div className="xl:mb-8 md:mb-10 mb-10 flex flex-col">
-        <p className="text-md font-bold xl:text-4xl md:text-4xl mb-4">
+        <p className="text-md font-bold xl:text-4xl md:text-4xl">
           Get My NFC
         </p>
         <p className="text-black text-lg">
@@ -46,15 +46,15 @@ function BusinessCard() {
 
         }}
       >
-        <div className="gap-4 text-left xl:w-fit w-full">
+        <div className="gap-4 text-left">
 
           {
-            isOrderNow ? <ShareForm /> : <><img src={BS1} alt="" className="w-56 md:w-72 mx-auto xl:mx-0" />
-              <img src={BS2} alt="" className="w-56 md:w-72 mt-3  mx-auto xl:mx-0" /></>
+            isOrderNow ? <ShareForm /> : <div className="xl:w-2/3 w-full"><img src={BS1} alt="" className="md:w-72 w-full xl:w-96 mx-auto xl:mx-0" />
+              <img src={BS2} alt="" className="md:w-72 w-full xl:w-96 mt-3  mx-auto xl:mx-0" /></div>
           }
 
-          <div className="flex row flex-col mx-auto w-fit">
-            <div className="flex gap-3 mt-3">
+         
+            <div className="flex gap-16 justify-center xl:justify-start xl:ml-14 mt-3 xl:w-2/3 w-full">
               <div className="flex flex-col items-center">
                 <button className="text-2xl p-3 rounded-lg bg-gray-400"><IoMdShare /></button>
                 <label className="text-sm"> Share</label>
@@ -77,7 +77,7 @@ function BusinessCard() {
                 </label>
               </div>
             </div>
-          </div>
+       
         
         </div>
       </div>
@@ -93,7 +93,7 @@ function ShareForm({ onClose }) {
   // Make sure to call `onClose` when the form is closed to update the state
 
   return (
-        <form className="form-contain-reg space-y-7 w-full mb-3">
+        <form className="form-contain-reg space-y-7 xl:w-2/3 xl:max-w-[500px] xl:pr-28 mb-3 w-full">
           <div className="bg-gray-300 flex flex-row-reverse items-center py-3 px-4 gap-3 rounded-2xl justify-end">
             <input
               type="text"

@@ -28,7 +28,7 @@ const PresentRaffles = ({setShowPopup}) => {
     
                 <div
                 key={key}
-                className="xl:w-1/4 w-full flex cursor-pointer flex-col rounded-3xl px-2 py-3 space-y-2 hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 "
+                className="xl:w-1/4 w-full flex cursor-pointer flex-col rounded-3xl px-2 py-3 space-y-2 hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 animate-slide-in-right"
                 style={{
                     background:
                         "linear-gradient(98.92deg, #F59E0B 45%, #000000 83%)",
@@ -37,7 +37,7 @@ const PresentRaffles = ({setShowPopup}) => {
             >
                 <img src={Jeep} alt="" className="absolute flex w-48" />
                 <div className="flex justify-end">
-                    <img src={max} alt="" className="w-16" />
+                    <div className="w-16 h-12" />
                 </div>
                 <div className="flex text-end flex-col z-10">
                     <p className="text-white font-bold xl:text-sm text-xs">

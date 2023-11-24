@@ -224,7 +224,7 @@ function Raffles() {
             
              {/* Raffle View Tabpane */}
              {
-              raffleRounds && <RaffleViewer raffleRounds={raffleRounds} setShowPopup={setShowPopup}/>
+              raffleRounds && <RaffleViewer raffleRounds={raffleRounds} setShowPopup={setShowPopup} showLessPopUp={setShowLessPopup}/>
              }
             
             
