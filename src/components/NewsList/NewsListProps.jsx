@@ -5,30 +5,13 @@ import newsimage3 from "../../assets/images/news/3.png";
 import newsimage4 from "../../assets/images/news/4.png";
 import "./newsListProps.css"; // Import the external CSS file
 import { IoIosOptions } from "react-icons/io";
+import SearchField from "../SearchField/SearchField";
 function NewsListProps() {
   return (
     <div>
-      <form className="form-inline relative">
-        <input
-          className="form-control mr-sm-2 outline-none bg-gray-300"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-          style={{
-            border: "none",
-            marginBottom: "40px",
-            width: "100%",
-            height: "50px",
-            borderRadius: "10px",
-            padding: "10px",
-          }}
-        />
-        <button className="absolute top-3 right-5">
-          <IoIosOptions className="text-2xl"/>
-        </button>
-      </form>
+      <SearchField/>
 
-      <div className="flex flex-col space-y-4">
+      <div className="flex flex-col space-y-4 mt-10">
         <Link to="/news">
           <div className="flex flex-row gap-8 xl:mb-5 items-center">
             <img

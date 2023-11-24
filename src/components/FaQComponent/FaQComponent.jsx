@@ -13,12 +13,12 @@ function FaQComponent() {
   
 
   return (
-    <div id="accordion-collapse" data-accordion="collapse">
+    <div id="accordion-collapse" data-accordion="collapse" className="my-5">
       <div>
         <h2 id="accordion-collapse-heading-1">
           <button
             type="button"
-            className={`flex items-center justify-between w-full p-5 mb-2 font-medium text-left text-black-500  rounded-3xl focus:ring-4 focus:bg-[#FAD035] dark:text-black-400 bg-[#FAD035]`}
+            className={`flex items-center justify-between w-full p-5 mb-2 font-medium text-left text-black-500 rounded-3xl focus:ring-4 focus:bg-white border border-orange-500`}
             onClick={() => toggleAccordion(1)}
             aria-expanded={isAccordionActive(1)}
             aria-controls="accordion-collapse-body-1"
@@ -43,12 +43,12 @@ function FaQComponent() {
         </h2>
         <div
           id="accordion-collapse-body-1"
-          className={`p-5   bg-[#FF6363] rounded-3xl mb-2 ${
+          className={`p-5 my-5  bg-gray-200 rounded-3xl mb-2 ${
             isAccordionActive(1) ? "" : "hidden"
           }`}
           aria-labelledby="accordion-collapse-heading-1"
         >
-          <p className="mb-2 text-white ">
+          <p className="mb-2 text-black ">
             The Biggest, and Best Rewards Club in Australia is LMCT. To offer
             our clients special discounts and great prizes, we have partnered
             with hundreds of (and rising) Australian companies. Since we began
@@ -66,7 +66,7 @@ function FaQComponent() {
         <h2 id="accordion-collapse-heading-2">
           <button
             type="button"
-            className={`flex items-center justify-between w-full p-5 mb-2 font-medium text-left text-black-500  rounded-3xl focus:ring-4 focus:bg-[#FAD035] dark:text-black-400 bg-[#FAD035]`}
+            className={`flex items-center justify-between w-full p-5 mb-2 font-medium text-left text-black-500  rounded-3xl focus:ring-4 focus:bg-white dark:text-black-400 bg-white border border-orange-500`}
             onClick={() => toggleAccordion(2)}
             aria-expanded={isAccordionActive(2)}
             aria-controls="accordion-collapse-body-2"
@@ -93,12 +93,12 @@ function FaQComponent() {
         </h2>
         <div
           id="accordion-collapse-body-2"
-          className={`p-5 rounded-3xl bg-[#FF6363] mb-2  ${
+          className={`p-5 my-5 rounded-3xl bg-gray-200 mb-2  ${
             isAccordionActive(2) ? "" : "hidden"
           }`}
           aria-labelledby="accordion-collapse-heading-2"
         >
-          <p className="mb-2 text-white">
+          <p className="mb-2 text-black">
             The Biggest, and Best Rewards Club in Australia is LMCT. To offer
             our clients special discounts and great prizes, we have partnered
             with hundreds of (and rising) Australian companies. Since we began
@@ -116,7 +116,7 @@ function FaQComponent() {
         <h2 id="accordion-collapse-heading-3">
           <button
             type="button"
-            className={`flex items-center justify-between w-full p-5 mb-2 font-medium text-left text-black-500  rounded-3xl focus:ring-4 focus:bg-[#FAD035] dark:text-black-400 bg-[#FAD035]`}
+            className={`flex items-center justify-between w-full p-5 mb-2 font-medium text-left text-black-500  rounded-3xl focus:ring-4 focus:bg-white dark:text-black-400 bg-white border border-orange-500`}
             onClick={() => toggleAccordion(3)}
             aria-expanded={isAccordionActive(3)}
             aria-controls="accordion-collapse-body-3"
@@ -143,12 +143,12 @@ function FaQComponent() {
         </h2>
         <div
           id="accordion-collapse-body-3"
-          className={`p-5 rounded-3xl bg-[#FF6363]  ${
+          className={`p-5 my-5 rounded-3xl bg-gray-200  ${
             isAccordionActive(3) ? "" : "hidden"
           }`}
           aria-labelledby="accordion-collapse-heading-3"
         >
-          <p className="mb-2  text-white">
+          <p className="mb-2  text-black">
             The Biggest, and Best Rewards Club in Australia is LMCT. To offer
             our clients special discounts and great prizes, we have partnered
             with hundreds of (and rising) Australian companies. Since we began
@@ -165,7 +165,7 @@ function FaQComponent() {
 
       <button
         type="button"
-        className=" bg-[#4FC8E8] text-black  text-lg  font-semibold	w-full  py-3  rounded-xl mt-2 mb-2"
+        className=" bg-black text-white  text-lg  font-semibold	w-full  py-3  rounded-xl mt-2 mb-2"
       >
         Submit Your Question
       </button>

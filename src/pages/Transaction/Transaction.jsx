@@ -76,24 +76,24 @@ const Transaction = () => {
               <p className="font-extrabold text-2xl xl:text-4xl">$576,000.00</p>
             </div>
             <div className="flex flex-row gap-2 xl:gap-6 md:gap-6">
-              <div className="bg-blue-300 justify-between flex-1 items-center gap-2 md:gap-4 xl:gap-4 rounded-2xl xl:px-4 px-2 py-2 md:px-4 md:py-4 flex flex-row">
+              <div className="bg-blue-400 justify-between flex-1 items-center gap-2 md:gap-4 xl:gap-4 rounded-2xl xl:px-4 px-2 py-2 md:px-4 md:py-4 flex flex-row">
                 <img src={Tax} alt="" className="md:h-20 md:w-20 xl:h-16 xl:w-16" />
                 <div className="flex flex-col">
-                  <p className="text-sm xl:text-xl text-[#000000] md:text-2xl">
+                  <p className="text-sm xl:text-3xl text-white md:text-2xl">
                     $5,000
                   </p>
-                  <p className="text-gray-700 text-xs xl:text-lg md:text-xl">
+                  <p className="text-white text-xs xl:text-xl md:text-lg">
                     Earning
                   </p>
                 </div>
               </div>
-              <div className="bg-orange-300 flex-1 justify-between items-center xl:gap-4 gap-2 md:gap-4 rounded-2xl xl:px-4 px-2 py-2 md:px-4 md:py-4 flex flex-row">
+              <div className="bg-orange-400 flex-1 justify-between items-center xl:gap-4 gap-2 md:gap-4 rounded-2xl xl:px-4 px-2 py-2 md:px-4 md:py-4 flex flex-row">
                 <img src={Ticket} alt="" className="md:h-20 md:w-20 xl:h-16 xl:w-16" />
                 <div className="flex flex-col">
-                  <p className="text-sm xl:text-xl text-[#000000] md:text-2xl">
+                  <p className="text-sm xl:text-3xl text-white md:text-2xl">
                     $15,000
                   </p>
-                  <p className="text-gray-700 text-xs xl:text-lg md:text-xl">
+                  <p className="text-white text-xs xl:text-xl md:text-lg">
                     Purchase
                   </p>
                 </div>

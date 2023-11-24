@@ -113,7 +113,7 @@ const Profile = () => {
   return (
     <div>
       <div className="flex relative">
-        <SideNav screen="full" />
+        <SideNav screen="screen" />
         <div
           className="flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-8 pb-5 space-y-4 xl:space-y-0"
           style={{ backgroundImage: `url(${backgroundcar})` }}
@@ -132,7 +132,7 @@ const Profile = () => {
           </div>
           <div className="flex flex-col space-y-4 flex-1 xl:mx-12">
             <div className="flex flex-col space-y-3">
-              <form className="mx-auto relative">
+              <form className="mx-auto mt-4 relative">
                 <img src={User} alt="profile-pic" />
                 <label htmlFor="profile" className="z-10 absolute bottom-0 right-0 text-2xl bg-gray-200 rounded-full p-1 cursor-pointer">
                   <MdOutlinePhotoCamera/>

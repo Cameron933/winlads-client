@@ -17,6 +17,7 @@ import { validateCurrentUser } from "../../utils/validateuser";
 import CustomChart from "../../components/chart/CustomChart";
 import { motion } from "framer-motion";
 import { carAnimation } from "../../animation/animation";
+import DashboardVehicleCard from "../../components/DashboardVehicleCard/DashboardVehicle";
 
 // import { Line } from "react-chartjs-2";
 // import { Chart as ChartJS } from "chart.js/auto";
@@ -78,7 +79,13 @@ const Dashboard = () => {
           <SideNav screen="full" />
 
           {/* home-content */}
-          <div className="flex flex-col lg:flex-row  flex-1 mx-5 gap-5">
+          <div className="flex flex-col xl:flex-row flex-1 mx-5 gap-5">
+            {/* <div className="flex flex-row">
+
+            </div>
+            <div className="flex flex-row">
+              
+            </div> */}
             {/* left side */}
             <div className="flex flex-col flex-1 ">
               <div className="visible lg:hidden space-y-4">
@@ -96,11 +103,13 @@ const Dashboard = () => {
                   </div>
                 </div>
 
-                <div className="lg:w-2/3 md:w-1/2">
+                {/* <div className="lg:w-2/3 md:w-1/2">
                   <GoldCard />
                 </div>
 
-                <EarningCard />
+                <EarningCard /> */}
+                 <DashboardVehicleCard />
+                  <DashboardVehicleCard />
               </div>
               <div className="hidden lg:flex flex-col space-y-4 items-end">
                 <div className="bg-black rounded-b-3xl space-y-4">
@@ -126,12 +135,21 @@ const Dashboard = () => {
                     />
                   </div>
                 </div>
-                <div className="lg:w-2/3 md:w-1/2">
+                <div className="flex flex-col space-y-1">
+                  <p className="text-xl font-semibold">Next Giveaways</p>
+                  <div className="flex flex-col xl:flex-row items-center gap-2">
+                  <DashboardVehicleCard />
+                  <DashboardVehicleCard />
+                </div>
+                </div>
+               
+
+                {/* <div className="lg:w-2/3 md:w-1/2">
                   <GoldCard />
                 </div>
                 <div className="hidden lg:block w-full">
                   <EarningCard balance={valUser.balance} />
-                </div>
+                </div> */}
               </div>
             </div>
 
@@ -141,9 +159,12 @@ const Dashboard = () => {
                 <TopNav />
               </div>
 
-              <div className="side-bg" ></div>
+              <div className="side-bg"></div>
               <div className="graph-section ">
-                <CustomChart height={300} />
+                {/* <CustomChart height={300} /> */}
+                <div className="xl:pt-16">
+                  <DashboardVehicleCard />
+                </div>
               </div>
               {/* <div className="lg:w-full md:w-1/2">
                 <GucciCard />
