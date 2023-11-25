@@ -134,7 +134,7 @@ const Profile = () => {
             <div className="flex flex-col space-y-3">
               <form className="mx-auto mt-4 relative">
                 <img src={User} alt="profile-pic" />
-                <label htmlFor="profile" className="z-10 absolute bottom-0 right-0 text-2xl bg-gray-200 rounded-full p-1 cursor-pointer">
+                <label htmlFor="profile" className="z-10 absolute -bottom-3 -right-2 text-2xl bg-gray-200 rounded-full p-1 cursor-pointer">
                   <MdOutlinePhotoCamera/>
                 </label>
                 <input type="file" className="hidden" name="profile" id="profile" />
@@ -145,12 +145,6 @@ const Profile = () => {
                   <p className="w-fit" style={{fontSize:'8px'}}>Level 1</p>
                 </div>
                 <p className="">Verified User</p>
-              </div>
-              <div className="flex items-center justify-center gap-2">
-              <div className="bg-green-300 border border-1 border-black p-0.5 w-fit">
-              <p className="text-xs w-fit">Level 1</p>
-              </div>
-              <p className="">Verified User</p>
               </div>
               
               
