@@ -27,7 +27,7 @@ const HistoryList = () => {
                     <IoIosOptions className="text-2xl" />
                 </button>
             </form>
-            <div className="hitory-container" style={bgStyle}>
+            <div className="hitory-container md:pr-32" style={bgStyle}>
                 <Link to="/#">
                     <div className="flex flex-row gap-8 xl:mb-5 items-center  border-b-2 border-gray-200">
                         <img
