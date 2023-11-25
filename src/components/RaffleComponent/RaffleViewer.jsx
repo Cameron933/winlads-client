@@ -17,7 +17,7 @@ const RaffleViewer = ({ raffleRounds, setShowPopup, showLessPopUp }) => {
         setActiveButton(time);
     }
     return (
-        <div className='w-full my-10 mb-32'>
+        <div className='w-full my-24'>
             {/*PAST PRESENT FUTURE  */}
             <div className='flex items-center justify-between font-extrabold w-full lg:w-1/2 px-5 '>
                 {/* TODO: Change the Value Pased in here to time accordingly */}
