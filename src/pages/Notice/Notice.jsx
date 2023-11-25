@@ -113,6 +113,7 @@ function Notice() {
 
           {/* home-content */}
           <div className="xl:flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-4 pb-5 space-y-4 xl:space-y-0 bg-notice-inner-2  ">
+            <div className="side-bg" style={{ height: "500px" }}></div>
             {/* left side */}
             <div className="flex flex-col space-y-4 flex-1">
               <div className="visible xl:hidden space-y-4">

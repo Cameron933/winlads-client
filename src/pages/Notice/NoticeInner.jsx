@@ -136,6 +136,7 @@ function NoticeInner() {
 
           {/* home-content */}
           <div className="xl:flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-4 pb-5 space-y-4 xl:space-y-0">
+            <div className="side-bg" style={{ height: "500px" }}></div>
             {/* left side */}
             <div className="flex flex-col space-y-4 flex-1">
               <div className="visible xl:hidden space-y-4">
@@ -172,7 +173,7 @@ function NoticeInner() {
                 </button>
               </form>
               <div className="w-full h-[550px] sm:h-[500px] md:h-[450px]  flex flex-col bg-notice-inner ">
-                <div className="flex items-center justify-center  gap-5 ">
+                <div className="flex items-start justify-start  gap-5 ">
                   <img src={Male} alt="" className="" />
                   <div className="">
                     <p className=" font-semibold text-lg md:text-xl">
@@ -182,7 +183,7 @@ function NoticeInner() {
                   </div>
                 </div>
 
-                <div className="mt-5 sm:mt-10 overflow-hidden mx-auto w-4/5 sm:w-2/3 ">
+             <div className="mt-5 sm:mt-10 overflow-hidden mx-auto w-4/5 sm:w-2/3  xl:ml-10 ">
                   <span className="sm:text-base text-sm text-gray-900">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Veniam harum repellendus exercitationem quos minus. Nulla
