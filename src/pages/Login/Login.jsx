@@ -13,9 +13,9 @@ import Lock from "../../assets/images/lock.png";
 import { AiOutlineSend } from "react-icons/ai";
 import axios from "axios";
 import OtpInput from "react-otp-input";
-import Cookies from 'universal-cookie';
+import Cookies from "universal-cookie";
 import { motion } from "framer-motion";
-import XlJeep from "../../assets/images/Xljeep.png"
+import XlJeep from "../../assets/images/Xljeep.png";
 import { toast } from "react-toastify";
 
 const Login = () => {
@@ -28,7 +28,7 @@ const Login = () => {
   const [show, setshow] = useState(false);
   const [showOTPBox, setShowOTPBox] = useState(false);
   const [buttonText, setButtonText] = useState("Get OTP");
-  const cookies = new Cookies(null, { path: '/' });
+  const cookies = new Cookies(null, { path: "/" });
   const onSubmit = async (values, actions) => {
     // console.log(value, actions)
     // setTimeout(() => {
@@ -53,16 +53,19 @@ const Login = () => {
         );
         if (!response.data.exists) {
           // alert("Mobile number is not registered. Please register first.");
-          toast.error("Mobile number is not registered. Please register first.", {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-          });
+          toast.error(
+            "Mobile number is not registered. Please register first.",
+            {
+              position: "top-center",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "colored",
+            }
+          );
         } else {
           const result = await auth.signInWithPhoneNumber(ph, verify);
           setfinal(result);
@@ -102,7 +105,7 @@ const Login = () => {
           .then((response) => {
             if (response.data.exists) {
               console.log("success");
-              cookies.set('wr_token', response.data.data._id);
+              cookies.set("wr_token", response.data.data._id);
               navigate("/dashboard");
             } else {
               alert("Login failed");
@@ -159,16 +162,14 @@ const Login = () => {
         <Loader />
       ) : (
         <div className="h-screen  flex flex-col justify-center bg-image">
-
           <div className="container mx-auto login-section">
             <div className="login-contain flex items-center justify-center md:flex-row flex-col">
               <div className="img-container w-2/4 scale-150 mb-9 md:mb-0 prevent">
                 {/* Dekstop VIew Jeep */}
                 <div className="hidden md:block 4xl:hidden xl:hidden w-full">
                   <motion.img
-                    initial={{ opacity: 0, x: '-50%' }}
-                    whileInView={{ opacity: 1, x: '-25%' }}
-
+                    initial={{ opacity: 0, x: "-50%" }}
+                    whileInView={{ opacity: 1, x: "-10%" }}
                     transition={{ duration: 0.8 }}
                     src={MainJeepNp}
                     className="w-full h-full object-contain md:object-cover "
@@ -177,8 +178,8 @@ const Login = () => {
                 </div>
                 <div className="hidden 4xl:block xl:block md:hidden w-full">
                   <motion.img
-                    initial={{ opacity: 0, x: '-50%' }}
-                    whileInView={{ opacity: 1, x: '-25%' }}
+                    initial={{ opacity: 0, x: "-50%" }}
+                    whileInView={{ opacity: 1, x: "-25%" }}
                     transition={{ duration: 0.8 }}
                     src={XlJeep}
                     className="w-full h-full object-contain md:object-cover "
@@ -190,7 +191,6 @@ const Login = () => {
                   <motion.img
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: -10 }}
-
                     transition={{ duration: 0.8 }}
                     src={MainImg}
                     className="w-full h-full object-contain md:object-cover "
@@ -198,9 +198,7 @@ const Login = () => {
                   />
                 </div>
 
-              
                 {/* Mobile View Jeep End */}
-
 
                 {/* <img src={MainImg} className="w-full h-full object-contain md:object-cover transform md:-translate-x-1/4" alt="main-img" /> */}
               </div>
@@ -216,7 +214,11 @@ const Login = () => {
 
               </motion.img> */}
 
-              <form onSubmit={handleSubmit} autoComplete="off" className="form-contain text-center">
+              <form
+                onSubmit={handleSubmit}
+                autoComplete="off"
+                className="form-contain text-center"
+              >
                 <span className="text-2xl md:text-3xl lg:text-4xl fw-bold font-bold">
                   Sign in to access your account
                 </span>
@@ -229,7 +231,7 @@ const Login = () => {
                         : "input-div"
                     }
                   >
-                    <img src={Phone} alt="phone"/>
+                    <img src={Phone} alt="phone" />
                     <input
                       type="text"
                       placeholder="+1(Phone Number)"
@@ -242,7 +244,6 @@ const Login = () => {
                       {errors.mobile && touched.mobile && errors.mobile}
                     </small>
                   </div>
-
 
                   {showOTPBox && (
                     <div
@@ -257,16 +258,13 @@ const Login = () => {
                         placeholder="OTP Code"
                         value={otp}
                         onChange={(e) => setOtp(e.target.value)}
-                      // id="tin"
+                        // id="tin"
                       />
                       <small className="text-error">
                         {errors.otp && touched.opt && errors.otp}
                       </small>
                     </div>
                   )}
-
-
-
 
                   <div className="flex items-center justify-between w-full text-md">
                     <div>
@@ -280,7 +278,9 @@ const Login = () => {
                         onBlur={handleBlur}
                       /> */}
                       <input type="checkbox" name="" id="rem" />
-                      <label htmlFor="rem" className="ml-2">Remember me</label>
+                      <label htmlFor="rem" className="ml-2">
+                        Remember me
+                      </label>
                     </div>
 
                     <span className="text-yellow-600">Re-try?</span>
@@ -297,22 +297,25 @@ const Login = () => {
                   </button> */}
 
                   <button
-                    className="bg-black px-12 w-full py-2 rounded-lg blackbtns"
+                    className="bg-black px-12 w-full py-2 flex justify-center flex-row items-center rounded-lg blackbtns"
                     onClick={(e) => onSignup(e)}
                   >
                     <span className="xl:text-2xl text-lg text-white font-bold">
                       {buttonText}
-                      <MdOutlineNavigateNext
-                        color={"#fff"}
-                        size={40}
-                        className="inline-block mt-0"
-                      />
                     </span>
+                    <MdOutlineNavigateNext
+                      color={"#fff"}
+                      size={40}
+                      className="inline-block mt-0"
+                    />
                   </button>
                   <div className="font-semibold text-lg">
                     <span>New Member? </span>
                     <span>
-                      <Link to="/register" className="react-link text-[#157D98]">
+                      <Link
+                        to="/register"
+                        className="react-link text-[#157D98]"
+                      >
                         Register now
                       </Link>
                     </span>

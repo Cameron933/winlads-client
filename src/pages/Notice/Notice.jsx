@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import Loader from "../../components/Loader/Loader";
 import { carAnimation } from "../../animation/animation";
 import { IoIosOptions } from "react-icons/io";
+import SearchField from "../../components/SearchField/SearchField";
 
 function Notice() {
   const [isLoading, setIsLoading] = useState(true);
@@ -128,7 +129,7 @@ function Notice() {
                   </div>
                 </div>
               </div>
-              <form className="form-inline relative">
+              {/* <form className="form-inline relative">
                 <input
                   className="form-control mr-sm-2 outline-none bg-gray-300"
                   type="search"
@@ -146,7 +147,8 @@ function Notice() {
                 <button className="absolute top-3 right-5">
                   <IoIosOptions className="text-2xl" />
                 </button>
-              </form>
+              </form> */}
+              <SearchField />
               <div className="mt-10">
                 <NoticeComponent />
               </div>

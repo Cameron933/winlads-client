@@ -24,6 +24,7 @@ import Jeep from "../../assets/images/Lottery/Jeep.png";
 import six from "../../assets/images/rafflesImages/six4.png";
 import RedDot from "../../assets/images/RedDot.png";
 import { GoQuestion } from "react-icons/go";
+import SearchField from "../../components/SearchField/SearchField";
 
 function RaffleDashbord() {
   const [raffles, setRaffles] = useState([]);
@@ -37,19 +38,19 @@ function RaffleDashbord() {
     }, 1000);
   }, []);
 
-  const navigate = useNavigate();
-  const currentUserValidation = async () => {
-    const validator = await validateCurrentUser();
-    if (validator.validatorBl) {
-      console.log("Session OK");
-    } else {
-      navigate("/login");
-    }
-  };
-  useEffect(() => {
-    currentUserValidation();
-    getRaffles();
-  }, []);
+  // const navigate = useNavigate();
+  // const currentUserValidation = async () => {
+  //   const validator = await validateCurrentUser();
+  //   if (validator.validatorBl) {
+  //     console.log("Session OK");
+  //   } else {
+  //     navigate("/login");
+  //   }
+  // };
+  // useEffect(() => {
+  //   currentUserValidation();
+  //   getRaffles();
+  // }, []);
 
   const getRaffles = async () => {
     await axios
@@ -72,7 +73,7 @@ function RaffleDashbord() {
           <SideNav screen="screen" />
           <div>
             {/* home-content */}
-            <div className="xl:flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-4  space-y-4 xl:space-y-0">
+            <div className="xl:flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-4 py-2 space-y-4 xl:space-y-0">
               {/* left side */}
               <div className="flex flex-col  flex-1">
                 <div className="visible xl:hidden space-y-4">
@@ -83,7 +84,7 @@ function RaffleDashbord() {
                     </div>
                   </div>
                 </div>
-                <form className="form-inline relative py-5">
+                {/* <form className="form-inline relative py-5">
                   <input
                     className="form-control mr-sm-2 outline-none bg-gray-300"
                     type="search"
@@ -101,7 +102,8 @@ function RaffleDashbord() {
                   <button className="absolute top-3 right-5 ">
                     <IoIosOptions className="text-2xl" />
                   </button>
-                </form>
+                </form> */}
+                <SearchField />
                 <div className="flex flex-col gap-4  lg:flex-row lg:items-end lg:mt-10">
                   <Calendar
                     value={value}

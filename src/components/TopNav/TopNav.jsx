@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const TopNav = ({ textColor }) => {
   return (
     <div
-      className={`border-none text-${textColor} flex flex-row items-center justify-between cursor-pointer xl:mx-10 mx-5 font-semibold sm:font-bold text-xs sm:text-sm xl:text-lg md:text-xl  nav-list-top`}
+      className={`border-none text-${textColor} flex flex-row items-center justify-between cursor-pointer xl:mx-10 mx-5 font-semibold sm:font-bold text-xs sm:text-sm xl:text-lg md:text-xl nav-list-top`}
     >
       <span className="navlinks">
         <Link to="/dashboard">Home</Link>

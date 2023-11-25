@@ -18,6 +18,8 @@ import CustomChart from "../../components/chart/CustomChart";
 import { motion } from "framer-motion";
 import { carAnimation } from "../../animation/animation";
 import DashboardVehicleCard from "../../components/DashboardVehicleCard/DashboardVehicle";
+import SmallGoldCard from "../../components/GoldCard/SmallGoldCard";
+import SearchField from "../../components/SearchField/SearchField";
 
 // import { Line } from "react-chartjs-2";
 // import { Chart as ChartJS } from "chart.js/auto";
@@ -55,18 +57,18 @@ const Dashboard = () => {
   //     },
   //   ],
   // });
-  // const currentUserValidation = async () => {
-  //   const validator = await validateCurrentUser();
-  //   if (validator.validatorBl) {
-  //     console.log("Session OK", validator.user.balance);
-  //     setValUser(validator.user);
-  //   } else {
-  //     navigate("/login");
-  //   }
-  // };
-  // useEffect(() => {
-  //   currentUserValidation();
-  // }, []);
+  const currentUserValidation = async () => {
+    const validator = await validateCurrentUser();
+    if (validator.validatorBl) {
+      console.log("Session OK", validator.user.balance);
+      setValUser(validator.user);
+    } else {
+      navigate("/login");
+    }
+  };
+  useEffect(() => {
+    currentUserValidation();
+  }, []);
 
   return (
     <>
@@ -109,17 +111,29 @@ const Dashboard = () => {
 
                 <EarningCard /> */}
                 <p className="text-2xl font-semibold">Next Giveaways</p>
-                 <DashboardVehicleCard />
-                  <DashboardVehicleCard />
-                  <DashboardVehicleCard />
+                <DashboardVehicleCard />
+                <DashboardVehicleCard />
+                <DashboardVehicleCard />
               </div>
               <div className="hidden lg:flex flex-col space-y-4 items-end">
-                <div className="bg-black rounded-b-3xl space-y-4">
-                  <div className="flex flex-row items-center bg-[#333333] gap-4 mx-5 rounded-full px-4 mt-5">
+                <div className="bg-black rounded-b-3xl space-y-4 relative">
+                  {/* <div className="flex flex-row items-center bg-[#333333] gap-4 mx-5 rounded-full px-4 mt-5">
                     <img src={Spicker} alt="" className="w-8 h-8" />
                     <span className="text-sm text-white">
                       Your golden card is about to expire in 30 days. Renew now!
                     </span>
+                  </div> */}
+                  <div className="m-2">
+                  <SearchField />
+                  </div>
+                 
+                  <div className="absolute left-4 top-40 space-y-8">
+                    <div className="flex flex-col space-y-2">
+                      <p className="text-[#22CCEE] text-2xl font-semibold">Earning Balance</p>
+                      <p className="text-4xl text-white">$0</p>
+                    </div>
+                    <SmallGoldCard />
+                    
                   </div>
                   <div className="flex flex-row items-center gap-10 bottom-0">
                     <img
@@ -137,14 +151,13 @@ const Dashboard = () => {
                     />
                   </div>
                 </div>
-                <div className="flex flex-col space-y-1">
+                <div className="flex flex-col space-y-2">
                   <p className="text-xl font-semibold">Next Giveaways</p>
                   <div className="flex flex-col xl:flex-row items-center gap-2">
-                  <DashboardVehicleCard />
-                  <DashboardVehicleCard />
+                    <DashboardVehicleCard />
+                    <DashboardVehicleCard />
+                  </div>
                 </div>
-                </div>
-               
 
                 {/* <div className="lg:w-2/3 md:w-1/2">
                   <GoldCard />
