@@ -25,6 +25,7 @@ import six from "../../assets/images/rafflesImages/six4.png";
 import RedDot from "../../assets/images/RedDot.png";
 import { GoQuestion } from "react-icons/go";
 import SearchField from "../../components/SearchField/SearchField";
+import { RxCounterClockwiseClock } from "react-icons/rx";
 
 function RaffleDashbord() {
   const [raffles, setRaffles] = useState([]);
@@ -74,6 +75,7 @@ function RaffleDashbord() {
           <div>
             {/* home-content */}
             <div className="xl:flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-4 py-2 space-y-4 xl:space-y-0">
+              <div className="side-bg" style={{ height: "500px" }}></div>
               {/* left side */}
               <div className="flex flex-col  flex-1">
                 <div className="visible xl:hidden space-y-4">
@@ -104,7 +106,12 @@ function RaffleDashbord() {
                   </button>
                 </form> */}
                 <SearchField />
-                <div className="flex flex-col gap-4  lg:flex-row lg:items-end lg:mt-10">
+                <Link to="/history" className="text-3xl ml-auto mt-3">
+                  <RxCounterClockwiseClock />
+                </Link>
+                <div
+                  className="flex flex-col gap-4  lg:flex-row lg:items-end lg:mt-10 "
+                >
                   <Calendar
                     value={value}
                     onChange={onChange}

@@ -257,15 +257,13 @@ code {
 
 /* notice-inner */
 .bg-notice-inner{
-  background-image: url('../src/assets/images/hiddenCarN.png');
-    background-position:center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-image: url('../src/assets/images/notice/noticecar.png');
+  background-repeat: no-repeat;
 }
 .bg-notice-inner-2{
-  background-image: url('../src/assets/images/hiddenCarN.png');
-    background-repeat: no-repeat;
-    width: 50%;
+  background-image: url('../src/assets/images/notice/noticecar.png');
+  background-position: left;
+  background-repeat: no-repeat;  
 }
 
 .prevent{
