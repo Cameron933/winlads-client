@@ -48,7 +48,7 @@ function Thirdpage() {
         <div className=" flex justify-center p-2 4xl:p-4 relative xl:mx-32 lg:mx-24 items-center">
           <motion.div
             variants={textAnimate}
-            className="border bg-white rounded-xl lg:absolute right-0 z-10"
+            className="border bg-white rounded-xl right-0 z-10"
             // style={{ right: "-100px" }}
           >
             {/* <div className="px-4 py-4 font-bold text-xl border-t rounded-xl flex flex-row items-center gap-2">
@@ -104,11 +104,11 @@ function Thirdpage() {
           <img src={jeep3} alt="" style={{ width: "1700px" }} />
         </motion.div>
       </div>
-      <div>
+      <div className="md:pr-0 2xl:pr-10">
         <p className="text-lg 4xl:text-8xl xl:text-6xl md:text-4xl font-bold uppercase tracking-widest p-4 text-center lg:text-4xl lg:text-right 4xl:text-right xl:text-right">
           Some our Partners
         </p>
-        <div className="flex justify-end">
+        <div className="flex justify-center lg:justify-end ml-10 lg:ml-0">
           <div className="m-5">
             <img src={partner5} alt="" className="w-[180px] 2xl:w-[360px]" />
           </div>

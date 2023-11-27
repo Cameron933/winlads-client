@@ -25,7 +25,7 @@ function Fifthpage() {
       }}
     >
       <p
-        className="text-lg 4xl:text-8xl text-center font-bold uppercase tracking-widest p-4 4xl:pb-8 lg:text-4xl xl:text-right relative"
+        className="w-full lg:w-2/3 ml-auto text-center xl:mb-4 text-xl 4xl:text- font-bold uppercase tracking-widest p-4 4xl:pb-8 lg:text-4xl xl:text-right xl:pr-16 relative"
         style={{ zIndex: "2" }}
       >
         Choose a server plan
@@ -40,7 +40,7 @@ function Fifthpage() {
             className="lg:grid grid-cols-2 gap-2 relative"
             style={{ zIndex: "2" }}
           >
-            <div className="text-white">
+            <div className="text-white mb-4 lg:mb-0">
               <div
                 className="flex flex-col space-y-4 2xl:py-4 2xl:space-y-8 allcolor-white  justify-center items-center rounded-xl m-auto transition duration-700 hover:scale-105 lg:mr-0"
                 style={{
@@ -68,7 +68,7 @@ function Fifthpage() {
                 </button>
               </div>
             </div>
-            <div className="p-0 mb-2 lg:mb-0" style={{ background: "" }}>
+            <div className="p-0 mb-4 lg:mb-0" style={{ background: "" }}>
               <div
                 className="flex flex-col space-y-4 2xl:py-4 2xl:space-y-8 justify-center items-center rounded-xl transition duration-700 hover:scale-105"
                 style={{
@@ -99,7 +99,7 @@ function Fifthpage() {
                 </button>
               </div>
             </div>
-            <div className="p-0 lg:mb-0" style={{ background: "" }}>
+            <div className="p-0 lg:mb-0 mb-4" style={{ background: "" }}>
               <div
                 className="flex flex-col space-y-4 2xl:py-4 2xl:space-y-8 justify-center items-center rounded-xl m-auto transition duration-700 hover:scale-105 lg:mr-0"
                 style={{
@@ -129,7 +129,7 @@ function Fifthpage() {
                 </button>
               </div>
             </div>
-            <div className="text-white">
+            <div className="text-white mb-4 lg:mb-0">
               <div
                 className="flex flex-col space-y-4 2xl:py-4 2xl:space-y-8 justify-center items-center rounded-xl m-auto transition duration-700 hover:scale-105"
                 style={{

@@ -44,13 +44,14 @@ function Showcase() {
       transition={{ staggerChildren: 0.5 }}
       className="grid grid-cols-1 gap-2 lg:grid-cols-2"
       style={{
+   
         minHeight: "100vh",
         position: "relative",
         background: "linear-gradient(88deg, #43E3ED -21.82%, #FFE9E9 131.12%)",
       }}
     >
       <button
-        className="border-black 4xl:text-4xl px-4 py-3 rounded-md 2xl:py-6 items-center text-white buttonBg absolute top-20 right-2"
+        className="border-black 4xl:text-4xl px-4 py-3 rounded-md 2xl:py-6 items-center text-white buttonBg absolute top-20 right-5"
       >
         Contact Us
       </button>
@@ -119,7 +120,7 @@ function Showcase() {
           }}
         />
       </div>
-      <div className="flex flex-col space-y-4 mx-2">
+      <div className="flex flex-col space-y-4 mx-2 pr-3">
         <div className="hidden lg:block" style={{ height: "40%" }}></div>
         <div className="pt-4 dashcontent-group z-10">
           <p className="font-semibold text-right uppercase text-sm 4xl:text-4xl xl:text-2xl">
