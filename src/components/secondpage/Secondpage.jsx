@@ -59,7 +59,7 @@ function Secondpage() {
       className="pt-24"
     >
       
-      <div className="p-5 md:pl-16 pl-8 h-auto lg:h-screen lg:px-40 xl:px-40 4xl:px-80" style={{ position: "relative" }}>
+      <div className="p-5 md:pl-16 pl-8 h-auto lg:h-screen  lg:px-40 xl:px-40 4xl:px-80" style={{ position: "relative" }}>
         <div className="flex flex-col xl:flex-row xl:justify-between">
         <motion.div
           variants={textAnimate}
@@ -135,11 +135,11 @@ function Secondpage() {
         <img
           src={Ellipse2}
           alt=""
+          className="-z-10 xl:z-[1]"
           style={{
             position: "absolute",
             right: "0px",
             top: "-500px",
-            zIndex: "1",
           }}
         />
       

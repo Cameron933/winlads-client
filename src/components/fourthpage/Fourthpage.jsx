@@ -30,7 +30,7 @@ function Fourthpage() {
         whileInView={"onscreen"}
         viewport={{ once: true, amount: 0.5 }}
         transition={{ staggerChildren: 0.1 }}
-        className="lg:hidden md:pl-16 pl-4 block mg:hidden 2xl:hidden"
+        className="lg:hidden md:pl-0 pl-4 block mg:hidden 2xl:hidden"
         style={{
           background:
             "linear-gradient(88deg, #43E3ED -21.82%, #FFE9E9 131.12%)",
@@ -134,7 +134,7 @@ function Fourthpage() {
         }}
       >
         <p
-          className="text-4xl 4xl:text-8xl lg:text-4xl xl:text-4xl font-bold text-right uppercase tracking-widest p-4 relative"
+          className="text-4xl 4xl:text-8xl lg:text-4xl xl:text-4xl font-bold text-right uppercase tracking-widest p-4 relative md:mx-auto 2xl:mx-10"
           style={{ zIndex: "2" }}
         >
           Explore Exclusive MemberBenefit
