@@ -45,13 +45,12 @@ function Showcase() {
       className="grid grid-cols-1 gap-2 lg:grid-cols-2"
       style={{
    
-        minHeight: "100vh",
         position: "relative",
         background: "linear-gradient(88deg, #43E3ED -21.82%, #FFE9E9 131.12%)",
       }}
     >
       <button
-        className="border-black 4xl:text-4xl px-4 py-3 rounded-md 2xl:py-6 items-center text-white buttonBg absolute top-20 right-5"
+        className="border-black 4xl:text-4xl px-4 py-3 rounded-md 2xl:py-6 items-center text-white buttonBg absolute top-20 lg:right-12 right-2"
       >
         Contact Us
       </button>
@@ -120,7 +119,7 @@ function Showcase() {
           }}
         />
       </div>
-      <div className="flex flex-col space-y-4 mx-2 pr-3">
+      <div className="flex flex-col space-y-4 mx-2 mt-10 md:mt-0 lg:pr-10">
         <div className="hidden lg:block" style={{ height: "40%" }}></div>
         <div className="pt-4 dashcontent-group z-10">
           <p className="font-semibold text-right uppercase text-sm 4xl:text-4xl xl:text-2xl">
@@ -134,7 +133,7 @@ function Showcase() {
         <div className="flex justify-end z-10">
           <Link to="/register">
             <div
-              className="flex justify-center px-4 py-4 2xl:px-8  border-black 2xl:py-6 2xl:text-4xl text-md font-bold items-center text-white buttonBg frontbtns"
+              className="flex justify-center px-4 py-4 2xl:px-8  border-black 2xl:py-6 2xl:text-xl text-md font-bold items-center text-white buttonBg frontbtns"
               style={{
                 //   display: "inline-block",
                 borderRadius: "5px",
@@ -149,12 +148,12 @@ function Showcase() {
           <img
             src={appstore}
             style={{ cursor: "pointer" }}
-            className="4xl:hidden"
+            className="4xl:hidden w-1/2 md:w-auto"
           />
           <img
             src={googleplay}
             style={{ cursor: "pointer" }}
-            className="4xl:hidden"
+            className="4xl:hidden w-1/2 md:w-auto"
           />
           <img
             src={Xlappstore}

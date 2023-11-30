@@ -59,7 +59,7 @@ function Secondpage() {
       className="pt-24"
     >
       
-      <div className="p-5 md:pl-16 pl-8 h-auto lg:h-screen  lg:px-40 xl:px-40 4xl:px-80" style={{ position: "relative" }}>
+      <div className="p-5 md:pl-16 pl-8 h-auto lg:h-screen  lg:px-40 xl:px-32 4xl:px-80" style={{ position: "relative" }}>
         <div className="flex flex-col xl:flex-row xl:justify-between">
         <motion.div
           variants={textAnimate}
@@ -80,7 +80,7 @@ function Secondpage() {
         </motion.div>
         <motion.div
           variants={textAnimate2}
-          className="static lg:absolute xl:w-[350px] 4xl:w-[700px] lg:w-[400px]"
+          className="static lg:absolute xl:w-[450px] 4xl:w-[800px] lg:w-[500px]"
           style={{
             //position: "absolute",
             right: "240px",
@@ -98,8 +98,8 @@ function Secondpage() {
         </motion.div>
         </div>
       
-{/* 
-        <motion.img
+
+        {/* <motion.img
           variants={stickAnimate}
           className="hidden lg:block lg:w-[170px] 2xl:w-[340px] lg:right-[620px] 2xl:right-[1200px]"
           src={Vector1}
@@ -154,7 +154,7 @@ function Secondpage() {
         >
           <div className="transition duration-700 hover:scale-105">
             <h3 className="font-bold mb-2 text-md xl:text-2xl 4xl:text-4xl">Merchandise</h3>
-            <p className="pb-2 text-md xl:text-xl 4xl:text-4xl">
+            <p className="pb-2 text-md xl:text-xl 4xl:text-4xl pr-4">
               Exclusive merchandise offers and designs from both Winlads and our
               Benefits. Great quality swag from your favourite brands. Including
               some exclusive designs from bags, T shirts and more.
@@ -179,7 +179,7 @@ function Secondpage() {
             // animate="visible"
             // transition={{ duration: 0.5, delay: 0.25 }
             src={jeep2}
-            className="z-10 lg:w-[400px] 4xl:w-[1500px] xl:w-[800px]"
+            className="z-10 lg:w-[300px] 4xl:w-[1400px] xl:w-[700px]"
           />
         </div>
       </div>
