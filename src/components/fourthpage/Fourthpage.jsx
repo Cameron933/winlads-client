@@ -30,7 +30,7 @@ function Fourthpage() {
         whileInView={"onscreen"}
         viewport={{ once: true, amount: 0.5 }}
         transition={{ staggerChildren: 0.1 }}
-        className="lg:hidden md:pl-0 pl-4 block mg:hidden 2xl:hidden"
+        className="lg:hidden  block mg:hidden 2xl:hidden"
         style={{
           background:
             "linear-gradient(88deg, #43E3ED -21.82%, #FFE9E9 131.12%)",

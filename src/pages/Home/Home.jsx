@@ -15,6 +15,7 @@ import Thirdpage from "../../components/thirdpage/Thirdpage";
 import Fourthpage from "../../components/fourthpage/Fourthpage";
 import Fifthpage from "../../components/fifthpage/Fifthpage";
 import Footer from "../../components/footerSection/Footer";
+import ChechSecondPage from "../../components/secondpage/ChechSecondPage";
 
 const Home = () => {
   return (
@@ -30,7 +31,8 @@ const Home = () => {
       <Footer /> */}
       {/* <Sidebar /> */}
       <Showcase />
-      <Secondpage />
+      {/* <Secondpage /> */}
+      <ChechSecondPage/>
       <Thirdpage />
       <Fourthpage />
       <Fifthpage />

@@ -42,17 +42,17 @@ function Fifthpage() {
           >
             <div className="text-white mb-4 lg:mb-0">
               <div
-                className="flex flex-col space-y-4 2xl:py-4 2xl:space-y-8 allcolor-white  justify-center items-center rounded-xl m-auto transition duration-700 hover:scale-105 lg:mr-0"
+                className="flex flex-col space-y-4 2xl:py-4 2xl:space-y-4 allcolor-white  justify-center items-center rounded-xl m-auto transition duration-700  lg:mr-0"
                 style={{
                   width: "80%",
                   background:
                     "linear-gradient(0deg, rgba(22,13,16,1) 0%, rgba(15,15,15,1) 33%)",
                 }}
               >
-                <p className="mt-4 font-bold p-2 2xl:text-2xl border-black rounded-md">
+                <p className="mt-4 font-bold p-2 2xl:text-xl border-black rounded-md">
                   Standard
                 </p>
-                <p className="text-5xl 2xl:text-8xl">$10</p>
+                <p className="text-4xl 2xl:text-6xl">$10</p>
                 <p className="2xl:text-2xl">User/Month</p>
                 <div className="flex flex-col space-y-2 text-center">
                   <p className="2xl:text-2xl">2 Day database discount Access</p>
@@ -61,8 +61,8 @@ function Fifthpage() {
                 </div>
 
                 <button
-                  className="bg-blue-500 2xl:text-2xl hover:bg-blue-700 text-white font-bold py-2 px-4 2xl:py-4 2xl:px-6 rounded border-white border-2"
-                  style={{ background: "black", marginBottom: "10px" }}
+                  className="2xl:text-xl border-2 bg-black hover:bg-white text-white hover:text-black font-bold py-2 px-4 2xl:py-4 2xl:px-6 rounded"
+                  style={{ marginBottom: "10px" }}
                 >
                   Choose Plan
                 </button>
@@ -70,7 +70,7 @@ function Fifthpage() {
             </div>
             <div className="p-0 mb-4 lg:mb-0" style={{ background: "" }}>
               <div
-                className="flex flex-col space-y-4 2xl:py-4 2xl:space-y-8 justify-center items-center rounded-xl transition duration-700 hover:scale-105"
+                className="flex flex-col space-y-4 2xl:py-4 2xl:space-y-4 justify-center items-center rounded-xl transition duration-700"
                 style={{
                   width: "80%",
                   background:
@@ -78,10 +78,10 @@ function Fifthpage() {
                   margin: "auto",
                 }}
               >
-                <p className="mt-4 font-bold 2xl:text-2xl p-2 border-black rounded-md">
+                <p className="mt-4 font-bold 2xl:text-xl p-2 border-black rounded-md">
                   Bronz
                 </p>
-                <p className="text-5xl 2xl:text-8xl">$30</p>
+                <p className="text-4xl 2xl:text-6xl">$30</p>
                 <p className="2xl:text-2xl">User/Month</p>
                 <div className="flex flex-col space-y-2 text-center">
                   <p className="2xl:text-2xl">
@@ -92,8 +92,8 @@ function Fifthpage() {
                 </div>
 
                 <button
-                  className="bg-blue-500 2xl:text-2xl hover:bg-blue-700 text-white font-bold py-2 px-4 2xl:py-4 2xl:px-6 rounded"
-                  style={{ background: "black", marginBottom: "10px" }}
+                  className="2xl:text-xl border-2 bg-black hover:bg-white text-white hover:text-black font-bold py-2 px-4 2xl:py-4 2xl:px-6 rounded"
+                  style={{ marginBottom: "10px" }}
                 >
                   Choose Plan
                 </button>
@@ -101,17 +101,17 @@ function Fifthpage() {
             </div>
             <div className="p-0 lg:mb-0 mb-4" style={{ background: "" }}>
               <div
-                className="flex flex-col space-y-4 2xl:py-4 2xl:space-y-8 justify-center items-center rounded-xl m-auto transition duration-700 hover:scale-105 lg:mr-0"
+                className="flex flex-col space-y-4 2xl:py-4 2xl:space-y-4 justify-center items-center rounded-xl m-auto transition duration-700 lg:mr-0"
                 style={{
                   width: "80%",
                   background:
                     "linear-gradient(99deg, #FFF400 19.06%, #CA9E03 80.34%)",
                 }}
               >
-                <p className="mt-4 font-bold p-2 2xl:text-2xl border-black rounded-md">
+                <p className="mt-4 font-bold p-2 2xl:text-xl border-black rounded-md">
                   Silver
                 </p>
-                <p className="text-5xl 2xl:text-8xl">$100</p>
+                <p className="text-4xl 2xl:text-6xl">$100</p>
                 <p className="2xl:text-2xl">User/Month</p>
                 <div className="flex flex-col space-y-2 text-center">
                   <p className="2xl:text-2xl">
@@ -122,8 +122,8 @@ function Fifthpage() {
                 </div>
 
                 <button
-                  className="2xl:text-2xl border-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 2xl:py-4 2xl:px-6 rounded"
-                  style={{ background: "black", marginBottom: "10px" }}
+                  className="2xl:text-xl border-2 bg-black hover:bg-white text-white hover:text-black font-bold py-2 px-4 2xl:py-4 2xl:px-6 rounded"
+                  style={{ marginBottom: "10px" }}
                 >
                   Choose Plan
                 </button>
@@ -131,7 +131,7 @@ function Fifthpage() {
             </div>
             <div className="text-white mb-4 lg:mb-0">
               <div
-                className="flex flex-col space-y-4 2xl:py-4 2xl:space-y-8 justify-center items-center rounded-xl m-auto transition duration-700 hover:scale-105"
+                className="flex flex-col space-y-4 2xl:py-4 2xl:space-y-4 justify-center items-center rounded-xl m-auto transition duration-700"
                 style={{
                   width: "80%",
                   background:
@@ -140,10 +140,10 @@ function Fifthpage() {
                   //marginRight: "0px",
                 }}
               >
-                <p className="mt-4 font-bold p-2 2xl:text-2xl border-black rounded-md">
+                <p className="mt-4 font-bold p-2 2xl:text-xl border-black rounded-md">
                   Gold
                 </p>
-                <p className="text-5xl 2xl:text-8xl">$250</p>
+                <p className="text-4xl 2xl:text-6xl">$250</p>
                 <p className="2xl:text-2xl">User/Month</p>
                 <div className="flex flex-col space-y-2 text-center">
                   <p className="2xl:text-2xl">
@@ -154,8 +154,8 @@ function Fifthpage() {
                 </div>
 
                 <button
-                  className="2xl:text-2xl border-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 2xl:py-4 2xl:px-6 rounded"
-                  style={{ background: "black", marginBottom: "10px" }}
+                  className="2xl:text-xl border-2 bg-black hover:bg-white text-white hover:text-black font-bold py-2 px-4 2xl:py-4 2xl:px-6 rounded"
+                  style={{ marginBottom: "10px" }}
                 >
                   Choose Plan
                 </button>
