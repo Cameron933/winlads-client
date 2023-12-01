@@ -93,10 +93,9 @@ code {
   width: 100%;
   padding: 10px 15px;
   border-radius: 8px;
-  background: #DEDEDE;
+  background: white;
   font-size: 18px;
-  font-weight: 300;
-
+  border: 2px solid black; 
   display: flex;
   align-items: center;
   justify-content: space-between;
