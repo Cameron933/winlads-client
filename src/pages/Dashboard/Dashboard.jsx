@@ -57,18 +57,18 @@ const Dashboard = () => {
   //     },
   //   ],
   // });
-  const currentUserValidation = async () => {
-    const validator = await validateCurrentUser();
-    if (validator.validatorBl) {
-      console.log("Session OK", validator.user.balance);
-      setValUser(validator.user);
-    } else {
-      navigate("/login");
-    }
-  };
-  useEffect(() => {
-    currentUserValidation();
-  }, []);
+  // const currentUserValidation = async () => {
+  //   const validator = await validateCurrentUser();
+  //   if (validator.validatorBl) {
+  //     console.log("Session OK", validator.user.balance);
+  //     setValUser(validator.user);
+  //   } else {
+  //     navigate("/login");
+  //   }
+  // };
+  // useEffect(() => {
+  //   currentUserValidation();
+  // }, []);
 
   return (
     <>
