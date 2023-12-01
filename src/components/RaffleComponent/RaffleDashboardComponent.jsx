@@ -30,15 +30,13 @@ function RaffleDashboardComponent() {
         console.log(error)
       });
   }
-
-
   return (
-    <div className="lg:pt-10 pt-5 mx-5 ">
-      <div className="xl:flex  grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-2 ">
+    <div className="">
+      <div className="xl:flex grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2 ">
         {raffles.map((raffle, key) => (
-          <Link key={key} to={`/raffles/${raffle._id}`} className="xl:w-1/4  ">
+          <Link key={key} to={`/raffles/${raffle._id}`} className="w-full">
             <div
-              className="flex flex-col rounded-3xl px-2 py-1 space-y-2 hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1"
+              className="flex flex-col rounded-3xl w-full px-2 py-1 space-y-2 hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1"
               style={{
                 background:
                   "linear-gradient(98.92deg, #1A8BC0 45%, #000000 83%",
