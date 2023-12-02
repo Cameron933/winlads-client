@@ -14,6 +14,11 @@ export default {
     fontFamily: {
       subscription: ["Urbanist", "sans-serif"],
     },
+    animations: {
+      'animate-spin': 'animation: spin 1s linear infinite',
+      'animate-ping': 'animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite'
+      
+    }
   },
   plugins: [],
 }
