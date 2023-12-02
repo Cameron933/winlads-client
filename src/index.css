@@ -1,8 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital@1&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:ital@1&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 
 * {
   margin: 0;
@@ -20,7 +19,7 @@
 }
 
 .buttonBg {
-  background: linear-gradient(93deg, #43E3ED 1.1%, #01819D 97.54%);
+  background: linear-gradient(93deg, #43e3ed 1.1%, #01819d 97.54%);
   filter: drop-shadow(5px 5px 10px #bde5e8);
 }
 
@@ -28,46 +27,42 @@
   background: linear-gradient(93deg, #36b7c1 1.1%, #03b0d6 97.54%);
 }
 
-
-
 .dashbtn-group {
   justify-content: flex-end;
 }
-
 
 .mobile-btns {
   justify-content: flex-end;
 }
 
 .allcontent-group {
-  margin-right: 20px
+  margin-right: 20px;
 }
 
 @media (max-width: 600px) {
   .mobile-btns {
-      justify-content: unset;
+    justify-content: unset;
   }
 
   .dashbtn-group {
-      justify-content: unset;
-      padding-left: 1rem;
-      padding-right: 1rem;
+    justify-content: unset;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   .dashcontent-group {
-      margin-top: 20px;
-      /* margin-right: 10px; */
+    margin-top: 20px;
+    /* margin-right: 10px; */
   }
 
   .frontbtns {
-      width: 100%;
+    width: 100%;
   }
 
   .allcontent-group {
-      margin-right: 0px;
+    margin-right: 0px;
   }
 }
-
 
 .react-link {
   text-decoration: none;
@@ -95,7 +90,7 @@ code {
   border-radius: 8px;
   background: white;
   font-size: 18px;
-  border: 2px solid black; 
+  border: 2px solid black;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -197,8 +192,7 @@ code {
 }
 
 .text-gold {
-  color: #F38744
- !important;
+  color: #f38744 !important;
 }
 .text-green {
   color: #12b76a !important;
@@ -234,62 +228,57 @@ code {
   }
 }
 
-
-
-
 /* animat */
 
-.custom-card{
+.custom-card {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease-in;
 }
 
-.custom-card:hover{
+.custom-card:hover {
   transform: scale(1.05);
 }
 
-.apexcharts-menu-icon{
+.apexcharts-menu-icon {
   display: none !important;
 }
 
-
-
 /* notice-inner */
-.bg-notice-inner{
-  background-image: url('../src/assets/images/notice/noticecar.png');
+.bg-notice-inner {
+  background-image: url("../src/assets/images/notice/noticecar.png");
   background-repeat: no-repeat;
 }
-.bg-notice-inner-2{
-  background-image: url('../src/assets/images/notice/noticecar.png');
+.bg-notice-inner-2 {
+  background-image: url("../src/assets/images/notice/noticecar.png");
   background-position: left;
-  background-repeat: no-repeat;  
+  background-repeat: no-repeat;
 }
 
-.prevent{
+.prevent {
   pointer-events: none;
 }
 
-.blackbtns:hover{
+.blackbtns:hover {
   background-color: rgb(58, 58, 58);
 }
-.moonloader-center{
+.moonloader-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-
 @keyframes spin {
   from {
-    transform: rotate(0deg);
+    transform: rotate(360deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate(0deg);
   }
 }
 
 @keyframes ping {
-  75%, 100% {
+  75%,
+  100% {
     transform: scale(2);
     opacity: 0;
   }
