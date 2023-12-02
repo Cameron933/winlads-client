@@ -112,21 +112,33 @@ function RaffleDashbord() {
                           }}
                         >
                           <div className="flex flex-row justify-between items-center">
-                            <img src={Jeep} alt="" className="flex w-36 special:w-96 2xl:w-36" />
+                            <img
+                              src={Jeep}
+                              alt=""
+                              className="flex w-36 special:w-96 2xl:w-36"
+                            />
                             <div>
                               <div className="justify-end flex">
                                 <div className="flex-col flex">
-                                  <img src={six} alt="" className="w-12 special:w-36 2xl:w-16" />
+                                  <img
+                                    src={six}
+                                    alt=""
+                                    className="w-12 special:w-36 2xl:w-16"
+                                  />
 
                                   <div className="flex-row flex justify-end gap-1">
                                     <p className="text-white text-xs uppercase 2xl:text-sm special:text-lg">
                                       live
                                     </p>
-                                    <img
+                                    {/* <img
                                       src={RedDot}
                                       alt=""
                                       className="w-1.5 h-1 flex flex-col justify-start items-start"
-                                    />
+                                    /> */}
+                                    <span className="relative flex h-1.5 w-1.5 special:h-3.5 special:w-3.5 2xl:h-2.5 2xl:w-2.5 flex-col justify-start items-start">
+                                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-600 opacity-75"></span>
+                                      <span className="relative inline-flex rounded-full h-1.5 w-1.5 special:h-3.5 special:w-3.5 2xl:h-2.5 2xl:w-2.5 bg-red-600"></span>
+                                    </span>
                                   </div>
                                 </div>
                               </div>
