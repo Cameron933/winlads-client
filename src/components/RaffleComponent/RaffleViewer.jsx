@@ -21,19 +21,19 @@ const RaffleViewer = ({ raffleRounds, setShowPopup, showLessPopUp }) => {
             {/*PAST PRESENT FUTURE  */}
             <div className='flex items-center justify-between font-extrabold w-full lg:w-1/2 px-5 '>
                 {/* TODO: Change the Value Pased in here to time accordingly */}
-                <button onClick={() => handleRaffleTime(0)} className={`${activeButton === 0 ? 'active' : ''} cursor-pointer p-3`}>
+                <button onClick={() => handleRaffleTime(0)} className={`${activeButton === 0 ? 'active' : ''} cursor-pointer p-3 2xl:text-2xl special:text-4xl`}>
                     PAST
                 </button>
-                <button onClick={() => handleRaffleTime(1)} className={`${activeButton === 1 ? 'active' : ''} cursor-pointer p-3`}>
+                <button onClick={() => handleRaffleTime(1)} className={`${activeButton === 1 ? 'active' : ''} cursor-pointer p-3 2xl:text-2xl special:text-4xl`}>
                     PRESENT
                 </button>
-                <button onClick={() => handleRaffleTime(2)} className={`${activeButton === 2 ? 'active' : ''} cursor-pointer p-3`}>
+                <button onClick={() => handleRaffleTime(2)} className={`${activeButton === 2 ? 'active' : ''} cursor-pointer p-3 2xl:text-2xl special:text-4xl`}>
                     FUTURE
                 </button>
             </div>
 
             {/*ITEMS*/}
-            <div className="flex flex-col space-y-2 md:flex-row space-x-2 md:justify-start w-full flex-wrap lg:flex-nowrap mt-10 md:mt-5 items-center">
+            <div className="flex flex-col space-y-2 md:flex-row gap-2 special:gap-4 md:justify-start w-full flex-wrap lg:flex-nowrap mt-10 md:mt-5 items-center">
                 {
                     rTime === 0 ? <PastRaffles setShowPopup={setShowPopup} /> : (rTime === 1 ? <PresentRaffles setShowPopup={setShowPopup} /> : <FutureRaffles setShowPopup={setShowPopup} showLessPopUP={showLessPopUp}/>)
                 }

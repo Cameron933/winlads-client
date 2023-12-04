@@ -19,6 +19,15 @@ import { LuHistory } from "react-icons/lu";
 
 import BG from "../../assets/images/HomesideBg.png";
 
+import bgCar from "../../assets/images/hiddenCar.png";
+
+export const bgStyle = {
+  backgroundImage: `url(${bgCar})`,
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "contain",
+};
+
 function RaffleDashbord() {
   const [raffles, setRaffles] = useState([]);
   const [value, onChange] = useState(new Date());
@@ -69,6 +78,11 @@ function RaffleDashbord() {
             <div className="flex flex-col xl:px-6 px-4 special:px-12 xl:space-y-16 special:space-y-24 space-y-8">
               <div className="xl:flex xl:flex-row flex-col xl:justify-between xl:items-center xl:gap-8 space-y-4 xl:space-y-0">
                 {/* <div className="side-bg" style={{ height: "500px" }}></div> */}
+                <img
+                  src={BG}
+                  alt=""
+                  className="absolute right-0 -z-10 top-10 w-72 xl:w-96 md:w-96 special:w-1/3 2xl:w-1/4"
+                />
                 {/* left side */}
                 <div className="flex flex-col flex-1">
                   <div className="visible xl:hidden space-y-4">
@@ -83,24 +97,27 @@ function RaffleDashbord() {
                     <SearchField />
                   </div>
 
-                  <div className="flex flex-col gap-4 md:flex-row lg:flex-row lg:mt-10 xl:items-center">
+                  <div
+                    className="flex flex-col gap-4 md:flex-row lg:flex-row lg:mt-10 xl:items-center"
+                    style={bgStyle}
+                  >
                     <Link
                       to=" /history"
                       className="text-3xl flex justify-end xl:hidden md:hidden"
                     >
-                      <LuHistory className="hover:animate-spin" />
+                      <LuHistory className="hover:animate-spin z-10" />
                     </Link>
                     <Calendar
                       value={value}
                       onChange={onChange}
-                      className="flex-1"
+                      className="flex-1 bg-transparent"
                     />
                     <div className="flex flex-col flex-1 xl:space-y-24 md:space-y-24 space-y-0">
                       <Link
                         to=" /history"
                         className="text-3xl xl:flex md:flex justify-end hidden"
                       >
-                        <LuHistory className="hover:animate-spin special:w-16 special:h-16 2xl:w-12 2xl:h-12" />
+                        <LuHistory className="hover:animate-spin special:w-16 special:h-16 2xl:w-12 2xl:h-12 z-10" />
                       </Link>
 
                       <Link to="/live-raffle">
@@ -130,11 +147,6 @@ function RaffleDashbord() {
                                     <p className="text-white text-xs uppercase 2xl:text-sm special:text-lg">
                                       live
                                     </p>
-                                    {/* <img
-                                      src={RedDot}
-                                      alt=""
-                                      className="w-1.5 h-1 flex flex-col justify-start items-start"
-                                    /> */}
                                     <span className="relative flex h-1.5 w-1.5 special:h-3.5 special:w-3.5 2xl:h-2.5 2xl:w-2.5 flex-col justify-start items-start">
                                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-600 opacity-75"></span>
                                       <span className="relative inline-flex rounded-full h-1.5 w-1.5 special:h-3.5 special:w-3.5 2xl:h-2.5 2xl:w-2.5 bg-red-600"></span>
@@ -177,19 +189,17 @@ function RaffleDashbord() {
 
                 {/* right-side */}
                 <div className="flex-col flex-1 space-y-4 hidden xl:flex">
-                  <div className=" space-y-4">
-                    <div className="bg-black rounded-b-[50px] py-4">
-                      <TopNav textColor={"white"} />
-                      <div className="pt-10">
-                        <motion.img
-                          initial={{ x: 80, opacity: 0 }} // Initial position and opacity (hidden)
-                          animate={{ x: 0, opacity: 1 }} // Move and fade in when in view
-                          transition={{ type: "tween", duration: 1, delay: 1 }}
-                          className="w-full"
-                          src={MainCar}
-                          alt="main"
-                        />
-                      </div>
+                  <div className="bg-black rounded-b-[50px] py-4">
+                    <TopNav textColor={"white"} />
+                    <div className="pt-10">
+                      <motion.img
+                        initial={{ x: 80, opacity: 0 }} // Initial position and opacity (hidden)
+                        animate={{ x: 0, opacity: 1 }} // Move and fade in when in view
+                        transition={{ type: "tween", duration: 1, delay: 1 }}
+                        className="w-full"
+                        src={MainCar}
+                        alt="main"
+                      />
                     </div>
                   </div>
                 </div>
