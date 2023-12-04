@@ -23,7 +23,7 @@ function History() {
               <div className="bg-black rounded-b-3xl py-4">
                 <TopNav textColor={"white"} />
                 <div className="pt-10">
-                  <img className="" src={MainCar} alt="main" />
+                  <img className="w-full" src={MainCar} alt="main" />
                 </div>
               </div>
 
@@ -34,7 +34,6 @@ function History() {
               </div>
             </div>
             <HistoryList/>
-           
           </div>
 
           {/* right-side */}
@@ -43,7 +42,7 @@ function History() {
               <div className="bg-black rounded-b-3xl py-4">
                 <TopNav textColor={"white"} />
                 <div className="pt-10">
-                  <img className="" src={MainCar} alt="main" />
+                  <img className="w-full" src={MainCar} alt="main" />
                 </div>
               </div>
               <div className="w-full">

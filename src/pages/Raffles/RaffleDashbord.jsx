@@ -96,13 +96,12 @@ function RaffleDashbord() {
                   <div className="pt-4 xl:pt-0 pb-4 xl:pb-0">
                     <SearchField />
                   </div>
-
                   <div
                     className="flex flex-col gap-4 md:flex-row lg:flex-row lg:mt-10 xl:items-center"
                     style={bgStyle}
                   >
                     <Link
-                      to=" /history"
+                      to="/history"
                       className="text-3xl flex justify-end xl:hidden md:hidden"
                     >
                       <LuHistory className="hover:animate-spin z-10" />
@@ -114,7 +113,7 @@ function RaffleDashbord() {
                     />
                     <div className="flex flex-col flex-1 xl:space-y-24 md:space-y-24 space-y-0">
                       <Link
-                        to=" /history"
+                        to="/history"
                         className="text-3xl xl:flex md:flex justify-end hidden"
                       >
                         <LuHistory className="hover:animate-spin special:w-16 special:h-16 2xl:w-12 2xl:h-12 z-10" />
@@ -136,7 +135,7 @@ function RaffleDashbord() {
                             />
                             <div>
                               <div className="justify-end flex">
-                                <div className="flex-col flex">
+                                <div className="flex-col flex space-y-2">
                                   <img
                                     src={six}
                                     alt=""
@@ -144,7 +143,7 @@ function RaffleDashbord() {
                                   />
 
                                   <div className="flex-row flex justify-end gap-1">
-                                    <p className="text-white text-xs uppercase 2xl:text-sm special:text-lg">
+                                    <p className="text-white text-[10px] uppercase 2xl:text-sm special:text-lg">
                                       live
                                     </p>
                                     <span className="relative flex h-1.5 w-1.5 special:h-3.5 special:w-3.5 2xl:h-2.5 2xl:w-2.5 flex-col justify-start items-start">
