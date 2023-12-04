@@ -28,58 +28,67 @@ function SubscribeCard() {
   const [showUpSubscibeGold, setShowUpSubscibeGold] = useState(false);
 
   // Monthly package or Yearly Package
-  const [isYearly , setYearly] = useState(false);
+  const [isYearly, setYearly] = useState(false);
 
-  const handleYear = (val = false)=>{
+  const handleYear = (val = false) => {
     setYearly(val);
-  }
+  };
 
   return (
-    <div className="container mx-auto p-1">
-      <p className="font-bold text-3xl mb-5">Choose Your Plan</p>
+    <div className="container mx-auto flex flex-col space-y-4 2x:space-y-8 special:space-y-12">
+      <p className="font-bold text-3xl special:text-6xl 2xl:text-4xl">
+        Choose Your Plan
+      </p>
 
-      <div className="flex flex-row justify-between bg-black items-center rounded-full p-1 mb-5">
-\
-          <button type="button" onClick={()=> handleYear(false)} className={`${isYearly ? 'bg-black text-white' : 'bg-white text-black'} text-xs text-semibold xl:text-sm md:text-sm text-center px-24 rounded-full py-2  flex-1`}>
-            Monthly
-          </button>
- \
+      <div className="flex flex-row justify-between bg-black items-center rounded-full px-2 py-1 special:py-3 2xl:py-2">
+        <button
+          type="button"
+          onClick={() => handleYear(false)}
+          className={`${
+            isYearly ? "bg-black text-white" : "bg-white text-black"
+          } text-xs text-semibold xl:text-sm md:text-sm text-center special:text-2xl 2xl:text-xl px-24 rounded-full py-3  flex-1`}
+        >
+          Monthly
+        </button>
 
-          <button type="button" onClick={()=> handleYear(true)} className={`${isYearly ? 'bg-white text-black' : 'bg-black text-white'} text-xs text-semibold xl:text-sm md:text-sm text-center px-24 rounded-full py-2  flex-1`}>
-            Yearly (Save2.5%)
-          </button>
-
+        <button
+          type="button"
+          onClick={() => handleYear(true)}
+          className={`${
+            isYearly ? "bg-white text-black" : "bg-black text-white"
+          } text-xs text-semibold xl:text-sm md:text-sm text-center special:text-2xl 2xl:text-xl px-24 rounded-full py-2  flex-1`}
+        >
+          Yearly (Save2.5%)
+        </button>
       </div>
 
-      <div className=" grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-2">
-        <div className="bg-black justify-center items-center text-white py-2 px-4 rounded-3xl flex flex-col">
-          <div className="flex justify-center mb-2">
-            <div className="border-1 border w-26 text-center border-white rounded-xl px-4 py-1">
-              <p className="">Standard</p>
+      <div className=" grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-2 special:gap-6 2xl:gap-4">
+        <div className="bg-black justify-center items-center text-white py-2 px-4 special:py-8 2xl:py-6 rounded-3xl flex flex-col space-y-4 special:space-y-8 2xl:space-y-6">
+          <div className="flex justify-center">
+            <div className="border-1 border w-26 text-center border-white rounded-xl px-4 py-1 special:py-4 2xl:py-2 special:px-8 2xl:px-6">
+              <p className="special:text-4xl 2xl:text-2xl">Standard</p>
             </div>
           </div>
-          <p className="font-bold  text-center text-4xl mb-2">$10</p>
-          <p className=" mb-2 text-center text-xs">User/Month</p>
-          <div className="flex justify-center flex-col space-y-2">
-            <div className="flex flex-row gap-2 items-center">
-              <img src={Blue} alt="" className="w-3 h-3" />
-              <p className=" text-sm">
-                2 Day database discount Access
-              </p>
+          <p className="font-bold  text-center text-4xl special:text-8xl 2xl:text-6xl">$10</p>
+          <p className=" mb-2 text-center text-xs special:text-xl 2xl:text-lg">User/Month</p>
+          <div className="flex justify-center flex-col space-y-2 special:space-y-6 2xl:space-y-4">
+            <div className="flex flex-row gap-2 special:gap-4 2xl:gap-4 items-center">
+              <img src={Blue} alt="" className="w-3 h-3 special:h-7 special:w-7 2xl:h-5 2xl:w-5" />
+              <p className=" text-sm special:text-xl 2xl:text-lg">2 Day database discount Access</p>
             </div>
             <div className="flex flex-row gap-2 items-center">
-              <img src={Blue} alt="" className="w-3 h-3" />
-              <p className=" text-sm">winlads + Events Invites</p>
+              <img src={Blue} alt="" className="w-3 h-3 special:h-7 special:w-7 2xl:h-5 2xl:w-5" />
+              <p className=" text-sm special:text-xl 2xl:text-lg">winlads + Events Invites</p>
             </div>
             <div className="flex flex-row gap-2 items-center">
-              <img src={Blue} alt="" className="w-3 h-3" />
-              <p className=" text-sm">10% off Winland + Merch</p>
+              <img src={Blue} alt="" className="w-3 h-3 special:h-7 special:w-7 2xl:h-5 2xl:w-5" />
+              <p className=" text-sm special:text-xl 2xl:text-lg">10% off Winland + Merch</p>
             </div>
           </div>
 
           <button
             type="button"
-            className="border border-1 border-white bg-white text-black py-2 px-8 rounded-lg text-sm mt-4 mb-2 hover:bg-black hover:text-white"
+            className="border border-1 border-white bg-white text-black py-2 px-8 special:py-4 special:px-12 2xl:px-10 rounded-lg text-sm special:text-2xl 2xl:text-xl mt-4 mb-2 hover:bg-black hover:text-white"
             onClick={() => setShowUpSubscibe(true)}
           >
             Choose Plan
@@ -90,7 +99,6 @@ function SubscribeCard() {
         </div>
 
         <div className="bg-gradient-to-br from-gray-200 to-white border border-1 border-gray-500 justify-center items-center py-2 px-4 rounded-3xl flex flex-col ">
-          
           <div className="flex justify-center mb-2">
             <div className="border border-1 w-26 text-center border-black rounded-xl px-4 py-1">
               <p className="text-black">Bronze</p>
@@ -173,9 +181,7 @@ function SubscribeCard() {
           <div className="flex justify-center flex-col space-y-2">
             <div className="flex flex-row gap-2 items-center">
               <img src={Blue} alt="" className="w-3 h-3" />
-              <p className=" text-sm">
-                6 Month database discount Access
-              </p>
+              <p className=" text-sm">6 Month database discount Access</p>
             </div>
             <div className="flex flex-row gap-2 items-center">
               <img src={Blue} alt="" className="w-3 h-3" />
@@ -218,13 +224,16 @@ function PopUpSubscribeBlue({ onClose }) {
       onClick={handleBackdropClick}
     >
       <div className=" popup-content bg-black text-white items-center py-6 xl:px-12 rounded-xl flex flex-col xl:ml-68 ml-60 xl:mt-32 mt-60 md:ml-72 md:mt-60">
-      <button className="absolute top-1 right-1 text-3xl text-inherit" onClick={onClose}><IoCloseSharp/></button>
+        <button
+          className="absolute top-1 right-1 text-3xl text-inherit"
+          onClick={onClose}
+        >
+          <IoCloseSharp />
+        </button>
         <div className="border-2 w-26 text-center border-black rounded-xl px-4 py-1 mb-2">
           <p>Standard</p>
         </div>
-        <p className="font-bold text-center text-5xl mb-1 mt-1">
-          $10
-        </p>
+        <p className="font-bold text-center text-5xl mb-1 mt-1">$10</p>
         <p className="mb-2 text-center  ">User/Month</p>
         <div className="flex justify-center flex-col space-y-2">
           <div className="flex flex-row gap-4 items-center">
@@ -276,7 +285,12 @@ function PopUpSubscribeRed({ onClose }) {
       onClick={handleBackdropClick2}
     >
       <div className=" popup-content bg-gradient-to-br  from-gray-400 to-white   items-center py-6  xl:px-12 rounded-xl flex flex-col xl:ml-68  ml-60 xl:mt-32 mt-60 md:ml-72 md:mt-60 relative">
-      <button className="absolute top-1 right-1 text-3xl text-inherit" onClick={onClose}><IoCloseSharp/></button>
+        <button
+          className="absolute top-1 right-1 text-3xl text-inherit"
+          onClick={onClose}
+        >
+          <IoCloseSharp />
+        </button>
         <div className="border-2 w-26 text-center border-black rounded-xl px-4 py-1 mb-2">
           <p className="text-black">Bronze</p>
         </div>
@@ -335,7 +349,12 @@ function PopUpSubscribeGreen({ onClose }) {
       onClick={handleBackdropClick3}
     >
       <div className=" popup-content bg-gradient-to-br from-[#FFDF37] to-[#9D7C00]  items-center py-6  xl:px-12 rounded-xl flex flex-col xl:ml-68  xl:mt-32 ml-52 md:ml-72 md:mt-60 mt-60">
-      <button className="absolute top-1 right-1 text-3xl text-inherit" onClick={onClose}><IoCloseSharp/></button>
+        <button
+          className="absolute top-1 right-1 text-3xl text-inherit"
+          onClick={onClose}
+        >
+          <IoCloseSharp />
+        </button>
         <div className="border-2 w-26 text-center border-black rounded-xl px-4 py-1 mb-2">
           <p className="text-black">Silver</p>
         </div>
@@ -392,13 +411,16 @@ function PopUpSubscribeYellow({ onClose }) {
       onClick={handleBackdropClick3}
     >
       <div className=" popup-content bg-black text-white items-center py-6 xl:px-12 rounded-xl flex flex-col xl:ml-68  xl:mt-32 ml-52 md:ml-72 md:mt-60 mt-60 ">
-      <button className="absolute top-1 right-1 text-3xl text-inherit" onClick={onClose}><IoCloseSharp/></button>
+        <button
+          className="absolute top-1 right-1 text-3xl text-inherit"
+          onClick={onClose}
+        >
+          <IoCloseSharp />
+        </button>
         <div className="border-2 w-26 text-center border-black rounded-xl px-4 py-1 mb-2">
-          <p >Gold</p>
+          <p>Gold</p>
         </div>
-        <p className="font-bold text-center text-5xl mb-1 mt-1">
-          $250
-        </p>
+        <p className="font-bold text-center text-5xl mb-1 mt-1">$250</p>
         <p className=" mb-2 text-center  ">User/Month</p>
         <div className="flex justify-center flex-col space-y-2">
           <div className="flex flex-row gap-4 items-center">
