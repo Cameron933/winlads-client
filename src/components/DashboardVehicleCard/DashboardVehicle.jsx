@@ -5,7 +5,7 @@ import bg from "../../assets/images/Lottery/gradient-bg.png";
 const DashboardVehicleCard = () => {
   return (
     <div>
-      <div className="bg-gradient-to-r from-yellow-600 via-black to-black w-96 max-sm:w-72 rounded-3xl">
+      <div className="bg-gradient-to-r from-yellow-600 via-black to-black w-96 max-sm:w-72 rounded-3xl w-auto">
         <div className="flex">
           <div className="flex justify-center items-center ">
             <img src={vehicle} alt="vehicle" className="w-[500px] max-sm:w-60 max-xl:w-80"/>
