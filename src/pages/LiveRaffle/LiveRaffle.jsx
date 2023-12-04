@@ -57,19 +57,19 @@ function LiveRaffle() {
               >
                 <div className="flex flex-col space-y-1 2xl:space-y-3 special:space-y-5">
                   <div className="flex flex-row items-center gap-5">
-                    <div className="text-white font-bold rounded-full bg-[#157D98] xl:h-11 xl:w-11 h-9 w-9 special:w-24 special:h-24 special:text-4xl 2xl:w-16 2xl:h-16 2xl:text-2xl items-center flex justify-center">
+                    <div className="text-white font-bold rounded-full bg-[#157D98] h-9 w-9 special:w-24 special:h-24 special:text-4xl 2xl:w-16 2xl:h-16 2xl:text-2xl items-center flex justify-center">
                       R
                     </div>
-                    <div className="text-black font-bold xl:h-11 xl:w-11 h-9 w-9 special:w-24 special:h-24 special:text-4xl 2xl:w-16 2xl:h-16 2xl:text-2xl rounded-full bg-[#D6F6FF] items-center flex justify-center">
+                    <div className="text-black font-bold h-9 w-9 special:w-24 special:h-24 special:text-4xl 2xl:w-16 2xl:h-16 2xl:text-2xl rounded-full bg-[#D6F6FF] items-center flex justify-center">
                       14
                     </div>
-                    <div className="text-black font-bold xl:h-11 xl:w-11 h-9 w-9 special:w-24 special:h-24 special:text-4xl 2xl:w-16 2xl:h-16 2xl:text-2xl rounded-full bg-[#D6F6FF] items-center flex justify-center">
+                    <div className="text-black font-bold h-9 w-9 special:w-24 special:h-24 special:text-4xl 2xl:w-16 2xl:h-16 2xl:text-2xl rounded-full bg-[#D6F6FF] items-center flex justify-center">
                       34
                     </div>
-                    <div className="text-black font-bold xl:h-11 xl:w-11 h-9 w-9 special:w-24 special:h-24 special:text-4xl 2xl:w-16 2xl:h-16 2xl:text-2xl rounded-full bg-[#D6F6FF] items-center flex justify-center">
+                    <div className="text-black font-bold h-9 w-9 special:w-24 special:h-24 special:text-4xl 2xl:w-16 2xl:h-16 2xl:text-2xl rounded-full bg-[#D6F6FF] items-center flex justify-center">
                       ?
                     </div>
-                    <div className="text-black font-bold xl:h-11 xl:w-11 h-9 w-9 special:w-24 special:h-24 special:text-4xl 2xl:w-16 2xl:h-16 2xl:text-2xl rounded-full bg-[#D6F6FF] items-center flex justify-center">
+                    <div className="text-black font-bold h-9 w-9 special:w-24 special:h-24 special:text-4xl 2xl:w-16 2xl:h-16 2xl:text-2xl rounded-full bg-[#D6F6FF] items-center flex justify-center">
                       ?
                     </div>
                   </div>

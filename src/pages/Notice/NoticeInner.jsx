@@ -13,6 +13,18 @@ import { carAnimation } from "../../animation/animation";
 import Male from "../../assets/images/notice/Male.png";
 import CustomChart from "../../components/chart/CustomChart";
 import { IoIosOptions } from "react-icons/io";
+import SearchField from "../../components/SearchField/SearchField";
+import BG from "../../assets/images/HomesideBg.png";
+import bgCar from "../../assets/images/hiddenCar.png";
+
+export const bgStyle = {
+  backgroundImage: `url(${bgCar})`,
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "contain",
+};
+
+
 function NoticeInner() {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -135,10 +147,15 @@ function NoticeInner() {
           <SideNav screen="screen" />
 
           {/* home-content */}
-          <div className="xl:flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-4 pb-5 space-y-4 xl:space-y-0">
-            <div className="side-bg" style={{ height: "500px" }}></div>
+          <div className="xl:flex xl:flex-row flex-col xl:justify-between flex-1 px-4 2xl:px-8 special:px-12 xl:gap-4 pb-5 space-y-4 xl:space-y-0 special:gap-8">
+            {/* <div className="side-bg" style={{ height: "500px" }}></div> */}
+            <img
+              src={BG}
+              alt=""
+              className="absolute right-0 -z-10 top-10 w-72 xl:w-96 md:w-96 special:w-1/3 2xl:w-1/4 special:top-80 opacity-60"
+            />
             {/* left side */}
-            <div className="flex flex-col space-y-4 flex-1">
+            <div className="flex flex-col space-y-4 flex-1 special:pt-16">
               <div className="visible xl:hidden space-y-4">
                 <div className="bg-black rounded-b-3xl py-4">
                   <TopNav textColor={"white"} />
@@ -153,7 +170,7 @@ function NoticeInner() {
                   </div>
                 </div>
               </div>
-              <form className="form-inline relative">
+              {/* <form className="form-inline relative">
                 <input
                   className="form-control mr-sm-2 outline-none bg-gray-300 special:placeholder:text-2xl 2xl:placeholder:text-xl"
                   type="search"
@@ -171,20 +188,23 @@ function NoticeInner() {
                 <button className="absolute top-3 right-5">
                   <IoIosOptions className="text-2xl" />
                 </button>
-              </form>
-              <div className="w-full h-[550px] sm:h-[500px] md:h-[450px]  flex flex-col bg-notice-inner special:pt-10 2xl:pt-10">
-                <div className="flex items-start justify-start  gap-5 ">
-                  <img src={Male} alt="" className="special:w-24 2xl:w-20" />
+              </form> */}
+              <SearchField />
+              <div className="w-full justify-start special:space-y-16  flex flex-col bg-notice-inner 2xl:pt-10 special:px-16 special:pt-24" style={bgStyle}>
+                <div className="flex items-start gap-5 ">
+                  <img src={Male} alt="" className="special:w-36 2xl:w-20" />
                   <div className="">
-                    <p className=" font-semibold text-lg md:text-xl special:text-4xl 2xl:text-3xl">
+                    <p className=" font-semibold text-lg md:text-xl special:text-5xl 2xl:text-3xl">
                       Kathryn Murphy
                     </p>
-                    <p className="text-gray-700 special:text-3xl 2xl:text-2xl">Kathryn sent you $0</p>
+                    <p className="text-gray-700 special:text-4xl 2xl:text-2xl">
+                      Kathryn sent you $0
+                    </p>
                   </div>
                 </div>
 
-             <div className="mt-5 sm:mt-10 overflow-hidden mx-auto w-4/5 sm:w-2/3  xl:ml-10 ">
-                  <span className="sm:text-base text-sm text-gray-900 special:text-3xl 2xl:text-2xl">
+                <div className="mt-5 sm:mt-10 overflow-hidden mx-auto xl:ml-10">
+                  <span className="sm:text-base text-sm text-gray-900 special:text-4xl 2xl:text-2xl special:leading-normal">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Veniam harum repellendus exercitationem quos minus. Nulla
                     nam nihil ipsum exercitationem, voluptates tenetur culpa

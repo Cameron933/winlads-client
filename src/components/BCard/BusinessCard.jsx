@@ -22,7 +22,7 @@ function BusinessCard() {
 
   const handleShareClick = () => {
 
-    setOrderNow(!isOrderNow); // Toggle the state
+    setOrderNow(!isOrderNow);
   };
 
   return (

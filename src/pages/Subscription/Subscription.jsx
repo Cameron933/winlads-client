@@ -11,6 +11,7 @@ import { IoIosOptions } from "react-icons/io";
 
 import "./subscription.css";
 import { useEffect, useState } from "react";
+import SearchField from "../../components/SearchField/SearchField";
 
 function Subscription() {
 
@@ -30,14 +31,14 @@ function Subscription() {
         <SideNav screen="screen" />
 
         {/* home-content */}
-        <div className="xl:flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-4 pb-5 space-y-4 xl:space-y-0">
+        <div className="xl:flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-4 special:gap-8 2xl:gap-6 space-y-4 xl:space-y-0">
           {/* left side */}
-          <div className="flex flex-col space-y-4 flex-1">
+          <div className="flex flex-col space-y-4 flex-1 special:space-y-8 2xl:space-y-6">
             <div className="visible xl:hidden space-y-4">
               <div className="bg-black rounded-b-3xl py-4">
                 <TopNav textColor={"white"} />
                 <div className="pt-10">
-                  <img className="" src={MainCar} alt="main" />
+                  <img className="w-full" src={MainCar} alt="main" />
                 </div>
               </div>
 
@@ -48,7 +49,7 @@ function Subscription() {
 
               </div>
             </div>
-            <form className="form-inline relative">
+            {/* <form className="form-inline relative">
               <input
                 className="form-control mr-sm-2 outline-none bg-gray-300"
                 type="search"
@@ -66,9 +67,9 @@ function Subscription() {
               <button className="absolute top-3 right-5">
                 <IoIosOptions className="text-2xl" />
               </button>
-            </form>
+            </form> */}
+            <SearchField />
             <SubscribeCard />
-            {/* <GucciCard /> */}
           </div>
 
           {/* right-side */}
@@ -78,10 +79,10 @@ function Subscription() {
                 <TopNav textColor={"white"} />
                 <div className="pt-10">
                   <motion.img
-                    initial={{ x: 80, opacity: 0 }} // Initial position and opacity (hidden)
-                    animate={{ x: 0, opacity: 1 }} // Move and fade in when in view
+                    initial={{ x: 80, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
                     transition={{ type: "tween", duration: 1, delay: 1 }}
-                    className=""
+                    className="w-full"
                     src={MainCar}
                     alt="main"
                   />
