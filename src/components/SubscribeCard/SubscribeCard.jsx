@@ -40,13 +40,13 @@ function SubscribeCard() {
         Choose Your Plan
       </p>
 
-      <div className="flex flex-row justify-between bg-black items-center rounded-full px-2 py-1 special:py-3 2xl:py-2">
+      <div className="flex flex-row justify-between bg-black items-center rounded-full px-1 py-1 special:py-3 2xl:py-2">
         <button
           type="button"
           onClick={() => handleYear(false)}
           className={`${
             isYearly ? "bg-black text-white" : "bg-white text-black"
-          } text-xs text-semibold xl:text-sm md:text-sm text-center special:text-2xl 2xl:text-xl px-24 rounded-full py-3  flex-1`}
+          } text-xs text-semibold xl:text-sm md:text-sm text-center special:text-2xl 2xl:text-xl rounded-full py-4 flex-1`}
         >
           Monthly
         </button>
@@ -56,13 +56,13 @@ function SubscribeCard() {
           onClick={() => handleYear(true)}
           className={`${
             isYearly ? "bg-white text-black" : "bg-black text-white"
-          } text-xs text-semibold xl:text-sm md:text-sm text-center special:text-2xl 2xl:text-xl px-24 rounded-full py-2  flex-1`}
+          } text-xs text-semibold xl:text-sm md:text-sm text-center special:text-2xl 2xl:text-xl rounded-full py-4 flex-1`}
         >
           Yearly (Save2.5%)
         </button>
       </div>
 
-      <div className=" grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-2 special:gap-6 2xl:gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2 special:gap-6 2xl:gap-4">
         <div className="bg-black justify-center items-center text-white py-2 px-4 special:py-8 2xl:py-6 rounded-3xl flex flex-col space-y-4 special:space-y-8 2xl:space-y-6">
           <div className="flex justify-center">
             <div className="border-1 border w-26 text-center border-white rounded-xl px-4 py-1 special:py-4 2xl:py-2 special:px-8 2xl:px-6">
@@ -79,6 +79,10 @@ function SubscribeCard() {
             <div className="flex flex-row gap-2 items-center">
               <img src={Blue} alt="" className="w-3 h-3 special:h-7 special:w-7 2xl:h-5 2xl:w-5" />
               <p className=" text-sm special:text-xl 2xl:text-lg">winlads + Events Invites</p>
+            </div>
+            <div className="flex flex-row gap-2 items-center">
+              <img src={Blue} alt="" className="w-3 h-3 special:h-7 special:w-7 2xl:h-5 2xl:w-5" />
+              <p className=" text-sm special:text-xl 2xl:text-lg">10% off Winland + Merch</p>
             </div>
             <div className="flex flex-row gap-2 items-center">
               <img src={Blue} alt="" className="w-3 h-3 special:h-7 special:w-7 2xl:h-5 2xl:w-5" />

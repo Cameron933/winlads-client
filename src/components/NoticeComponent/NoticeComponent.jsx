@@ -8,14 +8,14 @@ import { Link } from "react-router-dom";
 function NoticeComponent() {
   return (
     <div>
-      <ul className="flex  flex-col sm:gap-2 gap-1  ">
+      <ul className="flex  flex-col sm:gap-2 gap-1 special:gap-8 2xl:gap-5">
         <Link to="/notice-inner">
           <li className="flex items-center cursor-pointer border-b justify-between w-full md:w-2/3  hover:scale-105 transition-all">
             <div className="flex items-center ">
-              <img src={Male} alt="" className="" />
+              <img src={Male} alt="" className="special:w-24 w-10" />
               <div className="ml-1 sm:ml-5  text-sm sm:text-base ">
-                <p className="">Kathryn Murphy</p>
-                <p className="">Kathryn sent you $0</p>
+                <p className="special:text-3xl text-xl">Kathryn Murphy</p>
+                <p className="special:text-2xl text-lg">Kathryn sent you $0</p>
               </div>
             </div>
             <img src={morenotice} alt="" />
@@ -25,10 +25,10 @@ function NoticeComponent() {
         <Link to="/notice-inner">
           <li className="flex items-center cursor-pointer border-b justify-between w-full md:w-2/3 hover:scale-105 transition-all ">
             <div className="flex items-center">
-              <img src={Male} alt="" className="" />
+              <img src={Male} alt="" className="special:w-24 w-10" />
               <div className="ml-1 sm:ml-5  text-sm sm:text-base ">
-                <p className="">Annette Black</p>
-                <p className="">Annette sent you $0</p>
+                <p className="special:text-3xl text-xl">Annette Black</p>
+                <p className="special:text-2xl text-lg">Annette sent you $0</p>
               </div>
             </div>
             <img src={morenotice} alt="" />
@@ -37,10 +37,10 @@ function NoticeComponent() {
 
         <li className="flex items-center cursor-pointer border-b justify-between w-full md:w-2/3 hover:scale-105 transition-all ">
           <div className="flex items-center">
-            <img src={Male} alt="" className="" />
+            <img src={Male} alt="" className="special:w-24 w-10" />
             <div className="ml-1 sm:ml-5  text-sm sm:text-base ">
-              <p className="">Jerome Bell</p>
-              <p className="">Jerome sent you $0</p>
+              <p className="special:text-3xl text-xl">Jerome Bell</p>
+              <p className="special:text-2xl text-lg">Jerome sent you $0</p>
             </div>
           </div>
           <img src={morenotice} alt="" />
@@ -48,10 +48,10 @@ function NoticeComponent() {
 
         <li className="flex items-center cursor-pointer border-b justify-between w-full md:w-2/3 hover:scale-105 transition-all ">
           <div className="flex items-center">
-            <img src={Female} alt="" className="" />
+            <img src={Female} alt="" className="special:w-24 w-10" />
             <div className="ml-1 sm:ml-5  text-sm sm:text-base ">
-              <p className="">Albert Flores</p>
-              <p className="">Albert sent you $0</p>
+              <p className="special:text-3xl text-xll">Albert Flores</p>
+              <p className="special:text-2xl text-lg">Albert sent you $0</p>
             </div>
           </div>
           <img src={morenotice} alt="" />
@@ -59,10 +59,10 @@ function NoticeComponent() {
 
         <li className="flex items-center cursor-pointer border-b justify-between w-full md:w-2/3 hover:scale-105 transition-all ">
           <div className="flex items-center">
-            <img src={Male} alt="" className="" />
+            <img src={Male} alt="" className="special:w-24 w-10" />
             <div className="ml-1 sm:ml-5  text-sm sm:text-base ">
-              <p className="">Eleanor Pena</p>
-              <p className="">Eleanor sent you $0</p>
+              <p className="special:text-3xl text-xll">Eleanor Pena</p>
+              <p className="special:text-2xl text-lg">Eleanor sent you $0</p>
             </div>
           </div>
           <img src={morenotice} alt="" />
@@ -70,10 +70,10 @@ function NoticeComponent() {
 
         <li className="flex items-center cursor-pointer border-b justify-between w-full md:w-2/3 hover:scale-105 transition-all ">
           <div className="flex items-center">
-            <img src={Male} alt="" className="" />
+            <img src={Male} alt="" className="special:w-24 w-10" />
             <div className="ml-1 sm:ml-5  text-sm sm:text-base ">
-              <p className="">Courtney Henry</p>
-              <p className="">Courtney sent you $ 0</p>
+              <p className="special:text-3xl text-xll">Courtney Henry</p>
+              <p className="special:text-2xl text-lg">Courtney sent you $ 0</p>
             </div>
           </div>
           <img src={morenotice} alt="" />
@@ -81,10 +81,10 @@ function NoticeComponent() {
 
         <li className="flex items-center cursor-pointer border-b justify-between w-full md:w-2/3 hover:scale-105 transition-all ">
           <div className="flex items-center  ">
-            <img src={Female} alt="" className="" />
+            <img src={Female} alt="" className="special:w-24 w-10" />
             <div className="ml-1 sm:ml-5  text-sm sm:text-base flex-1">
-              <p className="">Cody Fisher</p>
-              <p className="">Cody sent you $0</p>
+              <p className="special:text-3xl text-xll">Cody Fisher</p>
+              <p className="special:text-2xl text-lg">Cody sent you $0</p>
             </div>
           </div>
           <img src={morenotice} alt="" />

@@ -160,14 +160,14 @@ function Notice() {
             {/* right-side */}
             <div className="flex-col flex-1 space-y-4 hidden xl:flex">
               <div className=" space-y-4">
-                <div className="bg-black rounded-b-3xl py-4">
+                <div className="bg-black rounded-b-[50px] special:rounded-b-[90px] py-4">
                   <TopNav textColor={"white"} />
                   <div className="pt-10">
                     <motion.img
                       initial={{ x: 80, opacity: 0 }} // Initial position and opacity (hidden)
                       animate={{ x: 0, opacity: 1 }} // Move and fade in when in view
                       transition={{ type: "tween", duration: 1, delay: 1 }}
-                      className=""
+                      className="w-full"
                       src={MainCar}
                       alt="main"
                     />
