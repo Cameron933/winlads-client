@@ -18,12 +18,13 @@ function BusinessCard() {
         {/* home-content */}
         <div className="xl:flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-4 pb-5 space-y-4 xl:space-y-0">
           {/* left side */}
+          <div className="side-bg" style={{ height: "500px" }}></div>
           <div className="flex flex-col space-y-4 flex-1">
             <div className="visible xl:hidden space-y-4">
               <div className="bg-black rounded-b-3xl py-4">
                 <TopNav textColor={"white"} />
                 <div className="pt-10">
-                  <img className="" src={MainCar} alt="main" />
+                  <img className="w-full" src={MainCar} alt="main" />
                 </div>
               </div>
 
@@ -45,10 +46,10 @@ function BusinessCard() {
           {/* right-side */}
           <div className="flex-col flex-1 space-y-4 hidden xl:flex">
             <div className=" space-y-4">
-              <div className="bg-black rounded-b-3xl py-4">
+              <div className="bg-black rounded-b-[50px] special:rounded-b-[90px] py-4">
                 <TopNav textColor={"white"} />
                 <div className="pt-10">
-                  <img className="" src={MainCar} alt="main" />
+                  <img className="w-full" src={MainCar} alt="main" />
                 </div>
               </div>
               <div className="w-full">

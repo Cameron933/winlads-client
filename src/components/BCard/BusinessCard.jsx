@@ -26,12 +26,12 @@ function BusinessCard() {
   };
 
   return (
-    <div>
-      <div className="xl:mb-8 md:mb-10 mb-10 flex flex-col">
-        <p className="text-md font-bold xl:text-4xl md:text-4xl">
+    <div className="flex flex-col space-y-4 special:space-y-16">
+      <div className="flex flex-col special:space-y-5">
+        <p className="text-xl font-bold xl:text-4xl md:text-4xl special:text-6xl">
           Get My NFC
         </p>
-        <p className="text-black text-lg">
+        <p className="text-black text-lg special:pt-5 special:text-2xl">
           {isOrderNow ? "Let’s Get Your Card !!" : ""}
         </p>
       </div>
@@ -46,33 +46,33 @@ function BusinessCard() {
 
         }}
       >
-        <div className="gap-4 text-left">
+        <div className="text-left flex flex-col space-y-0 special:space-y-16" >
 
           {
-            isOrderNow ? <ShareForm /> : <div className="xl:w-2/3 w-full"><img src={BS1} alt="" className="md:w-72 w-full xl:w-96 mx-auto xl:mx-0" />
-              <img src={BS2} alt="" className="md:w-72 w-full xl:w-96 mt-3  mx-auto xl:mx-0" /></div>
+            isOrderNow ? <ShareForm /> : <div className="xl:w-1/2 w-full special:w-2/5 flex flex-col gap-5"><img src={BS1} alt="" className="w-full" />
+              <img src={BS2} alt="" className="w-full" /></div>
           }
 
          
-            <div className="flex gap-16 justify-center xl:justify-start xl:ml-14 mt-3 xl:w-2/3 w-full">
+            <div className="w-full xl:w-1/2 special:w-2/5 flex gap-16 justify-center py-5">
               <div className="flex flex-col items-center">
-                <button className="text-2xl p-3 rounded-lg bg-gray-400"><IoMdShare /></button>
-                <label className="text-sm"> Share</label>
+                <button className="text-2xl md:text-4xl pro:text-5xl xl:text-2xl special:text-5xl p-3 rounded-[20px] bg-[#CCBAB3]"><IoMdShare /></button>
+                <label className="text-sm md:text-lg pro:text-xl xl:text-sm special:text-2xl"> Share</label>
               </div>
               <div className="flex flex-col items-center">
-                <button className="text-2xl p-3 rounded-lg bg-gray-400"><IoMdSave /></button>
-                <label className="text-sm">Save</label>
+                <button className="text-2xl md:text-4xl pro:text-5xl xl:text-2xl special:text-5xl p-3 rounded-[20px] bg-[#CCBAB3]"><IoMdSave /></button>
+                <label className="text-sm md:text-lg pro:text-xl xl:text-sm special:text-2xl">Save</label>
               </div>
               <div className="flex flex-col items-center">
                 {isOrderNow ? (
                   // Display "orderNow" image when isOrderNow is true
 
-                  <button className="text-2xl p-3 rounded-lg bg-gray-400" onClick={handleShareClick}><MdOutlineAddShoppingCart /></button>
+                  <button className="text-2xl md:text-4xl pro:text-5xl xl:text-2xl special:text-5xl p-3 rounded-[20px] bg-[#CCBAB3]" onClick={handleShareClick}><MdOutlineAddShoppingCart /></button>
                 ) : (
                   // Display "add" image when isOrderNow is false
-                  <button className="text-2xl p-3 rounded-lg bg-gray-400" onClick={handleShareClick}><MdPersonAddAlt1 /></button>
+                  <button className="text-2xl md:text-4xl pro:text-5xl xl:text-2xl special:text-5xl p-3 rounded-[20px] bg-[#CCBAB3]" onClick={handleShareClick}><MdPersonAddAlt1 /></button>
                 )}
-                <label className="text-sm">
+                <label className="text-sm md:text-lg pro:text-xl xl:text-sm special:text-2xl">
                   {isOrderNow ? "Order Now" : "Request"}
                 </label>
               </div>
@@ -93,15 +93,15 @@ function ShareForm({ onClose }) {
   // Make sure to call `onClose` when the form is closed to update the state
 
   return (
-        <form className="form-contain-reg space-y-7 xl:w-2/3 xl:max-w-[500px] xl:pr-28 mb-3 w-full">
+        <form className="form-contain-reg space-y-7 w-full xl:w-3/5 special:w-2/5 special:space-y-16">
           <div className="bg-gray-300 flex flex-row-reverse items-center py-3 px-4 gap-3 rounded-2xl justify-end">
             <input
               type="text"
               placeholder="Full Name"
               id="name"
-              className="bg-gray-300 placeholder:text-gray-500 outline-none"
+              className="bg-gray-300 placeholder:text-gray-500 outline-none special:placeholder:text-2xl"
             />
-            <img src={userBUS} alt="user" className="w-8" />
+            <img src={userBUS} alt="user" className="w-8 special:w-14" />
           </div>
 
           <div className="bg-gray-300 flex flex-row-reverse items-center py-3 px-4 gap-3 rounded-2xl justify-end">
@@ -109,27 +109,27 @@ function ShareForm({ onClose }) {
               type="text"
               placeholder="Passport"
               id="passport"
-              className="bg-gray-300 placeholder:text-gray-500 outline-none"
+              className="bg-gray-300 placeholder:text-gray-500 outline-none special:placeholder:text-2xl"
             />
-            <img src={basketballBUS} alt="passport" className="w-8" />
+            <img src={basketballBUS} alt="passport" className="w-8 special:w-14" />
           </div>
           <div className="bg-gray-300 flex flex-row-reverse items-center py-3 px-4 gap-3 rounded-2xl justify-end">
             <input
               type="text"
               placeholder="Phone Number"
               id="mobile"
-              className="bg-gray-300 placeholder:text-gray-500 outline-none"
+              className="bg-gray-300 placeholder:text-gray-500 outline-none special:placeholder:text-2xl"
             />
-            <img src={smartphoneBUS} alt="phone" className="w-8" />
+            <img src={smartphoneBUS} alt="phone" className="w-8 special:w-14" />
           </div>
           <div className="bg-gray-300 flex flex-row-reverse items-center py-3 px-4 gap-3 rounded-2xl justify-end">
             <input
               type="text"
               placeholder="Postal Address"
               id="address"
-              className="bg-gray-300 placeholder:text-gray-500 outline-none"
+              className="bg-gray-300 placeholder:text-gray-500 outline-none special:placeholder:text-2xl"
             />
-            <img src={mailBUS} alt="mail" className="w-8" />
+            <img src={mailBUS} alt="mail" className="w-8 special:w-14" />
           </div>
         </form>
 
