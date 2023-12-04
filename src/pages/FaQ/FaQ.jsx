@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 import Loader from "../../components/Loader/Loader";
 import { carAnimation } from "../../animation/animation";
 
-import FaQComponent from '../../components/FaQComponent/FaQComponent';
+import FaQComponent from "../../components/FaQComponent/FaQComponent";
 import SearchField from "../../components/SearchField/SearchField";
 function FaQ() {
   const [isLoading, setIsLoading] = useState(true);
@@ -39,7 +39,7 @@ function FaQ() {
                 <div className="bg-black rounded-b-3xl py-4">
                   <TopNav textColor={"white"} />
                   <div className="pt-10">
-                    <img className="" src={MainCar} alt="main" />
+                    <img className="w-full" src={MainCar} alt="main" />
                   </div>
                 </div>
 
@@ -49,9 +49,11 @@ function FaQ() {
                   </div>
                 </div>
               </div>
-              <SearchField/>
+              <div className="special:pt-10">
+                <SearchField />
+              </div>
               <div className="mt-10">
-              <FaQComponent />
+                <FaQComponent />
               </div>
 
               {/* <GucciCard /> */}
@@ -60,20 +62,20 @@ function FaQ() {
             {/* right-side */}
             <div className="flex-col flex-1 space-y-4 hidden xl:flex">
               <div className=" space-y-4">
-                <div className="bg-black rounded-b-3xl py-4">
+                <div className="bg-black rounded-b-[50px] special:rounded-b-[90px] py-4">
                   <TopNav textColor={"white"} />
                   <div className="pt-10">
                     <motion.img
                       initial={{ x: 80, opacity: 0 }} // Initial position and opacity (hidden)
                       animate={{ x: 0, opacity: 1 }} // Move and fade in when in view
                       transition={{ type: "tween", duration: 1, delay: 1 }}
-                      className=""
+                      className="w-full"
                       src={MainCar}
                       alt="main"
                     />
                   </div>
                 </div>
-                <div className="w-full">
+                <div className="w-full special:pt-10">
                   <GoldCard />
                 </div>
               </div>

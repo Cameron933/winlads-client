@@ -155,7 +155,7 @@ function NoticeInner() {
               </div>
               <form className="form-inline relative">
                 <input
-                  className="form-control mr-sm-2 outline-none bg-gray-300"
+                  className="form-control mr-sm-2 outline-none bg-gray-300 special:placeholder:text-2xl 2xl:placeholder:text-xl"
                   type="search"
                   placeholder="Search"
                   aria-label="Search"
@@ -172,19 +172,19 @@ function NoticeInner() {
                   <IoIosOptions className="text-2xl" />
                 </button>
               </form>
-              <div className="w-full h-[550px] sm:h-[500px] md:h-[450px]  flex flex-col bg-notice-inner ">
+              <div className="w-full h-[550px] sm:h-[500px] md:h-[450px]  flex flex-col bg-notice-inner special:pt-10 2xl:pt-10">
                 <div className="flex items-start justify-start  gap-5 ">
-                  <img src={Male} alt="" className="" />
+                  <img src={Male} alt="" className="special:w-24 2xl:w-20" />
                   <div className="">
-                    <p className=" font-semibold text-lg md:text-xl">
+                    <p className=" font-semibold text-lg md:text-xl special:text-4xl 2xl:text-3xl">
                       Kathryn Murphy
                     </p>
-                    <p className="text-gray-700">Kathryn sent you $0</p>
+                    <p className="text-gray-700 special:text-3xl 2xl:text-2xl">Kathryn sent you $0</p>
                   </div>
                 </div>
 
              <div className="mt-5 sm:mt-10 overflow-hidden mx-auto w-4/5 sm:w-2/3  xl:ml-10 ">
-                  <span className="sm:text-base text-sm text-gray-900">
+                  <span className="sm:text-base text-sm text-gray-900 special:text-3xl 2xl:text-2xl">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Veniam harum repellendus exercitationem quos minus. Nulla
                     nam nihil ipsum exercitationem, voluptates tenetur culpa
@@ -210,7 +210,7 @@ function NoticeInner() {
                       initial={{ x: 80, opacity: 0 }} // Initial position and opacity (hidden)
                       animate={{ x: 0, opacity: 1 }} // Move and fade in when in view
                       transition={{ type: "tween", duration: 1, delay: 1 }}
-                      className=""
+                      className="w-full"
                       src={MainCar}
                       alt="main"
                     />

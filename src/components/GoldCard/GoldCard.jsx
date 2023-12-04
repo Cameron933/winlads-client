@@ -2,16 +2,16 @@ import "./GoldCard.css";
 
 const GoldCard = () => {
   return (
-    <div className="bg-[#E8D61E] rounded-3xl px-4 flex flex-row justify-between py-4 cursor-pointer">
+    <div className="bg-[#E8D61E] rounded-3xl px-4 flex flex-row justify-between py-4 cursor-pointer special:py-10">
       {/* <div className="gold-card-inner-sec1"> */}
       <div className="flex flex-col xl:space-y-2 space-y-1 px-2">
-        <span className="xl:text-4xl font-bold text-3xl">Gold</span>
-        <span className="text-xs font-bold xl:text-xl">
+        <span className="xl:text-4xl font-bold text-3xl special:text-6xl">Gold</span>
+        <span className="text-xs font-bold xl:text-xl special:text-2xl">
           Expires on 2023.00.00
         </span>
       </div>
       <div className="flex flex-row xl:gap-2 gap-1 items-center">
-        <p className="font-bold text-xs xl:text-xl">Auto Renewal</p>
+        <p className="font-bold text-xs xl:text-xl special:text-3xl">Auto Renewal</p>
         <input
           type="checkbox"
           id="hs-basic-usage"
