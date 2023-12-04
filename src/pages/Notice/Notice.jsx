@@ -10,6 +10,14 @@ import Loader from "../../components/Loader/Loader";
 import { carAnimation } from "../../animation/animation";
 import { IoIosOptions } from "react-icons/io";
 import SearchField from "../../components/SearchField/SearchField";
+import bgCar from "../../assets/images/hiddenCar.png";
+
+export const bgStyle = {
+  backgroundImage: `url(${bgCar})`,
+  backgroundPosition: "left",
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "50%",
+};
 
 function Notice() {
   const [isLoading, setIsLoading] = useState(true);
@@ -112,7 +120,7 @@ function Notice() {
           <SideNav screen="screen" />
 
           {/* home-content */}
-          <div className="xl:flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-4 pb-5 space-y-4 xl:space-y-0 bg-notice-inner-2  ">
+          <div className="xl:flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-4 pb-5 space-y-4 xl:space-y-0">
             <div className="side-bg" style={{ height: "500px" }}></div>
             {/* left side */}
             <div className="flex flex-col space-y-4 flex-1">
@@ -149,9 +157,11 @@ function Notice() {
                   <IoIosOptions className="text-2xl" />
                 </button>
               </form> */}
-              <SearchField />
               <div className="mt-10">
+              <div className="w-full justify-start special:space-y-16 flex flex-col bg-notice-inner 2xl:pt-10 special:px-16 special:pt-24 gap-16" style={bgStyle}>
+              <SearchField />
                 <NoticeComponent />
+              </div>
               </div>
 
               {/* <GucciCard /> */}
@@ -162,12 +172,12 @@ function Notice() {
               <div className=" space-y-4">
                 <div className="bg-black rounded-b-[50px] special:rounded-b-[90px] py-4">
                   <TopNav textColor={"white"} />
-                  <div className="pt-10">
+                  <div className="">
                     <motion.img
                       initial={{ x: 80, opacity: 0 }} // Initial position and opacity (hidden)
                       animate={{ x: 0, opacity: 1 }} // Move and fade in when in view
                       transition={{ type: "tween", duration: 1, delay: 1 }}
-                      className="w-full"
+                      className="w-full px-20"
                       src={MainCar}
                       alt="main"
                     />

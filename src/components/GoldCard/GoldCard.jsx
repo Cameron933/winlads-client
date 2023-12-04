@@ -2,7 +2,7 @@ import "./GoldCard.css";
 
 const GoldCard = () => {
   return (
-    <div className="bg-[#E8D61E] rounded-3xl px-4 special:px-8 2xl:px-6 flex flex-row justify-between py-4 special:py-12 2xl:py-8 cursor-pointer">
+    <div className="bg-[#E8D61E] rounded-3xl px-4 special:px-8 2xl:px-6 flex flex-row justify-between py-4 special:py-8 2xl:py-4 cursor-pointer">
       {/* <div className="gold-card-inner-sec1"> */}
       <div className="flex flex-col xl:space-y-2 space-y-1 px-2">
         <span className="xl:text-4xl font-bold text-3xl 2xl:test-5xl special:text-7xl">
