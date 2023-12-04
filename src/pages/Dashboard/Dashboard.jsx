@@ -25,12 +25,24 @@ import SearchField from "../../components/SearchField/SearchField";
 // import { Chart as ChartJS } from "chart.js/auto";
 // import {UserData} from "../../Data.js"
 // import LineChart from '../../components/LineChat/LineChat'
-
+const itemsPerPage = 4;
 const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [valUser, setValUser] = useState({});
   const cookies = new Cookies(null, { path: "/" });
   const navigate = useNavigate();
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const totalItems = 18; // Set the total number of items here
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const handleNextPage = () => {
+    setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages));
+  };
+  const handlePrevPage = () => {
+    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
+  };
 
   // set loading
   useEffect(() => {
@@ -57,31 +69,31 @@ const Dashboard = () => {
   //     },
   //   ],
   // });
-  const currentUserValidation = async () => {
-    const validator = await validateCurrentUser();
-    if (validator.validatorBl) {
-      console.log("Session OK", validator.user.balance);
-      setValUser(validator.user);
-    } else {
-      navigate("/login");
-    }
-  };
-  useEffect(() => {
-    currentUserValidation();
-  }, []);
+  // const currentUserValidation = async () => {
+  //   const validator = await validateCurrentUser();
+  //   if (validator.validatorBl) {
+  //     console.log("Session OK", validator.user.balance);
+  //     setValUser(validator.user);
+  //   } else {
+  //     navigate("/login");
+  //   }
+  // };
+  // useEffect(() => {
+  //   currentUserValidation();
+  // }, []);
 
   return (
     <>
       {isLoading ? (
         <Loader />
       ) : (
-        <div className="flex relative  max-w-[2048px] mx-auto min-h-screen">
+        <div className="flex relative mx-auto min-h-screen">
           {/* side-nav */}
 
           <SideNav screen="full" />
 
           {/* home-content */}
-          <div className="flex flex-col xl:flex-row flex-1 mx-5 gap-5">
+          <div className="flex flex-col xl:flex-col flex-1 mx-5 gap-5">
             {/* <div className="flex flex-row">
 
             </div>
@@ -90,7 +102,7 @@ const Dashboard = () => {
             </div> */}
             {/* left side */}
             <div className="flex flex-col flex-1 ">
-              <div className="visible lg:hidden space-y-4">
+              <div className="visible xl:hidden space-y-4">
                 <div className="bg-black rounded-b-3xl py-4">
                   <TopNav textColor={"white"} />
                   <div className="pt-10">
@@ -110,30 +122,52 @@ const Dashboard = () => {
                 </div>
 
                 <EarningCard /> */}
-                <p className="text-2xl font-semibold">Next Giveaways</p>
-                <DashboardVehicleCard />
-                <DashboardVehicleCard />
-                <DashboardVehicleCard />
+                <div>
+                  <p className="text-2xl font-semibold">Next Giveaways</p>
+                  <div className="flex flex-col gap-1">
+                    {Array.from({ length: totalItems }).slice(startIndex, endIndex).map((_, index) => (
+                      <DashboardVehicleCard key={startIndex + index} />
+                    ))}
+                  </div>
+                  <div className="pagination-container text-xl font-semibold">
+                    <button className="pagination-button" onClick={handlePrevPage} disabled={currentPage === 1}>
+                      {'<< Prev'}
+                    </button>
+                    <span className="pagination-display">{`Page ${currentPage} of ${totalPages}`}</span>
+                    <button className="pagination-button" onClick={handleNextPage} disabled={currentPage === totalPages}>
+                      {'Next >>'}
+                    </button>
+                  </div>
+                </div>
+                {/* <div className="flex xl:flex-row gap-1">
+                    <DashboardVehicleCard />
+                    <DashboardVehicleCard />
+                  </div> */}
               </div>
-              <div className="hidden lg:flex flex-col space-y-4 items-end">
-                <div className="bg-black rounded-b-3xl space-y-4 relative">
+              <div className="hidden xl:flex flex-col space-y-4 items-end">
+                <div className="bg-black rounded-b-3xl space-y-4 relative w-web">
                   {/* <div className="flex flex-row items-center bg-[#333333] gap-4 mx-5 rounded-full px-4 mt-5">
                     <img src={Spicker} alt="" className="w-8 h-8" />
                     <span className="text-sm text-white">
                       Your golden card is about to expire in 30 days. Renew now!
                     </span>
                   </div> */}
-                  <div className="m-2">
-                  <SearchField />
+                  <div className="grid grid-cols-2 gap-4 m-2">
+                    <div className="col-span-1">
+                      <SearchField />
+                    </div>
+                    <div className="col-span-1">
+                      <TopNav textColor={"white"} />
+                    </div>
                   </div>
-                 
-                  <div className="absolute left-4 top-40 space-y-8">
+
+                  <div className="absolute left-4 top-20 space-y-8">
                     <div className="flex flex-col space-y-2">
                       <p className="text-[#22CCEE] text-2xl font-semibold">Earning Balance</p>
                       <p className="text-4xl text-white">$0</p>
                     </div>
                     <SmallGoldCard />
-                    
+
                   </div>
                   <div className="flex flex-row items-center gap-10 bottom-0">
                     <img
@@ -151,11 +185,21 @@ const Dashboard = () => {
                     />
                   </div>
                 </div>
-                <div className="flex flex-col space-y-2">
+                <div className="flex flex-col space-y-2 w-full xl:w-web">
                   <p className="text-xl font-semibold">Next Giveaways</p>
-                  <div className="flex flex-col xl:flex-row items-center gap-2">
-                    <DashboardVehicleCard />
-                    <DashboardVehicleCard />
+                  <div className="flex flex-col xl:flex-row items-center gap-1">
+                    {Array.from({ length: totalItems }).slice(startIndex, endIndex).map((_, index) => (
+                      <DashboardVehicleCard key={startIndex + index} />
+                    ))}
+                  </div>
+                  <div className="pagination-container text-xl font-semibold">
+                    <button className="pagination-button" onClick={handlePrevPage} disabled={currentPage === 1}>
+                      {'<< Prev'}
+                    </button>
+                    <span className="pagination-display">{`Page ${currentPage} of ${totalPages}`}</span>
+                    <button className="pagination-button" onClick={handleNextPage} disabled={currentPage === totalPages}>
+                      {'Next >>'}
+                    </button>
                   </div>
                 </div>
 
@@ -170,14 +214,15 @@ const Dashboard = () => {
 
             {/* right-side */}
             <div className="flex flex-col flex-1">
-              <div className="invisible lg:visible pt-5">
+              {/* <div className="hidden xl:flex invisible lg:visible pt-5">
                 <TopNav />
-              </div>
+              </div> */}
 
               <div className="side-bg"></div>
               <div className="graph-section ">
                 {/* <CustomChart height={300} /> */}
-                <div className="xl:pt-16 hidden xl:flex">
+                <div className="xl:pt-16 invisible xl:flex margin-10 gap-1 special:pt-16 visible lg:pt-16">
+                  <DashboardVehicleCard />
                   <DashboardVehicleCard />
                 </div>
               </div>
