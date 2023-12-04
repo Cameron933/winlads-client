@@ -261,7 +261,7 @@ function PopUpLotto({ onClose }) {
         <p className="font-bold text-white text-center xl:text-7xl md:5xl text-3xl mb-1">
           $10
         </p>
-        <p className="text-white mb-2 text-center  ">User/Month</p>
+        <p className="text-white mb-2 text-center">User/Month</p>
         <div className="flex justify-center flex-col space-y-2">
           <div className="flex flex-row gap-4 items-center">
             <img src={white} alt="" className="w-3 h-3" />
@@ -321,7 +321,7 @@ function PopUpLess({ onClose }) {
         <p className="font-bold text-white text-center xl:text-5xl md:5xl text-3xl mb-1">
           $10
         </p>
-        <p className="text-white mb-2 text-center  ">User/Month</p>
+        <p className="text-white mb-2 text-center">User/Month</p>
         <div className="flex justify-center flex-col space-y-4">
           <p className="text-white text-xs md:text-sm xl:text-sm text-start w-48">
             You have purchased x number of raffles from the amount of
@@ -334,7 +334,7 @@ function PopUpLess({ onClose }) {
 
         <button
           type="button"
-          className="flex justify-center gap-5 bg-white text-[#000]  font-bold p-4 rounded-xl mt-3 px-12 cursor-pointer hover:scale-105"
+          className="flex justify-center gap-5 bg-white text-[#000] font-bold p-4 rounded-xl mt-3 px-12 cursor-pointer hover:scale-105"
         >
           Confirm
         </button>

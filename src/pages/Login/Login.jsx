@@ -219,7 +219,7 @@ const Login = () => {
                 autoComplete="off"
                 className="form-contain text-center"
               >
-                <span className="text-2xl md:text-3xl lg:text-4xl fw-bold font-bold">
+                <span className="text-2xl md:text-3xl lg:text-4xl fw-bold font-bold special:text-4xl">
                   Sign in to access your account
                 </span>
                 <div className="flex items-center flex-col justify-center gap-5 w-3/4 mx-auto mt-10">
@@ -228,7 +228,7 @@ const Login = () => {
                     className={
                       errors.mobile && touched.mobile
                         ? "input-div input-error"
-                        : "input-div"
+                        : "input-div" 
                     }
                   >
                     <img src={Phone} alt="phone" />
@@ -239,6 +239,7 @@ const Login = () => {
                       onChange={(e) => setPh(e.target.value)}
                       onBlur={handleBlur}
                       id="mobile"
+                      className="border-2 border-black"
                     />
                     <small className="text-error">
                       {errors.mobile && touched.mobile && errors.mobile}
