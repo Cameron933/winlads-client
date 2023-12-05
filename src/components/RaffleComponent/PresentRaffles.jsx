@@ -4,7 +4,7 @@ import max from "../../assets/images/rafflesImages/max.png";
 import { GoQuestion } from "react-icons/go";
 import { MdOutlineDoNotDisturbOff } from "react-icons/md";
 
-const PresentRaffles = ({ setShowPopup }) => {
+const PresentRaffles = () => {
   // Common raffleid for all arrays
   const commonRaffleId = "6543e08c2076f209adae93a2";
   // Array 1
@@ -42,16 +42,15 @@ const PresentRaffles = ({ setShowPopup }) => {
   return (
     <>
       {raffleArray1.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2 special:gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2 special:gap-4 flex-1">
           {raffleArray1.map((round, key) => (
             <div
               key={key}
-              className="w-full flex cursor-pointer flex-col rounded-3xl px-2 py-2 special:px-4 2xl:px-4 space-y-2 hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 animate-slide-in-right"
+              className="flex cursor-pointer flex-col rounded-3xl px-2 py-2 special:px-4 2xl:px-4 space-y-2 hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 animate-slide-in-right"
               style={{
                 background:
                   "linear-gradient(98.92deg, #F59E0B 45%, #000000 83%)",
               }}
-              onClick={() => setShowPopup(true)}
             >
               <div className="flex flex-row justify-between items-center">
                 <img

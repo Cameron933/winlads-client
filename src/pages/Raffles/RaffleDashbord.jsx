@@ -12,7 +12,6 @@ import Loader from "../../components/Loader/Loader";
 import Calendar from "react-calendar";
 import Jeep from "../../assets/images/Lottery/Jeep.png";
 import six from "../../assets/images/rafflesImages/six4.png";
-import RedDot from "../../assets/images/RedDot.png";
 import { GoQuestion } from "react-icons/go";
 import SearchField from "../../components/SearchField/SearchField";
 import { LuHistory } from "react-icons/lu";
@@ -81,7 +80,7 @@ function RaffleDashbord() {
                 <img
                   src={BG}
                   alt=""
-                  className="absolute right-0 -z-10 top-10 w-72 xl:w-96 md:w-96 special:w-1/3 2xl:w-1/4"
+                  className="absolute right-0 -z-10 top-10 w-72 xl:w-96 md:w-96 special:w-1/3 2xl:w-1/4 special:top-80 opacity-60"
                 />
                 {/* left side */}
                 <div className="flex flex-col flex-1">
@@ -116,7 +115,7 @@ function RaffleDashbord() {
                         to="/history"
                         className="text-3xl xl:flex md:flex justify-end hidden"
                       >
-                        <LuHistory className="hover:animate-spin special:w-16 special:h-16 2xl:w-12 2xl:h-12 z-10" />
+                        <LuHistory className="hover:animate-spin special:w-16 special:h-12 2xl:w-12 2xl:h-9 z-10" />
                       </Link>
 
                       <Link to="/live-raffle">
