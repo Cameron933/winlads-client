@@ -14,7 +14,7 @@ import Red from "../../assets/images/transaction/Red.png";
 import Transfer from "../../assets/images/transaction/transfer-outlined.png";
 import Save from "../../assets/images/transaction/save-outlined.png";
 import Slip from "../../assets/images/transaction/slip-outlined.png";
-import { BiSolidDownArrow } from "react-icons/bi";
+import { BiSolidDownArrow } from 'react-icons/bi';
 import Chart from "react-apexcharts";
 import EarningCard from "../../components/EarningCard/EarningCard";
 
@@ -47,7 +47,7 @@ const Transaction = () => {
     
   };
 
-  const chartWidth = windowWidth > 768 ? 400 : windowWidth - 150;
+  const chartWidth = windowWidth > 700 ? 500 : windowWidth - 150;
   return (
     <div>
       <div className="flex relative min-h-screen">
@@ -72,28 +72,28 @@ const Transaction = () => {
             </div>
 
             <div className="flex flex-col space-y-1">
-              <p className="font-extrabold text-xl xl:text-2xl md:text-3xl">Your Balance</p>
-              <p className="font-extrabold text-2xl xl:text-4xl">$576,000.00</p>
+              <p className="font-extrabold text-xl md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl">Your Balance</p>
+              <p className="font-extrabold md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl">$576,000.00</p>
             </div>
-            <div className="flex flex-row gap-2 xl:gap-6 md:gap-6">
-              <div className="bg-blue-400 justify-between flex-1 items-center gap-2 md:gap-4 xl:gap-4 rounded-2xl xl:px-4 px-2 py-2 md:px-4 md:py-4 flex flex-row">
-                <img src={Tax} alt="" className="md:h-20 md:w-20 xl:h-16 xl:w-16" />
+            <div className="flex flex-row gap-2 xl:gap-6 md:gap-6 2xl:text-2xl special:text-3xl">
+              <div className="bg-blue-400 justify-between flex-1 items-center gap-2 md:gap-4 xl:gap-4 rounded-2xl xl:px-4 xl:py-8 md:px-4 md:py-8 flex flex-row px-4 py-4">
+                <img src={Tax} alt="" className="md:h-20 md:w-20 xl:h-16 xl:w-16 max-w-screen-sm" />
                 <div className="flex flex-col">
-                  <p className="text-sm xl:text-3xl text-white md:text-2xl">
+                  <p className=" text-white text-xl md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl">
                     $5,000
                   </p>
-                  <p className="text-white text-xs xl:text-xl md:text-lg">
+                  <p className="text-white md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl">
                     Earning
                   </p>
                 </div>
               </div>
-              <div className="bg-orange-400 flex-1 justify-between items-center xl:gap-4 gap-2 md:gap-4 rounded-2xl xl:px-4 px-2 py-2 md:px-4 md:py-4 flex flex-row">
-                <img src={Ticket} alt="" className="md:h-20 md:w-20 xl:h-16 xl:w-16" />
+              <div className="bg-orange-400 flex-1 justify-between items-center xl:gap-4 gap-2 md:gap-4 rounded-2xl xl:px-4 xl:py-8 md:px-4 md:py-8 flex flex-row px-4 py-4">
+                <img src={Ticket} alt="" className="md:h-20 md:w-20 xl:h-16 xl:w-16 max-w-screen-sm" />
                 <div className="flex flex-col">
-                  <p className="text-sm xl:text-3xl text-white md:text-2xl">
+                  <p className="text-white md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl">
                     $15,000
                   </p>
-                  <p className="text-white text-xs xl:text-xl md:text-lg">
+                  <p className="text-white md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl">
                     Purchase
                   </p>
                 </div>
@@ -101,7 +101,7 @@ const Transaction = () => {
             </div>
             <div className="flex flex-col">
               <div className="flex flex-row items-center justify-center gap-2 mb-5">
-                <p className="text-center uppercase md:text-xl xl:text-lg">DECEMBER 2022</p>
+                <p className="text-center uppercase md:text-xl xl:text-lg 2xl:text-2xl special:text-3xl">DECEMBER 2022</p>
                 <img src={Arrow} alt="" />
               </div>
               <div className="flex justify-center">
@@ -137,15 +137,15 @@ const Transaction = () => {
             </div>
             <div className="flex flex-col space-y-4 flex-1">
               <div className="flex flex-row justify-between items-center">
-                <p className="text-[#EC2639] md:text-2xl xl:text-xl">Transactions History</p>
+                <p className="text-[#EC2639] md:text-xl xl:text-lg 2xl:text-2xl special:text-3xl">Transactions History</p>
                 <Link to="/transfer">
-                  <p className="md:text-2xl xl:text-xl">Transactions</p>
+                  <p className="md:text-xl xl:text-lg 2xl:text-2xl special:text-3xl">Fund Transfer</p>
                 </Link>
               </div>
               <div className="flex justify-between items-center">
-                <p className="font-bold text-xl md:text-2xl xl:text-xl">Transactions</p>
+                <p className="font-bold text-xl md:text-xl xl:text-lg 2xl:text-2xl special:text-3xl">Transactions</p>
                 <div className="flex flex-row items-center gap-4">
-                  <p className="text-md">See All</p>
+                  <p className="text-md md:text-xl xl:text-lg 2xl:text-2xl special:text-3xl">See All</p>
                   <BiSolidDownArrow />
                 </div>
               </div>
@@ -154,46 +154,46 @@ const Transaction = () => {
                   <img
                     src={Transfer}
                     alt=""
-                    className="xl:w-10 xl:h-10 md:w-12 md:h-12 w-8 h-8"
+                    className="special:w-20 special:h-20 xl:w-14 xl:h-14 md:w-12 md:h-12 w-8 h-8"
                   />
                   <div className="flex flex-col">
-                    <p className="text-sm md:text-lg xl:text-sm">Car Purchase</p>
-                    <p className="text-xs md:text-sm xl:text-xs">Auto Loan</p>
+                    <p className="text-sm md:text-lg xl:text-lg 2xl:text-2xl special:text-3xl">Car Purchase</p>
+                    <p className="text-xs md:text-xl xl:text-xs 2xl:text-xl special:text-2xl">Auto Loan</p>
                   </div>
                 </div>
-                <p className="text-[#4FC8E8] font-semibold text-sm md:text-xl xl:text-lg">-$250</p>
+                <p className="text-[#4FC8E8] font-semibold xl:text-lg 2xl:text-2xl special:text-4xl">-$250</p>
               </div>
               <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-row gap-2 items-center">
                   <img
                     src={Slip}
                     alt=""
-                    className="xl:w-10 xl:h-10 md:w-12 md:h-12 w-8 h-8"
+                    className="special:w-20 special:h-20 xl:w-14 xl:h-14 md:w-12 md:h-12 w-8 h-8"
                   />
                   <div className="flex flex-col">
-                    <p className="text-sm md:text-lg xl:text-sm">Houses Purchase</p>
-                    <p className="text-xs md:text-sm xl:text-xs">Airbnb home</p>
+                    <p className="text-sm md:text-lg xl:text-lg 2xl:text-2xl special:text-3xl">Houses Purchase</p>
+                    <p className="text-xs md:text-xl xl:text-xs 2xl:text-xl special:text-2xl">Airbnb home</p>
                   </div>
                 </div>
-                <p className="text-[#059713] font-semibold text-sm md:text-xl xl:text-lg">$2250</p>
+                <p className="text-[#059713] font-semibold xl:text-lg 2xl:text-2xl special:text-4xl">$2250</p>
               </div>
               <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-row gap-2 items-center">
                   <img
                     src={Save}
                     alt=""
-                    className="xl:w-10 xl:h-10 md:w-12 md:h-12 w-8 h-8"
+                    className="special:w-20 special:h-20 xl:w-14 xl:h-14 md:w-12 md:h-12 w-8 h-8"
                   />
                   <div className="flex flex-col">
-                    <p className="text-sm md:text-lg xl:text-sm">Transport</p>
-                    <p className="text-xs md:text-sm xl:text-xs">Uber pathao</p>
+                    <p className="text-sm md:text-lg xl:text-lg 2xl:text-2xl special:text-3xl">Transport</p>
+                    <p className="text-xs md:text-xl xl:text-xs 2xl:text-xl special:text-2xl">Uber pathao</p>
                   </div>
                 </div>
-                <p className="text-[#059713] font-semibold text-sm md:text-xl xl:text-lg">$250</p>
+                <p className="text-[#059713] font-semibold xl:text-lg 2xl:text-2xl special:text-4xl">$250</p>
               </div>
             </div>
           </div>
-          <div>
+          {/* <div> */}
             {/* <div className="flex flex-col flex-1 space-y-4">
               <div className="invisible xl:visible">
                 <TopNav />
@@ -225,7 +225,7 @@ const Transaction = () => {
 
               </div>
             </div>
-          </div>
+          {/* </div> */}
         </div>
       </div>
     </div>
