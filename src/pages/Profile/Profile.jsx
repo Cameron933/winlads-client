@@ -113,9 +113,11 @@ const Profile = () => {
   return (
     <div>
       <div className="flex relative">
+      <div className="right-side-logo max-xl:hidden"></div>
+
         <SideNav screen="screen" />
         <div
-          className="flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-8 pb-5 space-y-4 xl:space-y-0"
+          className="flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-8 pb-5 space-y-4 xl:space-y-0 bg-no-repeat"
           style={{ backgroundImage: `url(${backgroundcar})` }}
         >
           <div className="flex flex-col space-y-4 flex-1 visible xl:hidden">
@@ -133,7 +135,7 @@ const Profile = () => {
           <div className="flex flex-col space-y-4 flex-1 xl:mx-12">
             <div className="flex flex-col space-y-3">
               <form className="mx-auto mt-4 relative">
-                <img src={User} alt="profile-pic" />
+                <img src={User} alt="profile-pic" className="special:w-28"/>
                 <label htmlFor="profile" className="z-10 absolute -bottom-3 -right-2 text-2xl bg-gray-200 rounded-full p-1 cursor-pointer">
                   <MdOutlinePhotoCamera/>
                 </label>
@@ -141,10 +143,10 @@ const Profile = () => {
                 
               </form>
               <div className="flex items-center justify-center gap-2">
-                <div className="bg-green-300 border border-0.5 border-black p-0.5 w-fit">
-                  <p className="w-fit" style={{fontSize:'8px'}}>Level 1</p>
+                <div className="bg-green-300 border border-0.5 border-black p-0.5 w-fit special:px-3">
+                  <p className="w-fit special:text-xl " style={{fontSize:'8px'}}>Level 1</p>
                 </div>
-                <p className="">Verified User</p>
+                <p className="special:text-xl">Verified User</p>
               </div>
               
               
@@ -161,11 +163,11 @@ const Profile = () => {
                   size={50}
                   aria-label="Loading Spinner"
                   data-testid="loader"
-                /> </div> : <div className="flex flex-col space-y-2">
+                /> </div> : <div className="flex flex-col space-y-2 special:space-y-5">
                   <div className="flex flex-col space-y-2">
-                    <p className="text-black text-sm xl:text-md">User ID</p>
+                    <p className="text-black text-sm xl:text-md special:text-xl">User ID</p>
                     <input
-                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm"
+                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
                       placeholder="Enter User Name"
                       type="text"
                       value={userData?.uid}
@@ -173,10 +175,10 @@ const Profile = () => {
                     ></input>
                   </div>
                   <div className="flex flex-col space-y-2">
-                    <p className="text-black text-sm xl:text-md">First Name</p>
+                    <p className="text-black text-sm xl:text-md special:text-xl">First Name</p>
                     <input
 
-                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm"
+                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
                       placeholder="Enter First Name"
                       type="text"
                       onChange={(e) => setName(e.target.value)}
@@ -184,9 +186,9 @@ const Profile = () => {
                     ></input>
                   </div>
                   <div className="flex flex-col space-y-2">
-                    <p className="text-black text-sm xl:text-md">Last Name</p>
+                    <p className="text-black text-sm xl:text-md special:text-xl">Last Name</p>
                     <input
-                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm"
+                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
                       placeholder="Enter Last Name"
                       type="text"
                       onChange={(e) => setName(e.target.value)}
@@ -194,9 +196,9 @@ const Profile = () => {
                     ></input>
                   </div>
                   <div className="flex flex-col space-y-2">
-                    <p className="text-black text-sm xl:text-md">Valid Email</p>
+                    <p className="text-black text-sm xl:text-md special:text-xl">Valid Email</p>
                     <input
-                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm"
+                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
                       placeholder="Enter Valid EMail"
                       type="email"
                       onChange={(e) => setEmail(e.target.value)}
@@ -204,9 +206,9 @@ const Profile = () => {
                     ></input>
                   </div>
                   <div className="flex flex-col space-y-2">
-                    <p className="text-black text-sm xl:text-md">Phone Number</p>
+                    <p className="text-black text-sm xl:text-md special:text-xl">Phone Number</p>
                     <input
-                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm"
+                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
                       placeholder="Enter Phone Number"
                       type="tel"
                       onChange={(e) => setMobile(e.target.value)}
@@ -214,11 +216,11 @@ const Profile = () => {
                     ></input>
                   </div>
                   <div className="flex flex-col space-y-2">
-                    <p className="text-black text-sm xl:text-md">
+                    <p className="text-black text-sm xl:text-md special:text-xl">
                       Passport Number
                     </p>
                     <input
-                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm"
+                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
                       placeholder="Enter Passport Number"
                       type="text"
                       onChange={(e) => setPassport(e.target.value)}
@@ -226,9 +228,9 @@ const Profile = () => {
                     ></input>
                   </div>
                   <div className="flex flex-col space-y-2">
-                    <p className="text-black text-sm xl:text-md">Date of Birth</p>
+                    <p className="text-black text-sm xl:text-md special:text-xl">Date of Birth</p>
                     <input
-                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm"
+                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
                       placeholder="Enter Date of Birth"
                       type="date"
                       value={dob}
@@ -236,11 +238,11 @@ const Profile = () => {
                     ></input>
                   </div>
                   <div className="flex flex-col space-y-2">
-                    <p className="text-black text-sm xl:text-md">
+                    <p className="text-black text-sm xl:text-md special:text-xl">
                       Postal Address
                     </p>
                     <input
-                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm"
+                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
                       placeholder="Enter Postal Address"
                       type="text"
                       value={address}
@@ -248,9 +250,9 @@ const Profile = () => {
                     ></input>
                   </div>
                   <div className="flex flex-col space-y-2">
-                    <p className="text-black text-sm xl:text-md">Tin</p>
+                    <p className="text-black text-sm xl:text-md special:text-xl">Tin</p>
                     <input
-                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm"
+                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
                       placeholder="Enter Tin"
                       type="text"
                       value={tin}
@@ -258,9 +260,9 @@ const Profile = () => {
                     ></input>
                   </div>
                   <div className="flex flex-col space-y-2">
-                    <p className="text-black text-sm xl:text-md">Reference Id</p>
+                    <p className="text-black text-sm xl:text-md special:text-xl">Reference Id</p>
                     <input
-                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm"
+                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
                       placeholder="Enter Reference Id"
                       type="text"
                       value={userData?.rafflesId}
@@ -286,9 +288,9 @@ const Profile = () => {
                   </div> */}
 
 
-                      <p> <input type="checkbox" name="agree" /> I agree with the terms of use</p>
+                      <p className="special:text-xl"> <input type="checkbox" name="agree" /> I agree with the terms of use</p>
 
-                      <button onClick={() => updateUserDatails()} className="bg-black text-white rounded-xl px-12 py-3 font-semibold">
+                      <button onClick={() => updateUserDatails()} className="bg-black text-white rounded-xl px-12 py-3 font-semibold special:text-xl">
                         Confirm
                       </button>
               

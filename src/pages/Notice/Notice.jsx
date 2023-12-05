@@ -117,11 +117,11 @@ function Notice() {
         <Loader />
       ) : (
         <div className="flex relative min-h-screen">
+          <div className="right-side-logo max-md:hidden"></div>
           <SideNav screen="screen" />
-
           {/* home-content */}
           <div className="xl:flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-4 pb-5 space-y-4 xl:space-y-0">
-            <div className="side-bg" style={{ height: "500px" }}></div>
+            {/* <div className="side-bg" style={{ height: "500px" }}></div> */}
             {/* left side */}
             <div className="flex flex-col space-y-4 flex-1">
               <div className="visible xl:hidden space-y-4">
@@ -158,10 +158,13 @@ function Notice() {
                 </button>
               </form> */}
               <div className="mt-10">
-              <div className="w-full justify-start special:space-y-16 flex flex-col bg-notice-inner 2xl:pt-10 special:px-16 special:pt-24 gap-16" style={bgStyle}>
-              <SearchField />
-                <NoticeComponent />
-              </div>
+                <div
+                  className="w-full justify-start special:space-y-16 flex flex-col 2xl:pt-10 special:px-16 special:pt-24 gap-16"
+                  style={bgStyle}
+                >
+                  <SearchField />
+                  <NoticeComponent />
+                </div>
               </div>
 
               {/* <GucciCard /> */}
