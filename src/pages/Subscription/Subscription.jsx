@@ -1,8 +1,6 @@
 import SideNav from "../../components/SideNav/SideNav";
 import MainCar from "../../assets/images/MainCar.png";
 import GoldCard from "../../components/GoldCard/GoldCard";
-import EarningCard from "../../components/EarningCard/EarningCard";
-import GucciCard from "../../components/GucciCard/GucciCard";
 import TopNav from "../../components/TopNav/TopNav";
 import SubscribeCard from "../../components/SubscribeCard/SubscribeCard";
 import { motion } from "framer-motion";
@@ -31,7 +29,7 @@ function Subscription() {
         <SideNav screen="screen" />
 
         {/* home-content */}
-        <div className="xl:flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-4 special:gap-8 2xl:gap-6 space-y-4 xl:space-y-0">
+        <div className="xl:flex xl:flex-row flex-col xl:justify-between px-4 special:px-12 2xl:px-8 flex-1 xl:gap-4 special:gap-8 2xl:gap-6 space-y-4 xl:space-y-0">
           {/* left side */}
           <div className="flex flex-col space-y-4 flex-1 special:space-y-8 2xl:space-y-6">
             <div className="visible xl:hidden space-y-4">

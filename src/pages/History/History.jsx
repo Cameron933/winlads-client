@@ -1,13 +1,42 @@
+import { useEffect, useState } from "react";
 import SideNav from "../../components/SideNav/SideNav";
 import MainCar from "../../assets/images/MainCar.png";
 import GoldCard from "../../components/GoldCard/GoldCard";
-import GucciCard from "../../components/GucciCard/GucciCard";
 import TopNav from "../../components/TopNav/TopNav";
-import NewsListProps from "../../components/NewsList/NewsListProps";
-import EarningCard from "../../components/EarningCard/EarningCard";
 import HistoryList from "../../components/History/HistoryList";
+import bgCar from "../../assets/images/hiddenCar.png";
+import BG from "../../assets/images/HomesideBg.png";
+import SearchField from "../../components/SearchField/SearchField";
+import axios from "axios";
+
+export const bgStyle = {
+  backgroundImage: `url(${bgCar})`,
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "contain",
+};
 
 function History() {
+
+  const [rafflesHistory, setRafflesHistory] = useState([])
+
+  useEffect(() => {
+    // currentUserValidation();
+    getRafflesHistory();
+  }, []);
+
+  const getRafflesHistory = async () => {
+    await axios
+      .get(`${import.meta.env.VITE_SERVER_API}/rafflesHistory`)
+      .then((response) => {
+        console.log(response.data.data);
+        setRafflesHistory(response?.data?.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div>
       <div className="flex relative min-h-screen">
@@ -16,9 +45,14 @@ function History() {
         <SideNav screen="full" />
 
         {/* home-content */}
-        <div className="xl:flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-4 pb-5 space-y-4 xl:space-y-0">
+        <div className="xl:flex xl:flex-row special:gap-12 flex-col xl:justify-between flex-1 xl:px-6 px-4 2xl:px-8 special:px-12 xl:gap-4 pb-5 space-y-4 xl:space-y-0">
+          <img
+            src={BG}
+            alt=""
+            className="absolute right-0 -z-10 md:top-80 top-20 w-72 xl:w-96 md:w-96 special:w-1/3 2xl:w-1/4 special:top-80 opacity-60 2xl:top-80 xl:top-80"
+          />
           {/* left side */}
-          <div className="left-side flex flex-col space-y-4 flex-1">
+          <div className="left-side flex flex-col space-y-4 flex-1 special:pt-24 2xl:pt-16 xl:pt-12">
             <div className="visible xl:hidden space-y-4">
               <div className="bg-black rounded-b-3xl py-4">
                 <TopNav textColor={"white"} />
@@ -33,7 +67,17 @@ function History() {
                 </div>
               </div>
             </div>
-            <HistoryList/>
+            <div className="pb-12 special:pb-24">
+              <SearchField />
+            </div>
+            <div style={bgStyle}>
+              <HistoryList />
+            </div>
+            {/* {rafflesHistory?.map((history, key) => (
+              <div key={key}>
+                    <p>{history.name}</p>
+              </div>
+            ))} */}
           </div>
 
           {/* right-side */}

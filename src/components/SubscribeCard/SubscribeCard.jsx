@@ -8,6 +8,9 @@ import savelotto from "../../assets/images/rafflesImages/savelotto.png";
 import bitcoin from "../../assets/images/rafflesImages/bitcoin.png";
 import { ImCancelCircle } from "react-icons/im";
 import { IoCloseSharp } from "react-icons/io5";
+import Visa from "../../assets/images/subcription/visa.png";
+import BitCoin from "../../assets/images/subcription/bitcoin.png";
+import Save from "../../assets/images/subcription/save.png";
 
 const PaymentModal = ({ handleClose, show }) => {
   return (
@@ -21,7 +24,7 @@ const PaymentModal = ({ handleClose, show }) => {
   );
 };
 
-function SubscribeCard() {
+function SubscribeCard({handleChooseButton}) {
   const [showUpSubscibe, setShowUpSubscibe] = useState(false);
   const [showUpSubscibeBronze, setShowUpSubscibeBronze] = useState(false);
   const [showUpSubscibeSilver, setShowUpSubscibeSilver] = useState(false);
@@ -33,6 +36,10 @@ function SubscribeCard() {
   const handleYear = (val = false) => {
     setYearly(val);
   };
+
+  // const handleChooseButton = () => {
+  //   setShowUpSubscibe(true)
+  // }
 
   return (
     <div className="container mx-auto flex flex-col space-y-4 2x:space-y-8 special:space-y-12">
@@ -69,24 +76,119 @@ function SubscribeCard() {
               <p className="special:text-4xl 2xl:text-2xl">Standard</p>
             </div>
           </div>
-          <p className="font-bold  text-center text-4xl special:text-8xl 2xl:text-6xl">$10</p>
-          <p className=" mb-2 text-center text-xs special:text-xl 2xl:text-lg">User/Month</p>
+          <p className="font-bold  text-center text-4xl special:text-8xl 2xl:text-6xl">
+            $10
+          </p>
+          <p className=" mb-2 text-center text-xs special:text-xl 2xl:text-lg">
+            User/Month
+          </p>
           <div className="flex justify-center flex-col space-y-2 special:space-y-6 2xl:space-y-4">
             <div className="flex flex-row gap-2 special:gap-4 2xl:gap-4 items-center">
-              <img src={Blue} alt="" className="w-3 h-3 special:h-7 special:w-7 2xl:h-5 2xl:w-5" />
-              <p className=" text-sm special:text-xl 2xl:text-lg">2 Day database discount Access</p>
+              <img
+                src={Blue}
+                alt=""
+                className="w-3 h-3 special:h-7 special:w-7 2xl:h-5 2xl:w-5"
+              />
+              <p className=" text-sm special:text-xl 2xl:text-lg">
+                2 Day database discount Access
+              </p>
             </div>
             <div className="flex flex-row gap-2 items-center">
-              <img src={Blue} alt="" className="w-3 h-3 special:h-7 special:w-7 2xl:h-5 2xl:w-5" />
-              <p className=" text-sm special:text-xl 2xl:text-lg">winlads + Events Invites</p>
+              <img
+                src={Blue}
+                alt=""
+                className="w-3 h-3 special:h-7 special:w-7 2xl:h-5 2xl:w-5"
+              />
+              <p className=" text-sm special:text-xl 2xl:text-lg">
+                winlads + Events Invites
+              </p>
             </div>
             <div className="flex flex-row gap-2 items-center">
-              <img src={Blue} alt="" className="w-3 h-3 special:h-7 special:w-7 2xl:h-5 2xl:w-5" />
-              <p className=" text-sm special:text-xl 2xl:text-lg">10% off Winland + Merch</p>
+              <img
+                src={Blue}
+                alt=""
+                className="w-3 h-3 special:h-7 special:w-7 2xl:h-5 2xl:w-5"
+              />
+              <p className=" text-sm special:text-xl 2xl:text-lg">
+                10% off Winland + Merch
+              </p>
             </div>
             <div className="flex flex-row gap-2 items-center">
-              <img src={Blue} alt="" className="w-3 h-3 special:h-7 special:w-7 2xl:h-5 2xl:w-5" />
-              <p className=" text-sm special:text-xl 2xl:text-lg">10% off Winland + Merch</p>
+              <img
+                src={Blue}
+                alt=""
+                className="w-3 h-3 special:h-7 special:w-7 2xl:h-5 2xl:w-5"
+              />
+              <p className=" text-sm special:text-xl 2xl:text-lg">
+                10% off Winland + Merch
+              </p>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            className="border border-1 border-white bg-white text-black py-2 px-8 special:py-4 special:px-12 2xl:px-10 rounded-lg text-sm special:text-2xl 2xl:text-xl mt-4 mb-2 hover:bg-black hover:text-white"
+            onClick={handleChooseButton(setShowUpSubscibe(true))}
+          >
+            Choose Plan
+          </button>
+          {showUpSubscibe && (
+            <PopUpSubscribeBlue onClose={() => setShowUpSubscibe(false)} />
+          )}
+        </div>
+
+        <div className="bg-black justify-center items-center text-white py-2 px-4 special:py-8 2xl:py-6 rounded-3xl flex flex-col space-y-4 special:space-y-8 2xl:space-y-6">
+          <div className="flex justify-center">
+            <div className="border-1 border w-26 text-center border-white rounded-xl px-4 py-1 special:py-4 2xl:py-2 special:px-8 2xl:px-6">
+              <p className="special:text-4xl 2xl:text-2xl">Standard</p>
+            </div>
+          </div>
+          <p className="font-bold  text-center text-4xl special:text-8xl 2xl:text-6xl">
+            $10
+          </p>
+          <p className=" mb-2 text-center text-xs special:text-xl 2xl:text-lg">
+            User/Month
+          </p>
+          <div className="flex justify-center flex-col space-y-2 special:space-y-6 2xl:space-y-4">
+            <div className="flex flex-row gap-2 special:gap-4 2xl:gap-4 items-center">
+              <img
+                src={Blue}
+                alt=""
+                className="w-3 h-3 special:h-7 special:w-7 2xl:h-5 2xl:w-5"
+              />
+              <p className=" text-sm special:text-xl 2xl:text-lg">
+                2 Day database discount Access
+              </p>
+            </div>
+            <div className="flex flex-row gap-2 items-center">
+              <img
+                src={Blue}
+                alt=""
+                className="w-3 h-3 special:h-7 special:w-7 2xl:h-5 2xl:w-5"
+              />
+              <p className=" text-sm special:text-xl 2xl:text-lg">
+                winlads + Events Invites
+              </p>
+            </div>
+            <div className="flex flex-row gap-2 items-center">
+              <img
+                src={Blue}
+                alt=""
+                className="w-3 h-3 special:h-7 special:w-7 2xl:h-5 2xl:w-5"
+              />
+              <p className=" text-sm special:text-xl 2xl:text-lg">
+                10% off Winland + Merch
+              </p>
+            </div>
+            <div className="flex flex-row gap-2 items-center">
+              <img
+                src={Blue}
+                alt=""
+                className="w-3 h-3 special:h-7 special:w-7 2xl:h-5 2xl:w-5"
+              />
+              <p className=" text-sm special:text-xl 2xl:text-lg">
+                10% off Winland + Merch
+              </p>
             </div>
           </div>
 
@@ -97,45 +199,9 @@ function SubscribeCard() {
           >
             Choose Plan
           </button>
-          {showUpSubscibe && (
+          {/* {showUpSubscibe && (
             <PopUpSubscribeBlue onClose={() => setShowUpSubscibe(false)} />
-          )}
-        </div>
-
-        <div className="bg-gradient-to-br from-gray-200 to-white border border-1 border-gray-500 justify-center items-center py-2 px-4 rounded-3xl flex flex-col ">
-          <div className="flex justify-center mb-2">
-            <div className="border border-1 w-26 text-center border-black rounded-xl px-4 py-1">
-              <p className="text-black">Bronze</p>
-            </div>
-          </div>
-          <p className="font-bold text-black text-center text-4xl mb-2">$30</p>
-          <p className="text-black mb-2 text-center text-xs">User/Month</p>
-          <div className="flex justify-center flex-col space-y-2">
-            <div className="flex flex-row gap-2 items-center">
-              <img src={Blue} alt="" className="w-3 h-3" />
-              <p className="text-black text-sm">
-                1 Week database discount Access
-              </p>
-            </div>
-            <div className="flex flex-row gap-2 items-center">
-              <img src={Blue} alt="" className="w-3 h-3" />
-              <p className="text-black text-sm"> winlads + Events Invites</p>
-            </div>
-            <div className="flex flex-row gap-2 items-center">
-              <img src={Blue} alt="" className="w-3 h-3" />
-              <p className="text-black text-sm">10% off Winland + Merch</p>
-            </div>
-          </div>
-          <button
-            type="button"
-            className="border border-black bg-black text-white py-2 px-8 rounded-lg text-sm mt-4 mb-2 hover:bg-white hover:text-black"
-            onClick={() => setShowUpSubscibeBronze(true)}
-          >
-            Choose Plan
-          </button>
-          {showUpSubscibeBronze && (
-            <PopUpSubscribeRed onClose={() => setShowUpSubscibeBronze(false)} />
-          )}
+          )} */}
         </div>
         <div className="bg-gradient-to-br from-[#FFDF37] to-[#9D7C00] justify-center items-center py-2 px-4 rounded-3xl flex flex-col">
           <div className="flex justify-center mb-2">
@@ -224,7 +290,7 @@ function PopUpSubscribeBlue({ onClose }) {
 
   return (
     <div
-      className="subCard fixed top-0 left-0 w-full h-full flex justify-start items-center bg-opacity-50 backdrop-blur-sm z-10"
+      className="subCard fixed w-full top-0 right-10 h-full flex justify-start items-center z-10"
       onClick={handleBackdropClick}
     >
       <div className=" popup-content bg-black text-white items-center py-6 xl:px-12 rounded-xl flex flex-col xl:ml-68 ml-60 xl:mt-32 mt-60 md:ml-72 md:mt-60">
@@ -264,10 +330,17 @@ function PopUpSubscribeBlue({ onClose }) {
           Payment Methods
         </p>
 
-        <div className="flex justify-center gap-5 border border-1 border-white p-4 rounded-xl mt-3 px-12 hover:bg-gray-500">
-          <img src={wallet} alt="" className="w-7 h-7" />
-          <img src={savelotto} alt="" className="w-7 h-7" />
-          <img src={bitcoin} alt="" className="w-7 h-7" />
+        <div className="flex justify-center gap-5 border border-1 border-white p-4 rounded-xl mt-3 px-12 bg-[#FFFFFF]">
+          <button className="hover:scale-105">
+            {" "}
+            <img src={BitCoin} alt="" className="w-7 h-7 " />
+          </button>
+          <div className="hover:scale-105">
+            <img src={Save} alt="" className="w-7 h-7" />
+          </div>
+          <div className="hover:scale-105">
+            <img src={Visa} alt="" className="w-7 h-7" />
+          </div>
         </div>
       </div>
     </div>
@@ -285,7 +358,7 @@ function PopUpSubscribeRed({ onClose }) {
   }
   return (
     <div
-      className="subCard2 fixed top-0 left-0 w-full h-full flex justify-start items-center  bg-opacity-50  backdrop-blur-sm z-10"
+      className="subCard2 fixed top-0 left-0 w-full h-full flex justify-start items-center z-10"
       onClick={handleBackdropClick2}
     >
       <div className=" popup-content bg-gradient-to-br  from-gray-400 to-white   items-center py-6  xl:px-12 rounded-xl flex flex-col xl:ml-68  ml-60 xl:mt-32 mt-60 md:ml-72 md:mt-60 relative">
@@ -330,7 +403,7 @@ function PopUpSubscribeRed({ onClose }) {
         <div className="flex justify-center gap-5 bg-black p-4 rounded-xl mt-3 px-12 hover:bg-gray-500">
           <img src={wallet} alt="" className="w-7 h-7" />
           <img src={savelotto} alt="" className="w-7 h-7" />
-          <img src={bitcoin} alt="" className="w-7 h-7" />
+          <img src={Visa} alt="" className="w-7 h-7" />
         </div>
       </div>
     </div>

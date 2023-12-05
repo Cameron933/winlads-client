@@ -97,7 +97,7 @@ function Raffles() {
                 <img
                   src={BG}
                   alt=""
-                  className="absolute right-0 -z-10 top-10 w-72 xl:w-96 md:w-96 special:w-1/3 2xl:w-1/4"
+                  className="absolute right-0 -z-10 top-10 w-72 xl:w-96 md:w-96 special:w-1/3 2xl:w-1/4 special:top-80 opacity-60"
                 />
 
                 {/* left-side */}
@@ -159,17 +159,16 @@ function Raffles() {
                                     alt=""
                                     className="w-12 special:w-36 2xl:w-16"
                                   />
-
-                                  {/* <div className="flex-row flex justify-end gap-1">
-                                    <p className="text-white text-xs uppercase 2xl:text-sm special:text-lg">
-                                      live
-                                    </p>
-                                    <span className="relative flex h-1.5 w-1.5 special:h-3.5 special:w-3.5 2xl:h-2.5 2xl:w-2.5 flex-col justify-start items-start">
-                                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-600 opacity-75"></span>
-                                      <span className="relative inline-flex rounded-full h-1.5 w-1.5 special:h-3.5 special:w-3.5 2xl:h-2.5 2xl:w-2.5 bg-red-600"></span>
-                                    </span>
-                                  </div> */}
                                 </div>
+                              </div>
+                              <div className="flex-row flex justify-end gap-1">
+                                <p className="text-white text-[10px] uppercase 2xl:text-sm special:text-lg">
+                                  live
+                                </p>
+                                <span className="relative flex h-1.5 w-1.5 special:h-3.5 special:w-3.5 2xl:h-2.5 2xl:w-2.5 flex-col justify-start items-start">
+                                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-600 opacity-75"></span>
+                                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 special:h-3.5 special:w-3.5 2xl:h-2.5 2xl:w-2.5 bg-red-600"></span>
+                                </span>
                               </div>
 
                               <div className="flex text-end flex-col z-10">
@@ -259,48 +258,83 @@ function PopUpLotto({ onClose }) {
 
   return (
     <div
-      className="popup-container backdrop backdrop-blur-sm lg:justify-center justify-center"
+      className="popup-container bg-white/50 justify-center items-center"
       onClick={handleBackdropClick}
     >
-      <div className=" popup-content text-white bg-gradient-to-br  from-[#000000] space-y-4  to-[#000000]  justify-center items-center  pt-5 pb-10 xl:px-20 md:px-20 px-10 flex flex-col lg:mr-[10%]">
-        <button
-          className="absolute top-1 right-1 text-3xl text-inherit hover:scale-105"
-          onClick={onClose}
-        >
-          <IoCloseSharp />
-        </button>
-        <img src={Loto} alt="" className="xl:w-16 md:w-14 w-12 h-auto" />
-        <p className="font-bold text-white text-center xl:text-7xl md:5xl text-3xl mb-1">
-          $10
-        </p>
-        <p className="text-white mb-2 text-center">User/Month</p>
-        <div className="flex justify-center flex-col space-y-2">
-          <div className="flex flex-row gap-4 items-center">
-            <img src={white} alt="" className="w-3 h-3" />
-            <p className="text-white text-xs xl:text-sm md:text-sm">
-              1991 Land Rover Defender 110
-            </p>
-          </div>
-          <div className="flex flex-row gap-4 items-center">
-            <img src={white} alt="" className="w-3 h-3" />
-            <p className="text-white xl:text-sm md:text-sm">
-              {" "}
-              2023-SEP-19 TUESDAY
-            </p>
-          </div>
-          <div className="flex flex-row gap-4 items-center">
-            <img src={white} alt="" className="w-3 h-3" />
-            <p className="text-white xl:text-sm md:text-sm">
-              10% off WinladsMerch
-            </p>
-          </div>
+      <div className="popup-content text-white flex flex-col bg-gradient-to-br from-[#000000] space-y-4 special:space-y-12 2xl:space-y-8  to-[#000000] justify-center py-4 special:py-8 2xl:py-6">
+        <div className="flex justify-end">
+          <button
+            className="text-3xl 2xl:text-4xl special:text-5xl hover:scale-105"
+            onClick={onClose}
+          >
+            <IoCloseSharp />
+          </button>
         </div>
 
-        <p className="text-white text-lg 	font-bold mt-3">Payment Methods</p>
-        <div className="flex justify-center gap-5 bg-white p-4 rounded-xl mt-3 px-12 cursor-pointer hover:scale-105">
-          <img src={bitcoin} alt="" className="w-7 h-7" />
-          <img src={Usd} alt="" className="w-7 h-7" />
-          <img src={Visa} alt="" className="w-7 h-7" />
+        <div className="flex flex-col special:px-24 2xl:px-8 px-4 space-y-4 special:space-y-12 2xl:space-y-8">
+          <p className="font-bold text-white text-center xl:text-5xl 2xl:text-6xl special:text-9xl md:5xl text-3xl">
+            $10
+          </p>
+          <p className="text-white text-center special:text-4xl">User/Month</p>
+          <div className="flex justify-center flex-col space-y-2 special:space-y-6 2xl:space-y-4">
+            <div className="flex flex-row gap-4 items-center">
+              <img
+                src={white}
+                alt=""
+                className="w-3 h-3 2xl:h-5 2xl:w-5 special:w-7 special:h-7"
+              />
+              <p className="text-white text-sm xl:text-sm md:text-sm 2xl:text-lg special:text-2xl">
+                1991 Land Rover Defender 110
+              </p>
+            </div>
+            <div className="flex flex-row gap-4 items-center">
+              <img
+                src={white}
+                alt=""
+                className="w-3 h-3 2xl:h-5 2xl:w-5 special:w-7 special:h-7"
+              />
+              <p className="text-white text-sm xl:text-sm md:text-sm 2xl:text-lg special:text-2xl">
+                {" "}
+                2023-SEP-19 TUESDAY
+              </p>
+            </div>
+            <div className="flex flex-row gap-4 items-center">
+              <img
+                src={white}
+                alt=""
+                className="w-3 h-3 2xl:h-5 2xl:w-5 special:w-7 special:h-7"
+              />
+              <p className="text-white text-sm xl:text-sm md:text-sm 2xl:text-lg special:text-2xl">
+                10% off WinladsMerch
+              </p>
+            </div>
+          </div>
+          <p className="text-white text-lg font-bold 2xl:text-xl special:text-4xl">
+            Payment Methods
+          </p>
+          <div className="flex justify-center gap-4 special:gap-6 px-4 py-2 special:py-5 2xl:py-4 bg-white rounded-xl  cursor-pointer">
+            <button className="hover:scale-110">
+              <img
+                src={bitcoin}
+                alt=""
+                className="w-7 h-7 special:h-14 special:w-14 2xl:h-9 2xl:w-9"
+              />
+            </button>
+            <button className="hover:scale-110">
+              <img
+                src={Usd}
+                alt=""
+                className="w-7 h-7 special:h-14 special:w-14 2xl:h-9 2xl:w-9"
+              />
+            </button>
+            <button className="hover:scale-110">
+              <img
+                src={Visa}
+                alt=""
+                className="w-7 h-7 special:h-14 special:w-14 2xl:h-9 2xl:w-9"
+              />
+            </button>
+          </div>
         </div>
       </div>
     </div>

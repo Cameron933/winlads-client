@@ -5,7 +5,7 @@ import { GoQuestion } from "react-icons/go";
 import { FiLoader } from "react-icons/fi";
 import { MdOutlineDoNotDisturbOff } from "react-icons/md";
 
-const PastRaffles = ({ setShowPopup }) => {
+const PastRaffles = () => {
   const [loading, setLoading] = useState(true);
   // Common raffleid for all arrays
   const commonRaffleId = "6543e08c2076f209adae93a2";
@@ -51,7 +51,7 @@ const PastRaffles = ({ setShowPopup }) => {
   return (
     <>
       {raffleArray2.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2 special:gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2 special:gap-4 flex-1">
           {raffleArray2.map((round, key) => (
             <div
               key={key}
@@ -60,7 +60,7 @@ const PastRaffles = ({ setShowPopup }) => {
                 background:
                   "linear-gradient(98.92deg, #1A8BC0 45%, #000000 83%)",
               }}
-              onClick={() => setShowPopup(true)}
+    
             >
               <div className="flex flex-row justify-between items-center">
                 <img
