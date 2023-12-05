@@ -13,9 +13,22 @@ import MainCar from "../../assets/images/MainCar.png";
 import GoldCard from "../../components/GoldCard/GoldCard";
 import PurchaseCard from "../../components/PurchaseCard/PurchaseCard";
 import Chart from "react-apexcharts";
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 
 const Trasfer = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [isCalendarVisible, setIsCalendarVisible] = useState(false);
+  const [date, setDate] = useState(new Date());
+
+  const handleDateChange = (newDate) => {
+    // Handle date change logic here
+    setDate(newDate);
+  };
+
+  const toggleCalendar = () => {
+    setIsCalendarVisible(!isCalendarVisible);
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -32,7 +45,7 @@ const Trasfer = () => {
         type: "donut",
       },
       legend:{
-        position:'left'
+        position:'bottom'
       },
       labels: [
         "Card Transactions",
@@ -82,9 +95,25 @@ const Trasfer = () => {
               </div>
             </div>
             <div className="flex flex-col">
-              <div className="flex flex-row items-center justify-center gap-2 mb-5">
-                <p className="text-center uppercase md:text-xl xl:text-lg 2xl:text-2xl special:text-3xl">DECEMBER 2022</p>
-                <img src={Arrow} alt="" />
+            <div style={{ position: 'relative' }}>
+                <div className="flex flex-row items-center justify-center gap-2 mb-5" onClick={toggleCalendar}>
+                  <p className="text-center uppercase md:text-xl xl:text-lg 2xl:text-2xl special:text-3xl">
+                    DECEMBER 2022
+                  </p>
+                  <img src={Arrow} alt="" />
+                </div>
+                {isCalendarVisible && (
+                  <div  style={{
+                    position: 'absolute',
+                    top: '50%', // Center vertically
+                    left: '50%', // Center horizontally
+                    transform: 'translate(-50%, -50%)', // Center both vertically and horizontally
+                    zIndex: 100,
+                    top: "380%",
+                  }}>
+                    <Calendar onChange={handleDateChange} value={date} />
+                  </div>
+                )}
               </div>
 
               <div className="flex justify-center">

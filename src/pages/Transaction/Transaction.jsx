@@ -17,9 +17,22 @@ import Slip from "../../assets/images/transaction/slip-outlined.png";
 import { BiSolidDownArrow } from 'react-icons/bi';
 import Chart from "react-apexcharts";
 import EarningCard from "../../components/EarningCard/EarningCard";
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 
 const Transaction = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [isCalendarVisible, setIsCalendarVisible] = useState(false);
+  const [date, setDate] = useState(new Date());
+
+  const handleDateChange = (newDate) => {
+    // Handle date change logic here
+    setDate(newDate);
+  };
+
+  const toggleCalendar = () => {
+    setIsCalendarVisible(!isCalendarVisible);
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -35,8 +48,8 @@ const Transaction = () => {
       chart: {
         type: "donut",
       },
-      legend:{
-        position:'left'
+      legend: {
+        position: 'bottom',
       },
       labels: [
         "Card Transactions",
@@ -44,10 +57,9 @@ const Transaction = () => {
         "Earning Transactions",
       ],
     },
-    
   };
 
-  const chartWidth = windowWidth > 700 ? 500 : windowWidth - 150;
+  const chartWidth = windowWidth > 700 ? 500 : windowWidth - 80;
   return (
     <div>
       <div className="flex relative min-h-screen">
@@ -63,12 +75,11 @@ const Transaction = () => {
               </div>
 
               <div className="flex md:flex-row flex-col space-y-2 md:space-y-0 gap-2">
-              <div className="w-full">
-                <GoldCard />
-              </div>
+                <div className="w-full">
+                  <GoldCard />
+                </div>
               </div>
 
-              
             </div>
 
             <div className="flex flex-col space-y-1">
@@ -100,9 +111,25 @@ const Transaction = () => {
               </div>
             </div>
             <div className="flex flex-col">
-              <div className="flex flex-row items-center justify-center gap-2 mb-5">
-                <p className="text-center uppercase md:text-xl xl:text-lg 2xl:text-2xl special:text-3xl">DECEMBER 2022</p>
-                <img src={Arrow} alt="" />
+              <div style={{ position: 'relative' }}>
+                <div className="flex flex-row items-center justify-center gap-2 mb-5" onClick={toggleCalendar}>
+                  <p className="text-center uppercase md:text-xl xl:text-lg 2xl:text-2xl special:text-3xl">
+                    DECEMBER 2022
+                  </p>
+                  <img src={Arrow} alt="" />
+                </div>
+                {isCalendarVisible && (
+                  <div style={{
+                    position: 'absolute',
+                    top: '50%', // Center vertically
+                    left: '50%', // Center horizontally
+                    transform: 'translate(-50%, -50%)', // Center both vertically and horizontally
+                    zIndex: 100,
+                    top: "380%",
+                  }}>
+                    <Calendar onChange={handleDateChange} value={date} />
+                  </div>
+                )}
               </div>
               <div className="flex justify-center">
                 <Chart
@@ -110,6 +137,7 @@ const Transaction = () => {
                   series={chartOptions.series}
                   type="donut"
                   width={chartWidth}
+                  font="18px"
                 />
               </div>
               {/* <div className="flex flex-row items-center justify-between">
@@ -157,8 +185,8 @@ const Transaction = () => {
                     className="special:w-20 special:h-20 xl:w-14 xl:h-14 md:w-12 md:h-12 w-8 h-8"
                   />
                   <div className="flex flex-col">
-                    <p className="text-sm md:text-lg xl:text-lg 2xl:text-2xl special:text-3xl">Car Purchase</p>
-                    <p className="text-xs md:text-xl xl:text-xs 2xl:text-xl special:text-2xl">Auto Loan</p>
+                    <p className="text-sm md:text-lg xl:text-xl 2xl:text-2xl special:text-3xl">Car Purchase</p>
+                    <p className="text-xs md:text-xl xl:text-lg 2xl:text-xl special:text-2xl">Auto Loan</p>
                   </div>
                 </div>
                 <p className="text-[#4FC8E8] font-semibold xl:text-lg 2xl:text-2xl special:text-4xl">-$250</p>
@@ -171,8 +199,8 @@ const Transaction = () => {
                     className="special:w-20 special:h-20 xl:w-14 xl:h-14 md:w-12 md:h-12 w-8 h-8"
                   />
                   <div className="flex flex-col">
-                    <p className="text-sm md:text-lg xl:text-lg 2xl:text-2xl special:text-3xl">Houses Purchase</p>
-                    <p className="text-xs md:text-xl xl:text-xs 2xl:text-xl special:text-2xl">Airbnb home</p>
+                    <p className="text-sm md:text-lg xl:text-xl 2xl:text-2xl special:text-3xl">Houses Purchase</p>
+                    <p className="text-xs md:text-xl xl:text-lg 2xl:text-xl special:text-2xl">Airbnb home</p>
                   </div>
                 </div>
                 <p className="text-[#059713] font-semibold xl:text-lg 2xl:text-2xl special:text-4xl">$2250</p>
@@ -185,8 +213,8 @@ const Transaction = () => {
                     className="special:w-20 special:h-20 xl:w-14 xl:h-14 md:w-12 md:h-12 w-8 h-8"
                   />
                   <div className="flex flex-col">
-                    <p className="text-sm md:text-lg xl:text-lg 2xl:text-2xl special:text-3xl">Transport</p>
-                    <p className="text-xs md:text-xl xl:text-xs 2xl:text-xl special:text-2xl">Uber pathao</p>
+                    <p className="text-sm md:text-lg xl:text-xl 2xl:text-2xl special:text-3xl">Transport</p>
+                    <p className="text-xs md:text-xl xl:text-lg 2xl:text-xl special:text-2xl">Uber pathao</p>
                   </div>
                 </div>
                 <p className="text-[#059713] font-semibold xl:text-lg 2xl:text-2xl special:text-4xl">$250</p>
@@ -194,7 +222,7 @@ const Transaction = () => {
             </div>
           </div>
           {/* <div> */}
-            {/* <div className="flex flex-col flex-1 space-y-4">
+          {/* <div className="flex flex-col flex-1 space-y-4">
               <div className="invisible xl:visible">
                 <TopNav />
               </div>
@@ -210,21 +238,21 @@ const Transaction = () => {
                 <EarningCard />
               </div>
             </div> */}
-            <div className="flex-col flex-1 space-y-4 hidden xl:flex">
-              <div className=" space-y-4">
-                <div className="bg-black rounded-b-3xl py-4">
-                  <TopNav textColor={"white"} />
-                  <div className="pt-10">
-                    <img className="" src={MainCar} alt="main" />
-                  </div>
+          <div className="flex-col flex-1 space-y-4 hidden xl:flex">
+            <div className=" space-y-4">
+              <div className="bg-black rounded-b-3xl py-4">
+                <TopNav textColor={"white"} />
+                <div className="pt-10">
+                  <img className="" src={MainCar} alt="main" />
                 </div>
-                <div className="w-full">
-                  <GoldCard />
-                </div>
-
-
               </div>
+              <div className="w-full">
+                <GoldCard />
+              </div>
+
+
             </div>
+          </div>
           {/* </div> */}
         </div>
       </div>
