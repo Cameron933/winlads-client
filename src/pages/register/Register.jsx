@@ -194,19 +194,19 @@ const Register = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <div className="h-screen  flex flex-col justify-center bg-image">
-          <div className="container mx-auto login-section">
+        <div className="h-screen flex flex-col justify-center bg-image">
+          <div className="container mx-auto login-section max-sm:overflow-scroll">
             <div className="login-contain flex items-center justify-center md:flex-row xl:flex-row 4xl:flex-row flex-col">
               <div className="img-container w-2/4 scale-150 mb-9 md:mb-0 prevent">
                 {/* <img src={MainImg} className="w-full h-full object-contain md:object-cover transform md:-translate-x-1/4" alt="main-img" /> */}
                 {/* Desktop View Jeep */}
-                <div className="hidden md:block 4xl:hidden xl:hidden w-full prevent" >
+                <div className="hidden md:block 4xl:hidden xl:hidden w-full prevent">
                   <motion.img
                     initial={{ opacity: 0, x: "-50%" }}
                     whileInView={{ opacity: 1, x: "-10%" }}
                     transition={{ duration: 0.8 }}
                     src={MainJeepNp}
-                    className="w-full h-full object-contain md:object-cover "
+                    className="w-full h-full object-contain md:object-cover"
                     alt="main-img"
                   />
                 </div>
@@ -216,12 +216,12 @@ const Register = () => {
                     whileInView={{ opacity: 1, x: "-25%" }}
                     transition={{ duration: 0.8 }}
                     src={XlJeep}
-                    className="w-full h-full object-contain md:object-cover "
+                    className="w-full h-full object-contain md:object-cover"
                     alt="main-img"
                   />
                 </div>
                 {/* Mobile View Jeep */}
-                <div className="block md:hidden xl:hidden 4xl:hidden w-full">
+                <div className="block md:hidden xl:hidden 4xl:hidden w-full pt-5">
                   <motion.img
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: -10 }}
@@ -232,7 +232,7 @@ const Register = () => {
                   />
                 </div>
               </div>
-              <div className="flex flex-col xl:space-y-4 md:space-y-4 space-y-2 text-center xl:mt-10 md:mt-10 4xl:mt-10 mt-5">
+              <div className="flex flex-col xl:space-y-4 md:space-y-4 space-y-2 text-center xl:mt-10 md:mt-10 lg:mt-20 xl:mt-10 4xl:mt-10 mt-1 mb-10 sm:mb-0 ">
                 <span className="text-2xl md:text-3xl xl:text-4xl fw-bold font-bold 4xl:text-8xl">
                   Create an Account
                 </span>
