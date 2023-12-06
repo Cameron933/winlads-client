@@ -26,6 +26,7 @@ const PaymentModal = ({ handleClose, show }) => {
 
 function SubscribeCard({
   name,
+  price,
   desc1,
   desc2,
   desc3,
@@ -60,7 +61,7 @@ function SubscribeCard({
         </div>
       </div>
       <p className="font-bold  text-center text-4xl special:text-8xl 2xl:text-6xl">
-        $10
+        {price}
       </p>
       <p className=" mb-2 text-center text-xs special:text-xl 2xl:text-lg">
         User/Month

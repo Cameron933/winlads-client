@@ -9,16 +9,15 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { motion } from "framer-motion";
 import Loader from "../../components/Loader/Loader";
-import Calendar from "react-calendar";
 import Jeep from "../../assets/images/Lottery/Jeep.png";
 import six from "../../assets/images/rafflesImages/six4.png";
 import { GoQuestion } from "react-icons/go";
 import SearchField from "../../components/SearchField/SearchField";
 import { LuHistory } from "react-icons/lu";
-
+import User from "../../assets/images/user4.png";
 import BG from "../../assets/images/HomesideBg.png";
-
 import bgCar from "../../assets/images/hiddenCar.png";
+import Youtube from "../../assets/images/youtube.png"
 
 export const bgStyle = {
   backgroundImage: `url(${bgCar})`,
@@ -92,32 +91,26 @@ function RaffleDashbord() {
                       </div>
                     </div>
                   </div>
-                  <div className="pt-4 xl:pt-0 pb-4 xl:pb-0">
+                  <div className="pt-4 xl:pt-0 pb-4 xl:pb-0 flex flex-col space-y-1">
                     <SearchField />
-                  </div>
-                  <div
-                    className="flex flex-col gap-4 md:flex-row lg:flex-row lg:mt-10 xl:items-center"
-                    style={bgStyle}
-                  >
-                    <Link
-                      to="/history"
-                      className="text-3xl flex justify-end xl:hidden md:hidden"
-                    >
-                      <LuHistory className="hover:animate-spin z-10" />
+                    <Link className="flex justify-end" to="/history">
+                      <LuHistory className="hover:animate-spin special:w-16 special:h-16 2xl:w-12 2xl:h-9 z-10 w-5 h-5" />
                     </Link>
-                    <Calendar
-                      value={value}
-                      onChange={onChange}
-                      className="flex-1 bg-transparent"
-                    />
-                    <div className="flex flex-col flex-1 xl:space-y-24 md:space-y-24 space-y-0">
-                      <Link
-                        to="/history"
-                        className="text-3xl xl:flex md:flex justify-end hidden"
-                      >
-                        <LuHistory className="hover:animate-spin special:w-16 special:h-12 2xl:w-12 2xl:h-9 z-10" />
-                      </Link>
-
+                  </div>
+                  <div className="flex xl:flex-row flex-col xl:justify-between gap-2">
+                    <div className="flex flex-col space-y-2 special:space-y-8">
+                      <div className="flex flex-row items-center gap-2 special:gap-4">
+                        <img src={User} alt="" className="w-12 h-12 special:w-36 special:h-36" />
+                        <div className="flex flex-col space-y-1">
+                          <p className="font-bold special:text-8xl">Earning Balance</p>
+                          <p className="special:text-6xl">$588.632</p>
+                        </div>
+                      </div>
+                      <div>
+                        <img src={Youtube} alt="" className="w-96" />
+                      </div>
+                    </div>
+                    <div className="xl:flex items-end">
                       <Link to="/live-raffle">
                         <div
                           className="flex-col rounded-3xl px-2 special:px-4 py-1 space-y-2 flex-1 hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1"
@@ -181,8 +174,6 @@ function RaffleDashbord() {
                       </Link>
                     </div>
                   </div>
-
-                  {/* <GucciCard /> */}
                 </div>
 
                 {/* right-side */}
