@@ -11,7 +11,6 @@ function FaQComponent() {
     return accordionId === activeAccordion || (activeAccordion === 1 && accordionId === 1);
   };
   
-
   return (
     <div id="accordion-collapse" data-accordion="collapse" className="my-5 special:flex special:flex-col special:gap-10 special:pt-10">
       <div>

@@ -1,14 +1,9 @@
 import SideNav from "../../components/SideNav/SideNav";
 import "./Dashboard.css";
-import Spicker from "../../assets/images/spicker.png";
 import HiddenCar from "../../assets/images/hiddenCar.png";
 import MainCar from "../../assets/images/MainCar.png";
-import Chart from "../../assets/images/Chart01.png";
-import GoldCard from "../../components/GoldCard/GoldCard";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import EarningCard from "../../components/EarningCard/EarningCard";
-import GucciCard from "../../components/GucciCard/GucciCard";
 import TopNav from "../../components/TopNav/TopNav";
 import Loader from "../../components/Loader/Loader";
 import axios from "axios";
@@ -20,67 +15,50 @@ import { carAnimation } from "../../animation/animation";
 import DashboardVehicleCard from "../../components/DashboardVehicleCard/DashboardVehicle";
 import SmallGoldCard from "../../components/GoldCard/SmallGoldCard";
 import SearchField from "../../components/SearchField/SearchField";
+import { LuGripVertical } from "react-icons/lu";
+import { MdOutlineDoNotDisturbOff } from "react-icons/md";
+import { FiLoader } from "react-icons/fi";
 
-// import { Line } from "react-chartjs-2";
-// import { Chart as ChartJS } from "chart.js/auto";
-// import {UserData} from "../../Data.js"
-// import LineChart from '../../components/LineChat/LineChat'
 const itemsPerPage = 4;
 const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [valUser, setValUser] = useState({});
   const cookies = new Cookies(null, { path: "/" });
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
+  const [giveaways, setGiveaways] = useState([]);
 
   const totalItems = 18; // Set the total number of items here
   const totalPages = Math.ceil(totalItems / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  const handleNextPage = () => {
-    setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages));
-  };
-  const handlePrevPage = () => {
-    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
+
+  useEffect(() => {
+    // currentUserValidation();
+    getGiveaways();
+  }, []);
+
+  const getGiveaways = async () => {
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    await axios
+      .get(`${import.meta.env.VITE_SERVER_API}/raffleRoundsFuture`)
+      .then((response) => {
+        console.log(response.data.data, "data");
+        setGiveaways(response?.data?.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false);
+      });
   };
 
-  // set loading
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
     }, 1000);
   }, []);
-
-  // const [userData, setUserData] = useState({
-  //   labels: UserData.map((data) => data.year),
-  //   datasets: [
-  //     {
-  //       label: "Users Gained",
-  //       data: UserData.map((data) => data.userGain),
-  //       backgroundColor: [
-  //         "rgba(75,192,192,1)",
-  //         "#ecf0f1",
-  //         "#50AF95",
-  //         "#f3ba2f",
-  //         "#2a71d0",
-  //       ],
-  //       borderColor: "black",
-  //       borderWidth: 2,
-  //     },
-  //   ],
-  // });
-  // const currentUserValidation = async () => {
-  //   const validator = await validateCurrentUser();
-  //   if (validator.validatorBl) {
-  //     console.log("Session OK", validator.user.balance);
-  //     setValUser(validator.user);
-  //   } else {
-  //     navigate("/login");
-  //   }
-  // };
-  // useEffect(() => {
-  //   currentUserValidation();
-  // }, []);
 
   return (
     <>
@@ -94,12 +72,6 @@ const Dashboard = () => {
 
           {/* home-content */}
           <div className="flex flex-col xl:flex-col flex-1 mx-5 gap-5">
-            {/* <div className="flex flex-row">
-
-            </div>
-            <div className="flex flex-row">
-              
-            </div> */}
             {/* left side */}
             <div className="flex flex-col flex-1 ">
               <div className="visible xl:hidden space-y-4">
@@ -116,42 +88,39 @@ const Dashboard = () => {
                     />
                   </div>
                 </div>
-
-                {/* <div className="lg:w-2/3 md:w-1/2">
-                  <GoldCard />
-                </div>
-
-                <EarningCard /> */}
                 <div>
                   <p className="text-2xl font-semibold">Next Giveaways</p>
-                  <div className="flex flex-col gap-1">
-                    {Array.from({ length: totalItems }).slice(startIndex, endIndex).map((_, index) => (
-                      <DashboardVehicleCard key={startIndex + index} />
-                    ))}
-                  </div>
-                  <div className="pagination-container text-xl font-semibold">
-                    <button className="pagination-button" onClick={handlePrevPage} disabled={currentPage === 1}>
-                      {'<< Prev'}
-                    </button>
-                    <span className="pagination-display">{`Page ${currentPage} of ${totalPages}`}</span>
-                    <button className="pagination-button" onClick={handleNextPage} disabled={currentPage === totalPages}>
-                      {'Next >>'}
-                    </button>
-                  </div>
+                  {loading ? (
+                    <div className="flex flex-row justify-center gap-2 items-center">
+                      <p className="font-bold text-2xl 2xl:text-4xl special:text-6xl">
+                        Loading Subscriptions
+                      </p>
+                      <FiLoader className="w-12 h-12 2xl:w-16 2xl:h-16 special:w-24 special:h-24 animate-spin" />
+                    </div>
+                  ) : giveaways.length > 0 ? (
+                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2">
+                      {giveaways.map((giveaway, key) => (
+                        <DashboardVehicleCard
+                          key={key}
+                          name={giveaway.raffle.name}
+                          date={giveaway.endtime}
+                          fromColor={giveaway.raffle.color}
+                          icon={giveaway.raffle.image}
+                        />
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="flex flex-col items-center space-y-2">
+                      <MdOutlineDoNotDisturbOff className="w-12 h-12 2xl:w-16 2xl:h-16 special:w-24 special:h-24" />
+                      <p className="font-bold text-2xl 2xl:text-4xl special:text-6xl">
+                        No More Giveaways
+                      </p>
+                    </div>
+                  )}
                 </div>
-                {/* <div className="flex xl:flex-row gap-1">
-                    <DashboardVehicleCard />
-                    <DashboardVehicleCard />
-                  </div> */}
               </div>
               <div className="hidden xl:flex flex-col space-y-4 items-end">
                 <div className="bg-black rounded-b-3xl space-y-4 relative w-web">
-                  {/* <div className="flex flex-row items-center bg-[#333333] gap-4 mx-5 rounded-full px-4 mt-5">
-                    <img src={Spicker} alt="" className="w-8 h-8" />
-                    <span className="text-sm text-white">
-                      Your golden card is about to expire in 30 days. Renew now!
-                    </span>
-                  </div> */}
                   <div className="grid grid-cols-2 gap-4 m-2">
                     <div className="col-span-1">
                       <SearchField />
@@ -163,11 +132,12 @@ const Dashboard = () => {
 
                   <div className="absolute left-4 top-20 space-y-8">
                     <div className="flex flex-col space-y-2">
-                      <p className="text-[#22CCEE] text-2xl font-semibold">Earning Balance</p>
+                      <p className="text-[#22CCEE] text-2xl font-semibold">
+                        Earning Balance
+                      </p>
                       <p className="text-4xl text-white">$0</p>
                     </div>
                     <SmallGoldCard />
-
                   </div>
                   <div className="flex flex-row items-center gap-10 bottom-0">
                     <img
@@ -185,50 +155,44 @@ const Dashboard = () => {
                     />
                   </div>
                 </div>
-                <div className="flex flex-col space-y-2 w-full xl:w-web">
-                  <p className="text-xl font-semibold">Next Giveaways</p>
-                  <div className="flex flex-col xl:flex-row items-center gap-1">
-                    {Array.from({ length: totalItems }).slice(startIndex, endIndex).map((_, index) => (
-                      <DashboardVehicleCard key={startIndex + index} />
-                    ))}
-                  </div>
-                  <div className="pagination-container text-xl font-semibold">
-                    <button className="pagination-button" onClick={handlePrevPage} disabled={currentPage === 1}>
-                      {'<< Prev'}
-                    </button>
-                    <span className="pagination-display">{`Page ${currentPage} of ${totalPages}`}</span>
-                    <button className="pagination-button" onClick={handleNextPage} disabled={currentPage === totalPages}>
-                      {'Next >>'}
-                    </button>
-                  </div>
+                <div className="flex flex-col space-y-2 w-full xl:w-web pt-12">
+                  <p className="text-3xl 2xl:text-4xl special:text-6xl font-semibold">Next Giveaways</p>
+                  {loading ? (
+                    <div className="flex flex-row justify-center gap-2 items-center">
+                      <p className="font-bold text-2xl 2xl:text-4xl special:text-6xl">
+                        Loading Subscriptions
+                      </p>
+                      <FiLoader className="w-12 h-12 2xl:w-16 2xl:h-16 special:w-24 special:h-24 animate-spin" />
+                    </div>
+                  ) : giveaways.length > 0 ? (
+                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2">
+                      {giveaways.map((giveaway, key) => (
+                        <DashboardVehicleCard
+                          key={key}
+                          name={giveaway.raffle.name}
+                          date={giveaway.endtime}
+                          fromColor={giveaway.raffle.color}
+                          icon={giveaway.raffle.image}
+                        />
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="flex flex-col items-center space-y-2">
+                      <MdOutlineDoNotDisturbOff className="w-12 h-12 2xl:w-16 2xl:h-16 special:w-24 special:h-24" />
+                      <p className="font-bold text-2xl 2xl:text-4xl special:text-6xl">
+                        No More Giveaways
+                      </p>
+                    </div>
+                  )}
                 </div>
-
-                {/* <div className="lg:w-2/3 md:w-1/2">
-                  <GoldCard />
-                </div>
-                <div className="hidden lg:block w-full">
-                  <EarningCard balance={valUser.balance} />
-                </div> */}
               </div>
             </div>
 
             {/* right-side */}
             <div className="flex flex-col flex-1">
-              {/* <div className="hidden xl:flex invisible lg:visible pt-5">
-                <TopNav />
-              </div> */}
-
               <div className="side-bg"></div>
               <div className="graph-section ">
-                {/* <CustomChart height={300} /> */}
-                <div className="xl:pt-16 invisible xl:flex margin-10 gap-1 special:pt-16 visible lg:pt-16">
-                  <DashboardVehicleCard />
-                  <DashboardVehicleCard />
-                </div>
               </div>
-              {/* <div className="lg:w-full md:w-1/2">
-                <GucciCard />
-              </div> */}
             </div>
           </div>
         </div>

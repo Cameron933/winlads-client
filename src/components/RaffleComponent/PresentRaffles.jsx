@@ -46,7 +46,7 @@ const PresentRaffles = () => {
           {raffleArray1.map((round, key) => (
             <div
               key={key}
-              className="flex cursor-pointer flex-col rounded-3xl px-2 py-2 special:px-4 2xl:px-4 space-y-2 hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 animate-slide-in-right"
+              className="flex cursor-pointer flex-col rounded-3xl px-2 py-2 special:px-4 2xl:px-4 space-y-2 hover:border-black border border-2"
               style={{
                 background:
                   "linear-gradient(98.92deg, #F59E0B 45%, #000000 83%)",
