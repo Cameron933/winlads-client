@@ -198,6 +198,14 @@ code {
   color: #12b76a !important;
 }
 
+.text-blue {
+  color: #3ba6b7
+}
+
+.t-65{
+  top:65%;
+}
+
 /* set responsive */
 
 @media (max-width: 576px) {

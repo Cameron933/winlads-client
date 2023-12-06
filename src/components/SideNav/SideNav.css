@@ -52,7 +52,7 @@
 }
 
 .side-nav-contain:hover{
-  background-color: rgb(154, 228, 255);
+  background-color: #36383b;
 }
 
 
@@ -93,13 +93,15 @@
 
 
 
-
+.side-nav-back{
+  background: #242527;
+}
 
 .side-nav-contain:focus{
-  background: #4FC8E8;
+  background: #36383b;
 }
 .side-nav-logout:focus{
-  background: #ff7979;
+  background: #36383b;
 }
 
 
