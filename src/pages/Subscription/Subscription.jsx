@@ -8,11 +8,11 @@ import Loader from "../../components/Loader/Loader";
 import axios from "axios";
 import { MdOutlineDoNotDisturbOff } from "react-icons/md";
 import { FiLoader } from "react-icons/fi";
-
 import "./subscription.css";
 import { useEffect, useState } from "react";
 import SearchField from "../../components/SearchField/SearchField";
 import ChoosePlane from "../../components/SubscribeCard/ChoosePlane";
+import BG from "../../assets/images/HomesideBg.png";
 
 function Subscription() {
   const [isLoading, setIsLoading] = useState(true);
@@ -67,6 +67,11 @@ function Subscription() {
           {/* home-content */}
           <div className="xl:flex xl:flex-row flex-col xl:justify-between px-4 special:px-12 2xl:px-8 flex-1 xl:gap-4 special:gap-8 2xl:gap-6 space-y-4 xl:space-y-0">
             {/* left side */}
+            <img
+              src={BG}
+              alt=""
+              className="absolute right-0 -z-10 top-10 w-72 xl:w-96 md:w-96 special:w-1/3 2xl:w-1/4 special:top-80 opacity-60 xl:top-60 2xl:top-80"
+            />
             <div className="flex flex-col space-y-4 flex-1 special:space-y-8 2xl:space-y-6">
               <div className="visible xl:hidden space-y-4">
                 <div className="bg-black rounded-b-3xl py-4">
@@ -89,7 +94,7 @@ function Subscription() {
               {loading ? (
                 <div className="flex flex-row justify-center gap-2 items-center">
                   <p className="font-bold text-2xl 2xl:text-4xl special:text-6xl">
-                    Loading Subscriptions Planes
+                    Loading Subscriptions
                   </p>
                   <FiLoader className="w-12 h-12 2xl:w-16 2xl:h-16 special:w-24 special:h-24 animate-spin" />
                 </div>

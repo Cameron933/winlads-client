@@ -54,7 +54,7 @@ function RaffleDashboardComponent() {
                     : "" | (raffle.type == "lottoRed")
                     ? "from-[#C70039]"
                     : ""
-                } to-[#000000] flex flex-row justify-between items-center px-2 rounded-3xl w-full py-2 hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1`}
+                } to-[#000000] flex flex-row justify-between items-center px-2 rounded-3xl w-full py-2 border border-2 hover:border-black`}
               >
                 <img
                   src={Jeep}
@@ -66,10 +66,10 @@ function RaffleDashboardComponent() {
                     <p className="text-white text-sm">{raffle.type}</p>
                   </div>
                   <div className="flex text-end flex-col z-10">
-                    <p className="text-white font-bold xl:text-sm text-xs special:text-2xl 2xl:text-lg">
+                    <p className="text-white font-bold xl:text-sm text-xs special:text-4xl 2xl:text-2xl">
                       {raffle.name}
                     </p>
-                    <p className="text-xs text-white special:text-xl 2xl:text-sm">
+                    <p className="text-[10px] text-white special:text-2xl 2xl:text-xl">
                       {raffle.date}
                     </p>
                   </div>
