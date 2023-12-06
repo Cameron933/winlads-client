@@ -20,10 +20,35 @@ import EarningCard from "../../components/EarningCard/EarningCard";
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 
+
 const Transaction = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isCalendarVisible, setIsCalendarVisible] = useState(false);
   const [date, setDate] = useState(new Date());
+
+  // const [isOpen, setIsOpen] = useState(false);
+
+  // const handleToggle = () => {
+  //   setIsOpen(!isOpen);
+  // };
+
+  // const handleSelect = (option) => {
+  //   // Handle selection logic here
+  //   console.log(`Selected option: ${option}`);
+  //   setIsOpen(false); // Close the dropdown after selection
+  // };
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleToggle = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleSelect = (option) => {
+    // Handle selection logic here
+    console.log(`Selected option: ${option}`);
+    setIsOpen(false); // Close the dropdown after selection
+  };
 
   const handleDateChange = (newDate) => {
     // Handle date change logic here
@@ -65,6 +90,7 @@ const Transaction = () => {
       <div className="flex relative min-h-screen">
         <SideNav screen="full" />
         <div className="xl:flex xl:flex-row flex-col xl:justify-between flex-1 px-4 xl:gap-8 pb-5 space-y-4 xl:space-y-0">
+        <div className="side-bg t-65" style={{  }}></div>
           <div className="flex flex-col space-y-4 flex-1">
             <div className="visible xl:hidden space-y-4">
               <div className="bg-black rounded-b-3xl py-4">
@@ -172,10 +198,55 @@ const Transaction = () => {
               </div>
               <div className="flex justify-between items-center">
                 <p className="font-bold text-xl md:text-xl xl:text-lg 2xl:text-2xl special:text-3xl">Transactions</p>
-                <div className="flex flex-row items-center gap-4">
-                  <p className="text-md md:text-xl xl:text-lg 2xl:text-2xl special:text-3xl">See All</p>
-                  <BiSolidDownArrow />
+                {/* <p className="text-md md:text-xl xl:text-lg 2xl:text-2xl special:text-3xl">See All</p> */}
+                <div className="relative inline-block text-left">
+                  <button
+                    onClick={handleToggle}
+                    type="button"
+                    className="inline-flex justify-between items-center justify-center w-full rounded-md border border-gray-500 shadow-sm px-8 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring focus:border-gray-300 relative"
+                    id="options-menu"
+                    aria-haspopup="true"
+                    aria-expanded="true"
+                  >
+                    <span className="mr-4 text-md md:text-xl xl:text-xl 2xl:text-xl special:text-2xl">See All</span>
+                    <span className={`transform ${isOpen ? '-rotate-180' : 'rotate-0'}`}>&#9660;</span>
+                  </button>
+
+
+                  {isOpen && (
+                    <div
+                      className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                      role="menu"
+                      aria-orientation="vertical"
+                      aria-labelledby="options-menu"
+                    >
+                      <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                        <div
+                          onClick={() => handleSelect('Action 1')}
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 cursor-pointer"
+                          role="menuitem"
+                        >
+                          Card Transaction
+                        </div>
+                        <div
+                          onClick={() => handleSelect('Action 2')}
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 cursor-pointer"
+                          role="menuitem"
+                        >
+                          Digital Transaction
+                        </div>
+                        <div
+                          onClick={() => handleSelect('Action 3')}
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 cursor-pointer"
+                          role="menuitem"
+                        >
+                          Earning Transaction
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
+
               </div>
               <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-row gap-2 items-center">
