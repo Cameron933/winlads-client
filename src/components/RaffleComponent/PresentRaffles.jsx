@@ -4,7 +4,7 @@ import max from "../../assets/images/rafflesImages/max.png";
 import { GoQuestion } from "react-icons/go";
 import { MdOutlineDoNotDisturbOff } from "react-icons/md";
 
-const PresentRaffles = () => {
+const PresentRaffles = ({color}) => {
   // Common raffleid for all arrays
   const commonRaffleId = "6543e08c2076f209adae93a2";
   // Array 1
@@ -46,11 +46,7 @@ const PresentRaffles = () => {
           {raffleArray1.map((round, key) => (
             <div
               key={key}
-              className="flex cursor-pointer flex-col rounded-3xl px-2 py-2 special:px-4 2xl:px-4 space-y-2 hover:border-black border border-2"
-              style={{
-                background:
-                  "linear-gradient(98.92deg, #F59E0B 45%, #000000 83%)",
-              }}
+              className={`bg-gradient-to-br from-[${color}] to-[#000000] flex cursor-pointer flex-col rounded-3xl px-2 py-2 special:px-4 2xl:px-4 space-y-2 hover:border-black border border-2`}
             >
               <div className="flex flex-row justify-between items-center">
                 <img

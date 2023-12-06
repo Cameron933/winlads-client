@@ -13,7 +13,6 @@ import Visa from "../../assets/images/rafflesImages/Visa.png";
 import Usd from "../../assets/images/rafflesImages/Usd.png";
 import bitcoin from "../../assets/images/rafflesImages/bitcoin.png";
 import white from "../../assets/images/subscribers/white.png";
-import { useParams } from "react-router";
 import axios from "axios";
 import { motion } from "framer-motion";
 import Loader from "../../components/Loader/Loader";
@@ -25,7 +24,7 @@ import { RxCounterClockwiseClock } from "react-icons/rx";
 import bgCar from "../../assets/images/hiddenCar.png";
 import SearchField from "../../components/SearchField/SearchField";
 import { LuHistory } from "react-icons/lu";
-
+import { useParams, useLocation } from 'react-router-dom';
 import BG from "../../assets/images/HomesideBg.png";
 
 export const bgStyle = {
@@ -43,6 +42,10 @@ function Raffles() {
   const [isLoading, setIsLoading] = useState(true);
 
   const params = useParams();
+  const { raffleId } = useParams();
+  const { search } = useLocation();
+  const queryParams = new URLSearchParams(search);
+  const color = queryParams.get('color');
 
   useEffect(() => {
     getRafflesRounds();
@@ -224,6 +227,7 @@ function Raffles() {
                   raffleRounds={raffleRounds}
                   setShowPopup={setShowPopup}
                   showLessPopUp={setShowLessPopup}
+                  color={color}
                 />
               )}
             </div>

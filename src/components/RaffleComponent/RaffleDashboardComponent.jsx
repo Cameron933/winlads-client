@@ -42,19 +42,9 @@ function RaffleDashboardComponent() {
       ) : raffles.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2 special:gap-4">
           {raffles.map((raffle, key) => (
-            <Link key={key} to={`/raffles/${raffle._id}`} className="w-full">
+            <Link key={key} to={`/raffles/${raffle._id}?color=${encodeURIComponent(raffle.color)}`} className="w-full">
               <div
-                className={`bg-gradient-to-br ${
-                  raffle.type == "max"
-                    ? "from-[#1A8BC0]"
-                    : "" | (raffle.type == "i645")
-                    ? "from-[#E9BA0D]"
-                    : "" | (raffle.type == "lottoGreen")
-                    ? "from-[#008000]"
-                    : "" | (raffle.type == "lottoRed")
-                    ? "from-[#C70039]"
-                    : ""
-                } to-[#000000] flex flex-row justify-between items-center px-2 rounded-3xl w-full py-2 border border-2 hover:border-black`}
+                className={`bg-gradient-to-br from-[${raffle.color}] to-[#000000] flex flex-row justify-between items-center px-2 rounded-3xl w-full py-2 border border-2 hover:border-black`}
               >
                 <img
                   src={Jeep}
