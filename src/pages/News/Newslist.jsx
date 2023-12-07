@@ -8,6 +8,7 @@ import axios from "axios";
 import SearchField from "../../components/SearchField/SearchField";
 import { FiLoader } from "react-icons/fi";
 import { MdOutlineDoNotDisturbOff } from "react-icons/md";
+import BG from "../../assets/images/HomesideBg.png";
 
 function Newslist() {
   const [newsList, setNewsList] = useState([]);
@@ -42,6 +43,11 @@ function Newslist() {
 
         {/* home-content */}
         <div className="xl:flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-4 pb-5 space-y-4 xl:space-y-0">
+          <img
+            src={BG}
+            alt=""
+            className="absolute right-0 -z-10 top-60 w-72 xl:w-96 md:w-96 special:w-1/3 2xl:w-1/4 special:top-80 opacity-60 xl:top-60 2xl:top-80"
+          />
           {/* left side */}
           <div className="left-side flex flex-col space-y-4 flex-1">
             <div className="visible xl:hidden space-y-4">
@@ -68,7 +74,7 @@ function Newslist() {
                 <FiLoader className="w-12 h-12 2xl:w-16 2xl:h-16 special:w-24 special:h-24 animate-spin" />
               </div>
             ) : newsList.length > 0 ? (
-              <div className="flex flex-col space-y-4 mt-10">
+              <div className="flex flex-col space-y-4 special:pt-24 2xl:pt-16 xl:pt-12 pt-8 2xl:space-y-6">
                 {newsList.map((news, key) => (
                   <NewsListProps
                     key={key}

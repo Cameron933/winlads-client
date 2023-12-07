@@ -59,7 +59,8 @@ function BusinessCard() {
 
           {
             isOrderNow ? <ShareForm /> : <div className="xl:w-1/2 w-full special:w-2/5 flex flex-col gap-5 py-4"><BCard/>
-              <BCardQR/></div>
+              {/* <BCardQR/> */}
+              </div>
           }
 
 
