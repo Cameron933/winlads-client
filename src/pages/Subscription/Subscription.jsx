@@ -21,8 +21,14 @@ function Subscription() {
   const [choosePlane, setChoosePlane] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  const handleButton = () => {
+  const [selectedPlaneId, setSelectedPlaceId] = useState("")
+  const [userId, setUserId] = useState("")
+
+  const handleButton = (id) => {
     setChoosePlane(true);
+    setSelectedPlaceId(id)
+    console.log(selectedPlaneId, "idd")
+
   };
 
   const handleYear = (val = false) => {
@@ -37,9 +43,19 @@ function Subscription() {
   }, []);
 
   useEffect(() => {
-    // currentUserValidation();
+    currentUserValidation();
     getPlanes();
   }, []);
+
+    const currentUserValidation = async () => {
+    const validator = await validateCurrentUser();
+    if (validator.validatorBl) {
+      console.log("Session OK", validator.user.balance);
+      setValUser(validator.user);
+    } else {
+      // navigate("/login");
+    }
+  };
 
   const getPlanes = async () => {
     await new Promise((resolve) => setTimeout(resolve, 2000));
@@ -131,6 +147,7 @@ function Subscription() {
                         key={key}
                         name={plane.name}
                         price={isYearly ? plane.annualy : plane.monthly}
+                        descList={Array.isArray(plane.desc) ? plane.desc : []}
                         desc1={plane.desc1}
                         desc2={plane.desc2}
                         desc3={plane.desc3}
@@ -197,7 +214,7 @@ function Subscription() {
                             ? plane.raffle_count_annual
                             : plane.raffle_count
                         }
-                        onButtonClick={handleButton}
+                        onButtonClick={() => handleButton(isYearly ? plane.subidannual : plane.subid)}
                       />
                     ))}
                   </div>
@@ -214,7 +231,7 @@ function Subscription() {
               {choosePlane && (
                 <div className="absolute left-60 right-0 top-60 bottom-0 flex">
                   {" "}
-                  <ChoosePlane onClose={() => setChoosePlane(false)} />
+                  <ChoosePlane onClose={() => setChoosePlane(false)} planeId={selectedPlaneId} />
                 </div>
               )}
             </div>

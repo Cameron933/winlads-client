@@ -8,7 +8,12 @@ import Usd from "../../assets/images/rafflesImages/Usd.png";
 import bitcoin from "../../assets/images/rafflesImages/bitcoin.png";
 
 
-const ChoosePlane = ({onClose}) => {
+const ChoosePlane = ({onClose, planeId}) => {
+
+  const handleButtonClick = () => {
+    
+  }
+
   return (
     <div
     className=""
@@ -80,7 +85,7 @@ const ChoosePlane = ({onClose}) => {
               className="w-7 h-7 special:h-14 special:w-14 2xl:h-9 2xl:w-9"
             />
           </button>
-          <button className="hover:scale-110">
+          <button className="hover:scale-110" onClick={handleButtonClick}>
             <img
               src={Visa}
               alt=""
