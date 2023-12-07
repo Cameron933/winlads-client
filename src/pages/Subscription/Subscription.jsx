@@ -15,6 +15,7 @@ import ChoosePlane from "../../components/SubscribeCard/ChoosePlane";
 import BG from "../../assets/images/HomesideBg.png";
 import { validateCurrentUser } from "../../utils/validateuser";
 import { Link, useNavigate } from "react-router-dom";
+import Cookies from "universal-cookie";
 
 function Subscription() {
   const [isLoading, setIsLoading] = useState(true);
@@ -27,13 +28,13 @@ function Subscription() {
   const navigate = useNavigate();
 
   const [valUser, setValUser] = useState({});
-  // const cookies = new Cookies(null, { path: "/" });
+  const cookies = new Cookies(null, { path: "/" });
 
   const handleButton = (id) => {
     setChoosePlane(true);
     setSelectedPlaceId(id)
     console.log(selectedPlaneId, "idd")
-    console.log(valUser, "asdsadsadsad")
+    console.log(valUser, "user iddasdsad")
 
   };
 
