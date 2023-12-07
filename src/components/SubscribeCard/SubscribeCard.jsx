@@ -42,6 +42,7 @@ function SubscribeCard({
   hoverButtonBorder,
   raffleCount,
   onButtonClick,
+  descList = [],
 }) {
   const handleChooseButton = () => {
     onButtonClick();
@@ -65,38 +66,24 @@ function SubscribeCard({
         User/Month
       </p>
       <div className="flex justify-center flex-col space-y-2 special:space-y-6 2xl:space-y-4">
-        <div className="flex flex-row gap-2 special:gap-4 2xl:gap-4 items-center">
-          <img
-            src={Blue}
-            alt=""
-            className="w-3 h-3 special:h-7 special:w-7 2xl:h-5 2xl:w-5"
-          />
-          <p className="text-sm special:text-xl 2xl:text-lg">{desc1}</p>
-        </div>
+        {descList.map((disc, key) => (
+          <div key={key} className="flex flex-row gap-2 special:gap-4 2xl:gap-4 items-center">
+            <img
+              src={Blue}
+              alt=""
+              className="w-3 h-3 special:h-7 special:w-7 2xl:h-5 2xl:w-5"
+            />
+            <p className="text-sm special:text-xl 2xl:text-lg">{disc}</p>
+          </div>
+        ))}
         <div className="flex flex-row gap-2 items-center">
           <img
             src={Blue}
             alt=""
             className="w-3 h-3 special:h-7 special:w-7 2xl:h-5 2xl:w-5"
           />
-          <p className=" text-sm special:text-xl 2xl:text-lg">{desc2}</p>
-        </div>
-        <div className="flex flex-row gap-2 items-center">
-          <img
-            src={Blue}
-            alt=""
-            className="w-3 h-3 special:h-7 special:w-7 2xl:h-5 2xl:w-5"
-          />
-          <p className=" text-sm special:text-xl 2xl:text-lg">{desc3}</p>
-        </div>
-        <div className="flex flex-row gap-2 items-center">
-          <img
-            src={Blue}
-            alt=""
-            className="w-3 h-3 special:h-7 special:w-7 2xl:h-5 2xl:w-5"
-          />
-          <p className=" text-sm special:text-xl 2xl:text-lg">
-            Free Giveaways - {raffleCount}
+          <p className="text-sm special:text-xl 2xl:text-lg">
+            Free Giveaways - <span className="font-bold">{raffleCount}</span>
           </p>
         </div>
       </div>

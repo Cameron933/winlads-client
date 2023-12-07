@@ -24,7 +24,7 @@ import { RxCounterClockwiseClock } from "react-icons/rx";
 import bgCar from "../../assets/images/hiddenCar.png";
 import SearchField from "../../components/SearchField/SearchField";
 import { LuHistory } from "react-icons/lu";
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams, useLocation } from "react-router-dom";
 import BG from "../../assets/images/HomesideBg.png";
 
 export const bgStyle = {
@@ -45,7 +45,7 @@ function Raffles() {
   const { raffleId } = useParams();
   const { search } = useLocation();
   const queryParams = new URLSearchParams(search);
-  const color = queryParams.get('color');
+  const color = queryParams.get("color");
 
   useEffect(() => {
     getRafflesRounds();
@@ -345,37 +345,37 @@ function PopUpLess({ onClose }) {
 
   return (
     <div
-      className="popup-container backdrop2 backdrop-blur-sm lg:justify-center justify-center"
+      className="popup-container bg-white/50 justify-center items-center"
       onClick={handleBackdropClick2}
     >
-      <div className=" popup-content text-white bg-gradient-to-br  from-[#000000] space-y-4  to-[#000000]  justify-center items-center  pt-5 pb-10 xl:px-20 md:px-20 px-10 flex flex-col lg:mr-[10%]">
-        <button
-          className="absolute top-1 right-1 text-3xl text-inherit hover:scale-105"
-          onClick={onClose}
-        >
-          <IoCloseSharp />
-        </button>
-        <img src={Loto} alt="" className="xl:w-16 md:w-14 w-12 h-auto" />
-        <p className="font-bold text-white text-center xl:text-5xl md:5xl text-3xl mb-1">
-          $10
-        </p>
-        <p className="text-white mb-2 text-center">User/Month</p>
-        <div className="flex justify-center flex-col space-y-4">
-          <p className="text-white text-xs md:text-sm xl:text-sm text-start w-48">
-            You have purchased x number of raffles from the amount of
-            subscriptions in your account and there are x amount remaining.
-          </p>
-          <p className="text-white text-xs md:text-sm xl:text-sm text-start w-48">
-            Do you want to buy this ?
-          </p>
+      <div className="popup-content text-white flex flex-col bg-gradient-to-br from-[#000000] space-y-4 special:space-y-12 2xl:space-y-8  to-[#000000] justify-center py-4 special:py-8 2xl:py-6">
+        <div className="flex justify-end">
+          <button
+            className="text-3xl 2xl:text-4xl special:text-5xl hover:scale-105"
+            onClick={onClose}
+          >
+            <IoCloseSharp />
+          </button>
         </div>
 
-        <button
-          type="button"
-          className="flex justify-center gap-5 bg-white text-[#000] font-bold p-4 rounded-xl mt-3 px-12 cursor-pointer hover:scale-105"
-        >
-          Confirm
-        </button>
+        <div className="flex flex-col special:px-24 2xl:px-8 px-4 space-y-4 special:space-y-12 2xl:space-y-8">
+          <p className="font-bold text-white text-center xl:text-5xl 2xl:text-6xl special:text-9xl md:5xl text-3xl">
+            $10
+          </p>
+          <p className="text-white text-center special:text-4xl">User/Month</p>
+          <div className="text-center text-white flex justify-center w-64 special:w-[600px] 2xl:w-[500px] text-sm special:text-3xl 2xl:text-2xl special:leading-normal">
+            You have purchased x number of raffles from the amount of
+            subscriptions in your account and there are x amount remaining.
+          </div>
+          <p className="text-white text-sm special:text-3xl 2xl:text-2xl">
+            Do you want to buy this?
+          </p>
+          <div className="flex justify-center items-center bg-white rounded-lg text-black py-2 special:py-6 2xl:py-5 font-bold hover:bg-black hover:text-white border border-solid hover:border-white">
+            <button className="capitalize 2xl:text-4xl special:text-5xl">
+              Confirm
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

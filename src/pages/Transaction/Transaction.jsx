@@ -15,17 +15,19 @@ import Red from "../../assets/images/transaction/Red.png";
 import Transfer from "../../assets/images/transaction/transfer-outlined.png";
 import Save from "../../assets/images/transaction/save-outlined.png";
 import Slip from "../../assets/images/transaction/slip-outlined.png";
-import { BiSolidDownArrow } from 'react-icons/bi';
+import { BiSolidDownArrow } from "react-icons/bi";
 import Chart from "react-apexcharts";
 import EarningCard from "../../components/EarningCard/EarningCard";
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
-
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
+import axios from "axios";
 
 const Transaction = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isCalendarVisible, setIsCalendarVisible] = useState(false);
   const [date, setDate] = useState(new Date());
+  const [earning, setEarning] = useState("");
+  const [transactions, getTransactions] = useState([]);
 
   // const [isOpen, setIsOpen] = useState(false);
 
@@ -38,6 +40,43 @@ const Transaction = () => {
   //   console.log(`Selected option: ${option}`);
   //   setIsOpen(false); // Close the dropdown after selection
   // };
+
+  useEffect(() => {
+    getEarning();
+    getTransactionsFunction();
+  }, []);
+
+  const getEarning = async () => {
+    await axios
+      .get(
+        `${
+          import.meta.env.VITE_SERVER_API
+        }/getPointBalances?uid=jZNYcKmEmIcDhR3yqCJiGknbJiB3`
+      )
+      .then((response) => {
+        console.log(response.data.data);
+        setEarning(response?.data?.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const getTransactionsFunction = async () => {
+    await axios
+      .get(
+        `${
+          import.meta.env.VITE_SERVER_API
+        }/getTransactions?uid=jZNYcKmEmIcDhR3yqCJiGknbJiB3&start=2023-09-04T16:16:38.361Z&end=2023-12-31T16:16:38.361Z`
+      )
+      .then((response) => {
+        console.log(response.data.data);
+        getTransactions(response?.data?.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
@@ -75,7 +114,7 @@ const Transaction = () => {
         type: "donut",
       },
       legend: {
-        position: 'bottom',
+        position: "bottom",
       },
       labels: [
         "Card Transactions",
@@ -86,6 +125,7 @@ const Transaction = () => {
   };
 
   const chartWidth = windowWidth > 700 ? 500 : windowWidth - 80;
+
   return (
     <div>
       <div className="flex relative min-h-screen">
@@ -106,16 +146,23 @@ const Transaction = () => {
                   <GoldCard />
                 </div>
               </div>
-
             </div>
 
             <div className="flex flex-col space-y-1">
-              <p className="font-extrabold text-xl md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl">Your Balance</p>
-              <p className="font-extrabold md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl">$576,000.00</p>
+              <p className="font-extrabold text-xl md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl">
+                Your Balance
+              </p>
+              <p className="font-extrabold md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl">
+                $576,000.00
+              </p>
             </div>
             <div className="flex flex-row gap-2 xl:gap-6 md:gap-6 2xl:text-2xl special:text-3xl">
               <div className="bg-blue-400 justify-between flex-1 items-center gap-2 md:gap-4 xl:gap-4 rounded-2xl xl:px-4 xl:py-8 md:px-4 md:py-8 flex flex-row px-4 py-4 2xl:gap-8 2xl:py-12 special:gap-12 special:py-16">
-                <img src={Tax} alt="" className="md:h-20 md:w-20 xl:h-16 xl:w-16 max-w-screen-sm" />
+                <img
+                  src={Tax}
+                  alt=""
+                  className="md:h-20 md:w-20 xl:h-16 xl:w-16 max-w-screen-sm"
+                />
                 <div className="flex flex-col">
                   <p className=" text-white text-xl md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl">
                     $5,000
@@ -126,7 +173,11 @@ const Transaction = () => {
                 </div>
               </div>
               <div className="bg-orange-400 flex-1 justify-between items-center xl:gap-4 gap-2 md:gap-4 rounded-2xl xl:px-4 xl:py-8 md:px-4 md:py-8 flex flex-row px-4 py-4 2xl:gap-8 2xl:py-12 special:gap-12 special:py-16">
-                <img src={Ticket} alt="" className="md:h-20 md:w-20 xl:h-16 xl:w-16 max-w-screen-sm" />
+                <img
+                  src={Ticket}
+                  alt=""
+                  className="md:h-20 md:w-20 xl:h-16 xl:w-16 max-w-screen-sm"
+                />
                 <div className="flex flex-col">
                   <p className="text-white md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl">
                     $15,000
@@ -138,22 +189,27 @@ const Transaction = () => {
               </div>
             </div>
             <div className="flex flex-col">
-              <div style={{ position: 'relative' }}>
-                <div className="flex flex-row items-center justify-center gap-2 mb-5" onClick={toggleCalendar}>
+              <div style={{ position: "relative" }}>
+                <div
+                  className="flex flex-row items-center justify-center gap-2 mb-5"
+                  onClick={toggleCalendar}
+                >
                   <p className="text-center uppercase md:text-xl xl:text-lg 2xl:text-2xl special:text-3xl">
                     DECEMBER 2022
                   </p>
                   <img src={Arrow} alt="" />
                 </div>
                 {isCalendarVisible && (
-                  <div style={{
-                    position: 'absolute',
-                    top: '50%', // Center vertically
-                    left: '50%', // Center horizontally
-                    transform: 'translate(-50%, -50%)', // Center both vertically and horizontally
-                    zIndex: 100,
-                    top: "380%",
-                  }}>
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: "50%", // Center vertically
+                      left: "50%", // Center horizontally
+                      transform: "translate(-50%, -50%)", // Center both vertically and horizontally
+                      zIndex: 100,
+                      top: "380%",
+                    }}
+                  >
                     <Calendar onChange={handleDateChange} value={date} />
                   </div>
                 )}
@@ -192,13 +248,19 @@ const Transaction = () => {
             </div>
             <div className="flex flex-col space-y-4 flex-1">
               <div className="flex flex-row justify-between items-center">
-                <p className="text-[#EC2639] md:text-xl xl:text-lg 2xl:text-2xl special:text-3xl">Transactions History</p>
+                <p className="text-[#EC2639] md:text-xl xl:text-lg 2xl:text-2xl special:text-3xl">
+                  Transactions History
+                </p>
                 <Link to="/transfer">
-                  <p className="md:text-xl xl:text-lg 2xl:text-2xl special:text-3xl">Fund Transfer</p>
+                  <p className="md:text-xl xl:text-lg 2xl:text-2xl special:text-3xl">
+                    Fund Transfer
+                  </p>
                 </Link>
               </div>
               <div className="flex justify-between items-center">
-                <p className="font-bold text-xl md:text-xl xl:text-lg 2xl:text-2xl special:text-3xl">Transactions</p>
+                <p className="font-bold text-xl md:text-xl xl:text-lg 2xl:text-2xl special:text-3xl">
+                  Transactions
+                </p>
                 {/* <p className="text-md md:text-xl xl:text-lg 2xl:text-2xl special:text-3xl">See All</p> */}
                 <div className="relative inline-block text-left">
                   <button
@@ -210,10 +272,22 @@ const Transaction = () => {
                     aria-expanded="true"
                   >
                     <span className="mr-4 text-md md:text-xl xl:text-xl 2xl:text-xl special:text-2xl">
-                      {selectedOption || 'See All'}
+                      {selectedOption || "See All"}
                     </span>
-                    <span className={`transform ${isOpen ? '-rotate-180' : 'rotate-0'}`}>&#9660;</span>
+                    <span
+                      className={`transform ${
+                        isOpen ? "-rotate-180" : "rotate-0"
+                      }`}
+                    >
+                      &#9660;
+                    </span>
                   </button>
+
+                  {/* {transactions.map((transaction, key) => (
+                    <div key={key}>
+                      <p>{transaction.amount}</p>
+                    </div>
+                  ))} */}
 
                   {isOpen && (
                     <div
@@ -222,23 +296,28 @@ const Transaction = () => {
                       aria-orientation="vertical"
                       aria-labelledby="options-menu"
                     >
-                      <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                      <div
+                        className="py-1"
+                        role="menu"
+                        aria-orientation="vertical"
+                        aria-labelledby="options-menu"
+                      >
                         <div
-                          onClick={() => handleSelect('Card Transaction')}
+                          onClick={() => handleSelect("Card Transaction")}
                           className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 cursor-pointer"
                           role="menuitem"
                         >
                           Card Transaction
                         </div>
                         <div
-                          onClick={() => handleSelect('Digital Transaction')}
+                          onClick={() => handleSelect("Digital Transaction")}
                           className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 cursor-pointer"
                           role="menuitem"
                         >
                           Digital Transaction
                         </div>
                         <div
-                          onClick={() => handleSelect('Earning Transaction')}
+                          onClick={() => handleSelect("Earning Transaction")}
                           className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 cursor-pointer"
                           role="menuitem"
                         >
@@ -248,10 +327,9 @@ const Transaction = () => {
                     </div>
                   )}
                 </div>
-
               </div>
               {/* Display Card Purchase */}
-              {selectedOption === 'Card Transaction' && (
+              {selectedOption === "Card Transaction" && (
                 <div className="flex flex-row items-center justify-between">
                   <div className="flex flex-row gap-2 items-center">
                     <img
@@ -260,16 +338,22 @@ const Transaction = () => {
                       className="special:w-20 special:h-20 xl:w-14 xl:h-14 md:w-12 md:h-12 w-8 h-8"
                     />
                     <div className="flex flex-col">
-                      <p className="text-sm md:text-lg xl:text-xl 2xl:text-2xl special:text-3xl">Car Purchase</p>
-                      <p className="text-xs md:text-xl xl:text-lg 2xl:text-xl special:text-2xl">Auto Loan</p>
+                      <p className="text-sm md:text-lg xl:text-xl 2xl:text-2xl special:text-3xl">
+                        Car Purchase
+                      </p>
+                      <p className="text-xs md:text-xl xl:text-lg 2xl:text-xl special:text-2xl">
+                        Auto Loan
+                      </p>
                     </div>
                   </div>
-                  <p className="text-[#4FC8E8] font-semibold xl:text-lg 2xl:text-2xl special:text-4xl">-$250</p>
+                  <p className="text-[#4FC8E8] font-semibold xl:text-lg 2xl:text-2xl special:text-4xl">
+                    -$250
+                  </p>
                 </div>
               )}
 
               {/* Display House Purchase */}
-              {selectedOption === 'Digital Transaction' && (
+              {selectedOption === "Digital Transaction" && (
                 <div className="flex flex-row items-center justify-between">
                   <div className="flex flex-row gap-2 items-center">
                     <img
@@ -278,16 +362,22 @@ const Transaction = () => {
                       className="special:w-20 special:h-20 xl:w-14 xl:h-14 md:w-12 md:h-12 w-8 h-8"
                     />
                     <div className="flex flex-col">
-                      <p className="text-sm md:text-lg xl:text-xl 2xl:text-2xl special:text-3xl">Houses Purchase</p>
-                      <p className="text-xs md:text-xl xl:text-lg 2xl:text-xl special:text-2xl">Airbnb home</p>
+                      <p className="text-sm md:text-lg xl:text-xl 2xl:text-2xl special:text-3xl">
+                        Houses Purchase
+                      </p>
+                      <p className="text-xs md:text-xl xl:text-lg 2xl:text-xl special:text-2xl">
+                        Airbnb home
+                      </p>
                     </div>
                   </div>
-                  <p className="text-[#059713] font-semibold xl:text-lg 2xl:text-2xl special:text-4xl">$2250</p>
+                  <p className="text-[#059713] font-semibold xl:text-lg 2xl:text-2xl special:text-4xl">
+                    $2250
+                  </p>
                 </div>
               )}
 
               {/* Display Transport */}
-              {selectedOption === 'Earning Transaction' && (
+              {selectedOption === "Earning Transaction" && (
                 <div className="flex flex-row items-center justify-between">
                   <div className="flex flex-row gap-2 items-center">
                     <img
@@ -296,11 +386,17 @@ const Transaction = () => {
                       className="special:w-20 special:h-20 xl:w-14 xl:h-14 md:w-12 md:h-12 w-8 h-8"
                     />
                     <div className="flex flex-col">
-                      <p className="text-sm md:text-lg xl:text-xl 2xl:text-2xl special:text-3xl">Transport</p>
-                      <p className="text-xs md:text-xl xl:text-lg 2xl:text-xl special:text-2xl">Uber pathao</p>
+                      <p className="text-sm md:text-lg xl:text-xl 2xl:text-2xl special:text-3xl">
+                        Transport
+                      </p>
+                      <p className="text-xs md:text-xl xl:text-lg 2xl:text-xl special:text-2xl">
+                        Uber pathao
+                      </p>
                     </div>
                   </div>
-                  <p className="text-[#059713] font-semibold xl:text-lg 2xl:text-2xl special:text-4xl">$250</p>
+                  <p className="text-[#059713] font-semibold xl:text-lg 2xl:text-2xl special:text-4xl">
+                    $250
+                  </p>
                 </div>
               )}
             </div>
@@ -340,8 +436,6 @@ const Transaction = () => {
               <div className="w-full">
                 <GoldCard />
               </div>
-
-
             </div>
           </div>
           {/* </div> */}

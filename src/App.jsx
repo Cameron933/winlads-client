@@ -32,6 +32,7 @@ import Profile from "./pages/Profile/Profile";
 import NoticeInner from "./pages/Notice/NoticeInner";
 import Messages from "./pages/Messages/Messages";
 import History from "./pages/History/History";
+import SubcriptionDone from "./pages/SubDone"
 
 
 function App() {
@@ -125,6 +126,10 @@ function App() {
     {
       path: "/history",
       element: <History />,
+    },
+    {
+      path: "/subscription-done",
+      element: <SubcriptionDone />,
     },
   ]);
 
