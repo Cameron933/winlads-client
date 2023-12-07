@@ -18,7 +18,7 @@ const DashboardVehicleCard = ({ name, date, icon, fromColor, type }) => {
   return (
     <>
     <div
-      className={`bg-gradient-to-r from-[${fromColor}] to-black rounded-3xl py-2 px-2 special:px-4 border-2 hover:border-black cursor-pointer`}
+      className={`bg-gradient-to-r from-[#1A8BC0] to-black rounded-3xl py-2 px-2 special:px-4 border-2 hover:border-black cursor-pointer`}
       onClick={handleClick}
     >
       <div className="flex justify-end">
