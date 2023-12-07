@@ -32,10 +32,10 @@ const DashboardVehicleCard = ({ name, date, icon, fromColor, type }) => {
         />
         <div className="flex flex-col space-y-2">
           <div className="flex flex-col space-y-1 text-white">
-            <div className="text-white font-bold xl:text-sm text-xs special:text-4xl 2xl:text-2xl">
+            <div className="text-white font-bold xl:text-sm text-xs special:text-4xl 2xl:text-xl text-center">
               {name}
             </div>
-            <div className="text-[10px] text-white special:text-2xl 2xl:text-xl">
+            <div className="text-[10px] text-white special:text-2xl 2xl:text-[8px]">
               {date}
             </div>
             <p className="text-black">{type}</p>

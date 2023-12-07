@@ -59,10 +59,10 @@ function RaffleDashboardComponent() {
                     <p className="text-white text-sm">{raffle.type}</p>
                   </div>
                   <div className="flex text-end flex-col z-10">
-                    <p className="text-white font-bold xl:text-sm text-xs special:text-4xl 2xl:text-2xl">
+                    <p className="text-white font-bold xl:text-sm text-xs special:text-4xl 2xl:text-xl text-center">
                       {raffle.name}
                     </p>
-                    <p className="text-[10px] text-white special:text-2xl 2xl:text-xl">
+                    <p className="text-[10px] text-white special:text-2xl 2xl:text-[10px]">
                       {raffle.date}
                     </p>
                   </div>
