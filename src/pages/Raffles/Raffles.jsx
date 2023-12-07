@@ -1,31 +1,18 @@
 import { useEffect, useState } from "react";
 import SideNav from "../../components/SideNav/SideNav";
-import Spicker from "../../assets/images/spicker.png";
 import MainCar from "../../assets/images/MainCar.png";
-import grouptest from "../../assets/images/welcome/Groupraffletest.png";
-import GoldCard from "../../components/GoldCard/GoldCard";
-import PurchaseCard from "../../components/PurchaseCard/PurchaseCard";
 import TopNav from "../../components/TopNav/TopNav";
-import RaffleComponent from "../../components/RaffleComponent/RaffleComponent";
-import EarningCard from "../../components/EarningCard/EarningCard";
-import Frame from "../../assets/images/Frame.png";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { GoQuestion } from "react-icons/go";
-import { ImCancelCircle } from "react-icons/im";
 import Jeep from "../../assets/images/Lottery/Jeep.png";
 import six from "../../assets/images/rafflesImages/six4.png";
-import max from "../../assets/images/rafflesImages/max.png";
-import lotto from "../../assets/images/rafflesImages/lotto.png";
 import Loto from "../../assets/images/rafflesImages/loto.png";
 import { Link } from "react-router-dom";
 import Visa from "../../assets/images/rafflesImages/Visa.png";
 import Usd from "../../assets/images/rafflesImages/Usd.png";
 import bitcoin from "../../assets/images/rafflesImages/bitcoin.png";
-import Red from "../../assets/images/subscribers/red.png";
-import RedDot from "../../assets/images/RedDot.png";
 import white from "../../assets/images/subscribers/white.png";
-import { useParams } from "react-router";
 import axios from "axios";
 import { motion } from "framer-motion";
 import Loader from "../../components/Loader/Loader";
@@ -37,7 +24,7 @@ import { RxCounterClockwiseClock } from "react-icons/rx";
 import bgCar from "../../assets/images/hiddenCar.png";
 import SearchField from "../../components/SearchField/SearchField";
 import { LuHistory } from "react-icons/lu";
-
+import { useParams, useLocation } from 'react-router-dom';
 import BG from "../../assets/images/HomesideBg.png";
 
 export const bgStyle = {
@@ -55,6 +42,10 @@ function Raffles() {
   const [isLoading, setIsLoading] = useState(true);
 
   const params = useParams();
+  const { raffleId } = useParams();
+  const { search } = useLocation();
+  const queryParams = new URLSearchParams(search);
+  const color = queryParams.get('color');
 
   useEffect(() => {
     getRafflesRounds();
@@ -236,6 +227,7 @@ function Raffles() {
                   raffleRounds={raffleRounds}
                   setShowPopup={setShowPopup}
                   showLessPopUp={setShowLessPopup}
+                  color={color}
                 />
               )}
             </div>

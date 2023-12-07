@@ -1,5 +1,5 @@
 import winladsCard from "../../assets/images/BusinessCard/winladsCard.png";
-import Signal from "../../assets/images/BusinessCard/signal.png";
+import Signal from "../../assets/images/BusinessCard/Signal.png";
 import png2 from "../../assets/images/BusinessCard/png2.png";
 
 const BCard = () => {

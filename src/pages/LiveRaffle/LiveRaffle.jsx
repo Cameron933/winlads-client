@@ -26,21 +26,20 @@ function LiveRaffle() {
 
       <div className="flex flex-col xl:mx-10 mx-5 flex-1 pt-4">
         <div className="flex flex-row justify-between items-center">
-          <div className="flex items-center justify-center flex-col">
+          {/* <div className="flex items-center justify-center flex-col">
             <img src={max} alt="" className="w-24 special:w-64 2xl:w-48" />
             <div className="text-white text-3xl font-extrabold special:text-5xl 2xl:text-4xl">Lotto MAX</div>
-          </div>
-          <div className="text-white flex flex-row gap-1 special:gap-2 2xl:gap-2">
+          </div> */}
+          {/* <div className="text-white flex flex-row gap-1 special:gap-2 2xl:gap-2">
             <p className="uppercase text-lg font-semibold 2xl:text-3xl special:text-4xl">live</p>
             <span className="relative flex h-1.5 w-1.5 special:h-3.5 special:w-3.5 2xl:h-2.5 2xl:w-2.5 flex-col justify-start items-start">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-600 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-1.5 w-1.5 special:h-3.5 special:w-3.5 2xl:h-2.5 2xl:w-2.5 bg-red-600"></span>
             </span>
-          </div>
+          </div> */}
         </div>
 
-        <div className="bottom-10 left-0 right-0 absolute ml-12 xl:ml-0 4xl:ml-0">
-          {/* <div className=" xl:flex items-center justify-center "></div> */}
+        {/* <div className="bottom-10 left-0 right-0 absolute ml-12 xl:ml-0 4xl:ml-0">
           <div className="flex justify-center flex-col items-center space-y-4 special:space-y-8 2xl:space-y-6">
             <div className="flex flex-row gap-4 2xl:gap-6 special:gap-8 items-center">
               <img src={soundicon} alt="" className="w-10 h-10 2xl:w-24 2xl:h-24 special:w-36 special:h-36" />
@@ -80,7 +79,7 @@ function LiveRaffle() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

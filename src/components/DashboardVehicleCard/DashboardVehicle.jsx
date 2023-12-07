@@ -1,18 +1,24 @@
-import React from "react";
 import vehicle from "../../assets/images/Lottery/Jeep.png";
-import bg from "../../assets/images/Lottery/gradient-bg.png";
 
-const DashboardVehicleCard = () => {
+const DashboardVehicleCard = ({ name, date, icon, fromColor }) => {
   return (
-    <div>
-      <div className="bg-gradient-to-r from-yellow-600 via-black to-black w-96 max-sm:w-72 rounded-3xl w-auto">
-        <div className="flex">
-          <div className="flex justify-center items-center ">
-            <img src={vehicle} alt="vehicle" className="w-[500px] max-sm:w-60 max-xl:w-80"/>
+    <div
+      className={`bg-gradient-to-r from-[${fromColor}] to-black rounded-3xl py-2 px-2 special:px-4 border border-2 hover:border-black`}
+    >
+       <div className="flex justify-end">
+            <img src={icon} alt="" className="w-12 special:w-36" />
           </div>
-          <div className="w-full flex flex-col justify-center items-center relative right-10 max-sm:right-5 bg-black bg-opacity-30">
-            <div className="text-white text-xl font-semibold text-center max-sm:text-base">1991 Land Rover Defender 110</div>
-            <div className="text-white text-sm font-semibold max-sm:text-xs">2023-SEP-19 TUESDAY</div>
+      <div className="flex flex-row justify-between items-center">
+        <img
+          src={vehicle}
+          alt="vehicle"
+          className="w-36 special:w-96 2xl:w-64"
+        />
+        <div className="flex flex-col space-y-2">
+      
+          <div className="flex flex-col space-y-1 text-white">
+            <div className="text-white font-bold xl:text-sm text-xs special:text-4xl 2xl:text-2xl">{name}</div>
+            <div className="text-[10px] text-white special:text-2xl 2xl:text-xl">{date}</div>
           </div>
         </div>
       </div>

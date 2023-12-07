@@ -1,7 +1,6 @@
 .card1{
     background: linear-gradient(98.92deg, #1A8BC0 100%, #000000 100%);
 }
-
 .popup-container {
   position: fixed;
   top: 0;
@@ -15,7 +14,6 @@
   z-index: 999;
   transition: 150ms ease-in;
 }
-
 .popup-content {
   padding: 20px;
   border-radius: 20px;
@@ -23,7 +21,6 @@
   text-align: center;
   position: relative;
 }
-
 .close-button {
   position: absolute;
   top: 10px;

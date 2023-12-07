@@ -1,9 +1,6 @@
 import SideNav from "../../components/SideNav/SideNav";
-import Spicker from "../../assets/images/spicker.png";
 import MainCar from "../../assets/images/MainCar.png";
 import GoldCard from "../../components/GoldCard/GoldCard";
-import EarningCard from "../../components/EarningCard/EarningCard";
-import GucciCard from "../../components/GucciCard/GucciCard";
 import TopNav from "../../components/TopNav/TopNav";
 import backgroundcar from "../../assets/images/background/Background-car.png";
 
@@ -19,21 +16,6 @@ function News() {
       <div className="xl:flex xl:flex-row flex-col xl:justify-between flex-1 px-4 xl:gap-8 pb-5 space-y-4 xl:space-y-0">
         {/* left side */}
         <div className="flex-col flex-1 space-y-4">
-          {/* <div className="visible xl:hidden space-y-4">
-              <div className="bg-black rounded-b-3xl py-4">
-                <TopNav textColor={"white"} />
-                <div className="pt-10">
-                  <img className="" src={MainCar} alt="main" />
-                </div>
-              </div>
-
-              <div className="flex md:flex-row flex-col space-y-2 md:space-y-0 gap-2">
-                <div className="w-full">
-                  <GoldCard />
-                </div>
-
-              </div>
-            </div> */}
 
           <div className="bg-black rounded-b-3xl py-4">
             <div className=" xl:hidden">
