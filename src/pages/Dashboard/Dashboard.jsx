@@ -35,6 +35,7 @@ const Dashboard = () => {
   const endIndex = startIndex + itemsPerPage;
 
   const [showPopup, setShowPopup] = useState(false)
+  const [color, setColor] = useState("")
 
   useEffect(() => {
     // currentUserValidation();
@@ -42,12 +43,13 @@ const Dashboard = () => {
   }, []);
 
   const getGiveaways = async () => {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    await new Promise((resolve) => setTimeout(resolve,2000));
     await axios
       .get(`${import.meta.env.VITE_SERVER_API}/raffleRoundsFuture`)
       .then((response) => {
         console.log(response.data.data, "data");
         setGiveaways(response?.data?.data);
+        setColor(response?.data?.raffle?.color)
         setLoading(false);
       })
       .catch((error) => {
