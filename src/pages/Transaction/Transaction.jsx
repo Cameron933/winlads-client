@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import SideNav from "../../components/SideNav/SideNav";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import Tax from "../../assets/images/transaction/Tax.png";
 import Ticket from "../../assets/images/transaction/Ticket.png";
 import Arrow from "../../assets/images/transaction/Arrow.png";
@@ -39,15 +40,15 @@ const Transaction = () => {
   // };
 
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(null);
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
   };
 
   const handleSelect = (option) => {
-    // Handle selection logic here
-    console.log(`Selected option: ${option}`);
-    setIsOpen(false); // Close the dropdown after selection
+    setSelectedOption(option);
+    setIsOpen(false); // Close the dropdown after selecting an option
   };
 
   const handleDateChange = (newDate) => {
@@ -89,14 +90,14 @@ const Transaction = () => {
     <div>
       <div className="flex relative min-h-screen">
         <SideNav screen="full" />
-        <div className="xl:flex xl:flex-row flex-col xl:justify-between flex-1 px-4 xl:gap-8 pb-5 space-y-4 xl:space-y-0">
-        <div className="side-bg t-65" style={{  }}></div>
-          <div className="flex flex-col space-y-4 flex-1">
+        <div className="xl:flex xl:flex-row flex-col xl:justify-between px-4 special:px-12 2xl:px-8 flex-1 xl:gap-4 special:gap-8 2xl:gap-6 space-y-4 xl:space-y-0">
+          <div className="side-bg " style={{ top: "50%" }}></div>
+          <div className="flex flex-col space-y-4 flex-1 special:space-y-8 2xl:space-y-6">
             <div className="visible xl:hidden space-y-4">
               <div className="bg-black rounded-b-3xl py-4">
                 <TopNav textColor={"white"} />
                 <div className="pt-10">
-                  <img className="" src={MainCar} alt="main" />
+                  <img className="w-full" src={MainCar} alt="main" />
                 </div>
               </div>
 
@@ -113,7 +114,7 @@ const Transaction = () => {
               <p className="font-extrabold md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl">$576,000.00</p>
             </div>
             <div className="flex flex-row gap-2 xl:gap-6 md:gap-6 2xl:text-2xl special:text-3xl">
-              <div className="bg-blue-400 justify-between flex-1 items-center gap-2 md:gap-4 xl:gap-4 rounded-2xl xl:px-4 xl:py-8 md:px-4 md:py-8 flex flex-row px-4 py-4">
+              <div className="bg-blue-400 justify-between flex-1 items-center gap-2 md:gap-4 xl:gap-4 rounded-2xl xl:px-4 xl:py-8 md:px-4 md:py-8 flex flex-row px-4 py-4 2xl:gap-8 2xl:py-12 special:gap-12 special:py-16">
                 <img src={Tax} alt="" className="md:h-20 md:w-20 xl:h-16 xl:w-16 max-w-screen-sm" />
                 <div className="flex flex-col">
                   <p className=" text-white text-xl md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl">
@@ -124,7 +125,7 @@ const Transaction = () => {
                   </p>
                 </div>
               </div>
-              <div className="bg-orange-400 flex-1 justify-between items-center xl:gap-4 gap-2 md:gap-4 rounded-2xl xl:px-4 xl:py-8 md:px-4 md:py-8 flex flex-row px-4 py-4">
+              <div className="bg-orange-400 flex-1 justify-between items-center xl:gap-4 gap-2 md:gap-4 rounded-2xl xl:px-4 xl:py-8 md:px-4 md:py-8 flex flex-row px-4 py-4 2xl:gap-8 2xl:py-12 special:gap-12 special:py-16">
                 <img src={Ticket} alt="" className="md:h-20 md:w-20 xl:h-16 xl:w-16 max-w-screen-sm" />
                 <div className="flex flex-col">
                   <p className="text-white md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl">
@@ -203,15 +204,16 @@ const Transaction = () => {
                   <button
                     onClick={handleToggle}
                     type="button"
-                    className="inline-flex justify-between items-center justify-center w-full rounded-md border border-gray-500 shadow-sm px-8 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring focus:border-gray-300 relative"
+                    className="inline-flex justify-between items-center justify-center w-full rounded-md border border-gray-500 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring focus:border-gray-300 relative"
                     id="options-menu"
                     aria-haspopup="true"
                     aria-expanded="true"
                   >
-                    <span className="mr-4 text-md md:text-xl xl:text-xl 2xl:text-xl special:text-2xl">See All</span>
+                    <span className="mr-4 text-md md:text-xl xl:text-xl 2xl:text-xl special:text-2xl">
+                      {selectedOption || 'See All'}
+                    </span>
                     <span className={`transform ${isOpen ? '-rotate-180' : 'rotate-0'}`}>&#9660;</span>
                   </button>
-
 
                   {isOpen && (
                     <div
@@ -222,21 +224,21 @@ const Transaction = () => {
                     >
                       <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                         <div
-                          onClick={() => handleSelect('Action 1')}
+                          onClick={() => handleSelect('Card Transaction')}
                           className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 cursor-pointer"
                           role="menuitem"
                         >
                           Card Transaction
                         </div>
                         <div
-                          onClick={() => handleSelect('Action 2')}
+                          onClick={() => handleSelect('Digital Transaction')}
                           className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 cursor-pointer"
                           role="menuitem"
                         >
                           Digital Transaction
                         </div>
                         <div
-                          onClick={() => handleSelect('Action 3')}
+                          onClick={() => handleSelect('Earning Transaction')}
                           className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 cursor-pointer"
                           role="menuitem"
                         >
@@ -248,48 +250,59 @@ const Transaction = () => {
                 </div>
 
               </div>
-              <div className="flex flex-row items-center justify-between">
-                <div className="flex flex-row gap-2 items-center">
-                  <img
-                    src={Transfer}
-                    alt=""
-                    className="special:w-20 special:h-20 xl:w-14 xl:h-14 md:w-12 md:h-12 w-8 h-8"
-                  />
-                  <div className="flex flex-col">
-                    <p className="text-sm md:text-lg xl:text-xl 2xl:text-2xl special:text-3xl">Car Purchase</p>
-                    <p className="text-xs md:text-xl xl:text-lg 2xl:text-xl special:text-2xl">Auto Loan</p>
+              {/* Display Card Purchase */}
+              {selectedOption === 'Card Transaction' && (
+                <div className="flex flex-row items-center justify-between">
+                  <div className="flex flex-row gap-2 items-center">
+                    <img
+                      src={Transfer}
+                      alt=""
+                      className="special:w-20 special:h-20 xl:w-14 xl:h-14 md:w-12 md:h-12 w-8 h-8"
+                    />
+                    <div className="flex flex-col">
+                      <p className="text-sm md:text-lg xl:text-xl 2xl:text-2xl special:text-3xl">Car Purchase</p>
+                      <p className="text-xs md:text-xl xl:text-lg 2xl:text-xl special:text-2xl">Auto Loan</p>
+                    </div>
                   </div>
+                  <p className="text-[#4FC8E8] font-semibold xl:text-lg 2xl:text-2xl special:text-4xl">-$250</p>
                 </div>
-                <p className="text-[#4FC8E8] font-semibold xl:text-lg 2xl:text-2xl special:text-4xl">-$250</p>
-              </div>
-              <div className="flex flex-row items-center justify-between">
-                <div className="flex flex-row gap-2 items-center">
-                  <img
-                    src={Slip}
-                    alt=""
-                    className="special:w-20 special:h-20 xl:w-14 xl:h-14 md:w-12 md:h-12 w-8 h-8"
-                  />
-                  <div className="flex flex-col">
-                    <p className="text-sm md:text-lg xl:text-xl 2xl:text-2xl special:text-3xl">Houses Purchase</p>
-                    <p className="text-xs md:text-xl xl:text-lg 2xl:text-xl special:text-2xl">Airbnb home</p>
+              )}
+
+              {/* Display House Purchase */}
+              {selectedOption === 'Digital Transaction' && (
+                <div className="flex flex-row items-center justify-between">
+                  <div className="flex flex-row gap-2 items-center">
+                    <img
+                      src={Slip}
+                      alt=""
+                      className="special:w-20 special:h-20 xl:w-14 xl:h-14 md:w-12 md:h-12 w-8 h-8"
+                    />
+                    <div className="flex flex-col">
+                      <p className="text-sm md:text-lg xl:text-xl 2xl:text-2xl special:text-3xl">Houses Purchase</p>
+                      <p className="text-xs md:text-xl xl:text-lg 2xl:text-xl special:text-2xl">Airbnb home</p>
+                    </div>
                   </div>
+                  <p className="text-[#059713] font-semibold xl:text-lg 2xl:text-2xl special:text-4xl">$2250</p>
                 </div>
-                <p className="text-[#059713] font-semibold xl:text-lg 2xl:text-2xl special:text-4xl">$2250</p>
-              </div>
-              <div className="flex flex-row items-center justify-between">
-                <div className="flex flex-row gap-2 items-center">
-                  <img
-                    src={Save}
-                    alt=""
-                    className="special:w-20 special:h-20 xl:w-14 xl:h-14 md:w-12 md:h-12 w-8 h-8"
-                  />
-                  <div className="flex flex-col">
-                    <p className="text-sm md:text-lg xl:text-xl 2xl:text-2xl special:text-3xl">Transport</p>
-                    <p className="text-xs md:text-xl xl:text-lg 2xl:text-xl special:text-2xl">Uber pathao</p>
+              )}
+
+              {/* Display Transport */}
+              {selectedOption === 'Earning Transaction' && (
+                <div className="flex flex-row items-center justify-between">
+                  <div className="flex flex-row gap-2 items-center">
+                    <img
+                      src={Save}
+                      alt=""
+                      className="special:w-20 special:h-20 xl:w-14 xl:h-14 md:w-12 md:h-12 w-8 h-8"
+                    />
+                    <div className="flex flex-col">
+                      <p className="text-sm md:text-lg xl:text-xl 2xl:text-2xl special:text-3xl">Transport</p>
+                      <p className="text-xs md:text-xl xl:text-lg 2xl:text-xl special:text-2xl">Uber pathao</p>
+                    </div>
                   </div>
+                  <p className="text-[#059713] font-semibold xl:text-lg 2xl:text-2xl special:text-4xl">$250</p>
                 </div>
-                <p className="text-[#059713] font-semibold xl:text-lg 2xl:text-2xl special:text-4xl">$250</p>
-              </div>
+              )}
             </div>
           </div>
           {/* <div> */}
@@ -314,7 +327,14 @@ const Transaction = () => {
               <div className="bg-black rounded-b-3xl py-4">
                 <TopNav textColor={"white"} />
                 <div className="pt-10">
-                  <img className="" src={MainCar} alt="main" />
+                  <motion.img
+                    initial={{ x: 80, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ type: "tween", duration: 1, delay: 1 }}
+                    className="w-full"
+                    src={MainCar}
+                    alt="main"
+                  />
                 </div>
               </div>
               <div className="w-full">
