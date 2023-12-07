@@ -42,7 +42,7 @@ const SideNav = ({ screen }) => {
         >
           <Link to="/profile" className="flex items-center overflow-hidden relative w-full">
             <div>
-              <img src={User} style={{ width: '50px', margin:' 0px 10px 0px 10px' }} alt="user" />
+              <img src={User} style={{ width: '30px', margin:' 0px 10px 0px 10px' }} alt="user" />
             </div>
             <div className="mobile-hide side-nav-name text-white">
               <h6>Windy Sahel1</h6>
