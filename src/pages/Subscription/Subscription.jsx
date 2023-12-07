@@ -13,6 +13,8 @@ import { useEffect, useState } from "react";
 import SearchField from "../../components/SearchField/SearchField";
 import ChoosePlane from "../../components/SubscribeCard/ChoosePlane";
 import BG from "../../assets/images/HomesideBg.png";
+import { validateCurrentUser } from "../../utils/validateuser";
+import { Link, useNavigate } from "react-router-dom";
 
 function Subscription() {
   const [isLoading, setIsLoading] = useState(true);
@@ -22,12 +24,16 @@ function Subscription() {
   const [loading, setLoading] = useState(true);
 
   const [selectedPlaneId, setSelectedPlaceId] = useState("")
-  const [userId, setUserId] = useState("")
+  const navigate = useNavigate();
+
+  const [valUser, setValUser] = useState({});
+  // const cookies = new Cookies(null, { path: "/" });
 
   const handleButton = (id) => {
     setChoosePlane(true);
     setSelectedPlaceId(id)
     console.log(selectedPlaneId, "idd")
+    console.log(valUser, "asdsadsadsad")
 
   };
 
