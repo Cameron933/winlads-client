@@ -4,8 +4,7 @@ import Rectangle from "../../assets/images/BusinessCard/Rectangle.png";
 import axios from "axios";
 
 const BCardQR = () => {
-
-    const [bCard, setBCard] = useState("")
+  const [bCard, setBCard] = useState("");
 
   useEffect(() => {
     getBCard();

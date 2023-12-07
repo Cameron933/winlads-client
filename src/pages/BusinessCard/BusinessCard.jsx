@@ -1,12 +1,12 @@
 import SideNav from "../../components/SideNav/SideNav";
 import MainCar from "../../assets/images/MainCar.png";
 import GoldCard from "../../components/GoldCard/GoldCard";
-import EarningCard from "../../components/EarningCard/EarningCard";
-import GucciCard from "../../components/GucciCard/GucciCard";
 import TopNav from "../../components/TopNav/TopNav";
 import BusinessCardComponent from "../../components/BCard/BusinessCard";
 import { IoIosOptions } from "react-icons/io";
 import SearchField from "../../components/SearchField/SearchField";
+import BG from "../../assets/images/HomesideBg.png";
+
 function BusinessCard() {
   return (
     <div>
@@ -17,8 +17,13 @@ function BusinessCard() {
 
         {/* home-content */}
         <div className="xl:flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-4 pb-5 space-y-4 xl:space-y-0">
+          
+        <img
+            src={BG}
+            alt=""
+            className="absolute right-0 -z-10 top-60 w-72 xl:w-96 md:w-96 special:w-1/3 2xl:w-1/4 special:top-80 opacity-60 xl:top-60 2xl:top-80"
+          />
           {/* left side */}
-          <div className="side-bg t-65" style={{  }}></div>
           <div className="flex flex-col space-y-4 flex-1">
             <div className="visible xl:hidden space-y-4">
               <div className="bg-black rounded-b-3xl py-4">

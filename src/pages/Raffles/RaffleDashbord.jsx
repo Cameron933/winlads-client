@@ -17,7 +17,7 @@ import { LuHistory } from "react-icons/lu";
 import User from "../../assets/images/user4.png";
 import BG from "../../assets/images/HomesideBg.png";
 import bgCar from "../../assets/images/hiddenCar.png";
-import Youtube from "../../assets/images/youtube.png"
+import Youtube from "../../assets/images/youtube.png";
 
 export const bgStyle = {
   backgroundImage: `url(${bgCar})`,
@@ -75,7 +75,6 @@ function RaffleDashbord() {
             {/* home-content */}
             <div className="flex flex-col xl:px-6 px-4 special:px-12 xl:space-y-16 special:space-y-24 space-y-8">
               <div className="xl:flex xl:flex-row flex-col xl:justify-between xl:items-center xl:gap-4 space-y-4 xl:space-y-0">
-                {/* <div className="side-bg" style={{ height: "500px" }}></div> */}
                 <img
                   src={BG}
                   alt=""
@@ -100,20 +99,35 @@ function RaffleDashbord() {
                   <div className="flex xl:flex-row md:flex-row flex-col xl:justify-between gap-2">
                     <div className="flex flex-col space-y-2 special:space-y-8 flex-1">
                       <div className="flex flex-row items-center gap-2 special:gap-4">
-                        <img src={User} alt="" className="w-12 h-12 special:w-36 special:h-36" />
+                        <img
+                          src={User}
+                          alt=""
+                          className="w-12 h-12 special:w-36 special:h-36"
+                        />
                         <div className="flex flex-col space-y-1">
-                          <p className="font-bold special:text-8xl">Earning Balance</p>
+                          <p className="font-bold special:text-8xl">
+                            Earning Balance
+                          </p>
                           <p className="special:text-6xl">$588.632</p>
                         </div>
                       </div>
-                      <div>
+                      {/* <div>
                         <img src={Youtube} alt="" className="" />
+                      </div> */}
+                      <div className="">
+                        <iframe
+                          title="YouTube Video"
+                          src="https://www.youtube.com/watch?v=y6qxTSuf91k"
+                          frameBorder="0"
+                          allowFullScreen
+                          className="special:w-[1000px] special:h-[350px]"
+                        ></iframe>
                       </div>
                     </div>
                     <div className="xl:flex md:flex items-end flex-1 w-full">
-                         <Link to="/live-raffle">
+                      <Link to="/live-raffle">
                         <div
-                          className="flex-col rounded-3xl px-2 special:px-4 py-1 space-y-2 flex-1 hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1"
+                          className="flex-col rounded-3xl px-2 special:px-4 py-1 space-y-2 flex-1 border-2 hover:border-black"
                           style={{
                             background:
                               "linear-gradient(98.92deg, #E9BA0D 45%, #000000 83%)",

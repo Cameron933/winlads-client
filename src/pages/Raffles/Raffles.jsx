@@ -113,7 +113,7 @@ function Raffles() {
                       to=" /history"
                       className="text-3xl flex justify-end xl:hidden md:hidden"
                     >
-                      <LuHistory className="hover:animate-spin z-10" />
+                      {/* <LuHistory className="hover:animate-spin z-10" /> */}
                     </Link>
                     <Calendar
                       value={value}
@@ -125,12 +125,12 @@ function Raffles() {
                         to=" /history"
                         className="text-3xl xl:flex md:flex justify-end hidden"
                       >
-                        <LuHistory className="hover:animate-spin special:w-16 special:h-16 2xl:w-12 2xl:h-12 z-10" />
+                        {/* <LuHistory className="hover:animate-spin special:w-16 special:h-16 2xl:w-12 2xl:h-12 z-10" /> */}
                       </Link>
 
                       <Link to="/live-raffle">
                         <div
-                          className="flex-col rounded-3xl px-2 special:px-4 py-1 space-y-2 flex-1 hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1"
+                          className="flex-col rounded-3xl px-2 special:px-4 py-1 space-y-2 flex-1 border-2 hover:border-black"
                           style={{
                             background:
                               "linear-gradient(98.92deg, #E9BA0D 45%, #000000 83%)",
