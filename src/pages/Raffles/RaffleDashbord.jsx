@@ -120,6 +120,7 @@ function RaffleDashbord() {
                           src="https://www.youtube.com/watch?v=y6qxTSuf91k"
                           frameBorder="0"
                           allowFullScreen
+                          className="special:w-[1000px] special:h-[350px]"
                         ></iframe>
                       </div>
                     </div>
