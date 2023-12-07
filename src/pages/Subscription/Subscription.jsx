@@ -238,7 +238,7 @@ function Subscription() {
               {choosePlane && (
                 <div className="absolute left-60 right-0 top-60 bottom-0 flex">
                   {" "}
-                  <ChoosePlane onClose={() => setChoosePlane(false)} planeId={selectedPlaneId} />
+                  <ChoosePlane onClose={() => setChoosePlane(false)} planeId={selectedPlaneId} userId={valUser} />
                 </div>
               )}
             </div>

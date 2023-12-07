@@ -37,13 +37,6 @@ function BusinessCard() {
           {isOrderNow ? "Let’s Get Your Card !!" : ""}
         </p>
       </div>
-      {/* <div className="flex flex-col items-center">
-        <BCard></BCard>
-      </div>
-
-      <div className="flex flex-col items-center">
-        <BCardQR></BCardQR>
-      </div> */}
 
       <div
         className=""
