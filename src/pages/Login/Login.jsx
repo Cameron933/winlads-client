@@ -17,6 +17,8 @@ import Cookies from "universal-cookie";
 import { motion } from "framer-motion";
 import XlJeep from "../../assets/images/Xljeep.png";
 import { toast } from "react-toastify";
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 
 const Login = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -223,24 +225,21 @@ const Login = () => {
                   Sign in to access your account
                 </span>
                 <div className="flex items-center flex-col justify-center gap-5 w-3/4 mx-auto mt-10">
-                  <div
-                    // id="recaptcha-container"
-                    className={
-                      errors.mobile && touched.mobile
-                        ? "input-div input-error"
-                        : "input-div" 
-                    }
-                  >
-                    <img src={Phone} alt="phone" />
-                    <input
-                      type="text"
+                  <div className=" w-full">
+                    {/* <img src={Phone} alt="phone" /> */}
+                    <PhoneInput
+                      country={'au'}
+                      // type="text"
                       placeholder="+1(Phone Number)"
                       value={ph}
+                      inputProps={{
+                        required: true,
+                      }}
                       onChange={(e) => setPh(e.target.value)}
-                      onBlur={handleBlur}
-                      id="mobile"
-                      className="border-2 border-black"
+                      // id="mobile"
+                      className="w-full border-2 border-black rounded-lg"
                     />
+
                     <small className="text-error">
                       {errors.mobile && touched.mobile && errors.mobile}
                     </small>

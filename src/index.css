@@ -84,6 +84,42 @@ code {
 
 /* common css */
 
+.react-tel-input .form-control{
+  font-size: 18px !important;
+  border: none !important;
+  background: #DEDEDE !important;
+  padding-left: 50px !important;
+  width: 100% !important; 
+  height: 45px;
+}
+
+.react-tel-input .flag-dropdown{
+  border: none;
+  border-radius: 8px;
+}
+.react-tel-input .flag-dropdown.open{
+  border: none;
+  border-radius: 8px;
+}
+
+
+.react-tel-input .selected-flag{
+  border: none;
+  border-radius: 8px !important;
+}
+
+.react-tel-input .country-list{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.react-tel-input .country-list {
+  border-radius: 8px;
+  margin: 3px 0 10px -1px !important;
+  width: 387px;
+}
+
 .input-div {
   width: 100%;
   padding: 10px 15px;
@@ -99,6 +135,8 @@ code {
 
   position: relative;
 }
+
+
 
 .input-div > input {
   width: 100%;
@@ -208,6 +246,19 @@ code {
 
 /* set responsive */
 
+@media (max-width :992px) {
+  .react-tel-input .country-list {
+    width: 304px;
+  }
+}
+
+@media (max-width :720px) {
+  .react-tel-input .country-list {
+    width: 257px;
+  }
+}
+
+
 @media (max-width: 576px) {
   .text-error {
     font-size: 10px;
@@ -296,3 +347,5 @@ code {
 /* .right-side-logo {
   background-image: url('./assets/images/HomesideBg2.png');
 } */
+
+
