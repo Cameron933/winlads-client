@@ -46,7 +46,7 @@ const PresentRaffles = ({color}) => {
           {raffleArray1.map((round, key) => (
             <div
               key={key}
-              className={`bg-gradient-to-br from-[#1A8BC0] to-[#000000] flex cursor-pointer flex-col rounded-3xl px-2 py-2 special:px-4 2xl:px-4 space-y-2 hover:border-black border border-2`}
+              className={`bg-gradient-to-br from-[#1A8BC0] to-[#000000] hover:from-[#000] hover:to-[#1A8BC0] flex cursor-pointer flex-col rounded-3xl px-2 py-2 special:px-4 2xl:px-4 space-y-2 hover:border-black shadow-lg`}
             >
               <div className="flex flex-row justify-between items-center">
                 <img

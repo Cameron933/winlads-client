@@ -9,7 +9,7 @@ const HistoryList = () => {
         <div className="md:pr-32">
           <div className="flex flex-col space-y-4 2xl:space-y-8 special:space-y-12">
             <Link to="/#">
-              <div className="flex flex-row gap-4 border-b-2 border-gray-200">
+              <div className="flex items-center flex-row gap-4 border-b-2 border-gray-200 px-3 py-1 hover:rounded-lg  hover:bg-[#D1D5DB]">
                 <img
                   src={newsimage4}
                   alt=""
@@ -34,7 +34,7 @@ const HistoryList = () => {
               </div>
             </Link>
             <Link to="/#">
-              <div className="flex flex-row gap-4 border-b-2 border-gray-200">
+              <div className="flex items-center flex-row gap-4 border-b-2 border-gray-200 px-3 py-1 hover:rounded-lg  hover:bg-[#D1D5DB]">
                 <img
                   src={newsimage4}
                   alt=""
@@ -59,7 +59,7 @@ const HistoryList = () => {
               </div>
             </Link>
             <Link to="/#">
-              <div className="flex flex-row gap-4 border-b-2 border-gray-200">
+              <div className="flex items-center flex-row gap-4 border-b-2 border-gray-200 px-3 py-1 hover:rounded-lg  hover:bg-[#D1D5DB]">
                 <img
                   src={newsimage4}
                   alt=""
@@ -84,7 +84,7 @@ const HistoryList = () => {
               </div>
             </Link>
             <Link to="/#">
-              <div className="flex flex-row gap-4 border-b-2 border-gray-200">
+              <div className="flex items-center flex-row gap-4 border-b-2 border-gray-200 px-3 py-1 hover:rounded-lg  hover:bg-[#D1D5DB]">
                 <img
                   src={newsimage4}
                   alt=""

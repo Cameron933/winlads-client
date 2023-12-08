@@ -224,7 +224,7 @@ const Login = () => {
                 <span className="text-2xl md:text-3xl lg:text-4xl fw-bold font-bold special:text-4xl">
                   Sign in to access your account
                 </span>
-                <div className="flex items-center flex-col justify-center gap-5 w-3/4 mx-auto mt-10">
+                <div className="flex items-center flex-col justify-center xl:gap-5 lg:gap-4 gap-3 w-3/4 mx-auto mt-10">
                   <div className=" w-full">
                     {/* <img src={Phone} alt="phone" /> */}
                     <PhoneInput
@@ -297,7 +297,7 @@ const Login = () => {
                   </button> */}
 
                   <button
-                    className="bg-black px-12 w-full py-2 flex justify-center flex-row items-center rounded-lg blackbtns"
+                    className=" px-12 w-full py-1 sm:py-2 flex justify-center flex-row items-center rounded-lg animate_btn black_btn"
                     onClick={(e) => onSignup(e)}
                   >
                     <span className="xl:text-2xl text-lg text-white font-bold">

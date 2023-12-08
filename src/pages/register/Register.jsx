@@ -252,7 +252,7 @@ const Register = () => {
                       <img src={User} alt="user" />
                       <input
                         type="text"
-                        placeholder="Full Name"
+                        placeholder="Your Full Name"
                         value={values.name}
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -274,7 +274,7 @@ const Register = () => {
                       <img src={Mail} alt="mail" />
                       <input
                         type="email"
-                        placeholder="Email Address"
+                        placeholder="Your Email Address"
                         value={values.email}
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -295,7 +295,7 @@ const Register = () => {
                       <img src={Passport} alt="passport" />
                       <input
                         type="text"
-                        placeholder="Passport"
+                        placeholder="Your Passport"
                         value={values.passport}
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -316,7 +316,7 @@ const Register = () => {
                       <img src={Taxt} alt="tin" />
                       <input
                         type="text"
-                        placeholder="Tin Number"
+                        placeholder="Your Tin Number"
                         value={values.tin}
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -338,7 +338,7 @@ const Register = () => {
                       <img src={Phone} alt="phone" />
                       <input
                         type="text"
-                        placeholder="+1(Phone Number)"
+                        placeholder="+1(Your Phone Number)"
                         value={ph}
                         onChange={(e) => setPh(e.target.value)}
                         onBlur={handleBlur}
@@ -359,7 +359,7 @@ const Register = () => {
                       <img src={Protect} alt="rafflesId" className="w-6 h-6" />
                       <input
                         type="text"
-                        placeholder="Reference Id"
+                        placeholder="Yor Reference Id"
                         value={values.rafflesId}
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -428,7 +428,7 @@ const Register = () => {
                     {!final && <div id="recaptcha-container"></div>}
 
                     <button
-                      className="bg-black xl:px-24 4xl:px-24 px-12 items-center flex justify-between py-2 flex-row rounded-lg text-center blackbtns"
+                      className="px-12 w-full py-1 sm:py-2 flex justify-center flex-row items-center rounded-lg animate_btn black_btn"
                       onClick={(e) => onSignup(e)}
                     >
                       <span className="xl:text-2xl md:text-xl 4xl:text-2xl text-lg text-white font-bold">
