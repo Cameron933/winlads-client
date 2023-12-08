@@ -266,7 +266,7 @@ const Login = () => {
                     </div>
                   )}
 
-                  <div className="flex items-center justify-between w-full text-md">
+                  <div className="flex items-center justify-start w-full text-md">
                     <div>
                       {/* <input
                         className="mr-1"
@@ -283,7 +283,7 @@ const Login = () => {
                       </label>
                     </div>
 
-                    <span className="text-yellow-600">Re-try?</span>
+                    {/* <span className="text-yellow-600">Re-try?</span> */}
                   </div>
                   {!final && <div id="recaptcha-container"></div>}
                   {/* 
