@@ -12,12 +12,9 @@ function RaffleDashboardComponent() {
   const [raffles, setRaffles] = useState([]);
   const [loading, setLoading] = useState(true);
 
-
   useEffect(() => {
     getRaffles();
   }, []);
-
-
 
   const getRaffles = async () => {
     await new Promise((resolve) => setTimeout(resolve, 2000));

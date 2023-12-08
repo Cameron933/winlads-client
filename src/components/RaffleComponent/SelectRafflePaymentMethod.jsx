@@ -1,33 +1,41 @@
 import { IoCloseSharp } from "react-icons/io5";
-import axios from "axios";
 import white from "../../assets/images/subscribers/white.png";
+import bitcoin from "../../assets/images/rafflesImages/bitcoin.png";
 import Visa from "../../assets/images/rafflesImages/Visa.png";
 import Usd from "../../assets/images/rafflesImages/Usd.png";
-import bitcoin from "../../assets/images/rafflesImages/bitcoin.png";
+import axios from "axios";
 
-const ChoosePlane = ({ onClose, planeId, userId }) => {
+const SelectRafflePaymentMethod = ({ onClose, userId, giveawayId }) => {
   const handleButtonClick = async () => {
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_SERVER_API}/checkoutSession`,
-        { subid:planeId, uid:"jZNYcKmEmIcDhR3yqCJiGknbJiB3" }
+        `${import.meta.env.VITE_SERVER_API}/buyRaffleRoundWithPayment`,
+        {
+          uid: userId,
+          roundid: giveawayId,
+          
+          // uid:"jZNYcKmEmIcDhR3yqCJiGknbJiB3"
+        }
       );
       console.log("Response:", response.data);
+      console.log("user id:", userId);
+      console.log("giv id:", giveawayId);
 
       const payURL = response.data.payurl;
 
       // Redirect the user to the payURL
       window.location.href = payURL;
-
-
     } catch (error) {
       console.log(error);
     }
   };
 
   return (
-    <div className="" onClick={onClose}>
-      <div className="text-white rounded-2xl flex flex-col bg-gradient-to-br from-[#000000] space-y-4 special:space-y-12 2xl:space-y-8  to-[#000000] justify-center py-4 special:py-8 2xl:py-6">
+    <div
+      className="popup-container bg-white/50 justify-center items-center"
+      //   onClick={handleBackdropClick}
+    >
+      <div className="popup-content text-white flex flex-col bg-gradient-to-br from-[#000000] space-y-4 special:space-y-12 2xl:space-y-8  to-[#000000] justify-center py-4 special:py-8 2xl:py-6">
         <div className="flex justify-end">
           <button
             className="text-3xl 2xl:text-4xl special:text-5xl hover:scale-105"
@@ -37,13 +45,13 @@ const ChoosePlane = ({ onClose, planeId, userId }) => {
           </button>
         </div>
 
-        <div className="flex flex-col special:px-24 2xl:px-8 px-4 space-y-4 special:space-y-12 2xl:space-y-8 items-center">
+        <div className="flex flex-col special:px-24 2xl:px-8 px-4 space-y-4 special:space-y-12 2xl:space-y-8">
           <p className="font-bold text-white text-center xl:text-5xl 2xl:text-6xl special:text-9xl md:5xl text-3xl">
             $10
           </p>
           <p className="text-white text-center special:text-4xl">User/Month</p>
           <div className="flex justify-center flex-col space-y-2 special:space-y-6 2xl:space-y-4">
-            <div className="flex flex-row gap-2 items-center">
+            <div className="flex flex-row gap-4 items-center">
               <img
                 src={white}
                 alt=""
@@ -53,7 +61,7 @@ const ChoosePlane = ({ onClose, planeId, userId }) => {
                 1991 Land Rover Defender 110
               </p>
             </div>
-            <div className="flex flex-row gap-2 items-center">
+            <div className="flex flex-row gap-4 items-center">
               <img
                 src={white}
                 alt=""
@@ -64,7 +72,7 @@ const ChoosePlane = ({ onClose, planeId, userId }) => {
                 2023-SEP-19 TUESDAY
               </p>
             </div>
-            <div className="flex flex-row gap-2 items-center">
+            <div className="flex flex-row gap-4 items-center">
               <img
                 src={white}
                 alt=""
@@ -107,4 +115,4 @@ const ChoosePlane = ({ onClose, planeId, userId }) => {
   );
 };
 
-export default ChoosePlane;
+export default SelectRafflePaymentMethod;
