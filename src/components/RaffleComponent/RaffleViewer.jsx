@@ -3,7 +3,7 @@ import PresentRaffles from "./PresentRaffles";
 import PastRaffles from "./PastRaffles";
 import FutureRaffles from "./FutureRaffles";
 import "./Raffle.css";
-const RaffleViewer = ({ raffleRounds, setShowPopup, showLessPopUp, color }) => {
+const RaffleViewer = ({ raffleRounds, setShowPopup, showLessPopUp, color, raffleId, past, present, future }) => {
   const [rTime, setRaffleTime] = useState(0);
   const [activeButton, setActiveButton] = useState(0);
 
@@ -48,14 +48,16 @@ const RaffleViewer = ({ raffleRounds, setShowPopup, showLessPopUp, color }) => {
       {/*ITEMS*/}
       <div className="flex flex-col space-y-2 md:flex-row gap-2 special:gap-4 md:justify-start w-full flex-wrap lg:flex-nowrap mt-10 md:mt-5 items-center">
         {rTime === 0 ? (
-          <PastRaffles setShowPopup={setShowPopup} color={color} />
+          <PastRaffles setShowPopup={setShowPopup} color={color} past={past} />
         ) : rTime === 1 ? (
-          <PresentRaffles setShowPopup={setShowPopup} color={color} />
+          <PresentRaffles setShowPopup={setShowPopup} color={color} present={present} />
         ) : (
           <FutureRaffles
             setShowPopup={setShowPopup}
             showLessPopUP={showLessPopUp}
             color={color}
+            raffleId={raffleId}
+            future={future}
           />
         )}
       </div>

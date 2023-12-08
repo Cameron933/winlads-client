@@ -8,7 +8,7 @@ import { GoQuestion } from "react-icons/go";
 import Jeep from "../../assets/images/Lottery/Jeep.png";
 import six from "../../assets/images/rafflesImages/six4.png";
 import Loto from "../../assets/images/rafflesImages/loto.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Visa from "../../assets/images/rafflesImages/Visa.png";
 import Usd from "../../assets/images/rafflesImages/Usd.png";
 import bitcoin from "../../assets/images/rafflesImages/bitcoin.png";
@@ -26,6 +26,7 @@ import SearchField from "../../components/SearchField/SearchField";
 import { LuHistory } from "react-icons/lu";
 import { useParams, useLocation } from "react-router-dom";
 import BG from "../../assets/images/HomesideBg.png";
+import { validateCurrentUser } from "../../utils/validateuser";
 
 export const bgStyle = {
   backgroundImage: `url(${bgCar})`,
@@ -41,14 +42,22 @@ function Raffles() {
   const [raffleRounds, setRaffleRounds] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  const [past, setPast] = useState([])
+  const [present, setPresent] = useState([])
+  const [future, setFuture] = useState([])
+  const [valUser, setValUser] = useState({});
+  const navigate = useNavigate();
+
   const params = useParams();
   const { raffleId } = useParams();
   const { search } = useLocation();
   const queryParams = new URLSearchParams(search);
   const color = queryParams.get("color");
 
+
   useEffect(() => {
     getRafflesRounds();
+    currentUserValidation()
   }, []);
 
   // set loading
@@ -58,14 +67,27 @@ function Raffles() {
     }, 1000);
   }, []);
 
+  const currentUserValidation = async () => {
+    const validator = await validateCurrentUser();
+    if (validator.validatorBl) {
+      console.log("Session OK", validator.user.balance);
+      setValUser(validator.user);
+    } else {
+      navigate("/login");
+    }
+  };
+
   const getRafflesRounds = async () => {
     await axios
       .get(
-        `${import.meta.env.VITE_SERVER_API}/raffleRounds?raffleid=${params.id}`
+        `${import.meta.env.VITE_SERVER_API}/raffleRounds?raffleid=${params.id}&uid=${valUser}`
       )
       .then((response) => {
         console.log(response.data.data);
         setRaffleRounds(response?.data?.data);
+        setPast(response?.data?.data.past)
+        setPresent(response?.data?.data.present)
+        setFuture(response?.data?.data.future)
       })
       .catch((error) => {
         console.log(error);
@@ -82,7 +104,6 @@ function Raffles() {
           <div className="flex-1">
             {/* home-content */}
             <div className="flex flex-col xl:px-6 px-4 special:px-12 xl:space-y-16 special:space-y-24 space-y-8">
-              {/* <div className="side-bg" style={{ height: "500px" }}></div> */}
 
               <div className="xl:flex xl:flex-row flex-col xl:justify-between xl:items-center xl:gap-8 space-y-4 xl:space-y-0">
                 <img
@@ -130,11 +151,8 @@ function Raffles() {
 
                       <Link to="/live-raffle">
                         <div
-                          className="flex-col rounded-3xl px-2 special:px-4 py-1 space-y-2 flex-1 border-2 hover:border-black"
-                          style={{
-                            background:
-                              "linear-gradient(98.92deg, #E9BA0D 45%, #000000 83%)",
-                          }}
+                          className=" bg-gradient-to-r from-yellow-500 to-black hover:from-black hover:to-yellow-500 flex-col rounded-3xl px-2 special:px-4 py-1 space-y-2 flex-1 "
+                          
                         >
                           <div className="flex flex-row justify-between items-center">
                             <img
@@ -228,6 +246,10 @@ function Raffles() {
                   setShowPopup={setShowPopup}
                   showLessPopUp={setShowLessPopup}
                   color={color}
+                  raffleId={params.id}
+                  past={past}
+                  present={present}
+                  future={future}
                 />
               )}
             </div>

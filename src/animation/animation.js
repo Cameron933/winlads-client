@@ -7,3 +7,14 @@ export const carAnimation = {
     transition: { type: "tween", duration: 1, delay: 1 }, // Delay the animation for 1 second
   };
   
+
+  export const successAnimation = {
+    initial: { y: 0, opacity: 0 },
+    animate: {
+      y: [0, -30, 30, -20, 20, -15, 15, 0],
+      opacity: 1,
+    },
+    transition: { type: "tween", duration: 1, delay: 0 },
+  };
+
+  

@@ -17,8 +17,6 @@ import Cookies from "universal-cookie";
 import { motion } from "framer-motion";
 import XlJeep from "../../assets/images/Xljeep.png";
 import { toast } from "react-toastify";
-import PhoneInput from 'react-phone-input-2';
-import 'react-phone-input-2/lib/style.css';
 
 const Login = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -224,22 +222,25 @@ const Login = () => {
                 <span className="text-2xl md:text-3xl lg:text-4xl fw-bold font-bold special:text-4xl">
                   Sign in to access your account
                 </span>
-                <div className="flex items-center flex-col justify-center xl:gap-5 lg:gap-4 gap-3 w-3/4 mx-auto mt-10">
-                  <div className=" w-full">
-                    {/* <img src={Phone} alt="phone" /> */}
-                    <PhoneInput
-                      country={'au'}
-                      // type="text"
+                <div className="flex items-center flex-col justify-center gap-5 w-3/4 mx-auto mt-10">
+                  <div
+                    // id="recaptcha-container"
+                    className={
+                      errors.mobile && touched.mobile
+                        ? "input-div input-error"
+                        : "input-div" 
+                    }
+                  >
+                    <img src={Phone} alt="phone" />
+                    <input
+                      type="text"
                       placeholder="+1(Phone Number)"
                       value={ph}
-                      inputProps={{
-                        required: true,
-                      }}
                       onChange={(e) => setPh(e.target.value)}
-                      // id="mobile"
-                      className="w-full border-2 border-black rounded-lg"
+                      onBlur={handleBlur}
+                      id="mobile"
+                      className="border-2 border-black"
                     />
-
                     <small className="text-error">
                       {errors.mobile && touched.mobile && errors.mobile}
                     </small>
@@ -283,8 +284,9 @@ const Login = () => {
                       </label>
                     </div>
 
-                    {/* <span className="text-yellow-600">Re-try?</span> */}
+                    
                   </div>
+
                   {!final && <div id="recaptcha-container"></div>}
                   {/* 
                   <button className="btn-main" type="submit">
@@ -297,7 +299,7 @@ const Login = () => {
                   </button> */}
 
                   <button
-                    className=" px-12 w-full py-1 sm:py-2 flex justify-center flex-row items-center rounded-lg animate_btn black_btn"
+                    className="px-12 w-full py-1 sm:py-2 flex justify-center flex-row items-center rounded-lg animate_btn black_btn"
                     onClick={(e) => onSignup(e)}
                   >
                     <span className="xl:text-2xl text-lg text-white font-bold">

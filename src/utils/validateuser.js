@@ -1,5 +1,6 @@
 import axios from "axios";
 import Cookies from 'universal-cookie';
+
 export const validateCurrentUser = async () => {
 
     const cookies = new Cookies(null, { path: '/' });
@@ -12,7 +13,7 @@ export const validateCurrentUser = async () => {
         .get(`${import.meta.env.VITE_SERVER_API}/validate?id=${id}`)
         .then((response) => {
             if (response.data.exists) {
-                console.log("Session OK");
+                console.log("Session OK", response.data);
                 validatorBl.validatorBl = true;
                 validatorBl.user = response.data.data
             } else {

@@ -1,49 +1,36 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Jeep from "../../assets/images/Lottery/Jeep.png";
 import max from "../../assets/images/rafflesImages/max.png";
 import { GoQuestion } from "react-icons/go";
 import { MdOutlineDoNotDisturbOff } from "react-icons/md";
+import { validateCurrentUser } from "../../utils/validateuser";
+import { Link, useNavigate } from "react-router-dom";
 
-const PresentRaffles = ({color}) => {
-  // Common raffleid for all arrays
-  const commonRaffleId = "6543e08c2076f209adae93a2";
-  // Array 1
-  const raffleArray1 = [
-    {
-      _id: "6559a4a32717a7a23e7b353c",
-      name: "Raffle Round 1",
-      date: "2023-SEP-19 TUESDAY",
-      raffleid: commonRaffleId,
-      desc: "Official Landrover Round 1",
-    },
-    {
-      _id: "6559a4c22717a7a23e7b353d",
-      name: "Raffle Round 2",
-      date: "2023-SEP-19 TUESDAY",
-      raffleid: commonRaffleId,
-      desc: "Official Landrover Round 2",
-    },
-    {
-      _id: "6559a4c22717a7a23e7b353d",
-      name: "Raffle Round 2",
-      date: "2023-SEP-19 TUESDAY",
-      raffleid: commonRaffleId,
-      desc: "Official Landrover Round 2",
-    },
-    {
-      _id: "6559a4c22717a7a23e7b353d",
-      name: "Raffle Round 2",
-      date: "2023-SEP-19 TUESDAY",
-      raffleid: commonRaffleId,
-      desc: "Official Landrover Round 2",
-    },
-    
-  ];
+const PresentRaffles = ({color, present=[]}) => {
+
+  const [valUser, setValUser] = useState({});
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    currentUserValidation();
+    console.log(valUser, "usrId")
+  }, []);
+
+  const currentUserValidation = async () => {
+    const validator = await validateCurrentUser();
+    if (validator.validatorBl) {
+      console.log("Session OK", validator.user.balance);
+      setValUser(validator.user);
+    } else {
+      navigate("/login");
+    }
+  };
+
   return (
     <>
-      {raffleArray1.length > 0 ? (
+      {present.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2 special:gap-4 flex-1">
-          {raffleArray1.map((round, key) => (
+          {present.map((round, key) => (
             <div
               key={key}
               className={`bg-gradient-to-br from-[#1A8BC0] to-[#000000] hover:from-[#000] hover:to-[#1A8BC0] flex cursor-pointer flex-col rounded-3xl px-2 py-2 special:px-4 2xl:px-4 space-y-2 hover:border-black shadow-lg`}

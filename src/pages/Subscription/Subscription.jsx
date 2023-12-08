@@ -35,7 +35,6 @@ function Subscription() {
     setSelectedPlaceId(id)
     console.log(selectedPlaneId, "idd")
     console.log(valUser, "user iddasdsad")
-
   };
 
   const handleYear = (val = false) => {
@@ -60,7 +59,7 @@ function Subscription() {
       console.log("Session OK", validator.user.balance);
       setValUser(validator.user);
     } else {
-      // navigate("/login");
+      navigate("/login");
     }
   };
 
@@ -238,7 +237,7 @@ function Subscription() {
               {choosePlane && (
                 <div className="absolute left-60 right-0 top-60 bottom-0 flex">
                   {" "}
-                  <ChoosePlane onClose={() => setChoosePlane(false)} planeId={selectedPlaneId} userId={valUser} />
+                  <ChoosePlane onClose={() => setChoosePlane(false)} planeId={selectedPlaneId} userId={valUser.uid} />
                 </div>
               )}
             </div>

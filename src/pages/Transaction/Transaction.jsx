@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import SideNav from "../../components/SideNav/SideNav";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import Tax from "../../assets/images/transaction/Tax.png";
 import Ticket from "../../assets/images/transaction/Ticket.png";
 import Arrow from "../../assets/images/transaction/Arrow.png";
 import GoldCard from "../../components/GoldCard/GoldCard";
-import PurchaseCard from "../../components/PurchaseCard/PurchaseCard";
 import TopNav from "../../components/TopNav/TopNav";
 import MainCar from "../../assets/images/MainCar.png";
 import Blue from "../../assets/images/transaction/Blue.png";
@@ -17,17 +16,20 @@ import Save from "../../assets/images/transaction/save-outlined.png";
 import Slip from "../../assets/images/transaction/slip-outlined.png";
 import { BiSolidDownArrow } from "react-icons/bi";
 import Chart from "react-apexcharts";
-import EarningCard from "../../components/EarningCard/EarningCard";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import axios from "axios";
+import { validateCurrentUser } from "../../utils/validateuser";
 
 const Transaction = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isCalendarVisible, setIsCalendarVisible] = useState(false);
   const [date, setDate] = useState(new Date());
-  const [earning, setEarning] = useState("");
+  const navigate = useNavigate();
+  const [wallet, setWallet] = useState("");
   const [transactions, getTransactions] = useState([]);
+  const [valUser, setValUser] = useState({});
+
 
   // const [isOpen, setIsOpen] = useState(false);
 
@@ -44,18 +46,31 @@ const Transaction = () => {
   useEffect(() => {
     getEarning();
     getTransactionsFunction();
+    currentUserValidation()
   }, []);
+
+
+  const currentUserValidation = async () => {
+    const validator = await validateCurrentUser();
+    if (validator.validatorBl) {
+      console.log("Session OK", validator.user);
+      setValUser(validator.user);
+    } else {
+      navigate("/login");
+    }
+  };
+
+
 
   const getEarning = async () => {
     await axios
       .get(
         `${
           import.meta.env.VITE_SERVER_API
-        }/getPointBalances?uid=jZNYcKmEmIcDhR3yqCJiGknbJiB3`
+        }/getPointBalances?uid=${valUser.uid}`
       )
       .then((response) => {
-        console.log(response.data.data);
-        setEarning(response?.data?.data);
+        setWallet(response?.data?.data);
       })
       .catch((error) => {
         console.log(error);
@@ -153,7 +168,7 @@ const Transaction = () => {
                 Your Balance
               </p>
               <p className="font-extrabold md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl">
-                $576,000.00
+                ${valUser.balance}
               </p>
             </div>
             <div className="flex flex-row gap-2 xl:gap-6 md:gap-6 2xl:text-2xl special:text-3xl">
@@ -165,7 +180,7 @@ const Transaction = () => {
                 />
                 <div className="flex flex-col">
                   <p className=" text-white text-xl md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl">
-                    $5,000
+                    ${wallet.earning}
                   </p>
                   <p className="text-white md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl">
                     Earning
@@ -181,7 +196,7 @@ const Transaction = () => {
                 />
                 <div className="flex flex-col">
                   <p className="text-white md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl">
-                    $15,000
+                  ${wallet.purchase}
                   </p>
                   <p className="text-white md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl">
                     Purchase
