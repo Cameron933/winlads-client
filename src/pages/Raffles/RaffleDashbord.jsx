@@ -44,7 +44,7 @@ function RaffleDashbord() {
     if (validator.validatorBl) {
       console.log("Session OK");
     } else {
-      // navigate("/login");
+      navigate("/login");
     }
   };
   useEffect(() => {
