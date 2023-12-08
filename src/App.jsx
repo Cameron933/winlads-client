@@ -33,6 +33,7 @@ import NoticeInner from "./pages/Notice/NoticeInner";
 import Messages from "./pages/Messages/Messages";
 import History from "./pages/History/History";
 import SubcriptionDone from "./pages/SubDone"
+import PaymentSuccess from "./pages/PaymentSuccess/PaymentSuccess";
 
 
 function App() {
@@ -130,6 +131,10 @@ function App() {
     {
       path: "/subscription-done",
       element: <SubcriptionDone />,
+    },
+    {
+      path: "/payment-success",
+      element: <PaymentSuccess />,
     },
   ]);
 
