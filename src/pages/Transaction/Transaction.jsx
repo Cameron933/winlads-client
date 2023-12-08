@@ -157,7 +157,7 @@ const Transaction = () => {
               </p>
             </div>
             <div className="flex flex-row gap-2 xl:gap-6 md:gap-6 2xl:text-2xl special:text-3xl">
-              <div className="bg-blue-400 justify-between flex-1 items-center gap-2 md:gap-4 xl:gap-4 rounded-2xl xl:px-4 xl:py-8 md:px-4 md:py-8 flex flex-row px-4 py-4 2xl:gap-8 2xl:py-12 special:gap-12 special:py-16">
+              <div className="bg-blue-400 justify-between flex-1 items-center gap-2 md:gap-4 xl:gap-4 rounded-2xl xl:px-4 xl:py-8 md:px-4 md:py-8 flex flex-row px-4 py-4 2xl:gap-8 2xl:py-12 special:gap-12 special:py-16 cursor-pointer hover:shadow-xl">
                 <img
                   src={Tax}
                   alt=""
@@ -172,7 +172,8 @@ const Transaction = () => {
                   </p>
                 </div>
               </div>
-              <div className="bg-orange-400 flex-1 justify-between items-center xl:gap-4 gap-2 md:gap-4 rounded-2xl xl:px-4 xl:py-8 md:px-4 md:py-8 flex flex-row px-4 py-4 2xl:gap-8 2xl:py-12 special:gap-12 special:py-16">
+
+              <div className="bg-orange-400 flex-1 justify-between items-center xl:gap-4 gap-2 md:gap-4 rounded-2xl xl:px-4 xl:py-8 md:px-4 md:py-8 flex flex-row px-4 py-4 2xl:gap-8 2xl:py-12 special:gap-12 special:py-16 cursor-pointer hover:shadow-xl">
                 <img
                   src={Ticket}
                   alt=""

@@ -59,21 +59,21 @@ function BusinessCard() {
 
           <div className="w-full xl:w-1/2 special:w-2/5 flex gap-16 justify-center py-5">
             <div className="flex flex-col items-center">
-              <button className="text-2xl md:text-4xl pro:text-5xl xl:text-2xl special:text-5xl p-3 rounded-[20px] bg-[#CCBAB3]"><IoMdShare /></button>
+              <button className="text-2xl md:text-4xl pro:text-5xl xl:text-2xl special:text-5xl p-3 rounded-[20px] bg-[#CCBAB3] hover:bg-[#D1D5DB]"><IoMdShare /></button>
               <label className="text-sm md:text-lg pro:text-xl xl:text-sm special:text-2xl"> Share</label>
             </div>
             <div className="flex flex-col items-center">
-              <button className="text-2xl md:text-4xl pro:text-5xl xl:text-2xl special:text-5xl p-3 rounded-[20px] bg-[#CCBAB3]"><IoMdSave /></button>
+              <button className="text-2xl md:text-4xl pro:text-5xl xl:text-2xl special:text-5xl p-3 rounded-[20px] bg-[#CCBAB3] hover:bg-[#D1D5DB]"><IoMdSave /></button>
               <label className="text-sm md:text-lg pro:text-xl xl:text-sm special:text-2xl">Save</label>
             </div>
             <div className="flex flex-col items-center">
               {isOrderNow ? (
                 // Display "orderNow" image when isOrderNow is true
 
-                <button className="text-2xl md:text-4xl pro:text-5xl xl:text-2xl special:text-5xl p-3 rounded-[20px] bg-[#CCBAB3]" onClick={handleShareClick}><MdOutlineAddShoppingCart /></button>
+                <button className="text-2xl md:text-4xl pro:text-5xl xl:text-2xl special:text-5xl p-3 rounded-[20px] bg-[#CCBAB3] hover:bg-[#D1D5DB]" onClick={handleShareClick}><MdOutlineAddShoppingCart /></button>
               ) : (
                 // Display "add" image when isOrderNow is false
-                <button className="text-2xl md:text-4xl pro:text-5xl xl:text-2xl special:text-5xl p-3 rounded-[20px] bg-[#CCBAB3]" onClick={handleShareClick}><MdPersonAddAlt1 /></button>
+                <button className="text-2xl md:text-4xl pro:text-5xl xl:text-2xl special:text-5xl p-3 rounded-[20px] bg-[#CCBAB3] hover:bg-[#D1D5DB]" onClick={handleShareClick}><MdPersonAddAlt1 /></button>
               )}
               <label className="text-sm md:text-lg pro:text-xl xl:text-sm special:text-2xl">
                 {isOrderNow ? "Order Now" : "Request"}
@@ -100,7 +100,7 @@ function ShareForm({ onClose }) {
       <div className="bg-gray-300 flex flex-row-reverse items-center py-3 px-4 gap-3 rounded-2xl justify-end">
         <input
           type="text"
-          placeholder="Full Name"
+          placeholder="Your Full Name"
           id="name"
           className="bg-gray-300 placeholder:text-gray-500 outline-none special:placeholder:text-2xl"
         />
@@ -110,7 +110,7 @@ function ShareForm({ onClose }) {
       <div className="bg-gray-300 flex flex-row-reverse items-center py-3 px-4 gap-3 rounded-2xl justify-end">
         <input
           type="text"
-          placeholder="Passport"
+          placeholder="Your Passport"
           id="passport"
           className="bg-gray-300 placeholder:text-gray-500 outline-none special:placeholder:text-2xl"
         />
@@ -119,7 +119,7 @@ function ShareForm({ onClose }) {
       <div className="bg-gray-300 flex flex-row-reverse items-center py-3 px-4 gap-3 rounded-2xl justify-end">
         <input
           type="text"
-          placeholder="Phone Number"
+          placeholder="Your Phone Number"
           id="mobile"
           className="bg-gray-300 placeholder:text-gray-500 outline-none special:placeholder:text-2xl"
         />
@@ -128,7 +128,7 @@ function ShareForm({ onClose }) {
       <div className="bg-gray-300 flex flex-row-reverse items-center py-3 px-4 gap-3 rounded-2xl justify-end">
         <input
           type="text"
-          placeholder="Postal Address"
+          placeholder="Your Postal Address"
           id="address"
           className="bg-gray-300 placeholder:text-gray-500 outline-none special:placeholder:text-2xl"
         />
