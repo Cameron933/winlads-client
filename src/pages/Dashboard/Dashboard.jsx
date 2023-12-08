@@ -23,12 +23,10 @@ const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [loading, setLoading] = useState(true);
   const [valUser, setValUser] = useState({});
-  const cookies = new Cookies(null, { path: "/" });
   const navigate = useNavigate();
   const [giveaways, setGiveaways] = useState([]);
   const [raffleCount, setRaffleCount] = useState([])
   const [selectGiveawayId, setSelectGiveawayId] = useState("")
-
   
 
   const [showPopup, setShowPopup] = useState(false);
@@ -175,7 +173,7 @@ const Dashboard = () => {
                       <p className="text-[#22CCEE] text-2xl font-semibold">
                         Earning Balance
                       </p>
-                      <p className="text-4xl text-white">$0</p>
+                      <p className="text-4xl text-white">${valUser.balance}</p>
                     </div>
                     <SmallGoldCard />
                   </div>

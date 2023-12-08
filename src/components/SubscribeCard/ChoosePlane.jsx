@@ -10,7 +10,7 @@ const ChoosePlane = ({ onClose, planeId, userId }) => {
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_SERVER_API}/checkoutSession`,
-        { subid:planeId, uid:"jZNYcKmEmIcDhR3yqCJiGknbJiB3" }
+        { subid:planeId, uid:userId }
       );
       console.log("Response:", response.data);
 
