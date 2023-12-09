@@ -58,7 +58,7 @@ function Raffles() {
   useEffect(() => {
     getRafflesRounds();
     currentUserValidation()
-  }, []);
+  }, [present, past, future, raffleRounds, valUser]);
 
   // set loading
   useEffect(() => {
@@ -80,7 +80,7 @@ function Raffles() {
   const getRafflesRounds = async () => {
     await axios
       .get(
-        `${import.meta.env.VITE_SERVER_API}/raffleRounds?raffleid=${params.id}&uid=${valUser}`
+        `${import.meta.env.VITE_SERVER_API}/raffleRounds?raffleid=${params.id}&uid=${valUser.uid}`
       )
       .then((response) => {
         console.log(response.data.data);
