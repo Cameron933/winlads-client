@@ -10,6 +10,38 @@
   scroll-behavior: smooth;
 }
 
+
+/* button animaion */
+.animate_btn {
+  
+  --c:  #4FC8E8; /* the color*/
+  
+  /* box-shadow: 0 0 0 .1em inset var(--c);  */
+  --_g: linear-gradient(var(--c) 0 0) no-repeat;
+  background: 
+    var(--_g) calc(var(--_p,0%) - 100%) 0%,
+    var(--_g) calc(200% - var(--_p,0%)) 0%,
+    var(--_g) calc(var(--_p,0%) - 100%) 100%,
+    var(--_g) calc(200% - var(--_p,0%)) 100%;
+  background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
+  outline-offset: .1em;
+  transition: background-size .4s, background-position 0s .4s;
+}
+.animate_btn:hover {
+  --_p: 100%;
+  transition: background-position .4s, background-size 0s;
+}
+.animate_btn:active {
+  box-shadow: 0 0 9e9q inset #3ebfe2; 
+  background-color: var(--c);
+  color: #fff;
+}
+
+.black_btn{
+  background-color: #000;
+}
+
+
 .paymentCardBorder {
   border-radius: 66.29px;
 }
@@ -84,6 +116,42 @@ code {
 
 /* common css */
 
+.react-tel-input .form-control{
+  font-size: 18px !important;
+  border: none !important;
+  background: #fff !important;
+  padding-left: 50px !important;
+  width: 100% !important; 
+  height: 45px;
+}
+
+.react-tel-input .flag-dropdown{
+  border: none;
+  border-radius: 8px;
+}
+.react-tel-input .flag-dropdown.open{
+  border: none;
+  border-radius: 8px;
+}
+
+
+.react-tel-input .selected-flag{
+  border: none;
+  border-radius: 8px !important;
+}
+
+.react-tel-input .country-list{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.react-tel-input .country-list {
+  border-radius: 8px;
+  margin: 3px 0 10px -1px !important;
+  width: 387px;
+}
+
 .input-div {
   width: 100%;
   padding: 10px 15px;
@@ -99,6 +167,8 @@ code {
 
   position: relative;
 }
+
+
 
 .input-div > input {
   width: 100%;
@@ -170,6 +240,8 @@ code {
   top: 2px;
 }
 
+
+
 .yellow-text {
   color: #e7b600;
 }
@@ -207,6 +279,19 @@ code {
 }
 
 /* set responsive */
+
+@media (max-width :992px) {
+  .react-tel-input .country-list {
+    width: 304px;
+  }
+}
+
+@media (max-width :720px) {
+  .react-tel-input .country-list {
+    width: 257px;
+  }
+}
+
 
 @media (max-width: 576px) {
   .text-error {
@@ -266,9 +351,7 @@ code {
   pointer-events: none;
 }
 
-.blackbtns:hover {
-  background-color: rgb(58, 58, 58);
-}
+
 .moonloader-center {
   display: flex;
   justify-content: center;
@@ -296,3 +379,7 @@ code {
 /* .right-side-logo {
   background-image: url('./assets/images/HomesideBg2.png');
 } */
+
+
+
+

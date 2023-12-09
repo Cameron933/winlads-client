@@ -70,8 +70,9 @@ const Trasfer = () => {
               <p className="font-extrabold text-xl md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl">Your Balance</p>
               <p className="font-extrabold md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl">$576,000.00</p>
             </div>
+            
             <div className="flex flex-row gap-2 xl:gap-6 md:gap-6 2xl:text-2xl special:text-3xl">
-              <div className="bg-blue-400 justify-between flex-1 items-center gap-2 md:gap-4 xl:gap-4 rounded-2xl xl:px-4 xl:py-8 md:px-4 md:py-8 flex flex-row px-4 py-4">
+              <div className="bg-blue-400 justify-between flex-1 items-center gap-2 md:gap-4 xl:gap-4 rounded-2xl xl:px-4 xl:py-8 md:px-4 md:py-8 flex flex-row px-4 py-4 cursor-pointer hover:shadow-xl">
                 <img src={Tax} alt="" className="md:h-20 md:w-20 xl:h-16 xl:w-16 max-w-screen-sm" />
                 <div className="flex flex-col">
                   <p className=" text-white text-xl md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl">
@@ -82,7 +83,7 @@ const Trasfer = () => {
                   </p>
                 </div>
               </div>
-              <div className="bg-orange-400 flex-1 justify-between items-center xl:gap-4 gap-2 md:gap-4 rounded-2xl xl:px-4 xl:py-8 md:px-4 md:py-8 flex flex-row px-4 py-4">
+              <div className="bg-orange-400 flex-1 justify-between items-center xl:gap-4 gap-2 md:gap-4 rounded-2xl xl:px-4 xl:py-8 md:px-4 md:py-8 flex flex-row px-4 py-4 cursor-pointer hover:shadow-xl">
                 <img src={Ticket} alt="" className="md:h-20 md:w-20 xl:h-16 xl:w-16 max-w-screen-sm" />
                 <div className="flex flex-col">
                   <p className="text-white md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl">
@@ -94,6 +95,7 @@ const Trasfer = () => {
                 </div>
               </div>
             </div>
+            
             <div className="flex flex-col">
             <div style={{ position: 'relative' }}>
                 <div className="flex flex-row items-center justify-center gap-2 mb-5" onClick={toggleCalendar}>

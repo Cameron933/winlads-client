@@ -267,7 +267,7 @@ const Login = () => {
                     </div>
                   )}
 
-                  <div className="flex items-center justify-between w-full text-md">
+                  <div className="flex items-center justify-start w-full text-md">
                     <div>
                       {/* <input
                         className="mr-1"
@@ -284,8 +284,9 @@ const Login = () => {
                       </label>
                     </div>
 
-                    <span className="text-yellow-600">Re-try?</span>
+                    
                   </div>
+
                   {!final && <div id="recaptcha-container"></div>}
                   {/* 
                   <button className="btn-main" type="submit">
@@ -298,7 +299,7 @@ const Login = () => {
                   </button> */}
 
                   <button
-                    className="bg-black px-12 w-full py-2 flex justify-center flex-row items-center rounded-lg blackbtns"
+                    className="px-12 w-full py-1 sm:py-2 flex justify-center flex-row items-center rounded-lg animate_btn black_btn"
                     onClick={(e) => onSignup(e)}
                   >
                     <span className="xl:text-2xl text-lg text-white font-bold">

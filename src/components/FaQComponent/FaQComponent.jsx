@@ -17,12 +17,12 @@ function FaQComponent() {
         <h2 id="accordion-collapse-heading-1">
           <button
             type="button"
-            className={`flex items-center justify-between w-full p-5 mb-2 font-medium text-left text-black-500 rounded-3xl focus:bg-white dark:text-black-400 bg-white border border-orange-500 special:border-4 2xl:border-2 special:rounded-[40px]`}
+            className={`flex items-center justify-between w-full p-5 mb-2 font-medium text-left text-black-500 rounded-3xl focus:bg-white dark:text-black-400 bg-white border border-orange-500 special:border-4 2xl:border-2 special:rounded-[40px] hover:bg-[#D1D5DB] active:bg-[#D1D5DB]`}
             onClick={() => toggleAccordion(1)}
             aria-expanded={isAccordionActive(1)}
             aria-controls="accordion-collapse-body-1"
           >
-            <span className="font-bold special:text-3xl 2xl:text-2xl special:py-5">What is Winlads?</span>
+            <span className="font-bold special:text-3xl 2xl:text-2xl special:py-5 ">What is Winlads?</span>
             <svg
               data-accordion-icon
               className={`w-3 h-3 special:w-6 special:h-6 rotate-180 shrink-0 ${
@@ -65,7 +65,7 @@ function FaQComponent() {
         <h2 id="accordion-collapse-heading-2">
           <button
             type="button"
-            className={`flex items-center justify-between w-full p-5 mb-2 font-medium text-left text-black-500  rounded-3xl focus:bg-white dark:text-black-400 bg-white border border-orange-500 special:border-4 2xl:border-2 special:rounded-[40px]`}
+            className={`flex items-center justify-between w-full p-5 mb-2 font-medium text-left text-black-500  rounded-3xl focus:bg-white dark:text-black-400 bg-white border border-orange-500 special:border-4 2xl:border-2 special:rounded-[40px] hover:bg-[#D1D5DB] active:bg-[#D1D5DB]`}
             onClick={() => toggleAccordion(2)}
             aria-expanded={isAccordionActive(2)}
             aria-controls="accordion-collapse-body-2"
@@ -115,7 +115,7 @@ function FaQComponent() {
         <h2 id="accordion-collapse-heading-3">
           <button
             type="button"
-            className={`flex items-center justify-between w-full p-5 mb-2 font-medium text-left text-black-500  rounded-3xl focus:bg-white dark:text-black-400 bg-white border border-orange-500 special:border-4 2xl:border-2 special:rounded-[40px]`}
+            className={`flex items-center justify-between w-full p-5 mb-2 font-medium text-left text-black-500  rounded-3xl focus:bg-white dark:text-black-400 bg-white border border-orange-500 special:border-4 2xl:border-2 special:rounded-[40px] hover:bg-[#D1D5DB] active:bg-[#D1D5DB]`}
             onClick={() => toggleAccordion(3)}
             aria-expanded={isAccordionActive(3)}
             aria-controls="accordion-collapse-body-3"
