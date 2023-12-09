@@ -24,7 +24,7 @@ function Subscription() {
   const [choosePlane, setChoosePlane] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  const [selectedPlaneId, setSelectedPlaceId] = useState("")
+  const [selectedPlaneId, setSelectedPlaceId] = useState("");
   const navigate = useNavigate();
 
   const [valUser, setValUser] = useState({});
@@ -32,9 +32,9 @@ function Subscription() {
 
   const handleButton = (id) => {
     setChoosePlane(true);
-    setSelectedPlaceId(id)
-    console.log(selectedPlaneId, "idd")
-    console.log(valUser, "user iddasdsad")
+    setSelectedPlaceId(id);
+    console.log(selectedPlaneId, "idd");
+    console.log(valUser, "user iddasdsad");
   };
 
   const handleYear = (val = false) => {
@@ -53,7 +53,7 @@ function Subscription() {
     getPlanes();
   }, []);
 
-    const currentUserValidation = async () => {
+  const currentUserValidation = async () => {
     const validator = await validateCurrentUser();
     if (validator.validatorBl) {
       console.log("Session OK", validator.user.balance);
@@ -220,7 +220,11 @@ function Subscription() {
                             ? plane.raffle_count_annual
                             : plane.raffle_count
                         }
-                        onButtonClick={() => handleButton(isYearly ? plane.subidannual : plane.subid)}
+                        onButtonClick={() =>
+                          handleButton(
+                            isYearly ? plane.subidannual : plane.subid
+                          )
+                        }
                       />
                     ))}
                   </div>
@@ -234,10 +238,19 @@ function Subscription() {
                 </div>
               )}
 
+              {/* absolute xl:left-60 left-0 right-0 top-60 bottom-0 flex */}
+
               {choosePlane && (
-                <div className="absolute left-60 right-0 top-60 bottom-0 flex">
-                  {" "}
-                  <ChoosePlane onClose={() => setChoosePlane(false)} planeId={selectedPlaneId} userId={valUser.uid} />
+                <div className="fixed top-0 md:top-80 xl:left-60 xl:right-0 xl:top-60 xl:bottom-0 special:items-center special:justify-center 2xl:items-start 2xl:top-80 left-10 right-0 bottom-0 flex items-center justify-center xl:justify-start 2xl:left-80 xl:left-50 z-10 special:-top-80">
+                  <div className="relative">
+                    <div className="mx-auto">
+                      <ChoosePlane
+                        onClose={() => setChoosePlane(false)}
+                        planeId={selectedPlaneId}
+                        userId={valUser.uid}
+                      />
+                    </div>
+                  </div>
                 </div>
               )}
             </div>

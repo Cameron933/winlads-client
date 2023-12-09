@@ -47,7 +47,7 @@ const Transaction = () => {
     getEarning();
     getTransactionsFunction();
     currentUserValidation()
-  }, []);
+  }, [wallet]);
 
 
   const currentUserValidation = async () => {
