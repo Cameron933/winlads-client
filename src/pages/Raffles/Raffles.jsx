@@ -151,11 +151,8 @@ function Raffles() {
 
                       <Link to="/live-raffle">
                         <div
-                          className="flex-col rounded-3xl px-2 special:px-4 py-1 space-y-2 flex-1 border-2 hover:border-black"
-                          style={{
-                            background:
-                              "linear-gradient(98.92deg, #E9BA0D 45%, #000000 83%)",
-                          }}
+                          className=" bg-gradient-to-r from-yellow-500 to-black hover:from-black hover:to-yellow-500 flex-col rounded-3xl px-2 special:px-4 py-1 space-y-2 flex-1 "
+                          
                         >
                           <div className="flex flex-row justify-between items-center">
                             <img

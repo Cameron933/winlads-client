@@ -44,7 +44,7 @@ function RaffleDashboardComponent() {
           {raffles.map((raffle, key) => (
             <Link key={key} to={`/raffles/${raffle._id}?color=${encodeURIComponent(raffle.color)}`} className="w-full">
               <div
-                className={`bg-gradient-to-br from-[#1A8BC0] to-[#000000] flex flex-row justify-between items-center px-2 rounded-3xl w-full py-2 border border-2 hover:border-black`}
+                className={`bg-gradient-to-br from-[#1A8BC0] to-[#000000] flex flex-row justify-between items-center px-2 rounded-3xl w-full py-2 shadow-lg hover:from-[#000] hover:to-[#1A8BC0]`}
               >
                 <img
                   src={Jeep}
