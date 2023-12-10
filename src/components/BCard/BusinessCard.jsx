@@ -19,11 +19,13 @@ import "./modal.css";
 import BCardQR from "../CardBusiness/CardQR";
 import { validateCurrentUser } from "../../utils/validateuser";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function BusinessCard() {
   const navigate = useNavigate();
   const [isOrderNow, setOrderNow] = useState(false);
   const [valUser, setValUser] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const handleShareClick = () => {
     setOrderNow(!isOrderNow);
@@ -42,6 +44,8 @@ function BusinessCard() {
       navigate("/login");
     }
   };
+
+
 
   return (
     <div className="flex flex-col space-y-4 special:space-y-16">
@@ -126,6 +130,8 @@ function BusinessCard() {
 }
 
 function ShareForm({ onClose, userName, passPort, phone, postal }) {
+
+  
   return (
     <form className="form-contain-reg space-y-7 w-full xl:w-3/5 special:w-2/5 special:space-y-16">
       <div className="bg-gray-300 flex flex-row-reverse items-center py-3 px-4 gap-3 rounded-2xl justify-end">
