@@ -1,6 +1,7 @@
 import vehicle from "../../assets/images/Lottery/Jeep.png";
 import SelectRafflePaymentMethod from "../../components/RaffleComponent/SelectRafflePaymentMethod";
 import BuyRaffle from "../../components/RaffleComponent/BuyRaffle";
+import NewJeep from "../../assets/images/newJeep.png"
 
 const DashboardVehicleCard = ({ name, date, icon, fromColor, type, onButton }) => {
   const handleClick = () => {
@@ -10,7 +11,7 @@ const DashboardVehicleCard = ({ name, date, icon, fromColor, type, onButton }) =
   return (
     <>
     <div
-      className={`bg-gradient-to-r from-[#1A8BC0] to-black rounded-3xl py-2 px-2 special:px-4  hover:from-[#000] hover:to-[#1A8BC0] cursor-pointer `}
+      className={`rounded-3xl py-2 px-2 special:px-4 bg-[#1195D4] hover:bg-[#1195D4]/75 cursor-pointer `}
       onClick={handleClick}
     >
       <div className="flex justify-end">
@@ -18,7 +19,7 @@ const DashboardVehicleCard = ({ name, date, icon, fromColor, type, onButton }) =
       </div>
       <div className="flex flex-row justify-between items-center">
         <img
-          src={vehicle}
+          src={NewJeep}
           alt="vehicle"
           className="w-36 special:w-96 2xl:w-64"
         />

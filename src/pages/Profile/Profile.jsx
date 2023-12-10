@@ -10,12 +10,11 @@ import axios from "axios";
 import Cookies from "universal-cookie";
 import { MdOutlinePhotoCamera } from "react-icons/md";
 import { toast } from "react-toastify";
-import { HashLoader } from 'react-spinners';
-
+import { HashLoader } from "react-spinners";
 
 const Profile = () => {
-  const cookies = new Cookies(null, { path: '/' });
-  const id = cookies.get('wr_token');
+  const cookies = new Cookies(null, { path: "/" });
+  const id = cookies.get("wr_token");
   const [userData, setUserData] = useState({});
 
   const [name, setName] = useState("");
@@ -30,26 +29,26 @@ const Profile = () => {
 
   useEffect(() => {
     getUserData();
-  }, [])
+  }, []);
 
   const getUserData = async () => {
-    setLoading(true)
+    setLoading(true);
     await axios
       .get(`${import.meta.env.VITE_SERVER_API}/validate?id=${id}`)
       .then((response) => {
-        console.log(response.data.data)
-        setUserData(response?.data?.data)
-        setMobile(response?.data?.data.mobile)
+        console.log(response.data.data);
+        setUserData(response?.data?.data);
+        setMobile(response?.data?.data.mobile);
         setName(response?.data?.data.name);
         setEmail(response?.data?.data.email);
         setPassport(response?.data?.data.passport);
         setTin(response?.data?.data.tin);
         setDob(response?.data?.data.dob);
         setAddress(response?.data?.data.address);
-        setLoading(false)
+        setLoading(false);
       })
       .catch((error) => {
-        setLoading(false)
+        setLoading(false);
         toast.error(error.message, {
           position: "top-center",
           autoClose: 5000,
@@ -60,9 +59,9 @@ const Profile = () => {
           progress: undefined,
           theme: "colored",
         });
-        console.log(error)
+        console.log(error);
       });
-  }
+  };
 
   const updateUserDatails = async () => {
     setLoading(true);
@@ -76,7 +75,7 @@ const Profile = () => {
         passport,
         tin,
         dob,
-        address
+        address,
       }
     );
     if (response.data.status == 200) {
@@ -90,7 +89,7 @@ const Profile = () => {
         progress: undefined,
         theme: "colored",
       });
-      setLoading(false)
+      setLoading(false);
     } else {
       toast.error("Cannot update your profile. Please try again later", {
         position: "top-center",
@@ -102,18 +101,14 @@ const Profile = () => {
         progress: undefined,
         theme: "colored",
       });
-      setLoading(false)
+      setLoading(false);
     }
-  }
-
-
-
-
+  };
 
   return (
     <div>
       <div className="flex relative">
-      <div className="right-side-logo max-xl:hidden"></div>
+        <div className="right-side-logo max-xl:hidden"></div>
 
         <SideNav screen="screen" />
         <div
@@ -135,37 +130,49 @@ const Profile = () => {
           <div className="flex flex-col space-y-4 flex-1 xl:mx-12">
             <div className="flex flex-col space-y-3">
               <form className="mx-auto mt-4 relative">
-                <img src={User} alt="profile-pic" className="special:w-28"/>
-                <label htmlFor="profile" className="z-10 absolute -bottom-3 -right-2 text-2xl bg-gray-200 rounded-full p-1 cursor-pointer">
-                  <MdOutlinePhotoCamera/>
+                <img src={User} alt="profile-pic" className="special:w-28" />
+                <label
+                  htmlFor="profile"
+                  className="z-10 absolute -bottom-3 -right-2 text-2xl bg-gray-200 rounded-full p-1 cursor-pointer"
+                >
+                  <MdOutlinePhotoCamera />
                 </label>
-                <input type="file" className="hidden" name="profile" id="profile" />
-                
+                <input
+                  type="file"
+                  className="hidden"
+                  name="profile"
+                  id="profile"
+                />
               </form>
               <div className="flex items-center justify-center gap-2">
                 <div className="bg-green-300 border border-0.5 border-black p-0.5 w-fit special:px-3">
-                  <p className="w-fit special:text-xl " style={{fontSize:'8px'}}>Level 1</p>
+                  <p
+                    className="w-fit special:text-xl "
+                    style={{ fontSize: "8px" }}
+                  >
+                    Level 1
+                  </p>
                 </div>
                 <p className="special:text-xl">Verified User</p>
               </div>
-              
-              
-              
 
-
-
-
-              {
-                loading ? <div className="moonloader-center"><HashLoader
-                  color={'#43AEC2'}
-                  loading={true}
-                  // cssOverride={override}
-                  size={50}
-                  aria-label="Loading Spinner"
-                  data-testid="loader"
-                /> </div> : <div className="flex flex-col space-y-2 special:space-y-5">
+              {loading ? (
+                <div className="moonloader-center">
+                  <HashLoader
+                    color={"#43AEC2"}
+                    loading={true}
+                    // cssOverride={override}
+                    size={50}
+                    aria-label="Loading Spinner"
+                    data-testid="loader"
+                  />{" "}
+                </div>
+              ) : (
+                <div className="flex flex-col space-y-2 special:space-y-5">
                   <div className="flex flex-col space-y-2">
-                    <p className="text-black text-sm xl:text-md special:text-xl">User ID</p>
+                    <p className="text-black text-sm xl:text-md special:text-xl">
+                      User ID
+                    </p>
                     <input
                       className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
                       placeholder="Enter User Name"
@@ -175,9 +182,10 @@ const Profile = () => {
                     ></input>
                   </div>
                   <div className="flex flex-col space-y-2">
-                    <p className="text-black text-sm xl:text-md special:text-xl">First Name</p>
+                    <p className="text-black text-sm xl:text-md special:text-xl">
+                      First Name
+                    </p>
                     <input
-
                       className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
                       placeholder="Enter First Name"
                       type="text"
@@ -186,7 +194,9 @@ const Profile = () => {
                     ></input>
                   </div>
                   <div className="flex flex-col space-y-2">
-                    <p className="text-black text-sm xl:text-md special:text-xl">Last Name</p>
+                    <p className="text-black text-sm xl:text-md special:text-xl">
+                      Last Name
+                    </p>
                     <input
                       className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
                       placeholder="Enter Last Name"
@@ -196,7 +206,9 @@ const Profile = () => {
                     ></input>
                   </div>
                   <div className="flex flex-col space-y-2">
-                    <p className="text-black text-sm xl:text-md special:text-xl">Valid Email</p>
+                    <p className="text-black text-sm xl:text-md special:text-xl">
+                      Valid Email
+                    </p>
                     <input
                       className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
                       placeholder="Enter Valid EMail"
@@ -206,7 +218,9 @@ const Profile = () => {
                     ></input>
                   </div>
                   <div className="flex flex-col space-y-2">
-                    <p className="text-black text-sm xl:text-md special:text-xl">Phone Number</p>
+                    <p className="text-black text-sm xl:text-md special:text-xl">
+                      Phone Number
+                    </p>
                     <input
                       className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
                       placeholder="Enter Phone Number"
@@ -228,7 +242,9 @@ const Profile = () => {
                     ></input>
                   </div>
                   <div className="flex flex-col space-y-2">
-                    <p className="text-black text-sm xl:text-md special:text-xl">Date of Birth</p>
+                    <p className="text-black text-sm xl:text-md special:text-xl">
+                      Date of Birth
+                    </p>
                     <input
                       className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
                       placeholder="Enter Date of Birth"
@@ -250,7 +266,9 @@ const Profile = () => {
                     ></input>
                   </div>
                   <div className="flex flex-col space-y-2">
-                    <p className="text-black text-sm xl:text-md special:text-xl">Tin</p>
+                    <p className="text-black text-sm xl:text-md special:text-xl">
+                      Tin
+                    </p>
                     <input
                       className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
                       placeholder="Enter Tin"
@@ -260,7 +278,9 @@ const Profile = () => {
                     ></input>
                   </div>
                   <div className="flex flex-col space-y-2">
-                    <p className="text-black text-sm xl:text-md special:text-xl">Reference Id</p>
+                    <p className="text-black text-sm xl:text-md special:text-xl">
+                      Reference Id
+                    </p>
                     <input
                       className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
                       placeholder="Enter Reference Id"
@@ -287,6 +307,11 @@ const Profile = () => {
                     </label>
                   </div> */}
 
+                    <p className="special:text-xl">
+                      {" "}
+                      <input type="checkbox" name="agree" /> I agree with the
+                      terms of use
+                    </p>
 
                       <p className="special:text-xl"> <input type="checkbox" name="agree" /> I agree with the terms of use</p>
 
@@ -296,11 +321,7 @@ const Profile = () => {
               
                   </div>
                 </div>
-
-
-              }
-
-
+              )}
             </div>
           </div>
           <div className="xl:flex flex-col space-y-4 flex-1 hidden">

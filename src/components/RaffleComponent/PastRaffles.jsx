@@ -6,6 +6,7 @@ import { FiLoader } from "react-icons/fi";
 import { MdOutlineDoNotDisturbOff } from "react-icons/md";
 import { validateCurrentUser } from "../../utils/validateuser";
 import { Link, useNavigate } from "react-router-dom";
+import NewJeep from "../../assets/images/newJeep.png"
 
 const PastRaffles = ({color, past=[]}) => {
   const [loading, setLoading] = useState(true);
@@ -36,11 +37,11 @@ const PastRaffles = ({color, past=[]}) => {
           {past.map((round, key) => (
             <div
               key={key}
-              className={`bg-gradient-to-br from-[#1A8BC0] to-[#000000] hover:from-[#000] hover:to-[#1A8BC0]  w-full flex cursor-pointer flex-col rounded-3xl px-2 py-2 special:px-4 2xl:px-4 space-y-2 hover:border-black shadow-lg`}
+              className={`bg-[#1195D4] hover:bg-[#1195D4]/75 w-full flex cursor-pointer flex-col rounded-3xl px-2 py-2 special:px-4 2xl:px-4 space-y-2 hover:border-black shadow-lg`}
             >
               <div className="flex flex-row justify-between items-center">
                 <img
-                  src={Jeep}
+                  src={NewJeep}
                   alt=""
                   className="flex w-36 special:w-96 2xl:w-64"
                 />
@@ -67,8 +68,8 @@ const PastRaffles = ({color, past=[]}) => {
         </div>
       ) : (
         <div className="flex flex-col items-center justify-center space-y-2">
-          <MdOutlineDoNotDisturbOff className="w-12 h-12 2xl:w-16 2xl:h-16 special:w-24 special:h-24" />
-          <p className="font-bold text-2xl 2xl:text-4xl special:text-6xl">
+          <MdOutlineDoNotDisturbOff className="w-8 h-8 2xl:w-12 2xl:h-12 special:w-16 special:h-16" />
+          <p className="font-bold text-xl 2xl:text-4xl special:text-4xl">
             No More Giveaways
           </p>
         </div>
