@@ -33,13 +33,6 @@ function RaffleDashbord() {
   const [isLoading, setIsLoading] = useState(true);
   const [valUser, setValUser] = useState({});
 
-  // set loading
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-  }, []);
-
   const navigate = useNavigate();
   const currentUserValidation = async () => {
     const validator = await validateCurrentUser();
@@ -61,6 +54,7 @@ function RaffleDashbord() {
       .then((response) => {
         console.log(response.data.data);
         setRaffles(response?.data?.data);
+        setIsLoading(false);
       })
       .catch((error) => {
         console.log(error);

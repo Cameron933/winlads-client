@@ -35,6 +35,7 @@ import History from "./pages/History/History";
 import SubcriptionDone from "./pages/SubDone"
 import PaymentSuccess from "./pages/PaymentSuccess/PaymentSuccess";
 import GoogleAnalytics from "./utils/GoogleAnalytics";
+import TermsCondition from "./pages/Terms&Condition/Terms&Condition"
 
 
 function App() {
@@ -137,6 +138,12 @@ function App() {
       path: "/payment-success",
       element: <PaymentSuccess />,
     },
+
+    {
+      path: "/conditions",
+      element: <TermsCondition />,
+    },
+
   ]);
 
 

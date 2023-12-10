@@ -46,7 +46,6 @@ const Register = () => {
     }, 1000); //a 2-second loading delay
   }, []);
 
-
   const onCheckboxChange = (e) => {
     setIsChecked(e.target.checked);
   };
@@ -444,8 +443,11 @@ const Register = () => {
                         <label htmlFor="checker">
                           <span>
                             By checking the box you agree to our{" "}
-                            <span className="yellow-text">Terms</span> and{" "}
-                            <span className="yellow-text">Conditions.</span>
+                            <Link to="/conditions">
+                              <span className="yellow-text">
+                                Terms and Conditions
+                              </span>
+                            </Link>
                           </span>
                         </label>
                       </div>
