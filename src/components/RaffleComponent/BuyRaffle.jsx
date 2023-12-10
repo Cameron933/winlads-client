@@ -35,7 +35,7 @@ const BuyRaffle = ({
           theme: "colored",
         });
         setLoading(false);
-        onClose()
+        onClose();
       } else {
         toast.error("Please try again later", {
           position: "top-center",
@@ -48,7 +48,7 @@ const BuyRaffle = ({
           theme: "colored",
         });
         setLoading(false);
-        onClose()
+        onClose();
       }
       console.log("Response:", response.data);
       console.log("user id:", userId);
@@ -98,23 +98,20 @@ const BuyRaffle = ({
               <p className="text-white text-center special:text-4xl">
                 User/Month
               </p>
-              <div className="text-center text-white flex justify-center special:w-[600px] 2xl:w-[500px] text-sm special:text-3xl 2xl:text-2xl special:leading-normal">
-                You have purchased<span className="font-bold text-xl">{count}</span>number
-                of raffles from the amount of<br />subscriptions in your account and
-                there are &nbsp;
-                <span className="font-bold text-xl">
-                  {" "}
-                  {parseFloat(quotation - count)}{" "}
-                </span>{" "}
-                &nbsp; amount remaining.
+              <div className="text-center text-white flex justify-center text-sm special:text-4xl 2xl:text-3xl special:leading-normal">
+                You have purchased&nbsp;{count}&nbsp;number of raffles from the amount of
+                <br />
+                subscriptions in your account and there are&nbsp;{parseFloat(quotation - count)}
+                &nbsp;amount remaining.
               </div>
-              <p className="text-white text-sm special:text-3xl 2xl:text-2xl">
+              <p className="text-white text-sm special:text-4xl 2xl:text-3xl">
                 Do you want to buy this?
               </p>
-              <div className="flex justify-center items-center bg-white rounded-lg text-black py-2 special:py-6 2xl:py-5 font-bold hover:bg-black hover:text-white border border-solid hover:border-white" onClick={handleClick}>
-                <button
-                  className="capitalize 2xl:text-4xl special:text-5xl"
-                >
+              <div
+                className="flex justify-center items-center bg-white rounded-lg text-black py-2 special:py-6 2xl:py-5 font-bold hover:bg-black hover:text-white border border-solid hover:border-white"
+                onClick={handleClick}
+              >
+                <button className="capitalize 2xl:text-4xl special:text-5xl">
                   Confirm
                 </button>
               </div>

@@ -313,12 +313,12 @@ const Profile = () => {
                       terms of use
                     </p>
 
-                    <button
-                      onClick={() => updateUserDatails()}
-                      className="bg-black text-white rounded-xl px-12 py-3 font-semibold special:text-xl"
-                    >
-                      Confirm
-                    </button>
+                      <p className="special:text-xl"> <input type="checkbox" name="agree" /> I agree with the terms of use</p>
+
+                      <button onClick={() => updateUserDatails()} className=" text-white rounded-xl px-12 py-3 font-semibold special:text-xl animate_btn black_btn ">
+                        Confirm
+                      </button>
+              
                   </div>
                 </div>
               )}

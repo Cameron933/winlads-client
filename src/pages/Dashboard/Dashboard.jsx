@@ -38,7 +38,7 @@ const Dashboard = () => {
     currentUserValidation();
     getGiveaways();
     getRaffleCount()
-  }, [raffleCount, giveaways, valUser]);
+  }, [raffleCount, giveaways, valUser, buyRaffle, selectPayment]);
 
   const currentUserValidation = async () => {
     const validator = await validateCurrentUser();

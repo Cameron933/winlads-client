@@ -17,7 +17,8 @@ import { LuHistory } from "react-icons/lu";
 import User from "../../assets/images/user4.png";
 import BG from "../../assets/images/HomesideBg.png";
 import bgCar from "../../assets/images/hiddenCar.png";
-import Youtube from "../../assets/images/youtube.png";
+import NewJeep from "../../assets/images/newJeep.png"
+
 
 export const bgStyle = {
   backgroundImage: `url(${bgCar})`,
@@ -129,12 +130,12 @@ function RaffleDashbord() {
                     <div className="xl:flex md:flex items-end flex-1 w-full">
                       <Link to="/live-raffle">
                         <div
-                          className="bg-gradient-to-r from-yellow-500 to-black hover:from-black hover:to-yellow-500 flex-col rounded-3xl px-2 special:px-4 py-1 space-y-2 flex-1 shadow-lg  "
+                          className="bg-[#D5B511] hover:bg-[#D5B511]/75 flex-col rounded-3xl px-2 special:px-4 py-1 space-y-2 flex-1 shadow-lg  "
                          
                         >
                           <div className="flex flex-row justify-between items-center">
                             <img
-                              src={Jeep}
+                              src={NewJeep}
                               alt=""
                               className="flex w-36 special:w-96 2xl:w-36"
                             />
