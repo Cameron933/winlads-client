@@ -68,7 +68,7 @@ const PastRaffles = ({color, past=[]}) => {
         </div>
       ) : (
         <div className="flex flex-col items-center justify-center space-y-2">
-          <MdOutlineDoNotDisturbOff className="w-8 h-8 2xl:w-12 2xl:h-12 special:w-16 special:h-16" />
+          <MdOutlineDoNotDisturbOff className="w-8 h-8 2xl:w-10 2xl:h-10 special:w-16 special:h-16" />
           <p className="font-bold text-xl 2xl:text-4xl special:text-4xl">
             No More Giveaways
           </p>
