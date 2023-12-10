@@ -17,7 +17,7 @@ const SubDone = () => {
 
     const timeoutId = setTimeout(() => {
       navigate('/dashboard');
-    }, 2000);
+    }, 4000);
 
     return () => clearTimeout(timeoutId);
 

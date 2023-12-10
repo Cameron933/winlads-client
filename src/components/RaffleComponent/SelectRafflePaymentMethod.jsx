@@ -33,11 +33,21 @@ const SelectRafflePaymentMethod = ({ onClose, userId, giveawayId }) => {
         {
           uid: userId,
           roundid: giveawayId,
-          
         }
       );
       if (response.data.status == 200) {
         toast.success(response.data.data.message, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      } else {
+        toast.error(response.data.data.message, {
           position: "top-center",
           autoClose: 5000,
           hideProgressBar: false,
@@ -117,7 +127,10 @@ const SelectRafflePaymentMethod = ({ onClose, userId, giveawayId }) => {
                 className="w-7 h-7 special:h-14 special:w-14 2xl:h-9 2xl:w-9"
               />
             </button>
-            <button className="hover:scale-110" onClick={handlePointsButtonClick}>
+            <button
+              className="hover:scale-110"
+              onClick={handlePointsButtonClick}
+            >
               <img
                 src={Usd}
                 alt=""

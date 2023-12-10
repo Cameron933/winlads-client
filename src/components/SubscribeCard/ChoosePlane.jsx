@@ -41,7 +41,7 @@ const ChoosePlane = ({ onClose, planeId, userId }) => {
           theme: "colored",
         });
       } else {
-        toast.error("No sufficient balance", {
+        toast.error(response.data.data.message, {
           position: "top-center",
           autoClose: 5000,
           hideProgressBar: false,

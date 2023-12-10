@@ -36,15 +36,16 @@ const Dashboard = () => {
 
   useEffect(() => {
     currentUserValidation();
-    getGiveaways();
     getRaffleCount()
-  }, [raffleCount, giveaways, valUser, buyRaffle, selectPayment]);
+  }, [raffleCount]);
+
 
   const currentUserValidation = async () => {
     const validator = await validateCurrentUser();
     if (validator.validatorBl) {
       console.log("Session OK", validator.user);
       setValUser(validator.user);
+      getGiveaways();
     } else {
       navigate("/login");
     }
@@ -53,11 +54,10 @@ const Dashboard = () => {
   const getGiveaways = async () => {
     await new Promise((resolve) => setTimeout(resolve, 2000));
     await axios
-      .get(`${import.meta.env.VITE_SERVER_API}/raffleRoundsFuture`)
+      .get(`${import.meta.env.VITE_SERVER_API}/raffleRoundsFuture?=${valUser.uid}`)
       .then((response) => {
         console.log(response.data.data, "data raffle");
         setGiveaways(response?.data?.data);
-        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
@@ -73,18 +73,14 @@ const Dashboard = () => {
         console.log(response.data, "countData");
         setRaffleCount(response?.data);
         setLoading(false);
+        setIsLoading(false)
       })
       .catch((error) => {
         console.log(error);
         setLoading(false);
+        setIsLoading(false)
       });
   };
-
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-  }, []);
 
   const handleButton = (giveawayId) => {
     console.log("Clicked on button for giveaway with raffleId:", giveawayId);
