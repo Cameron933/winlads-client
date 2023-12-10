@@ -34,6 +34,7 @@ import Messages from "./pages/Messages/Messages";
 import History from "./pages/History/History";
 import SubcriptionDone from "./pages/SubDone"
 import PaymentSuccess from "./pages/PaymentSuccess/PaymentSuccess";
+import GoogleAnalytics from "./utils/GoogleAnalytics";
 
 
 function App() {
@@ -141,6 +142,7 @@ function App() {
 
   return (
     <>
+    <GoogleAnalytics trackingCode="G-N927BPJE6K" />
       <RouterProvider router={router} />
       <ToastContainer />
     </>

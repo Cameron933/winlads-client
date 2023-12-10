@@ -39,7 +39,7 @@ const Dashboard = () => {
     currentUserValidation();
     getGiveaways();
     getRaffleCount()
-  }, [valUser, giveaways, raffleCount]);
+  }, [raffleCount, giveaways, valUser]);
 
   const currentUserValidation = async () => {
     const validator = await validateCurrentUser();
@@ -142,7 +142,7 @@ const Dashboard = () => {
                           fromColor={giveaway.raffle.color}
                           icon={giveaway.raffle.image}
                           onButton={() => {
-                            handleButton(giveaway.raffleid);
+                            handleButton(giveaway._id);
                           }}
                         />
                       ))}
@@ -214,7 +214,7 @@ const Dashboard = () => {
                           fromColor={giveaway.raffle.color}
                           icon={giveaway.raffle.image}
                           onButton={() => {
-                            handleButton(giveaway.raffleid);
+                            handleButton(giveaway._id);
                           }}
                         />
                       ))}
@@ -245,7 +245,7 @@ const Dashboard = () => {
       )}
 
       {buyRaffle && (
-        <BuyRaffle onClose={() => setBuyRaffle(false)} />
+        <BuyRaffle onClose={() => setBuyRaffle(false)} userId={valUser.uid} giveawayId={selectGiveawayId} subId={valUser.sub_id} quotation={raffleCount.data.rafflecount} count={raffleCount.data.rafflecountused} />
       )}
     </>
   );
