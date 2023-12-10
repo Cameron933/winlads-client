@@ -7,7 +7,6 @@ import { Link, useNavigate } from "react-router-dom";
 import TopNav from "../../components/TopNav/TopNav";
 import Loader from "../../components/Loader/Loader";
 import axios from "axios";
-import Cookies from "universal-cookie";
 import { validateCurrentUser } from "../../utils/validateuser";
 import { motion } from "framer-motion";
 import { carAnimation } from "../../animation/animation";

@@ -30,6 +30,7 @@ function RaffleDashbord() {
   const [raffles, setRaffles] = useState([]);
   const [value, onChange] = useState(new Date());
   const [isLoading, setIsLoading] = useState(true);
+  const [valUser, setValUser] = useState({});
 
   // set loading
   useEffect(() => {
@@ -43,6 +44,7 @@ function RaffleDashbord() {
     const validator = await validateCurrentUser();
     if (validator.validatorBl) {
       console.log("Session OK");
+      setValUser(validator.user);
     } else {
       navigate("/login");
     }
@@ -108,7 +110,7 @@ function RaffleDashbord() {
                           <p className="font-bold special:text-8xl">
                             Earning Balance
                           </p>
-                          <p className="special:text-6xl">$588.632</p>
+                          <p className="special:text-6xl">${valUser.balance}</p>
                         </div>
                       </div>
                       {/* <div>

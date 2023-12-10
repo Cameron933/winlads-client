@@ -5,17 +5,32 @@ import png2 from "../../assets/images/BusinessCard/png2.png";
 import Icon from "../../assets/images/BusinessCard/icon.png";
 import Rectangle from "../../assets/images/BusinessCard/Rectangle.png";
 import axios from "axios";
+import { validateCurrentUser } from "../../utils/validateuser";
+import { useNavigate } from "react-router-dom";
 
 const BCard = () => {
   const [bCard, setBCard] = useState("");
+  const [valUser, setValUser] = useState({});
+  const navigate = useNavigate();
 
   useEffect(() => {
     getBCard();
+    currentUserValidation();
   }, []);
+
+  const currentUserValidation = async () => {
+    const validator = await validateCurrentUser();
+    if (validator.validatorBl) {
+      console.log("Session OK", validator.user);
+      setValUser(validator.user);
+    } else {
+      navigate("/login");
+    }
+  };
 
   const getBCard = async () => {
     await axios
-      .get(`${import.meta.env.VITE_SERVER_API}/requestCard?uid=jZNYcKmEmIcDhR3yqCJiGknbJiB3`)
+      .get(`${import.meta.env.VITE_SERVER_API}/requestCard?uid=${valUser.uid}`)
       .then((response) => {
         console.log(response.data.data);
         setBCard(response?.data?.data);
