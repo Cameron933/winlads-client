@@ -37,6 +37,7 @@ const Register = () => {
   const navigate = useNavigate();
   const [buttonText, setButtonText] = useState("Get OTP");
   const [UserData, setUserData] = useState(null);
+  const [isChecked, setIsChecked] = useState(false);
   const cookies = new Cookies(null, { path: "/" });
   // set loading
   useEffect(() => {
@@ -44,6 +45,11 @@ const Register = () => {
       setIsLoading(false);
     }, 1000); //a 2-second loading delay
   }, []);
+
+
+  const onCheckboxChange = (e) => {
+    setIsChecked(e.target.checked);
+  };
 
   const saveFormData = async (temp_values, uid) => {
     console.log(temp_values, uid);
@@ -80,6 +86,19 @@ const Register = () => {
   };
 
   function onSignup(e) {
+    if (!isChecked) {
+      toast.error("Please confirm terms and conditions", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+      return;
+    }
     if (buttonText === "Register") {
       ValidateOtp();
     } else {
@@ -412,7 +431,13 @@ const Register = () => {
                       id="agree"
                     /> */}
                       <div>
-                        <input type="checkbox" name="" id="checker" />
+                        <input
+                          type="checkbox"
+                          name=""
+                          id="checker"
+                          checked={isChecked}
+                          onChange={onCheckboxChange}
+                        />
                       </div>
 
                       <div>
