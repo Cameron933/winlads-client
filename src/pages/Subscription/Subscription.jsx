@@ -33,8 +33,6 @@ function Subscription() {
   const handleButton = (id) => {
     setChoosePlane(true);
     setSelectedPlaceId(id);
-    console.log(selectedPlaneId, "idd");
-    console.log(valUser, "user iddasdsad");
   };
 
   const handleYear = (val = false) => {

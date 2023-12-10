@@ -4,6 +4,7 @@ import bitcoin from "../../assets/images/rafflesImages/bitcoin.png";
 import Visa from "../../assets/images/rafflesImages/Visa.png";
 import Usd from "../../assets/images/rafflesImages/Usd.png";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const SelectRafflePaymentMethod = ({ onClose, userId, giveawayId }) => {
   const handleButtonClick = async () => {
@@ -13,18 +14,40 @@ const SelectRafflePaymentMethod = ({ onClose, userId, giveawayId }) => {
         {
           uid: userId,
           roundid: giveawayId,
-          
-          // uid:"jZNYcKmEmIcDhR3yqCJiGknbJiB3"
         }
       );
-      console.log("Response:", response.data);
-      console.log("user id:", userId);
-      console.log("giv id:", giveawayId);
 
       const payURL = response.data.payurl;
 
       // Redirect the user to the payURL
       window.location.href = payURL;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handlePointsButtonClick = async () => {
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_SERVER_API}/buyRaffleRoundWithPoints`,
+        {
+          uid: userId,
+          roundid: giveawayId,
+          
+        }
+      );
+      if (response.data.status == 200) {
+        toast.success(response.data.data.message, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      }
     } catch (error) {
       console.log(error);
     }
@@ -94,7 +117,7 @@ const SelectRafflePaymentMethod = ({ onClose, userId, giveawayId }) => {
                 className="w-7 h-7 special:h-14 special:w-14 2xl:h-9 2xl:w-9"
               />
             </button>
-            <button className="hover:scale-110">
+            <button className="hover:scale-110" onClick={handlePointsButtonClick}>
               <img
                 src={Usd}
                 alt=""
