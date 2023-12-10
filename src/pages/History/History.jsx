@@ -8,6 +8,8 @@ import bgCar from "../../assets/images/hiddenCar.png";
 import BG from "../../assets/images/HomesideBg.png";
 import SearchField from "../../components/SearchField/SearchField";
 import axios from "axios";
+import { validateCurrentUser } from "../../utils/validateuser";
+import { useNavigate } from "react-router-dom";
 
 export const bgStyle = {
   backgroundImage: `url(${bgCar})`,
@@ -17,19 +19,30 @@ export const bgStyle = {
 };
 
 function History() {
-
+  const [valUser, setValUser] = useState({});
   const [rafflesHistory, setRafflesHistory] = useState([])
+  const navigate = useNavigate();
 
   useEffect(() => {
-    // currentUserValidation();
+    currentUserValidation();
     getRafflesHistory();
-  }, []);
+  }, [valUser]);
+
+  const currentUserValidation = async () => {
+    const validator = await validateCurrentUser();
+    if (validator.validatorBl) {
+      console.log("Session OK", validator.user);
+      setValUser(validator.user);
+    } else {
+      navigate("/login");
+    }
+  };
 
   const getRafflesHistory = async () => {
     await axios
       .get(`${import.meta.env.VITE_SERVER_API}/rafflesHistory`)
       .then((response) => {
-        console.log(response.data.data);
+        console.log(response.data, "history data");
         setRafflesHistory(response?.data?.data);
       })
       .catch((error) => {
