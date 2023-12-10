@@ -148,8 +148,8 @@ const Dashboard = () => {
                     </div>
                   ) : (
                     <div className="flex flex-col items-center space-y-2">
-                      <MdOutlineDoNotDisturbOff className="w-12 h-12 2xl:w-16 2xl:h-16 special:w-24 special:h-24" />
-                      <p className="font-bold text-2xl 2xl:text-4xl special:text-6xl">
+                      <MdOutlineDoNotDisturbOff className="w-8 h-8 2xl:w-12 2xl:h-12 special:w-16 special:h-16" />
+                      <p className="font-bold text-xl 2xl:text-3xl special:text-4xl">
                         No More Giveaways
                       </p>
                     </div>
