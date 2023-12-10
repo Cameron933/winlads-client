@@ -314,7 +314,7 @@ const Register = () => {
                       <img src={Passport} alt="passport" />
                       <input
                         type="text"
-                        placeholder="Your Passport"
+                        placeholder="Your Nic Number"
                         value={values.passport}
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -382,7 +382,7 @@ const Register = () => {
                         value={values.rafflesId}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        id="Reference Id"
+                        id="rafflesId"
                       />
 
                       {/* <div className="flex flex-row items-center">
