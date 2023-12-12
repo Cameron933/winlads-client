@@ -5,6 +5,7 @@ import partner3 from "../../assets/images/partners/partner3.png";
 import partner4 from "../../assets/images/partners/partner4.png";
 import partner5 from "../../assets/images/partners/partner5.png";
 import partner6 from "../../assets/images/partners/partner6.png";
+import carVideo from "../../assets/images/carAnim.mp4";
 import tick from "../../assets/images/tick.png";
 
 import { motion, useInView, useAnimation } from "framer-motion";
@@ -43,54 +44,22 @@ function Thirdpage() {
         background: "linear-gradient(88deg, #43E3ED -21.82%, #FFE9E9 131.12%)",
       }}
     >
-
-      <div className="lg:grid grid-cols-2 gap-2 md:pl-8 ">
-        <div className=" flex justify-center p-2 4xl:p-4 relative xl:mx-32 lg:mx-24 items-center">
-          <motion.div
-            variants={textAnimate}
-            className="border bg-white rounded-xl right-0 z-10"
-            // style={{ right: "-100px" }}
+      <div className=" flex justify-center p-2 4xl:p-4 relative xl:mx-32 lg:mx-24 items-center">
+    
+          <video
+            className="video"
+            width="70%"
+            height="250px"
+            controls
           >
-            {/* <div className="px-4 py-4 font-bold text-xl border-t rounded-xl flex flex-row items-center gap-2">
-              <div>
-              <img src={tick} alt="tick" className="ticker" />
-              </div>
-              <div className="flex flex-col">
-                <p className="4xl:text-6xl text-2xl xl:text-2xl md:text-2xl">600+</p>
-                <p className="4xl:text-6xl text-2xl xl:text-2xl md:text-2xl">Australian business Benefits</p>
-              </div>
-            </div> */}
-             <div className="px-4 py-4 font-bold text-xl border-t rounded-xl flex flex-row items-center gap-2">
-              <div>
-                <img src={tick} alt="tick" className="ticker" />
-              </div>
-              <div className="flex flex-col">
-                <p className="4xl:text-6xl text-2xl xl:text-2xl md:text-2xl">600+</p>
-                <p className="4xl:text-6xl text-2xl xl:text-2xl md:text-2xl">Australian business Benefits</p>
-              </div>
-            </div>
-            <div className="px-4 py-4 font-bold text-xl border-t rounded-xl flex flex-row items-center gap-2">
-              <div>
-                <img src={tick} alt="tick" className="ticker" />
-              </div>
-              <div className="flex flex-col">
-                <p className="4xl:text-6xl text-2xl xl:text-2xl md:text-2xl">1000s</p>
-                <p className="4xl:text-6xl text-2xl xl:text-2xl md:text-2xl">In savings through our mates rates discounts</p>
-              </div>
-            </div>
-            <div className="px-4 py-4 font-bold text-xl border-t rounded-xl flex flex-row items-center gap-2">
-              <div>
-                <img src={tick} alt="tick" className="ticker" />
-              </div>
+            <source src={carVideo} type="video/mp4" />
+          </video>
 
-              <div className="flex flex-col">
-                <p className="4xl:text-6xl text-2xl xl:text-2xl md:text-2xl">1000s</p>
-                <p className="4xl:text-6xl text-2xl xl:text-2xl md:text-2xl">Stores you can redeem offers in person or online</p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-        <motion.div
+
+      </div>
+      <div className="lg:grid grid-cols-2 gap-2 md:pl-8 ">
+
+        {/* <motion.div
           variants={imageAnimate}
           // variants={{
           //   hidden: { opacity: 0, x: 75 },
@@ -102,13 +71,16 @@ function Thirdpage() {
           className="relative"
         >
           <img src={jeep3} alt="" style={{ width: "1700px" }} />
-        </motion.div>
+        </motion.div> */}
       </div>
-      <div className="md:pr-0 2xl:pr-10">
-        <p className="text-lg 4xl:text-8xl xl:text-6xl md:text-4xl font-bold uppercase tracking-widest p-4 text-center lg:text-4xl lg:text-right 4xl:text-right xl:text-right">
-          Some our Partners
+      <div className="md:pr-0 2xl:pr-10 pt-10" style={{ background: "white" }}>
+        <p className="font-bold text-center text-lg md:text-xl xl:text-lg 2xl:text-2xl special:text-3xl mb-10" style={{ letterSpacing: '12px' }}>
+          SOME OUR PARTNERS
         </p>
-        <div className="flex justify-center lg:justify-end ml-10 lg:ml-0">
+        {/* <p className="text-lg 4xl:text-8xl xl:text-6xl md:text-4xl font-bold uppercase tracking-widest p-4 text-center lg:text-4xl lg:text-right 4xl:text-right xl:text-right">
+          Some our Partners
+        </p> */}
+        <div className="flex justify-center lg:justify-center ml-10 lg:ml-0">
           <div className="m-5">
             <img src={partner5} alt="" className="w-[180px] 2xl:w-[360px]" />
           </div>

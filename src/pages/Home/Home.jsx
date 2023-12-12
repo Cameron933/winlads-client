@@ -16,6 +16,9 @@ import Fourthpage from "../../components/fourthpage/Fourthpage";
 import Fifthpage from "../../components/fifthpage/Fifthpage";
 import Footer from "../../components/footerSection/Footer";
 import ChechSecondPage from "../../components/secondpage/ChechSecondPage";
+import Welcomehome from "../../components/Welcomehome/Welcomehome";
+import Gallery from "../../components/Gallery/Gallery";
+
 
 const Home = () => {
   return (
@@ -32,9 +35,11 @@ const Home = () => {
       {/* <Sidebar /> */}
       <Showcase />
       {/* <Secondpage /> */}
+      <Welcomehome/>
       <ChechSecondPage/>
       <Thirdpage />
       <Fourthpage />
+      <Gallery/>
       <Fifthpage />
       <Footer />
     </div>

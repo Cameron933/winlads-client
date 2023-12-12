@@ -4,22 +4,54 @@ import white from "../../assets/images/subscribers/white.png";
 import Visa from "../../assets/images/rafflesImages/Visa.png";
 import Usd from "../../assets/images/rafflesImages/Usd.png";
 import bitcoin from "../../assets/images/rafflesImages/bitcoin.png";
+import { toast } from "react-toastify";
 
 const ChoosePlane = ({ onClose, planeId, userId }) => {
   const handleButtonClick = async () => {
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_SERVER_API}/checkoutSession`,
-        { subid:planeId, uid:userId }
+        { subid: planeId, uid: userId }
       );
       console.log("Response:", response.data);
 
       const payURL = response.data.payurl;
 
-      // Redirect the user to the payURL
       window.location.href = payURL;
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-
+  const handlePointsButtonClick = async () => {
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_SERVER_API}/subscribeWithPoints`,
+        { subid: planeId, uid: userId }
+      );
+      if (response.data.status == 200) {
+        toast.success(response.data.data.message, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      } else {
+        toast.error(response.data.data.message, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      }
     } catch (error) {
       console.log(error);
     }
@@ -86,7 +118,10 @@ const ChoosePlane = ({ onClose, planeId, userId }) => {
                 className="w-7 h-7 special:h-14 special:w-14 2xl:h-9 2xl:w-9"
               />
             </button>
-            <button className="hover:scale-110">
+            <button
+              className="hover:scale-110"
+              onClick={handlePointsButtonClick}
+            >
               <img
                 src={Usd}
                 alt=""

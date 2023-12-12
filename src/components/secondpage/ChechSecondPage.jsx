@@ -1,4 +1,6 @@
 import jeep2 from "../../assets/images/jeep2.png";
+import Car from "../../assets/images/car.jpeg";
+import carVideo from "../../assets/images/carAnim.mp4";
 import Vector1 from "../../assets/images/Vector1.png";
 import Vector2 from "../../assets/images/Vector2.png";
 import Vector3 from "../../assets/images/Vector3.png";
@@ -49,6 +51,10 @@ function ChechSecondPage() {
             }}
             className="pt-24 overflow-hidden"
         >
+          
+            <p className="font-bold text-center text-lg md:text-xl xl:text-lg 2xl:text-2xl special:text-3xl mb-10" style={{ letterSpacing: '12px' }}>
+                WINLADS SERVICES
+            </p>
 
             <div className="p-5 md:pl-16 pl-8 h-auto lg:h-screen  lg:px-40 xl:px-32 4xl:px-80 relative" >
                 <div className="flex flex-col xl:flex-row xl:justify-between">
@@ -56,6 +62,7 @@ function ChechSecondPage() {
                         variants={textAnimate}
                         className="xl:w-2/5 w-full xl:max-w-[680px]"
                     >
+
                         <div className="transition duration-700 hover:scale-105">
                             <h3 className="font-bold mb-2 text-md xl:text-2xl 4xl:text-4xl">Homewares, Trades & Services</h3>
                             <p className="pb-2 text-md xl:text-xl 4xl:text-4xl">
@@ -96,28 +103,28 @@ function ChechSecondPage() {
                     }}
                 />
                 <div className="flex flex-col xl:flex-row xl:justify-between items-center mt-0 md:mt-10">
-                <motion.div
-                    variants={textAnimate}
-                    className="xl:w-3/5 w-full xl:max-w-[680px]"
-                >
-                    <div className="transition duration-700 hover:scale-105">
-                        <h3 className="font-bold mb-2 text-md xl:text-2xl 4xl:text-4xl">Merchandise</h3>
-                        <p className="pb-2 text-md xl:text-xl 4xl:text-4xl pr-4">
-                            Exclusive merchandise offers and designs from both Winlads and our
-                            Benefits. Great quality swag from your favourite brands. Including
-                            some exclusive designs from bags, T shirts and more.
-                        </p>
+                    <motion.div
+                        variants={textAnimate}
+                        className="xl:w-3/5 w-full xl:max-w-[680px]"
+                    >
+                        <div className="transition duration-700 hover:scale-105">
+                            <h3 className="font-bold mb-2 text-md xl:text-2xl 4xl:text-4xl">Merchandise</h3>
+                            <p className="pb-2 text-md xl:text-xl 4xl:text-4xl pr-4">
+                                Exclusive merchandise offers and designs from both Winlads and our
+                                Benefits. Great quality swag from your favourite brands. Including
+                                some exclusive designs from bags, T shirts and more.
+                            </p>
+                        </div>
+                    </motion.div>
+                    <div
+                        className="xl:scale-150 xl:ml-28"
+                    >
+                        <motion.img
+                            variants={imageAnimate}
+                            src={jeep2}
+                            className="xl:w-1/2 w-full"
+                        />
                     </div>
-                </motion.div>
-                <div
-                className="xl:scale-150 xl:ml-28"
-                >
-                    <motion.img
-                        variants={imageAnimate}
-                        src={jeep2}
-                        className="xl:w-1/2 w-full"
-                    />
-                </div>
                 </div>
             </div>
         </motion.div>

@@ -17,7 +17,8 @@ import { LuHistory } from "react-icons/lu";
 import User from "../../assets/images/user4.png";
 import BG from "../../assets/images/HomesideBg.png";
 import bgCar from "../../assets/images/hiddenCar.png";
-import Youtube from "../../assets/images/youtube.png";
+import NewJeep from "../../assets/images/newJeep.png"
+
 
 export const bgStyle = {
   backgroundImage: `url(${bgCar})`,
@@ -30,19 +31,14 @@ function RaffleDashbord() {
   const [raffles, setRaffles] = useState([]);
   const [value, onChange] = useState(new Date());
   const [isLoading, setIsLoading] = useState(true);
-
-  // set loading
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-  }, []);
+  const [valUser, setValUser] = useState({});
 
   const navigate = useNavigate();
   const currentUserValidation = async () => {
     const validator = await validateCurrentUser();
     if (validator.validatorBl) {
       console.log("Session OK");
+      setValUser(validator.user);
     } else {
       navigate("/login");
     }
@@ -58,6 +54,7 @@ function RaffleDashbord() {
       .then((response) => {
         console.log(response.data.data);
         setRaffles(response?.data?.data);
+        setIsLoading(false);
       })
       .catch((error) => {
         console.log(error);
@@ -108,7 +105,7 @@ function RaffleDashbord() {
                           <p className="font-bold special:text-8xl">
                             Earning Balance
                           </p>
-                          <p className="special:text-6xl">$588.632</p>
+                          <p className="special:text-6xl">${valUser.balance}</p>
                         </div>
                       </div>
                       {/* <div>
@@ -127,12 +124,12 @@ function RaffleDashbord() {
                     <div className="xl:flex md:flex items-end flex-1 w-full">
                       <Link to="/live-raffle">
                         <div
-                          className="bg-gradient-to-r from-yellow-500 to-black hover:from-black hover:to-yellow-500 flex-col rounded-3xl px-2 special:px-4 py-1 space-y-2 flex-1 shadow-lg  "
+                          className="bg-[#D5B511] hover:bg-[#D5B511]/75 flex-col rounded-3xl px-2 special:px-4 py-1 space-y-2 flex-1 shadow-lg  "
                          
                         >
                           <div className="flex flex-row justify-between items-center">
                             <img
-                              src={Jeep}
+                              src={NewJeep}
                               alt=""
                               className="flex w-36 special:w-96 2xl:w-36"
                             />

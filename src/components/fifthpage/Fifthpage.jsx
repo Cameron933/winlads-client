@@ -24,12 +24,15 @@ function Fifthpage() {
         background: "linear-gradient(88deg, #43E3ED -21.82%, #FFE9E9 131.12%)",
       }}
     >
-      <p
+      {/* <p
         className="w-full lg:w-2/3 ml-auto text-center xl:mb-4 text-xl 4xl:text- font-bold uppercase tracking-widest p-4 4xl:pb-8 lg:text-4xl xl:text-right xl:pr-16 relative"
         style={{ zIndex: "2" }}
       >
         Choose a server plan
-      </p>
+      </p> */}
+      <p className="font-bold text-center text-lg md:text-xl xl:text-lg 2xl:text-2xl special:text-3xl mb-10" style={{ letterSpacing: '12px', zIndex: "2" }}>
+          CHOOSE A SERVER PLAN
+        </p>
       <div className="lg:grid grid-cols-3">
         <div
           className="hidden lg:block"

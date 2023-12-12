@@ -37,6 +37,7 @@ const Register = () => {
   const navigate = useNavigate();
   const [buttonText, setButtonText] = useState("Get OTP");
   const [UserData, setUserData] = useState(null);
+  const [isChecked, setIsChecked] = useState(false);
   const cookies = new Cookies(null, { path: "/" });
   // set loading
   useEffect(() => {
@@ -44,6 +45,10 @@ const Register = () => {
       setIsLoading(false);
     }, 1000); //a 2-second loading delay
   }, []);
+
+  const onCheckboxChange = (e) => {
+    setIsChecked(e.target.checked);
+  };
 
   const saveFormData = async (temp_values, uid) => {
     console.log(temp_values, uid);
@@ -80,6 +85,19 @@ const Register = () => {
   };
 
   function onSignup(e) {
+    if (!isChecked) {
+      toast.error("Please confirm terms and conditions", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+      return;
+    }
     if (buttonText === "Register") {
       ValidateOtp();
     } else {
@@ -295,7 +313,7 @@ const Register = () => {
                       <img src={Passport} alt="passport" />
                       <input
                         type="text"
-                        placeholder="Your Passport"
+                        placeholder="Your Nic Number"
                         value={values.passport}
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -363,7 +381,7 @@ const Register = () => {
                         value={values.rafflesId}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        id="Reference Id"
+                        id="rafflesId"
                       />
 
                       {/* <div className="flex flex-row items-center">
@@ -412,15 +430,24 @@ const Register = () => {
                       id="agree"
                     /> */}
                       <div>
-                        <input type="checkbox" name="" id="checker" />
+                        <input
+                          type="checkbox"
+                          name=""
+                          id="checker"
+                          checked={isChecked}
+                          onChange={onCheckboxChange}
+                        />
                       </div>
 
                       <div>
                         <label htmlFor="checker">
                           <span>
                             By checking the box you agree to our{" "}
-                            <span className="yellow-text">Terms</span> and{" "}
-                            <span className="yellow-text">Conditions.</span>
+                            <Link to="/conditions">
+                              <span className="yellow-text">
+                                Terms and Conditions
+                              </span>
+                            </Link>
                           </span>
                         </label>
                       </div>
