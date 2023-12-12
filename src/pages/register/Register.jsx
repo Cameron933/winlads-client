@@ -37,6 +37,7 @@ const Register = () => {
   const navigate = useNavigate();
   const [buttonText, setButtonText] = useState("Get OTP");
   const [UserData, setUserData] = useState(null);
+  const [isChecked, setIsChecked] = useState(false);
   const cookies = new Cookies(null, { path: "/" });
   // set loading
   useEffect(() => {
@@ -44,6 +45,10 @@ const Register = () => {
       setIsLoading(false);
     }, 1000); //a 2-second loading delay
   }, []);
+
+  const onCheckboxChange = (e) => {
+    setIsChecked(e.target.checked);
+  };
 
   const saveFormData = async (temp_values, uid) => {
     console.log(temp_values, uid);
@@ -80,6 +85,19 @@ const Register = () => {
   };
 
   function onSignup(e) {
+    if (!isChecked) {
+      toast.error("Please confirm terms and conditions", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+      return;
+    }
     if (buttonText === "Register") {
       ValidateOtp();
     } else {
@@ -252,7 +270,7 @@ const Register = () => {
                       <img src={User} alt="user" />
                       <input
                         type="text"
-                        placeholder="Full Name"
+                        placeholder="Your Full Name"
                         value={values.name}
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -274,7 +292,7 @@ const Register = () => {
                       <img src={Mail} alt="mail" />
                       <input
                         type="email"
-                        placeholder="Email Address"
+                        placeholder="Your Email Address"
                         value={values.email}
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -295,7 +313,7 @@ const Register = () => {
                       <img src={Passport} alt="passport" />
                       <input
                         type="text"
-                        placeholder="Passport"
+                        placeholder="Your Nic Number"
                         value={values.passport}
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -316,7 +334,7 @@ const Register = () => {
                       <img src={Taxt} alt="tin" />
                       <input
                         type="text"
-                        placeholder="Tin Number"
+                        placeholder="Your Tin Number"
                         value={values.tin}
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -338,7 +356,7 @@ const Register = () => {
                       <img src={Phone} alt="phone" />
                       <input
                         type="text"
-                        placeholder="+1(Phone Number)"
+                        placeholder="+1(Your Phone Number)"
                         value={ph}
                         onChange={(e) => setPh(e.target.value)}
                         onBlur={handleBlur}
@@ -359,11 +377,11 @@ const Register = () => {
                       <img src={Protect} alt="rafflesId" className="w-6 h-6" />
                       <input
                         type="text"
-                        placeholder="Reference Id"
+                        placeholder="Yor Reference Id"
                         value={values.rafflesId}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        id="Reference Id"
+                        id="rafflesId"
                       />
 
                       {/* <div className="flex flex-row items-center">
@@ -412,15 +430,24 @@ const Register = () => {
                       id="agree"
                     /> */}
                       <div>
-                        <input type="checkbox" name="" id="checker" />
+                        <input
+                          type="checkbox"
+                          name=""
+                          id="checker"
+                          checked={isChecked}
+                          onChange={onCheckboxChange}
+                        />
                       </div>
 
                       <div>
                         <label htmlFor="checker">
                           <span>
                             By checking the box you agree to our{" "}
-                            <span className="yellow-text">Terms</span> and{" "}
-                            <span className="yellow-text">Conditions.</span>
+                            <Link to="/conditions">
+                              <span className="yellow-text">
+                                Terms and Conditions
+                              </span>
+                            </Link>
                           </span>
                         </label>
                       </div>
@@ -428,7 +455,7 @@ const Register = () => {
                     {!final && <div id="recaptcha-container"></div>}
 
                     <button
-                      className="bg-black xl:px-24 4xl:px-24 px-12 items-center flex justify-between py-2 flex-row rounded-lg text-center blackbtns"
+                      className="px-12 w-full py-1 sm:py-2 flex justify-center flex-row items-center rounded-lg animate_btn black_btn"
                       onClick={(e) => onSignup(e)}
                     >
                       <span className="xl:text-2xl md:text-xl 4xl:text-2xl text-lg text-white font-bold">

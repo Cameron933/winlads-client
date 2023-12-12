@@ -1,74 +1,54 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import Jeep from "../../assets/images/Lottery/Jeep.png";
-import max from "../../assets/images/rafflesImages/max.png";
 import { GoQuestion } from "react-icons/go";
 import { MdOutlineDoNotDisturbOff } from "react-icons/md";
+import SelectRafflePaymentMethod from "./SelectRafflePaymentMethod";
+import BuyRaffle from "./BuyRaffle";
+import axios from "axios";
+import { validateCurrentUser } from "../../utils/validateuser";
+import { Link, useNavigate } from "react-router-dom";
+import NewJeep from "../../assets/images/newJeep.png"
 
-const FutureRaffles = ({ setShowPopup, showLessPopUP, color }) => {
-  // Common raffleid for all arrays
-  const commonRaffleId = "6543e08c2076f209adae93a2";
-  // Array 3
-  const raffleArray3 = [
-    {
-      _id: "another_different_id_1",
-      name: "Different Raffle 1",
-      date: "2023-12-05T15:00:00.000Z",
-      raffleid: commonRaffleId,
-      desc: "Another Different Description 1",
-    },
-    {
-      _id: "another_different_id_2",
-      name: "Another Different Raffle 2",
-      date: "2023-12-07T15:00:00.000Z",
-      raffleid: commonRaffleId,
-      desc: "Different Description 2",
-    },
-    {
-      _id: "another_different_id_2",
-      name: "Another Different Raffle 2",
-      date: "2023-12-07T15:00:00.000Z",
-      raffleid: commonRaffleId,
-      desc: "Different Description 2",
-    },
-    {
-      _id: "another_different_id_2",
-      name: "Another Different Raffle 2",
-      date: "2023-12-07T15:00:00.000Z",
-      raffleid: commonRaffleId,
-      desc: "Different Description 2",
-     
-    },
-    {
-      _id: "another_different_id_2",
-      name: "Another Different Raffle 2",
-      date: "2023-12-07T15:00:00.000Z",
-      raffleid: commonRaffleId,
-      desc: "Different Description 2",
-     
-    },
-    {
-      _id: "another_different_id_2",
-      name: "Another Different Raffle 2",
-      date: "2023-12-07T15:00:00.000Z",
-      raffleid: commonRaffleId,
-      desc: "Different Description 2",
-     
-    },
-  ];
+const FutureRaffles = ({ color, raffleId, future=[] }) => {
+  const [selectPayment, setSelectPayment] = useState(false);
+  const [buyRaffle, setBuyRaffle] = useState(false);
+  const [valUser, setValUser] = useState({});
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
+  const [futureGiveaways, setFutureGiveaways] = useState([])
 
+  const handleClick = () => {
+    setSelectPayment(true)
+    // setBuyRaffle(true);
+  };
+
+  useEffect(() => {
+    currentUserValidation();
+    console.log(valUser, "usrId")
+  }, []);
+
+  const currentUserValidation = async () => {
+    const validator = await validateCurrentUser();
+    if (validator.validatorBl) {
+      console.log("Session OK", validator.user.balance);
+      setValUser(validator.user);
+    } else {
+      navigate("/login");
+    }
+  };
   return (
     <>
-      {raffleArray3.length > 0 ? (
+      {future.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2 special:gap-4 flex-1">
-          {raffleArray3.map((round, key) => (
+          {future.map((round, key) => (
             <div
               key={key}
-              className={`bg-gradient-to-br from-[#1A8BC0] to-[#000000] flex cursor-pointer flex-col rounded-3xl px-2 py-2 special:px-4 2xl:px-4 space-y-2 hover:border-black border border-2`}
-              onClick={() => showLessPopUP(true)}
+              className={`bg-[#1195D4] hover:bg-[#1195D4]/75 flex cursor-pointer flex-col rounded-3xl px-2 py-2 special:px-4 2xl:px-4 space-y-2 hover:border-black shadow-lg`}
+              onClick={handleClick}
             >
               <div className="flex flex-row justify-between items-center">
                 <img
-                  src={Jeep}
+                  src={NewJeep}
                   alt=""
                   className="flex w-36 special:w-96 2xl:w-64"
                 />
@@ -95,12 +75,17 @@ const FutureRaffles = ({ setShowPopup, showLessPopUP, color }) => {
         </div>
       ) : (
         <div className="flex flex-col items-center justify-center space-y-2">
-          <MdOutlineDoNotDisturbOff className="w-12 h-12 2xl:w-16 2xl:h-16 special:w-24 special:h-24" />
-          <p className="font-bold text-2xl 2xl:text-4xl special:text-6xl">
+          <MdOutlineDoNotDisturbOff className="w-8 h-8 2xl:w-10 2xl:h-10 special:w-16 special:h-16" />
+          <p className="font-bold text-xl 2xl:text-3xl special:text-4xl">
             No More Giveaways
           </p>
         </div>
       )}
+      {selectPayment && (
+        <SelectRafflePaymentMethod onClose={() => setSelectPayment(false)} />
+      )}
+
+      {buyRaffle && <BuyRaffle onClose={() => setBuyRaffle(false)} />}
     </>
   );
 };

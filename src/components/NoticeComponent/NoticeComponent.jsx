@@ -10,7 +10,7 @@ function NoticeComponent() {
     <div>
       <ul className="flex  flex-col sm:gap-2 gap-1 special:gap-8 2xl:gap-5">
         <Link to="/notice-inner">
-          <li className="flex items-center cursor-pointer border-b justify-between w-full md:w-2/3  hover:scale-105 transition-all">
+          <li className="flex items-center cursor-pointer border-b justify-between w-full md:w-2/3 px-3 py-1 hover:bg-gray-200 rounded-lg">
             <div className="flex items-center ">
               <img src={Male} alt="" className="special:w-24 w-10" />
               <div className="ml-1 sm:ml-5  text-sm sm:text-base ">
@@ -23,7 +23,7 @@ function NoticeComponent() {
         </Link>
 
         <Link to="/notice-inner">
-          <li className="flex items-center cursor-pointer border-b justify-between w-full md:w-2/3 hover:scale-105 transition-all ">
+          <li className="flex items-center cursor-pointer border-b justify-between w-full md:w-2/3 px-3 py-1 hover:bg-gray-200 rounded-lg ">
             <div className="flex items-center">
               <img src={Male} alt="" className="special:w-24 w-10" />
               <div className="ml-1 sm:ml-5  text-sm sm:text-base ">
@@ -35,7 +35,7 @@ function NoticeComponent() {
           </li>
         </Link>
 
-        <li className="flex items-center cursor-pointer border-b justify-between w-full md:w-2/3 hover:scale-105 transition-all ">
+        <li className="flex items-center cursor-pointer border-b justify-between w-full md:w-2/3 px-3 py-1 hover:bg-gray-200 rounded-lg ">
           <div className="flex items-center">
             <img src={Male} alt="" className="special:w-24 w-10" />
             <div className="ml-1 sm:ml-5  text-sm sm:text-base ">
@@ -46,7 +46,7 @@ function NoticeComponent() {
           <img src={morenotice} alt="" />
         </li>
 
-        <li className="flex items-center cursor-pointer border-b justify-between w-full md:w-2/3 hover:scale-105 transition-all ">
+        <li className="flex items-center cursor-pointer border-b justify-between w-full md:w-2/3 px-3 py-1 hover:bg-gray-200 rounded-lg ">
           <div className="flex items-center">
             <img src={Female} alt="" className="special:w-24 w-10" />
             <div className="ml-1 sm:ml-5  text-sm sm:text-base ">
@@ -57,7 +57,7 @@ function NoticeComponent() {
           <img src={morenotice} alt="" />
         </li>
 
-        <li className="flex items-center cursor-pointer border-b justify-between w-full md:w-2/3 hover:scale-105 transition-all ">
+        <li className="flex items-center cursor-pointer border-b justify-between w-full md:w-2/3 px-3 py-1 hover:bg-gray-200 rounded-lg ">
           <div className="flex items-center">
             <img src={Male} alt="" className="special:w-24 w-10" />
             <div className="ml-1 sm:ml-5  text-sm sm:text-base ">
@@ -68,7 +68,7 @@ function NoticeComponent() {
           <img src={morenotice} alt="" />
         </li>
 
-        <li className="flex items-center cursor-pointer border-b justify-between w-full md:w-2/3 hover:scale-105 transition-all ">
+        <li className="flex items-center cursor-pointer border-b justify-between w-full md:w-2/3 px-3 py-1 hover:bg-gray-200 rounded-lg ">
           <div className="flex items-center">
             <img src={Male} alt="" className="special:w-24 w-10" />
             <div className="ml-1 sm:ml-5  text-sm sm:text-base ">
@@ -79,7 +79,7 @@ function NoticeComponent() {
           <img src={morenotice} alt="" />
         </li>
 
-        <li className="flex items-center cursor-pointer border-b justify-between w-full md:w-2/3 hover:scale-105 transition-all ">
+        <li className="flex items-center cursor-pointer border-b justify-between w-full md:w-2/3 px-3 py-1 hover:bg-gray-200 rounded-lg ">
           <div className="flex items-center  ">
             <img src={Female} alt="" className="special:w-24 w-10" />
             <div className="ml-1 sm:ml-5  text-sm sm:text-base flex-1">

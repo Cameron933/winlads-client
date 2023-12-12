@@ -18,7 +18,7 @@ import Messages from "../../assets/images/side-bar/Messages2.png";
 import Business from "../../assets/images/side-bar/Credit2.png";
 
 const SideNav = ({ screen }) => {
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(true);
   const navigate = useNavigate();
 
   const expandSidebar = () => {
@@ -32,39 +32,34 @@ const SideNav = ({ screen }) => {
   return (
     <OutsideClickHandler onOutsideClick={notExpandSidebar}>
       <div
-        className={ `pt-20 relative min-h-${screen} h-full pr-2 rounded-r-xl space-y-4 side-nav-back ${
-          expanded ? "" : "side-nav-half"
-        } w-12 xl:w-full    `}
+        className={ `pt-10 relative min-h-screen h-full   rounded-r-xl space-y-4 side-nav-back  ${
+          expanded ? "w-[50px] sm:w-[200px]" : "side-nav-half w-[50px]"
+        }     `}
       >
         <div
           onClick={expandSidebar}
-          className="flex flex-row items-center mb-10"
+          className="flex flex-row items-center mb-10 w-full"
         >
-          <Link to="/profile" className="flex items-center overflow-hidden relative w-full">
-            <div>
-              <img src={User} style={{ width: '30px', margin:' 0px 10px 0px 10px' }} alt="user" />
+          <Link to="/profile" className="flex flex-col items-center gap-2 justify-center overflow-hidden relative w-full ">
+            <div className="flex justify-center items-center w-full ">
+              <img src={User} className="w-[30px] md:w-[35px] xl:w-[40px]" alt="user" />
             </div>
-            <div className="mobile-hide side-nav-name text-white">
-              <h6>Windy Sahel1</h6>
-              <p>@windy_sahel</p>
+            <div className="side-nav-name text-white  items-center justify-center flex-col hidden sm:flex">
+              <p className="text-sm">Windy Sahel1</p>
+              <p className="text-xm">@windy_sahel</p>
             </div>
           </Link>
 
-          {/* <div className={` ${
-            expanded ? "" : "invisible"
-          }flex flex-col`}>
-            <span>unknown user</span>
-            <span>user@gmail.com</span>
-          </div> */}
+          
         </div>
 
-        <div className="flex flex-col space-y-4">
+        <div className="flex flex-col space-y-4 w-full ">
           <div onClick={expandSidebar} >
             <Link to="/transaction">
               <button className="side-nav-contain">
-                <img src={Transaction} style={{ width:'14px' }} alt="protect" />
+                <img src={Transaction} className="w-[14px]" alt="protect" />
                 <span className="mobile-hide">
-                  <p className="link-no-underlin  invisible xl:visible text-white w-4">
+                  <p className="link-no-underlin  hidden sm:flex text-white w-4">
                     Transaction
                   </p>
                 </span>
@@ -75,9 +70,9 @@ const SideNav = ({ screen }) => {
           <div onClick={expandSidebar}>
             <Link to="/newslist">
               <button className="side-nav-contain">
-                <img src={News} style={{ width:'18px' }} alt="protect" />
+                <img src={News} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
-                  <p className="link-no-underlin invisible xl:visible text-white">
+                  <p className="link-no-underlin hidden sm:flex text-white">
                     News
                   </p>
                 </span>
@@ -88,9 +83,9 @@ const SideNav = ({ screen }) => {
           <div onClick={expandSidebar}>
             <Link to="/messages">
               <button className="side-nav-contain">
-                <img src={Messages} style={{ width:'18px' }} alt="protect" />
+                <img src={Messages} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
-                  <p className="link-no-underlin invisible xl:visible text-white">
+                  <p className="link-no-underlin hidden sm:flex text-white">
                     Messages
                   </p>
                 </span>
@@ -101,9 +96,9 @@ const SideNav = ({ screen }) => {
           <div onClick={expandSidebar}>
             <Link to="/subscription">
               <button className="side-nav-contain">
-                <img src={Sub} style={{ width:'20px' }} alt="protect" />
+                <img src={Sub} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
-                  <p className="link-no-underlin  invisible xl:visible text-white">
+                  <p className="link-no-underlin  hidden sm:flex text-white">
                     Subscription
                   </p>
                 </span>
@@ -114,9 +109,9 @@ const SideNav = ({ screen }) => {
           <div onClick={expandSidebar}>
             <Link to="/business-card">
               <button  className="side-nav-contain">
-                <img src={Business} style={{ width:'18px' }} alt="protect" />
+                <img src={Business} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
-                  <p className="link-no-underlin  invisible xl:visible text-white">
+                  <p className="link-no-underlin  hidden sm:flex text-white">
                     Business card
                   </p>
                 </span>
@@ -132,7 +127,7 @@ const SideNav = ({ screen }) => {
           className="side-nav-contain side-nav-logout absolute top-3/4 w-full left-0"
         >
           <img src={Logout} style={{ width:'16px' }} alt="protect" />
-          <span className="mobile-hidden text-white">Sign out</span>
+          <span className=" text-white hidden sm:flex">Sign out</span>
         </button>
       </div>
     </OutsideClickHandler>

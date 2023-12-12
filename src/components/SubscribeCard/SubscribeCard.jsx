@@ -50,7 +50,7 @@ function SubscribeCard({
 
   return (
     <div
-      className={`bg-${bgColor} ${gradientFrom} ${gradientTo} justify-center items-center text-${textColor} py-2 px-4 special:py-8 2xl:py-6 rounded-3xl flex flex-col space-y-4 special:space-y-8 2xl:space-y-6`}
+      className={`bg-${bgColor} ${gradientFrom} ${gradientTo} justify-center items-center text-${textColor} py-2 px-4 special:py-8 2xl:py-6 rounded-3xl flex flex-col space-y-4 special:space-y-8 2xl:space-y-6 cursor-pointer hover:shadow-2xl `}
     >
       <div className="flex justify-center">
         <div
@@ -90,7 +90,7 @@ function SubscribeCard({
 
       <button
         type="button"
-        className={`text-${buttonText} bg-${buttonColor} hover:border-2 hover:border-${hoverButtonBorder} text-black py-2 px-8 special:py-4 special:px-12 2xl:px-10 rounded-lg text-sm special:text-2xl 2xl:text-xl mt-4 mb-2 hover:bg-${buttonHover} hover:text-${buttonHoverText}`}
+        className={`text-${buttonText} bg-${buttonColor} border-2 border-transparent hover:border-2 hover:border-${hoverButtonBorder} text-black py-2 px-8 special:py-4 special:px-12 2xl:px-10 rounded-lg text-sm special:text-2xl 2xl:text-xl mt-4 mb-2 hover:bg-${buttonHover} hover:text-${buttonHoverText}`}
         onClick={handleChooseButton}
       >
         Choose Plan

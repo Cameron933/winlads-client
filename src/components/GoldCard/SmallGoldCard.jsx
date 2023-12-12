@@ -1,14 +1,11 @@
-import React from "react";
 import "./GoldCard.css";
 
 const SmallGoldCard = () => {
   return (
     <div className="cardBg rounded-3xl px-4 flex flex-row justify-between py-4 cursor-pointer gap-2">
       <div className="flex flex-col space-y-1 ">
-        <span className="font-bold text-4xl">Gold</span>
-        <span className="text-sm font-bold">
-          Expires on 2023.00.00
-        </span>
+        <span className="font-bold text-4xl main-t">Gold</span>
+        <span className="text-sm font-bold">Expires on 2023.00.00</span>
       </div>
       <div className="flex flex-row xl:gap-2 gap-1 items-center">
         <p className="font-semibold text-sm">Auto Renewal</p>

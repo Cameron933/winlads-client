@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BS1 from "../../assets/images/BusinessCard/BS-1.png";
 import BS2 from "../../assets/images/BusinessCard/BS-2.png";
 import share from "../../assets/images/BusinessCard/share.png";
@@ -17,15 +17,83 @@ import { MdOutlineAddShoppingCart } from "react-icons/md";
 import BCard from "../CardBusiness/CardBusiness";
 import "./modal.css";
 import BCardQR from "../CardBusiness/CardQR";
+import { validateCurrentUser } from "../../utils/validateuser";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 function BusinessCard() {
-
+  const navigate = useNavigate();
   const [isOrderNow, setOrderNow] = useState(false);
+  const [valUser, setValUser] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [postalAddress, setPostalAddress] = useState();
 
   const handleShareClick = () => {
-
     setOrderNow(!isOrderNow);
   };
+
+  const handleRequestButton = () => {
+    setOrderNow(!isOrderNow);
+    requestNfcCard()
+  }
+
+  const requestNfcCard = async () => {
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_SERVER_API}/saveBusinessCard`,
+        { 
+          uid: valUser.uid,
+          name: valUser.name,
+          mobile: valUser.mobile,
+          passport: valUser.passport,
+          address: postalAddress
+         }
+      );
+      if (response.data.status == 200) {
+        toast.success(response.data.message, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      }
+      else {
+        toast.error(response.data.data.message, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    currentUserValidation();
+  }, [valUser]);
+
+  const currentUserValidation = async () => {
+    const validator = await validateCurrentUser();
+    if (validator.validatorBl) {
+      console.log("Session OK", validator.user);
+      setValUser(validator.user);
+    } else {
+      navigate("/login");
+    }
+  };
+
+
 
   return (
     <div className="flex flex-col space-y-4 special:space-y-16">
@@ -45,64 +113,89 @@ function BusinessCard() {
           backgroundPosition: "right",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-
         }}
       >
-        <div className="text-left flex flex-col items-center space-y-0 special:space-y-16" >
-
-          {
-            isOrderNow ? <ShareForm /> : <div className="xl:w-1/2 w-full special:w-2/5 flex flex-col gap-5 py-4"><BCard/>
+        <div className="text-left flex flex-col items-center space-y-0 special:space-y-16">
+          {isOrderNow ? (
+            <ShareForm
+              userName={valUser.name}
+              passPort={valUser.passport}
+              phone={valUser.mobile}
+              postalAddress={postalAddress}
+              setPostalAddress={setPostalAddress}
+            />
+          ) : (
+            <div className="xl:w-1/2 w-full special:w-2/5 flex flex-col gap-5 py-4">
+              <BCard />
               {/* <BCardQR/> */}
-              </div>
-          }
-
+            </div>
+          )}
 
           <div className="w-full xl:w-1/2 special:w-2/5 flex gap-16 justify-center py-5">
             <div className="flex flex-col items-center">
-              <button className="text-2xl md:text-4xl pro:text-5xl xl:text-2xl special:text-5xl p-3 rounded-[20px] bg-[#CCBAB3]"><IoMdShare /></button>
-              <label className="text-sm md:text-lg pro:text-xl xl:text-sm special:text-2xl"> Share</label>
+              <button className="text-2xl md:text-4xl pro:text-5xl xl:text-2xl special:text-5xl p-3 rounded-[20px] bg-[#CCBAB3] hover:bg-[#D1D5DB]">
+                <IoMdShare />
+              </button>
+              <label className="text-sm md:text-lg pro:text-xl xl:text-sm special:text-2xl">
+                {" "}
+                Share
+              </label>
             </div>
             <div className="flex flex-col items-center">
-              <button className="text-2xl md:text-4xl pro:text-5xl xl:text-2xl special:text-5xl p-3 rounded-[20px] bg-[#CCBAB3]"><IoMdSave /></button>
-              <label className="text-sm md:text-lg pro:text-xl xl:text-sm special:text-2xl">Save</label>
+              <button className="text-2xl md:text-4xl pro:text-5xl xl:text-2xl special:text-5xl p-3 rounded-[20px] bg-[#CCBAB3] hover:bg-[#D1D5DB]">
+                <IoMdSave />
+              </button>
+              <label className="text-sm md:text-lg pro:text-xl xl:text-sm special:text-2xl">
+                Save
+              </label>
             </div>
             <div className="flex flex-col items-center">
               {isOrderNow ? (
                 // Display "orderNow" image when isOrderNow is true
 
-                <button className="text-2xl md:text-4xl pro:text-5xl xl:text-2xl special:text-5xl p-3 rounded-[20px] bg-[#CCBAB3]" onClick={handleShareClick}><MdOutlineAddShoppingCart /></button>
+                <button
+                  className="text-2xl md:text-4xl pro:text-5xl xl:text-2xl special:text-5xl p-3 rounded-[20px] bg-[#CCBAB3] hover:bg-[#D1D5DB]"
+                  onClick={handleRequestButton}
+                >
+                  <MdOutlineAddShoppingCart />
+                </button>
               ) : (
                 // Display "add" image when isOrderNow is false
-                <button className="text-2xl md:text-4xl pro:text-5xl xl:text-2xl special:text-5xl p-3 rounded-[20px] bg-[#CCBAB3]" onClick={handleShareClick}><MdPersonAddAlt1 /></button>
+                <button
+                  className="text-2xl md:text-4xl pro:text-5xl xl:text-2xl special:text-5xl p-3 rounded-[20px] bg-[#CCBAB3] hover:bg-[#D1D5DB]"
+                  onClick={handleShareClick}
+                >
+                  <MdPersonAddAlt1 />
+                </button>
               )}
               <label className="text-sm md:text-lg pro:text-xl xl:text-sm special:text-2xl">
                 {isOrderNow ? "Order Now" : "Request"}
               </label>
             </div>
           </div>
-
-
         </div>
       </div>
-
-
     </div>
   );
 }
 
-function ShareForm({ onClose }) {
-  // Implement your share form here
-  // You can use a modal or any custom form component
-  // Make sure to call `onClose` when the form is closed to update the state
+function ShareForm({ onClose, userName, passPort, phone, postalAddress, setPostalAddress }) {
+
+  // const [postalAddress, setPostalAddress] = useState();
+  const handlePostalAddressChange = (e) => {
+    setPostalAddress(e.target.value);
+  };
 
   return (
     <form className="form-contain-reg space-y-7 w-full xl:w-3/5 special:w-2/5 special:space-y-16">
       <div className="bg-gray-300 flex flex-row-reverse items-center py-3 px-4 gap-3 rounded-2xl justify-end">
         <input
           type="text"
-          placeholder="Full Name"
+          placeholder="Your Full Name"
           id="name"
-          className="bg-gray-300 placeholder:text-gray-500 outline-none special:placeholder:text-2xl"
+          value={userName}
+          disabled
+          className="bg-gray-300 placeholder:text-gray-500 outline-none w-full special:placeholder:text-2xl"
         />
         <img src={userBUS} alt="user" className="w-8 special:w-14" />
       </div>
@@ -110,33 +203,37 @@ function ShareForm({ onClose }) {
       <div className="bg-gray-300 flex flex-row-reverse items-center py-3 px-4 gap-3 rounded-2xl justify-end">
         <input
           type="text"
-          placeholder="Passport"
+          placeholder="Your Passport"
           id="passport"
-          className="bg-gray-300 placeholder:text-gray-500 outline-none special:placeholder:text-2xl"
+          disabled
+          value={passPort}
+          className="bg-gray-300 placeholder:text-gray-500 w-full outline-none special:placeholder:text-2xl"
         />
         <img src={basketballBUS} alt="passport" className="w-8 special:w-14" />
       </div>
       <div className="bg-gray-300 flex flex-row-reverse items-center py-3 px-4 gap-3 rounded-2xl justify-end">
         <input
           type="text"
-          placeholder="Phone Number"
+          placeholder="Your Phone Number"
           id="mobile"
-          className="bg-gray-300 placeholder:text-gray-500 outline-none special:placeholder:text-2xl"
+          disabled
+          value={phone}
+          className="bg-gray-300 placeholder:text-gray-500 w-full outline-none special:placeholder:text-2xl"
         />
         <img src={smartphoneBUS} alt="phone" className="w-8 special:w-14" />
       </div>
       <div className="bg-gray-300 flex flex-row-reverse items-center py-3 px-4 gap-3 rounded-2xl justify-end">
         <input
           type="text"
-          placeholder="Postal Address"
+          placeholder="Your Postal Address"
           id="address"
-          className="bg-gray-300 placeholder:text-gray-500 outline-none special:placeholder:text-2xl"
+          value={postalAddress}
+          onChange={handlePostalAddressChange}
+          className="bg-gray-300 placeholder:text-gray-500 w-full outline-none special:placeholder:text-2xl"
         />
         <img src={mailBUS} alt="mail" className="w-8 special:w-14" />
       </div>
     </form>
-
-
   );
 }
 

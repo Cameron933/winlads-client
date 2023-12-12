@@ -1,31 +1,20 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom';
-import Correct from "../assets/images/payment_success/success.png"
-import Bg from "../assets/images/payment_success/bg.png";
-import {successAnimation} from "../animation/animation"
-import { motion, useAnimation } from "framer-motion";
+import SideNav from "../../components/SideNav/SideNav";
+import Correct from "../../assets/images/payment_success/success.png";
+import Bg from "../../assets/images/payment_success/bg.png";
+import {successAnimation} from "../../animation/animation"
+ import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
 
-const SubDone = () => {
-  // const history = useHistory();
-  const navigate = useNavigate();
 
+
+function PaymentSuccess() {
   const controls = useAnimation();
 
   useEffect(() => {
     controls.start(successAnimation.animate);
-
-    const timeoutId = setTimeout(() => {
-      navigate('/dashboard');
-    }, 4000);
-
-    return () => clearTimeout(timeoutId);
-
-
   }, [controls]);
-  
 
- return (
+  return (
     <div
       className="flex"
       style={{
@@ -35,6 +24,7 @@ const SubDone = () => {
         backgroundSize: "contain",
       }}
     >
+      <SideNav screen="screen" />
 
       <div className="flex flex-col xl:mx-10 mx-5 flex-1 pt-4  items-center justify-center ">
         <div className="flex flex-col justify-center items-center container xl:gap-10 lg:gap-8 md:gap-6 sm:gap-5 gap-5">
@@ -57,4 +47,4 @@ const SubDone = () => {
   );
 }
 
-export default SubDone
+export default PaymentSuccess;

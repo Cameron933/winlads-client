@@ -7,50 +7,57 @@ import { Link, useNavigate } from "react-router-dom";
 import TopNav from "../../components/TopNav/TopNav";
 import Loader from "../../components/Loader/Loader";
 import axios from "axios";
-import Cookies from "universal-cookie";
 import { validateCurrentUser } from "../../utils/validateuser";
-import CustomChart from "../../components/chart/CustomChart";
 import { motion } from "framer-motion";
 import { carAnimation } from "../../animation/animation";
 import DashboardVehicleCard from "../../components/DashboardVehicleCard/DashboardVehicle";
 import SmallGoldCard from "../../components/GoldCard/SmallGoldCard";
 import SearchField from "../../components/SearchField/SearchField";
-import { LuGripVertical } from "react-icons/lu";
 import { MdOutlineDoNotDisturbOff } from "react-icons/md";
 import { FiLoader } from "react-icons/fi";
+import SelectRafflePaymentMethod from "../../components/RaffleComponent/SelectRafflePaymentMethod";
+import BuyRaffle from "../../components/RaffleComponent/BuyRaffle";
 
-const itemsPerPage = 4;
 const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [loading, setLoading] = useState(true);
   const [valUser, setValUser] = useState({});
-  const cookies = new Cookies(null, { path: "/" });
   const navigate = useNavigate();
-  const [currentPage, setCurrentPage] = useState(1);
   const [giveaways, setGiveaways] = useState([]);
+  const [raffleCount, setRaffleCount] = useState([])
+  const [selectGiveawayId, setSelectGiveawayId] = useState("")
+  
 
-  const totalItems = 18; // Set the total number of items here
-  const totalPages = Math.ceil(totalItems / itemsPerPage);
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
+  const [showPopup, setShowPopup] = useState(false);
+  const [color, setColor] = useState("");
 
-  const [showPopup, setShowPopup] = useState(false)
-  const [color, setColor] = useState("")
+  const [selectPayment, setSelectPayment] = useState(false);
+  const [buyRaffle, setBuyRaffle] = useState(false);
 
   useEffect(() => {
-    // currentUserValidation();
-    getGiveaways();
-  }, []);
+    currentUserValidation();
+    getRaffleCount()
+  }, [raffleCount]);
+
+
+  const currentUserValidation = async () => {
+    const validator = await validateCurrentUser();
+    if (validator.validatorBl) {
+      console.log("Session OK", validator.user);
+      setValUser(validator.user);
+      getGiveaways();
+    } else {
+      navigate("/login");
+    }
+  };
 
   const getGiveaways = async () => {
-    await new Promise((resolve) => setTimeout(resolve,2000));
+    await new Promise((resolve) => setTimeout(resolve, 2000));
     await axios
-      .get(`${import.meta.env.VITE_SERVER_API}/raffleRoundsFuture`)
+      .get(`${import.meta.env.VITE_SERVER_API}/raffleRoundsFuture?=${valUser.uid}`)
       .then((response) => {
-        console.log(response.data.data, "data");
+        console.log(response.data.data, "data raffle");
         setGiveaways(response?.data?.data);
-        setColor(response?.data?.raffle?.color)
-        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
@@ -58,11 +65,30 @@ const Dashboard = () => {
       });
   };
 
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-  }, []);
+  const getRaffleCount = async () => {
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    await axios
+      .get(`${import.meta.env.VITE_SERVER_API}/getUserRafflesCount?uid=${valUser.uid}`)
+      .then((response) => {
+        console.log(response.data, "countData");
+        setRaffleCount(response?.data);
+        setLoading(false);
+        setIsLoading(false)
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false);
+        setIsLoading(false)
+      });
+  };
+
+  const handleButton = (giveawayId) => {
+    console.log("Clicked on button for giveaway with raffleId:", giveawayId);
+    setSelectGiveawayId(giveawayId);
+    raffleCount.data.available
+      ? setBuyRaffle(true)
+      : setSelectPayment(true);
+  }
 
   return (
     <>
@@ -107,16 +133,19 @@ const Dashboard = () => {
                         <DashboardVehicleCard
                           key={key}
                           name={giveaway.raffle.name}
-                          date={giveaway.endtime}
+                          date={giveaway.startingtime}
                           fromColor={giveaway.raffle.color}
                           icon={giveaway.raffle.image}
+                          onButton={() => {
+                            handleButton(giveaway._id);
+                          }}
                         />
                       ))}
                     </div>
                   ) : (
                     <div className="flex flex-col items-center space-y-2">
-                      <MdOutlineDoNotDisturbOff className="w-12 h-12 2xl:w-16 2xl:h-16 special:w-24 special:h-24" />
-                      <p className="font-bold text-2xl 2xl:text-4xl special:text-6xl">
+                      <MdOutlineDoNotDisturbOff className="w-8 h-8 2xl:w-12 2xl:h-12 special:w-16 special:h-16" />
+                      <p className="font-bold text-xl 2xl:text-3xl special:text-4xl">
                         No More Giveaways
                       </p>
                     </div>
@@ -139,7 +168,7 @@ const Dashboard = () => {
                       <p className="text-[#22CCEE] text-2xl font-semibold">
                         Earning Balance
                       </p>
-                      <p className="text-4xl text-white">$0</p>
+                      <p className="text-4xl text-white">${valUser.balance}</p>
                     </div>
                     <SmallGoldCard />
                   </div>
@@ -160,7 +189,9 @@ const Dashboard = () => {
                   </div>
                 </div>
                 <div className="flex flex-col space-y-2 w-full xl:w-web pt-12">
-                  <p className="text-3xl 2xl:text-4xl special:text-6xl font-semibold">Next Giveaways</p>
+                  <p className="text-3xl 2xl:text-4xl special:text-6xl font-semibold">
+                    Next Giveaways
+                  </p>
                   {loading ? (
                     <div className="flex flex-row justify-center gap-2 items-center">
                       <p className="font-bold text-2xl 2xl:text-4xl special:text-6xl">
@@ -177,6 +208,9 @@ const Dashboard = () => {
                           date={giveaway.endtime}
                           fromColor={giveaway.raffle.color}
                           icon={giveaway.raffle.image}
+                          onButton={() => {
+                            handleButton(giveaway._id);
+                          }}
                         />
                       ))}
                     </div>
@@ -187,6 +221,7 @@ const Dashboard = () => {
                         No More Giveaways
                       </p>
                     </div>
+                    
                   )}
                 </div>
               </div>
@@ -195,11 +230,17 @@ const Dashboard = () => {
             {/* right-side */}
             <div className="flex flex-col flex-1">
               <div className="side-bg"></div>
-              <div className="graph-section ">
-              </div>
+              <div className="graph-section "></div>
             </div>
           </div>
         </div>
+      )}
+       {selectPayment && (
+        <SelectRafflePaymentMethod onClose={() => setSelectPayment(false)} userId={valUser.uid} giveawayId={selectGiveawayId} />
+      )}
+
+      {buyRaffle && (
+        <BuyRaffle onClose={() => setBuyRaffle(false)} userId={valUser.uid} giveawayId={selectGiveawayId} subId={valUser.sub_id} quotation={raffleCount.data.rafflecount} count={raffleCount.data.rafflecountused} />
       )}
     </>
   );
