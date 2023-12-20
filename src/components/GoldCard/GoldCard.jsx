@@ -26,23 +26,8 @@ const GoldCard = () => {
   };
 
   const dateObject = new Date(valUser.transaction?.endfrom);
-  
   const options = { year: 'numeric', month: 'long', day: 'numeric', };
   const formattedDate = dateObject.toLocaleString('en-US', options);
-
-  // bg-${
-  //   valUser.subscripton?.name == "Platinum"
-  //     ? "white"
-  //     : "" | (valUser.subscripton?.name == "Started")
-  //     ? "[#808080]"
-  //     : "" | (valUser.subscripton?.name == "Boomer")
-  //     ? "[#366B71]"
-  //     : "" | (valUser.subscripton?.name == "Gold")
-  //     ? "[#E8D61E]"
-  //     : "" | (valUser.subscripton?.name == "Black")
-  //     ? "black"
-  //     : ""
-  // }
 
   return (
     <>
@@ -55,7 +40,7 @@ const GoldCard = () => {
               ? "white"
               : ""
           } overflow-hidden rounded-3xl px-4 special:px-8 2xl:px-6 flex flex-row justify-between py-4 special:py-8 2xl:py-4 cursor-pointer`}
-          style={{ backgroundColor: valUser.subscripton?.color }}
+          style={{ backgroundColor: valUser ? valUser.subscripton?.color : "" }}
         >
           {/* <div className="gold-card-inner-sec1"> */}
           <div className="flex flex-col xl:space-y-2 space-y-1 px-2">

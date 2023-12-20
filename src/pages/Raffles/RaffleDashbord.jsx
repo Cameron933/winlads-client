@@ -81,7 +81,7 @@ function RaffleDashbord() {
         <SideNav screen="screen" name={valUser.name} userId={valUser.uid} />
         <div className="flex-1">
           {/* home-content */}
-          <div className="flex flex-col xl:px-6 px-4 special:px-12 xl:space-y-16 special:space-y-24 space-y-8">
+          <div className="flex flex-col xl:px-6 px-4 special:px-12 special:space-y-24 space-y-8">
             <div className="xl:flex xl:flex-row flex-col xl:justify-between xl:gap-4 space-y-4 xl:space-y-0">
               <img
                 src={BG}
@@ -218,32 +218,34 @@ function RaffleDashbord() {
                 </div>
               </div>
             </div>
-            <p className="font-semibold text-lg xl:text-xl 2xl:text-3xl special:text-4xl">
-              Giveaway Categories
-            </p>
-            {loading ? (
-              <div className="flex justify-center">
-                <FiLoader className="w-9 h-9 2xl:w-12 2xl:h-12 special:w-18 special:h-18 animate-spin" />
-              </div>
-            ) : raffles.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2 2xl:gap-4 special:gap-4">
-                {raffles.map((raffle, key) => (
-                  <RaffleDashboardComponent
-                    key={key}
-                    bgColor={raffle.color}
-                    id={raffle._id}
-                    name={raffle.name}
-                    type={raffle.type}
-                    img={raffle.image}
-                    date={raffle.date}
-                  />
-                ))}
-              </div>
-            ) : (
-              <p className="flex justify-center font-semibold 2xl:text-2xl xl:text-xl special:text-4xl text-lg">
-                No Giveaways
+            <div className="flex flex-col space-y-2 special:space-y-6 2xl:space-y-4">
+              <p className="font-semibold text-lg xl:text-xl 2xl:text-3xl special:text-4xl">
+                Giveaway Categories
               </p>
-            )}
+              {loading ? (
+                <div className="flex justify-center">
+                  <FiLoader className="w-9 h-9 2xl:w-12 2xl:h-12 special:w-18 special:h-18 animate-spin" />
+                </div>
+              ) : raffles.length > 0 ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2 2xl:gap-4 special:gap-4">
+                  {raffles.map((raffle, key) => (
+                    <RaffleDashboardComponent
+                      key={key}
+                      bgColor={raffle.color}
+                      id={raffle._id}
+                      name={raffle.name}
+                      type={raffle.type}
+                      img={raffle.image}
+                      date={raffle.date}
+                    />
+                  ))}
+                </div>
+              ) : (
+                <p className="flex justify-center font-semibold 2xl:text-2xl xl:text-xl special:text-4xl text-lg">
+                  No Giveaways
+                </p>
+              )}
+            </div>
           </div>
         </div>
       </div>

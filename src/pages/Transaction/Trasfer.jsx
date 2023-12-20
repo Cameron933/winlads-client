@@ -153,7 +153,7 @@ const Trasfer = () => {
               </div>
             </div>
 
-            <div className="flex flex-col">
+            {/* <div className="flex flex-col">
               <div style={{ position: "relative" }}>
                 <div
                   className="flex flex-row items-center justify-center gap-2 mb-5"
@@ -187,10 +187,9 @@ const Trasfer = () => {
                   width={chartWidth}
                 />
               </div>
-            </div>
+            </div> */}
             <div
-              className="flex flex-col space-y-4 "
-        
+              className="flex flex-col space-y-4 pt-12 "
             >
               <div className="flex flex-row justify-between items-center">
                 <Link to="/transaction">

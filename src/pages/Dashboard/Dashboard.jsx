@@ -95,9 +95,6 @@ const Dashboard = () => {
     raffleCount.data.available ? setBuyRaffle(true) : setSelectPayment(true);
   };
 
-
-
-
   return (
     <>
       {isLoading ? (
@@ -150,6 +147,7 @@ const Dashboard = () => {
                           name={giveaway.raffle?.name}
                           date={giveaway?.startingtime}
                           fromColor={giveaway.raffle?.color}
+                          color={giveaway?.raffle?.color}
                           icon={giveaway.raffle?.image}
                           onButton={() => {
                             handleButton(giveaway._id);
@@ -207,11 +205,8 @@ const Dashboard = () => {
                     Next Giveaways
                   </p>
                   {loading ? (
-                    <div className="flex flex-row justify-center gap-2 items-center">
-                      <p className="font-bold text-2xl 2xl:text-4xl special:text-6xl">
-                        Loading Subscriptions
-                      </p>
-                      <FiLoader className="w-12 h-12 2xl:w-16 2xl:h-16 special:w-24 special:h-24 animate-spin" />
+                    <div className="flex justify-center">
+                      <FiLoader className="w-9 h-9 2xl:w-12 2xl:h-12 special:w-18 special:h-18 animate-spin" />
                     </div>
                   ) : giveaways.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2">
@@ -220,7 +215,7 @@ const Dashboard = () => {
                           key={key}
                           name={giveaway.raffle?.name}
                           date={giveaway?.endtime}
-                          color={giveaway?.color}
+                          color={giveaway?.raffle?.color}
                           fromColor={giveaway.raffle?.color}
                           icon={giveaway.raffle?.image}
                           onButton={() => {

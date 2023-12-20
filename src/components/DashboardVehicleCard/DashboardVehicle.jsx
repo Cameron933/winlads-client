@@ -8,19 +8,24 @@ const DashboardVehicleCard = ({
   fromColor,
   type,
   onButton,
+  color
 }) => {
   const handleClick = () => {
     onButton();
   };
 
+  const dateObject = new Date(date);
+  const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+  const formattedDate = dateObject.toLocaleString('en-US', options);
+
   return (
     <>
       <div
-        className={`flex flex-row className="bg-red-300 justify-between pr-2 rounded-3xl 2xl:rounded-[30px] special:rounded-[40px] w-full py-2 shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:opacity-75 hover:opacity-100`}
-        style={{ backgroundColor: bgColor }}
+        className={`flex flex-row justify-between pr-2 rounded-3xl 2xl:rounded-[30px] special:rounded-[40px] w-full py-2 shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:opacity-75 hover:opacity-100`}
+        style={{ backgroundColor: color }}
         onClick={handleClick}
       >
-        <img src={CatJeep} alt="" className="flex w-36 special:w-96 2xl:w-64" />
+        <img src={CatJeep} alt="" className="flex w-36 special:w-96 2xl:w-48" />
         <div className="flex flex-col space-y-4">
           <div className="flex justify-end">
             <img
@@ -35,7 +40,7 @@ const DashboardVehicleCard = ({
                 {name}
               </p>
               <p className="text-[10px] text-white special:text-xl 2xl:text-[10px]">
-                {date}
+                {formattedDate}
               </p>
             </div>
         </div>
