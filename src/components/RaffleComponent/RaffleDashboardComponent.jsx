@@ -1,17 +1,9 @@
 import { Link } from "react-router-dom";
-import max from "../../assets/images/rafflesImages/max.png";
-import { GoQuestion } from "react-icons/go";
-import Jeep from "../../assets/images/Lottery/Jeep.png";
 import "./Raffle.css";
 import { useEffect, useState } from "react";
-import axios from "axios";
-import { MdOutlineDoNotDisturbOff } from "react-icons/md";
-import { FiLoader } from "react-icons/fi";
-import NewJeep from "../../assets/images/newJeep.png";
 import CatJeep from "../../assets/images/rafflesImages/newJeep.png";
 
 function RaffleDashboardComponent({ bgColor, id, name, type, img, date }) {
-  const [loading, setLoading] = useState(true);
 
   return (
     <>

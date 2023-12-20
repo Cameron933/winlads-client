@@ -18,7 +18,7 @@ import SearchField from "../../components/SearchField/SearchField";
 import { useParams, useLocation } from "react-router-dom";
 import BG from "../../assets/images/HomesideBg.png";
 import { validateCurrentUser } from "../../utils/validateuser";
-import NewJeep from "../../assets/images/newJeep.png";
+import NewJeep from "../../assets/images/rafflesImages/newJeep.png";
 
 export const bgStyle = {
   backgroundImage: `url(${bgCar})`,

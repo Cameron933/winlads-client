@@ -1,7 +1,3 @@
-import vehicle from "../../assets/images/Lottery/Jeep.png";
-import SelectRafflePaymentMethod from "../../components/RaffleComponent/SelectRafflePaymentMethod";
-import BuyRaffle from "../../components/RaffleComponent/BuyRaffle";
-import NewJeep from "../../assets/images/newJeep.png";
 import CatJeep from "../../assets/images/rafflesImages/newJeep.png";
 
 const DashboardVehicleCard = ({
@@ -20,7 +16,7 @@ const DashboardVehicleCard = ({
   return (
     <>
       <div
-        className={`flex flex-row className="w-full bg-red-300 justify-between pr-2 rounded-3xl 2xl:rounded-[30px] special:rounded-[40px] w-full py-2 shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:opacity-75 hover:opacity-100`}
+        className={`flex flex-row className="bg-red-300 justify-between pr-2 rounded-3xl 2xl:rounded-[30px] special:rounded-[40px] w-full py-2 shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:opacity-75 hover:opacity-100`}
         style={{ backgroundColor: bgColor }}
         onClick={handleClick}
       >
