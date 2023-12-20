@@ -1,4 +1,6 @@
 import jeep2 from "../../assets/images/jeep2.png";
+import Car from "../../assets/images/car.jpeg";
+import carVideo from "../../assets/images/carAnim.mp4";
 import Vector1 from "../../assets/images/Vector1.png";
 import Vector2 from "../../assets/images/Vector2.png";
 import Vector3 from "../../assets/images/Vector3.png";
@@ -104,6 +106,7 @@ function ChechSecondPage() {
                         variants={textAnimate}
                         className="xl:w-2/5 w-full xl:max-w-[680px]"
                     >
+
                         <div className="transition duration-700 hover:scale-105">
                             <h3 className="font-bold mb-2 text-md xl:text-2xl 4xl:text-4xl">Winlads Referral System</h3>
                             <p className="pb-2 text-md xl:text-xl 4xl:text-4xl">

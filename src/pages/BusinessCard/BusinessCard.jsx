@@ -3,7 +3,6 @@ import MainCar from "../../assets/images/MainCar.png";
 import GoldCard from "../../components/GoldCard/GoldCard";
 import TopNav from "../../components/TopNav/TopNav";
 import BusinessCardComponent from "../../components/BCard/BusinessCard";
-import { IoIosOptions } from "react-icons/io";
 import SearchField from "../../components/SearchField/SearchField";
 import BG from "../../assets/images/HomesideBg.png";
 import { useEffect, useState } from "react";

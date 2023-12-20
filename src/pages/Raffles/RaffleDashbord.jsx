@@ -7,16 +7,12 @@ import { useEffect, useState } from "react";
 import { validateCurrentUser } from "../../utils/validateuser";
 import axios from "axios";
 import { motion } from "framer-motion";
-import Loader from "../../components/Loader/Loader";
-import Jeep from "../../assets/images/Lottery/Jeep.png";
 import six from "../../assets/images/rafflesImages/six4.png";
 import { GoQuestion } from "react-icons/go";
 import SearchField from "../../components/SearchField/SearchField";
-import { LuHistory } from "react-icons/lu";
 import User from "../../assets/images/user4.png";
 import BG from "../../assets/images/HomesideBg.png";
 import bgCar from "../../assets/images/hiddenCar.png";
-import NewJeep from "../../assets/images/newJeep.png";
 import { ref, getDownloadURL } from "firebase/storage";
 import { storage } from "../../firebase.config.js";
 import { FiLoader } from "react-icons/fi";
@@ -132,13 +128,7 @@ function RaffleDashbord() {
                           </p>
                         </div>
                       </div>
-                      {/* <div>
-                        <img src={Youtube} alt="" className="" />
-                      </div> */}
                     </div>
-                    {/* <Link className="flex justify-end" to="/history">
-                      <LuHistory className="hover:animate-spin special:w-12 special:h-12 2xl:w-9 2xl:h-6 z-10 w-5 h-5" />
-                    </Link> */}
                   </div>
                   <div className="flex flex-col xl:flex-row md:flex-row gap-2 justify-between items-center">
                     <div className="flex-1 flex">

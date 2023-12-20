@@ -1,13 +1,6 @@
 import { useEffect, useState } from "react";
 import SideNav from "../../components/SideNav/SideNav";
 import liveBackground from "../../assets/images/rafflesImages/LiveBackground.png";
-import cutIcon from "../../assets/images/rafflesImages/cutIcon.png";
-import displayicon from "../../assets/images/rafflesImages/displayicon.png";
-import soundicon from "../../assets/images/rafflesImages/soundIcon.png";
-import ChartDark from "../../assets/images/rafflesImages/ChartDark.png";
-import EarningCard from "../../components/EarningCard/EarningCard";
-import max from "../../assets/images/rafflesImages/max.png";
-import liveraffflecard from "../../assets/images/rafflesImages/liveraffflecard.png";
 import "./liveRaffle.css";
 import { validateCurrentUser } from "../../utils/validateuser";
 import { useNavigate } from "react-router-dom";

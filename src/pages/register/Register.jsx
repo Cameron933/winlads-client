@@ -1,13 +1,5 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import MainImg from "../../assets/images/jip.png";
-import MainJeepNp from "../../assets/images/jeepnp.png";
-import Phone from "../../assets/images/smartphone.png";
-import User from "../../assets/images/user.png";
-import Passport from "../../assets/images/pass.png";
-import Taxt from "../../assets/images/tax.png";
-import Mail from "../../assets/images/mail.png";
-import Lock from "../../assets/images/lock.png";
 import Loader from "../../components/Loader/Loader";
 import { basicSchemasRegister } from "../../schemas/index.js";
 import { useFormik } from "formik";
@@ -17,13 +9,9 @@ import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { MdOutlineNavigateNext } from "react-icons/md";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import { AiOutlineSend } from "react-icons/ai";
-import Protect from "../../assets/images/Protect.png";
-import User2 from "../../assets/images/User2.png";
 import Cookies from "universal-cookie";
 import "../Login/Login.css";
 import { motion } from "framer-motion";
-import XlJeep from "../../assets/images/Xljeep.png";
 import { validateCurrentUser } from "../../utils/validateuser.js";
 import LoginImg from "../../assets/images/login/jeep.png";
 import PhoneInput from "react-phone-input-2";
@@ -33,7 +21,6 @@ import {
   FcFeedback,
   FcDiploma1,
   FcViewDetails,
-  FcPhoneAndroid,
   FcSmartphoneTablet,
 } from "react-icons/fc";
 
@@ -41,15 +28,12 @@ const Register = () => {
   const [otp, setOtp] = useState("");
   const [ph, setPh] = useState("");
   const [isLoading, setIsLoading] = useState(true);
-  const [showOTP, setShowOTP] = useState(false);
-  const [user, setUser] = useState(null);
   const [show, setshow] = useState(false);
   const [final, setfinal] = useState("");
   const [verifyDisable, setVerifyDisable] = useState(true);
   const [showOTPBox, setShowOTPBox] = useState(false);
   const navigate = useNavigate();
   const [buttonText, setButtonText] = useState("Get OTP");
-  const [UserData, setUserData] = useState(null);
   const [isChecked, setIsChecked] = useState(false);
   const cookies = new Cookies(null, { path: "/" });
 
@@ -244,8 +228,6 @@ const Register = () => {
           <div className="container mx-auto login-section max-sm:overflow-scroll">
             <div className="login-contain flex items-center justify-center md:flex-row xl:flex-row 4xl:flex-row flex-col">
               <div className="img-container w-2/4 scale-150 mb-9 md:mb-0 prevent">
-                {/* <img src={MainImg} className="w-full h-full object-contain md:object-cover transform md:-translate-x-1/4" alt="main-img" /> */}
-                {/* Desktop View Jeep */}
                 <div className="hidden md:block 4xl:hidden xl:hidden w-full prevent">
                   <motion.img
                     initial={{ opacity: 0, x: "-50%" }}
@@ -371,10 +353,6 @@ const Register = () => {
                         id="tin"
                         className="placeholder:text-[16px]"
                       />
-
-                      {/* <small className="text-error">
-                      {errors.tin && touched.tin && errors.tin}
-                    </small> */}
                     </div>
 
                     <div
@@ -386,8 +364,6 @@ const Register = () => {
                     >
                       <PhoneInput
                       country={"au"}
-                      // value={this.state.phone}
-                      // onChange={(phone) => this.setState({ phone })}
                       value={ph}
                       onChange={(value, country, e, formattedValue) => setPh(value)}
                       onBlur={handleBlur}

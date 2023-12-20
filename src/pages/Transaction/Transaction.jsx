@@ -2,26 +2,18 @@ import React, { useState, useEffect } from "react";
 import SideNav from "../../components/SideNav/SideNav";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import Tax from "../../assets/images/transaction/Tax.png";
-import Ticket from "../../assets/images/transaction/Ticket.png";
-import Arrow from "../../assets/images/transaction/Arrow.png";
 import GoldCard from "../../components/GoldCard/GoldCard";
 import TopNav from "../../components/TopNav/TopNav";
 import MainCar from "../../assets/images/MainCar.png";
 import Transfer from "../../assets/images/transaction/transfer-outlined.png";
 import Save from "../../assets/images/transaction/save-outlined.png";
 import Slip from "../../assets/images/transaction/slip-outlined.png";
-import { BiSolidDownArrow } from "react-icons/bi";
-import Chart from "react-apexcharts";
-import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import Profit from "../../assets/images/transaction/profit.png";
 import ShoppingBag from "../../assets/images/transaction/shopping-bag.png";
 import axios from "axios";
 import { validateCurrentUser } from "../../utils/validateuser";
 import Stripe from "../../assets/images/transaction/strip.png";
-import Sub from "../../assets/images/transaction/sub.png";
-import Fund from "../../assets/images/transaction/fund.png";
 import Balance from "../../assets/images/transaction/balance.png";
 import { FiLoader } from "react-icons/fi";
 
@@ -281,12 +273,6 @@ const Transaction = () => {
                     </span>
                   </button>
 
-                  {/* {transactions.map((transaction, key) => (
-                    <div key={key}>
-                      <p>{transaction.amount}</p>
-                    </div>
-                  ))} */}
-
                   {isOpen && (
                     <div
                       className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
@@ -446,23 +432,6 @@ const Transaction = () => {
               )}
             </div>
           </div>
-          {/* <div> */}
-          {/* <div className="flex flex-col flex-1 space-y-4">
-              <div className="invisible xl:visible">
-                <TopNav />
-              </div>
-
-              <div className="top-img-inner-subscription">
-                <img className="" src={MainCar} alt="main" />
-              </div>
-              <div className="lg:w-2/3">
-                <GoldCard />
-              </div>
-
-              <div>
-                <EarningCard />
-              </div>
-            </div> */}
           <div className="flex-col flex-1 space-y-4 hidden xl:flex">
             <div className=" space-y-4">
               <div className="bg-black rounded-b-3xl py-4">

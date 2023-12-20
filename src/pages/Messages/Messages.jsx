@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from "react";
 import SideNav from "../../components/SideNav/SideNav";
 import TopNav from "../../components/TopNav/TopNav";
-import User from "../../assets/images/side-bar/User.png";
 import GoldCard from "../../components/GoldCard/GoldCard";
 import MainCar from "../../assets/images/MainCar.png";
-import EarningCard from "../../components/EarningCard/EarningCard";
 import backgroundcar from "../../assets/images/background/Background-car.png";
-import axios from "axios";
 import Cookies from "universal-cookie";
-import { MdOutlinePhotoCamera } from "react-icons/md";
-import { toast } from "react-toastify";
 import { HashLoader } from 'react-spinners';
 import Message from "../../components/Messages/Message";
 import AddedYou from "../../components/Messages/AddedYou";

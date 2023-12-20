@@ -4,7 +4,6 @@ import GoldCard from "../../components/GoldCard/GoldCard";
 import TopNav from "../../components/TopNav/TopNav";
 import SubscribeCard from "../../components/SubscribeCard/SubscribeCard";
 import { motion } from "framer-motion";
-import Loader from "../../components/Loader/Loader";
 import axios from "axios";
 import { MdOutlineDoNotDisturbOff } from "react-icons/md";
 import { FiLoader } from "react-icons/fi";

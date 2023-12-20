@@ -2,12 +2,9 @@ import { useEffect, useState } from "react";
 import SideNav from "../../components/SideNav/SideNav";
 import MainCar from "../../assets/images/MainCar.png";
 import TopNav from "../../components/TopNav/TopNav";
-import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { GoQuestion } from "react-icons/go";
-import Jeep from "../../assets/images/Lottery/Jeep.png";
 import six from "../../assets/images/rafflesImages/six4.png";
-import Loto from "../../assets/images/rafflesImages/loto.png";
 import { Link, useNavigate } from "react-router-dom";
 import Visa from "../../assets/images/rafflesImages/Visa.png";
 import Usd from "../../assets/images/rafflesImages/Usd.png";
@@ -15,15 +12,9 @@ import bitcoin from "../../assets/images/rafflesImages/bitcoin.png";
 import white from "../../assets/images/subscribers/white.png";
 import axios from "axios";
 import { motion } from "framer-motion";
-import Loader from "../../components/Loader/Loader";
-import { carAnimation } from "../../animation/animation";
-import HiddenCar from "../../assets/images/hiddenCar.png";
-import RaffleViewer from "../../components/RaffleComponent/RaffleViewer";
 import { IoCloseSharp } from "react-icons/io5";
-import { RxCounterClockwiseClock } from "react-icons/rx";
 import bgCar from "../../assets/images/hiddenCar.png";
 import SearchField from "../../components/SearchField/SearchField";
-import { LuHistory } from "react-icons/lu";
 import { useParams, useLocation } from "react-router-dom";
 import BG from "../../assets/images/HomesideBg.png";
 import { validateCurrentUser } from "../../utils/validateuser";
@@ -37,9 +28,6 @@ export const bgStyle = {
 };
 
 function Raffles() {
-  const [value, onChange] = useState(new Date());
-  const [showPopup, setShowPopup] = useState(false);
-  const [showLessPopup, setShowLessPopup] = useState(false);
   const [raffleRounds, setRaffleRounds] = useState([]);
 
   const [past, setPast] = useState([]);
@@ -52,19 +40,12 @@ function Raffles() {
   const { raffleId } = useParams();
   const { search } = useLocation();
   const queryParams = new URLSearchParams(search);
-  const color = queryParams.get("color");
 
   useEffect(() => {
     getRafflesRounds();
     currentUserValidation();
   }, [present, past, future, raffleRounds, valUser]);
 
-  // set loading
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setIsLoading(false);
-  //   }, 1000);
-  // }, []);
 
   const currentUserValidation = async () => {
     const validator = await validateCurrentUser();
@@ -121,11 +102,6 @@ function Raffles() {
                 </div>
 
                 <div className="flex flex-col 2xl:space-y-8 space-y-6 special:space-y-12">
-                  {/* <Calendar
-                    value={value}
-                    onChange={onChange}
-                    className="flex-1 bg-transparent"
-                  /> */}
                   <div className="mt-4 xl:pt-0 pb-4 xl:pb-0">
                     <SearchField />
                   </div>
@@ -134,9 +110,6 @@ function Raffles() {
                     <p className="capitalize text-black font-semibold text-xl 2xl:text-2xl special:text-5xl">
                       live Giveaways
                     </p>
-                    {/* <Link className="flex justify-end" to="/history">
-                      <LuHistory className="hover:animate-spin special:w-12 special:h-12 2xl:w-9 2xl:h-6 z-10 w-5 h-5" />
-                    </Link> */}
                   </div>
                   <Link to="/live-raffle">
                     <div className="bg-[#D5B511] hover:bg-[#D5B511]/75 flex-col rounded-3xl px-2 special:px-4 py-1 space-y-2 xl:w-1/2 md:w-1/2  w-full">
@@ -212,29 +185,7 @@ function Raffles() {
                   </div>
                 </div>
               </div>
-{/* 
-              {showPopup && <PopUpLotto onClose={() => setShowPopup(false)} />}
-
-              {showLessPopup && (
-                <PopUpLess onClose={() => setShowLessPopup(false)} />
-              )} */}
             </div>
-
-            {/* SMALL JEEPS CONTAINER */}
-
-            {/* Raffle View Tabpane */}
-            {/* {raffleRounds && (
-              <RaffleViewer
-                raffleRounds={raffleRounds}
-                setShowPopup={setShowPopup}
-                showLessPopUp={setShowLessPopup}
-                color={color}
-                raffleId={params.id}
-                past={past}
-                present={present}
-                future={future}
-              />
-            )} */}
           </div>
         </div>
       </div>

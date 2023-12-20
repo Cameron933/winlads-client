@@ -1,14 +1,9 @@
-import NoticeComponent from "../../components/NoticeComponent/NoticeComponent";
 import SideNav from "../../components/SideNav/SideNav";
-import Spicker from "../../assets/images/spicker.png";
-import HiddenCar from "../../assets/images/hiddenCar.png";
 import MainCar from "../../assets/images/MainCar.png";
 import GoldCard from "../../components/GoldCard/GoldCard";
 import TopNav from "../../components/TopNav/TopNav";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import Loader from "../../components/Loader/Loader";
-import { carAnimation } from "../../animation/animation";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { MdOutlineDoNotDisturbOff } from "react-icons/md";

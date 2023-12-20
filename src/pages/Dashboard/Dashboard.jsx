@@ -16,7 +16,6 @@ import SearchField from "../../components/SearchField/SearchField";
 import { MdOutlineDoNotDisturbOff } from "react-icons/md";
 import { FiLoader } from "react-icons/fi";
 import SelectRafflePaymentMethod from "../../components/RaffleComponent/SelectRafflePaymentMethod";
-import BuyRaffle from "../../components/RaffleComponent/BuyRaffle";
 import BG from "../../assets/images/HomesideBg.png";
 
 const Dashboard = () => {
