@@ -30,12 +30,18 @@ import GoogleAnalytics from "./utils/GoogleAnalytics";
 import TermsCondition from "./pages/Terms&Condition/Terms&Condition";
 import Layout from "./Layout";
 import Privacy from "./pages/Privacy/Privacy";
+import MyEntries from "./pages/MyEntries/MyEntries";
+import NotFound from "./pages/NotFound";
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Home />,
+    },
+    {
+      path: "*",
+      element: <NotFound />,
     },
     {
       path: "/dashboard",
@@ -137,6 +143,10 @@ function App() {
     {
       path: "/privacy",
       element: <Privacy />,
+    },
+    {
+      path: "/myentries",
+      element: <MyEntries />,
     },
   ]);
 
