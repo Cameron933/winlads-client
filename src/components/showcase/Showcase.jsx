@@ -50,14 +50,14 @@ function Showcase() {
       }}
     >
       <button
-        className="border-black 4xl:text-4xl px-4 py-3 rounded-md 2xl:py-6 items-center text-white buttonBg absolute top-20 lg:right-12 right-2"
+        className="border-black 4xl:text-4xl px-8 py-3 rounded-md 2xl:py-6 items-center text-white buttonBg absolute top-20 lg:right-12 right-2"
       >
         Contact Us
       </button>
 
       <div>
         <div>
-          <img src={ellipse} className="h-auto lg:h-screen" />
+          <img src={ellipse} className="h-auto " />
         </div>
         <img
           className="hidden lg:inline"
@@ -71,7 +71,7 @@ function Showcase() {
           alt="logo"
           style={{
             position: "absolute",
-            top: "230px",
+            top: "200px",
             left: "340px",
           }}
         />
@@ -122,51 +122,30 @@ function Showcase() {
       <div className="flex flex-col space-y-4 mx-2 mt-10 md:mt-0 lg:pr-10">
         <div className="hidden lg:block" style={{ height: "40%" }}></div>
         <div className="pt-4 dashcontent-group z-10">
-          <p className="font-semibold text-right uppercase text-sm 4xl:text-4xl xl:text-2xl">
-            With over 650+ businesses across 1000+ stores where you can
-            accessexclusive discounts
+          <p className="font-semibold text-right text-md 4xl:text-4xl xl:text-1xl">
+          With over 650+ businesses across 1000+ stores where you can accessexclusive discounts.
           </p>
-          <p className="font-semibold text-right uppercase text-md 4xl:text-4xl xl:text-2xl">
-            Australia Widefrom only $19.99 per month, opt-out anytime
+          <p className="font-semibold text-right text-md 4xl:text-4xl xl:text-1xl mt-3">
+          Australia Widefrom only $9.99 per month, opt-out anytime
           </p>
         </div>
         <div className="flex justify-end z-10">
           <Link to="/register">
             <div
-              className="flex justify-center px-4 py-4 2xl:px-8  border-black 2xl:py-6 2xl:text-xl text-md font-bold items-center text-white buttonBg frontbtns"
+              className="flex justify-center px-8 py-3 2xl:px-8  border-black 2xl:py-6 2xl:text-xl text-md font-bold items-center text-white buttonBg frontbtns"
               style={{
                 //   display: "inline-block",
                 borderRadius: "5px",
                 cursor: "pointer",
               }}
             >
-              Continue to Dashboard
+              Sign Up for Free
             </div>
           </Link>
         </div>
-        <div className="flex justify-end mt-4 z-10">
-          <img
-            src={appstore}
-            style={{ cursor: "pointer" }}
-            className="4xl:hidden w-1/2 md:w-auto"
-          />
-          <img
-            src={googleplay}
-            style={{ cursor: "pointer" }}
-            className="4xl:hidden w-1/2 md:w-auto"
-          />
-          <img
-            src={Xlappstore}
-            style={{ cursor: "pointer" }}
-            className="hidden 4xl:block"
-          />
-          <img
-            src={Xlgoogleplay}
-            style={{ cursor: "pointer" }}
-            className="hidden 4xl:block"
-          />
-        </div>
+       
       </div>
+        <br /><br />
     </motion.div>
   );
 }

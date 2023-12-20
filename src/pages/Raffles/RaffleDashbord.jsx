@@ -2,10 +2,9 @@ import RaffleDashboardComponent from "../../components/RaffleComponent/RaffleDas
 import SideNav from "../../components/SideNav/SideNav";
 import MainCar from "../../assets/images/MainCar.png";
 import TopNav from "../../components/TopNav/TopNav";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { validateCurrentUser } from "../../utils/validateuser";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { motion } from "framer-motion";
 import Loader from "../../components/Loader/Loader";
@@ -17,8 +16,11 @@ import { LuHistory } from "react-icons/lu";
 import User from "../../assets/images/user4.png";
 import BG from "../../assets/images/HomesideBg.png";
 import bgCar from "../../assets/images/hiddenCar.png";
-import NewJeep from "../../assets/images/newJeep.png"
-
+import NewJeep from "../../assets/images/newJeep.png";
+import { ref, getDownloadURL } from "firebase/storage";
+import { storage } from "../../firebase.config.js";
+import { FiLoader } from "react-icons/fi";
+import CatJeep from "../../assets/images/rafflesImages/newJeep.png";
 
 export const bgStyle = {
   backgroundImage: `url(${bgCar})`,
@@ -30,181 +32,231 @@ export const bgStyle = {
 function RaffleDashbord() {
   const [raffles, setRaffles] = useState([]);
   const [value, onChange] = useState(new Date());
-  const [isLoading, setIsLoading] = useState(true);
   const [valUser, setValUser] = useState({});
+  const [userImage, setUserImage] = useState("");
+  const [loading, setLoading] = useState(true);
 
   const navigate = useNavigate();
-  const currentUserValidation = async () => {
-    const validator = await validateCurrentUser();
-    if (validator.validatorBl) {
-      console.log("Session OK");
-      setValUser(validator.user);
-    } else {
-      navigate("/login");
-    }
-  };
+
   useEffect(() => {
     currentUserValidation();
     getRaffles();
   }, []);
 
+  const currentUserValidation = async () => {
+    const validator = await validateCurrentUser();
+    if (validator.validatorBl) {
+      console.log("Session OK");
+      setValUser(validator.user);
+      getProfileImage(validator.user.image);
+    } else {
+      navigate("/login");
+    }
+  };
+
   const getRaffles = async () => {
+    await new Promise((resolve) => setTimeout(resolve, 2000));
     await axios
       .get(`${import.meta.env.VITE_SERVER_API}/raffles`)
       .then((response) => {
-        console.log(response.data.data);
+        console.log(response.data.data, "data");
         setRaffles(response?.data?.data);
-        setIsLoading(false);
+        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
+        setLoading(false);
       });
   };
 
+  function getProfileImage(img) {
+    getDownloadURL(ref(storage, img))
+      .then((url) => {
+        setUserImage(url);
+      })
+      .catch((error) => {
+        // Handle any errors
+      });
+  }
+
   return (
     <>
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <div className="flex flex-row justify-between min-h-screen">
-          <SideNav screen="screen" />
-          <div className="flex-1">
-            {/* home-content */}
-            <div className="flex flex-col xl:px-6 px-4 special:px-12 xl:space-y-16 special:space-y-24 space-y-8">
-              <div className="xl:flex xl:flex-row flex-col xl:justify-between xl:items-center xl:gap-4 space-y-4 xl:space-y-0">
-                <img
-                  src={BG}
-                  alt=""
-                  className="absolute right-0 -z-10 top-10 w-72 xl:w-96 md:w-96 special:w-1/3 2xl:w-1/4 special:top-80 opacity-60"
-                />
-                {/* left side */}
-                <div className="flex flex-col flex-1">
-                  <div className="visible xl:hidden space-y-4">
-                    <div className="bg-black rounded-b-3xl py-4">
-                      <TopNav textColor={"white"} />
-                      <div className="pt-10">
-                        <img className="" src={MainCar} alt="main" />
-                      </div>
+      <div className="flex flex-row justify-between min-h-screen">
+        <SideNav screen="screen" name={valUser.name} userId={valUser.uid} />
+        <div className="flex-1">
+          {/* home-content */}
+          <div className="flex flex-col xl:px-6 px-4 special:px-12 xl:space-y-16 special:space-y-24 space-y-8">
+            <div className="xl:flex xl:flex-row flex-col xl:justify-between xl:gap-4 space-y-4 xl:space-y-0">
+              <img
+                src={BG}
+                alt=""
+                className="absolute right-0 -z-10 top-10 w-72 xl:w-96 md:w-96 special:w-1/4 2xl:w-1/4 special:top-40 opacity-60"
+              />
+              {/* left side */}
+              <div className="flex flex-col flex-1">
+                <div className="block xl:hidden space-y-4">
+                  <div className="bg-black rounded-b-3xl py-4">
+                    <TopNav textColor={"white"} />
+                    <div className="pt-10">
+                      <img className="" src={MainCar} alt="main" />
                     </div>
                   </div>
-                  <div className="pt-4 xl:pt-0 pb-4 xl:pb-0 flex flex-col space-y-1">
+                </div>
+                <div className="flex flex-col 2xl:space-y-8 space-y-6 special:space-y-12">
+                  <div className="mt-4 xl:pt-0 pb-4 xl:pb-0">
                     <SearchField />
-                    <Link className="flex justify-end" to="/history">
-                      <LuHistory className="hover:animate-spin special:w-16 special:h-16 2xl:w-12 2xl:h-9 z-10 w-5 h-5" />
-                    </Link>
                   </div>
-                  <div className="flex xl:flex-row md:flex-row flex-col xl:justify-between gap-2">
+                  <div className="flex flex-row justify-between items-center">
                     <div className="flex flex-col space-y-2 special:space-y-8 flex-1">
                       <div className="flex flex-row items-center gap-2 special:gap-4">
-                        <img
-                          src={User}
-                          alt=""
-                          className="w-12 h-12 special:w-36 special:h-36"
-                        />
+                        {userImage ? (
+                          <img
+                            src={userImage}
+                            className="w-12 h-12 special:w-36 special:h-36 rounded-full"
+                            alt="user"
+                          />
+                        ) : (
+                          <img
+                            src={User}
+                            alt=""
+                            className="w-12 h-12 special:w-36 special:h-36"
+                          />
+                        )}
+
                         <div className="flex flex-col space-y-1">
-                          <p className="font-bold special:text-8xl">
+                          <p className="font-bold special:text-6xl">
                             Earning Balance
                           </p>
-                          <p className="special:text-6xl">${valUser.balance}</p>
+                          <p className="special:text-6xl">
+                            ${valUser.balance || "0.00"}
+                          </p>
                         </div>
                       </div>
                       {/* <div>
                         <img src={Youtube} alt="" className="" />
                       </div> */}
-                      <div className="">
-                        <iframe
-                          title="YouTube Video"
-                          src="https://www.youtube.com/watch?v=y6qxTSuf91k"
-                          frameBorder="0"
-                          allowFullScreen
-                          className="special:w-[1000px] special:h-[350px]"
-                        ></iframe>
-                      </div>
                     </div>
-                    <div className="xl:flex md:flex items-end flex-1 w-full">
-                      <Link to="/live-raffle">
-                        <div
-                          className="bg-[#D5B511] hover:bg-[#D5B511]/75 flex-col rounded-3xl px-2 special:px-4 py-1 space-y-2 flex-1 shadow-lg  "
-                         
-                        >
-                          <div className="flex flex-row justify-between items-center">
-                            <img
-                              src={NewJeep}
-                              alt=""
-                              className="flex w-36 special:w-96 2xl:w-36"
-                            />
-                            <div>
-                              <div className="justify-end flex">
-                                <div className="flex-col flex">
-                                  <img
-                                    src={six}
-                                    alt=""
-                                    className="w-12 special:w-36 2xl:w-16"
-                                  />
+                    {/* <Link className="flex justify-end" to="/history">
+                      <LuHistory className="hover:animate-spin special:w-12 special:h-12 2xl:w-9 2xl:h-6 z-10 w-5 h-5" />
+                    </Link> */}
+                  </div>
+                  <div className="flex flex-col xl:flex-row md:flex-row gap-2 justify-between items-center">
+                    <div className="flex-1 flex">
+                      <iframe
+                        title="YouTube Video"
+                        src="https://www.youtube.com/watch?v=y6qxTSuf91k"
+                        frameBorder="0"
+                        className=""
+                      ></iframe>
+                    </div>
+                    <Link to="/live" className="flex flex-1">
+                      <div className="bg-[#D5B511] hover:bg-[#D5B511]/75 flex-col rounded-3xl 2xl:rounded-[30px] special:rounded-[40px] px-2 special:px-4 py-1 space-y-2 shadow-lg">
+                        <div className="flex flex-row justify-between items-center">
+                          <img
+                            src={CatJeep}
+                            alt=""
+                            className="flex w-36 special:w-96 2xl:w-64"
+                          />
+
+                          <div className="flex flex-col space-y-4">
+                            <div className="justify-end flex">
+                              <div className="flex flex-col">
+                                <img
+                                  src={six}
+                                  alt=""
+                                  className="w-12 special:w-36 2xl:w-16"
+                                />
+
+                                <div className="flex-row flex justify-end gap-1">
+                                  <p className="text-white text-[10px] uppercase 2xl:text-sm special:text-lg">
+                                    live
+                                  </p>
+                                  <span className="relative flex h-1.5 w-1.5 special:h-3.5 special:w-3.5 2xl:h-2.5 2xl:w-2.5 flex-col justify-start items-start">
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-600 opacity-75"></span>
+                                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 special:h-3.5 special:w-3.5 2xl:h-2.5 2xl:w-2.5 bg-red-600"></span>
+                                  </span>
                                 </div>
                               </div>
-                              <div className="flex-row flex justify-end gap-1">
-                                <p className="text-white text-[10px] uppercase 2xl:text-sm special:text-lg">
-                                  live
-                                </p>
-                                <span className="relative flex h-1.5 w-1.5 special:h-3.5 special:w-3.5 2xl:h-2.5 2xl:w-2.5 flex-col justify-start items-start">
-                                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-600 opacity-75"></span>
-                                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 special:h-3.5 special:w-3.5 2xl:h-2.5 2xl:w-2.5 bg-red-600"></span>
-                                </span>
-                              </div>
-
-                              <div className="flex text-end flex-col z-10">
-                                <p className="text-white font-bold xl:text-xs text-xs special:text-2xl 2xl:text-sm">
-                                  1991 Land Rover
-                                  <br /> Defender 110
-                                </p>
-                                <p className="text-xs text-white special:text-xl 2xl:text-sm">
-                                  2023-SEP-19 TUESDAY
-                                </p>
-                              </div>
                             </div>
-                          </div>
 
-                          <div className="grid grid-cols-3 px-5 items-center">
-                            <div className="col-span-2 flex justify-end gap-2 z-10">
-                              <p className="text-[#4FC8E8] font-bold">R</p>
-                              <p className="text-white font-bold">14</p>
-                              <p className="text-white font-bold">34</p>
-                              <p className="text-white font-bold">38</p>
-                              <p className="text-white font-bold">76</p>
-                            </div>
-                            <div className="col-span-1 justify-end flex">
-                              <GoQuestion />
+                            <div className="flex text-end flex-col z-10 pr-2 items-center space-y-1 special:space-y-2">
+                              <p className="text-white font-bold xl:text-[12px] text-xs special:text-4xl 2xl:text-[16px] text-center">
+                                1991 Land Rover Defender 110
+                              </p>
+                              <p className="text-[10px] text-white special:text-xl 2xl:text-[10px]">
+                                2023-SEP-19 TUESDAY
+                              </p>
                             </div>
                           </div>
                         </div>
-                      </Link>
-                    </div>
+
+                        <div className="grid grid-cols-3 px-5 items-center">
+                          <div className="col-span-2 flex justify-end gap-2 z-10">
+                            <p className="text-[#4FC8E8] font-bold">R</p>
+                            <p className="text-white font-bold">14</p>
+                            <p className="text-white font-bold">34</p>
+                            <p className="text-white font-bold">38</p>
+                            <p className="text-white font-bold">76</p>
+                          </div>
+                          <div className="col-span-1 justify-end flex">
+                            <GoQuestion />
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
                   </div>
                 </div>
+                <div className="flex xl:flex-row md:flex-row flex-col xl:justify-between gap-2">
+                  <div className="xl:flex md:flex items-end flex-1 w-full"></div>
+                </div>
+              </div>
 
-                {/* right-side */}
-                <div className="flex-col flex-1 space-y-4 hidden xl:flex">
-                  <div className="bg-black rounded-b-[50px] py-4">
-                    <TopNav textColor={"white"} />
-                    <div className="pt-10">
-                      <motion.img
-                        initial={{ x: 80, opacity: 0 }} // Initial position and opacity (hidden)
-                        animate={{ x: 0, opacity: 1 }} // Move and fade in when in view
-                        transition={{ type: "tween", duration: 1, delay: 1 }}
-                        className="w-full"
-                        src={MainCar}
-                        alt="main"
-                      />
-                    </div>
+              {/* right-side */}
+              <div className="flex-col flex-1 space-y-4 hidden xl:flex">
+                <div className="bg-black rounded-b-[50px] py-4">
+                  <TopNav textColor={"white"} />
+                  <div className="pt-10">
+                    <motion.img
+                      initial={{ x: 80, opacity: 0 }} // Initial position and opacity (hidden)
+                      animate={{ x: 0, opacity: 1 }} // Move and fade in when in view
+                      transition={{ type: "tween", duration: 1, delay: 1 }}
+                      className="w-3/4"
+                      src={MainCar}
+                      alt="main"
+                    />
                   </div>
                 </div>
               </div>
-              <RaffleDashboardComponent />
             </div>
+            <p className="font-semibold text-lg xl:text-xl 2xl:text-3xl special:text-4xl">
+              Giveaway Categories
+            </p>
+            {loading ? (
+              <div className="flex justify-center">
+                <FiLoader className="w-9 h-9 2xl:w-12 2xl:h-12 special:w-18 special:h-18 animate-spin" />
+              </div>
+            ) : raffles.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2 2xl:gap-4 special:gap-4">
+                {raffles.map((raffle, key) => (
+                  <RaffleDashboardComponent
+                    key={key}
+                    bgColor={raffle.color}
+                    id={raffle._id}
+                    name={raffle.name}
+                    type={raffle.type}
+                    img={raffle.image}
+                    date={raffle.date}
+                  />
+                ))}
+              </div>
+            ) : (
+              <p className="flex justify-center font-semibold 2xl:text-2xl xl:text-xl special:text-4xl text-lg">
+                No Giveaways
+              </p>
+            )}
           </div>
         </div>
-      )}
+      </div>
     </>
   );
 }

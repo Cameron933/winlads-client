@@ -70,9 +70,9 @@ function Secondpage() {
           }}
         >
           <div className="transition duration-700 hover:scale-105">
-            <h3 className="font-bold mb-2 text-md xl:text-2xl 4xl:text-4xl">Homewares, Trades & Services</h3>
+            <h3 className="font-bold mb-2 text-md xl:text-2xl 4xl:text-4xl">Winlads Referral System</h3>
             <p className="pb-2 text-md xl:text-xl 4xl:text-4xl">
-              Homewares, Trades & Services We ve teamed up with the best in the
+              Winlads Referral System We ve teamed up with the best in the
               business. Get great deals on Furniture, homeware & decor,
               electrical, plumbing and more!
             </p>

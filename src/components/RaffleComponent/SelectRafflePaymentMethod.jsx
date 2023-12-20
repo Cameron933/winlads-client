@@ -105,45 +105,38 @@ const SelectRafflePaymentMethod = ({ onClose, userId, giveawayId }) => {
                 2023-SEP-19 TUESDAY
               </p>
             </div>
-            <div className="flex flex-row gap-4 items-center">
-              <img
-                src={white}
-                alt=""
-                className="w-3 h-3 2xl:h-5 2xl:w-5 special:w-7 special:h-7"
-              />
-              <p className="text-white text-sm xl:text-sm md:text-sm 2xl:text-lg special:text-2xl">
-                10% off WinladsMerch
-              </p>
-            </div>
           </div>
           <p className="text-white text-lg font-bold 2xl:text-xl special:text-4xl">
             Payment Methods
           </p>
-          <div className="flex justify-center gap-4 special:gap-6 px-4 py-2 special:py-5 2xl:py-4 bg-white rounded-xl  cursor-pointer">
-            <button className="hover:scale-110">
-              <img
-                src={bitcoin}
-                alt=""
-                className="w-7 h-7 special:h-14 special:w-14 2xl:h-9 2xl:w-9"
-              />
-            </button>
-            <button
-              className="hover:scale-110"
-              onClick={handlePointsButtonClick}
-            >
-              <img
-                src={Usd}
-                alt=""
-                className="w-7 h-7 special:h-14 special:w-14 2xl:h-9 2xl:w-9"
-              />
-            </button>
-            <button className="hover:scale-110" onClick={handleButtonClick}>
-              <img
-                src={Visa}
-                alt=""
-                className="w-7 h-7 special:h-14 special:w-14 2xl:h-9 2xl:w-9"
-              />
-            </button>
+          <div className="flex flex-row justify-center items-center gap-4">
+            <div className="bg-white hover:bg-white/75 rounded-xl p-2 flex justify-center items-center">
+              <button className="hover:scale-110">
+                <img
+                  src={bitcoin}
+                  alt=""
+                  className="w-7 h-7 special:h-14 special:w-14 2xl:h-9 2xl:w-9"
+                />
+              </button>
+            </div>
+            <div className="bg-white hover:bg-white/75 rounded-xl p-2 flex justify-center items-center" onClick={handlePointsButtonClick}>
+              <button className="hover:scale-110">
+                <img
+                  src={Usd}
+                  alt=""
+                  className="w-7 h-7 special:h-14 special:w-14 2xl:h-9 2xl:w-9"
+                />
+              </button>
+            </div>
+            <div className="bg-white hover:bg-white/75 rounded-xl p-2 flex justify-center items-center" onClick={handleButtonClick}>
+              <button className="hover:scale-110">
+                <img
+                  src={Visa}
+                  alt=""
+                  className="w-7 h-7 special:h-14 special:w-14 2xl:h-9 2xl:w-9"
+                />
+              </button>
+            </div>
           </div>
         </div>
       </div>

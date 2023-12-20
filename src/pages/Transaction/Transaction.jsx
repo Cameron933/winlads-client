@@ -8,9 +8,6 @@ import Arrow from "../../assets/images/transaction/Arrow.png";
 import GoldCard from "../../components/GoldCard/GoldCard";
 import TopNav from "../../components/TopNav/TopNav";
 import MainCar from "../../assets/images/MainCar.png";
-import Blue from "../../assets/images/transaction/Blue.png";
-import Green from "../../assets/images/transaction/Green.png";
-import Red from "../../assets/images/transaction/Red.png";
 import Transfer from "../../assets/images/transaction/transfer-outlined.png";
 import Save from "../../assets/images/transaction/save-outlined.png";
 import Slip from "../../assets/images/transaction/slip-outlined.png";
@@ -18,8 +15,15 @@ import { BiSolidDownArrow } from "react-icons/bi";
 import Chart from "react-apexcharts";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+import Profit from "../../assets/images/transaction/profit.png";
+import ShoppingBag from "../../assets/images/transaction/shopping-bag.png";
 import axios from "axios";
 import { validateCurrentUser } from "../../utils/validateuser";
+import Stripe from "../../assets/images/transaction/strip.png";
+import Sub from "../../assets/images/transaction/sub.png";
+import Fund from "../../assets/images/transaction/fund.png";
+import Balance from "../../assets/images/transaction/balance.png";
+import { FiLoader } from "react-icons/fi";
 
 const Transaction = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -29,26 +33,13 @@ const Transaction = () => {
   const [wallet, setWallet] = useState("");
   const [transactions, getTransactions] = useState([]);
   const [valUser, setValUser] = useState({});
-
-
-  // const [isOpen, setIsOpen] = useState(false);
-
-  // const handleToggle = () => {
-  //   setIsOpen(!isOpen);
-  // };
-
-  // const handleSelect = (option) => {
-  //   // Handle selection logic here
-  //   console.log(`Selected option: ${option}`);
-  //   setIsOpen(false); // Close the dropdown after selection
-  // };
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getEarning();
     getTransactionsFunction();
-    currentUserValidation()
+    currentUserValidation();
   }, [wallet]);
-
 
   const currentUserValidation = async () => {
     const validator = await validateCurrentUser();
@@ -60,36 +51,34 @@ const Transaction = () => {
     }
   };
 
-
-
   const getEarning = async () => {
     await axios
       .get(
-        `${
-          import.meta.env.VITE_SERVER_API
-        }/getPointBalances?uid=${valUser.uid}`
+        `${import.meta.env.VITE_SERVER_API}/getPointBalances?uid=${valUser.uid}`
       )
       .then((response) => {
         setWallet(response?.data?.data);
+        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
+        setLoading(false);
       });
   };
 
   const getTransactionsFunction = async () => {
     await axios
       .get(
-        `${
-          import.meta.env.VITE_SERVER_API
-        }/getTransactions?uid=jZNYcKmEmIcDhR3yqCJiGknbJiB3&start=2023-09-04T16:16:38.361Z&end=2023-12-31T16:16:38.361Z`
+        `${import.meta.env.VITE_SERVER_API}/getTransactions?uid=${valUser.uid}`
       )
       .then((response) => {
         console.log(response.data.data);
         getTransactions(response?.data?.data);
+        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
+        setLoading(false);
       });
   };
 
@@ -123,7 +112,7 @@ const Transaction = () => {
   }, []);
 
   const chartOptions = {
-    series: [26, 30, 54],
+    series: [1, 1, 1],
     options: {
       chart: {
         type: "donut",
@@ -139,13 +128,13 @@ const Transaction = () => {
     },
   };
 
-  const chartWidth = windowWidth > 700 ? 500 : windowWidth - 80;
+  const chartWidth = windowWidth > 700 ? 400 : windowWidth - 80;
 
   return (
     <div>
       <div className="flex relative min-h-screen">
-        <SideNav screen="full" />
-        <div className="xl:flex xl:flex-row flex-col xl:justify-between px-4 special:px-12 2xl:px-8 flex-1 xl:gap-4 special:gap-8 2xl:gap-6 space-y-4 xl:space-y-0">
+        <SideNav screen="full" name={valUser.name} userId={valUser.uid} />
+        <div className="xl:flex xl:flex-row flex-col xl:justify-between px-8 special:px-12 2xl:px-8 flex-1 xl:gap-8 special:gap-8 2xl:gap-6 space-y-4 xl:space-y-0">
           <div className="side-bg " style={{ top: "50%" }}></div>
           <div className="flex flex-col space-y-4 flex-1 special:space-y-8 2xl:space-y-6">
             <div className="visible xl:hidden space-y-4">
@@ -167,51 +156,66 @@ const Transaction = () => {
               <p className="font-extrabold text-xl md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl">
                 Your Balance
               </p>
-              <p className="font-extrabold md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl">
+              {/* <p className="font-extrabold md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl">
                 ${valUser.balance}
-              </p>
+              </p> */}
             </div>
-            <div className="flex flex-row gap-2 xl:gap-6 md:gap-6 2xl:text-2xl special:text-3xl">
-              <div className="bg-blue-400 justify-between flex-1 items-center gap-2 md:gap-4 xl:gap-4 rounded-2xl xl:px-4 xl:py-8 md:px-4 md:py-8 flex flex-row px-4 py-4 2xl:gap-8 2xl:py-12 special:gap-12 special:py-16 cursor-pointer hover:shadow-xl">
+            <div className="flex flex-row gap-2 xl:gap-2 md:gap-6 2xl:text-2xl special:text-3xl">
+              <div className="bg-[#008767] justify-between items-center rounded-2xl gap-4 py-2 xl:px-3 md:px-4 flex flex-1 flex-row px-4 cursor-pointer hover:bg-green-600/75">
                 <img
-                  src={Tax}
+                  src={Balance}
                   alt=""
-                  className="md:h-20 md:w-20 xl:h-16 xl:w-16 max-w-screen-sm"
+                  className="w-12 h-12 md:h-20 md:w-20 xl:h-16 xl:w-16 max-w-screen-sm"
                 />
                 <div className="flex flex-col">
-                  <p className=" text-white text-xl md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl">
-                    ${wallet.earning}
+                  <p className="text-white text-xl md:text-xl xl:text-3xl 2xl:text-2xl special:text-3xl">
+                    ${wallet.balance || "0.00"}
                   </p>
-                  <p className="text-white md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl">
+                  <p className="text-white text-lg md:text-lg xl:text-xl 2xl:text-xl special:text-2xl">
+                    Balance
+                  </p>
+                </div>
+              </div>
+              <div className="bg-[#52A0DF] justify-between items-center rounded-2xl gap-4 py-2 xl:px-4 md:px-4 flex flex-1 flex-row px-4 cursor-pointer hover:bg-[#52A0DF]/75">
+                <img
+                  src={Profit}
+                  alt=""
+                  className="w-12 h-12 md:h-20 md:w-20 xl:h-16 xl:w-16 max-w-screen-sm"
+                />
+                <div className="flex flex-col">
+                  <p className="text-white text-xl md:text-xl xl:text-3xl 2xl:text-2xl special:text-3xl">
+                    ${wallet.earning || "0.00"}
+                  </p>
+                  <p className="text-white text-lg md:text-lg xl:text-xl 2xl:text-xl special:text-2xl">
                     Earning
                   </p>
                 </div>
               </div>
 
-              <div className="bg-orange-400 flex-1 justify-between items-center xl:gap-4 gap-2 md:gap-4 rounded-2xl xl:px-4 xl:py-8 md:px-4 md:py-8 flex flex-row px-4 py-4 2xl:gap-8 2xl:py-12 special:gap-12 special:py-16 cursor-pointer hover:shadow-xl">
+              <div className="bg-[#DF7E59] justify-between items-center rounded-2xl gap-4 py-2 xl:px-3 md:px-4 flex flex-1 flex-row px-4 cursor-pointer hover:bg-[#DF7E59]/75">
                 <img
-                  src={Ticket}
+                  src={ShoppingBag}
                   alt=""
-                  className="md:h-20 md:w-20 xl:h-16 xl:w-16 max-w-screen-sm"
+                  className="w-12 h-12 md:h-20 md:w-20 xl:h-16 xl:w-16 max-w-screen-sm"
                 />
                 <div className="flex flex-col">
-                  <p className="text-white md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl">
-                  ${wallet.purchase}
+                  <p className="text-white text-xl md:text-xl xl:text-3xl 2xl:text-2xl special:text-3xl">
+                    ${wallet.purchase || "0.00"}
                   </p>
-                  <p className="text-white md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl">
+                  <p className="text-white text-lg md:text-lg xl:text-xl 2xl:text-xl special:text-2xl">
                     Purchase
                   </p>
                 </div>
               </div>
             </div>
-            <div className="flex flex-col">
+            {/* <div className="flex flex-col">
               <div style={{ position: "relative" }}>
                 <div
                   className="flex flex-row items-center justify-center gap-2 mb-5"
                   onClick={toggleCalendar}
                 >
                   <p className="text-center uppercase md:text-xl xl:text-lg 2xl:text-2xl special:text-3xl">
-                    DECEMBER 2022
+                    DECEMBER 2023
                   </p>
                   <img src={Arrow} alt="" />
                 </div>
@@ -223,7 +227,7 @@ const Transaction = () => {
                       left: "50%", // Center horizontally
                       transform: "translate(-50%, -50%)", // Center both vertically and horizontally
                       zIndex: 100,
-                      top: "380%",
+               
                     }}
                   >
                     <Calendar onChange={handleDateChange} value={date} />
@@ -239,30 +243,8 @@ const Transaction = () => {
                   font="18px"
                 />
               </div>
-              {/* <div className="flex flex-row items-center justify-between">
-                <div className="flex flex-col space-y-2">
-                  <div className="flex flex-row gap-2 items-center">
-                    <img src={Blue} alt="" />
-                    <p className="text-xs xl:text-md md:text-md text-gray-800">
-                      Card Transactions
-                    </p>
-                  </div>
-                  <div className="flex flex-row gap-2 items-center">
-                    <img src={Green} alt="" />
-                    <p className="text-xs xl:text-md md:text-md text-gray-800">
-                      Digital Transactions
-                    </p>
-                  </div>
-                  <div className="flex flex-row gap-2 items-center">
-                    <img src={Red} alt="" />
-                    <p className="text-xs xl:text-md md:text-md text-gray-800">
-                      Earning Transactions
-                    </p>
-                  </div>
-                </div>
-              </div> */}
-            </div>
-            <div className="flex flex-col space-y-4 flex-1">
+            </div> */}
+            <div className="flex flex-col space-y-4 flex-1 pt-12">
               <div className="flex flex-row justify-between items-center">
                 <p className="text-[#EC2639] md:text-xl xl:text-lg 2xl:text-2xl special:text-3xl">
                   Transactions History
@@ -282,12 +264,12 @@ const Transaction = () => {
                   <button
                     onClick={handleToggle}
                     type="button"
-                    className="inline-flex justify-between items-center justify-center w-full rounded-md border border-gray-500 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring focus:border-gray-300 relative"
+                    className="inline-flex  items-center justify-center w-full px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring focus:border-gray-300 relative"
                     id="options-menu"
                     aria-haspopup="true"
                     aria-expanded="true"
                   >
-                    <span className="mr-4 text-md md:text-xl xl:text-xl 2xl:text-xl special:text-2xl">
+                    <span className="mr-4 text-sm md:text-sm xl:text-lg 2xl:text-lg special:text-2xl">
                       {selectedOption || "See All"}
                     </span>
                     <span
@@ -344,6 +326,53 @@ const Transaction = () => {
                   )}
                 </div>
               </div>
+              {loading ? (
+                <div className="flex justify-center">
+                  <FiLoader className="w-9 h-9 2xl:w-12 2xl:h-12 special:w-18 special:h-18 animate-spin" />
+                </div>
+              ) : transactions.length === 0 ? (
+                <p className="flex justify-center text-lg text-black">
+                  No transactions data
+                </p>
+              ) : (
+                <div className="flex flex-col space-y-4">
+                  {transactions?.map((transaction, key) => (
+                    <div
+                      key={key}
+                      className="flex flex-row items-center justify-between hover:bg-[#F5F5F5] p-2 rounded-lg"
+                    >
+                      <div className="flex flex-row items-center gap-2">
+                        <img
+                          src={transaction.mode == "subscription" ? Stripe : ""}
+                          alt=""
+                          className="w-12"
+                        />
+                        <div className="flex flex-col">
+                          <p className="text-black capitalize">
+                            {transaction.type}
+                          </p>
+                          <p className={`capitalize text-xs text-gray-400`}>
+                            {transaction.mode}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div>
+                        <p
+                          className={`text-${
+                            transaction.transactiontype == "DR"
+                              ? "green-400"
+                              : "red-400"
+                          } text-lg`}
+                        >
+                          ${transaction.amount}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+
               {/* Display Card Purchase */}
               {selectedOption === "Card Transaction" && (
                 <div className="flex flex-row items-center justify-between">

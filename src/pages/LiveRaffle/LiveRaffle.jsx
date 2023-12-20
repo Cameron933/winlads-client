@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import SideNav from "../../components/SideNav/SideNav";
 import liveBackground from "../../assets/images/rafflesImages/LiveBackground.png";
 import cutIcon from "../../assets/images/rafflesImages/cutIcon.png";
@@ -8,8 +9,29 @@ import EarningCard from "../../components/EarningCard/EarningCard";
 import max from "../../assets/images/rafflesImages/max.png";
 import liveraffflecard from "../../assets/images/rafflesImages/liveraffflecard.png";
 import "./liveRaffle.css";
+import { validateCurrentUser } from "../../utils/validateuser";
+import { useNavigate } from "react-router-dom";
 
 function LiveRaffle() {
+  const [valUser, setValUser] = useState({});
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    currentUserValidation();
+  }, []);
+
+  const currentUserValidation = async () => {
+    const validator = await validateCurrentUser();
+    if (validator.validatorBl) {
+      console.log("Session OK");
+      setValUser(validator.user);
+    } else {
+      navigate("/login");
+    }
+  };
+
+
   // const currentDate = new Date();
   // const formattedDate = currentDate.toLocaleString();
   return (
@@ -22,7 +44,7 @@ function LiveRaffle() {
         backgroundSize: "cover",
       }}
     >
-      <SideNav screen="screen" />
+      <SideNav screen="screen" name={valUser.name} userId={valUser.uid}  />
 
       <div className="flex flex-col xl:mx-10 mx-5 flex-1 pt-4">
         <div className="flex flex-row justify-between items-center">

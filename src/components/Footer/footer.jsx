@@ -10,8 +10,7 @@ function Footer() {
           <div className="flex flex-col">
             <img src={logo} alt="Your Logo" className="f-logo" />
             <p className="text-white mt-5">
-              We provide one-stop solutions for all IT items. your bliss is just
-              <br />a click away. Star Tech trusts in quality clien.
+            Embark on an opulent journey with Winlads LuxeLife Rewards –
             </p>
           </div>
         </div>
@@ -58,7 +57,7 @@ function Footer() {
             </div>
             <ul>
               <li>
-                <a className="fbottomlink" href="/">
+                <a className="fbottomlink" href="https://www.winlads.com/conditions">
                   Membership T&C
                 </a>
               </li>

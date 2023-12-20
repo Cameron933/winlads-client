@@ -9,15 +9,29 @@ import SearchField from "../../components/SearchField/SearchField";
 import { FiLoader } from "react-icons/fi";
 import { MdOutlineDoNotDisturbOff } from "react-icons/md";
 import BG from "../../assets/images/HomesideBg.png";
+import { validateCurrentUser } from "../../utils/validateuser";
+import { Link, useNavigate } from "react-router-dom";
 
 function Newslist() {
   const [newsList, setNewsList] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [valUser, setValUser] = useState({});
+  const navigate = useNavigate();
 
   useEffect(() => {
-    // currentUserValidation();
+    currentUserValidation();
     getNews();
   }, []);
+
+  const currentUserValidation = async () => {
+    const validator = await validateCurrentUser();
+    if (validator.validatorBl) {
+      console.log("Session OK", validator.user);
+      setValUser(validator.user);
+    } else {
+      navigate("/login");
+    }
+  };
 
   const getNews = async () => {
     await new Promise((resolve) => setTimeout(resolve, 2000));
@@ -39,14 +53,14 @@ function Newslist() {
       <div className="flex relative min-h-screen">
         {/* side-nav */}
 
-        <SideNav screen="full" />
+        <SideNav screen="full" name={valUser.name} userId={valUser.uid} />
 
         {/* home-content */}
         <div className="xl:flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-4 pb-5 space-y-4 xl:space-y-0">
           <img
             src={BG}
             alt=""
-            className="absolute right-0 -z-10 top-60 w-72 xl:w-96 md:w-96 special:w-1/3 2xl:w-1/4 special:top-80 opacity-60 xl:top-60 2xl:top-80"
+            className="absolute right-0 -z-10 top-40 w-72 xl:w-96 md:w-96 special:w-1/4 2xl:w-1/4 special:top-60 opacity-60 2xl:top-40"
           />
           {/* left side */}
           <div className="left-side flex flex-col space-y-4 flex-1">
@@ -67,14 +81,11 @@ function Newslist() {
             <SearchField />
 
             {loading ? (
-              <div className="flex flex-row justify-center gap-2 items-center">
-                <p className="font-bold text-2xl 2xl:text-4xl special:text-6xl">
-                  Loading News
-                </p>
-                <FiLoader className="w-12 h-12 2xl:w-16 2xl:h-16 special:w-24 special:h-24 animate-spin" />
+              <div className="flex justify-center">
+                <FiLoader className="w-9 h-9 2xl:w-12 2xl:h-12 special:w-18 special:h-18 animate-spin" />
               </div>
             ) : newsList.length > 0 ? (
-              <div className="flex flex-col space-y-4 special:pt-24 2xl:pt-16 xl:pt-12 pt-8 2xl:space-y-6">
+              <div className="flex flex-col space-y-4 special:pt-16 2xl:pt-8 xl:pt-8 pt-4 2xl:space-y-6">
                 {newsList.map((news, key) => (
                   <NewsListProps
                     key={key}
@@ -82,6 +93,8 @@ function Newslist() {
                     maintitle={news.maintitle}
                     newstitle={news.newstitle}
                     createdat={news.createdat}
+                    id={news._id}
+                    desc={news.desc}
                   />
                 ))}
               </div>

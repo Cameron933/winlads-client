@@ -8,7 +8,8 @@ import { MdOutlineNavigateNext } from "react-icons/md";
 import Loader from "../../components/Loader/Loader";
 import { useFormik } from "formik";
 import { basicSchemasLogin } from "../../schemas/index.js";
-import { auth, firebase } from "../../firebase.config";
+import { auth } from "../../firebase.config";
+import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import Lock from "../../assets/images/lock.png";
 import { AiOutlineSend } from "react-icons/ai";
 import axios from "axios";
@@ -17,6 +18,12 @@ import Cookies from "universal-cookie";
 import { motion } from "framer-motion";
 import XlJeep from "../../assets/images/Xljeep.png";
 import { toast } from "react-toastify";
+import { validateCurrentUser } from "../../utils/validateuser.js";
+import LoginImg from "../../assets/images/login/jeep.png";
+import { FcPhoneAndroid } from "react-icons/fc";
+import Flag from "../../assets/images/login/flag.png";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 const Login = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -29,6 +36,7 @@ const Login = () => {
   const [showOTPBox, setShowOTPBox] = useState(false);
   const [buttonText, setButtonText] = useState("Get OTP");
   const cookies = new Cookies(null, { path: "/" });
+
   const onSubmit = async (values, actions) => {
     // console.log(value, actions)
     // setTimeout(() => {
@@ -47,7 +55,15 @@ const Login = () => {
 
       try {
         console.log("signup called");
-        let verify = new firebase.auth.RecaptchaVerifier("recaptcha-container");
+        // console.log(ph, "phone");
+        // let verify = new auth.RecaptchaVerifier("recaptcha-container");
+        window.recaptchaVerifier = new RecaptchaVerifier(
+          auth,
+          "recaptcha-container",
+          {}
+        );
+        let verify = window.recaptchaVerifier;
+        // console.log(`${import.meta.env.VITE_SERVER_API}/checkMobile?mobile=${ph}, "ccc"`)
         const response = await axios.get(
           `${import.meta.env.VITE_SERVER_API}/checkMobile?mobile=${ph}`
         );
@@ -67,12 +83,17 @@ const Login = () => {
             }
           );
         } else {
-          const result = await auth.signInWithPhoneNumber(ph, verify);
-          setfinal(result);
-          // console.log(final, "code sent final");
-          setshow(true);
-          setShowOTPBox(true);
-          setButtonText("Login");
+          try{
+            const result = await signInWithPhoneNumber(auth, "+"+ph, verify);
+            setfinal(result);
+            // console.log(final, "code sent final");
+            setshow(true);
+            setShowOTPBox(true);
+            setButtonText("Login");
+          } catch(error) {
+              console.log(error, 'fir error')
+          }
+      
         }
       } catch (error) {
         console.error("Error checking mobile:", error);
@@ -91,6 +112,20 @@ const Login = () => {
       }
     }
   }
+
+  useEffect(() => {
+    currentUserValidation()
+  },[])
+
+  const currentUserValidation = async () => {
+    const validator = await validateCurrentUser();
+    if (validator.validatorBl) {
+      console.log("Session OK", validator.user);
+      navigate("/dashboard");
+    } else {
+      console.log("")
+    }
+  };
 
   const ValidateOtp = () => {
     if (otp === null || final === null) return;
@@ -161,33 +196,33 @@ const Login = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <div className="h-screen  flex flex-col justify-center bg-image">
-          <div className="container mx-auto login-section">
+        <div className="h-screen flex flex-col xl:flex-row items-center justify-center bg-image px-20">
+          <div className="container login-section">
             <div className="login-contain flex items-center justify-center md:flex-row flex-col">
-              <div className="img-container w-2/4 scale-150 mb-9 md:mb-0 prevent">
+              <div className="img-container scale-150 mb-9 md:mb-0 prevent">
                 {/* Dekstop VIew Jeep */}
-                <div className="hidden md:block 4xl:hidden xl:hidden w-full">
+                <div className="hidden md:block xl:hidden w-full">
                   <motion.img
                     initial={{ opacity: 0, x: "-50%" }}
                     whileInView={{ opacity: 1, x: "-10%" }}
                     transition={{ duration: 0.8 }}
-                    src={MainJeepNp}
+                    src={LoginImg}
                     className="w-full h-full object-contain md:object-cover "
                     alt="main-img"
                   />
                 </div>
-                <div className="hidden 4xl:block xl:block md:hidden w-full">
+                <div className="hidden xl:block md:hidden w-full">
                   <motion.img
                     initial={{ opacity: 0, x: "-50%" }}
                     whileInView={{ opacity: 1, x: "-25%" }}
                     transition={{ duration: 0.8 }}
-                    src={XlJeep}
-                    className="w-full h-full object-contain md:object-cover "
+                    src={LoginImg}
+                    className="w-[600px] h-full object-contain md:object-cover "
                     alt="main-img"
                   />
                 </div>
                 {/* Mobile View Jeep */}
-                <div className="block md:hidden xl:hidden 4xl:hidden w-full">
+                <div className="block md:hidden xl:hidden w-full">
                   <motion.img
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: -10 }}
@@ -197,50 +232,59 @@ const Login = () => {
                     alt="main-img"
                   />
                 </div>
-
-                {/* Mobile View Jeep End */}
-
-                {/* <img src={MainImg} className="w-full h-full object-contain md:object-cover transform md:-translate-x-1/4" alt="main-img" /> */}
               </div>
-              {/* <motion.img
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                src={MainImg} 
-                className="w-full h-full object-contain md:object-cover transform md:-translate-x-1/4" 
-                alt="main-img"
-              >
-                  <img src={MainImg} className="w-full h-full object-contain md:object-cover transform md:-translate-x-1/4" alt="main-img" />
-
-              </motion.img> */}
 
               <form
                 onSubmit={handleSubmit}
                 autoComplete="off"
-                className="form-contain text-center"
+                className="text-center"
               >
                 <span className="text-2xl md:text-3xl lg:text-4xl fw-bold font-bold special:text-4xl">
                   Sign in to access your account
                 </span>
+
                 <div className="flex items-center flex-col justify-center gap-5 w-3/4 mx-auto mt-10">
                   <div
                     // id="recaptcha-container"
                     className={
-                      errors.mobile && touched.mobile
+                      errors.otp && touched.opt
                         ? "input-div input-error"
-                        : "input-div" 
+                        : ""
                     }
                   >
-                    <img src={Phone} alt="phone" />
-                    <input
+                    <PhoneInput
+                      country={"au"}
+                      // value={this.state.phone}
+                      // onChange={(phone) => this.setState({ phone })}
+                      value={ph}
+                      onChange={(value, country, e, formattedValue) => setPh(value)}
+                      onBlur={handleBlur}
+                      id="mobile"
+                      className="placeholder:text-[16px] border borer-solid  border-black xl:w-96 w-64"
+                    />
+                    {/* <PhoneInput
+                  country={"au"}
+                  type="number"
+                  // value={this.state.phone}
+                  // onChange={(phone) => this.setState({ phone })}
+                  value={ph}
+                  onChange={(e) => setPh(e.target.value)}
+                  onBlur={handleBlur}
+                  id="mobile"
+                  className="placeholder:text-[16px]"
+                /> */}
+                    {/* <FcPhoneAndroid size={20} /> */}
+                    {/* <img src={Flag} alt="" /> */}
+
+                    {/* <input
                       type="text"
-                      placeholder="+1(Phone Number)"
+                      placeholder="+61&nbsp;(Phone Number)"
                       value={ph}
                       onChange={(e) => setPh(e.target.value)}
                       onBlur={handleBlur}
                       id="mobile"
-                      className="border-2 border-black"
-                    />
+                      className="placeholder:text-[16px]"
+                    /> */}
                     <small className="text-error">
                       {errors.mobile && touched.mobile && errors.mobile}
                     </small>
@@ -283,8 +327,6 @@ const Login = () => {
                         Remember me
                       </label>
                     </div>
-
-                    
                   </div>
 
                   {!final && <div id="recaptcha-container"></div>}
@@ -299,8 +341,9 @@ const Login = () => {
                   </button> */}
 
                   <button
-                    className="px-12 w-full py-1 sm:py-2 flex justify-center flex-row items-center rounded-lg animate_btn black_btn"
+                    className="px-12 w-full py-1 sm:py-2 flex justify-center flex-row items-center rounded-lg bg-black hover:bg-black/75"
                     onClick={(e) => onSignup(e)}
+                    type="submit"
                   >
                     <span className="xl:text-2xl text-lg text-white font-bold">
                       {buttonText}
@@ -331,5 +374,7 @@ const Login = () => {
     </>
   );
 };
+
+// export {firebase}
 
 export default Login;

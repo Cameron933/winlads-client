@@ -1,12 +1,8 @@
 import "./SideNav.css";
+import { useEffect, useState } from "react";
 import Credit from "../../assets/images/side-bar/Credit.png";
 import Logout from "../../assets/images/side-bar/Logout.png";
-// import News from "../../assets/images/side-bar/News.png";
-import Paywall from "../../assets/images/side-bar/PayWall.png";
-import Protect from "../../assets/images/side-bar/Protect.png";
-// import Transaction from "../../assets/images/side-bar/Transactions.png";
 import User from "../../assets/images/side-bar/User2.png";
-import { useState } from "react";
 import OutsideClickHandler from "react-outside-click-handler";
 import { Link, useNavigate } from "react-router-dom";
 import Modal from "react-modal";
@@ -16,10 +12,18 @@ import News from "../../assets/images/side-bar/News2.png";
 import Sub from "../../assets/images/side-bar/PayWall2.png";
 import Messages from "../../assets/images/side-bar/Messages2.png";
 import Business from "../../assets/images/side-bar/Credit2.png";
+import { validateCurrentUser } from "../../utils/validateuser";
+import { ref, getDownloadURL } from "firebase/storage";
+import { storage } from "../../firebase.config";
+import Cookies from "universal-cookie";
 
 const SideNav = ({ screen }) => {
+  const cookies = new Cookies(null, { path: "/" });
+
   const [expanded, setExpanded] = useState(true);
   const navigate = useNavigate();
+  const [valUser, setValUser] = useState({});
+  const [userImage, setUserImage] = useState("");
 
   const expandSidebar = () => {
     setExpanded((pre) => true);
@@ -29,37 +33,78 @@ const SideNav = ({ screen }) => {
     setExpanded((pre) => false);
   };
 
+  useEffect(() => {
+    currentUserValidation();
+  }, []);
+
+  const handleClick = () => {
+    cookies.remove("wr_token");
+    navigate("/login");
+  };
+
+  const currentUserValidation = async () => {
+    const validator = await validateCurrentUser();
+    if (validator.validatorBl) {
+      setValUser(validator.user);
+      getProfileImage(validator.user.image);
+    } else {
+      navigate("/login");
+    }
+  };
+
+  function getProfileImage(img) {
+    getDownloadURL(ref(storage, img))
+      .then((url) => {
+        setUserImage(url);
+      })
+      .catch((error) => {
+        // Handle any errors
+      });
+  }
+
   return (
-    <OutsideClickHandler onOutsideClick={notExpandSidebar}>
+    <OutsideClickHandler>
       <div
-        className={ `pt-10 relative min-h-screen h-full   rounded-r-xl space-y-4 side-nav-back  ${
-          expanded ? "w-[50px] sm:w-[200px]" : "side-nav-half w-[50px]"
-        }     `}
+        className={`pt-10 relative min-h-screen h-full  space-y-4 side-nav-back  ${
+          expanded ? "w-[50px] xl:w-[180px]" : "side-nav-half w-[50px]"
+        } `}
       >
         <div
           onClick={expandSidebar}
           className="flex flex-row items-center mb-10 w-full"
         >
-          <Link to="/profile" className="flex flex-col items-center gap-2 justify-center overflow-hidden relative w-full ">
-            <div className="flex justify-center items-center w-full ">
-              <img src={User} className="w-[30px] md:w-[35px] xl:w-[40px]" alt="user" />
+          <div className="flex flex-col items-center gap-2 justify-center overflow-hidden relative w-full ">
+            <Link to="/profile">
+              <div className="flex justify-center items-center w-full">
+                {userImage ? (
+                  <img
+                    src={userImage}
+                    className="w-[30px] md:w-[35px] xl:w-[40px] rounded-full"
+                    alt="user"
+                  />
+                ) : (
+                  <img
+                    src={User}
+                    className="w-[30px] md:w-[35px] xl:w-[40px]"
+                    alt="user"
+                  />
+                )}
+              </div>
+            </Link>
+            <div className="side-nav-name text-white  items-center justify-center flex-col hidden xl:flex">
+              <p className="text-sm">{valUser.name}</p>
+              {/* <p className="text-[10px]">{valUser.uid}</p> */}
             </div>
-            <div className="side-nav-name text-white  items-center justify-center flex-col hidden sm:flex">
-              <p className="text-sm">Windy Sahel1</p>
-              <p className="text-xm">@windy_sahel</p>
-            </div>
-          </Link>
-
-          
+          </div>
         </div>
 
-        <div className="flex flex-col space-y-4 w-full ">
-          <div onClick={expandSidebar} >
+        <div className="flex flex-col space-y-4 w-full">
+          <div onClick={expandSidebar}>
             <Link to="/transaction">
-              <button className="side-nav-contain">
+              <button className="flex flex-row items-center gap-2 hover:bg-[#36383b] py-2 px-2 w-full">
                 <img src={Transaction} className="w-[14px]" alt="protect" />
                 <span className="mobile-hide">
-                  <p className="link-no-underlin  hidden sm:flex text-white w-4">
+                  <p className="link-no-underlin  hidden xl:flex text-white w-4">
                     Transaction
                   </p>
                 </span>
@@ -69,10 +114,10 @@ const SideNav = ({ screen }) => {
 
           <div onClick={expandSidebar}>
             <Link to="/newslist">
-              <button className="side-nav-contain">
+              <button className="flex flex-row items-center gap-2 hover:bg-[#36383b] py-2 px-2 w-full">
                 <img src={News} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
-                  <p className="link-no-underlin hidden sm:flex text-white">
+                  <p className="link-no-underlin hidden xl:flex text-white">
                     News
                   </p>
                 </span>
@@ -82,10 +127,10 @@ const SideNav = ({ screen }) => {
 
           <div onClick={expandSidebar}>
             <Link to="/messages">
-              <button className="side-nav-contain">
+              <button className="flex flex-row items-center gap-2 hover:bg-[#36383b] py-2 px-2 w-full">
                 <img src={Messages} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
-                  <p className="link-no-underlin hidden sm:flex text-white">
+                  <p className="link-no-underlin hidden xl:flex text-white">
                     Messages
                   </p>
                 </span>
@@ -95,10 +140,10 @@ const SideNav = ({ screen }) => {
 
           <div onClick={expandSidebar}>
             <Link to="/subscription">
-              <button className="side-nav-contain">
+              <button className="flex flex-row items-center gap-2 hover:bg-[#36383b] py-2 px-2 w-full">
                 <img src={Sub} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
-                  <p className="link-no-underlin  hidden sm:flex text-white">
+                  <p className="link-no-underlin hidden xl:flex text-white">
                     Subscription
                   </p>
                 </span>
@@ -108,10 +153,10 @@ const SideNav = ({ screen }) => {
 
           <div onClick={expandSidebar}>
             <Link to="/business-card">
-              <button  className="side-nav-contain">
+              <button className="flex flex-row items-center gap-2 hover:bg-[#36383b] py-2 px-2 w-full">
                 <img src={Business} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
-                  <p className="link-no-underlin  hidden sm:flex text-white">
+                  <p className="link-no-underlin  hidden xl:flex text-white">
                     Business card
                   </p>
                 </span>
@@ -119,16 +164,16 @@ const SideNav = ({ screen }) => {
             </Link>
           </div>
 
-          
+          <div onClick={expandSidebar}>
+            <button
+              onClick={handleClick}
+              className="flex flex-row items-center gap-2 hover:bg-[#36383b] py-2 px-2 side-nav-logout w-full left-0 mt-5"
+            >
+              <img src={Logout} style={{ width: "16px" }} alt="protect" />
+              <span className=" text-white hidden xl:flex">Sign out</span>
+            </button>
+          </div>
         </div>
-
-        <button
-          onClick={()=>navigate('/login')}
-          className="side-nav-contain side-nav-logout absolute top-3/4 w-full left-0"
-        >
-          <img src={Logout} style={{ width:'16px' }} alt="protect" />
-          <span className=" text-white hidden sm:flex">Sign out</span>
-        </button>
       </div>
     </OutsideClickHandler>
   );
