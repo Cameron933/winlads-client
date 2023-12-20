@@ -3,11 +3,31 @@ import MainCar from "../../assets/images/MainCar.png";
 import GoldCard from "../../components/GoldCard/GoldCard";
 import TopNav from "../../components/TopNav/TopNav";
 import BusinessCardComponent from "../../components/BCard/BusinessCard";
-import { IoIosOptions } from "react-icons/io";
 import SearchField from "../../components/SearchField/SearchField";
 import BG from "../../assets/images/HomesideBg.png";
+import { useEffect, useState } from "react";
+import { validateCurrentUser } from "../../utils/validateuser";
+import { Link, useNavigate } from "react-router-dom";
+
 
 function BusinessCard() {
+  const [valUser, setValUser] = useState({});
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    currentUserValidation();
+  }, []);
+
+  const currentUserValidation = async () => {
+    const validator = await validateCurrentUser();
+    if (validator.validatorBl) {
+      console.log("Session OK", validator.user.balance);
+      setValUser(validator.user);
+    } else {
+      navigate("/login");
+    }
+  };
+
   return (
     <div>
       <div className="flex relative min-h-screen">
@@ -17,8 +37,7 @@ function BusinessCard() {
 
         {/* home-content */}
         <div className="xl:flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-4 pb-5 space-y-4 xl:space-y-0">
-          
-        <img
+          <img
             src={BG}
             alt=""
             className="absolute right-0 -z-10 top-60 w-72 xl:w-96 md:w-96 special:w-1/3 2xl:w-1/4 special:top-80 opacity-60 xl:top-60 2xl:top-80"
@@ -38,14 +57,9 @@ function BusinessCard() {
                   <GoldCard />
                 </div>
               </div>
-
             </div>
-           <SearchField/>
-            <div className="">
-              <BusinessCardComponent />
-            </div>
-
-
+            <SearchField />
+            <BusinessCardComponent />
           </div>
 
           {/* right-side */}

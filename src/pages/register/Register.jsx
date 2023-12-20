@@ -1,49 +1,48 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import MainImg from "../../assets/images/jip.png";
-import MainJeepNp from "../../assets/images/jeepnp.png";
-import Phone from "../../assets/images/smartphone.png";
-import User from "../../assets/images/user.png";
-import Passport from "../../assets/images/pass.png";
-import Taxt from "../../assets/images/tax.png";
-import Mail from "../../assets/images/mail.png";
-import Lock from "../../assets/images/lock.png";
 import Loader from "../../components/Loader/Loader";
 import { basicSchemasRegister } from "../../schemas/index.js";
 import { useFormik } from "formik";
 import axios from "axios";
-import { auth, firebase } from "../../firebase.config";
+import { auth } from "../../firebase.config";
+import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { MdOutlineNavigateNext } from "react-icons/md";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import { AiOutlineSend } from "react-icons/ai";
-import Protect from "../../assets/images/Protect.png";
-import User2 from "../../assets/images/User2.png";
 import Cookies from "universal-cookie";
 import "../Login/Login.css";
 import { motion } from "framer-motion";
-import XlJeep from "../../assets/images/Xljeep.png";
+import { validateCurrentUser } from "../../utils/validateuser.js";
+import LoginImg from "../../assets/images/login/jeep.png";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
+import {
+  FcBusinessman,
+  FcFeedback,
+  FcDiploma1,
+  FcViewDetails,
+  FcSmartphoneTablet,
+} from "react-icons/fc";
 
 const Register = () => {
   const [otp, setOtp] = useState("");
   const [ph, setPh] = useState("");
   const [isLoading, setIsLoading] = useState(true);
-  const [showOTP, setShowOTP] = useState(false);
-  const [user, setUser] = useState(null);
   const [show, setshow] = useState(false);
   const [final, setfinal] = useState("");
   const [verifyDisable, setVerifyDisable] = useState(true);
   const [showOTPBox, setShowOTPBox] = useState(false);
   const navigate = useNavigate();
   const [buttonText, setButtonText] = useState("Get OTP");
-  const [UserData, setUserData] = useState(null);
   const [isChecked, setIsChecked] = useState(false);
   const cookies = new Cookies(null, { path: "/" });
+
   // set loading
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 1000); //a 2-second loading delay
+    }, 1000);
+    currentUserValidation() //a 2-second loading delay
   }, []);
 
   const onCheckboxChange = (e) => {
@@ -102,8 +101,12 @@ const Register = () => {
       ValidateOtp();
     } else {
       setButtonText("Sending...");
-
-      let verify = new firebase.auth.RecaptchaVerifier("recaptcha-container");
+      window.recaptchaVerifier = new RecaptchaVerifier(
+        auth,
+        "recaptcha-container",
+        {}
+      );
+      let verify = window.recaptchaVerifier;
       axios
         .get(`${import.meta.env.VITE_SERVER_API}/checkMobile?mobile=${ph}`)
         .then((response) => {
@@ -121,8 +124,7 @@ const Register = () => {
             // alert("Mobile number is already registered!");
             setButtonText("Get OTP");
           } else {
-            auth
-              .signInWithPhoneNumber(ph, verify)
+            signInWithPhoneNumber(auth, "+"+ph, verify)
               .then((result) => {
                 setfinal(result);
                 console.log(final, "code sent final");
@@ -207,6 +209,16 @@ const Register = () => {
       onSubmit: saveFormData,
     });
 
+  const currentUserValidation = async () => {
+    const validator = await validateCurrentUser();
+    if (validator.validatorBl) {
+      console.log("Session OK", validator.user);
+      navigate("/dashboard");
+    } else {
+      console.log("");
+    }
+  };
+
   return (
     <>
       {isLoading ? (
@@ -216,25 +228,23 @@ const Register = () => {
           <div className="container mx-auto login-section max-sm:overflow-scroll">
             <div className="login-contain flex items-center justify-center md:flex-row xl:flex-row 4xl:flex-row flex-col">
               <div className="img-container w-2/4 scale-150 mb-9 md:mb-0 prevent">
-                {/* <img src={MainImg} className="w-full h-full object-contain md:object-cover transform md:-translate-x-1/4" alt="main-img" /> */}
-                {/* Desktop View Jeep */}
                 <div className="hidden md:block 4xl:hidden xl:hidden w-full prevent">
                   <motion.img
                     initial={{ opacity: 0, x: "-50%" }}
                     whileInView={{ opacity: 1, x: "-10%" }}
                     transition={{ duration: 0.8 }}
-                    src={MainJeepNp}
+                    src={LoginImg}
                     className="w-full h-full object-contain md:object-cover"
                     alt="main-img"
                   />
                 </div>
-                <div className="hidden 4xl:block xl:block md:hidden w-full">
+                <div className="hidden xl:block md:hidden w-full">
                   <motion.img
                     initial={{ opacity: 0, x: "-50%" }}
                     whileInView={{ opacity: 1, x: "-25%" }}
                     transition={{ duration: 0.8 }}
-                    src={XlJeep}
-                    className="w-full h-full object-contain md:object-cover"
+                    src={LoginImg}
+                    className="w-[600px] h-full object-contain md:object-cover"
                     alt="main-img"
                   />
                 </div>
@@ -244,13 +254,13 @@ const Register = () => {
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: -10 }}
                     transition={{ duration: 0.8 }}
-                    src={MainImg}
+                    src={LoginImg}
                     className="w-full h-full object-contain md:object-cover "
                     alt="main-img"
                   />
                 </div>
               </div>
-              <div className="flex flex-col xl:space-y-4 md:space-y-4 space-y-2 text-center xl:mt-10 md:mt-10 lg:mt-20 xl:mt-10 4xl:mt-10 mt-1 mb-10 sm:mb-0 ">
+              <div className="flex flex-col xl:space-y-4 md:space-y-4 space-y-2 text-center md:mt-10 lg:mt-20 xl:mt-10 4xl:mt-10 mt-1 mb-10 sm:mb-0 ">
                 <span className="text-2xl md:text-3xl xl:text-4xl fw-bold font-bold 4xl:text-8xl">
                   Create an Account
                 </span>
@@ -259,7 +269,7 @@ const Register = () => {
                   autoComplete="off"
                   className="form-contain text-center"
                 >
-                  <div className="flex items-center flex-col justify-center gap-5 w-3/4 4xl:w-1 mx-auto xl:mt-10 md:mt-10 mt-4 4xl:mt-20">
+                  <div className="flex flex-col justify-center gap-5  mx-auto xl:mt-10 md:mt-10 mt-4 4xl:mt-20">
                     <div
                       className={
                         errors.name && touched.name
@@ -267,7 +277,7 @@ const Register = () => {
                           : "input-div"
                       }
                     >
-                      <img src={User} alt="user" />
+                      <FcBusinessman size={20} />
                       <input
                         type="text"
                         placeholder="Your Full Name"
@@ -275,7 +285,7 @@ const Register = () => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         id="name"
-                        className="placeholder:2xl:text-xl"
+                        className="placeholder:text-[16px]"
                       />
                       <small className="text-error">
                         {errors.name && touched.name && errors.name}
@@ -289,7 +299,7 @@ const Register = () => {
                           : "input-div"
                       }
                     >
-                      <img src={Mail} alt="mail" />
+                      <FcFeedback size={20} />
                       <input
                         type="email"
                         placeholder="Your Email Address"
@@ -297,6 +307,7 @@ const Register = () => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         id="email"
+                        className="placeholder:text-[16px]"
                       />
                       <small className="text-error">
                         {errors.email && touched.email && errors.email}
@@ -310,7 +321,7 @@ const Register = () => {
                           : "input-div"
                       }
                     >
-                      <img src={Passport} alt="passport" />
+                      <FcDiploma1 size={20} />
                       <input
                         type="text"
                         placeholder="Your Nic Number"
@@ -318,6 +329,7 @@ const Register = () => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         id="passport"
+                        className="placeholder:text-[16px]"
                       />
                       {/* <small className="text-error">
                       {errors.passport && touched.passport && errors.passport}
@@ -331,7 +343,7 @@ const Register = () => {
                           : "input-div"
                       }
                     >
-                      <img src={Taxt} alt="tin" />
+                      <FcViewDetails size={20} />
                       <input
                         type="text"
                         placeholder="Your Tin Number"
@@ -339,29 +351,25 @@ const Register = () => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         id="tin"
+                        className="placeholder:text-[16px]"
                       />
-
-                      {/* <small className="text-error">
-                      {errors.tin && touched.tin && errors.tin}
-                    </small> */}
                     </div>
 
                     <div
                       className={
                         errors.mobile && touched.mobile
                           ? "input-div input-error"
-                          : "input-div"
+                          : ""
                       }
                     >
-                      <img src={Phone} alt="phone" />
-                      <input
-                        type="text"
-                        placeholder="+1(Your Phone Number)"
-                        value={ph}
-                        onChange={(e) => setPh(e.target.value)}
-                        onBlur={handleBlur}
-                        id="mobile"
-                      />
+                      <PhoneInput
+                      country={"au"}
+                      value={ph}
+                      onChange={(value, country, e, formattedValue) => setPh(value)}
+                      onBlur={handleBlur}
+                      id="mobile"
+                      className="placeholder:text-[16px] border borer-solid  border-black xl:w-96 w-64"
+                    />
                       <small className="text-error">
                         {errors.mobile && touched.mobile && errors.mobile}
                       </small>
@@ -374,24 +382,16 @@ const Register = () => {
                           : "input-div"
                       }
                     >
-                      <img src={Protect} alt="rafflesId" className="w-6 h-6" />
+                      <FcSmartphoneTablet size={20} />
                       <input
                         type="text"
-                        placeholder="Yor Reference Id"
+                        placeholder="Refferal Id"
                         value={values.rafflesId}
                         onChange={handleChange}
                         onBlur={handleBlur}
                         id="rafflesId"
+                        className="placeholder:text-[16px]"
                       />
-
-                      {/* <div className="flex flex-row items-center">
-                      <img src={User2} alt="rafflesId" className="w-6 h-6" />
-                      <img src={Protect} alt="rafflesId" className="w-6 h-6" />
-                    </div> */}
-
-                      {/* <small className="text-error">
-                      {errors.tin && touched.tin && errors.tin}
-                    </small> */}
                     </div>
 
                     {showOTPBox && (
@@ -409,54 +409,48 @@ const Register = () => {
                           onChange={(e) => setOtp(e.target.value)}
                           // id="tin"
                         />
-
-                        {/* <AiOutlineSend
-                        onClick={(e) => ValidateOtp(e)}
-                        size={30}
-                        className="hover:scale-110 cursor-pointer text-green-800"
-                      /> */}
                         <small className="text-error">
                           {errors.otp && touched.opt && errors.otp}
                         </small>
                       </div>
                     )}
 
-                    <div className="flex flex-row gap-2">
-                      {/* <input
-                      type="checkbox"
-                      value={values.agree}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      id="agree"
-                    /> */}
-                      <div>
-                        <input
-                          type="checkbox"
-                          name=""
-                          id="checker"
-                          checked={isChecked}
-                          onChange={onCheckboxChange}
-                        />
-                      </div>
-
-                      <div>
-                        <label htmlFor="checker">
-                          <span>
-                            By checking the box you agree to our{" "}
-                            <Link to="/conditions">
-                              <span className="yellow-text">
-                                Terms and Conditions
-                              </span>
-                            </Link>
-                          </span>
-                        </label>
+                    <div className="special:text-xl flex flex-row gap-2 items-center">
+                      {" "}
+                      <input
+                        id="checkbox"
+                        type="checkbox"
+                        checked={isChecked}
+                        onChange={onCheckboxChange}
+                        className="w-3 h-3 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                      />
+                      <div className="flex flex-row items-center gap-2">
+                        <p
+                          className="text-sm special:text-lg cursor-pointer"
+                          onClick={() => setIsChecked(!isChecked)}
+                        >
+                         By checking the box you agree to our
+                        </p>
+                        <Link
+                          to="/conditions"
+                          target="_blank"
+                          className="yellow-text"
+                        >
+                          <p className="text-sm special:text-lg cursor-pointer">
+                            terms of use
+                          </p>
+                        </Link>
                       </div>
                     </div>
+
                     {!final && <div id="recaptcha-container"></div>}
 
                     <button
-                      className="px-12 w-full py-1 sm:py-2 flex justify-center flex-row items-center rounded-lg animate_btn black_btn"
+                      className={`text-white rounded-xl justify-center px-12 py-3 flex flex-row items-center font-semibold special:text-xl bg-${
+                        isChecked ? "black" : "gray-500"
+                      } hover:bg-${isChecked ? "black/50" : ""}`}
                       onClick={(e) => onSignup(e)}
+                      disabled={!isChecked}
                     >
                       <span className="xl:text-2xl md:text-xl 4xl:text-2xl text-lg text-white font-bold">
                         {buttonText}
@@ -482,18 +476,6 @@ const Register = () => {
             </div>
           </div>
         </div>
-        // <div className="flex flex-col items-center justify-center">
-        //   <div className="register-bg"></div>
-
-        //   <div className="container">
-        //     <div className="register-contain">
-        //       <img src={MainImg} className="img-fluid" alt="main-img" />
-
-        //       <span className="h1 text-center fw-bold">Create an Account</span>
-
-        //     </div>
-        //   </div>
-        // </div>
       )}
     </>
   );

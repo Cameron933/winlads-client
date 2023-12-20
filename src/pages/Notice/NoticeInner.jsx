@@ -1,18 +1,11 @@
 import SideNav from "../../components/SideNav/SideNav";
-import Spicker from "../../assets/images/spicker.png";
-import HiddenCar from "../../assets/images/hiddenCar.png";
 import MainCar from "../../assets/images/MainCar.png";
 import GoldCard from "../../components/GoldCard/GoldCard";
-import EarningCard from "../../components/EarningCard/EarningCard";
-import GucciCard from "../../components/GucciCard/GucciCard";
 import TopNav from "../../components/TopNav/TopNav";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Loader from "../../components/Loader/Loader";
-import { carAnimation } from "../../animation/animation";
 import Male from "../../assets/images/notice/Male.png";
-import CustomChart from "../../components/chart/CustomChart";
-import { IoIosOptions } from "react-icons/io";
 import SearchField from "../../components/SearchField/SearchField";
 import BG from "../../assets/images/HomesideBg.png";
 import bgCar from "../../assets/images/hiddenCar.png";

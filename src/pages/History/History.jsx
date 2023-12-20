@@ -62,7 +62,7 @@ function History() {
           <img
             src={BG}
             alt=""
-            className="absolute right-0 -z-10 md:top-80 top-20 w-72 xl:w-96 md:w-96 special:w-1/3 2xl:w-1/4 special:top-80 opacity-60 2xl:top-80 xl:top-80"
+            className="absolute right-0 -z-10 md:top-80 top-20 w-72 xl:w-96 md:w-96 special:w-1/3 2xl:w-1/4 special:top-80 opacity-60 2xl:top-80 xl:top40"
           />
           {/* left side */}
           <div className="left-side flex flex-col space-y-4 flex-1 special:pt-24 2xl:pt-16 xl:pt-12">

@@ -40,10 +40,10 @@ function SignUpCardGroup() {
 
       <div className="card p-10 mb-10 xl:px-16 hover-up mx-2">
         <div className="card-body">
-          <h5 className="card-title">Homewares, Trades & Services</h5>
+          <h5 className="card-title">Winlads Referral System</h5>
           <br></br>
           <p className="card-text">
-            Homewares, Trades & Services We ve teamed up with the best in the
+            Winlads Referral System We ve teamed up with the best in the
             business. Get great deals on Furniture, homeware & decor,
             electrical, plumbing and more!
           </p>

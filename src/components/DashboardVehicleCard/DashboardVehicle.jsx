@@ -1,36 +1,48 @@
 import vehicle from "../../assets/images/Lottery/Jeep.png";
 import SelectRafflePaymentMethod from "../../components/RaffleComponent/SelectRafflePaymentMethod";
 import BuyRaffle from "../../components/RaffleComponent/BuyRaffle";
-import NewJeep from "../../assets/images/newJeep.png"
+import NewJeep from "../../assets/images/newJeep.png";
+import CatJeep from "../../assets/images/rafflesImages/newJeep.png";
 
-const DashboardVehicleCard = ({ name, date, icon, fromColor, type, onButton }) => {
+const DashboardVehicleCard = ({
+  bgColor,
+  name,
+  date,
+  icon,
+  fromColor,
+  type,
+  onButton,
+}) => {
   const handleClick = () => {
-    onButton()
+    onButton();
   };
 
   return (
     <>
-    <div
-      className={`rounded-3xl py-2 px-2 special:px-4 bg-[#1195D4] hover:bg-[#1195D4]/75 cursor-pointer `}
-      onClick={handleClick}
-    >
-      <div className="flex justify-end">
-        <img src={icon} alt="" className="w-12 special:w-36" />
-      </div>
-      <div className="flex flex-row justify-between items-center">
-        <img
-          src={NewJeep}
-          alt="vehicle"
-          className="w-36 special:w-96 2xl:w-64"
-        />
-        <div className="flex flex-col space-y-2">
-          <div className="flex flex-col space-y-1 text-white">
-            <div className="text-white font-bold xl:text-sm text-xs special:text-4xl 2xl:text-xl text-center">
-              {name}
-            </div>
+      <div
+        className={`flex flex-row className="w-full bg-red-300 justify-between pr-2 rounded-3xl 2xl:rounded-[30px] special:rounded-[40px] w-full py-2 shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:opacity-75 hover:opacity-100`}
+        style={{ backgroundColor: bgColor }}
+        onClick={handleClick}
+      >
+        <img src={CatJeep} alt="" className="flex w-36 special:w-96 2xl:w-64" />
+        <div className="flex flex-col space-y-4">
+          <div className="flex justify-end">
+            <img
+              src={icon}
+              alt=""
+              className="2xl:w-12 xl:w-8 w-8 special:w-16"
+            />
+            {/* <p>{type}</p> */}
           </div>
+          <div className="flex text-end flex-col z-10 pr-2 items-center space-y-2 2xl:space-y-4 special:space-y-4">
+              <p className="text-white font-bold xl:text-[12px] text-xs special:text-4xl 2xl:text-[16px] text-center">
+                {name}
+              </p>
+              <p className="text-[10px] text-white special:text-xl 2xl:text-[10px]">
+                {date}
+              </p>
+            </div>
         </div>
-      </div>
       </div>
     </>
   );

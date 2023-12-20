@@ -1,35 +1,57 @@
 import React, { useEffect, useState } from "react";
 import SideNav from "../../components/SideNav/SideNav";
 import TopNav from "../../components/TopNav/TopNav";
-import User from "../../assets/images/side-bar/User.png";
+import User from "../../assets/images/side-bar/User2.png";
 import GoldCard from "../../components/GoldCard/GoldCard";
 import MainCar from "../../assets/images/MainCar.png";
-import EarningCard from "../../components/EarningCard/EarningCard";
 import backgroundcar from "../../assets/images/background/Background-car.png";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import { MdOutlinePhotoCamera } from "react-icons/md";
 import { toast } from "react-toastify";
-import { HashLoader } from "react-spinners";
+import { FiLoader } from "react-icons/fi";
+import { storage } from "../../firebase.config";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { Link, useNavigate } from "react-router-dom";
+import { validateCurrentUser } from "../../utils/validateuser";
 
 const Profile = () => {
   const cookies = new Cookies(null, { path: "/" });
   const id = cookies.get("wr_token");
   const [userData, setUserData] = useState({});
+  const navigate = useNavigate();
+  const [valUser, setValUser] = useState({});
 
   const [name, setName] = useState("");
+  const [userId, setUserId] = useState("");
   const [email, setEmail] = useState("");
   const [mobile, setMobile] = useState("");
   const [passport, setPassport] = useState("");
   const [tin, setTin] = useState("");
   const [dob, setDob] = useState("");
   const [address, setAddress] = useState("");
-
+  const [profile, setProfile] = useState("");
   const [loading, setLoading] = useState(false);
+  const [userImage, setUserImage] = useState("");
+  const [license, setLicense] = useState("");
+  const [isChecked, setIsChecked] = useState(false);
+  const [refferalId, setRefferalId] = useState();
 
   useEffect(() => {
     getUserData();
   }, []);
+
+  const onCheckboxChange = (e) => {
+    setIsChecked(e.target.checked);
+  };
+
+  const handleProfileImageChange = (event) => {
+    const file = event.target.files[0];
+
+    if (file) {
+      setProfile(file);
+    }
+  };
 
   const getUserData = async () => {
     setLoading(true);
@@ -40,11 +62,15 @@ const Profile = () => {
         setUserData(response?.data?.data);
         setMobile(response?.data?.data.mobile);
         setName(response?.data?.data.name);
+        setUserId(response?.data?.data.uid);
         setEmail(response?.data?.data.email);
         setPassport(response?.data?.data.passport);
         setTin(response?.data?.data.tin);
         setDob(response?.data?.data.dob);
         setAddress(response?.data?.data.address);
+        setUserImage(response?.data?.data.image);
+        getProfileImage(response?.data?.data.image);
+        setRefferalId(response?.data?.data.rafflesId);
         setLoading(false);
       })
       .catch((error) => {
@@ -64,6 +90,11 @@ const Profile = () => {
   };
 
   const updateUserDatails = async () => {
+    const profileImageName = `${userId}_username`;
+    const storageRef = ref(storage, profileImageName);
+    const image = await uploadBytes(storageRef, profile).then((snapshot) => {
+      console.log("profile image upload");
+    });
     setLoading(true);
     const response = await axios.post(
       `${import.meta.env.VITE_SERVER_API}/editUser`,
@@ -76,6 +107,7 @@ const Profile = () => {
         tin,
         dob,
         address,
+        image: profileImageName,
       }
     );
     if (response.data.status == 200) {
@@ -105,6 +137,30 @@ const Profile = () => {
     }
   };
 
+  function getProfileImage(img) {
+    getDownloadURL(ref(storage, img))
+      .then((url) => {
+        setUserImage(url);
+        console.log(url, "imgg");
+      })
+      .catch((error) => {
+        // Handle any errors
+      });
+  }
+
+  useEffect(() => {
+    currentUserValidation();
+  }, []);
+
+  const currentUserValidation = async () => {
+    const validator = await validateCurrentUser();
+    if (validator.validatorBl) {
+      console.log("Session OK", validator.user);
+      setValUser(validator.user);
+    } else {
+      navigate("/login");
+    }
+  };
   return (
     <div>
       <div className="flex relative">
@@ -130,11 +186,25 @@ const Profile = () => {
           <div className="flex flex-col space-y-4 flex-1 xl:mx-12">
             <div className="flex flex-col space-y-3">
               <form className="mx-auto mt-4 relative">
-                <img src={User} alt="profile-pic" className="special:w-28" />
+                {userImage ? (
+                  <img
+                    className="special:w-28 w-16 2xl:w-24 rounded-full"
+                    src={userImage}
+                  />
+                ) : (
+                  <img
+                    src={User}
+                    alt="profile-pic"
+                    className="special:w-16 2xl:w-16 xl:w-12 w-8"
+                  />
+                )}
+
                 <label
                   htmlFor="profile"
                   className="z-10 absolute -bottom-3 -right-2 text-2xl bg-gray-200 rounded-full p-1 cursor-pointer"
                 >
+                  {/* {userImage ? <img src={userImage} /> : <MdOutlinePhotoCamera />} */}
+
                   <MdOutlinePhotoCamera />
                 </label>
                 <input
@@ -142,30 +212,25 @@ const Profile = () => {
                   className="hidden"
                   name="profile"
                   id="profile"
+                  onChange={handleProfileImageChange}
                 />
               </form>
               <div className="flex items-center justify-center gap-2">
-                <div className="bg-green-300 border border-0.5 border-black p-0.5 w-fit special:px-3">
+                {/* <div className="bg-green-300 border border-0.5 border-black p-0.5 w-fit special:px-3">
                   <p
                     className="w-fit special:text-xl "
                     style={{ fontSize: "8px" }}
                   >
                     Level 1
                   </p>
-                </div>
-                <p className="special:text-xl">Verified User</p>
+                </div> */}
+                {/* <p className="special:text-xl">Verified User</p> */}
+                <p className="special:text-xl">{valUser.name}</p>
               </div>
 
               {loading ? (
-                <div className="moonloader-center">
-                  <HashLoader
-                    color={"#43AEC2"}
-                    loading={true}
-                    // cssOverride={override}
-                    size={50}
-                    aria-label="Loading Spinner"
-                    data-testid="loader"
-                  />{" "}
+                <div className="flex justify-center">
+                  <FiLoader className="w-9 h-9 2xl:w-12 2xl:h-12 special:w-18 special:h-18 animate-spin" />
                 </div>
               ) : (
                 <div className="flex flex-col space-y-2 special:space-y-5">
@@ -174,7 +239,7 @@ const Profile = () => {
                       User ID
                     </p>
                     <input
-                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                      className="bg-[#ECECEC] rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
                       placeholder="Enter User Name"
                       type="text"
                       value={userData?.uid}
@@ -183,17 +248,17 @@ const Profile = () => {
                   </div>
                   <div className="flex flex-col space-y-2">
                     <p className="text-black text-sm xl:text-md special:text-xl">
-                      First Name
+                      Full Name
                     </p>
                     <input
-                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                      className="bg-[#ECECEC] rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
                       placeholder="Enter First Name"
                       type="text"
                       onChange={(e) => setName(e.target.value)}
                       value={name}
                     ></input>
                   </div>
-                  <div className="flex flex-col space-y-2">
+                  {/* <div className="flex flex-col space-y-2">
                     <p className="text-black text-sm xl:text-md special:text-xl">
                       Last Name
                     </p>
@@ -204,13 +269,13 @@ const Profile = () => {
                       onChange={(e) => setName(e.target.value)}
                       value={name}
                     ></input>
-                  </div>
+                  </div> */}
                   <div className="flex flex-col space-y-2">
                     <p className="text-black text-sm xl:text-md special:text-xl">
                       Valid Email
                     </p>
                     <input
-                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                      className="bg-[#ECECEC] rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
                       placeholder="Enter Valid EMail"
                       type="email"
                       onChange={(e) => setEmail(e.target.value)}
@@ -222,9 +287,10 @@ const Profile = () => {
                       Phone Number
                     </p>
                     <input
-                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                      className="bg-[#ECECEC] rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
                       placeholder="Enter Phone Number"
                       type="tel"
+                      disabled
                       onChange={(e) => setMobile(e.target.value)}
                       value={mobile}
                     ></input>
@@ -234,7 +300,7 @@ const Profile = () => {
                       Passport Number
                     </p>
                     <input
-                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                      className="bg-[#ECECEC] rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
                       placeholder="Enter Passport Number"
                       type="text"
                       onChange={(e) => setPassport(e.target.value)}
@@ -246,7 +312,7 @@ const Profile = () => {
                       Date of Birth
                     </p>
                     <input
-                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                      className="bg-[#ECECEC] rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
                       placeholder="Enter Date of Birth"
                       type="date"
                       value={dob}
@@ -258,7 +324,7 @@ const Profile = () => {
                       Postal Address
                     </p>
                     <input
-                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
+                      className="bg-[#ECECEC] rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
                       placeholder="Enter Postal Address"
                       type="text"
                       value={address}
@@ -267,27 +333,45 @@ const Profile = () => {
                   </div>
                   <div className="flex flex-col space-y-2">
                     <p className="text-black text-sm xl:text-md special:text-xl">
-                      Tin
+                      License Number
                     </p>
                     <input
-                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
-                      placeholder="Enter Tin"
+                      className="bg-[#ECECEC] rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
+                      placeholder="License Number"
                       type="text"
-                      value={tin}
-                      onChange={(e) => setAddress(e.target.value)}
+                      value={license}
+                      onChange={(e) => setLicense(e.target.value)}
                     ></input>
                   </div>
                   <div className="flex flex-col space-y-2">
                     <p className="text-black text-sm xl:text-md special:text-xl">
-                      Reference Id
+                      TIN
                     </p>
                     <input
-                      className="bg-gray-300 rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
-                      placeholder="Enter Reference Id"
+                      className="bg-[#ECECEC] rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
+                      placeholder="Enter Tin"
                       type="text"
-                      value={userData?.rafflesId}
-                    ></input>
+                      value={tin}
+                      onChange={(e) => setTin(e.target.value)}
+                    />
                   </div>
+                  {refferalId ? (
+                    <div className="flex flex-col space-y-2">
+                      <p className="text-black text-sm xl:text-md special:text-xl">
+                        Refferal Id
+                      </p>
+                      <input
+                        className="bg-[#ECECEC] rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
+                        placeholder="Enter Reference Id"
+                        type="text"
+                        disabled
+                        value={userData?.rafflesId}
+                      ></input>
+                    </div>
+                  ) : (
+                    ""
+                  )}
+
                   <div className="flex flex-row justify-between items-center pt-4">
                     {/* <div className="flex items-center xl:gap-6 gap-3">
                     <input
@@ -307,12 +391,43 @@ const Profile = () => {
                     </label>
                   </div> */}
 
-                      <p className="special:text-xl"> <input type="checkbox" name="agree" /> I agree with the terms of use</p>
+                    <div className="special:text-xl flex flex-row gap-2 items-center">
+                      {" "}
+                      <input
+                        id="checkbox"
+                        type="checkbox"
+                        checked={isChecked}
+                        onChange={onCheckboxChange}
+                        className="w-3 h-3 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                      />
+                      <div className="flex flex-row items-center gap-2">
+                        <p
+                          className="text-sm xl:text-md special:text-xl cursor-pointer"
+                          onClick={() => setIsChecked(!isChecked)}
+                        >
+                          I agree with the
+                        </p>
+                        <Link
+                          to="/conditions"
+                          target="_blank"
+                          className="yellow-text"
+                        >
+                          <p className="text-sm xl:text-md special:text-xl cursor-pointer">
+                            terms of use
+                          </p>
+                        </Link>
+                      </div>
+                    </div>
 
-                      <button onClick={() => updateUserDatails()} className=" text-white rounded-xl px-12 py-3 font-semibold special:text-xl animate_btn black_btn ">
-                        Confirm
-                      </button>
-              
+                    <button
+                      disabled={!isChecked}
+                      onClick={() => updateUserDatails()}
+                      className={`text-white rounded-xl px-12 py-3 font-semibold special:text-xl bg-${
+                        isChecked ? "black" : "gray-500"
+                      } hover:bg-${isChecked ? "black/50" : ""}`}
+                    >
+                      Confirm
+                    </button>
                   </div>
                 </div>
               )}

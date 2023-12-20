@@ -5,8 +5,16 @@ import TopNav from "../../components/TopNav/TopNav";
 import backgroundcar from "../../assets/images/background/Background-car.png";
 
 import "./news.css";
+import { useLocation } from "react-router-dom";
 
 function News() {
+  const location = useLocation()
+  const { maintitle, newstitle, createdat, desc } = location.state
+
+  const dateObject = new Date(createdat);
+  const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+  const formattedDate = dateObject.toLocaleString('en-US', options);
+
   return (
     <div className="flex relative">
       {/* side-nav */}
@@ -49,32 +57,18 @@ function News() {
           }}
         >
           <div className="flex flex-col">
-            <p className="font-bold text-4xl xl:text-5xl mt-8">Winland News</p>
-            <p className="text-xs md:text-xl xl:text-lg 2xl:text-xl special:text-xl">
-              14m ago <br /> Europe
+            <p className="font-bold text-4xl xl:text-5xl mt-8">{maintitle}</p>
+            <p className="text-xs md:text-sm xl:text-sm 2xl:text-sm special:text-xl">
+              {formattedDate}
             </p>
           </div>
 
-          <p className="text-lg xl:text-5xl md:text-4xl mt-8">
-            Weekly Market Highlights - TradFi adoption takes spotlight
+          <p className="text-sm xl:text-3xl md:text-3xl mt-4">
+            {newstitle}
           </p>
 
-          <ul className="space-y-3 md:text-xl xl:text-lg 2xl:text-2xl special:text-3xl mt-4">
-            <li>
-              So what are the hallmarks of an Imperial news story? When a
-              researcher comes to us ready to announce some fascinating new
-              study,
-            </li>
-            <li>
-              So what are the hallmarks of an Imperial news story? When a
-              researcher comes to us ready to announce some fascinating new
-              study,
-            </li>
-            <li>
-              So what are the hallmarks of an Imperial news story? When a
-              researcher comes to us ready to announce some fascinating new
-              study,
-            </li>
+          <ul className="space-y-3 md:text-lg xl:text-sm 2xl:text-xl special:text-2xl mt-4">
+            {desc}
           </ul>
         </div>
 

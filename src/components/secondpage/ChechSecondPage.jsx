@@ -5,7 +5,11 @@ import Vector1 from "../../assets/images/Vector1.png";
 import Vector2 from "../../assets/images/Vector2.png";
 import Vector3 from "../../assets/images/Vector3.png";
 import Ellipse2 from "../../assets/images/Ellipse2.png";
-
+import Frame from '../../assets/images/framecar.png'
+import googleplay from "../../assets/images/googleplay.png";
+import appstore from "../../assets/images/appstore.png";
+import Xlgoogleplay from "../../assets/images/2Xlgoogleplay.png";
+import Xlappstore from "../../assets/images/2Xlappstore.png";
 import { motion, useInView, useAnimation } from "framer-motion";
 
 const imageAnimate = {
@@ -48,15 +52,55 @@ function ChechSecondPage() {
             transition={{ staggerChildren: 0 }}
             style={{
                 background: "linear-gradient(88deg, #43E3ED -21.82%, #FFE9E9 131.12%)",
+
             }}
             className="pt-24 overflow-hidden"
         >
-          
-            <p className="font-bold text-center text-lg md:text-xl xl:text-lg 2xl:text-2xl special:text-3xl mb-10" style={{ letterSpacing: '12px' }}>
-                WINLADS SERVICES
-            </p>
+            <div className="framecar h-full">
+                {/* <img src={Frame} className="w-full" alt="" /> */}
+                <br />
+                <div className="statuslinks">
+                    <div>
+                        <h1>750<span>+</span></h1>
+                        <span>Australian bussiness partners</span>
+                    </div>
+                    <div>
+                        <h1>750<span>+</span></h1>
+                        <span>In savings through our mates rates discounts</span>
+                    </div>
+                    <div>
+                        <h1>1000<span>+</span></h1>
+                        <span>Stores you can redeem offers In person or online</span>
+                    </div>
 
-            <div className="p-5 md:pl-16 pl-8 h-auto lg:h-screen  lg:px-40 xl:px-32 4xl:px-80 relative" >
+                </div>
+                <div className="flex justify-center gap-5 mt-4 z-10 mb-10">
+                    <img
+                        src={appstore}
+                        style={{ cursor: "pointer", height: 50 }}
+                        className="4xl:hidden md:w-auto hover:opacity-75"
+                    />
+                    <img
+                        src={googleplay}
+                        style={{ cursor: "pointer", height: 50 }}
+                        className="4xl:hidden md:w-auto hover:opacity-75"
+                    />
+                    <img
+                        src={Xlappstore}
+                        style={{ cursor: "pointer" }}
+                        className="hidden 4xl:block"
+                    />
+                    <img
+                        src={Xlgoogleplay}
+                        style={{ cursor: "pointer" }}
+                        className="hidden 4xl:block"
+                    />
+
+                </div>
+                <br />
+            </div>
+
+            <div className="p-5 md:pl-16 pl-8 h-auto  lg:px-40 xl:px-32 4xl:px-80 relative mt-14" >
                 <div className="flex flex-col xl:flex-row xl:justify-between">
                     <motion.div
                         variants={textAnimate}
@@ -64,11 +108,9 @@ function ChechSecondPage() {
                     >
 
                         <div className="transition duration-700 hover:scale-105">
-                            <h3 className="font-bold mb-2 text-md xl:text-2xl 4xl:text-4xl">Homewares, Trades & Services</h3>
+                            <h3 className="font-bold mb-2 text-md xl:text-2xl 4xl:text-4xl">Winlads Referral System</h3>
                             <p className="pb-2 text-md xl:text-xl 4xl:text-4xl">
-                                Homewares, Trades & Services We ve teamed up with the best in the
-                                business. Get great deals on Furniture, homeware & decor,
-                                electrical, plumbing and more!
+                                Unlock rewards and passive income through Winlads Referral System. Refer friends and family, earn commissions, and watch your network grow organically. Your referrals could be your pathway to ongoing rewards
                             </p>
                         </div>
                     </motion.div>
@@ -82,11 +124,9 @@ function ChechSecondPage() {
                         }}
                     >
                         <div className="transition duration-700 hover:scale-105">
-                            <h3 className="font-bold mb-2 text-md xl:text-2xl 4xl:text-4xl">Automotive</h3>
+                            <h3 className="font-bold mb-2 text-md xl:text-2xl 4xl:text-4xl">Winlads Urgency Program</h3>
                             <p className="pb-2 text-md xl:text-xl 4xl:text-4xl">
-                                Your one-stop-shop for exclusive offers from Australia's leading
-                                performance & tuning workshops, panel beaters, aftermarket part &
-                                accessories, and everything else automotive
+                                Experience the support you need during critical times with Winlads Urgency Program. Submit your proposal through our platform for a chance at assistance, subject to eligibility. We're here to help when it matters most
                             </p>
                         </div>
                     </motion.div>
@@ -108,12 +148,9 @@ function ChechSecondPage() {
                         className="xl:w-3/5 w-full xl:max-w-[680px]"
                     >
                         <div className="transition duration-700 hover:scale-105">
-                            <h3 className="font-bold mb-2 text-md xl:text-2xl 4xl:text-4xl">Merchandise</h3>
+                            <h3 className="font-bold mb-2 text-md xl:text-2xl 4xl:text-4xl">Winlads LuxLife </h3>
                             <p className="pb-2 text-md xl:text-xl 4xl:text-4xl pr-4">
-                                Exclusive merchandise offers and designs from both Winlads and our
-                                Benefits. Great quality swag from your favourite brands. Including
-                                some exclusive designs from bags, T shirts and more.
-                            </p>
+                                Indulge in luxury with Winlads Lux. Experience weekly giveaways and exclusive offerings, elevating your lifestyle and adding a touch of opulence to your .                            </p>
                         </div>
                     </motion.div>
                     <div
