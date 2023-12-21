@@ -69,7 +69,7 @@ function BusinessCard() {
               <div className="bg-black rounded-b-[50px] special:rounded-b-[90px] py-4">
                 <TopNav textColor={"white"} />
                 <div className="pt-10">
-                  <img className="w-full" src={MainCar} alt="main" />
+                  <img className="w-3/4" src={MainCar} alt="main" />
                 </div>
               </div>
               <div className="w-full">

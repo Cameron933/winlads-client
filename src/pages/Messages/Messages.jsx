@@ -90,7 +90,7 @@ const Messages = () => {
           <div className="bg-black rounded-b-3xl py-4">
             <TopNav textColor={"white"} />
             <div className="pt-10">
-              <img className="" src={MainCar} alt="main" />
+              <img className="w-3/4" src={MainCar} alt="main" />
             </div>
           </div>
 
