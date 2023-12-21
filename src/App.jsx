@@ -32,6 +32,7 @@ import Layout from "./Layout";
 import Privacy from "./pages/Privacy/Privacy";
 import MyEntries from "./pages/MyEntries/MyEntries";
 import NotFound from "./pages/NotFound";
+import Support from "./pages/Support/Support";
 
 function App() {
   const router = createBrowserRouter([
@@ -147,6 +148,10 @@ function App() {
     {
       path: "/myentries",
       element: <MyEntries />,
+    },
+    {
+      path: "/support",
+      element: <Support />,
     },
   ]);
 
