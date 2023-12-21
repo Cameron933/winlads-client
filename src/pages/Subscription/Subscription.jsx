@@ -331,7 +331,7 @@ function Subscription() {
                     initial={{ x: 80, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ type: "tween", duration: 1, delay: 1 }}
-                    className="w-full"
+                    className="w-3/4"
                     src={MainCar}
                     alt="main"
                   />

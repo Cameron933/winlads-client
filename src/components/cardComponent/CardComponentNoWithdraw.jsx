@@ -4,14 +4,12 @@ import Money from "../../assets/images/cardComponent/money.png";
 import { validateCurrentUser } from "../../utils/validateuser";
 import axios from "axios";
 import { FiLoader } from "react-icons/fi";
-import { useNavigate } from "react-router";
 
-const CardComponent = () => {
+const CardComponentNoWithdraw = () => {
   const [valUser, setValUser] = useState({});
   const [loading, setLoading] = useState(true);
   const [loadingWallet, loadingSetWallet] = useState(true);
   const [wallet, setWallet] = useState([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     currentUserValidation();
@@ -98,13 +96,11 @@ const CardComponent = () => {
               </div>
             </div>
           </div>
-          <div className="bg-black py-2 text-center rounded-xl cursor-pointer hover:bg-black/75" onClick={()=> navigate('/withdraw')}>
-            <p className="text-white font-semibold">Withdraw</p>
-          </div>
+
         </div>
       )}
     </div>
   );
 };
 
-export default CardComponent;
+export default CardComponentNoWithdraw;

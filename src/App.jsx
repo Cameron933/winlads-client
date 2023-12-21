@@ -32,6 +32,7 @@ import Privacy from "./pages/Privacy/Privacy";
 import MyEntries from "./pages/MyEntries/MyEntries";
 import NotFound from "./pages/NotFound";
 import Support from "./pages/Support/Support";
+import Withdraw from "./pages/Withdraw/Withdraw";
 
 function App() {
   const router = createBrowserRouter([
@@ -147,6 +148,9 @@ function App() {
     {
       path: "/support",
       element: <Support />,
+    },{
+      path: "/withdraw",
+      element: <Withdraw />,
     },
   ]);
 
