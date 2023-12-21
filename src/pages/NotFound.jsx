@@ -11,7 +11,7 @@ const NotFound = () => {
       <div className='flex items-center justify-between my-10'>
         <div>
         </div>
-        <div className='w-full md:w-1/2 px-10'>
+        <div className='w-full xl:w-1/2 md:px-10'>
           <TopNav />
         </div>
       </div>
