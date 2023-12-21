@@ -6,7 +6,7 @@ import Usd from "../../assets/images/rafflesImages/Usd.png";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const SelectRafflePaymentMethod = ({ onClose, userId, giveawayId }) => {
+const SelectRafflePaymentMethod = ({ onClose, userId, giveawayId, price }) => {
   const handleButtonClick = async () => {
     try {
       const response = await axios.post(
@@ -80,10 +80,10 @@ const SelectRafflePaymentMethod = ({ onClose, userId, giveawayId }) => {
 
         <div className="flex flex-col special:px-24 2xl:px-8 px-4 space-y-4 special:space-y-12 2xl:space-y-8">
           <p className="font-bold text-white text-center xl:text-5xl 2xl:text-6xl special:text-9xl md:5xl text-3xl">
-            $10
+            ${price}
           </p>
-          <p className="text-white text-center special:text-4xl">User/Month</p>
-          <div className="flex justify-center flex-col space-y-2 special:space-y-6 2xl:space-y-4">
+          {/* <p className="text-white text-center special:text-4xl">User/Month</p> */}
+          {/* <div className="flex justify-center flex-col space-y-2 special:space-y-6 2xl:space-y-4">
             <div className="flex flex-row gap-4 items-center">
               <img
                 src={white}
@@ -105,7 +105,7 @@ const SelectRafflePaymentMethod = ({ onClose, userId, giveawayId }) => {
                 2023-SEP-19 TUESDAY
               </p>
             </div>
-          </div>
+          </div> */}
           <p className="text-white text-lg font-bold 2xl:text-xl special:text-4xl">
             Payment Methods
           </p>
