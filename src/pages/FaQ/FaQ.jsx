@@ -11,6 +11,7 @@ import FaQComponent from "../../components/FaQComponent/FaQComponent";
 import SearchField from "../../components/SearchField/SearchField";
 import { validateCurrentUser } from "../../utils/validateuser";
 import { FiLoader } from "react-icons/fi";
+import MyEntriesButton from "../../components/MyEntries/MyEntriesButton";
 
 function FaQ() {
   const navigate = useNavigate();
@@ -121,6 +122,7 @@ function FaQ() {
             </div>
           </div>
         </div>
+        <MyEntriesButton/>
       </div>
     </>
   );

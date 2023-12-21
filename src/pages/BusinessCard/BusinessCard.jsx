@@ -8,6 +8,7 @@ import BG from "../../assets/images/HomesideBg.png";
 import { useEffect, useState } from "react";
 import { validateCurrentUser } from "../../utils/validateuser";
 import { Link, useNavigate } from "react-router-dom";
+import MyEntriesButton from "../../components/MyEntries/MyEntriesButton";
 
 
 function BusinessCard() {
@@ -78,6 +79,7 @@ function BusinessCard() {
           </div>
         </div>
       </div>
+      <MyEntriesButton/>
     </div>
   );
 }

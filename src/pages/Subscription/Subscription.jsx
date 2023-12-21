@@ -15,6 +15,7 @@ import BG from "../../assets/images/HomesideBg.png";
 import { validateCurrentUser } from "../../utils/validateuser";
 import { Link, useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
+import MyEntriesButton from "../../components/MyEntries/MyEntriesButton";
 
 function Subscription() {
   const [planes, setPlanes] = useState([]);
@@ -342,6 +343,7 @@ function Subscription() {
             </div>
           </div>
         </div>
+        <MyEntriesButton/>
       </div>
     </>
   );

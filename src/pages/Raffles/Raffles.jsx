@@ -19,6 +19,7 @@ import { useParams, useLocation } from "react-router-dom";
 import BG from "../../assets/images/HomesideBg.png";
 import { validateCurrentUser } from "../../utils/validateuser";
 import NewJeep from "../../assets/images/rafflesImages/newJeep.png";
+import MyEntriesButton from "../../components/MyEntries/MyEntriesButton";
 
 export const bgStyle = {
   backgroundImage: `url(${bgCar})`,
@@ -188,6 +189,7 @@ function Raffles() {
             </div>
           </div>
         </div>
+        <MyEntriesButton/>
       </div>
     </>
   );
