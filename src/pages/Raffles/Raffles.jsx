@@ -16,6 +16,7 @@ import NewJeep from "../../assets/images/rafflesImages/newJeep.png";
 import CatJeep from "../../assets/images/rafflesImages/newJeep.png";
 import { FiLoader } from "react-icons/fi";
 import MyEntriesButton from "../../components/MyEntries/MyEntriesButton";
+import SelectRafflePaymentMethod from "../../components/RaffleComponent/SelectRafflePaymentMethod";
 
 export const bgStyle = {
   backgroundImage: `url(${bgCar})`,
@@ -36,6 +37,10 @@ function Raffles() {
   const { search } = useLocation();
   const queryParams = new URLSearchParams(search);
   const [loading, setLoading] = useState(true);
+  const [selectPayment, setSelectPayment] = useState(false);
+
+  const [selectGiveawayId, setSelectGiveawayId] = useState("");
+  const [price, setPrice] = useState("");
 
   useEffect(() => {
     getRafflesRounds();
@@ -67,6 +72,13 @@ function Raffles() {
         setLoading(false);
       });
   };
+
+  const handleButton = ({ id, price }) => {
+    setSelectGiveawayId(id);
+    setPrice(price);
+    setSelectPayment(true);
+  };
+
   return (
     <>
       <div className="flex flex-row justify-between mx-auto">
@@ -191,6 +203,12 @@ function Raffles() {
                          } flex flex-row justify-between pr-2 w-full rounded-3xl items-center 2xl:rounded-[30px] special:rounded-[40px] w-full py-2 shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:opacity-75 hover:opacity-100}`}
                         style={{ backgroundColor: bgColor }}
                         key={key}
+                        onClick={() => {
+                          handleButton({
+                            id: raffle?._id,
+                            price: raffle?.price,
+                          });
+                        }}
                       >
                         <img
                           src={CatJeep}
@@ -239,8 +257,16 @@ function Raffles() {
             )}
           </div>
         </div>
-        <MyEntriesButton/>
+        <MyEntriesButton />
       </div>
+      {selectPayment && (
+        <SelectRafflePaymentMethod
+          giveawayId={selectGiveawayId}
+          price={price}
+          userId={valUser.uid}
+          onClose={() => setSelectPayment(false)}
+        />
+      )}
     </>
   );
 }

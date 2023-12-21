@@ -27,12 +27,8 @@ const Dashboard = () => {
   const [giveaways, setGiveaways] = useState([]);
   const [raffleCount, setRaffleCount] = useState([]);
   const [selectGiveawayId, setSelectGiveawayId] = useState("");
-
-  const [showPopup, setShowPopup] = useState(false);
-  const [color, setColor] = useState("");
-
+  const [price, setPrice] = useState("");
   const [selectPayment, setSelectPayment] = useState(false);
-  const [buyRaffle, setBuyRaffle] = useState(false);
 
   useEffect(() => {
     currentUserValidation();
@@ -51,7 +47,6 @@ const Dashboard = () => {
   };
 
   const getGiveaways = async () => {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
     await axios
       .get(
         `${import.meta.env.VITE_SERVER_API}/raffleRoundsFuture?uid=${
@@ -70,7 +65,6 @@ const Dashboard = () => {
   };
 
   const getRaffleCount = async () => {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
     await axios
       .get(
         `${import.meta.env.VITE_SERVER_API}/getUserRafflesCount?uid=${
@@ -90,10 +84,10 @@ const Dashboard = () => {
       });
   };
 
-  const handleButton = (giveawayId) => {
-    console.log("Clicked on button for giveaway with raffleId:", giveawayId);
-    setSelectGiveawayId(giveawayId);
-    raffleCount.data.available ? setBuyRaffle(true) : setSelectPayment(true);
+  const handleButton = ({ id, price }) => {
+    setSelectGiveawayId(id);
+    setPrice(price);
+    setSelectPayment(true);
   };
 
   return (
@@ -134,11 +128,8 @@ const Dashboard = () => {
                 <div>
                   <p className="text-2xl font-semibold">Next Giveaways</p>
                   {loading ? (
-                    <div className="flex flex-row justify-center gap-2 items-center">
-                      <p className="font-bold text-2xl 2xl:text-4xl special:text-6xl">
-                        Loading Subscriptions
-                      </p>
-                      <FiLoader className="w-12 h-12 2xl:w-16 2xl:h-16 special:w-24 special:h-24 animate-spin" />
+                    <div className="flex justify-center">
+                      <FiLoader className="w-9 h-9 2xl:w-12 2xl:h-12 special:w-18 special:h-18 animate-spin" />
                     </div>
                   ) : giveaways.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2">
@@ -151,7 +142,10 @@ const Dashboard = () => {
                           color={giveaway?.raffle?.color}
                           icon={giveaway.raffle?.image}
                           onButton={() => {
-                            handleButton(giveaway._id);
+                            handleButton({
+                              id: giveaway?._id,
+                              price: giveaway?.price,
+                            });
                           }}
                           bgColor={giveaway.raffle?.color}
                         />
@@ -210,7 +204,7 @@ const Dashboard = () => {
                       <FiLoader className="w-9 h-9 2xl:w-12 2xl:h-12 special:w-18 special:h-18 animate-spin" />
                     </div>
                   ) : giveaways.length > 0 ? (
-                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2">
+                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
                       {giveaways.map((giveaway, key) => (
                         <DashboardVehicleCard
                           key={key}
@@ -219,8 +213,12 @@ const Dashboard = () => {
                           color={giveaway?.raffle?.color}
                           fromColor={giveaway.raffle?.color}
                           icon={giveaway.raffle?.image}
+                          price={giveaway?.price}
                           onButton={() => {
-                            handleButton(giveaway._id);
+                            handleButton({
+                              id: giveaway?._id,
+                              price: giveaway?.price,
+                            });
                           }}
                         />
                       ))}
@@ -247,7 +245,7 @@ const Dashboard = () => {
               <div className="graph-section "></div>
             </div>
           </div>
-          <MyEntriesButton/>
+          <MyEntriesButton />
         </div>
       )}
       {selectPayment && (
@@ -255,19 +253,9 @@ const Dashboard = () => {
           onClose={() => setSelectPayment(false)}
           userId={valUser.uid}
           giveawayId={selectGiveawayId}
+          price={price}
         />
       )}
-
-      {/* {buyRaffle && (
-        <BuyRaffle
-          onClose={() => setBuyRaffle(false)}
-          userId={valUser.uid}
-          giveawayId={selectGiveawayId}
-          subId={valUser.sub_id}
-          quotation={raffleCount.data.rafflecount}
-          count={raffleCount.data.rafflecountused}
-        />
-      )} */}
     </>
   );
 };

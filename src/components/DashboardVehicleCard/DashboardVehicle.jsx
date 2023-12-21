@@ -8,7 +8,7 @@ const DashboardVehicleCard = ({
   fromColor,
   type,
   onButton,
-  color
+  color,
 }) => {
   const handleClick = () => {
     onButton();

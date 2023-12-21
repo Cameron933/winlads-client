@@ -65,7 +65,6 @@ function FaQ() {
                   <img className="w-full" src={MainCar} alt="main" />
                 </div>
               </div>
-
               <div className="flex md:flex-row flex-col space-y-2 md:space-y-0 gap-2">
                 <div className="w-full">
                   <GoldCard />
