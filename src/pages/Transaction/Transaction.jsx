@@ -19,6 +19,7 @@ import { FiLoader } from "react-icons/fi";
 import FundTransferForm from "../../components/fundTransfer/FundTransferForm";
 import BG from "../../assets/images/HomesideBg.png";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
+import MyEntriesButton from "../../components/MyEntries/MyEntriesButton";
 
 const Transaction = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -515,6 +516,7 @@ const Transaction = () => {
           {/* </div> */}
         </div>
       </div>
+      <MyEntriesButton/>
     </div>
   );
 };

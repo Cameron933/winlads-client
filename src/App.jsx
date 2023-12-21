@@ -18,7 +18,6 @@ import FaQ from "./pages/FaQ/FaQ";
 import Notice from "./pages/Notice/Notice";
 import BusinessCard from "./pages/BusinessCard/BusinessCard";
 import Transaction from "./pages/Transaction/Transaction";
-import Transfer from "./pages/Transaction/Trasfer";
 import LiveRaffle from "./pages/LiveRaffle/LiveRaffle";
 import Profile from "./pages/Profile/Profile";
 import NoticeInner from "./pages/Notice/NoticeInner";
@@ -30,12 +29,19 @@ import GoogleAnalytics from "./utils/GoogleAnalytics";
 import TermsCondition from "./pages/Terms&Condition/Terms&Condition";
 import Layout from "./Layout";
 import Privacy from "./pages/Privacy/Privacy";
+import MyEntries from "./pages/MyEntries/MyEntries";
+import NotFound from "./pages/NotFound";
+import Support from "./pages/Support/Support";
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Home />,
+    },
+    {
+      path: "*",
+      element: <NotFound />,
     },
     {
       path: "/dashboard",
@@ -99,10 +105,6 @@ function App() {
       element: <Transaction />,
     },
     {
-      path: "transfer/",
-      element: <Transfer />,
-    },
-    {
       path: "/business-card",
       element: <BusinessCard />,
     },
@@ -137,6 +139,14 @@ function App() {
     {
       path: "/privacy",
       element: <Privacy />,
+    },
+    {
+      path: "/myentries",
+      element: <MyEntries />,
+    },
+    {
+      path: "/support",
+      element: <Support />,
     },
   ]);
 

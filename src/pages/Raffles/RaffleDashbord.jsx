@@ -17,6 +17,7 @@ import { ref, getDownloadURL } from "firebase/storage";
 import { storage } from "../../firebase.config.js";
 import { FiLoader } from "react-icons/fi";
 import CatJeep from "../../assets/images/rafflesImages/newJeep.png";
+import MyEntriesButton from "../../components/MyEntries/MyEntriesButton.jsx";
 
 export const bgStyle = {
   backgroundImage: `url(${bgCar})`,
@@ -248,6 +249,7 @@ function RaffleDashbord() {
             </div>
           </div>
         </div>
+        <MyEntriesButton/>
       </div>
     </>
   );

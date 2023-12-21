@@ -17,6 +17,7 @@ import { MdOutlineDoNotDisturbOff } from "react-icons/md";
 import { FiLoader } from "react-icons/fi";
 import SelectRafflePaymentMethod from "../../components/RaffleComponent/SelectRafflePaymentMethod";
 import BG from "../../assets/images/HomesideBg.png";
+import MyEntriesButton from "../../components/MyEntries/MyEntriesButton";
 
 const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -246,6 +247,7 @@ const Dashboard = () => {
               <div className="graph-section "></div>
             </div>
           </div>
+          <MyEntriesButton/>
         </div>
       )}
       {selectPayment && (

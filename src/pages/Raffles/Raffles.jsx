@@ -15,6 +15,7 @@ import { validateCurrentUser } from "../../utils/validateuser";
 import NewJeep from "../../assets/images/rafflesImages/newJeep.png";
 import CatJeep from "../../assets/images/rafflesImages/newJeep.png";
 import { FiLoader } from "react-icons/fi";
+import MyEntriesButton from "../../components/MyEntries/MyEntriesButton";
 
 export const bgStyle = {
   backgroundImage: `url(${bgCar})`,
@@ -238,6 +239,7 @@ function Raffles() {
             )}
           </div>
         </div>
+        <MyEntriesButton/>
       </div>
     </>
   );

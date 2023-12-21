@@ -9,6 +9,7 @@ import { HashLoader } from 'react-spinners';
 import Message from "../../components/Messages/Message";
 import AddedYou from "../../components/Messages/AddedYou";
 import { IoIosOptions } from "react-icons/io";
+import MyEntriesButton from "../../components/MyEntries/MyEntriesButton";
 
 
 const Messages = () => {
@@ -98,6 +99,7 @@ const Messages = () => {
           </div>
         </div>
       </div>
+      <MyEntriesButton/>
     </div>
 
   );
