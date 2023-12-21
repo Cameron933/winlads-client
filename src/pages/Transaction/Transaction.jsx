@@ -16,6 +16,9 @@ import { validateCurrentUser } from "../../utils/validateuser";
 import Stripe from "../../assets/images/transaction/strip.png";
 import Balance from "../../assets/images/transaction/balance.png";
 import { FiLoader } from "react-icons/fi";
+import FundTransferForm from "../../components/fundTransfer/FundTransferForm";
+import BG from "../../assets/images/HomesideBg.png";
+import { IoArrowBackCircleOutline } from "react-icons/io5";
 import MyEntriesButton from "../../components/MyEntries/MyEntriesButton";
 
 const Transaction = () => {
@@ -27,6 +30,7 @@ const Transaction = () => {
   const [transactions, getTransactions] = useState([]);
   const [valUser, setValUser] = useState({});
   const [loading, setLoading] = useState(true);
+  const [transactionsCom, setTransactionsCom] = useState(true);
 
   useEffect(() => {
     getEarning();
@@ -121,29 +125,53 @@ const Transaction = () => {
     },
   };
 
+  const handleButtonClick = () => {
+    setTransactionsCom(false);
+  };
+
+  const handleBackClick = () => {
+    setTransactionsCom(true);
+  };
+
   const chartWidth = windowWidth > 700 ? 400 : windowWidth - 80;
 
   return (
     <div>
       <div className="flex relative min-h-screen">
         <SideNav screen="full" name={valUser.name} userId={valUser.uid} />
-        <div className="xl:flex xl:flex-row flex-col xl:justify-between px-8 special:px-12 2xl:px-8 flex-1 xl:gap-8 special:gap-8 2xl:gap-6 space-y-4 xl:space-y-0">
-          <div className="side-bg " style={{ top: "50%" }}></div>
+        <div className="xl:flex xl:flex-row flex-col xl:justify-between px-8 special:px-12 2xl:px-8 flex-1 xl:gap-8 special:gap-16 2xl:gap-12 space-y-4 xl:space-y-0">
+          <img
+            src={BG}
+            alt=""
+            className="absolute right-0 hidden md:block xl:block -z-10 top-10 w-72 xl:w-96 md:w-96 special:w-1/3 2xl:w-1/4 special:top-80 opacity-60 xl:top-60 2xl:top-80"
+          />
           <div className="flex flex-col space-y-4 flex-1 special:space-y-8 2xl:space-y-6">
-            <div className="visible xl:hidden space-y-4">
-              <div className="bg-black rounded-b-3xl py-4">
-                <TopNav textColor={"white"} />
-                <div className="pt-10">
-                  <img className="w-full" src={MainCar} alt="main" />
+            {transactionsCom ? (
+              <div className="block xl:hidden space-y-4">
+                <div className="bg-black rounded-b-3xl py-4">
+                  <TopNav textColor={"white"} />
+                  <div className="pt-10">
+                    <img className="w-full" src={MainCar} alt="main" />
+                  </div>
                 </div>
-              </div>
 
-              <div className="flex md:flex-row flex-col space-y-2 md:space-y-0 gap-2">
-                <div className="w-full">
-                  <GoldCard />
+                <div className="flex md:flex-row flex-col space-y-2 md:space-y-0 gap-2">
+                  <div className="w-full">
+                    <GoldCard />
+                  </div>
+                  <div
+                    className="bg-black rounded-2xl text-white text-center py-2 text-sm  hover:bg-black/75 cursor-pointer"
+                    onClick={handleButtonClick}
+                  >
+                    <p>Fund transfer</p>
+                  </div>
                 </div>
               </div>
-            </div>
+            ) : (
+              <div className="block xl:hidden pb-12">
+                <TopNav color="black" />
+              </div>
+            )}
 
             <div className="flex flex-col space-y-1">
               <p className="font-extrabold text-xl md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl">
@@ -201,6 +229,18 @@ const Transaction = () => {
                 </div>
               </div>
             </div>
+            {transactionsCom ? (
+              ""
+            ) : (
+              <div className="block xl:hidden flex-col space-y-2">
+                <IoArrowBackCircleOutline
+                  className="hover:scale-110 text-2xl"
+                  onClick={handleBackClick}
+                />
+
+                <FundTransferForm />
+              </div>
+            )}
             {/* <div className="flex flex-col">
               <div style={{ position: "relative" }}>
                 <div
@@ -238,16 +278,12 @@ const Transaction = () => {
               </div>
             </div> */}
             <div className="flex flex-col space-y-4 flex-1 pt-12">
-              <div className="flex flex-row justify-between items-center">
+              {/* <div className="flex flex-row justify-between items-center">
                 <p className="text-[#EC2639] md:text-xl xl:text-lg 2xl:text-2xl special:text-3xl">
                   Transactions History
                 </p>
-                <Link to="/transfer">
-                  <p className="md:text-xl xl:text-lg 2xl:text-2xl special:text-3xl">
-                    Fund Transfer
-                  </p>
-                </Link>
-              </div>
+             
+              </div> */}
               <div className="flex justify-between items-center">
                 <p className="font-bold text-xl md:text-xl xl:text-lg 2xl:text-2xl special:text-3xl">
                   Transactions
@@ -433,26 +469,50 @@ const Transaction = () => {
               )}
             </div>
           </div>
-          <div className="flex-col flex-1 space-y-4 hidden xl:flex">
-            <div className=" space-y-4">
-              <div className="bg-black rounded-b-3xl py-4">
-                <TopNav textColor={"white"} />
-                <div className="pt-10">
-                  <motion.img
-                    initial={{ x: 80, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ type: "tween", duration: 1, delay: 1 }}
-                    className="w-full"
-                    src={MainCar}
-                    alt="main"
-                  />
+          {transactionsCom ? (
+            <div className="flex-col flex-1 space-y-4 hidden xl:flex">
+              <div className="space-y-4">
+                <div className="bg-black rounded-b-3xl py-4">
+                  <TopNav textColor={"white"} />
+                  <div className="pt-10">
+                    <motion.img
+                      initial={{ x: 80, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ type: "tween", duration: 1, delay: 1 }}
+                      className="w-full"
+                      src={MainCar}
+                      alt="main"
+                    />
+                  </div>
+                </div>
+                <div className="w-full">
+                  <GoldCard />
+                </div>
+                <div
+                  className="bg-black rounded-2xl text-white text-center py-2 special:py-4 2xl:text-lg text-sm special:text-2xl hover:bg-black/75 cursor-pointer"
+                  onClick={handleButtonClick}
+                >
+                  <p>Fund transfer</p>
                 </div>
               </div>
-              <div className="w-full">
-                <GoldCard />
+            </div>
+          ) : (
+            <div className="hidden xl:block flex-1 flex-col pt-6">
+              <div className="pb-12">
+                <TopNav />
+              </div>
+
+              <div className="flex flex-col">
+                <IoArrowBackCircleOutline
+                  className="text-2xl 2xl:text-4xl special:text-6xl hover:scale-110"
+                  onClick={handleBackClick}
+                />
+
+                <FundTransferForm />
               </div>
             </div>
-          </div>
+          )}
+
           {/* </div> */}
         </div>
       </div>

@@ -14,6 +14,7 @@ import { storage } from "../../firebase.config";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { Link, useNavigate } from "react-router-dom";
 import { validateCurrentUser } from "../../utils/validateuser";
+import CardComponent from "../../components/cardComponent/CardComponent";
 
 const Profile = () => {
   const cookies = new Cookies(null, { path: "/" });
@@ -169,7 +170,6 @@ const Profile = () => {
         <SideNav screen="screen" />
         <div
           className="flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-8 pb-5 space-y-4 xl:space-y-0 bg-no-repeat"
-          style={{ backgroundImage: `url(${backgroundcar})` }}
         >
           <div className="flex flex-col space-y-4 flex-1 visible xl:hidden">
             <div className="bg-black rounded-b-3xl py-4">
@@ -178,10 +178,7 @@ const Profile = () => {
                 <img className="" src={MainCar} alt="main" />
               </div>
             </div>
-
-            <div className="w-full">
-              <GoldCard />
-            </div>
+            <CardComponent />
           </div>
           <div className="flex flex-col space-y-4 flex-1 xl:mx-12">
             <div className="flex flex-col space-y-3">
@@ -413,7 +410,7 @@ const Profile = () => {
                           className="yellow-text"
                         >
                           <p className="text-sm xl:text-md special:text-xl cursor-pointer">
-                            terms of use
+                            Terms of use
                           </p>
                         </Link>
                       </div>
@@ -441,8 +438,11 @@ const Profile = () => {
               </div>
             </div>
 
-            <div className="w-full">
+            {/* <div className="w-full">
               <GoldCard />
+            </div> */}
+            <div>
+              <CardComponent />
             </div>
           </div>
         </div>
