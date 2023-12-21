@@ -125,6 +125,7 @@ function BusinessCard() {
           backgroundPosition: "right",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
+       
         }}
       >
         <div className="text-left flex flex-col items-center space-y-0 special:space-y-16">

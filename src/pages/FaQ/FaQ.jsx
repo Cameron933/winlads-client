@@ -109,7 +109,7 @@ function FaQ() {
                     initial={{ x: 80, opacity: 0 }} // Initial position and opacity (hidden)
                     animate={{ x: 0, opacity: 1 }} // Move and fade in when in view
                     transition={{ type: "tween", duration: 1, delay: 1 }}
-                    className="w-full"
+                    className="w-3/4"
                     src={MainCar}
                     alt="main"
                   />

@@ -108,7 +108,7 @@ const Dashboard = () => {
                   <div className="pt-10">
                     <motion.img
                       initial={carAnimation.initialMobile}
-                      animate={carAnimation.animate}
+                      animate={{x:0, opacity:1}}
                       transition={carAnimation.transition}
                       className="w-4/5"
                       src={MainCar}
@@ -180,23 +180,18 @@ const Dashboard = () => {
                     </div>
                     <SmallGoldCard />
                   </div>
-                  <div className="flex flex-row items-center gap-10 bottom-0">
-                    <img
-                      src={HiddenCar}
-                      alt="hidden-car"
-                      className="w-84 h-48"
-                    />
-                    <motion.img
+     
+                  <motion.img
                       initial={carAnimation.initial}
                       animate={carAnimation.animate}
                       transition={carAnimation.transition}
                       src={MainCar}
                       alt="main"
+                      className="w-[700px]"
                     />
-                  </div>
                 </div>
                 <div className="flex flex-col space-y-2 w-full xl:w-web pt-12">
-                  <p className="text-3xl 2xl:text-4xl special:text-6xl font-semibold">
+                  <p className="text-3xl 2xl:text-4xl special:text-6xl font-semibold mb-2">
                     Next Giveaways
                   </p>
                   {loading ? (
