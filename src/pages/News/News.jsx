@@ -6,6 +6,7 @@ import backgroundcar from "../../assets/images/background/Background-car.png";
 
 import "./news.css";
 import { useLocation } from "react-router-dom";
+import MyEntriesButton from "../../components/MyEntries/MyEntriesButton";
 
 function News() {
   const location = useLocation()
@@ -74,6 +75,7 @@ function News() {
 
       </div>
     </div>
+    <MyEntriesButton/>
     </div >
 
   );

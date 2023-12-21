@@ -16,6 +16,7 @@ import { validateCurrentUser } from "../../utils/validateuser";
 import Stripe from "../../assets/images/transaction/strip.png";
 import Balance from "../../assets/images/transaction/balance.png";
 import { FiLoader } from "react-icons/fi";
+import MyEntriesButton from "../../components/MyEntries/MyEntriesButton";
 
 const Transaction = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -455,6 +456,7 @@ const Transaction = () => {
           {/* </div> */}
         </div>
       </div>
+      <MyEntriesButton/>
     </div>
   );
 };

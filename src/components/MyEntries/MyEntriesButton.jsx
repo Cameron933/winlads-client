@@ -14,7 +14,7 @@ const MyEntriesButton = () => {
     }
 
     return (
-        <div className='absolute bottom-4 right-4 p-3 bg-black hover:bg-cyan-500 rounded-full flex items-center text-white cursor-pointer transition-all duration-300' 
+        <div className='absolute bottom-4 right-4 p-3 bg-black rounded-full flex items-center text-white cursor-pointer transition-all duration-300' 
         onMouseEnter={handleMouseEnter} 
         onMouseLeave={handleMouseLeave} 
         onFocus={handleMouseEnter}
