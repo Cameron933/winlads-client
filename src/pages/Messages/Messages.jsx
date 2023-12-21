@@ -22,12 +22,9 @@ const Messages = () => {
 
   }, [])
 
-
-
   return (
 
     <div className="flex relative">
-      <SideNav screen="screen" />
       <div
         className="flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-8 pb-5 space-y-4 xl:space-y-0"
         style={{ backgroundImage: `url(${backgroundcar})` }}

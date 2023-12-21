@@ -11,7 +11,6 @@ import newsLetter from '../../assets/images/icons/News.png';
 
 const Support = () => {
     const [isNavOpen, setNavOpen] = useState(false);
-
     return (
         <div>
             <div className="w-full  bg-[#A0E6EB] ">

@@ -54,8 +54,6 @@ function Newslist() {
       <div className="flex relative min-h-screen">
         {/* side-nav */}
 
-        <SideNav screen="full" name={valUser.name} userId={valUser.uid} />
-
         {/* home-content */}
         <div className="xl:flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-4 pb-5 space-y-4 xl:space-y-0">
           <img

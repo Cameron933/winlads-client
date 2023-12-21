@@ -70,9 +70,9 @@ const Profile = () => {
         setDob(response?.data?.data.dob);
         setAddress(response?.data?.data.address);
         setUserImage(response?.data?.data.image);
-        getProfileImage(response?.data?.data.image);
         setRefferalId(response?.data?.data.rafflesId);
-        setLoading(false);
+        getProfileImage(response?.data?.data.image);
+       
       })
       .catch((error) => {
         setLoading(false);
@@ -143,8 +143,10 @@ const Profile = () => {
       .then((url) => {
         setUserImage(url);
         console.log(url, "imgg");
+        setLoading(false);
       })
       .catch((error) => {
+        setLoading(false);
         // Handle any errors
       });
   }
@@ -166,8 +168,6 @@ const Profile = () => {
     <div>
       <div className="flex relative">
         <div className="right-side-logo max-xl:hidden"></div>
-
-        <SideNav screen="screen" />
         <div
           className="flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-8 pb-5 space-y-4 xl:space-y-0 bg-no-repeat"
         >
@@ -182,7 +182,13 @@ const Profile = () => {
           </div>
           <div className="flex flex-col space-y-4 flex-1 xl:mx-12">
             <div className="flex flex-col space-y-3">
-              <form className="mx-auto mt-4 relative">
+              {loading ? (
+                <div className="flex justify-center pt-12">
+                  <FiLoader className="w-9 h-9 2xl:w-12 2xl:h-12 special:w-18 special:h-18 animate-spin" />
+                </div>
+              ) : (
+                <>
+                      <form className="mx-auto mt-4 relative">
                 {userImage ? (
                   <img
                     className="special:w-28 w-16 2xl:w-24 rounded-full"
@@ -224,12 +230,6 @@ const Profile = () => {
                 {/* <p className="special:text-xl">Verified User</p> */}
                 <p className="special:text-xl">{valUser.name}</p>
               </div>
-
-              {loading ? (
-                <div className="flex justify-center">
-                  <FiLoader className="w-9 h-9 2xl:w-12 2xl:h-12 special:w-18 special:h-18 animate-spin" />
-                </div>
-              ) : (
                 <div className="flex flex-col space-y-2 special:space-y-5">
                   <div className="flex flex-col space-y-2">
                     <p className="text-black text-sm xl:text-md special:text-xl">
@@ -427,6 +427,7 @@ const Profile = () => {
                     </button>
                   </div>
                 </div>
+                </>
               )}
             </div>
           </div>

@@ -18,9 +18,6 @@ function News() {
 
   return (
     <div className="flex relative">
-      {/* side-nav */}
-
-      <SideNav screen="screen" />
       {/* home-content */}
       <div className="xl:flex xl:flex-row flex-col xl:justify-between flex-1 px-4 xl:gap-8 pb-5 space-y-4 xl:space-y-0">
         {/* left side */}
@@ -49,13 +46,6 @@ function News() {
         </div>
         <div
           className="mx-4"
-          style={{
-            backgroundImage: `url(${backgroundcar})`,
-            backgroundPosition: "right",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            zIndex: -10,
-          }}
         >
           <div className="flex flex-col">
             <p className="font-bold text-4xl xl:text-5xl mt-8">{maintitle}</p>

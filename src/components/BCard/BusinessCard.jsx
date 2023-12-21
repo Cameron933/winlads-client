@@ -117,16 +117,8 @@ function BusinessCard() {
           {isOrderNow ? "Let’s Get Your Card !!" : ""}
         </p>
       </div>
-
       <div
         className=""
-        style={{
-          backgroundImage: `url(${backgroundcar})`,
-          backgroundPosition: "right",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-       
-        }}
       >
         <div className="text-left flex flex-col items-center space-y-0 special:space-y-16">
           {isOrderNow ? (
@@ -162,7 +154,6 @@ function BusinessCard() {
             <div className="flex flex-col items-center">
               {isOrderNow ? (
                 // Display "orderNow" image when isOrderNow is true
-
                 <button
                   className="text-2xl md:text-4xl pro:text-5xl xl:text-2xl special:text-5xl p-3 rounded-[20px] bg-[#CCBAB3] hover:bg-[#D1D5DB]"
                   onClick={handleRequestButton}

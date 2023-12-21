@@ -54,7 +54,6 @@ const MyEntries = () => {
   };
   return (
     <div className="flex items-stretch w-full">
-      <SideNav />
       <div className="w-full">
         <div className="flex flex-col xl:flex-col flex-1 px-1 gap-5 w-full">
           {/* left side */}

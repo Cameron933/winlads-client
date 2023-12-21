@@ -76,7 +76,6 @@ function Subscription() {
   };
 
   const getPlanes = async () => {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
     await axios
       .get(`${import.meta.env.VITE_SERVER_API}/getSubscriptionPlans`)
       .then((response) => {
@@ -93,7 +92,6 @@ function Subscription() {
   return (
     <>
       <div className="flex relative min-h-screen">
-        <SideNav screen="screen" name={valUser.name} userId={valUser.uid} />
 
         {/* home-content */}
         <div className="xl:flex xl:flex-row flex-col xl:justify-between px-4 special:px-12 2xl:px-8 flex-1 xl:gap-4 special:gap-8 2xl:gap-6 space-y-4 xl:space-y-0">
