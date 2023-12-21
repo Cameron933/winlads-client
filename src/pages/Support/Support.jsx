@@ -83,26 +83,26 @@ const Support = () => {
             </div>
             <div className='bg-gray-50 flex items-stretch lg:flex-row flex-col gap-5 py-20'>
                 <div className='bg-white shadow-lg py-20 px-10 lg:w-1/3 w-full rounded-lg'>
-                        <div className='w-24 h-24 mb-8'>
+                        <div className='w-20 h-20 mb-8'>
                             <img src={quicklinksIcon} alt="quick-links"  className='w-full h-full object-contain'/>
                         </div>
                         <h2 className='text-2xl font-bold mb-6'>Quick Links</h2>
-                        <Link className='text-xl mb-4'>Privacy Policy</Link><br />
-                        <Link className='text-xl mb-4'>Terms and Conditions</Link>
+                        <Link className='text-xl mb-4' to={'/privacy'} >Privacy Policy</Link><br />
+                        <Link className='text-xl mb-4' to={'/conditions'}>Terms and Conditions</Link>
                 </div>
                 {/* Contact Us */}
                 <div className='bg-white shadow-lg py-20 px-10 lg:w-1/3 w-full rounded-lg'>
-                        <div className='w-24 h-24 mb-8'>
-                            <img src={quicklinksIcon} alt="quick-links"  className='w-full h-full object-contain'/>
+                        <div className='w-20 h-20 mb-8'>
+                            <img src={contactUs} alt="quick-links"  className='w-full h-full object-contain'/>
                         </div>
                         <h2 className='text-2xl font-bold mb-6'>Contact Us</h2>
-                        <Link className='text-xl mb-4'>+61 420 363 993</Link><br />
-                        <Link className='text-xl mb-4'>info@winladsgiveaway.com</Link>
+                        <a href='tel:+61420363993' className='text-xl mb-4'>+61 420 363 993</a><br />
+                        <a href='mailto:info@winladsgiveaway.com' className='text-xl mb-4'>info@winladsgiveaway.com</a>
                 </div>
 
                 {/* News Letter */}
                 <div className='bg-white shadow-lg py-20 px-10 lg:w-1/3 w-full rounded-lg'>
-                        <div className='w-24 h-24 mb-8'>
+                        <div className='w-20 h-20 mb-8'>
                             <img src={newsLetter} alt="quick-links"  className='w-full h-full object-contain'/>
                         </div>
                         <h2 className='text-2xl font-bold mb-6'>News Letter</h2>
