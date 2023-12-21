@@ -3,22 +3,18 @@ import SideNav from "../../components/SideNav/SideNav";
 import MainCar from "../../assets/images/MainCar.png";
 import TopNav from "../../components/TopNav/TopNav";
 import "react-calendar/dist/Calendar.css";
-import { GoQuestion } from "react-icons/go";
 import six from "../../assets/images/rafflesImages/six4.png";
 import { Link, useNavigate } from "react-router-dom";
-import Visa from "../../assets/images/rafflesImages/Visa.png";
-import Usd from "../../assets/images/rafflesImages/Usd.png";
-import bitcoin from "../../assets/images/rafflesImages/bitcoin.png";
-import white from "../../assets/images/subscribers/white.png";
 import axios from "axios";
 import { motion } from "framer-motion";
-import { IoCloseSharp } from "react-icons/io5";
 import bgCar from "../../assets/images/hiddenCar.png";
 import SearchField from "../../components/SearchField/SearchField";
 import { useParams, useLocation } from "react-router-dom";
 import BG from "../../assets/images/HomesideBg.png";
 import { validateCurrentUser } from "../../utils/validateuser";
 import NewJeep from "../../assets/images/rafflesImages/newJeep.png";
+import CatJeep from "../../assets/images/rafflesImages/newJeep.png";
+import { FiLoader } from "react-icons/fi";
 import MyEntriesButton from "../../components/MyEntries/MyEntriesButton";
 
 export const bgStyle = {
@@ -30,10 +26,8 @@ export const bgStyle = {
 
 function Raffles() {
   const [raffleRounds, setRaffleRounds] = useState([]);
-
-  const [past, setPast] = useState([]);
-  const [present, setPresent] = useState([]);
-  const [future, setFuture] = useState([]);
+  const location = useLocation();
+  const { name, bgColor } = location.state;
   const [valUser, setValUser] = useState({});
   const navigate = useNavigate();
 
@@ -41,12 +35,12 @@ function Raffles() {
   const { raffleId } = useParams();
   const { search } = useLocation();
   const queryParams = new URLSearchParams(search);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getRafflesRounds();
     currentUserValidation();
-  }, [present, past, future, raffleRounds, valUser]);
-
+  }, [raffleRounds, valUser]);
 
   const currentUserValidation = async () => {
     const validator = await validateCurrentUser();
@@ -61,22 +55,18 @@ function Raffles() {
   const getRafflesRounds = async () => {
     await axios
       .get(
-        `${import.meta.env.VITE_SERVER_API}/raffleRounds?raffleid=${
-          params.id
-        }&uid=${valUser.uid}`
+        `${import.meta.env.VITE_SERVER_API}/raffleRounds?raffleid=${params.id}`
       )
       .then((response) => {
         console.log(response.data.data);
         setRaffleRounds(response?.data?.data);
-        setPast(response?.data?.data.past);
-        setPresent(response?.data?.data.present);
-        setFuture(response?.data?.data.future);
+        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
+        setLoading(false);
       });
   };
-
   return (
     <>
       <div className="flex flex-row justify-between mx-auto">
@@ -102,7 +92,7 @@ function Raffles() {
                   </div>
                 </div>
 
-                <div className="flex flex-col 2xl:space-y-8 space-y-6 special:space-y-12">
+                <div className="flex flex-col 2xl:space-y-8 xl:space-y-6 space-y-4 special:space-y-12">
                   <div className="mt-4 xl:pt-0 pb-4 xl:pb-0">
                     <SearchField />
                   </div>
@@ -160,9 +150,6 @@ function Raffles() {
                           <p className="text-white font-bold">38</p>
                           <p className="text-white font-bold">76</p>
                         </div>
-                        <div className="col-span-1 justify-end flex">
-                          <GoQuestion />
-                        </div>
                       </div>
                     </div>
                   </Link>
@@ -176,8 +163,8 @@ function Raffles() {
                   <TopNav textColor={"white"} />
                   <div className="pt-10">
                     <motion.img
-                      initial={{ x: 80, opacity: 0 }} // Initial position and opacity (hidden)
-                      animate={{ x: 0, opacity: 1 }} // Move and fade in when in view
+                      initial={{ x: 80, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
                       transition={{ type: "tween", duration: 1, delay: 1 }}
                       className="w-3/4"
                       src={MainCar}
@@ -187,6 +174,69 @@ function Raffles() {
                 </div>
               </div>
             </div>
+            {loading ? (
+              <div className="flex justify-center">
+                <FiLoader className="w-9 h-9 2xl:w-12 2xl:h-12 special:w-18 special:h-18 animate-spin" />
+              </div>
+            ) : (
+              <div className="flex flex-col space-y-2">
+                <p className="text-black 2xl:text-2xl md:text-lg font-semibold special:text-4xl">
+                  {name || ""}
+                </p>
+                {raffleRounds.length > 0 ? (
+                  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2">
+                    {raffleRounds.map((raffle, key) => (
+                      <div
+                        className={`
+                         } flex flex-row justify-between pr-2 w-full rounded-3xl items-center 2xl:rounded-[30px] special:rounded-[40px] w-full py-2 shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:opacity-75 hover:opacity-100}`}
+                        style={{ backgroundColor: bgColor }}
+                        key={key}
+                      >
+                        <img
+                          src={CatJeep}
+                          alt=""
+                          className="flex w-36 special:w-96 2xl:w-48"
+                        />
+                        <div className="flex flex-col space-y-4">
+                          <div className="flex justify-end">
+                            <img
+                              src={raffle.img}
+                              alt=""
+                              className="2xl:w-12 xl:w-8 w-8 special:w-16"
+                            />
+                          </div>
+                          <div className="flex text-end flex-col z-10 pr-2 items-center space-y-2 2xl:space-y-4 special:space-y-4">
+                            <p className="text-white font-bold xl:text-[12px] text-xs special:text-4xl 2xl:text-[16px] text-center">
+                              {name}
+                            </p>
+                            <p className="text-[10px] text-white special:text-xl 2xl:text-[10px]">
+                              {new Date(raffle.endtime).toLocaleString(
+                                "en-US",
+                                {
+                                  year: "numeric",
+                                  month: "long",
+                                  day: "numeric",
+                                  hour: "numeric",
+                                  minute: "numeric",
+                                  second: "numeric",
+                                }
+                              )}
+                            </p>
+                          </div>
+                          <div className="grid grid-cols-3 px-5 items-center">
+                            <div className="col-span-2 flex justify-end gap-2 z-10"></div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="flex justify-center font-semibold 2xl:text-2xl xl:text-xl special:text-4xl text-lg pt-12">
+                    No Giveaways
+                  </p>
+                )}
+              </div>
+            )}
           </div>
         </div>
         <MyEntriesButton/>
@@ -195,146 +245,4 @@ function Raffles() {
   );
 }
 
-function PopUpLotto({ onClose }) {
-  // Implement your share form here
-  // You can use a modal or any custom form component
-  // Make sure to call `onClose` when the form is closed to update the state
-  function handleBackdropClick(event) {
-    if (event.target.classList.contains("backdrop")) {
-      onClose();
-    }
-  }
-
-  return (
-    <div
-      className="popup-container bg-white/50 justify-center items-center"
-      onClick={handleBackdropClick}
-    >
-      <div className="popup-content text-white flex flex-col bg-gradient-to-br from-[#000000] space-y-4 special:space-y-12 2xl:space-y-8  to-[#000000] justify-center py-4 special:py-8 2xl:py-6">
-        <div className="flex justify-end">
-          <button
-            className="text-3xl 2xl:text-4xl special:text-5xl hover:scale-105"
-            onClick={onClose}
-          >
-            <IoCloseSharp />
-          </button>
-        </div>
-
-        <div className="flex flex-col special:px-24 2xl:px-8 px-4 space-y-4 special:space-y-12 2xl:space-y-8">
-          <p className="font-bold text-white text-center xl:text-5xl 2xl:text-6xl special:text-9xl md:5xl text-3xl">
-            $10
-          </p>
-          <p className="text-white text-center special:text-4xl">User/Month</p>
-          <div className="flex justify-center flex-col space-y-2 special:space-y-6 2xl:space-y-4">
-            <div className="flex flex-row gap-4 items-center">
-              <img
-                src={white}
-                alt=""
-                className="w-3 h-3 2xl:h-5 2xl:w-5 special:w-7 special:h-7"
-              />
-              <p className="text-white text-sm xl:text-sm md:text-sm 2xl:text-lg special:text-2xl">
-                1991 Land Rover Defender 110
-              </p>
-            </div>
-            <div className="flex flex-row gap-4 items-center">
-              <img
-                src={white}
-                alt=""
-                className="w-3 h-3 2xl:h-5 2xl:w-5 special:w-7 special:h-7"
-              />
-              <p className="text-white text-sm xl:text-sm md:text-sm 2xl:text-lg special:text-2xl">
-                {" "}
-                2023-SEP-19 TUESDAY
-              </p>
-            </div>
-            <div className="flex flex-row gap-4 items-center">
-              <img
-                src={white}
-                alt=""
-                className="w-3 h-3 2xl:h-5 2xl:w-5 special:w-7 special:h-7"
-              />
-              <p className="text-white text-sm xl:text-sm md:text-sm 2xl:text-lg special:text-2xl">
-                10% off WinladsMerch
-              </p>
-            </div>
-          </div>
-          <p className="text-white text-lg font-bold 2xl:text-xl special:text-4xl">
-            Payment Methods
-          </p>
-          <div className="flex justify-center gap-4 special:gap-6 px-4 py-2 special:py-5 2xl:py-4 bg-white rounded-xl  cursor-pointer">
-            <button className="hover:scale-110">
-              <img
-                src={bitcoin}
-                alt=""
-                className="w-7 h-7 special:h-14 special:w-14 2xl:h-9 2xl:w-9"
-              />
-            </button>
-            <button className="hover:scale-110">
-              <img
-                src={Usd}
-                alt=""
-                className="w-7 h-7 special:h-14 special:w-14 2xl:h-9 2xl:w-9"
-              />
-            </button>
-            <button className="hover:scale-110">
-              <img
-                src={Visa}
-                alt=""
-                className="w-7 h-7 special:h-14 special:w-14 2xl:h-9 2xl:w-9"
-              />
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function PopUpLess({ onClose }) {
-  // Implement your share form here
-  // You can use a modal or any custom form component
-  // Make sure to call `onClose` when the form is closed to update the state
-  function handleBackdropClick2(event) {
-    if (event.target.classList.contains("backdrop2")) {
-      onClose();
-    }
-  }
-
-  return (
-    <div
-      className="popup-container bg-white/50 justify-center items-center"
-      onClick={handleBackdropClick2}
-    >
-      <div className="popup-content text-white flex flex-col bg-gradient-to-br from-[#000000] space-y-4 special:space-y-12 2xl:space-y-8  to-[#000000] justify-center py-4 special:py-8 2xl:py-6">
-        <div className="flex justify-end">
-          <button
-            className="text-3xl 2xl:text-4xl special:text-5xl hover:scale-105"
-            onClick={onClose}
-          >
-            <IoCloseSharp />
-          </button>
-        </div>
-
-        <div className="flex flex-col special:px-24 2xl:px-8 px-4 space-y-4 special:space-y-12 2xl:space-y-8">
-          <p className="font-bold text-white text-center xl:text-5xl 2xl:text-6xl special:text-9xl md:5xl text-3xl">
-            $10
-          </p>
-          <p className="text-white text-center special:text-4xl">User/Month</p>
-          <div className="text-center text-white flex justify-center w-64 special:w-[600px] 2xl:w-[500px] text-sm special:text-3xl 2xl:text-2xl special:leading-normal">
-            You have purchased x number of raffles from the amount of
-            subscriptions in your account and there are x amount remaining.
-          </div>
-          <p className="text-white text-sm special:text-3xl 2xl:text-2xl">
-            Do you want to buy this?
-          </p>
-          <div className="flex justify-center items-center bg-white rounded-lg text-black py-2 special:py-6 2xl:py-5 font-bold hover:bg-black hover:text-white border border-solid hover:border-white">
-            <button className="capitalize 2xl:text-4xl special:text-5xl">
-              Confirm
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
 export default Raffles;

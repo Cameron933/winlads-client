@@ -18,7 +18,6 @@ import FaQ from "./pages/FaQ/FaQ";
 import Notice from "./pages/Notice/Notice";
 import BusinessCard from "./pages/BusinessCard/BusinessCard";
 import Transaction from "./pages/Transaction/Transaction";
-import Transfer from "./pages/Transaction/Trasfer";
 import LiveRaffle from "./pages/LiveRaffle/LiveRaffle";
 import Profile from "./pages/Profile/Profile";
 import NoticeInner from "./pages/Notice/NoticeInner";
@@ -104,10 +103,6 @@ function App() {
     {
       path: "transaction/",
       element: <Transaction />,
-    },
-    {
-      path: "transfer/",
-      element: <Transfer />,
     },
     {
       path: "/business-card",
