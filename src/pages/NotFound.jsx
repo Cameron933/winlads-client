@@ -45,7 +45,7 @@ const NotFound = () => {
       <img
         src={BG}
         alt=""
-        className="absolute right-0 -z-10 bottom-0 w-72 xl:w-96 md:w-96 special:w-1/6 2xl:w-1/5  opacity-60 "
+        className="absolute right-0 -z-10 bottom-0 w-52 xl:w-96 md:w-96 special:w-1/6 2xl:w-1/5  opacity-60 "
       />
     </div>
   )
