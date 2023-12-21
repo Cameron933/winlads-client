@@ -106,8 +106,6 @@ const Withdraw = () => {
         <div>
             <div className="flex relative">
                 <div className="right-side-logo max-xl:hidden"></div>
-
-                <SideNav screen="screen" />
                 <div
                     className="flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-8 pb-5 space-y-0 xl:space-y-0 bg-no-repeat"
                 >

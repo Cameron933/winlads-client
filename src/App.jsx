@@ -33,124 +33,200 @@ import MyEntries from "./pages/MyEntries/MyEntries";
 import NotFound from "./pages/NotFound";
 import Support from "./pages/Support/Support";
 import Withdraw from "./pages/Withdraw/Withdraw";
+import { elements } from "chart.js";
 
 function App() {
   const router = createBrowserRouter([
     {
-      path: "/",
-      element: <Home />,
+      element: <Layout />,
+      children: [
+        {
+          path: "/dashboard",
+          element: <Dashboard />,
+        },
+        {
+          path: "/newslist",
+          element: <Newslist />,
+        },
+        {
+          path: "/news/:id",
+          element: <News />,
+        },
+        {
+          path: "/subscription",
+          element: <Subscription />,
+        },
+        {
+          path: "/giveaways",
+          element: <RafflesDashboard />,
+        },
+        {
+          path: "/giveaway/:id",
+          element: <Raffles />,
+        },
+        {
+          path: "/faq",
+          element: <FaQ />,
+        },
+        {
+          path: "transaction/",
+          element: <Transaction />,
+        },
+        {
+          path: "/business-card",
+          element: <BusinessCard />,
+        },
+        {
+          path: "/profile",
+          element: <Profile />,
+        },
+        {
+          path: "/live",
+          element: <LiveRaffle />,
+        },
+        {
+          path: "/messages",
+          element: <Messages />,
+        },
+        {
+          path: "/subscription-done",
+          element: <SubcriptionDone />,
+        },
+        {
+          path: "/payment-success",
+          element: <PaymentSuccess />,
+        },
+        {
+          path: "/conditions",
+          element: <TermsCondition />,
+        },
+        {
+          path: "/myentries",
+          element: <MyEntries />,
+        },
+        {
+          path: "/withdraw",
+          element: <Withdraw />,
+        },
+        {
+          path: "/loader",
+          element: <Loader />,
+        },
+      ],
     },
-    {
-      path: "*",
-      element: <NotFound />,
-    },
-    {
-      path: "/dashboard",
-      element: <Dashboard />,
-    },
-    {
-      path: "/register",
-      element: <Register />,
-    },
+
+    // {
+    //   path: "/",
+    //   element: <Home />,
+    // },
+    // {
+    //   path: "*",
+    //   element: <NotFound />,
+    // },
+    // {
+    //   path: "/dashboard",
+    //   element: <Dashboard />,
+    // },
+    // {
+    //   path: "/register",
+    //   element: <Register />,
+    // },
     {
       path: "/login",
       element: <Login />,
     },
-    {
-      path: "/authentication",
-      element: <Authentication />,
-    },
-    {
-      path: "/loader",
-      element: <Loader />,
-    },
-  
-    {
-      path: "/newslist",
-      element: <Newslist />,
-    },
-    {
-      path: "/news/:id",
-      element: <News />,
-    },
-    {
-      path: "/subscription",
-      element: <Subscription />,
-    },
-    {
-      path: "/welcome",
-      element: <Welcome />,
-    },
-    {
-      path: "/giveaways",
-      element: <RafflesDashboard />,
-    },
-    {
-      path: "/giveaway/:id",
-      element: <Raffles />,
-    },
-    {
-      path: "/faq",
-      element: <FaQ />,
-    },
-    {
-      path: "/notice",
-      element: <Notice />,
-    },
-    {
-      path: "/notice-inner",
-      element: <NoticeInner />,
-    },
-    {
-      path: "transaction/",
-      element: <Transaction />,
-    },
-    {
-      path: "/business-card",
-      element: <BusinessCard />,
-    },
-    {
-      path: "/profile",
-      element: <Profile />,
-    },
-    {
-      path: "/live",
-      element: <LiveRaffle />,
-    },
-    {
-      path: "/messages",
-      element: <Messages />,
-    },
-    {
-      path: "/history",
-      element: <History />,
-    },
-    {
-      path: "/subscription-done",
-      element: <SubcriptionDone />,
-    },
-    {
-      path: "/payment-success",
-      element: <PaymentSuccess />,
-    },
-    {
-      path: "/conditions",
-      element: <TermsCondition />,
-    },
+    // {
+    //   path: "/authentication",
+    //   element: <Authentication />,
+    // },
+    // {
+    //   path: "/loader",
+    //   element: <Loader />,
+    // },
+
+    // {
+    //   path: "/newslist",
+    //   element: <Newslist />,
+    // },
+    // {
+    //   path: "/news/:id",
+    //   element: <News />,
+    // },
+    // {
+    //   path: "/subscription",
+    //   element: <Subscription />,
+    // },
+    // {
+    //   path: "/welcome",
+    //   element: <Welcome />,
+    // },
+    // {
+    //   path: "/giveaways",
+    //   element: <RafflesDashboard />,
+    // },
+    // {
+    //   path: "/giveaway/:id",
+    //   element: <Raffles />,
+    // },
+    // {
+    //   path: "/faq",
+    //   element: <FaQ />,
+    // },
+    // {
+    //   path: "/notice",
+    //   element: <Notice />,
+    // },
+    // {
+    //   path: "/notice-inner",
+    //   element: <NoticeInner />,
+    // },
+    // {
+    //   path: "transaction/",
+    //   element: <Transaction />,
+    // },
+    // {
+    //   path: "/business-card",
+    //   element: <BusinessCard />,
+    // },
+    // {
+    //   path: "/profile",
+    //   element: <Profile />
+    // },
+    // {
+    //   path: "/live",
+    //   element: <LiveRaffle />,
+    // },
+    // {
+    //   path: "/messages",
+    //   element: <Messages />,
+    // },
+    // {
+    //   path: "/history",
+    //   element: <History />,
+    // },
+    // {
+    //   path: "/subscription-done",
+    //   element: <SubcriptionDone />,
+    // },
+    // {
+    //   path: "/payment-success",
+    //   element: <PaymentSuccess />,
+    // },
+    // {
+    //   path: "/conditions",
+    //   element: <TermsCondition />,
+    // },
     {
       path: "/privacy",
       element: <Privacy />,
     },
-    {
-      path: "/myentries",
-      element: <MyEntries />,
-    },
+    // {
+    //   path: "/myentries",
+    //   element: <MyEntries />,
+    // },
     {
       path: "/support",
       element: <Support />,
-    },{
-      path: "/withdraw",
-      element: <Withdraw />,
     },
   ]);
 

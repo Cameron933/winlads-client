@@ -79,7 +79,6 @@ function RaffleDashbord() {
   return (
     <>
       <div className="flex flex-row justify-between min-h-screen">
-        <SideNav screen="screen" name={valUser.name} userId={valUser.uid} />
         <div className="flex-1">
           {/* home-content */}
           <div className="flex flex-col xl:px-6 px-4 special:px-12 special:space-y-24 space-y-8">

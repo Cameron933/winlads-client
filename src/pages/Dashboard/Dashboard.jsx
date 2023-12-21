@@ -95,11 +95,11 @@ const Dashboard = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <div className="flex relative mx-auto">
-          <SideNav screen="full" name={valUser.name} userId={valUser.uid} />
-
+        <div className="flex relative mx-auto w-full">
+          {/* <SideNav screen="full" name={valUser.name} userId={valUser.uid} /> */}
+        <div></div>
           {/* home-content */}
-          <div className="flex flex-col xl:flex-col flex-1 px-1 gap-5">
+          <div className="flex flex-col xl:flex-col flex-1 px-4 gap-5">
             {/* left side */}
             <div className="flex flex-col flex-1 ">
               <div className="block xl:hidden space-y-4">
@@ -121,7 +121,7 @@ const Dashboard = () => {
                     <p className="text-[#22CCEE] text-2xl font-semibold">
                       Earning Balance
                     </p>
-                    <p className="text-4xl text-black">${valUser.balance}</p>
+                    <p className="text-4xl text-black">${valUser.balance || "0.00"}</p>
                   </div>
                   <SmallGoldCard />
                 </div>

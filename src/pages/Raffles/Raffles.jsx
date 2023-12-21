@@ -82,7 +82,6 @@ function Raffles() {
   return (
     <>
       <div className="flex flex-row justify-between mx-auto">
-        <SideNav screen="full" name={valUser.name} userId={valUser.uid} />
         <div className="flex-1">
           {/* home-content */}
           <div className="flex flex-col xl:px-6 px-4 special:px-12 xl:space-y-16 special:space-y-24 space-y-8">

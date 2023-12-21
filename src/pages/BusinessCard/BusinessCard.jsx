@@ -34,8 +34,6 @@ function BusinessCard() {
       <div className="flex relative min-h-screen">
         {/* side-nav */}
 
-        <SideNav screen="full" />
-
         {/* home-content */}
         <div className="xl:flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-4 pb-5 space-y-4 xl:space-y-0">
           <img
@@ -65,7 +63,7 @@ function BusinessCard() {
 
           {/* right-side */}
           <div className="flex-col flex-1 space-y-4 hidden xl:flex">
-            <div className=" space-y-4">
+            <div className="space-y-4">
               <div className="bg-black rounded-b-[50px] special:rounded-b-[90px] py-4">
                 <TopNav textColor={"white"} />
                 <div className="pt-10">

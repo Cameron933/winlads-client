@@ -16,6 +16,7 @@ import { validateCurrentUser } from "../../utils/validateuser";
 import { ref, getDownloadURL } from "firebase/storage";
 import { storage } from "../../firebase.config";
 import Cookies from "universal-cookie";
+import { FiLoader } from "react-icons/fi";
 
 const SideNav = ({ screen }) => {
   const cookies = new Cookies(null, { path: "/" });
@@ -24,6 +25,7 @@ const SideNav = ({ screen }) => {
   const navigate = useNavigate();
   const [valUser, setValUser] = useState({});
   const [userImage, setUserImage] = useState("");
+  const [loading, setLoading] = useState(true);
 
   const expandSidebar = () => {
     setExpanded((pre) => true);
@@ -56,8 +58,10 @@ const SideNav = ({ screen }) => {
     getDownloadURL(ref(storage, img))
       .then((url) => {
         setUserImage(url);
+        setLoading(false);
       })
       .catch((error) => {
+        setLoading(false);
         // Handle any errors
       });
   }
@@ -76,16 +80,14 @@ const SideNav = ({ screen }) => {
           <div className="flex flex-col items-center gap-2 justify-center overflow-hidden relative w-full ">
             <Link to="/profile">
               <div className="flex justify-center items-center w-full">
-                {userImage ? (
+                {loading ? (
+                  <div className="flex justify-center">
+                    <FiLoader className="w-6 h-6 2xl:w-9 2xl:h-9 special:w-12 special:h-12 animate-spin text-white" />
+                  </div>
+                ) : (
                   <img
                     src={userImage}
                     className="w-[30px] md:w-[35px] xl:w-[40px] rounded-full"
-                    alt="user"
-                  />
-                ) : (
-                  <img
-                    src={User}
-                    className="w-[30px] md:w-[35px] xl:w-[40px]"
                     alt="user"
                   />
                 )}

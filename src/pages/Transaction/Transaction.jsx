@@ -14,12 +14,15 @@ import ShoppingBag from "../../assets/images/transaction/shopping-bag.png";
 import axios from "axios";
 import { validateCurrentUser } from "../../utils/validateuser";
 import Stripe from "../../assets/images/transaction/strip.png";
+import Fund from "../../assets/images/transaction/fund.png";
+import Sub from "../../assets/images/transaction/sub.png";
 import Balance from "../../assets/images/transaction/balance.png";
 import { FiLoader } from "react-icons/fi";
 import FundTransferForm from "../../components/fundTransfer/FundTransferForm";
 import BG from "../../assets/images/HomesideBg.png";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 import MyEntriesButton from "../../components/MyEntries/MyEntriesButton";
+import Line from "../../assets/images/line.png";
 
 const Transaction = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -28,34 +31,32 @@ const Transaction = () => {
   const navigate = useNavigate();
   const [wallet, setWallet] = useState("");
   const [transactions, getTransactions] = useState([]);
-  const [valUser, setValUser] = useState({});
   const [loading, setLoading] = useState(true);
   const [transactionsCom, setTransactionsCom] = useState(true);
 
   useEffect(() => {
-    getEarning();
-    getTransactionsFunction();
     currentUserValidation();
-  }, [wallet]);
+  }, []);
 
   const currentUserValidation = async () => {
     const validator = await validateCurrentUser();
     if (validator.validatorBl) {
       console.log("Session OK", validator.user);
-      setValUser(validator.user);
+      getEarning(validator.user.uid);
+      getTransactionsFunction(validator.user.uid);
     } else {
       navigate("/login");
+
     }
   };
 
-  const getEarning = async () => {
+  const getEarning = async (valuid) => {
     await axios
       .get(
-        `${import.meta.env.VITE_SERVER_API}/getPointBalances?uid=${valUser.uid}`
+        `${import.meta.env.VITE_SERVER_API}/getPointBalances?uid=${valuid}`
       )
       .then((response) => {
         setWallet(response?.data?.data);
-        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
@@ -63,10 +64,10 @@ const Transaction = () => {
       });
   };
 
-  const getTransactionsFunction = async () => {
+  const getTransactionsFunction = async (valuid) => {
     await axios
       .get(
-        `${import.meta.env.VITE_SERVER_API}/getTransactions?uid=${valUser.uid}`
+        `${import.meta.env.VITE_SERVER_API}/getTransactions?uid=${valuid}`
       )
       .then((response) => {
         console.log(response.data.data);
@@ -138,7 +139,6 @@ const Transaction = () => {
   return (
     <div>
       <div className="flex relative min-h-screen">
-        <SideNav screen="full" name={valUser.name} userId={valUser.uid} />
         <div className="xl:flex xl:flex-row flex-col xl:justify-between px-8 special:px-12 2xl:px-8 flex-1 xl:gap-8 special:gap-16 2xl:gap-12 space-y-4 xl:space-y-0">
           <img
             src={BG}
@@ -155,7 +155,7 @@ const Transaction = () => {
                   </div>
                 </div>
 
-                <div className="flex md:flex-row flex-col space-y-2 md:space-y-0 gap-2">
+                <div className="flex md:flex-col flex-col space-y-2 md:space-y-0 gap-2">
                   <div className="w-full">
                     <GoldCard />
                   </div>
@@ -353,11 +353,7 @@ const Transaction = () => {
                 <div className="flex justify-center">
                   <FiLoader className="w-9 h-9 2xl:w-12 2xl:h-12 special:w-18 special:h-18 animate-spin" />
                 </div>
-              ) : transactions.length === 0 ? (
-                <p className="flex justify-center text-lg text-black">
-                  No transactions data
-                </p>
-              ) : (
+              ) : transactions.length > 0 ? (
                 <div className="flex flex-col space-y-4">
                   {transactions?.map((transaction, key) => (
                     <div
@@ -366,7 +362,13 @@ const Transaction = () => {
                     >
                       <div className="flex flex-row items-center gap-2">
                         <img
-                          src={transaction.mode == "subscription" ? Stripe : ""}
+                          src={
+                            transaction.type == "stripe"
+                              ? Stripe
+                              : transaction.type == "CR"
+                              ? Fund
+                              : Sub
+                          }
                           alt=""
                           className="w-12"
                         />
@@ -394,6 +396,10 @@ const Transaction = () => {
                     </div>
                   ))}
                 </div>
+              ) : (
+                <p className="flex justify-center text-lg text-black">
+                  No transactions data
+                </p>
               )}
 
               {/* Display Card Purchase */}
@@ -469,6 +475,7 @@ const Transaction = () => {
               )}
             </div>
           </div>
+
           {transactionsCom ? (
             <div className="flex-col flex-1 space-y-4 hidden xl:flex">
               <div className="space-y-4">
@@ -497,26 +504,24 @@ const Transaction = () => {
               </div>
             </div>
           ) : (
-            <div className="hidden xl:block flex-1 flex-col pt-6">
+            <div className="hidden xl:flex flex-1 flex-col pt-6">
               <div className="pb-12">
                 <TopNav />
               </div>
-
+              <img src={Line} alt="" />
               <div className="flex flex-col">
                 <IoArrowBackCircleOutline
                   className="text-2xl 2xl:text-4xl special:text-6xl hover:scale-110"
                   onClick={handleBackClick}
                 />
-
                 <FundTransferForm />
               </div>
             </div>
           )}
-
           {/* </div> */}
         </div>
       </div>
-      <MyEntriesButton/>
+      <MyEntriesButton />
     </div>
   );
 };
