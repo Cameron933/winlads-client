@@ -3,9 +3,9 @@ import Footer from '../../components/footerSection/Footer'
 import { Link } from "react-router-dom";
 import { IoMdMenu, IoMdClose } from "react-icons/io";
 import { useState } from "react";
-import quicklinksIcon from '../../assets/images/rafflesImages/displayicon.png';
-import contactUs from '../../assets/images/transaction/slip-outlined.png';
-import newsLetter from '../../assets/images/transaction/slip-outlined.png';
+import quicklinksIcon from '../../assets/images/icons/link.png';
+import contactUs from '../../assets/images/icons/contact.png';
+import newsLetter from '../../assets/images/icons/News.png';
 
 
 
