@@ -138,12 +138,12 @@ const Transaction = () => {
 
   return (
 
-      <div className="flex relative min-h-screen ">
-        <div className="xl:flex xl:flex-row flex-col xl:justify-between px-8 special:px-12 2xl:px-8 flex-1 xl:gap-8 special:gap-16 2xl:gap-12 space-y-4 xl:space-y-0">
-          <img
+      <div className="flex relative min-h-screen w-full">
+        <div className="xl:flex xl:flex-row flex-col xl:justify-between px-3 special:px-12 2xl:px-8 flex-1 xl:gap-8 special:gap-16 2xl:gap-12 space-y-4 xl:space-y-0">
+        <img
             src={BG}
             alt=""
-            className="absolute right-0 hidden md:block xl:block -z-10 top-10 w-72 xl:w-96 md:w-96 special:w-1/3 2xl:w-1/4 special:top-80 opacity-60 xl:top-60 2xl:top-80"
+            className="absolute right-0 -z-10 top-40 w-72 xl:w-96 md:w-96 special:w-1/4 2xl:w-1/4 special:top-60 opacity-60 2xl:top-40"
           />
           <div className="flex flex-col space-y-4 flex-1 special:space-y-8 2xl:space-y-6">
             {transactionsCom ? (
@@ -181,49 +181,49 @@ const Transaction = () => {
                 ${valUser.balance}
               </p> */}
             </div>
-            <div className="flex flex-row gap-2 xl:gap-2 md:gap-6 2xl:text-2xl special:text-3xl">
-              <div className="bg-[#008767] justify-between items-center rounded-2xl gap-4 py-2 xl:px-3 md:px-4 flex flex-1 flex-row px-4 cursor-pointer hover:bg-green-600/75">
+            <div className="flex flex-row gap-1 xl:gap-2 md:gap-6 2xl:text-2xl special:text-3xl">
+              <div className="bg-[#008767] justify-between items-center rounded-2xl gap-1 py-2 xl:px-3 md:px-4 flex flex-1 flex-row px-2 cursor-pointer hover:bg-green-600/75">
                 <img
                   src={Balance}
-                  alt=""
-                  className="w-12 h-12 md:h-20 md:w-20 xl:h-16 xl:w-16 max-w-screen-sm"
+                  alt="balance"
+                  className="w-6 h-6 md:h-20 md:w-20 xl:h-16 xl:w-16 max-w-screen-sm"
                 />
-                <div className="flex flex-col">
-                  <p className="text-white text-xl md:text-xl xl:text-3xl 2xl:text-2xl special:text-3xl">
+                <div className="flex flex-col w-full">
+                  <p className="text-white text-lg md:text-xl xl:text-3xl 2xl:text-2xl special:text-3xl">
                     ${wallet.balance || "0.00"}
                   </p>
-                  <p className="text-white text-lg md:text-lg xl:text-xl 2xl:text-xl special:text-2xl">
+                  <p className="text-white text-sm md:text-lg xl:text-xl 2xl:text-xl special:text-2xl">
                     Balance
                   </p>
                 </div>
               </div>
-              <div className="bg-[#52A0DF] justify-between items-center rounded-2xl gap-4 py-2 xl:px-4 md:px-4 flex flex-1 flex-row px-4 cursor-pointer hover:bg-[#52A0DF]/75">
+              <div className="bg-[#52A0DF] justify-between items-center rounded-2xl gap-1 py-2 xl:px-4 md:px-4 flex flex-1 flex-row px-2 cursor-pointer hover:bg-[#52A0DF]/75">
                 <img
                   src={Profit}
                   alt=""
-                  className="w-12 h-12 md:h-20 md:w-20 xl:h-16 xl:w-16 max-w-screen-sm"
+                  className="w-6 h-6 md:h-20 md:w-20 xl:h-16 xl:w-16 max-w-screen-sm"
                 />
-                <div className="flex flex-col">
-                  <p className="text-white text-xl md:text-xl xl:text-3xl 2xl:text-2xl special:text-3xl">
+                <div className="flex flex-col w-full">
+                  <p className="text-white text-lg md:text-xl xl:text-3xl 2xl:text-2xl special:text-3xl">
                     ${wallet.earning || "0.00"}
                   </p>
-                  <p className="text-white text-lg md:text-lg xl:text-xl 2xl:text-xl special:text-2xl">
+                  <p className="text-white text-sm md:text-lg xl:text-xl 2xl:text-xl special:text-2xl">
                     Earning
                   </p>
                 </div>
               </div>
 
-              <div className="bg-[#DF7E59] justify-between items-center rounded-2xl gap-4 py-2 xl:px-3 md:px-4 flex flex-1 flex-row px-4 cursor-pointer hover:bg-[#DF7E59]/75">
+              <div className="bg-[#DF7E59] justify-between items-center rounded-2xl gap-1 py-2 xl:px-3 md:px-4 flex flex-1 flex-row px-2 cursor-pointer hover:bg-[#DF7E59]/75">
                 <img
                   src={ShoppingBag}
                   alt=""
-                  className="w-12 h-12 md:h-20 md:w-20 xl:h-16 xl:w-16 max-w-screen-sm"
+                  className="w-6 h-6 md:h-20 md:w-20 xl:h-16 xl:w-16 max-w-screen-sm"
                 />
-                <div className="flex flex-col">
-                  <p className="text-white text-xl md:text-xl xl:text-3xl 2xl:text-2xl special:text-3xl">
+                <div className="flex flex-col w-full">
+                  <p className="text-white text-lg md:text-xl xl:text-3xl 2xl:text-2xl special:text-3xl">
                     ${wallet.purchase || "0.00"}
                   </p>
-                  <p className="text-white text-lg md:text-lg xl:text-xl 2xl:text-xl special:text-2xl">
+                  <p className="text-white text-sm md:text-lg xl:text-xl 2xl:text-xl special:text-2xl">
                     Purchase
                   </p>
                 </div>
@@ -520,8 +520,6 @@ const Transaction = () => {
           )}
           {/* </div> */}
         </div>
-        {/* <MyEntriesButton /> */}
-
       </div>
    
   );

@@ -91,7 +91,7 @@ function Subscription() {
 
   return (
     <>
-      <div className="flex relative min-h-screen">
+      <div className="flex relative min-h-screen w-full">
 
         {/* home-content */}
         <div className="xl:flex xl:flex-row flex-col xl:justify-between px-4 special:px-12 2xl:px-8 flex-1 xl:gap-4 special:gap-8 2xl:gap-6 space-y-4 xl:space-y-0">
@@ -99,7 +99,7 @@ function Subscription() {
           <img
             src={BG}
             alt=""
-            className="absolute right-0 -z-10 top-10 w-72 xl:w-96 md:w-96 special:w-1/3 2xl:w-1/4 special:top-80 opacity-60 xl:top-60 2xl:top-80"
+            className="absolute right-0 -z-10 top-40 w-72 xl:w-96 md:w-96 special:w-1/4 2xl:w-1/4 special:top-60 opacity-60 2xl:top-40"
           />
           <div className="flex flex-col space-y-4 flex-1 special:space-y-8 2xl:space-y-6 relative">
             <div className="visible xl:hidden space-y-4">

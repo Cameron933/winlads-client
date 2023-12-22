@@ -5,10 +5,10 @@ import MyEntriesButton from "./components/MyEntries/MyEntriesButton";
 
 const Layout = () => {
   return (
-    <div className="flex flex-row w-full">
+    <div className="flex flex-row w-full relative">
       <SideNav />
       <Outlet />
-      <MyEntriesButton/>
+      <MyEntriesButton />
     </div>
   );
 };
