@@ -240,7 +240,7 @@ const Dashboard = () => {
               <div className="graph-section "></div>
             </div>
           </div>
-          <MyEntriesButton />
+          {/* <MyEntriesButton /> */}
         </div>
       )}
       {selectPayment && (

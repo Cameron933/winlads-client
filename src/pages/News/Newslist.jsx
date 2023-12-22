@@ -50,8 +50,8 @@ function Newslist() {
   };
 
   return (
-    <div>
-      <div className="flex relative min-h-screen">
+
+      <div className="flex relative min-h-screen w-full">
         {/* side-nav */}
 
         {/* home-content */}
@@ -122,9 +122,10 @@ function Newslist() {
             </div>
           </div>
         </div>
+        {/* <MyEntriesButton/> */}
       </div>
-      <MyEntriesButton/>
-    </div>
+     
+ 
   );
 }
 

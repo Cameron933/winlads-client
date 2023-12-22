@@ -256,7 +256,7 @@ function Raffles() {
             )}
           </div>
         </div>
-        <MyEntriesButton />
+        {/* <MyEntriesButton /> */}
       </div>
       {selectPayment && (
         <SelectRafflePaymentMethod

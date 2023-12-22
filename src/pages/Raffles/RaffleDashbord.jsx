@@ -248,7 +248,7 @@ function RaffleDashbord() {
             </div>
           </div>
         </div>
-        <MyEntriesButton/>
+        {/* <MyEntriesButton/> */}
       </div>
     </>
   );

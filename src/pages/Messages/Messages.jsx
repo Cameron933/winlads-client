@@ -96,7 +96,7 @@ const Messages = () => {
           </div>
         </div>
       </div>
-      <MyEntriesButton/>
+      {/* <MyEntriesButton/> */}
     </div>
 
   );

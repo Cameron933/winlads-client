@@ -77,7 +77,7 @@ function BusinessCard() {
           </div>
         </div>
       </div>
-      <MyEntriesButton/>
+      {/* <MyEntriesButton/> */}
     </div>
   );
 }

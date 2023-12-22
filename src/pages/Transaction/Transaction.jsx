@@ -137,8 +137,8 @@ const Transaction = () => {
   const chartWidth = windowWidth > 700 ? 400 : windowWidth - 80;
 
   return (
-    <div>
-      <div className="flex relative min-h-screen">
+
+      <div className="flex relative min-h-screen ">
         <div className="xl:flex xl:flex-row flex-col xl:justify-between px-8 special:px-12 2xl:px-8 flex-1 xl:gap-8 special:gap-16 2xl:gap-12 space-y-4 xl:space-y-0">
           <img
             src={BG}
@@ -520,9 +520,10 @@ const Transaction = () => {
           )}
           {/* </div> */}
         </div>
+        {/* <MyEntriesButton /> */}
+
       </div>
-      <MyEntriesButton />
-    </div>
+   
   );
 };
 

@@ -119,7 +119,7 @@ function FaQ() {
             </div>
           </div>
         </div>
-        <MyEntriesButton/>
+        {/* <MyEntriesButton/> */}
       </div>
     </>
   );
