@@ -418,13 +418,13 @@ export default function Privacy() {
           <p className="text-xl 4xl:text-6xl xl:text-xl special:text-8xl md:text-4xl font-bold	  p-2 text-center lg:text-2xl lg:text-left 4xl:text:left xl:text-left  ">
             Email: admin@winlads.com
           </p>
-          <p className="text-xl 4xl:text-6xl xl:text-xl special:text-8xl md:text-4xl font-bold	   p-2 text-center lg:text-4xl lg:text-left 4xl:text:left xl:text-left text-blue-700   ">
+          {/* <p className="text-xl 4xl:text-6xl xl:text-xl special:text-8xl md:text-4xl font-bold	   p-2 text-center lg:text-4xl lg:text-left 4xl:text:left xl:text-left text-blue-700   ">
             <strong>
               <a href="https://legalvision.com.au/">
                 © LegalVision ILP Pty Ltd
               </a>
             </strong>
-          </p>
+          </p> */}
           <p className="p-2">
           NSW: TP/03199
 
