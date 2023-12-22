@@ -97,10 +97,6 @@ function App() {
           element: <PaymentSuccess />,
         },
         {
-          path: "/conditions",
-          element: <TermsCondition />,
-        },
-        {
           path: "/myentries",
           element: <MyEntries />,
         },
@@ -118,6 +114,10 @@ function App() {
     {
       path: "/",
       element: <Home />,
+    },
+    {
+      path: "/conditions",
+      element: <TermsCondition />,
     },
     {
       path: "*",
