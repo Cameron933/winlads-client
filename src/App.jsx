@@ -115,22 +115,22 @@ function App() {
       ],
     },
 
-    // {
-    //   path: "/",
-    //   element: <Home />,
-    // },
-    // {
-    //   path: "*",
-    //   element: <NotFound />,
-    // },
+    {
+      path: "/",
+      element: <Home />,
+    },
+    {
+      path: "*",
+      element: <NotFound />,
+    },
     // {
     //   path: "/dashboard",
     //   element: <Dashboard />,
     // },
-    // {
-    //   path: "/register",
-    //   element: <Register />,
-    // },
+    {
+      path: "/register",
+      element: <Register />,
+    },
     {
       path: "/login",
       element: <Login />,
