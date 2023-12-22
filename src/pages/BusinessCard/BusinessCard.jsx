@@ -1,4 +1,3 @@
-import SideNav from "../../components/SideNav/SideNav";
 import MainCar from "../../assets/images/MainCar.png";
 import GoldCard from "../../components/GoldCard/GoldCard";
 import TopNav from "../../components/TopNav/TopNav";
@@ -8,7 +7,6 @@ import BG from "../../assets/images/HomesideBg.png";
 import { useEffect, useState } from "react";
 import { validateCurrentUser } from "../../utils/validateuser";
 import { Link, useNavigate } from "react-router-dom";
-import MyEntriesButton from "../../components/MyEntries/MyEntriesButton";
 
 
 function BusinessCard() {
@@ -77,7 +75,6 @@ function BusinessCard() {
           </div>
         </div>
       </div>
-      {/* <MyEntriesButton/> */}
     </div>
   );
 }

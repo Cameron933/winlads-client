@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import SideNav from "../../components/SideNav/SideNav";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import GoldCard from "../../components/GoldCard/GoldCard";
@@ -21,7 +20,6 @@ import { FiLoader } from "react-icons/fi";
 import FundTransferForm from "../../components/fundTransfer/FundTransferForm";
 import BG from "../../assets/images/HomesideBg.png";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
-import MyEntriesButton from "../../components/MyEntries/MyEntriesButton";
 import Line from "../../assets/images/line.png";
 
 const Transaction = () => {

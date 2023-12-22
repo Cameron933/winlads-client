@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import TopNav from "../../components/TopNav/TopNav";
-import SideNav from "../../components/SideNav/SideNav";
 import Filters from "../../components/MyEntries/Filters";
 import { MdDone } from "react-icons/md";
 import { RxCross1 } from "react-icons/rx";

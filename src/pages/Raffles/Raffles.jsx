@@ -15,7 +15,6 @@ import { validateCurrentUser } from "../../utils/validateuser";
 import NewJeep from "../../assets/images/rafflesImages/newJeep.png";
 import CatJeep from "../../assets/images/rafflesImages/newJeep.png";
 import { FiLoader } from "react-icons/fi";
-import MyEntriesButton from "../../components/MyEntries/MyEntriesButton";
 import SelectRafflePaymentMethod from "../../components/RaffleComponent/SelectRafflePaymentMethod";
 
 export const bgStyle = {
@@ -256,7 +255,6 @@ function Raffles() {
             )}
           </div>
         </div>
-        {/* <MyEntriesButton /> */}
       </div>
       {selectPayment && (
         <SelectRafflePaymentMethod
