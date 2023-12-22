@@ -253,15 +253,15 @@ export default function Privacy() {
           <p className="text-md 2xl:text-xl xl:text-md special:text-4xl md:text-2xl px-4  lg:text-xl lg:text-left 4xl:text:left xl:text-left mt-5">
             You can opt-out of Google Analytics Advertising Features including
             using a Google Analytics Opt-out Browser add-on found{" "}
-            <a href="https://tools.google.com/dlpage/gaoptout/">here</a>. To
+            <a href="https://tools.google.com/dlpage/gaoptout/" className="underline">here</a>. To
             opt-out of personalised ad delivery on the Google content network,
             please visit Google’s Ads Preferences Manager{" "}
-            <a href="https://www.google.com/url?q=http://www.google.com/ads/preferences&sa=D&source=docs&ust=1703228280743100&usg=AOvVaw003c1bp5Z8lcLmKrtVcbk0">
+            <a href="https://www.google.com/url?q=http://www.google.com/ads/preferences&sa=D&source=docs&ust=1703228280743100&usg=AOvVaw003c1bp5Z8lcLmKrtVcbk0" className="underline">
               here
             </a>{" "}
             or if you wish to opt-out permanently even when all cookies are
             deleted from your browser you can install their plugin{" "}
-            <a href="https://support.google.com/My-Ad-Center-Help/answer/12155656?visit_id=638388214970428295-2597209132&rd=1">
+            <a className="underline" href="https://support.google.com/My-Ad-Center-Help/answer/12155656?visit_id=638388214970428295-2597209132&rd=1">
               here
             </a>{" "}
             To opt out of interest-based ads on mobile devices, please follow
@@ -274,7 +274,7 @@ export default function Privacy() {
           <p className="text-md 2xl:text-xl xl:text-md special:text-4xl md:text-2xl px-4  lg:text-xl lg:text-left 4xl:text:left xl:text-left mt-5">
             To find out how Google uses data when you use third party websites
             or applications, please see{" "}
-            <a href="https://policies.google.com/technologies/partner-sites">
+            <a className="underline" href="https://policies.google.com/technologies/partner-sites">
               here
             </a>
           </p>
@@ -424,6 +424,14 @@ export default function Privacy() {
                 © LegalVision ILP Pty Ltd
               </a>
             </strong>
+          </p>
+          <p className="p-2">
+          NSW: TP/03199
+
+          </p>
+          <p className="p-2">
+          Permit No: ACT TP 23/02687
+
           </p>
         </div>
       </div>
