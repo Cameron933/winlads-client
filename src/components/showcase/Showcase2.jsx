@@ -5,6 +5,7 @@ import { useState } from "react";
 import WindlandText from "../../assets/images/showacase/windland.png";
 import { motion } from "framer-motion";
 
+
 const Showcase2 = () => {
   const [isNavOpen, setNavOpen] = useState(false);
 
