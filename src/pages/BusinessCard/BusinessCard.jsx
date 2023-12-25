@@ -1,4 +1,3 @@
-import SideNav from "../../components/SideNav/SideNav";
 import MainCar from "../../assets/images/MainCar.png";
 import GoldCard from "../../components/GoldCard/GoldCard";
 import TopNav from "../../components/TopNav/TopNav";
@@ -8,7 +7,6 @@ import BG from "../../assets/images/HomesideBg.png";
 import { useEffect, useState } from "react";
 import { validateCurrentUser } from "../../utils/validateuser";
 import { Link, useNavigate } from "react-router-dom";
-import MyEntriesButton from "../../components/MyEntries/MyEntriesButton";
 
 
 function BusinessCard() {
@@ -31,15 +29,15 @@ function BusinessCard() {
 
   return (
     <div>
-      <div className="flex relative min-h-screen">
+      <div className="flex relative min-h-screen w-full">
         {/* side-nav */}
 
         {/* home-content */}
         <div className="xl:flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-4 pb-5 space-y-4 xl:space-y-0">
-          <img
+        <img
             src={BG}
             alt=""
-            className="absolute right-0 -z-10 top-60 w-72 xl:w-96 md:w-96 special:w-1/3 2xl:w-1/4 special:top-80 opacity-60 xl:top-60 2xl:top-80"
+            className="absolute right-0 -z-10 top-40 w-72 xl:w-96 md:w-96 special:w-1/4 2xl:w-1/4 special:top-60 opacity-60 2xl:top-40"
           />
           {/* left side */}
           <div className="flex flex-col space-y-4 flex-1">
@@ -77,7 +75,6 @@ function BusinessCard() {
           </div>
         </div>
       </div>
-      <MyEntriesButton/>
     </div>
   );
 }

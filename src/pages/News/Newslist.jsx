@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import SideNav from "../../components/SideNav/SideNav";
 import MainCar from "../../assets/images/MainCar.png";
 import GoldCard from "../../components/GoldCard/GoldCard";
 import TopNav from "../../components/TopNav/TopNav";
@@ -11,7 +10,6 @@ import { MdOutlineDoNotDisturbOff } from "react-icons/md";
 import BG from "../../assets/images/HomesideBg.png";
 import { validateCurrentUser } from "../../utils/validateuser";
 import { Link, useNavigate } from "react-router-dom";
-import MyEntriesButton from "../../components/MyEntries/MyEntriesButton";
 
 function Newslist() {
   const [newsList, setNewsList] = useState([]);
@@ -50,8 +48,8 @@ function Newslist() {
   };
 
   return (
-    <div>
-      <div className="flex relative min-h-screen">
+
+      <div className="flex relative min-h-screen w-full">
         {/* side-nav */}
 
         {/* home-content */}
@@ -123,8 +121,8 @@ function Newslist() {
           </div>
         </div>
       </div>
-      <MyEntriesButton/>
-    </div>
+     
+ 
   );
 }
 
