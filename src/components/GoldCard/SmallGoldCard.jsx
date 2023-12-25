@@ -44,7 +44,7 @@ const SmallGoldCard = () => {
               ? "white"
               : ""
           } overflow-hidden rounded-3xl px-4 flex flex-row justify-between py-4 cursor-pointer gap-2`}
-          style={{ backgroundColor: valUser ? valUser.subscripton?.color : "white" }}
+          style={{ backgroundColor: valUser._id ? valUser.subscripton?.color : "white" }}
         >
           <div className="flex flex-col space-y-1 ">
             <span className="font-bold text-4xl main-t">

@@ -66,11 +66,7 @@ const CardComponent = () => {
             <div className="flex flex-col space-x-1">
               <div className="bg-black rounded-full py-1 text-center px-2">
                 <p
-                  className={`text-${
-                    valUser.subscripton?.name == "Black"
-                      ? "white"
-                      : valUser.subscripton?.color || "white"
-                  } 2xl:text-lg capitalize`}
+                  style={{color: valUser.subscripton?.color == "#000000" ? "white": valUser.subscripton?.color}}
                 >
                   {valUser.subscripton?.name || "no plane"}
                 </p>
