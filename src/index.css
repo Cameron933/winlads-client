@@ -140,11 +140,11 @@ code {
   border-radius: 8px !important;
 }
 
-.react-tel-input .country-list{
+/* .react-tel-input .country-list{
   display: flex;
   flex-direction: column;
   align-items: start;
-}
+} */
 
 .react-tel-input .country-list {
   border-radius: 8px;
