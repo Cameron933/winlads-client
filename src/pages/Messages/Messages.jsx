@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import SideNav from "../../components/SideNav/SideNav";
 import TopNav from "../../components/TopNav/TopNav";
 import GoldCard from "../../components/GoldCard/GoldCard";
 import MainCar from "../../assets/images/MainCar.png";
@@ -9,7 +8,6 @@ import { HashLoader } from 'react-spinners';
 import Message from "../../components/Messages/Message";
 import AddedYou from "../../components/Messages/AddedYou";
 import { IoIosOptions } from "react-icons/io";
-import MyEntriesButton from "../../components/MyEntries/MyEntriesButton";
 
 
 const Messages = () => {
@@ -96,7 +94,6 @@ const Messages = () => {
           </div>
         </div>
       </div>
-      <MyEntriesButton/>
     </div>
 
   );
