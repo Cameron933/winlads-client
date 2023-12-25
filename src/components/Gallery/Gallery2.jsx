@@ -1,7 +1,7 @@
 import dragon from "../../assets/images/dragon.png";
 import cloud from "../../assets/images/cloud.png";
 import pineapple from "../../assets/images/pineapple.png";
-import watermelon from "../../assets/images/watermelon.png";
+import watermelon from "../../assets/images/home/gallery.png";
 import { motion } from "framer-motion";
 
 const Gallery2 = () => {
