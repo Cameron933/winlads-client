@@ -11,7 +11,7 @@ const Youtube = () => {
         <div className="flex mx-auto 2xl:max-w-[2400px] w-full items-center justify-center">
           <div className="w-11/12 r-player">
             <ReactPlayer
-              url="https://drive.google.com/drive/folders/19fXbhiTdRqRJl26vb2FQXeRC2Mf_TNw_"
+              url="https://drive.google.com/file/d/1dWgx17FgPmv6jfN-oN0X6MGLdM4rytOL/view"
               controls={true}
               loop={true}
               width="100%"
