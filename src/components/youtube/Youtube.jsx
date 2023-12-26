@@ -5,13 +5,17 @@ import P2 from "../../assets/images/youtube/p2.png";
 import { motion } from "framer-motion";
 
 const Youtube = () => { 
+
+  const videoUrl = "https://drive.google.com/uc?id=1dWgx17FgPmv6jfN-oN0X6MGLdM4rytOL";
+
+
   return (
     <div className="w-full">
       <div className="w-full mx-auto bg-youtube py-8">
         <div className="flex mx-auto 2xl:max-w-[2400px] w-full items-center justify-center">
           <div className="w-11/12 r-player">
             <ReactPlayer
-              url="https://drive.google.com/file/d/1dWgx17FgPmv6jfN-oN0X6MGLdM4rytOL/view"
+              url={videoUrl}
               controls={true}
               loop={true}
               width="100%"
