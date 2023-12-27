@@ -17,13 +17,8 @@ const Home = () => {
       <Service/>
       <Youtube/>
       <Benifit/>
-
       <Gallery2/>
-      
-
       <ChoosePlane/>
-
-
       <Footer />
 
 

@@ -15,7 +15,7 @@ const Youtube = () => {
         <div className="flex mx-auto 2xl:max-w-[2400px] w-full items-center justify-center">
           <div className="w-11/12 r-player">
             <ReactPlayer
-              url={videoUrl}
+              // url={videoUrl}
               controls={true}
               loop={true}
               width="100%"
