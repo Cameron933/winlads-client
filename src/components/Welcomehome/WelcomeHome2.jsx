@@ -6,9 +6,9 @@ import { motion } from 'framer-motion';
 
 const WelcomeHome2 = () => {
   return (
-    <div className="w-full relative">
+    <div className="w-full">
       {/* section 01 with ReactPlayer */}
-      <div className="player-wrapper w-full mx-auto">
+      {/* <div className="player-wrapper w-full mx-auto">
         <ReactPlayer
           url="https://player.vimeo.com/video/898036697?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
           playing
@@ -22,9 +22,9 @@ const WelcomeHome2 = () => {
             left: 0,
           }}
           className="react-player opacity-60 mx-auto w-full"
-        />
+        /> */}
         
-        <div className="mx-auto 2xl:max-w-[2400px] w-full px-3 lg:px-5 py-10 lg:py-16 z-10">
+        <div className="mx-auto 2xl:max-w-[2400px] w-full px-3 lg:px-5 py-10 lg:py-16 z-10 bg-welcome">
           <div className="flex items-center justify-center 2xl:gap-40 xl:gap-36 lg:gap-32 md:gap-8 sm:gap-6 gap-5 lg:flex-row flex-col">
             <div className="flex flex-col justify-center items-center  ">
               <motion.p
@@ -100,7 +100,7 @@ const WelcomeHome2 = () => {
             </div>
           </div>
         </div>
-      </div>
+      {/* </div> */}
 
       {/* section 02 */}
       
