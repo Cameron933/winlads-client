@@ -6,8 +6,6 @@ import Cross from "../../assets/images/subcription/cross.png";
 
 const SmallGoldCard = () => {
 
-
-
   const navigate = useNavigate();
   const [valUser, setValUser] = useState({});
   const [loading, setLoading] = useState(true);
@@ -29,7 +27,6 @@ const SmallGoldCard = () => {
   };
 
   const dateObject = new Date(valUser.transaction?.endfrom);
-  
   const options = { year: 'numeric', month: 'long', day: 'numeric', };
   const formattedDate = dateObject.toLocaleString('en-US', options);
 
@@ -68,7 +65,6 @@ const SmallGoldCard = () => {
                 type="checkbox"
                 id="hs-basic-usage"
                 className="relative w-[3.25rem] h-7 bg-[#fff] checked:bg-[#fff] items-center flex rounded-full cursor-pointer transition-colors ease-in-out duration-200 boarder-solid border border-black ring-1 ring-transparent ring-offset-white focus:outline-none appearance-none dark:bg-white dark:checked:bg-white dark:focus:ring-offset-white
-
 before:inline-block before:w-6 before:h-6 before:bg-[#9D7C00] checked:before:bg-[#9D7C00] before:translate-x-0 checked:before:translate-x-full before:shadow before:rounded-full before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 dark:before:bg-[#9D7C00] dark:checked:before:bg-[#9D7C00]"
               />
               <label htmlFor="hs-basic-usage text-black" className="sr-only">

@@ -11,7 +11,7 @@ import ChoosePlane from "../../components/choosePlane/ChoosePlane";
 
 const Home = () => {
   return (
-    <div>
+    <div className="pageBgColor">
       <Showcase2 />
       <WelcomeHome2 />
       <Service/>
@@ -20,8 +20,6 @@ const Home = () => {
       <Gallery2/>
       <ChoosePlane/>
       <Footer />
-
-
     </div>
   );
 };

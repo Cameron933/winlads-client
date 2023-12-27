@@ -5,12 +5,13 @@ import { useState } from "react";
 import WindlandText from "../../assets/images/showacase/windland.png";
 import { motion } from "framer-motion";
 
-
 const Showcase2 = () => {
   const [isNavOpen, setNavOpen] = useState(false);
 
+  // bg-[#A0E6EB] 
+
   return (
-    <div className="w-full  bg-[#A0E6EB] ">
+    <div className="w-full">
       <div className="flex flex-col lg:flex-row lg:items-stretch ">
         {/* left */}
         <div className="w-full lg:w-[46%] xl:1/2 bg-left-showcase flex flex-col items-end  ">
@@ -32,13 +33,22 @@ const Showcase2 = () => {
               <span className="font-bold text-base text-white  hover:text-[#EC263F]">
                 <Link to="">Become A Partner</Link>
               </span>
-              <span className="font-bold text-base text-white  hover:text-[#EC263F]">
-                <Link to="">Giveaway</Link>
+              <span
+                className="font-bold text-base text-white  hover:text-[#EC263F]"
+                target="_blank"
+              >
+                 <a
+                  href="https://winladsgiveaway.com/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Giveaway
+                </a>
               </span>
               <span className="font-bold text-base text-white  hover:text-[#EC263F]">
                 <Link to="">Shop</Link>
               </span>
-              <button className="font-bold text-base  px-3 py-2 text-[#d4d4d4] bg-black rounded-lg hover:text-white hover:bg-[#51b9c0]">
+              <button className="font-bold text-base  px-3 py-2 text-[#d4d4d4] bg-black rounded-lg hover:text-white hover:bg-black/75">
                 Contact Us
               </button>
             </div>
@@ -92,7 +102,7 @@ const Showcase2 = () => {
                   initial={{ opacity: 0, y: "-10%" }}
                   whileInView={{ opacity: 1, y: "0" }}
                   transition={{ duration: 0.5, delay: 1.2 }}
-                  className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl px-3 2xl:px-5 special:px-8 py-2 2xl:py-3 special:py-5 text-[#d4d4d4] bg-black rounded-lg hover:text-white hover:bg-[#00F0FF]"
+                  className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl px-3 2xl:px-5 special:px-8 py-2 2xl:py-3 special:py-5 text-[#d4d4d4] bg-black rounded-lg hover:text-white hover:bg-black/75"
                 >
                   Sign Up for Free
                 </motion.button>
@@ -124,12 +134,18 @@ const Showcase2 = () => {
                 <Link to="">Become A Partner</Link>
               </span>
               <span className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl hover:text-[#EC263F]">
-                <Link to="">Giveaway</Link>
+                <a
+                  href="https://winladsgiveaway.com/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Giveaway
+                </a>
               </span>
               <span className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl hover:text-[#EC263F]">
                 <Link to="">Shop</Link>
               </span>
-              <button className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl px-3 2xl:px-5 special:px-8 py-2 2xl:py-3 special:py-5 text-[#d4d4d4] bg-black rounded-lg hover:text-white hover:bg-[#51b9c0]">
+              <button className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl px-3 2xl:px-5 special:px-8 py-2 2xl:py-3 special:py-5 text-[#d4d4d4] bg-black rounded-lg hover:text-white hover:bg-black/75">
                 {" "}
                 Contact Us
               </button>
@@ -174,17 +190,17 @@ const Showcase2 = () => {
             </div>
 
             <Link to="/login">
-            <div className="hidden lg:flex items-center justify-center lg:justify-end">
-              <motion.button
-                initial={{ opacity: 0, x: "-20%" }}
-                whileInView={{ opacity: 1, x: "0" }}
-                transition={{ duration: 0.5, delay: 1.2 }}
-                className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl px-3 2xl:px-5 special:px-8 py-2 2xl:py-3 special:py-5 text-[#d4d4d4] bg-black rounded-lg hover:text-white hover:bg-[#51b9c0]"
-              >
-                {" "}
-                Sign Up for Free
-              </motion.button>
-            </div>
+              <div className="hidden lg:flex items-center justify-center lg:justify-end">
+                <motion.button
+                  initial={{ opacity: 0, x: "-20%" }}
+                  whileInView={{ opacity: 1, x: "0" }}
+                  transition={{ duration: 0.5, delay: 1.2 }}
+                  className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl px-3 2xl:px-5 special:px-8 py-2 2xl:py-3 special:py-5 text-[#d4d4d4] bg-black rounded-lg hover:text-white hover:bg-black/75"
+                >
+                  {" "}
+                  Sign Up for Free
+                </motion.button>
+              </div>
             </Link>
           </div>
         </div>

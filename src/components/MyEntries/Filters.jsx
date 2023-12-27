@@ -79,12 +79,10 @@ const Filters = ({
             </ul>
           )}
         </div>
-        <div className="col-span-4">
-            
-        </div>
         {/* Giveaway Rounds */}
-        {/* <div className="col-span-2">
-          <div className="flex items-center justify-between bg-gray-300 px-4 py-3 gap-2 rounded-full text-xl font-semibold">
+        <div className="col-span-4 gap-2">
+          <div className="flex flex-row">
+          <div className="flex flex-1 items-center justify-between bg-gray-300 px-4 py-3 gap-2 rounded-full text-xl font-semibold">
             <p className="2xl:text-lg xl:text-sm">{roundValue}</p>
             <IoIosOptions
               className="2xl:text-xl xl:text-sm m-1 cursor-pointer"
@@ -119,7 +117,7 @@ const Filters = ({
               </li>
             </ul>
           )}
-          <div>
+          <div className="flex flex-row">
             <input
               type="text"
               name="entry-number"
@@ -165,7 +163,9 @@ const Filters = ({
             className="rounded-xl px-4 py-4 outline-none w-full bg-gray-200 xl:hidden"
             placeholder="Search"
           />
-        </div> */}
+        </div>
+          </div>
+       
 
         {/* Entry Numbers */}
 
