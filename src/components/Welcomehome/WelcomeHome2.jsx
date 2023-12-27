@@ -1,12 +1,31 @@
+import ReactPlayer from "react-player";
 import Apple from "../../assets/images/welcomehome/apple.png";
 import Google from "../../assets/images/welcomehome/google.png";
 import { motion } from "framer-motion";
 
+// bg-welcome
+
 const WelcomeHome2 = () => {
   return (
-    <div className="w-full">
+    <div className="w-full relative">
+        <div className="player-wrapper">
+        <ReactPlayer
+          url="https://player.vimeo.com/video/898036697?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+          playing
+          loop
+          muted
+          width="100%"
+          height="100%"
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+          }}
+          className="react-player"
+        />
+      </div>
       {/* section 01 */}
-      <div className="flex items-center justify-center bg-welcome">
+      <div className="flex items-center justify-center">
         <div className="mx-auto 2xl:max-w-[2400px]   w-full px-3 lg:px-5  py-10 lg:py-16">
           <div className="flex items-center justify-center 2xl:gap-40 xl:gap-36 lg:gap-32 md:gap-8 sm:gap-6 gap-5 lg:flex-row flex-col">
             <div className="flex flex-col justify-center items-center  ">

@@ -9,6 +9,9 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
+.pageBgColor {
+  background: linear-gradient(to right, #80E2E2 0%, #FFE9E9 100%);
+}
 
 
 /* button animaion */

@@ -68,9 +68,9 @@ const Service = () => {
           {/* right  */}
           <div className="w-10/12 lg:w-1/3  flex flex-col  justify-center gap-5 md:gap-8 lg:gap-10 xl:gap-16 special:gap-10 lg:order-3 order-2">
             <motion.div
-              initial={{ opacity: 0, x: "10%" }}
+              initial={{ opacity: 0, x: "-10%" }}
               whileInView={{ opacity: 1, x: "0" }}
-              transition={{ duration: 0.5, delay: 0.9 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
               className="w-full"
             >
               <p className="mb-3 lg:mb-5 xl:mb-6 special:mb-8 lg:text-start text-center text-xs sm:text-sm md:text-base xl:text-base special:text-lg  font-bold">
@@ -85,9 +85,9 @@ const Service = () => {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: "10%" }}
-              whileInView={{ opacity: 1, x: "0" }}
-              transition={{ duration: 0.5, delay: 0.9 }}
+            initial={{ opacity: 0, x: "-10%" }}
+            whileInView={{ opacity: 1, x: "0" }}
+            transition={{ duration: 0.5, delay: 0.3 }}
               className="w-full"
             >
               <p className="mb-3 lg:mb-5 xl:mb-6 special:mb-8 lg:text-start text-center text-xs sm:text-sm md:text-base xl:text-base special:text-lg  font-bold">

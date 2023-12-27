@@ -34,6 +34,7 @@ import NotFound from "./pages/NotFound";
 import Support from "./pages/Support/Support";
 import Withdraw from "./pages/Withdraw/Withdraw";
 import { elements } from "chart.js";
+import Youtube from "./components/youtube/Youtube";
 
 function App() {
   const router = createBrowserRouter([
