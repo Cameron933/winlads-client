@@ -1,19 +1,14 @@
-import ReactPlayer from "react-player";
-import Apple from "../../assets/images/welcomehome/apple.png";
-import Google from "../../assets/images/welcomehome/google.png";
-import { motion } from "framer-motion";
-
-// bg-welcome
+import React from 'react';
+import ReactPlayer from 'react-player';
+import Apple from '../../assets/images/welcomehome/apple.png';
+import Google from '../../assets/images/welcomehome/google.png';
+import { motion } from 'framer-motion';
 
 const WelcomeHome2 = () => {
   return (
     <div className="w-full relative">
-       
-      {/* section 01 */}
-      <div className="flex items-center justify-center">
-        <div className="mx-auto 2xl:max-w-[2400px]   w-full px-3 lg:px-5  py-10 lg:py-16">
-          <div className="flex items-center justify-center 2xl:gap-40 xl:gap-36 lg:gap-32 md:gap-8 sm:gap-6 gap-5 lg:flex-row flex-col">
-          <div className="player-wrapper">
+      {/* section 01 with ReactPlayer */}
+      <div className="player-wrapper">
         <ReactPlayer
           url="https://player.vimeo.com/video/898036697?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
           playing
@@ -26,9 +21,11 @@ const WelcomeHome2 = () => {
             top: 0,
             left: 0,
           }}
-          className="react-player"
+          className="react-player opacity-60"
         />
-      </div>
+        
+        <div className="mx-auto 2xl:max-w-[2400px] w-full px-3 lg:px-5 py-10 lg:py-16">
+          <div className="flex items-center justify-center 2xl:gap-40 xl:gap-36 lg:gap-32 md:gap-8 sm:gap-6 gap-5 lg:flex-row flex-col">
             <div className="flex flex-col justify-center items-center  ">
               <motion.p
                 initial={{ opacity: 0, y: "-40%" }}
@@ -105,7 +102,7 @@ const WelcomeHome2 = () => {
         </div>
       </div>
 
-      {/* dection 02 */}
+      {/* section 02 */}
       <div className="flex items-center justify-center bg-welcome2">
         <div className="mx-auto 2xl:max-w-[2400px]   w-full px-3 lg:px-5 py-10 lg:py-16 bg-welcome2">
           <motion.p
