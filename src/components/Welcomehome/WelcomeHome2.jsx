@@ -8,7 +8,7 @@ const WelcomeHome2 = () => {
   return (
     <div className="w-full relative">
       {/* section 01 with ReactPlayer */}
-      <div className="player-wrapper w-full">
+      <div className="player-wrapper w-full mx-auto">
         <ReactPlayer
           url="https://player.vimeo.com/video/898036697?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
           playing
@@ -21,7 +21,7 @@ const WelcomeHome2 = () => {
             top: 0,
             left: 0,
           }}
-          className="react-player opacity-60"
+          className="react-player opacity-60 mx-auto w-full"
         />
         
         <div className="mx-auto 2xl:max-w-[2400px] w-full px-3 lg:px-5 py-10 lg:py-16 z-10">
