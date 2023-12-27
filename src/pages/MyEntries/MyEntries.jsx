@@ -43,7 +43,6 @@ const MyEntries = () => {
       .then((response) => {
         console.log(response.data.data, "data raffle");
         setMyGiveaways(response.data.data.tickets);
-        // console.log(myGiveaways.rounds, 'asdsad')
         setIsLoading(false);
       })
       .catch((error) => {
@@ -89,20 +88,19 @@ const MyEntries = () => {
                 {myGiveaways?.length > 0 ? (
                   <div className="flex flex-col space-y-2">
                     {myGiveaways.map((giveaway, key) => (
-                      <div
-                        key={key}
-                        className="flex xl:flex-row flex-col items-center px-2 xl:px-0"
-                      >
-                        <div className="xl:rounded-l-full xl:flex flex-row justify-between items-center rounded-t-2xl py-3 xl:pl-4 px-2 bg-blue-300 flex-2 2xl:pr-64 xl:pr-48 special:pr-[500px] w-full xl:w-0">
-                          <div className="flex flex-row justify-between items-center xl:gap-4">
-                            <p className="text-black capitalize">
-                              {giveaway?.type}
+                      <div key={key} className="xl:grid grid-cols-5 px-2 xl:px-0 flex flex-col">
+                        <div
+                          className="xl:rounded-l-full col-span-1 justify-between items-center rounded-t-2xl py-4 xl:pl-4 px-2 "
+                          style={{ backgroundColor: giveaway?.raffle?.color }}
+                        >
+                          <div className="flex flex-row justify-between items-center">
+                            <p className="text-black capitalize text-xs">
+                              {giveaway?.raffle.name}
                             </p>
                             <PiBookmarkSimpleLight />
-                     
                           </div>
                         </div>
-                        <div className="bg-blue-100 py-3 xl:pr-4 pl-2 pr-2 xl:pl-4 w-full flex-1 xl:rounded-b-none rounded-b-2xl flex xl:flex-row flex-col xl:items-center justify-between space-y-1 xl:space-y-0">
+                        <div className="bg-blue-100 py-3 text-xs 2xl:text-sm xl:pr-4 pl-2 pr-2 xl:pl-4 xl:rounded-b-none rounded-b-2xl xl:flex col-span-4 xl:items-center justify-between space-y-1 xl:space-y-0">
                           <p className="capitalize">{giveaway.round.name}</p>
                           <p>{giveaway.entryNumber}</p>
                           <div className="flex flex-row justify-between 2xl:gap-36 xl:gap-12">

@@ -22,19 +22,19 @@ const CardComponent = () => {
     if (validator.validatorBl) {
       console.log("Session OK", validator.user);
       setValUser(validator.user);
-      getTransactionsFunction();
+      // getTransactionsFunction();
+      getEarning(validator.user.uid)
     } else {
       setLoading(false);
     }
   };
 
-  const getTransactionsFunction = async () => {
+  const getEarning = async (valuid) => {
     await axios
       .get(
-        `${import.meta.env.VITE_SERVER_API}/getTransactions?uid=${valUser.uid}`
+        `${import.meta.env.VITE_SERVER_API}/getPointBalances?uid=${valuid}`
       )
       .then((response) => {
-        console.log(response.data.data);
         setWallet(response?.data?.data);
         setLoading(false);
       })
@@ -43,6 +43,22 @@ const CardComponent = () => {
         setLoading(false);
       });
   };
+
+  // const getTransactionsFunction = async () => {
+  //   await axios
+  //     .get(
+  //       `${import.meta.env.VITE_SERVER_API}/getTransactions?uid=${valUser.uid}`
+  //     )
+  //     .then((response) => {
+  //       console.log(response.data.data);
+  //       setWallet(response?.data?.data);
+  //       setLoading(false);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //       setLoading(false);
+  //     });
+  // };
 
   const dateObject = new Date(valUser.transaction?.endfrom);
   const options = { year: "numeric", month: "long", day: "numeric" };
