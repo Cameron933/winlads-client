@@ -116,7 +116,7 @@ function Subscription() {
               </div>
             </div>
             <SearchField />
-            <p className="font-bold text-3xl special:text-6xl 2xl:text-4xl">
+            <p className="font-bold text-3xl special:text-6xl 2xl:text-2xl">
               Choose Your Plan
             </p>
             {loading ? (

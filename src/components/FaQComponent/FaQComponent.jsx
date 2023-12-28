@@ -18,7 +18,7 @@ function FaQComponent({title, desc, number}) {
     <div
       id="accordion-collapse"
       data-accordion="collapse"
-      className="my-5 special:flex special:flex-col special:gap-10 special:pt-10"
+      className="my-3 special:flex special:flex-col special:gap-10 special:pt-10"
     >
       <div>
         <h2 id="accordion-collapse-heading-1">
@@ -29,7 +29,7 @@ function FaQComponent({title, desc, number}) {
             aria-expanded={isAccordionActive(number+1)}
             aria-controls="accordion-collapse-body-1"
           >
-            <span className="font-bold special:text-3xl 2xl:text-2xl special:py-5 ">
+            <span className="font-bold special:text-xl 2xl:text-sm special:py-5 ">
               {title}
             </span>
             <svg
@@ -56,7 +56,7 @@ function FaQComponent({title, desc, number}) {
           }`}
           aria-labelledby="accordion-collapse-heading-1"
         >
-          <p className="mb-2 text-black special:text-2xl 2xl:text-xl special:py-3 special:rounded-[40px]">
+          <p className="mb-2 text-black special:text-lg 2xl:text-md text-xs special:py-3 special:rounded-[40px]">
            {desc}
           </p>
         </div>
