@@ -1,4 +1,4 @@
-import Jip from "../../assets/images/benifit/jip.png";
+import Jip from "../../assets/images/services/jip.png";
 import { motion } from "framer-motion";
 
 const Benifit = () => {
