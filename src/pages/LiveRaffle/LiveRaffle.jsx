@@ -113,13 +113,13 @@ function LiveRaffle() {
         <div className="bottom-10 left-0 right-0 absolute ml-12 xl:ml-0 4xl:ml-0">
           <div className="flex justify-center flex-col items-center space-y-4 special:space-y-8 2xl:space-y-6">
             <div className="flex flex-row gap-4 2xl:gap-6 special:gap-8 items-center">
-              <div className="w-10 h-10 2xl:w-24 2xl:h-24 special:w-36 special:h-36 cursor-pointer hover:brightness-75 bg-indigo-900 rounded-full flex items-center justify-center text-white" onClick={handleMute}>
+              <div className="w-10 h-10 2xl:w-24 2xl:h-24 special:w-36 special:h-36 cursor-pointer hover:brightness-75 bg-indigo-900 rounded-full flex items-center justify-center text-white" onClick={handleMute} title="Mute">
                 {muted ? <GoMute className="text-xl"/> : <GoUnmute className="text-xl"/>}
               </div>
-              <div className="w-10 h-10 2xl:w-24 2xl:h-24 special:w-36 special:h-36 cursor-pointer hover:brightness-75 bg-cyan-600 rounded-full flex items-center justify-center text-white" onClick={handlePause}>
+              <div className="w-10 h-10 2xl:w-24 2xl:h-24 special:w-36 special:h-36 cursor-pointer hover:brightness-75 bg-cyan-600 rounded-full flex items-center justify-center text-white" onClick={handlePause} title="Pause/Play">
                 {pause ? <CiPause1 className="text-xl"/>:<CiPlay1 className="text-xl"/>}
               </div>
-              <img src={cutIcon} alt="" className="w-10 h-10 2xl:w-24 2xl:h-24 special:w-36 special:h-36 cursor-pointer hover:brightness-75" onClick={()=>navigate('/dashboard')}/>
+              <img src={cutIcon} alt="" className="w-10 h-10 2xl:w-24 2xl:h-24 special:w-36 special:h-36 cursor-pointer hover:brightness-75" onClick={()=>navigate('/dashboard')} title="Go to Dashboard"/>
             </div>
             <div className="">
               <div
