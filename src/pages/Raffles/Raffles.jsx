@@ -112,7 +112,7 @@ function Raffles() {
                       live Giveaways
                     </p>
                   </div>
-                  <Link to="/live-raffle">
+                  <Link to="/live">
                     <div className="bg-[#D5B511] hover:bg-[#D5B511]/75 flex-col rounded-3xl px-2 special:px-4 py-1 space-y-2 xl:w-1/2 md:w-1/2  w-full">
                       <div className="flex flex-row justify-between items-center">
                         <img
