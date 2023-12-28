@@ -191,10 +191,10 @@ function ShareForm({
   };
 
   return (
-    <form className="form-contain-reg space-y-7 w-full xl:w-3/5 special:w-2/5 special:space-y-16">
-              <p className="text-black text-lg special:pt-5 special:text-2xl">
-          Let’s Get Your Card !!
-        </p>
+    <form className="form-contain-reg space-y-5 w-full xl:w-3/5 special:w-3/5 special:space-y-16">
+      <p className="text-black text-lg special:pt-5 special:text-2xl">
+        Let’s Get Your Card !!
+      </p>
       <div className="bg-[#ECECEC] flex flex-row-reverse items-center py-3 px-4 gap-3 rounded-2xl justify-end">
         <input
           type="text"
@@ -204,7 +204,7 @@ function ShareForm({
           disabled
           className="bg-[#ECECEC] placeholder:text-gray-500 outline-none w-full special:placeholder:text-2xl"
         />
-        <img src={userBUS} alt="user" className="w-8 special:w-14" />
+        {/* <img src={userBUS} alt="user" className="w-8 special:w-14" /> */}
       </div>
 
       <div className="bg-[#ECECEC] border-black flex flex-row-reverse items-center py-3 px-4 gap-3 rounded-2xl justify-end">
@@ -216,7 +216,7 @@ function ShareForm({
           value={passPort}
           className="bg-[#ECECEC]e focus:outline-none placeholder:text-gray-500 w-full outline-none special:placeholder:text-2xl"
         />
-        <img src={basketballBUS} alt="passport" className="w-8 special:w-14" />
+        {/* <img src={basketballBUS} alt="passport" className="w-8 special:w-14" /> */}
       </div>
       <div className="bg-[#ECECEC] flex flex-row-reverse items-center py-3 px-4 gap-3 rounded-2xl justify-end">
         <input
@@ -227,9 +227,9 @@ function ShareForm({
           value={phone}
           className="bg-[#ECECEC] focus:outline-none placeholder:text-gray-500 w-full outline-none special:placeholder:text-2xl"
         />
-        <img src={smartphoneBUS} alt="phone" className="w-8 special:w-14" />
+        {/* <img src={smartphoneBUS} alt="phone" className="w-8 special:w-14" /> */}
       </div>
-      <div className="bg-[#ECECEC] flex flex-row-reverse items-center py-3 px-4 gap-3 rounded-2xl justify-end">
+      {/* <div className="bg-[#ECECEC] flex flex-row-reverse items-center py-3 px-4 gap-3 rounded-2xl justify-end">
         <input
           type="text"
           placeholder="Your Postal Address"
@@ -239,6 +239,58 @@ function ShareForm({
           className="bg-[#ECECEC] focus:outline-none placeholder:text-gray-500 w-full outline-none special:placeholder:text-2xl"
         />
         <img src={mailBUS} alt="mail" className="w-8 special:w-14" />
+      </div> */}
+      <div className="flex items-center gap-2">
+        <div className=" w-1/2">
+          <input
+            className="bg-[#ECECEC] rounded-xl py-3 px-4 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
+            placeholder="Address Line 1"
+            type="text"
+            value={postalAddress}
+            onChange={handlePostalAddressChange}
+          ></input>
+        </div>
+        <div className=" w-1/2">
+          <input
+            className="bg-[#ECECEC] rounded-xl py-3 px-4 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
+            placeholder="Address Line 2"
+            type="text"
+            value={postalAddress}
+            onChange={handlePostalAddressChange}
+          ></input>
+        </div>
+
+      </div>
+      <div className="flex items-center gap-2">
+        <div className="w-1/3">
+          <input
+            className="bg-[#ECECEC] rounded-xl py-3 px-4 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
+            placeholder="City"
+            type="text"
+            value={postalAddress}
+            onChange={handlePostalAddressChange}
+          ></input>
+        </div>
+        <div className="w-1/3">
+          <input
+            className="bg-[#ECECEC] rounded-xl py-3 px-4 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
+            placeholder="State"
+            type="text"
+            value={postalAddress}
+            onChange={handlePostalAddressChange}
+          ></input>
+        </div>
+        <div className=" w-1/3">
+
+          <input
+            className="bg-[#ECECEC] rounded-xl py-3 px-4 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
+            placeholder="Postal Code"
+            type="text"
+            value={postalAddress}
+            onChange={handlePostalAddressChange}
+          ></input>
+        </div>
+
       </div>
     </form>
   );
