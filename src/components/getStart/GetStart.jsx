@@ -9,6 +9,7 @@ const GetStart = () => {
             initial={{ opacity: 0, y: "-40%" }}
             whileInView={{ opacity: 1, y: "0" }}
             transition={{ duration: 0.5, delay: 0 }}
+            viewport={{ once: true }}
             className="text-center text-base sm:text-lg 2xl:text-xl special:text-3xl font-bold uppercase xl:tracking-[18px] sm:tracking-[16px] tracking-[12px]"
           >
             {" "}
@@ -19,6 +20,7 @@ const GetStart = () => {
             initial={{ opacity: 0, y: "40%" }}
             whileInView={{ opacity: 1, y: "0" }}
             transition={{ duration: 0.5, delay: 0.3 }}
+            viewport={{ once: true }}
             className="mt-5 sm:mt-6 lg:mt-8 text-center w-10/12 mx-auto text-xs sm:text-sm md:text-base xl:text-base special:text-lg"
           >
             Get ready to dive into an epic network of over 1,000 Aussie
@@ -31,6 +33,7 @@ const GetStart = () => {
             initial={{ opacity: 0, y: "-40%" }}
             whileInView={{ opacity: 1, y: "0" }}
             transition={{ duration: 0.5, delay: 0.6 }}
+            viewport={{ once: true }}
             className="mt-5 sm:mt-6 lg:mt-8 text-center w-10/12 mx-auto text-xs sm:text-sm md:text-base xl:text-base special:text-lg"
           >
             Picture this: you're kicking back, chilling, and earning easy
@@ -44,6 +47,7 @@ const GetStart = () => {
               initial={{ opacity: 0, y: "40%" }}
               whileInView={{ opacity: 1, y: "0" }}
               transition={{ duration: 0.5, delay: 0.9 }}
+              viewport={{ once: true }}
               className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl px-3 2xl:px-5 special:px-8 py-2 2xl:py-3 special:py-5 text-[#d4d4d4] bg-black rounded-lg hover:text-white hover:bg-black/75"
             >
               Get Started

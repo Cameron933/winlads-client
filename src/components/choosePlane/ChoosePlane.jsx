@@ -8,6 +8,7 @@ const ChoosePlane = () => {
       <div className="flex flex-col items-center w-full px-3 lg:px-5  py-10 lg:py-16 gap-10">
         <motion.p
           initial={{ opacity: 0, y: "-40%" }}
+          viewport={{ once: true }}
           whileInView={{ opacity: 1, y: "0" }}
           transition={{ duration: 0.5, delay: 0 }}
           className="text-center text-base sm:text-lg 2xl:text-xl special:text-3xl font-bold xl:tracking-[18px] sm:tracking-[16px] tracking-[12px] uppercase"
@@ -20,6 +21,7 @@ const ChoosePlane = () => {
           <div className="flex w-full 2xl:max-w-[2400px]  gap-3 lg:flex-row flex-col">
             {/* card1 */}
             <motion.div
+            viewport={{ once: true }}
               initial={{ opacity: 0, y: "30%" }}
               whileInView={{ opacity: 1, y: "0" }}
               transition={{ duration: 0.5, delay: 0.3 }}
@@ -67,6 +69,7 @@ const ChoosePlane = () => {
             <motion.div
               initial={{ opacity: 0, y: "-30%" }}
               whileInView={{ opacity: 1, y: "0" }}
+              viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.6 }}
               className="max-w-sm w-full 2xl:max-w-lg special:max-w-2xl p-6 xl:py-8 special:py-10 bg-[#366B71] text-white rounded-lg shadow h-fit"
             >
@@ -109,6 +112,7 @@ const ChoosePlane = () => {
             <motion.div
               initial={{ opacity: 0, y: "30%" }}
               whileInView={{ opacity: 1, y: "0" }}
+              viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.9 }}
               className="max-w-sm w-full 2xl:max-w-lg special:max-w-2xl p-6 xl:py-8 special:py-10 bg-[#fff] text-[#01819D] rounded-lg shadow h-fit"
             >
@@ -172,6 +176,7 @@ const ChoosePlane = () => {
               transition={{ duration: 0.8 }}
               src={Car}
               alt=""
+              viewport={{ once: true }}
               className="absolute lg:w-[600px] 2xl:w-[700px] special:w-[780px] left-0 bottom-0 hidden lg:block"
             />
 
@@ -192,6 +197,7 @@ const ChoosePlane = () => {
               initial={{ opacity: 0, y: "-30%" }}
               whileInView={{ opacity: 1, y: "0" }}
               transition={{ duration: 0.5, delay: 1.2 }}
+              viewport={{ once: true }}
               className="max-w-sm w-full 2xl:max-w-lg special:max-w-2xl p-6 xl:py-8 special:py-10 bg-gradient-to-r from-[#FFF401] to-[#CA9E03] text-black rounded-lg shadow h-fit lg:order-2 lg:mt-[-106px] xl:mt-[-136px] 2xl:mt-[-131px] special:mt-[-170px]"
             >
               <p className="text-lg xl:text-xl special:text-2xl mb-3 lg:mb-5 special:mb-6">
@@ -242,6 +248,7 @@ const ChoosePlane = () => {
             <motion.div
               initial={{ opacity: 0, y: "30%" }}
               whileInView={{ opacity: 1, y: "0" }}
+              viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 1.5 }}
               className="max-w-sm w-full 2xl:max-w-lg special:max-w-2xl p-6 xl:py-8 special:py-10 bg-[#1F1F1F] text-white rounded-lg shadow h-fit lg:order-3 "
             >

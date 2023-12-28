@@ -12,6 +12,7 @@ const Gallery2 = () => {
           initial={{ opacity: 0, y: "-40%" }}
           whileInView={{ opacity: 1, y: "0" }}
           transition={{ duration: 0.5, delay: 0 }}
+          viewport={{ once: true }}
           className="text-center text-base sm:text-lg 2xl:text-xl special:text-3xl font-bold uppercase xl:tracking-[18px] sm:tracking-[16px] tracking-[12px]"
         >
           {" "}
@@ -22,6 +23,7 @@ const Gallery2 = () => {
           initial={{ opacity: 0, y: "40%" }}
           whileInView={{ opacity: 1, y: "0" }}
           transition={{ duration: 0.5, delay: 0.3 }}
+          viewport={{ once: true }}
           className="text-center text-base sm:text-lg 2xl:text-xl special:text-3xl font-bold "
         >
           Follow Us On Instagram
@@ -101,6 +103,7 @@ const Gallery2 = () => {
               initial={{ opacity: 0, y: "-40%" }}
               whileInView={{ opacity: 1, y: "0" }}
               transition={{ duration: 0.5, delay: 0.9 }}
+              viewport={{ once: true }}
               className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl px-3 2xl:px-5 special:px-8 py-2 2xl:py-3 special:py-5 text-[#d4d4d4] bg-black rounded-lg hover:text-white hover:bg-[#00F0FF]"
             >
               {" "}

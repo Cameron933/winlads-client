@@ -5,10 +5,19 @@ import { useState } from "react";
 import WindlandText from "../../assets/images/showacase/windland.png";
 import { motion } from "framer-motion";
 
+
+
 const Showcase2 = () => {
   const [isNavOpen, setNavOpen] = useState(false);
 
-  // bg-[#A0E6EB] 
+    // bg-[#A0E6EB] 
+ const scrollTo = (id)=>{
+  const otherComponentElement = document.getElementById(id);
+
+  if (otherComponentElement) {
+    otherComponentElement.scrollIntoView({ behavior: "smooth" });
+  }
+}
 
   return (
     <div className="w-full">
@@ -27,8 +36,8 @@ const Showcase2 = () => {
 
           {isNavOpen && (
             <div className="flex px-10 py-5 rounded-lg-lg flex-col items-center gap-5 lg:hidden rounded-lg bg-[#38bfc9] absolute z-10 w-full top-12 ">
-              <span className="font-bold text-base text-white  hover:text-[#EC263F]">
-                <Link to="">Our Partners</Link>
+              <span className="font-bold text-base text-white  hover:text-[#EC263F]" onClick={()=> scrollTo('our-partners')}>
+                <Link >Our Partners</Link>
               </span>
               <span className="font-bold text-base text-white  hover:text-[#EC263F]">
                 <Link to="">Become A Partner</Link>
@@ -48,7 +57,7 @@ const Showcase2 = () => {
               <span className="font-bold text-base text-white  hover:text-[#EC263F]">
                 <Link to="">Shop</Link>
               </span>
-              <button className="font-bold text-base  px-3 py-2 text-[#d4d4d4] bg-black rounded-lg hover:text-white hover:bg-black/75">
+              <button className="font-bold text-base  px-3 py-2 text-[#d4d4d4] bg-black rounded-lg hover:text-white hover:bg-black/75" onClick={()=>scrollTo('contactUs')}>
                 Contact Us
               </button>
             </div>
@@ -61,7 +70,7 @@ const Showcase2 = () => {
             <div className="flex items-center lg:justify-end justify-center ">
               <motion.img
                 initial={{ opacity: 0, y: "-10%" }}
-                whileInView={{ opacity: 1, y: "0"}}
+                whileInView={{ opacity: 1, y: "0",}}
                 transition={{ duration: 0.5, delay: 0 }}
                 
                 src={WindlandText}
@@ -116,6 +125,7 @@ const Showcase2 = () => {
               initial={{ opacity: 0, x: "-20%" }}
               whileInView={{ opacity: 1, x: "0" }}
               transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
               src={Jip}
               alt=""
               className="lg:w-full md:w-10/12 w-9/12"
@@ -128,8 +138,8 @@ const Showcase2 = () => {
           <div className="p-3 lg:p-5 flex flex-col gap-16   2xl:max-w-[1200px] ">
             {/* web-nav */}
             <nav className="lg:flex items-center justify-end gap-3 xl:gap-5 special:gap-8 hidden">
-              <span className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl hover:text-[#EC263F]">
-                <Link to="">Our Partners</Link>
+              <span className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl hover:text-[#EC263F]" onClick={()=> scrollTo('our-partners')}>
+                <Link >Our Partners</Link>
               </span>
               <span className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl hover:text-[#EC263F]">
                 <Link to="">Become A Partner</Link>
@@ -146,7 +156,7 @@ const Showcase2 = () => {
               <span className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl hover:text-[#EC263F]">
                 <Link to="">Shop</Link>
               </span>
-              <button className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl px-3 2xl:px-5 special:px-8 py-2 2xl:py-3 special:py-5 text-[#d4d4d4] bg-black rounded-lg hover:text-white hover:bg-black/75">
+              <button className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl px-3 2xl:px-5 special:px-8 py-2 2xl:py-3 special:py-5 text-[#d4d4d4] bg-black rounded-lg hover:text-white hover:bg-black/75" onClick={()=>scrollTo('contactUs')}>
                 {" "}
                 Contact Us
               </button>
@@ -158,6 +168,7 @@ const Showcase2 = () => {
                 whileInView={{ opacity: 1, x: "0" }}
                 transition={{ duration: 0.5 }}
                 src={WindlandText}
+                viewport={{ once: true }}
                 alt=""
                 className="lg:w-11/12 md:w-10/12 w-9/12"
               />
@@ -168,6 +179,7 @@ const Showcase2 = () => {
                 initial={{ opacity: 0, x: "-20%" }}
                 whileInView={{ opacity: 1, x: "0" }}
                 transition={{ duration: 0.5, delay: 0.3 }}
+                viewport={{ once: true }}
                 className="text-base xl:text-lg 2xl:text-xl special:text-2xl font-semibold"
               >
                 With over 200+ businesses across 200+ stores where
@@ -176,6 +188,7 @@ const Showcase2 = () => {
                 initial={{ opacity: 0, x: "-20%" }}
                 whileInView={{ opacity: 1, x: "0" }}
                 transition={{ duration: 0.5, delay: 0.6 }}
+                viewport={{ once: true }}
                 className="text-base xl:text-lg 2xl:text-xl special:text-2xl font-semibold"
               >
                 you can accessexclusive discounts Australia Widefrom
@@ -184,6 +197,7 @@ const Showcase2 = () => {
                 initial={{ opacity: 0, x: "-20%" }}
                 whileInView={{ opacity: 1, x: "0" }}
                 transition={{ duration: 0.5, delay: 0.9 }}
+                viewport={{ once: true }}
                 className="text-base xl:text-lg 2xl:text-xl special:text-2xl font-semibold"
               >
                 only $9.99 per month, opt-out anytime
@@ -196,6 +210,7 @@ const Showcase2 = () => {
                   initial={{ opacity: 0, x: "-20%" }}
                   whileInView={{ opacity: 1, x: "0" }}
                   transition={{ duration: 0.5, delay: 1.2 }}
+                  viewport={{ once: true }}
                   className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl px-3 2xl:px-5 special:px-8 py-2 2xl:py-3 special:py-5 text-[#d4d4d4] bg-black rounded-lg hover:text-white hover:bg-black/75"
                 >
                   {" "}

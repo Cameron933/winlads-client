@@ -10,7 +10,7 @@ const Youtube = () => {
     "https://drive.google.com/uc?id=1dWgx17FgPmv6jfN-oN0X6MGLdM4rytOL";
 
   return (
-    <div className="w-full mb-8">
+    <div className="w-full mb-8" id="our-partners">
       <div className="w-full mx-auto bg-youtube py-8">
         <div className="flex mx-auto 2xl:max-w-[2400px] w-full items-center justify-center">
           <div className="w-11/12 r-player">
@@ -31,6 +31,7 @@ const Youtube = () => {
             initial={{ opacity: 0, y: "-40%" }}
             whileInView={{ opacity: 1, y: "0" }}
             transition={{ duration: 0.5, delay: 0 }}
+            viewport={{ once: true }}
             className="text-center mb-8 text-base sm:text-lg 2xl:text-xl special:text-3xl font-bold uppercase xl:tracking-[18px] sm:tracking-[16px] tracking-[12px]"
           >
             SOME OUR PARTNERS
