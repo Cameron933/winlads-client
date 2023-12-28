@@ -13,14 +13,14 @@ import Cookies from "universal-cookie";
 import "../Login/Login.css";
 import { motion } from "framer-motion";
 import { validateCurrentUser } from "../../utils/validateuser.js";
-import LoginImg from "../../assets/images/login/jeep.png";
+import LoginImg from "../../assets/images/MainCar.png";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import {
   FcBusinessman,
   FcFeedback,
   FcDiploma1,
-  FcViewDetails,
+  FcButtingIn,
   FcSmartphoneTablet,
 } from "react-icons/fc";
 
@@ -42,7 +42,7 @@ const Register = () => {
     setTimeout(() => {
       setIsLoading(false);
     }, 1000);
-    currentUserValidation() //a 2-second loading delay
+    currentUserValidation()
   }, []);
 
   const onCheckboxChange = (e) => {
@@ -52,7 +52,8 @@ const Register = () => {
   const saveFormData = async (temp_values, uid) => {
     console.log(temp_values, uid);
     const data = {
-      name: values.name,
+      firstname: values.firstname,
+      lastname: values.lastname,
       email: values.email,
       mobile: ph,
       passport: values.passport,
@@ -198,7 +199,8 @@ const Register = () => {
   const { values, handleChange, handleBlur, handleSubmit, errors, touched } =
     useFormik({
       initialValues: {
-        name: "",
+        firstname: "",
+        lastname: "",
         email: "",
         mobile: "",
         passport: "",
@@ -224,44 +226,35 @@ const Register = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <div className="h-screen flex flex-col justify-center bg-image">
-          <div className="container mx-auto login-section max-sm:overflow-scroll">
-            <div className="login-contain flex items-center justify-center md:flex-row xl:flex-row 4xl:flex-row flex-col">
-              <div className="img-container w-2/4 scale-150 mb-9 md:mb-0 prevent">
-                <div className="hidden md:block 4xl:hidden xl:hidden w-full prevent">
-                  <motion.img
-                    initial={{ opacity: 0, x: "-50%" }}
-                    whileInView={{ opacity: 1, x: "-10%" }}
-                    transition={{ duration: 0.8 }}
-                    src={LoginImg}
-                    className="w-full h-full object-contain md:object-cover"
-                    alt="main-img"
-                  />
-                </div>
-                <div className="hidden xl:block md:hidden w-full">
-                  <motion.img
-                    initial={{ opacity: 0, x: "-50%" }}
-                    whileInView={{ opacity: 1, x: "-25%" }}
-                    transition={{ duration: 0.8 }}
-                    src={LoginImg}
-                    className="w-[600px] h-full object-contain md:object-cover"
-                    alt="main-img"
-                  />
-                </div>
+        <div className="h-screen flex items-center justify-center bg-image">
+          <div className="flex items-center justify-between md:flex-row flex-col px-10 xl:px-20 max-w-[1440px]">
+            {/* <div className="login-contain flex items-center justify-center md:flex-row xl:flex-row 4xl:flex-row flex-col"> */}
+              <div className="">
+              <div className="hidden md:block  transform scale-x-[-1]">
+                <motion.img
+                  initial={{ opacity: 0, x: "40%" }}
+                  whileInView={{ opacity: 1, x: "0%" }}
+                  transition={{ duration: 0.8 }}
+                  src={LoginImg}
+                  className="w-full h-full"
+                  alt="main-img"
+                />
+              </div>
+              <div className="block md:hidden w-full transform scale-x-[-1]">
+                <motion.img
+                  initial={{ opacity: 0, x: "40%"  }}
+                  whileInView={{ opacity: 1, x: "0%" }}
+                  transition={{ duration: 0.8 }}
+                  src={LoginImg}
+                  className="w-full h-full"
+                  alt="main-img"
+                />
+              </div>
                 {/* Mobile View Jeep */}
-                <div className="block md:hidden xl:hidden 4xl:hidden w-full pt-5">
-                  <motion.img
-                    initial={{ opacity: 0, x: -50 }}
-                    whileInView={{ opacity: 1, x: -10 }}
-                    transition={{ duration: 0.8 }}
-                    src={LoginImg}
-                    className="w-full h-full object-contain md:object-cover "
-                    alt="main-img"
-                  />
-                </div>
+          
               </div>
               <div className="flex flex-col xl:space-y-4 md:space-y-4 space-y-2 text-center md:mt-10 lg:mt-20 xl:mt-10 4xl:mt-10 mt-1 mb-10 sm:mb-0 ">
-                <span className="text-2xl md:text-3xl xl:text-4xl fw-bold font-bold 4xl:text-8xl">
+                <span className="text-2xl md:text-4xl xl:text-4xl fw-bold font-bold 4xl:text-8xl">
                   Create an Account
                 </span>
                 <form
@@ -269,7 +262,7 @@ const Register = () => {
                   autoComplete="off"
                   className="form-contain text-center"
                 >
-                  <div className="flex flex-col justify-center gap-5  mx-auto xl:mt-10 md:mt-10 mt-4 4xl:mt-20">
+                  <div className="flex flex-col justify-center gap-5 mx-auto xl:mt-10 md:mt-10 mt-4 4xl:mt-20">
                     <div
                       className={
                         errors.name && touched.name
@@ -280,11 +273,32 @@ const Register = () => {
                       <FcBusinessman size={20} />
                       <input
                         type="text"
-                        placeholder="Your Full Name"
-                        value={values.name}
+                        placeholder="Your First Name"
+                        value={values.firstname}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        id="name"
+                        id="firstname"
+                        className="placeholder:text-[16px]"
+                      />
+                      <small className="text-error">
+                        {errors.name && touched.name && errors.name}
+                      </small>
+                    </div>
+                    <div
+                      className={
+                        errors.name && touched.name
+                          ? "input-div input-error"
+                          : "input-div"
+                      }
+                    >
+                      <FcButtingIn size={20} />
+                      <input
+                        type="text"
+                        placeholder="Your Surname"
+                        value={values.lastname}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        id="lastname"
                         className="placeholder:text-[16px]"
                       />
                       <small className="text-error">
@@ -336,7 +350,7 @@ const Register = () => {
                     </small> */}
                     </div>
 
-                    <div
+                    {/* <div
                       className={
                         errors.tin && touched.tin
                           ? "input-div input-error"
@@ -353,7 +367,7 @@ const Register = () => {
                         id="tin"
                         className="placeholder:text-[16px]"
                       />
-                    </div>
+                    </div> */}
 
                     <div
                       className={
@@ -426,7 +440,7 @@ const Register = () => {
                       />
                       <div className="flex flex-row items-center gap-2">
                         <p
-                          className="text-sm special:text-lg cursor-pointer"
+                          className="text-[10px] xl:text-sm special:text-lg cursor-pointer"
                           onClick={() => setIsChecked(!isChecked)}
                         >
                          By checking the box you agree to our
@@ -436,7 +450,7 @@ const Register = () => {
                           target="_blank"
                           className="yellow-text"
                         >
-                          <p className="text-sm special:text-lg cursor-pointer">
+                          <p className="text-[10px] xl:text-sm  special:text-lg cursor-pointer">
                             terms of use
                           </p>
                         </Link>
@@ -473,7 +487,7 @@ const Register = () => {
                   </div>
                 </form>
               </div>
-            </div>
+            {/* </div> */}
           </div>
         </div>
       )}

@@ -304,6 +304,7 @@ const ChoosePlane = () => {
           </div>
         </div>
       </div>
+      
     </div>
   );
 };
