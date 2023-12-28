@@ -71,8 +71,11 @@ const Profile = () => {
         setAddress(response?.data?.data.address);
         setUserImage(response?.data?.data.image);
         setRefferalId(response?.data?.data.rafflesId);
-        getProfileImage(response?.data?.data.image);
-
+        console.log(response?.data?.data.image);
+        if (response?.data?.data.image != undefined) {
+          getProfileImage(response?.data?.data.image);
+        }
+        setLoading(false);
       })
       .catch((error) => {
         setLoading(false);
