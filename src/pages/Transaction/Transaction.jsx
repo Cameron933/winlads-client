@@ -306,7 +306,7 @@ const Transaction = () => {
                   aria-haspopup="true"
                   aria-expanded="true"
                 >
-                  <span className="mr-4 text-sm md:text-sm xl:text-lg 2xl:text-lg special:text-2xl">
+                  {/* <span className="mr-4 text-sm md:text-sm xl:text-lg 2xl:text-lg special:text-2xl">
                     {selectedOption || "See All"}
                   </span>
                   <span
@@ -314,7 +314,7 @@ const Transaction = () => {
                       }`}
                   >
                     &#9660;
-                  </span>
+                  </span> */}
                 </button>
 
                 {isOpen && (
@@ -361,7 +361,7 @@ const Transaction = () => {
                 <FiLoader className="w-9 h-9 2xl:w-12 2xl:h-12 special:w-18 special:h-18 animate-spin" />
               </div>
             ) : transactions.length > 0 ? (
-              <div className="flex flex-col space-y-4">
+              <div className="flex flex-col space-y-1">
                 {transactions?.slice(0, initialShow).map((transaction, key) => (
                   <div
                     key={key}

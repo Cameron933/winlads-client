@@ -37,6 +37,8 @@ const Register = () => {
   const [isChecked, setIsChecked] = useState(false);
   const cookies = new Cookies(null, { path: "/" });
 
+  const [fieldDis, setFieldDis] = useState(false)
+
   // set loading
   useEffect(() => {
     setTimeout(() => {
@@ -85,6 +87,7 @@ const Register = () => {
   };
 
   function onSignup(e) {
+    setFieldDis(true)
     if (!isChecked) {
       toast.error("Please confirm terms and conditions", {
         position: "top-center",
@@ -279,6 +282,7 @@ const Register = () => {
                         onBlur={handleBlur}
                         id="firstname"
                         className="placeholder:text-[16px]"
+                        disabled={fieldDis}
                       />
                       <small className="text-error">
                         {errors.name && touched.name && errors.name}
@@ -300,6 +304,7 @@ const Register = () => {
                         onBlur={handleBlur}
                         id="lastname"
                         className="placeholder:text-[16px]"
+                        disabled={fieldDis}
                       />
                       <small className="text-error">
                         {errors.name && touched.name && errors.name}
@@ -322,6 +327,7 @@ const Register = () => {
                         onBlur={handleBlur}
                         id="email"
                         className="placeholder:text-[16px]"
+                        disabled={fieldDis}
                       />
                       <small className="text-error">
                         {errors.email && touched.email && errors.email}
@@ -344,6 +350,7 @@ const Register = () => {
                         onBlur={handleBlur}
                         id="passport"
                         className="placeholder:text-[16px]"
+                        disabled={fieldDis}
                       />
                       {/* <small className="text-error">
                       {errors.passport && touched.passport && errors.passport}
@@ -383,6 +390,7 @@ const Register = () => {
                       onBlur={handleBlur}
                       id="mobile"
                       className="placeholder:text-[16px] border borer-solid  border-black xl:w-96 w-64"
+                      disabled={fieldDis}
                     />
                       <small className="text-error">
                         {errors.mobile && touched.mobile && errors.mobile}
@@ -405,6 +413,7 @@ const Register = () => {
                         onBlur={handleBlur}
                         id="rafflesId"
                         className="placeholder:text-[16px]"
+                        disabled={fieldDis}
                       />
                     </div>
 
