@@ -48,7 +48,11 @@ const SideNav = ({ screen }) => {
     const validator = await validateCurrentUser();
     if (validator.validatorBl) {
       setValUser(validator.user);
+      if (validator.user.image == null) {
+        setLoading(false);
+      }
       getProfileImage(validator.user.image);
+      
     } else {
       navigate("/login");
     }
@@ -85,11 +89,19 @@ const SideNav = ({ screen }) => {
                     <FiLoader className="w-6 h-6 2xl:w-9 2xl:h-9 special:w-12 special:h-12 animate-spin text-white" />
                   </div>
                 ) : (
-                  <img
-                    src={userImage}
-                    className="w-[30px] md:w-[35px] xl:w-[40px] rounded-full"
-                    alt="user"
-                  />
+                  userImage ? (
+                    <img
+                      src={userImage}
+                      className="w-[30px] md:w-[35px] xl:w-[40px] rounded-full"
+                      alt="user"
+                    />
+                  ) : (
+                    <img
+                      src={User}
+                      className="w-[30px] md:w-[35px] xl:w-[40px] rounded-full"
+                      alt="user"
+                    />
+                  )
                 )}
               </div>
             </Link>
