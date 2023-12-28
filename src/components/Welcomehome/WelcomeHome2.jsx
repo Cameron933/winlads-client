@@ -23,9 +23,6 @@ const WelcomeHome2 = () => {
             playing
             loop
             muted
-            controls
-            width="100%"
-            height="100%"
             className="react-player mx-auto w-screen h-full absolute top-0 left-0 opacity-50"
           />
 
