@@ -110,7 +110,7 @@ function BusinessCard() {
   return (
     <div className="flex flex-col space-y-4 special:space-y-16">
       <div className="flex flex-col special:space-y-5">
-        <p className="text-xl font-bold xl:text-2xl md:text-xl special:text-4xl">
+        <p className="text-xl font-bold xl:text-xl md:text-xl special:text-4xl">
           Get My NFC
         </p>
       </div>

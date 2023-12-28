@@ -158,7 +158,7 @@ const Transaction = () => {
                     <GoldCard />
                   </div>
                   <div
-                    className="bg-black rounded-2xl text-white text-center py-2 text-sm  hover:bg-black/75 cursor-pointer"
+                    className="bg-black rounded-2xl text-white text-center py-2 text-sm  hover:bg-black/75 cursor-pointer hidden"
                     onClick={handleButtonClick}
                   >
                     <p>Fund transfer</p>
@@ -172,7 +172,7 @@ const Transaction = () => {
             )}
 
             <div className="flex flex-col space-y-1">
-              <p className="font-extrabold text-xl md:text-xl xl:text-2xl 2xl:text-2xl special:text-4xl">
+              <p className="font-extrabold text-xl md:text-xl xl:text-xl 2xl:text-2xl special:text-4xl">
                 Your Balance
               </p>
               {/* <p className="font-extrabold md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl">
@@ -187,10 +187,10 @@ const Transaction = () => {
                   className="w-6 h-6 md:h-20 md:w-20 xl:h-16 xl:w-16 max-w-screen-sm"
                 />
                 <div className="flex flex-col w-full">
-                  <p className="text-white text-lg md:text-xl xl:text-3xl 2xl:text-2xl special:text-3xl">
+                  <p className="text-white text-lg md:text-xl xl:text-2xl 2xl:text-2xl special:text-3xl">
                     ${wallet.balance || "0.00"}
                   </p>
-                  <p className="text-white text-sm md:text-lg xl:text-xl 2xl:text-xl special:text-2xl">
+                  <p className="text-white text-sm md:text-lg xl:text-lg 2xl:text-xl special:text-2xl">
                     Balance
                   </p>
                 </div>
@@ -202,10 +202,10 @@ const Transaction = () => {
                   className="w-6 h-6 md:h-20 md:w-20 xl:h-16 xl:w-16 max-w-screen-sm"
                 />
                 <div className="flex flex-col w-full">
-                  <p className="text-white text-lg md:text-xl xl:text-3xl 2xl:text-2xl special:text-3xl">
+                  <p className="text-white text-lg md:text-xl xl:text-2xl 2xl:text-2xl special:text-3xl">
                     ${wallet.earning || "0.00"}
                   </p>
-                  <p className="text-white text-sm md:text-lg xl:text-xl 2xl:text-xl special:text-2xl">
+                  <p className="text-white text-sm md:text-lg xl:text-lg 2xl:text-xl special:text-2xl">
                     Earning
                   </p>
                 </div>
@@ -218,10 +218,10 @@ const Transaction = () => {
                   className="w-6 h-6 md:h-20 md:w-20 xl:h-16 xl:w-16 max-w-screen-sm"
                 />
                 <div className="flex flex-col w-full">
-                  <p className="text-white text-lg md:text-xl xl:text-3xl 2xl:text-2xl special:text-3xl">
+                  <p className="text-white text-lg md:text-xl xl:text-2xl 2xl:text-2xl special:text-3xl">
                     ${wallet.purchase || "0.00"}
                   </p>
-                  <p className="text-white text-sm md:text-lg xl:text-xl 2xl:text-xl special:text-2xl">
+                  <p className="text-white text-sm md:text-lg xl:text-lg 2xl:text-xl special:text-2xl">
                     Purchase
                   </p>
                 </div>
@@ -494,7 +494,7 @@ const Transaction = () => {
                   <GoldCard />
                 </div>
                 <div
-                  className="bg-black rounded-2xl text-white text-center py-2 special:py-4 2xl:text-lg text-sm special:text-2xl hover:bg-black/75 cursor-pointer"
+                  className="bg-black rounded-2xl hidden text-white text-center py-2 special:py-4 2xl:text-lg text-sm special:text-2xl hover:bg-black/75 cursor-pointer"
                   onClick={handleButtonClick}
                 >
                   <p>Fund transfer</p>

@@ -124,7 +124,7 @@ const Dashboard = () => {
                 </div>
                 <div className="left-4 top-20 space-y-4">
                   <div className="flex flex-col space-y-2">
-                    <p className="text-[#22CCEE] text-2xl font-semibold">
+                    <p className="text-[#22CCEE] text-xl font-semibold">
                       Earning Balance
                     </p>
                     <p className="text-4xl text-black">${valUser.balance || "0.00"}</p>
@@ -132,7 +132,7 @@ const Dashboard = () => {
                   <SmallGoldCard />
                 </div>
                 <div>
-                  <p className="text-2xl font-semibold">Next Giveaways</p>
+                  <p className="text-xl font-semibold">Next Giveaways</p>
                   {loading ? (
                     <div className="flex justify-center">
                       <FiLoader className="w-9 h-9 2xl:w-12 2xl:h-12 special:w-18 special:h-18 animate-spin" />
