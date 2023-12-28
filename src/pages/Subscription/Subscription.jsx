@@ -165,6 +165,9 @@ function Subscription() {
                     <SubscribeCard
                       key={key}
                       name={plane.name}
+                      year={isYearly}
+                      quartly={isQuartly}
+                      month={isMonthly}
                       price={isYearly ? plane.annualy : "" | isQuartly ? plane.price_id_semiannual : "" | isMonthly ? plane.price_id : ""}
                       // descList={Array.isArray(plane.desc) ? plane.desc : []}
                       descList={Array.isArray(plane.desc) ? plane.desc : []}

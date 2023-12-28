@@ -109,6 +109,10 @@ function App() {
           path: "/loader",
           element: <Loader />,
         },
+        {
+          path: "/support",
+          element: <Support />,
+        },
       ],
     },
 
@@ -225,10 +229,6 @@ function App() {
     //   path: "/myentries",
     //   element: <MyEntries />,
     // },
-    {
-      path: "/support",
-      element: <Support />,
-    },
   ]);
 
   return (
