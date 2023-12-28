@@ -197,8 +197,7 @@ function Raffles() {
                   <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2">
                     {raffleRounds.map((raffle, key) => (
                       <div
-                        className={`
-                         } flex flex-row justify-between pr-2 w-full rounded-3xl items-center 2xl:rounded-[30px] special:rounded-[40px] w-full py-2 shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:opacity-75 hover:opacity-100}`}
+                        className={`flex flex-row justify-between pr-2 rounded-3xl items-center 2xl:rounded-[30px] special:rounded-[40px] w-full py-2 shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:opacity-75 cursor-pointer }`}
                         style={{ backgroundColor: bgColor }}
                         key={key}
                         onClick={() => {

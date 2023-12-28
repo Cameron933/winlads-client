@@ -87,10 +87,10 @@ function RaffleDashbord() {
 
   return (
     <>
-      <div className="flex flex-row justify-between min-h-screen overflow-hidden">
-        <div className="flex-1">
+      {/* <div className="flex flex-row justify-between min-h-screen overflow-hidden"> */}
+        {/* <div className="flex-1"> */}
           {/* home-content */}
-          <div className="flex flex-col xl:px-6 px-4 special:px-12 special:space-y-24 space-y-8">
+          <div className="flex flex-col xl:px-6 px-4 special:px-12 special:space-y-24 space-y-8 overflow-hidden relative">
             <div className="xl:flex xl:flex-row flex-col xl:justify-between xl:gap-4 space-y-4 xl:space-y-0">
               <img
                 src={BG}
@@ -267,8 +267,8 @@ function RaffleDashbord() {
               )}
             </div>
           </div>
-        </div>
-      </div>
+        {/* </div> */}
+      {/* </div> */}
     </>
   );
 }
