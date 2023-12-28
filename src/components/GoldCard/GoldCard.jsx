@@ -50,7 +50,7 @@ const GoldCard = () => {
               ) : (
                 <div className="flex flex-row items-center gap-4">
                   <img src={Cross} alt="" />
-                  <p className="text-white 2xl:text-xl text-lg">
+                  <p className="text-black 2xl:text-xl text-lg">
                     Your subscription is currently inactive
                   </p>
                 </div>
