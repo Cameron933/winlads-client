@@ -1,8 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import Icon from "../../assets/images/chooseplane/Icons.png";
 import Car from "../../assets/images/chooseplane/cjip.png";
 import { motion } from "framer-motion";
 
 const ChoosePlane = () => {
+
+  const navigate  = useNavigate();
   return (
     <div className="w-full bg-chose-plan">
       <div className="flex flex-col items-center w-full px-3 lg:px-5  py-10 lg:py-16 gap-10">
@@ -59,7 +62,7 @@ const ChoosePlane = () => {
               </div>
 
               <div className="flex items-center justify-center mt-3 lg:mt-5 special:mt-6">
-                <button className="w-full bg-white py-2 rounded-lg text-[#01819D] hover:text-white hover:bg-[#01819D] xl:text-lg special:text-xl special:py-3">
+                <button onClick={()=>navigate('/register')} className="w-full bg-white py-2 rounded-lg text-[#01819D] hover:text-white hover:bg-[#01819D] xl:text-lg special:text-xl special:py-3">
                   SIGNED UP FOR FREE
                 </button>
               </div>
@@ -102,7 +105,7 @@ const ChoosePlane = () => {
               </div>
 
               <div className="flex items-center justify-center mt-3 lg:mt-5 special:mt-6">
-                <button className="w-full hover:bg-white py-2 rounded-lg text-[#fff] hover:text-[#01819D] bg-[#01819D] xl:text-lg special:text-xl special:py-3">
+                <button onClick={()=>navigate('/register')} className="w-full hover:bg-white py-2 rounded-lg text-[#fff] hover:text-[#01819D] bg-[#01819D] xl:text-lg special:text-xl special:py-3">
                   SIGNED UP FOR FREE
                 </button>
               </div>
@@ -162,7 +165,7 @@ const ChoosePlane = () => {
               </div>
 
               <div className="flex items-center justify-center mt-3 lg:mt-5 special:mt-6">
-                <button className="w-full hover:bg-[#808080] py-2 rounded-lg text-[#fff] hover:text-[#fff] bg-[#01819D] xl:text-lg special:text-xl special:py-3">
+                <button onClick={()=>navigate('/register')} className="w-full hover:bg-[#808080] py-2 rounded-lg text-[#fff] hover:text-[#fff] bg-[#01819D] xl:text-lg special:text-xl special:py-3">
                   SIGNED UP FOR FREE
                 </button>
               </div>
@@ -238,7 +241,7 @@ const ChoosePlane = () => {
               </div>
 
               <div className="flex items-center justify-center mt-3 lg:mt-5 special:mt-6">
-                <button className="w-full bg-white py-2 rounded-lg text-[#01819D] hover:text-white hover:bg-[#01819D] xl:text-lg special:text-xl special:py-3">
+                <button onClick={()=>navigate('/register')} className="w-full bg-white py-2 rounded-lg text-[#01819D] hover:text-white hover:bg-[#01819D] xl:text-lg special:text-xl special:py-3">
                   SIGNED UP FOR FREE
                 </button>
               </div>
@@ -303,7 +306,7 @@ const ChoosePlane = () => {
               </div>
 
               <div className="flex items-center justify-center mt-3 lg:mt-5 special:mt-6">
-                <button className="w-full bg-white py-2 rounded-lg text-[#01819D] hover:text-white hover:bg-[#01819D] xl:text-lg special:text-xl special:py-3">
+                <button onClick={()=>navigate('/register')} className="w-full bg-white py-2 rounded-lg text-[#01819D] hover:text-white hover:bg-[#01819D] xl:text-lg special:text-xl special:py-3">
                   SIGNED UP FOR FREE
                 </button>
               </div>
