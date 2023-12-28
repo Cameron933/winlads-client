@@ -28,7 +28,7 @@ const TopNav = ({ textColor }) => {
         <span className="navlinks">
           <Link to="/faq">FAQ</Link>
         </span>
-        <span className="navlinks">Support</span>
+        <span className="navlinks"><Link to="/support">Support</Link></span>
         <span className="navlinks">
           <GoBell onClick={handleClick} />
         </span>

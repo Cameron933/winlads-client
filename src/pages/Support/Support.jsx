@@ -6,11 +6,20 @@ import { useState } from "react";
 import quicklinksIcon from '../../assets/images/icons/link.png';
 import contactUs from '../../assets/images/icons/contact.png';
 import newsLetter from '../../assets/images/icons/News.png';
+import UnderDev from '../../components/UnderDevMessage/UnderDev';
 
 
 
 const Support = () => {
     const [isNavOpen, setNavOpen] = useState(false);
+    const [isUnderDev, setIsUnderDev] = useState(true);
+
+
+    if(isUnderDev){
+        return(
+            <UnderDev/>
+        )
+    }else{
     return (
         <div>
             <div className="w-full  bg-[#A0E6EB] ">
@@ -112,7 +121,7 @@ const Support = () => {
 
             <Footer />
         </div>
-    )
+    )}
 }
 
 export default Support

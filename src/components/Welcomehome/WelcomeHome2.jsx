@@ -24,7 +24,7 @@ const WelcomeHome2 = () => {
         }}
         className="react-player opacity-50"
       /> */}
-      <video src={video} className='absolute w-full h-full object-cover top-0 left-0 z-[0]' autoPlay muted loop></video>
+      <video src={video} className='absolute w-full h-full object-cover top-0 left-0 z-[0]' autoPlay muted loop playsInline></video>
       <div className='absolute w-full h-full top-0 left-0 z-[1]'>
         <div className='w-full h-full bg-gradient-to-b to-black from-[rgba(0,0,0,.5)_75%]'></div>
       </div>

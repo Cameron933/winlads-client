@@ -158,7 +158,7 @@ const Transaction = () => {
                     <GoldCard />
                   </div>
                   <div
-                    className="bg-black rounded-2xl text-white text-center py-2 text-sm  hover:bg-black/75 cursor-pointer"
+                    className="bg-black rounded-2xl text-white text-center py-2 text-sm  hover:bg-black/75 cursor-pointer hidden"
                     onClick={handleButtonClick}
                   >
                     <p>Fund transfer</p>
@@ -494,7 +494,7 @@ const Transaction = () => {
                   <GoldCard />
                 </div>
                 <div
-                  className="bg-black rounded-2xl text-white text-center py-2 special:py-4 2xl:text-lg text-sm special:text-2xl hover:bg-black/75 cursor-pointer"
+                  className="bg-black rounded-2xl hidden text-white text-center py-2 special:py-4 2xl:text-lg text-sm special:text-2xl hover:bg-black/75 cursor-pointer"
                   onClick={handleButtonClick}
                 >
                   <p>Fund transfer</p>
