@@ -13,11 +13,14 @@ import displayicon from '../../assets/images/rafflesImages/displayicon.png'
 import cutIcon from '../../assets/images/rafflesImages/cutIcon.png'
 import { GoUnmute } from "react-icons/go";
 import { GoMute } from "react-icons/go";
+import { CiPause1, CiPlay1 } from "react-icons/ci";
+
 function LiveRaffle() {
   const [valUser, setValUser] = useState({});
   const [liveLink, setLiveLink] = useState('')
   const [isLoading, setIsLoading] = useState(true);
   const [muted, setMute] = useState(true);
+  const [pause, setPause] = useState(false);
   const formattedDate = formatDate(liveLink.startingtime);
 
   const navigate = useNavigate();
@@ -57,6 +60,9 @@ function LiveRaffle() {
   const handleMute = ()=>{
     setMute((prev)=> !prev);
   }
+  const handlePause = ()=>{
+    setPause((prev)=> !prev);
+  }
 
 
   // const currentDate = new Date();
@@ -74,9 +80,10 @@ function LiveRaffle() {
       <div className="w-full flex items-center justify-center">
         {
           !isLoading ? (liveLink?.youtubeLink && <ReactPlayer
-            controls
+            
             url={liveLink.youtubeLink}
-            playing
+            playing={pause}
+            
             muted={muted}
             width={'100%'}
             height={'100vh'}
@@ -109,8 +116,10 @@ function LiveRaffle() {
               <div className="w-10 h-10 2xl:w-24 2xl:h-24 special:w-36 special:h-36 cursor-pointer hover:brightness-75 bg-indigo-900 rounded-full flex items-center justify-center text-white" onClick={handleMute}>
                 {muted ? <GoMute className="text-xl"/> : <GoUnmute className="text-xl"/>}
               </div>
-              <img src={displayicon} alt="" className="w-10 h-10 2xl:w-24 2xl:h-24 special:w-36 special:h-36 cursor-pointer hover:brightness-75" />
-              <img src={cutIcon} alt="" className="w-10 h-10 2xl:w-24 2xl:h-24 special:w-36 special:h-36 cursor-pointer hover:brightness-75" />
+              <div className="w-10 h-10 2xl:w-24 2xl:h-24 special:w-36 special:h-36 cursor-pointer hover:brightness-75 bg-cyan-600 rounded-full flex items-center justify-center text-white" onClick={handlePause}>
+                {pause ? <CiPause1 className="text-xl"/>:<CiPlay1 className="text-xl"/>}
+              </div>
+              <img src={cutIcon} alt="" className="w-10 h-10 2xl:w-24 2xl:h-24 special:w-36 special:h-36 cursor-pointer hover:brightness-75" onClick={()=>navigate('/dashboard')}/>
             </div>
             <div className="">
               <div
@@ -123,19 +132,19 @@ function LiveRaffle() {
                 <div className="flex flex-col space-y-1 2xl:space-y-3 special:space-y-5">
                   <div className="flex flex-row items-center gap-5">
                     <div className="text-white font-bold rounded-full bg-[#157D98] h-9 w-9 special:w-24 special:h-24 special:text-4xl 2xl:w-16 2xl:h-16 2xl:text-2xl items-center flex justify-center">
-                      {liveLink?.drawNumbers?.letter}
+                      {liveLink?.drawNumbers?.letter  ? liveLink?.drawNumbers?.letter : '?'}
                     </div>
                     <div className="text-black font-bold h-9 w-9 special:w-24 special:h-24 special:text-4xl 2xl:w-16 2xl:h-16 2xl:text-2xl rounded-full bg-[#D6F6FF] items-center flex justify-center">
-                    {liveLink?.drawNumbers?.n1}
+                    {liveLink?.drawNumbers?.n1 ? liveLink?.drawNumbers?.n1 : '?'}
                     </div>
                     <div className="text-black font-bold h-9 w-9 special:w-24 special:h-24 special:text-4xl 2xl:w-16 2xl:h-16 2xl:text-2xl rounded-full bg-[#D6F6FF] items-center flex justify-center">
-                    {liveLink?.drawNumbers?.n2}
+                    {liveLink?.drawNumbers?.n2 ? liveLink?.drawNumbers?.n2 : '?'}
                     </div>
                     <div className="text-black font-bold h-9 w-9 special:w-24 special:h-24 special:text-4xl 2xl:w-16 2xl:h-16 2xl:text-2xl rounded-full bg-[#D6F6FF] items-center flex justify-center">
-                    {liveLink?.drawNumbers?.n3}
+                    {liveLink?.drawNumbers?.n3 ? liveLink?.drawNumbers?.n3 : '?'}
                     </div>
                     <div className="text-black font-bold h-9 w-9 special:w-24 special:h-24 special:text-4xl 2xl:w-16 2xl:h-16 2xl:text-2xl rounded-full bg-[#D6F6FF] items-center flex justify-center">
-                    {liveLink?.drawNumbers?.n4}
+                    {liveLink?.drawNumbers?.n4 ? liveLink?.drawNumbers?.n4 : '?'}
                     </div>
                   </div>
                   <p className="xl:text-sm text-xs special:text-xl 2xl:text-lg text-center font-bold text-black">
