@@ -71,7 +71,7 @@ const SideNav = ({ screen }) => {
   }
 
   return (
-    <OutsideClickHandler>
+    <OutsideClickHandler onOutsideClick={()=>console.log('outside-clicked')}>
       <div
         className={`pt-10 relative min-h-screen h-full  space-y-4 side-nav-back  ${
           expanded ? "w-[50px] xl:w-[180px]" : "side-nav-half w-[50px]"

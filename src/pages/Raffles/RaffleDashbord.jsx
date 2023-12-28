@@ -87,7 +87,7 @@ function RaffleDashbord() {
 
   return (
     <>
-      <div className="flex flex-row justify-between min-h-screen">
+      <div className="flex flex-row justify-between min-h-screen overflow-hidden">
         <div className="flex-1">
           {/* home-content */}
           <div className="flex flex-col xl:px-6 px-4 special:px-12 special:space-y-24 space-y-8">
@@ -129,7 +129,7 @@ function RaffleDashbord() {
                         )}
 
                         <div className="flex flex-col space-y-1">
-                          <p className="font-bold special:text-6xl">
+                          <p className="font-bold special:text-4xl">
                             Earning Balance
                           </p>
                           <p className="special:text-6xl">
