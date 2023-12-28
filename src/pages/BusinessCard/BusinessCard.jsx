@@ -28,7 +28,7 @@ function BusinessCard() {
   };
 
   return (
-    <div>
+    <div className="w-full">
       <div className="flex relative min-h-screen w-full overflow-hidden" >
         {/* side-nav */}
 
