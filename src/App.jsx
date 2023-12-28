@@ -157,10 +157,10 @@ function App() {
     //   path: "/subscription",
     //   element: <Subscription />,
     // },
-    // {
-    //   path: "/welcome",
-    //   element: <Welcome />,
-    // },
+    {
+      path: "/welcome",
+      element: <Welcome />,
+    },
     // {
     //   path: "/giveaways",
     //   element: <RafflesDashboard />,

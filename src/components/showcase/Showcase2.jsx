@@ -39,7 +39,7 @@ const Showcase2 = () => {
               <span className="font-bold text-base text-white  hover:text-[#EC263F]" onClick={()=> scrollTo('our-partners')}>
                 <Link >Our Partners</Link>
               </span>
-              <span className="font-bold text-base text-white  hover:text-[#EC263F]">
+              <span className="font-bold text-base text-white  hover:text-[#EC263F] hidden">
                 <Link to="">Become A Partner</Link>
               </span>
               <span
@@ -54,7 +54,7 @@ const Showcase2 = () => {
                   Giveaway
                 </a>
               </span>
-              <span className="font-bold text-base text-white  hover:text-[#EC263F]">
+              <span className="font-bold text-base text-white  hover:text-[#EC263F] hidden">
                 <Link to="">Shop</Link>
               </span>
               <button className="font-bold text-base  px-3 py-2 text-[#d4d4d4] bg-black rounded-lg hover:text-white hover:bg-black/75" onClick={()=>scrollTo('contactUs')}>
@@ -141,7 +141,7 @@ const Showcase2 = () => {
               <span className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl hover:text-[#EC263F]" onClick={()=> scrollTo('our-partners')}>
                 <Link >Our Partners</Link>
               </span>
-              <span className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl hover:text-[#EC263F]">
+              <span className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl hover:text-[#EC263F] hidden">
                 <Link to="">Become A Partner</Link>
               </span>
               <span className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl hover:text-[#EC263F]">
@@ -153,7 +153,7 @@ const Showcase2 = () => {
                   Giveaway
                 </a>
               </span>
-              <span className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl hover:text-[#EC263F]">
+              <span className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl hover:text-[#EC263F] hidden">
                 <Link to="">Shop</Link>
               </span>
               <button className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl px-3 2xl:px-5 special:px-8 py-2 2xl:py-3 special:py-5 text-[#d4d4d4] bg-black rounded-lg hover:text-white hover:bg-black/75" onClick={()=>scrollTo('contactUs')}>

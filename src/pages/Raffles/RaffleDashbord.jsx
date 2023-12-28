@@ -31,6 +31,7 @@ function RaffleDashbord() {
   const [valUser, setValUser] = useState({});
   const [userImage, setUserImage] = useState("");
   const [loading, setLoading] = useState(true);
+  const [initialLength, setInitSize] = useState(8);
 
   const navigate = useNavigate();
 
@@ -38,6 +39,15 @@ function RaffleDashbord() {
     currentUserValidation();
     getRaffles();
   }, []);
+
+  const handleSeeMore = (show) => {
+    if (show) {
+      setInitSize(raffles.length)
+    } else {
+      setInitSize(8)
+    }
+  }
+
 
   const currentUserValidation = async () => {
     const validator = await validateCurrentUser();
@@ -77,10 +87,10 @@ function RaffleDashbord() {
 
   return (
     <>
-      <div className="flex flex-row justify-between min-h-screen">
-        <div className="flex-1">
+      {/* <div className="flex flex-row justify-between min-h-screen overflow-hidden"> */}
+        {/* <div className="flex-1"> */}
           {/* home-content */}
-          <div className="flex flex-col xl:px-6 px-4 special:px-12 special:space-y-24 space-y-8">
+          <div className="flex flex-col xl:px-6 px-4 special:px-12 special:space-y-24 space-y-8 overflow-hidden relative">
             <div className="xl:flex xl:flex-row flex-col xl:justify-between xl:gap-4 space-y-4 xl:space-y-0">
               <img
                 src={BG}
@@ -119,7 +129,7 @@ function RaffleDashbord() {
                         )}
 
                         <div className="flex flex-col space-y-1">
-                          <p className="font-bold special:text-6xl">
+                          <p className="font-bold special:text-4xl">
                             Earning Balance
                           </p>
                           <p className="special:text-6xl">
@@ -139,13 +149,15 @@ function RaffleDashbord() {
                       ></iframe>
                     </div>
                     <Link to="/live" className="flex flex-1">
-                      <div className="bg-[#D5B511] hover:bg-[#D5B511]/75 flex-col rounded-3xl 2xl:rounded-[30px] special:rounded-[40px] px-2 special:px-4 py-1 space-y-2 shadow-lg">
+                      <div className="bg-[#D5B511] hover:bg-[#D5B511]/75 flex-col rounded-3xl 2xl:rounded-[30px] special:rounded-[40px] pr-2 special:pr-4 py-1 space-y-2 shadow-lg">
                         <div className="flex flex-row justify-between items-center">
+                        <div className="w-36 special:w-96 2xl:w-48 min-w-32 aspect-square">
                           <img
                             src={CatJeep}
                             alt=""
-                            className="flex w-36 special:w-96 2xl:w-64"
+                            className="w-full h-full object-cover"
                           />
+                          </div>
 
                           <div className="flex flex-col space-y-4">
                             <div className="justify-end flex">
@@ -218,7 +230,7 @@ function RaffleDashbord() {
               </div>
             </div>
             <div className="flex flex-col space-y-2 special:space-y-6 2xl:space-y-4">
-              <p className="font-semibold text-lg xl:text-xl 2xl:text-3xl special:text-4xl">
+              <p className="font-semibold text-lg xl:text-xl 2xl:text-2xl special:text-4xl">
                 Giveaway Categories
               </p>
               {loading ? (
@@ -227,7 +239,7 @@ function RaffleDashbord() {
                 </div>
               ) : raffles.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2 2xl:gap-4 special:gap-4">
-                  {raffles.map((raffle, key) => (
+                  {raffles.slice(0, initialLength).map((raffle, key) => (
                     <RaffleDashboardComponent
                       key={key}
                       bgColor={raffle.color}
@@ -238,6 +250,17 @@ function RaffleDashbord() {
                       date={raffle.date}
                     />
                   ))}
+                  {
+                    raffles.length > 8 && (initialLength == 8 ?
+                      <button onClick={() => handleSeeMore(true)}
+                        className="">
+                        See More
+                      </button> :
+                      <button onClick={() => handleSeeMore(false)}
+                        className="">
+                        See Less
+                      </button>)
+                  }
                 </div>
               ) : (
                 <p className="flex justify-center font-semibold 2xl:text-2xl xl:text-xl special:text-4xl text-lg">
@@ -246,8 +269,8 @@ function RaffleDashbord() {
               )}
             </div>
           </div>
-        </div>
-      </div>
+        {/* </div> */}
+      {/* </div> */}
     </>
   );
 }

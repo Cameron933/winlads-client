@@ -72,7 +72,7 @@ const Profile = () => {
         setUserImage(response?.data?.data.image);
         setRefferalId(response?.data?.data.rafflesId);
         getProfileImage(response?.data?.data.image);
-       
+
       })
       .catch((error) => {
         setLoading(false);
@@ -165,7 +165,7 @@ const Profile = () => {
     }
   };
   return (
-    <div>
+    <div className="bg-[#F2F5FB]">
       <div className="flex relative">
         <div className="right-side-logo max-xl:hidden"></div>
         <div
@@ -188,38 +188,38 @@ const Profile = () => {
                 </div>
               ) : (
                 <>
-                      <form className="mx-auto mt-4 relative">
-                {userImage ? (
-                  <img
-                    className="special:w-28 w-16 2xl:w-24 rounded-full"
-                    src={userImage}
-                  />
-                ) : (
-                  <img
-                    src={User}
-                    alt="profile-pic"
-                    className="special:w-16 2xl:w-16 xl:w-12 w-8"
-                  />
-                )}
+                  <form className="mx-auto mt-4 relative">
+                    {userImage ? (
+                      <img
+                        className="special:w-28 w-16 2xl:w-24 rounded-full"
+                        src={userImage}
+                      />
+                    ) : (
+                      <img
+                        src={User}
+                        alt="profile-pic"
+                        className="special:w-16 2xl:w-16 xl:w-12 w-8"
+                      />
+                    )}
 
-                <label
-                  htmlFor="profile"
-                  className="z-10 absolute -bottom-3 -right-2 text-2xl bg-gray-200 rounded-full p-1 cursor-pointer"
-                >
-                  {/* {userImage ? <img src={userImage} /> : <MdOutlinePhotoCamera />} */}
+                    <label
+                      htmlFor="profile"
+                      className="z-10 absolute -bottom-3 -right-2 text-2xl bg-gray-200 rounded-full p-1 cursor-pointer"
+                    >
+                      {/* {userImage ? <img src={userImage} /> : <MdOutlinePhotoCamera />} */}
 
-                  <MdOutlinePhotoCamera />
-                </label>
-                <input
-                  type="file"
-                  className="hidden"
-                  name="profile"
-                  id="profile"
-                  onChange={handleProfileImageChange}
-                />
-              </form>
-              <div className="flex items-center justify-center gap-2">
-                {/* <div className="bg-green-300 border border-0.5 border-black p-0.5 w-fit special:px-3">
+                      <MdOutlinePhotoCamera />
+                    </label>
+                    <input
+                      type="file"
+                      className="hidden"
+                      name="profile"
+                      id="profile"
+                      onChange={handleProfileImageChange}
+                    />
+                  </form>
+                  <div className="flex items-center justify-center gap-2">
+                    {/* <div className="bg-green-300 border border-0.5 border-black p-0.5 w-fit special:px-3">
                   <p
                     className="w-fit special:text-xl "
                     style={{ fontSize: "8px" }}
@@ -227,35 +227,50 @@ const Profile = () => {
                     Level 1
                   </p>
                 </div> */}
-                {/* <p className="special:text-xl">Verified User</p> */}
-                <p className="special:text-xl">{valUser.name}</p>
-              </div>
-                <div className="flex flex-col space-y-2 special:space-y-5">
-                  <div className="flex flex-col space-y-2">
-                    <p className="text-black text-sm xl:text-md special:text-xl">
-                      User ID
-                    </p>
-                    <input
-                      className="bg-[#ECECEC] rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
-                      placeholder="Enter User Name"
-                      type="text"
-                      value={userData?.uid}
-                      disabled
-                    ></input>
+                    {/* <p className="special:text-xl">Verified User</p> */}
+                    <p className="special:text-xl">{valUser.name}</p>
                   </div>
-                  <div className="flex flex-col space-y-2">
-                    <p className="text-black text-sm xl:text-md special:text-xl">
-                      Full Name
-                    </p>
-                    <input
-                      className="bg-[#ECECEC] rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
-                      placeholder="Enter First Name"
-                      type="text"
-                      onChange={(e) => setName(e.target.value)}
-                      value={name}
-                    ></input>
-                  </div>
-                  {/* <div className="flex flex-col space-y-2">
+                  <div className="flex flex-col space-y-2 special:space-y-5">
+                    <div className="flex flex-col space-y-2">
+                      <p className="text-black text-sm xl:text-md special:text-xl">
+                        User ID
+                      </p>
+                      <input
+                        className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                        placeholder="Enter User Name"
+                        type="text"
+                        value={userData?.uid}
+                        disabled
+                      ></input>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="flex flex-col w-1/2 space-y-2">
+                        <p className="text-black text-sm xl:text-md special:text-xl">
+                          First Name
+                        </p>
+                        <input
+                          className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                          placeholder="Enter First Name"
+                          type="text"
+                          onChange={(e) => setName(e.target.value)}
+                          value={userData?.firstname}
+                        ></input>
+                      </div>
+                      <div className="flex flex-col w-1/2 space-y-2">
+                        <p className="text-black text-sm xl:text-md special:text-xl">
+                          Surname
+                        </p>
+                        <input
+                          className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                          placeholder="Enter First Name"
+                          type="text"
+                          onChange={(e) => setName(e.target.value)}
+                          value={userData?.lastname}
+                        ></input>
+                      </div>
+                    </div>
+
+                    {/* <div className="flex flex-col space-y-2">
                     <p className="text-black text-sm xl:text-md special:text-xl">
                       Last Name
                     </p>
@@ -267,110 +282,110 @@ const Profile = () => {
                       value={name}
                     ></input>
                   </div> */}
-                  <div className="flex flex-col space-y-2">
-                    <p className="text-black text-sm xl:text-md special:text-xl">
-                      Valid Email
-                    </p>
-                    <input
-                      className="bg-[#ECECEC] rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
-                      placeholder="Enter Valid EMail"
-                      type="email"
-                      onChange={(e) => setEmail(e.target.value)}
-                      value={email}
-                    ></input>
-                  </div>
-                  <div className="flex flex-col space-y-2">
-                    <p className="text-black text-sm xl:text-md special:text-xl">
-                      Phone Number
-                    </p>
-                    <input
-                      className="bg-[#ECECEC] rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
-                      placeholder="Enter Phone Number"
-                      type="tel"
-                      disabled
-                      onChange={(e) => setMobile(e.target.value)}
-                      value={mobile}
-                    ></input>
-                  </div>
-                  <div className="flex flex-col space-y-2">
-                    <p className="text-black text-sm xl:text-md special:text-xl">
-                      Passport Number
-                    </p>
-                    <input
-                      className="bg-[#ECECEC] rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
-                      placeholder="Enter Passport Number"
-                      type="text"
-                      onChange={(e) => setPassport(e.target.value)}
-                      value={passport}
-                    ></input>
-                  </div>
-                  <div className="flex flex-col space-y-2">
-                    <p className="text-black text-sm xl:text-md special:text-xl">
-                      Date of Birth
-                    </p>
-                    <input
-                      className="bg-[#ECECEC] rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
-                      placeholder="Enter Date of Birth"
-                      type="date"
-                      value={dob}
-                      onChange={(e) => setDob(e.target.value)}
-                    ></input>
-                  </div>
-                  <div className="flex flex-col space-y-2">
-                    <p className="text-black text-sm xl:text-md special:text-xl">
-                      Postal Address
-                    </p>
-                    <input
-                      className="bg-[#ECECEC] rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
-                      placeholder="Enter Postal Address"
-                      type="text"
-                      value={address}
-                      onChange={(e) => setAddress(e.target.value)}
-                    ></input>
-                  </div>
-                  <div className="flex flex-col space-y-2">
-                    <p className="text-black text-sm xl:text-md special:text-xl">
-                      License Number
-                    </p>
-                    <input
-                      className="bg-[#ECECEC] rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
-                      placeholder="License Number"
-                      type="text"
-                      value={license}
-                      onChange={(e) => setLicense(e.target.value)}
-                    ></input>
-                  </div>
-                  <div className="flex flex-col space-y-2">
-                    <p className="text-black text-sm xl:text-md special:text-xl">
-                      TIN
-                    </p>
-                    <input
-                      className="bg-[#ECECEC] rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
-                      placeholder="Enter Tin"
-                      type="text"
-                      value={tin}
-                      onChange={(e) => setTin(e.target.value)}
-                    />
-                  </div>
-                  {refferalId ? (
                     <div className="flex flex-col space-y-2">
                       <p className="text-black text-sm xl:text-md special:text-xl">
-                        Refferal Id
+                        Valid Email
                       </p>
                       <input
-                        className="bg-[#ECECEC] rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
-                        placeholder="Enter Reference Id"
-                        type="text"
-                        disabled
-                        value={userData?.rafflesId}
+                        className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                        placeholder="Enter Valid EMail"
+                        type="email"
+                        onChange={(e) => setEmail(e.target.value)}
+                        value={email}
                       ></input>
                     </div>
-                  ) : (
-                    ""
-                  )}
+                    <div className="flex flex-col space-y-2">
+                      <p className="text-black text-sm xl:text-md special:text-xl">
+                        Phone Number
+                      </p>
+                      <input
+                        className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                        placeholder="Enter Phone Number"
+                        type="tel"
+                        disabled
+                        onChange={(e) => setMobile(e.target.value)}
+                        value={mobile}
+                      ></input>
+                    </div>
+                    <div className="flex flex-col space-y-2">
+                      <p className="text-black text-sm xl:text-md special:text-xl">
+                        Passport Number
+                      </p>
+                      <input
+                        className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                        placeholder="Enter Passport Number"
+                        type="text"
+                        onChange={(e) => setPassport(e.target.value)}
+                        value={passport}
+                      ></input>
+                    </div>
+                    <div className="flex flex-col space-y-2">
+                      <p className="text-black text-sm xl:text-md special:text-xl">
+                        Date of Birth
+                      </p>
+                      <input
+                        className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                        placeholder="Enter Date of Birth"
+                        type="date"
+                        value={dob}
+                        onChange={(e) => setDob(e.target.value)}
+                      ></input>
+                    </div>
+                    <div className="flex flex-col space-y-2">
+                      <p className="text-black text-sm xl:text-md special:text-xl">
+                        Postal Address
+                      </p>
+                      <input
+                        className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
+                        placeholder="Enter Postal Address"
+                        type="text"
+                        value={address}
+                        onChange={(e) => setAddress(e.target.value)}
+                      ></input>
+                    </div>
+                    <div className="flex flex-col space-y-2">
+                      <p className="text-black text-sm xl:text-md special:text-xl">
+                        License Number
+                      </p>
+                      <input
+                        className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
+                        placeholder="License Number"
+                        type="text"
+                        value={license}
+                        onChange={(e) => setLicense(e.target.value)}
+                      ></input>
+                    </div>
+                    <div className="flex flex-col space-y-2">
+                      <p className="text-black text-sm xl:text-md special:text-xl">
+                        TIN
+                      </p>
+                      <input
+                        className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
+                        placeholder="Enter Tin"
+                        type="text"
+                        value={tin}
+                        onChange={(e) => setTin(e.target.value)}
+                      />
+                    </div>
+                    {refferalId ? (
+                      <div className="flex flex-col space-y-2">
+                        <p className="text-black text-sm xl:text-md special:text-xl">
+                          Refferal Id
+                        </p>
+                        <input
+                          className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
+                          placeholder="Enter Reference Id"
+                          type="text"
+                          disabled
+                          value={userData?.rafflesId}
+                        ></input>
+                      </div>
+                    ) : (
+                      ""
+                    )}
 
-                  <div className="flex flex-row justify-between items-center pt-4">
-                    {/* <div className="flex items-center xl:gap-6 gap-3">
+                    <div className="flex flex-row justify-between items-center pt-4">
+                      {/* <div className="flex items-center xl:gap-6 gap-3">
                     <input
                       id="default-checkbox"
                       type="checkbox"
@@ -388,45 +403,44 @@ const Profile = () => {
                     </label>
                   </div> */}
 
-                    <div className="special:text-xl flex flex-row gap-2 items-center">
-                      {" "}
-                      <input
-                        id="checkbox"
-                        type="checkbox"
-                        checked={isChecked}
-                        onChange={onCheckboxChange}
-                        className="w-3 h-3 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                      />
-                      <div className="flex flex-row items-center gap-2">
-                        <p
-                          className="text-sm xl:text-md special:text-xl cursor-pointer"
-                          onClick={() => setIsChecked(!isChecked)}
-                        >
-                          I agree with the
-                        </p>
-                        <Link
-                          to="/conditions"
-                          target="_blank"
-                          className="yellow-text"
-                        >
-                          <p className="text-sm xl:text-md special:text-xl cursor-pointer">
-                            Terms of use
+                      <div className="special:text-xl flex flex-row gap-2 items-center">
+                        {" "}
+                        <input
+                          id="checkbox"
+                          type="checkbox"
+                          checked={isChecked}
+                          onChange={onCheckboxChange}
+                          className="w-3 h-3 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        />
+                        <div className="flex flex-row items-center gap-2">
+                          <p
+                            className="text-sm xl:text-md special:text-xl cursor-pointer"
+                            onClick={() => setIsChecked(!isChecked)}
+                          >
+                            I agree with the
                           </p>
-                        </Link>
+                          <Link
+                            to="/conditions"
+                            target="_blank"
+                            className="yellow-text"
+                          >
+                            <p className="text-sm xl:text-md special:text-xl cursor-pointer">
+                              Terms of use
+                            </p>
+                          </Link>
+                        </div>
                       </div>
-                    </div>
 
-                    <button
-                      disabled={!isChecked}
-                      onClick={() => updateUserDatails()}
-                      className={`text-white rounded-xl px-12 py-3 font-semibold special:text-xl bg-${
-                        isChecked ? "black" : "gray-500"
-                      } hover:bg-${isChecked ? "black/50" : ""}`}
-                    >
-                      Confirm
-                    </button>
+                      <button
+                        disabled={!isChecked}
+                        onClick={() => updateUserDatails()}
+                        className={`text-white rounded-xl px-12 py-3 font-semibold special:text-xl bg-${isChecked ? "black" : "gray-500"
+                          } hover:bg-${isChecked ? "black/50" : ""}`}
+                      >
+                        Confirm
+                      </button>
+                    </div>
                   </div>
-                </div>
                 </>
               )}
             </div>

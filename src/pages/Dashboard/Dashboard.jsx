@@ -15,6 +15,8 @@ import { MdOutlineDoNotDisturbOff } from "react-icons/md";
 import { FiLoader } from "react-icons/fi";
 import SelectRafflePaymentMethod from "../../components/RaffleComponent/SelectRafflePaymentMethod";
 import BG from "../../assets/images/HomesideBg.png";
+import { FaAngleDoubleDown, FaAngleDoubleUp } from "react-icons/fa";
+
 
 const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -26,6 +28,7 @@ const Dashboard = () => {
   const [selectGiveawayId, setSelectGiveawayId] = useState("");
   const [price, setPrice] = useState("");
   const [selectPayment, setSelectPayment] = useState(false);
+  const [initialLength, setInitSize] = useState(8);
 
   useEffect(() => {
     currentUserValidation();
@@ -46,8 +49,7 @@ const Dashboard = () => {
   const getGiveaways = async () => {
     await axios
       .get(
-        `${import.meta.env.VITE_SERVER_API}/raffleRoundsFuture?uid=${
-          valUser.uid
+        `${import.meta.env.VITE_SERVER_API}/raffleRoundsFuture?uid=${valUser.uid
         }`
       )
       .then((response) => {
@@ -64,8 +66,7 @@ const Dashboard = () => {
   const getRaffleCount = async () => {
     await axios
       .get(
-        `${import.meta.env.VITE_SERVER_API}/getUserRafflesCount?uid=${
-          valUser.uid
+        `${import.meta.env.VITE_SERVER_API}/getUserRafflesCount?uid=${valUser.uid
         }`
       )
       .then((response) => {
@@ -87,6 +88,14 @@ const Dashboard = () => {
     setSelectPayment(true);
   };
 
+  const handleSeeMore = (show) => {
+    if (show) {
+      setInitSize(giveaways.length)
+    } else {
+      setInitSize(8)
+    }
+  }
+
   return (
     <>
       {isLoading ? (
@@ -94,18 +103,18 @@ const Dashboard = () => {
       ) : (
         <div className="flex relative mx-auto w-full">
           {/* <SideNav screen="full" name={valUser.name} userId={valUser.uid} /> */}
-        <div></div>
+          <div></div>
           {/* home-content */}
           <div className="flex flex-col xl:flex-col flex-1 px-4 gap-5">
             {/* left side */}
-            <div className="flex flex-col flex-1 ">
+            <div className="flex flex-col flex-1 pb-2">
               <div className="block xl:hidden space-y-4">
                 <div className="bg-black rounded-b-3xl py-4">
                   <TopNav textColor={"white"} />
                   <div className="pt-10">
                     <motion.img
                       initial={carAnimation.initialMobile}
-                      animate={{x:0, opacity:1}}
+                      animate={{ x: 0, opacity: 1 }}
                       transition={carAnimation.transition}
                       className="w-4/5"
                       src={MainCar}
@@ -115,7 +124,7 @@ const Dashboard = () => {
                 </div>
                 <div className="left-4 top-20 space-y-4">
                   <div className="flex flex-col space-y-2">
-                    <p className="text-[#22CCEE] text-2xl font-semibold">
+                    <p className="text-[#22CCEE] text-xl font-semibold">
                       Earning Balance
                     </p>
                     <p className="text-4xl text-black">${valUser.balance || "0.00"}</p>
@@ -123,14 +132,14 @@ const Dashboard = () => {
                   <SmallGoldCard />
                 </div>
                 <div>
-                  <p className="text-2xl font-semibold">Next Giveaways</p>
+                  <p className="text-xl font-semibold">Next Giveaways</p>
                   {loading ? (
                     <div className="flex justify-center">
                       <FiLoader className="w-9 h-9 2xl:w-12 2xl:h-12 special:w-18 special:h-18 animate-spin" />
                     </div>
                   ) : giveaways.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2">
-                      {giveaways.map((giveaway, key) => (
+                      {giveaways.slice(0, initialLength).map((giveaway, key) => (
                         <DashboardVehicleCard
                           key={key}
                           name={giveaway.raffle?.name}
@@ -147,6 +156,17 @@ const Dashboard = () => {
                           bgColor={giveaway.raffle?.color}
                         />
                       ))}
+                      {
+                        giveaways.length > 8 && (initialLength == 8 ?
+                          <button onClick={() => handleSeeMore(true)}
+                            className="mt-10 flex items-center justify-center mx-auto gap-2 ">
+                            See More <FaAngleDoubleDown/>
+                          </button> :
+                          <button onClick={() => handleSeeMore(false)}
+                            className="mt-10 flex items-center justify-center mx-auto gap-2">
+                            See Less <FaAngleDoubleUp/>
+                          </button>)
+                      }
                     </div>
                   ) : (
                     <div className="flex flex-col items-center space-y-2">
@@ -177,18 +197,18 @@ const Dashboard = () => {
                     </div>
                     <SmallGoldCard />
                   </div>
-     
+
                   <motion.img
-                      initial={carAnimation.initial}
-                      animate={carAnimation.animate}
-                      transition={carAnimation.transition}
-                      src={MainCar}
-                      alt="main"
-                      className="w-[700px]"
-                    />
+                    initial={carAnimation.initial}
+                    animate={carAnimation.animate}
+                    transition={carAnimation.transition}
+                    src={MainCar}
+                    alt="main"
+                    className="w-[700px]"
+                  />
                 </div>
                 <div className="flex flex-col space-y-2 w-full xl:w-web pt-12">
-                  <p className="text-3xl 2xl:text-4xl special:text-6xl font-semibold mb-2">
+                  <p className="text-2xl 2xl:text-2xl special:text-5xl font-semibold mb-2">
                     Next Giveaways
                   </p>
                   {loading ? (
@@ -197,7 +217,7 @@ const Dashboard = () => {
                     </div>
                   ) : giveaways.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
-                      {giveaways.map((giveaway, key) => (
+                      {giveaways.slice(0, initialLength).map((giveaway, key) => (
                         <DashboardVehicleCard
                           key={key}
                           name={giveaway.raffle?.name}
@@ -214,6 +234,17 @@ const Dashboard = () => {
                           }}
                         />
                       ))}
+                      {/* {
+                        giveaways.length > 7 && (initialLength == 7 ?
+                          <button onClick={() => handleSeeMore(true)}
+                            className="flex flex-row justify-center items-center rounded-3xl 2xl:rounded-[30px] special:rounded-[40px] w-full py-2 shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:brightness-75 cursor-pointer bg-gradient-to-br from-blue-400 to-blue-600 text-white">
+                            See More
+                          </button> :
+                          <button onClick={() => handleSeeMore(false)}
+                            className="flex flex-row justify-center items-center rounded-3xl 2xl:rounded-[30px] special:rounded-[40px] w-full py-2 shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:brightness-75 cursor-pointer bg-gradient-to-br from-blue-400 to-blue-600 text-white">
+                            See Less
+                          </button>)
+                      } */}
                     </div>
                   ) : (
                     <div className="flex flex-col items-center space-y-2 pt-12">
@@ -223,19 +254,34 @@ const Dashboard = () => {
                       </p>
                     </div>
                   )}
+                  <div className="w-full text-center">
+                    {
+
+                      giveaways.length > 8 && (initialLength == 8 ?
+                        <button onClick={() => handleSeeMore(true)}
+                          className="mt-10 flex items-center justify-center mx-auto gap-2">
+                          See More <FaAngleDoubleDown/>
+                        </button> :
+                        <button onClick={() => handleSeeMore(false)}
+                          className="mt-10 flex items-center justify-center mx-auto gap-2">
+                          See Less <FaAngleDoubleUp/>
+                        </button>)
+                    }
+                  </div>
+
                 </div>
               </div>
             </div>
 
             {/* right-side */}
-            <div className="flex flex-col flex-1">
+            {/* <div className="flex flex-col flex-1"> */}
               <img
                 src={BG}
                 alt=""
                 className="absolute right-0 -z-10 md:top-80 top-20 w-72 xl:w-96 md:w-96 special:w-1/4 2xl:w-1/4 special:top-20 opacity-60 2xl:top-40 xl:top-40"
               />
-              <div className="graph-section "></div>
-            </div>
+              {/* <div className="graph-section "></div> */}
+            {/* </div> */}
           </div>
         </div>
       )}

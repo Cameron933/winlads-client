@@ -21,7 +21,7 @@ const MyEntriesButton = () => {
         onClick={()=>navigate('/myentries')}
         >
             <div className='flex items-center justify-center'>
-                <img src={crownIcon} alt="my-entries" className='max-w-12 w-7 md:w-auto object-contain' />
+                <img src={crownIcon} alt="my-entries" className='max-w-8 w-7 md:w-auto object-contain' />
             </div>
            {isFoucus && <h2 className={`px-2 transition-all duration-500 ${isFoucus ? 'scale-100' : 'scale-0'}`}>My Entries</h2>} 
         </div>

@@ -62,7 +62,7 @@ function SubscribeCard({
     >
       <p className="text-sm special:text-xl 2xl:text-lg">{name}&nbsp;Tier</p>
 
-      <p className="font-semibold text-center text-2xl special:text-6xl 2xl:text-3xl">
+      <p className="font-semibold text-center text-xl special:text-4xl 2xl:text-2xl">
         {raffleCount} <span className="uppercase"> {subId} free entries</span>
       </p>
       <div className="flex justify-center flex-col space-y-4 special:space-y-6 2xl:space-y-4 pb-16">
