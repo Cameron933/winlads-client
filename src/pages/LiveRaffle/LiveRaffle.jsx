@@ -83,7 +83,7 @@ function LiveRaffle() {
             
             url={liveLink.youtubeLink}
             playing={pause}
-            
+            onPlay={()=> setPause(true)}
             muted={muted}
             width={'100%'}
             height={'100vh'}
@@ -142,6 +142,9 @@ function LiveRaffle() {
                     </div>
                     <div className="text-black font-bold h-9 w-9 special:w-24 special:h-24 special:text-4xl 2xl:w-16 2xl:h-16 2xl:text-2xl rounded-full bg-[#D6F6FF] items-center flex justify-center">
                     {liveLink?.drawNumbers?.n3 ? liveLink?.drawNumbers?.n3 : '?'}
+                    </div>
+                    <div className="text-black font-bold h-9 w-9 special:w-24 special:h-24 special:text-4xl 2xl:w-16 2xl:h-16 2xl:text-2xl rounded-full bg-[#D6F6FF] items-center flex justify-center">
+                    {liveLink?.drawNumbers?.n4 ? liveLink?.drawNumbers?.n4 : '?'}
                     </div>
                     <div className="text-black font-bold h-9 w-9 special:w-24 special:h-24 special:text-4xl 2xl:w-16 2xl:h-16 2xl:text-2xl rounded-full bg-[#D6F6FF] items-center flex justify-center">
                     {liveLink?.drawNumbers?.n4 ? liveLink?.drawNumbers?.n4 : '?'}
