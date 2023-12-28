@@ -31,6 +31,7 @@ function RaffleDashbord() {
   const [valUser, setValUser] = useState({});
   const [userImage, setUserImage] = useState("");
   const [loading, setLoading] = useState(true);
+  const [initialLength, setInitSize] = useState(8);
 
   const navigate = useNavigate();
 
@@ -38,6 +39,15 @@ function RaffleDashbord() {
     currentUserValidation();
     getRaffles();
   }, []);
+
+  const handleSeeMore = (show) => {
+    if (show) {
+      setInitSize(raffles.length)
+    } else {
+      setInitSize(8)
+    }
+  }
+
 
   const currentUserValidation = async () => {
     const validator = await validateCurrentUser();
@@ -218,7 +228,7 @@ function RaffleDashbord() {
               </div>
             </div>
             <div className="flex flex-col space-y-2 special:space-y-6 2xl:space-y-4">
-              <p className="font-semibold text-lg xl:text-xl 2xl:text-3xl special:text-4xl">
+              <p className="font-semibold text-lg xl:text-xl 2xl:text-2xl special:text-4xl">
                 Giveaway Categories
               </p>
               {loading ? (
@@ -227,7 +237,7 @@ function RaffleDashbord() {
                 </div>
               ) : raffles.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2 2xl:gap-4 special:gap-4">
-                  {raffles.map((raffle, key) => (
+                  {raffles.slice(0, initialLength).map((raffle, key) => (
                     <RaffleDashboardComponent
                       key={key}
                       bgColor={raffle.color}
@@ -238,6 +248,17 @@ function RaffleDashbord() {
                       date={raffle.date}
                     />
                   ))}
+                  {
+                    raffles.length > 8 && (initialLength == 8 ?
+                      <button onClick={() => handleSeeMore(true)}
+                        className="">
+                        See More
+                      </button> :
+                      <button onClick={() => handleSeeMore(false)}
+                        className="">
+                        See Less
+                      </button>)
+                  }
                 </div>
               ) : (
                 <p className="flex justify-center font-semibold 2xl:text-2xl xl:text-xl special:text-4xl text-lg">

@@ -18,11 +18,11 @@ function NewsListProps({ img, maintitle, newstitle, createdat, id, desc }) {
               className="w-16 h-16 xl:w-16 xl:h-16 rounded-full"
             />
             <div className="flex flex-col overflow-x-hidden">
-              <p className="text-md xl:text-xl md:text-xl special:text-3xl">
+              <p className="text-md xl:text-lg md:text-lg special:text-2xl">
                 {maintitle}
               </p>
 
-              <p className="text-xs xl:text-sm special:text-xl">{newstitle}</p>
+              <p className="text-xs xl:text-sm special:text-lg">{newstitle}</p>
            
             </div>
           </div>

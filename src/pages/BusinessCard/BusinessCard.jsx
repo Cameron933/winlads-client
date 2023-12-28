@@ -29,7 +29,7 @@ function BusinessCard() {
 
   return (
     <div>
-      <div className="flex relative min-h-screen w-full">
+      <div className="flex relative min-h-screen w-full overflow-hidden" >
         {/* side-nav */}
 
         {/* home-content */}

@@ -165,7 +165,7 @@ const Profile = () => {
     }
   };
   return (
-    <div>
+    <div className="bg-[#F2F5FB]">
       <div className="flex relative">
         <div className="right-side-logo max-xl:hidden"></div>
         <div
@@ -236,7 +236,7 @@ const Profile = () => {
                       User ID
                     </p>
                     <input
-                      className="bg-[#ECECEC] rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                      className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
                       placeholder="Enter User Name"
                       type="text"
                       value={userData?.uid}
@@ -248,7 +248,7 @@ const Profile = () => {
                       Full Name
                     </p>
                     <input
-                      className="bg-[#ECECEC] rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                      className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
                       placeholder="Enter First Name"
                       type="text"
                       onChange={(e) => setName(e.target.value)}
@@ -272,7 +272,7 @@ const Profile = () => {
                       Valid Email
                     </p>
                     <input
-                      className="bg-[#ECECEC] rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                      className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
                       placeholder="Enter Valid EMail"
                       type="email"
                       onChange={(e) => setEmail(e.target.value)}
@@ -284,7 +284,7 @@ const Profile = () => {
                       Phone Number
                     </p>
                     <input
-                      className="bg-[#ECECEC] rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                      className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
                       placeholder="Enter Phone Number"
                       type="tel"
                       disabled
@@ -297,7 +297,7 @@ const Profile = () => {
                       Passport Number
                     </p>
                     <input
-                      className="bg-[#ECECEC] rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                      className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
                       placeholder="Enter Passport Number"
                       type="text"
                       onChange={(e) => setPassport(e.target.value)}
@@ -309,7 +309,7 @@ const Profile = () => {
                       Date of Birth
                     </p>
                     <input
-                      className="bg-[#ECECEC] rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                      className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
                       placeholder="Enter Date of Birth"
                       type="date"
                       value={dob}
@@ -321,7 +321,7 @@ const Profile = () => {
                       Postal Address
                     </p>
                     <input
-                      className="bg-[#ECECEC] rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
+                      className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
                       placeholder="Enter Postal Address"
                       type="text"
                       value={address}
@@ -333,7 +333,7 @@ const Profile = () => {
                       License Number
                     </p>
                     <input
-                      className="bg-[#ECECEC] rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
+                      className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
                       placeholder="License Number"
                       type="text"
                       value={license}
@@ -345,7 +345,7 @@ const Profile = () => {
                       TIN
                     </p>
                     <input
-                      className="bg-[#ECECEC] rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
+                      className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
                       placeholder="Enter Tin"
                       type="text"
                       value={tin}
@@ -358,7 +358,7 @@ const Profile = () => {
                         Refferal Id
                       </p>
                       <input
-                        className="bg-[#ECECEC] rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
+                        className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
                         placeholder="Enter Reference Id"
                         type="text"
                         disabled

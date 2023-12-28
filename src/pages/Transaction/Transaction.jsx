@@ -136,7 +136,7 @@ const Transaction = () => {
 
   return (
 
-      <div className="flex relative min-h-screen w-full">
+      <div className="flex relative min-h-screen w-full overflow-hidden">
         <div className="xl:flex xl:flex-row flex-col xl:justify-between px-3 special:px-12 2xl:px-8 flex-1 xl:gap-8 special:gap-16 2xl:gap-12 space-y-4 xl:space-y-0">
         <img
             src={BG}
@@ -172,7 +172,7 @@ const Transaction = () => {
             )}
 
             <div className="flex flex-col space-y-1">
-              <p className="font-extrabold text-xl md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl">
+              <p className="font-extrabold text-xl md:text-xl xl:text-2xl 2xl:text-2xl special:text-4xl">
                 Your Balance
               </p>
               {/* <p className="font-extrabold md:text-2xl xl:text-3xl 2xl:text-3xl special:text-4xl">

@@ -16,6 +16,7 @@ function FaQ() {
   const [valUser, setValUser] = useState({});
   const [faqs, setFaqs] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [initialShow, setInitShow] = useState(6);
 
   useEffect(() => {
     currentUserValidation();
@@ -33,6 +34,14 @@ function FaQ() {
       setLoading(false);
     }
   };
+
+  const handleSeeMore = (show)=>{
+    if(show){
+      setInitShow(faqs.length)
+    }else{
+      setInitShow(6)
+    }
+  }
 
   const getFaqs = async () => {
     await axios
@@ -76,7 +85,7 @@ function FaQ() {
                   <FiLoader className="w-9 h-9 2xl:w-12 2xl:h-12 special:w-18 special:h-18 animate-spin" />
                 </div>
               ) : faqs.length > 0 ? (
-                faqs.map((faq, key) => (
+                faqs.slice(0, initialShow).map((faq, key) => (
                   <FaQComponent
                     key={key}
                     title={faq.q}
@@ -93,6 +102,10 @@ function FaQ() {
                 </div>
               )}
             </div>
+            {
+              initialShow == 6 ? <button onClick={()=>handleSeeMore(true)}>See More</button> : <button onClick={()=>handleSeeMore(false)}>See Less</button>
+            }
+            
           </div>
 
           {/* right-side */}

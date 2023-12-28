@@ -110,11 +110,8 @@ function BusinessCard() {
   return (
     <div className="flex flex-col space-y-4 special:space-y-16">
       <div className="flex flex-col special:space-y-5">
-        <p className="text-xl font-bold xl:text-4xl md:text-4xl special:text-6xl">
+        <p className="text-xl font-bold xl:text-2xl md:text-xl special:text-4xl">
           Get My NFC
-        </p>
-        <p className="text-black text-lg special:pt-5 special:text-2xl">
-          {isOrderNow ? "Let’s Get Your Card !!" : ""}
         </p>
       </div>
       <div
@@ -195,6 +192,9 @@ function ShareForm({
 
   return (
     <form className="form-contain-reg space-y-7 w-full xl:w-3/5 special:w-2/5 special:space-y-16">
+              <p className="text-black text-lg special:pt-5 special:text-2xl">
+          Let’s Get Your Card !!
+        </p>
       <div className="bg-[#ECECEC] flex flex-row-reverse items-center py-3 px-4 gap-3 rounded-2xl justify-end">
         <input
           type="text"
