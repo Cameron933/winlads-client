@@ -48,7 +48,10 @@ const SideNav = ({ screen }) => {
     const validator = await validateCurrentUser();
     if (validator.validatorBl) {
       setValUser(validator.user);
-      getProfileImage(validator.user.image);
+      if (validator.user.image !== null) {
+        getProfileImage(validator.user.image);
+      }
+      setLoading(false);
     } else {
       navigate("/login");
     }
