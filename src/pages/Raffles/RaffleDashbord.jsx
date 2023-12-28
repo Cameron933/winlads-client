@@ -149,13 +149,15 @@ function RaffleDashbord() {
                       ></iframe>
                     </div>
                     <Link to="/live" className="flex flex-1">
-                      <div className="bg-[#D5B511] hover:bg-[#D5B511]/75 flex-col rounded-3xl 2xl:rounded-[30px] special:rounded-[40px] px-2 special:px-4 py-1 space-y-2 shadow-lg">
+                      <div className="bg-[#D5B511] hover:bg-[#D5B511]/75 flex-col rounded-3xl 2xl:rounded-[30px] special:rounded-[40px] pr-2 special:pr-4 py-1 space-y-2 shadow-lg">
                         <div className="flex flex-row justify-between items-center">
+                        <div className="w-36 special:w-96 2xl:w-48 min-w-32 aspect-square">
                           <img
                             src={CatJeep}
                             alt=""
-                            className="flex w-36 special:w-96 2xl:w-64"
+                            className="w-full h-full object-cover"
                           />
+                          </div>
 
                           <div className="flex flex-col space-y-4">
                             <div className="justify-end flex">
