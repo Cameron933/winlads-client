@@ -44,7 +44,7 @@ const TopNav = ({ textColor }) => {
       </div>
       {notShow ? (
         <div className="absolute right-8">
-          <div className="bg-white flex flex-col mt-8 rounded-xl p-2 w-72">
+          <div className="bg-white flex flex-col mt-8 rounded-xl p-2 w-72 border border-solid border-black">
             {/* <div className="flex justify-end">
               <IoCloseSharp onClick={() => setNotShow(false)} size={20} className="hover:scale-110" />
             </div> */}

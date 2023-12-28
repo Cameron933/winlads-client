@@ -9,7 +9,8 @@ const Filters = ({
   entNumber,
   allRounds,
   selectCatValue,
-  distCat
+  round,
+  numbers,
 }) => {
   const [isCatShow, setIsCat] = useState(false);
   const [isRoundShow, setIsRound] = useState(false);
@@ -45,9 +46,14 @@ const Filters = ({
     setIsCat(false)
   };
 
-  const handleRound = () => {
+  const handleRound = (id) => {
+    round(id)
     setIsRound(false)
   };
+
+  const handleNumbers = (num) => {
+    numbers(num)
+  }
 
   return (
     <>
@@ -131,7 +137,7 @@ const Filters = ({
               name="entry-number"
               className="bg-gray-300 w-full  px-4 py-3 gap-2 rounded-full 2xl:text-lg xl:text-sm font-semibold placeholder:2xl:text-lg placeholder:xl:text-sm  placeholder:text-black outline-none"
               placeholder="Entry Numbers"
-              onChange={(e) => entNumber(e.target.value)}
+              onChange={(e) => handleNumbers(e.target.value)}
             />
             <input
               type="date"

@@ -24,6 +24,8 @@ const MyEntries = () => {
   const [pastGiveaways, setPastGiveaways] = useState([]);
   const [dataCount, setDataCount] = useState(0);
   const [catValue, setCatValue] = useState("");
+  const [round, setRound] = useState("")
+  const [number, setNumber] = useState("")
   const [allRounds, setAllRounds] = useState([])
 
   const [myGiveaways, setMyGiveaways] = useState([]);
@@ -37,7 +39,7 @@ const MyEntries = () => {
     if (validator.validatorBl) {
       console.log("Session OK", validator.user);
       setValUser(validator.user);
-      getMyGiveaways(validator.user.uid, 1, 10, catValue);
+      getMyGiveaways(validator.user.uid, 1, 10, catValue, round, number);
     } else {
       navigate("/login");
       console.log("");
@@ -45,8 +47,9 @@ const MyEntries = () => {
   };
 
 
-  const getMyGiveaways = async (id, from = 1, to = recodeCount, catValue) => {
+  const getMyGiveaways = async (id, from, to, catValue, roundId, number) => {
     setIsLoading(true)
+    console.log(from, to, "from to")
     let baseUrl = `${
       import.meta.env.VITE_SERVER_API
     }/myRaffleRounds?uid=${id}&from=${from}&to=${to}`;
@@ -54,7 +57,15 @@ const MyEntries = () => {
     if(catValue !== "") {
       baseUrl+=`&category=${catValue}`
     }
-    console.log(baseUrl, "base url")
+
+    if(roundId !== "") {
+      baseUrl+=`&round=${roundId}`
+    }
+
+    if(number !== "") {
+      baseUrl+=`&numbers=${number}`
+    }
+
     await axios
       .get(
        baseUrl
@@ -79,13 +90,25 @@ const MyEntries = () => {
     const fromNo = recodeCount * (no - 1) + 1;
     const toNo = recodeCount * no;
     setCurrentPage(no);
-    getMyGiveaways(valUser.uid, fromNo, toNo);
+    getMyGiveaways(valUser.uid, fromNo, toNo, catValue, round, number);
   };
 
   const categories = (cat) => {
     setCatValue(cat);
-    getMyGiveaways(valUser.uid, 1, 10, cat);
+    getMyGiveaways(valUser.uid, 1, 10, cat, round, number);
   };
+
+
+  const rounds = (round) => {
+    setRound(round);
+    getMyGiveaways(valUser.uid, 1, 10, catValue, round, number);
+  };
+
+  const getNumbers = (number) => {
+    setNumber(number);
+    getMyGiveaways(valUser.uid, 1, 10, catValue, round, number);
+  };
+
 
   const getAllRounds = async () => {
     await axios
@@ -100,10 +123,8 @@ const MyEntries = () => {
       });
   };
 
-
-
   return (
-    <div className="flex items-stretch w-full">
+    <div className="flex items-stretch w-full py-4">
       <div className="w-full">
         <div className="flex flex-col xl:flex-col flex-1 px-1 gap-5 w-full">
           {/* left side */}
@@ -126,7 +147,7 @@ const MyEntries = () => {
           </div>
           {/* Content */}
           <div className="px-0 md:px-10 relative">
-            <Filters allRounds={allRounds} selectCatValue={categories} distCat={myGiveaways.length < 0 && pastGiveaways.length < 0} />
+            <Filters allRounds={allRounds} round={rounds} selectCatValue={categories} numbers={getNumbers}/>
             <div className="flex items-center justify-between xl:hidden px-5 my-5">
               <h1 className="text-xl font-bold">Upcoming Entries</h1>
               <IoIosTimer className="text-2xl font-bold" />
@@ -231,8 +252,7 @@ const MyEntries = () => {
                                 }
                               )}
                             </p>
-                          </div>
-                          <div>
+                            <div>
                             {" "}
                             {giveaway.winstatus === "win" ? (
                               <MdDone />
@@ -242,6 +262,8 @@ const MyEntries = () => {
                               ""
                             )}
                           </div>
+                          </div>
+                        
                         </div>
                       </div>
                     ))}
@@ -249,6 +271,8 @@ const MyEntries = () => {
                     <EntriPagination
                       pageCount={pageCount}
                       buttonClick={pagination}
+                      currentPage={currentPage}
+                      setCurrentPage={pagination}
                     />
                   </div>
                 ) : (
