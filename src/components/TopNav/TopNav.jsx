@@ -3,6 +3,13 @@ import { Link } from "react-router-dom";
 import { GoBell } from "react-icons/go";
 import { useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
+// import { messaging } from "../../firebase.config";
+import { getMessaging, getToken } from "firebase/messaging";
+
+// const messaging = getMessaging();
+// // Add the public key generated from the console here.
+// getToken(messaging, {vapidKey: import.meta.env.FIREBASE_NOTIFICATIONS});
+
 
 const TopNav = ({ textColor }) => {
   const [notShow, setNotShow] = useState(false);
@@ -10,6 +17,8 @@ const TopNav = ({ textColor }) => {
   const handleClick = () => {
     setNotShow(!notShow);
   };
+
+  // notification?id=6570517d8ea78575c11be760
 
   return (
     <>
