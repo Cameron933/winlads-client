@@ -9,6 +9,7 @@ const Benifit = () => {
           initial={{ opacity: 0, y: "-40%" }}
           whileInView={{ opacity: 1, y: "0" }}
           transition={{ duration: 0.5, delay: 0 }}
+          viewport={{ once: true }}
           className="text-center text-bse sm:text-lg 2xl:text-xl special:text-3xl font-bold xl:tracking-[18px] sm:tracking-[16px] tracking-[12px] uppercase"
         >
           {" "}
@@ -18,6 +19,7 @@ const Benifit = () => {
         <motion.p
           initial={{ opacity: 0, y: "40%" }}
           whileInView={{ opacity: 1, y: "0" }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
           className="text-center w-10/12 mx-auto text-xs sm:text-sm md:text-base xl:text-base special:text-lg"
         >
@@ -34,6 +36,7 @@ const Benifit = () => {
               initial={{ opacity: 0, y: "10%" }}
               whileInView={{ opacity: 1, y: "0" }}
               transition={{ duration: 0.5, delay: 0 }}
+              viewport={{ once: true }}
               className="w-full"
             >
               <p className="text-center lg:text-start text-xs sm:text-sm md:text-base xl:text-base special:text-lg font-bold mb-3">
@@ -49,6 +52,7 @@ const Benifit = () => {
               initial={{ opacity: 0, y: "10%" }}
               whileInView={{ opacity: 1, y: "0" }}
               transition={{ duration: 0.5, delay: 0.3 }}
+              viewport={{ once: true }}
               className="w-full"
             >
               <p className="text-center lg:text-start text-xs sm:text-sm md:text-base xl:text-base special:text-lg font-bold mb-3">
@@ -64,6 +68,7 @@ const Benifit = () => {
               initial={{ opacity: 0, y: "10%" }}
               whileInView={{ opacity: 1, y: "0" }}
               transition={{ duration: 0.5, delay: 0.9 }}
+              viewport={{ once: true }}
               className="w-full"
             >
               <p className="text-center lg:text-start text-xs sm:text-sm md:text-base xl:text-base special:text-lg font-bold mb-3">
@@ -78,6 +83,7 @@ const Benifit = () => {
             <motion.div
               initial={{ opacity: 0, y: "10%" }}
               whileInView={{ opacity: 1, y: "0" }}
+              viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 1.2 }}
               className="w-full"
             >
@@ -97,6 +103,7 @@ const Benifit = () => {
             <motion.img
               initial={{ opacity: 0, y: "-70%" }}
               whileInView={{ opacity: 1, y: "0" }}
+              viewport={{ once: true }}
               transition={{ duration: 0.8 }}
               src={Jip}
               alt=""
@@ -110,6 +117,7 @@ const Benifit = () => {
               initial={{ opacity: 0, y: "10%" }}
               whileInView={{ opacity: 1, y: "0" }}
               transition={{ duration: 0.5, delay: 0 }}
+              viewport={{ once: true }}
               className="w-full"
             >
               <p className="text-center lg:text-end text-xs sm:text-sm md:text-base xl:text-base special:text-lg font-bold mb-3">
@@ -125,6 +133,7 @@ const Benifit = () => {
               initial={{ opacity: 0, y: "10%" }}
               whileInView={{ opacity: 1, y: "0" }}
               transition={{ duration: 0.5, delay: 0.3 }}
+              viewport={{ once: true }}
               className="w-full"
             >
               <p className="text-center lg:text-end text-xs sm:text-sm md:text-base xl:text-base special:text-lg font-bold mb-3">
@@ -140,6 +149,7 @@ const Benifit = () => {
               initial={{ opacity: 0, y: "10%" }}
               whileInView={{ opacity: 1, y: "0" }}
               transition={{ duration: 0.5, delay: 0.6 }}
+              viewport={{ once: true }}
               className="w-full"
             >
               <p className="text-center lg:text-end text-xs sm:text-sm md:text-base xl:text-base special:text-lg font-bold mb-3">
@@ -155,6 +165,7 @@ const Benifit = () => {
               initial={{ opacity: 0, y: "10%" }}
               whileInView={{ opacity: 1, y: "0" }}
               transition={{ duration: 0.5, delay: 0.9 }}
+              viewport={{ once: true }}
               className="w-full"
             >
               <p className="text-center lg:text-end text-xs sm:text-sm md:text-base xl:text-base special:text-lg font-bold mb-3">
@@ -170,6 +181,7 @@ const Benifit = () => {
             <motion.div
               initial={{ opacity: 0, y: "10%" }}
               whileInView={{ opacity: 1, y: "0" }}
+              viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 1.2 }}
               className="w-full"
             >

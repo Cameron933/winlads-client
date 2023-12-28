@@ -9,6 +9,7 @@ const Service = () => {
           initial={{ opacity: 0, y: "-40%" }}
           whileInView={{ opacity: 1, y: "0" }}
           transition={{ duration: 0.5, delay: 0 }}
+          viewport={{ once: true }}
           className="text-center text-base sm:text-lg 2xl:text-xl special:text-3xl font-bold uppercase xl:tracking-[18px] sm:tracking-[16px] tracking-[12px]"
         >
           {" "}
@@ -23,6 +24,7 @@ const Service = () => {
               whileInView={{ opacity: 1, x: "0" }}
               transition={{ duration: 0.5, delay: 0.3 }}
               className="w-full"
+              viewport={{ once: true }}
             >
               <p className="mb-3 lg:mb-5 xl:mb-6 special:mb-8  text-center lg:text-end text-xs sm:text-sm md:text-base xl:text-base special:text-lg  font-bold">
                 Winlads Urgency Program
@@ -40,6 +42,7 @@ const Service = () => {
               whileInView={{ opacity: 1, x: "0" }}
               transition={{ duration: 0.5, delay: 0.6 }}
               className="w-full"
+              viewport={{ once: true }}
             >
               <p className=" mb-3 lg:mb-5 xl:mb-6 special:mb-8 text-center lg:text-end text-xs sm:text-sm md:text-base xl:text-base special:text-lg  font-bold">
                 Winlads OG Club
@@ -60,6 +63,7 @@ const Service = () => {
               whileInView={{ opacity: 1, y: "0" }}
               transition={{ duration: 0.5 }}
               src={Jip}
+              viewport={{ once: true }}
               alt=""
               className="lg:w-full md:w-10/12 sm:w-9/12 w-8/12"
             />
@@ -71,6 +75,7 @@ const Service = () => {
               initial={{ opacity: 0, x: "-10%" }}
               whileInView={{ opacity: 1, x: "0" }}
               transition={{ duration: 0.5, delay: 0.3 }}
+              viewport={{ once: true }}
               className="w-full"
             >
               <p className="mb-3 lg:mb-5 xl:mb-6 special:mb-8 lg:text-start text-center text-xs sm:text-sm md:text-base xl:text-base special:text-lg  font-bold">
@@ -88,6 +93,7 @@ const Service = () => {
             initial={{ opacity: 0, x: "-10%" }}
             whileInView={{ opacity: 1, x: "0" }}
             transition={{ duration: 0.5, delay: 0.3 }}
+            viewport={{ once: true }}
               className="w-full"
             >
               <p className="mb-3 lg:mb-5 xl:mb-6 special:mb-8 lg:text-start text-center text-xs sm:text-sm md:text-base xl:text-base special:text-lg  font-bold">

@@ -24,9 +24,9 @@ const WelcomeHome2 = () => {
         }}
         className="react-player opacity-50"
       /> */}
-      <video src={video} className='absolute w-full h-full object-cover top-0 left-0 z-[0] opacity-40 ' autoPlay muted loop></video>
+      <video src={video} className='absolute w-full h-full object-cover top-0 left-0 z-[0]' autoPlay muted loop></video>
       <div className='absolute w-full h-full top-0 left-0 z-[1]'>
-        <div className='w-full h-full bg-gradient-to-b from-[rgba(125, 246, 255, 0.3)] to-[rgba(125, 246, 255, 0.3)]'></div>
+        <div className='w-full h-full bg-gradient-to-b to-black from-[rgba(0,0,0,.5)_75%]'></div>
       </div>
       <div className="mx-auto 2xl:max-w-[2400px] w-full px-3 lg:px-5 py-10 lg:py-16 z-10  relative">
 
@@ -36,6 +36,7 @@ const WelcomeHome2 = () => {
               initial={{ opacity: 0, y: "-40%" }}
               whileInView={{ opacity: 1, y: "0" }}
               transition={{ duration: 0.5, delay: 0 }}
+              viewport={{ once: true }}
               className="text-[#00F0FF] font-bold text-2xl lg:text3xl xl:text-4xl 2xl:text-6xl"
             >
               200 <span className="text-white">+</span>
@@ -44,6 +45,7 @@ const WelcomeHome2 = () => {
               initial={{ opacity: 0, y: "40%" }}
               whileInView={{ opacity: 1, y: "0" }}
               transition={{ duration: 0.5, delay: 0 }}
+              viewport={{ once: true }}
               className="text-white text-center text-sm md:text-base 2xl:text-lg"
             >
               Australian business partners
@@ -55,6 +57,7 @@ const WelcomeHome2 = () => {
               initial={{ opacity: 0, y: "-40%" }}
               whileInView={{ opacity: 1, y: "0" }}
               transition={{ duration: 0.5, delay: 0.3 }}
+              viewport={{ once: true }}
               className="text-[#00F0FF] font-bold text-2xl lg:text3xl xl:text-4xl 2xl:text-6xl"
             >
               350 <span className="text-white">+</span>
@@ -63,6 +66,7 @@ const WelcomeHome2 = () => {
               initial={{ opacity: 0, y: "40%" }}
               whileInView={{ opacity: 1, y: "0" }}
               transition={{ duration: 0.5, delay: 0.3 }}
+              viewport={{ once: true }}
               className="text-white text-center text-sm md:text-base 2xl:text-lg"
             >
               In savings through our mates rates <br /> discounts
@@ -74,6 +78,7 @@ const WelcomeHome2 = () => {
               initial={{ opacity: 0, y: "-40%" }}
               whileInView={{ opacity: 1, y: "0" }}
               transition={{ duration: 0.5, delay: 0.6 }}
+              viewport={{ once: true }}
               className="text-[#00F0FF] font-bold text-2xl lg:text3xl xl:text-4xl 2xl:text-6xl"
             >
               200 <span className="text-white">+</span>
@@ -82,6 +87,7 @@ const WelcomeHome2 = () => {
               initial={{ opacity: 0, y: "-40%" }}
               whileInView={{ opacity: 1, y: "0" }}
               transition={{ duration: 0.5, delay: 0.6 }}
+              viewport={{ once: true }}
               className="text-white text-center text-sm md:text-base 2xl:text-lg"
             >
               stores you can redeem offers In <br /> person or online
