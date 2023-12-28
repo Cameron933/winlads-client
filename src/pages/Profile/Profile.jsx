@@ -71,8 +71,11 @@ const Profile = () => {
         setAddress(response?.data?.data.address);
         setUserImage(response?.data?.data.image);
         setRefferalId(response?.data?.data.rafflesId);
-        getProfileImage(response?.data?.data.image);
-
+        console.log(response?.data?.data.image);
+        if (response?.data?.data.image != undefined) {
+          getProfileImage(response?.data?.data.image);
+        }
+        setLoading(false);
       })
       .catch((error) => {
         setLoading(false);
@@ -331,18 +334,73 @@ const Profile = () => {
                         onChange={(e) => setDob(e.target.value)}
                       ></input>
                     </div>
-                    <div className="flex flex-col space-y-2">
-                      <p className="text-black text-sm xl:text-md special:text-xl">
-                        Postal Address
-                      </p>
-                      <input
-                        className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
-                        placeholder="Enter Postal Address"
-                        type="text"
-                        value={address}
-                        onChange={(e) => setAddress(e.target.value)}
-                      ></input>
+                    <div className="flex items-center gap-2">
+                      <div className="flex flex-col space-y-2 w-1/2">
+                        <p className="text-black text-sm xl:text-md special:text-xl">
+                          Address Line 1
+                        </p>
+                        <input
+                          className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
+                          placeholder="Address Line 1"
+                          type="text"
+                          value={address}
+                          onChange={(e) => setAddress(e.target.value)}
+                        ></input>
+                      </div>
+                      <div className="flex flex-col space-y-2 w-1/2">
+                        <p className="text-black text-sm xl:text-md special:text-xl">
+                          Address Line 2
+                        </p>
+                        <input
+                          className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
+                          placeholder="Address Line 2"
+                          type="text"
+                          value={address}
+                          onChange={(e) => setAddress(e.target.value)}
+                        ></input>
+                      </div>
+
                     </div>
+                    <div className="flex items-center gap-2">
+                      <div className="flex flex-col space-y-2 w-1/3">
+                        <p className="text-black text-sm xl:text-md special:text-xl">
+                          City
+                        </p>
+                        <input
+                          className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
+                          placeholder="City"
+                          type="text"
+                          value={address}
+                          onChange={(e) => setAddress(e.target.value)}
+                        ></input>
+                      </div>
+                      <div className="flex flex-col space-y-2 w-1/3">
+                        <p className="text-black text-sm xl:text-md special:text-xl">
+                          State
+                        </p>
+                        <input
+                          className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
+                          placeholder="State"
+                          type="text"
+                          value={address}
+                          onChange={(e) => setAddress(e.target.value)}
+                        ></input>
+                      </div>
+                      <div className="flex flex-col space-y-2 w-1/3">
+                        <p className="text-black text-sm xl:text-md special:text-xl">
+                          Postal Code
+                        </p>
+                        <input
+                          className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
+                          placeholder="Postal Code"
+                          type="text"
+                          value={address}
+                          onChange={(e) => setAddress(e.target.value)}
+                        ></input>
+                      </div>
+
+                    </div>
+
                     <div className="flex flex-col space-y-2">
                       <p className="text-black text-sm xl:text-md special:text-xl">
                         License Number
