@@ -22,8 +22,8 @@ const WelcomeHome2 = () => {
             left: 0,
           }}
           className="react-player opacity-60 mx-auto w-full"
-        /> */}
-        
+        /> 
+        */}        
         <div className="mx-auto 2xl:max-w-[2400px] w-full px-3 lg:px-5 py-10 lg:py-16 z-10 bg-welcome">
           <div className="flex items-center justify-center 2xl:gap-40 xl:gap-36 lg:gap-32 md:gap-8 sm:gap-6 gap-5 lg:flex-row flex-col">
             <div className="flex flex-col justify-center items-center  ">
