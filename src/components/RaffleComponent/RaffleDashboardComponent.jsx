@@ -9,16 +9,18 @@ function RaffleDashboardComponent({ bgColor, id, name, type, img, date }) {
     <>
       <Link to={`/giveaway/${id}`} state={{name, bgColor}} className="w-full">
         <div
-          className={`
-          } flex flex-row justify-between pr-2 rounded-3xl 2xl:rounded-[30px] special:rounded-[40px] w-full py-2 shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:opacity-75 hover:opacity-100}`}
+          className='flex flex-row items-stretch justify-between pr-2 rounded-3xl 2xl:rounded-[30px] special:rounded-[40px] w-full py-2 shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:opacity-75'
           style={{ backgroundColor: bgColor }}
         >
+          <div className="w-36 special:w-96 2xl:w-48 min-w-32 aspect-square">
           <img
             src={CatJeep}
             alt=""
-            className="flex w-36 special:w-96 2xl:w-48"
+            className="w-full h-full object-cover"
           />
-          <div className="flex flex-col space-y-4">
+          </div>
+
+          <div className="flex flex-col space-y-4 w-2/3">
             <div className="flex justify-end">
               <img
                 src={img}

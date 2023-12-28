@@ -7,15 +7,15 @@ import { carAnimation } from "../../animation/animation";
 
 const UnderDev = () => {
   return (
-    <div>
-      <div className='flex items-center justify-between my-10 overflow-hidden'>
+    <div className='w-full'>
+      <div className='flex items-center justify-between my-10 overflow-hidden w-full'>
         <div>
         </div>
         <div className='w-full xl:w-1/2 md:px-10 z-20'>
           <TopNav />
         </div>
       </div>
-      <div className='h-[80vh] flex items-center justify-center max-w-[1680px] mx-auto relative'>
+      <div className=' flex items-center justify-center w-full mx-auto relative'>
         <div className='flex items-center md:flex-row flex-col justify-center relative'>
           <div className='md:w-1/2 w-full z-10'>
             <div className='w-max mx-auto'>
@@ -26,7 +26,7 @@ const UnderDev = () => {
             </div>
           </div>
           <div className='md:w-1/2 w-full z-10 px-10 md:px-0'>
-            <div className='w-full mt-48'>
+            <div className='w-full mt-20'>
               
               <motion.img
                 initial={{scale:0.5}}

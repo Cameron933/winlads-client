@@ -107,7 +107,7 @@ const Dashboard = () => {
           {/* home-content */}
           <div className="flex flex-col xl:flex-col flex-1 px-4 gap-5">
             {/* left side */}
-            <div className="flex flex-col flex-1 ">
+            <div className="flex flex-col flex-1 pb-2">
               <div className="block xl:hidden space-y-4">
                 <div className="bg-black rounded-b-3xl py-4">
                   <TopNav textColor={"white"} />
@@ -274,14 +274,14 @@ const Dashboard = () => {
             </div>
 
             {/* right-side */}
-            <div className="flex flex-col flex-1">
+            {/* <div className="flex flex-col flex-1"> */}
               <img
                 src={BG}
                 alt=""
                 className="absolute right-0 -z-10 md:top-80 top-20 w-72 xl:w-96 md:w-96 special:w-1/4 2xl:w-1/4 special:top-20 opacity-60 2xl:top-40 xl:top-40"
               />
-              <div className="graph-section "></div>
-            </div>
+              {/* <div className="graph-section "></div> */}
+            {/* </div> */}
           </div>
         </div>
       )}

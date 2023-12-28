@@ -29,7 +29,7 @@ function LiveRaffle() {
   // const formattedDate = currentDate.toLocaleString();
   return (
     <div
-      className="flex "
+      className="flex w-full"
       style={{
         backgroundImage: `url(${liveBackground})`,
         // backgroundPosition: "center",
@@ -37,7 +37,6 @@ function LiveRaffle() {
         backgroundSize: "cover",
       }}
     >
-      <SideNav screen="screen" name={valUser.name} userId={valUser.uid}  />
 
       <div className="flex flex-col xl:mx-10 mx-5 flex-1 pt-4">
         <div className="flex flex-row justify-between items-center">
