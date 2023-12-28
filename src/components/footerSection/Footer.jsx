@@ -5,12 +5,12 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <div className="flex items-center justify-center  bg-[#000]">
+    <div className="flex items-start justify-center  bg-[#000]">
       <div className="mx-auto max-w-[2400px]  bg-[#000] w-full">
         <div className="md:pl-0   px-3 sm:py-5 py-3">
           <div className="flex flex-col md:flex-row md:px-14">
-            <div className="xl:w-5/12 lg:w-5/12 md:w-4/12 w-full m-2 sm:m-4  2xl:pt-10 lg:pl-0 ">
-              <img src={logo2} alt="" className="2xl:w-96" />
+            <div className="xl:w-5/12 lg:w-5/12 md:w-4/12 w-full mx-2 sm:mx-4  2xl:pt-0 lg:pl-0 ">
+              <img src={logo2} alt="" className="2xl:w-72 max-w-[200px]" />
               <p className="text-sx sm:text-sm mt-5 2xl:text-xl special:text-2xl text-[#fff]">
                 Empowering Lives Through Winlads
               </p>
@@ -23,7 +23,7 @@ function Footer() {
             <div className="flex flex-col sm:flex-row xl:w-7/12 lg:w-7/12 md:w-8/12 w-full sm:justify-between pb-2 ">
               <div className="m-2 sm:m-4 text-[#fff] flex-1 ">
                 <p className="font-bold text-sm mb-3 2xl:text-xl special:text-2xl">
-                  QUICK LINK
+                  Quick Links
                 </p>
                 <ul className="text-xs 2xl:text-xl flex flex-col gap-1">
                   <li className="cursor-pointer">
@@ -79,13 +79,24 @@ function Footer() {
                   News Letter
                 </p>
                 <ul className="text-xs 2xl:text-xl flex flex-col gap-1">
-                  <li className="cursor-pointer">ABN: 87671535149</li>
+            
                   <li className="cursor-pointer">2009/15 Everage St</li>
                   <li className="cursor-pointer">Moonee Ponds</li>
                   <li className="cursor-pointer">Victoria</li>
                   <li className="cursor-pointer">3039</li>
-                  <li className="cursor-pointer">NSW: TP/03199</li>
-                  <li className="cursor-pointer">Permit No: ACT TP 23/02687</li>
+
+                </ul>
+              </div>
+              <div className="m-2 sm:m-4 text-[#fff] flex-1 ">
+                <p className="font-bold text-sm mb-3 2xl:text-xl special:text-2xl">
+                  Registration
+                </p>
+                <ul className="text-xs 2xl:text-xl flex flex-col gap-1">
+            
+                <li className="cursor-pointer">ABN: 87671535149</li>  
+                <li className="cursor-pointer">NSW: TP/03199</li>
+                <li className="cursor-pointer">Permit No: ACT TP 23/02687</li>
+
                 </ul>
               </div>
             </div>
@@ -103,3 +114,4 @@ function Footer() {
 }
 
 export default Footer;
+//                  

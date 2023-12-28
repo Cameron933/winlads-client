@@ -181,7 +181,7 @@ const ChoosePlane = () => {
             />
 
             {/* car */}
-            <div className="max-w-sm w-full 2xl:max-w-lg special:max-w-2xl p-6 xl:py-8 special:py-10 flex items-center  justify-center lg:order-1 order-1  ">
+            <div className="max-w-sm w-full 2xl:max-w-lg special:max-w-2xl p-6 xl:py-8 special:py-10 flex items-center  justify-center lg:order-1 order-1">
               <motion.img
                 initial={{ opacity: 0, y: "-40%" }}
                 whileInView={{ opacity: 1, y: "0" }}
