@@ -42,7 +42,7 @@ const MyEntries = () => {
       )
       .then((response) => {
         console.log(response.data.data, "data raffle");
-        setMyGiveaways(response.data.data.tickets);
+        setMyGiveaways(response.data.data.future);
         setIsLoading(false);
       })
       .catch((error) => {
@@ -74,7 +74,7 @@ const MyEntries = () => {
           </div>
           {/* Content */}
           <div className="px-0 md:px-10 relative">
-            <Filters />
+            <Filters myGiveaways={myGiveaways} />
             <div className="flex items-center justify-between xl:hidden px-5 my-5">
               <h1 className="text-xl font-bold">Upcoming Entries</h1>
               <IoIosTimer className="text-2xl font-bold" />

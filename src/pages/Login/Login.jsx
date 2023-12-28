@@ -12,7 +12,7 @@ import Cookies from "universal-cookie";
 import { motion } from "framer-motion";
 import { toast } from "react-toastify";
 import { validateCurrentUser } from "../../utils/validateuser.js";
-import LoginImg from "../../assets/images/login/jeep.png";
+import LoginImg from "../../assets/images/MainCar.png";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 
@@ -74,17 +74,16 @@ const Login = () => {
             }
           );
         } else {
-          try{
-            const result = await signInWithPhoneNumber(auth, "+"+ph, verify);
+          try {
+            const result = await signInWithPhoneNumber(auth, "+" + ph, verify);
             setfinal(result);
             // console.log(final, "code sent final");
             setshow(true);
             setShowOTPBox(true);
             setButtonText("Login");
-          } catch(error) {
-              console.log(error, 'fir error')
+          } catch (error) {
+            console.log(error, "fir error");
           }
-      
         }
       } catch (error) {
         console.error("Error checking mobile:", error);
@@ -105,8 +104,8 @@ const Login = () => {
   }
 
   useEffect(() => {
-    currentUserValidation()
-  },[])
+    currentUserValidation();
+  }, []);
 
   const currentUserValidation = async () => {
     const validator = await validateCurrentUser();
@@ -114,7 +113,7 @@ const Login = () => {
       console.log("Session OK", validator.user);
       navigate("/dashboard");
     } else {
-      console.log("")
+      console.log("");
     }
   };
 
@@ -187,73 +186,66 @@ const Login = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <div className="h-screen flex flex-col xl:flex-row items-center justify-center bg-image px-20">
-          <div className="container login-section">
-            <div className="login-contain flex items-center justify-center md:flex-row flex-col">
-              <div className="img-container scale-150 mb-9 md:mb-0 prevent">
-                {/* Dekstop VIew Jeep */}
-                <div className="hidden md:block xl:hidden w-full">
-                  <motion.img
-                    initial={{ opacity: 0, x: "-50%" }}
-                    whileInView={{ opacity: 1, x: "-10%" }}
-                    transition={{ duration: 0.8 }}
-                    src={LoginImg}
-                    className="w-full h-full object-contain md:object-cover "
-                    alt="main-img"
-                  />
-                </div>
-                <div className="hidden xl:block md:hidden w-full">
-                  <motion.img
-                    initial={{ opacity: 0, x: "-50%" }}
-                    whileInView={{ opacity: 1, x: "-25%" }}
-                    transition={{ duration: 0.8 }}
-                    src={LoginImg}
-                    className="w-[600px] h-full object-contain md:object-cover "
-                    alt="main-img"
-                  />
-                </div>
-                {/* Mobile View Jeep */}
-                <div className="block md:hidden xl:hidden w-full">
-                  <motion.img
-                    initial={{ opacity: 0, x: -50 }}
-                    whileInView={{ opacity: 1, x: -10 }}
-                    transition={{ duration: 0.8 }}
-                    src={MainImg}
-                    className="w-full h-full object-contain md:object-cover "
-                    alt="main-img"
-                  />
-                </div>
+        <>
+        <div className="h-screen flex items-center justify-center bg-image">
+          <div className="flex items-center justify-between md:flex-row flex-col px-10 xl:px-20 max-w-[1440px]">
+            {/* <div className="img-container scale-150 mb-9 md:mb-0 prevent"> */}
+            {/* Dekstop VIew Jeep */}
+            <div className="">
+              <div className="hidden md:block  transform scale-x-[-1]">
+                <motion.img
+                  initial={{ opacity: 0, x: "40%" }}
+                  whileInView={{ opacity: 1, x: "0%" }}
+                  transition={{ duration: 0.8 }}
+                  src={LoginImg}
+                  className="xl:w-full h-full md:w-96"
+                  alt="main-img"
+                />
               </div>
+              {/* Mobile View Jeep */}
+              <div className="block md:hidden w-full transform scale-x-[-1]">
+                <motion.img
+                  initial={{ opacity: 0, x: "40%"  }}
+                  whileInView={{ opacity: 1, x: "0%" }}
+                  transition={{ duration: 0.8 }}
+                  src={LoginImg}
+                  className="w-full h-full"
+                  alt="main-img"
+                />
+              </div>
+            </div>
 
-              <form
-                onSubmit={handleSubmit}
-                autoComplete="off"
-                className="text-center"
-              >
-                <span className="text-2xl md:text-3xl lg:text-4xl fw-bold font-bold special:text-4xl">
-                  Sign in to access your account
-                </span>
+            {/* </div> */}
 
-                <div className="flex items-center flex-col justify-center gap-5 w-3/4 mx-auto mt-10">
-                  <div
-                    // id="recaptcha-container"
-                    className={
-                      errors.otp && touched.opt
-                        ? "input-div input-error"
-                        : ""
+            <form
+              onSubmit={handleSubmit}
+              autoComplete="off"
+              className="text-center form-contain items-center"
+            >
+              <span className="text-2xl md:text-2xl lg:text-4xl font-bold special:text-4xl">
+                Sign in to access your account
+              </span>
+
+              <div className="flex flex-col justify-center gap-5 mt-10">
+                <div
+                  // id="recaptcha-container"
+                  className={
+                    errors.otp && touched.opt ? "input-div input-error" : ""
+                  }
+                >
+                  <PhoneInput
+                    country={"au"}
+                    // value={this.state.phone}
+                    // onChange={(phone) => this.setState({ phone })}
+                    value={ph}
+                    onChange={(value, country, e, formattedValue) =>
+                      setPh(value)
                     }
-                  >
-                    <PhoneInput
-                      country={"au"}
-                      // value={this.state.phone}
-                      // onChange={(phone) => this.setState({ phone })}
-                      value={ph}
-                      onChange={(value, country, e, formattedValue) => setPh(value)}
-                      onBlur={handleBlur}
-                      id="mobile"
-                      className="placeholder:text-[16px] border borer-solid  border-black xl:w-96 w-64"
-                    />
-                    {/* <PhoneInput
+                    onBlur={handleBlur}
+                    id="mobile"
+                    className="placeholder:text-[16px] border borer-solid  border-black"
+                  />
+                  {/* <PhoneInput
                   country={"au"}
                   type="number"
                   // value={this.state.phone}
@@ -264,10 +256,10 @@ const Login = () => {
                   id="mobile"
                   className="placeholder:text-[16px]"
                 /> */}
-                    {/* <FcPhoneAndroid size={20} /> */}
-                    {/* <img src={Flag} alt="" /> */}
+                  {/* <FcPhoneAndroid size={20} /> */}
+                  {/* <img src={Flag} alt="" /> */}
 
-                    {/* <input
+                  {/* <input
                       type="text"
                       placeholder="+61&nbsp;(Phone Number)"
                       value={ph}
@@ -276,35 +268,35 @@ const Login = () => {
                       id="mobile"
                       className="placeholder:text-[16px]"
                     /> */}
+                  <small className="text-error">
+                    {errors.mobile && touched.mobile && errors.mobile}
+                  </small>
+                </div>
+
+                {showOTPBox && (
+                  <div
+                    className={
+                      errors.otp && touched.opt
+                        ? "input-div input-error"
+                        : "input-div"
+                    }
+                  >
+                    <input
+                      type="text"
+                      placeholder="OTP Code"
+                      value={otp}
+                      onChange={(e) => setOtp(e.target.value)}
+                      className="w-full"
+                    />
                     <small className="text-error">
-                      {errors.mobile && touched.mobile && errors.mobile}
+                      {errors.otp && touched.opt && errors.otp}
                     </small>
                   </div>
+                )}
 
-                  {showOTPBox && (
-                    <div
-                      className={
-                        errors.otp && touched.opt
-                          ? "input-div input-error"
-                          : "input-div"
-                      }
-                    >
-                      <input
-                        type="text"
-                        placeholder="OTP Code"
-                        value={otp}
-                        onChange={(e) => setOtp(e.target.value)}
-                        // id="tin"
-                      />
-                      <small className="text-error">
-                        {errors.otp && touched.opt && errors.otp}
-                      </small>
-                    </div>
-                  )}
-
-                  <div className="flex items-center justify-start w-full text-md">
-                    <div>
-                      {/* <input
+                {/* <div className="flex items-center justify-start w-full text-md">
+                  <div>
+                    <input
                         className="mr-1"
                         type="checkbox"
                         id="remind"
@@ -312,16 +304,16 @@ const Login = () => {
                         value={values.remind}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                      /> */}
-                      <input type="checkbox" name="" id="rem" />
-                      <label htmlFor="rem" className="ml-2">
-                        Remember me
-                      </label>
-                    </div>
+                      />
+                    <input type="checkbox" name="" id="rem" />
+                    <label htmlFor="rem" className="ml-2">
+                      Remember me
+                    </label>
                   </div>
+                </div> */}
 
-                  {!final && <div id="recaptcha-container"></div>}
-                  {/* 
+                {!final && <div id="recaptcha-container"></div>}
+                {/* 
                   <button className="btn-main" type="submit">
                     <span>Next</span>
                     <MdOutlineNavigateNext
@@ -331,36 +323,32 @@ const Login = () => {
                     />
                   </button> */}
 
-                  <button
-                    className="px-12 w-full py-1 sm:py-2 flex justify-center flex-row items-center rounded-lg bg-black hover:bg-black/75"
-                    onClick={(e) => onSignup(e)}
-                    type="submit"
-                  >
-                    <span className="xl:text-2xl text-lg text-white font-bold">
-                      {buttonText}
-                    </span>
-                    <MdOutlineNavigateNext
-                      color={"#fff"}
-                      size={40}
-                      className="inline-block mt-0"
-                    />
-                  </button>
-                  <div className="font-semibold text-lg">
-                    <span>New Member? </span>
-                    <span>
-                      <Link
-                        to="/register"
-                        className="react-link text-[#157D98]"
-                      >
-                        Register now
-                      </Link>
-                    </span>
-                  </div>
+                <button
+                  className="px-12 w-full py-2 flex justify-center flex-row items-center rounded-lg bg-black hover:bg-black/75"
+                  onClick={(e) => onSignup(e)}
+                  type="submit"
+                >
+                  <span className="xl:text-2xl text-sm text-white font-bold">
+                    {buttonText}
+                  </span>
+                  <MdOutlineNavigateNext
+                    color={"#fff"}
+                    className="inline-block mt-0 text-2xl"
+                  />
+                </button>
+                <div className="font-semibold text-lg">
+                  <span>New Member? </span>
+                  <span>
+                    <Link to="/register" className="react-link text-[#157D98]">
+                      Register now
+                    </Link>
+                  </span>
                 </div>
-              </form>
-            </div>
+              </div>
+            </form>
           </div>
         </div>
+        </>
       )}
     </>
   );

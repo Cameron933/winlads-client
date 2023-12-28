@@ -85,11 +85,20 @@ const SideNav = ({ screen }) => {
                     <FiLoader className="w-6 h-6 2xl:w-9 2xl:h-9 special:w-12 special:h-12 animate-spin text-white" />
                   </div>
                 ) : (
-                  <img
+                  userImage ? (
+                    <img
                     src={userImage}
                     className="w-[30px] md:w-[35px] xl:w-[40px] rounded-full"
                     alt="user"
                   />
+                  ) : (
+                    <img
+                    src={User}
+                    className="w-[30px] md:w-[35px] xl:w-[40px] rounded-full"
+                    alt="user"
+                  />
+                  )
+                
                 )}
               </div>
             </Link>
