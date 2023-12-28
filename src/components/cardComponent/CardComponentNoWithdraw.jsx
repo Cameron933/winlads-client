@@ -20,7 +20,7 @@ const CardComponentNoWithdraw = () => {
     if (validator.validatorBl) {
       console.log("Session OK", validator.user);
       setValUser(validator.user);
-      getEarning(validator.user.uid)
+      getEarning(validator.user.uid);
       // getTransactionsFunction();
     } else {
       setLoading(false);
@@ -29,9 +29,7 @@ const CardComponentNoWithdraw = () => {
 
   const getEarning = async (valuid) => {
     await axios
-      .get(
-        `${import.meta.env.VITE_SERVER_API}/getPointBalances?uid=${valuid}`
-      )
+      .get(`${import.meta.env.VITE_SERVER_API}/getPointBalances?uid=${valuid}`)
       .then((response) => {
         setWallet(response?.data?.data);
         setLoading(false);
@@ -82,7 +80,8 @@ const CardComponentNoWithdraw = () => {
                 <p
                   style={{
                     color:
-                      valUser.subscripton?.color == "#000000"
+                      !valUser.subscripton?.color ||
+                      valUser.subscripton?.color === "#000000"
                         ? "white"
                         : valUser.subscripton?.color,
                   }}
