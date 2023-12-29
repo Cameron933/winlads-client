@@ -32,12 +32,30 @@ function RaffleDashbord() {
   const [userImage, setUserImage] = useState("");
   const [loading, setLoading] = useState(true);
   const [initialLength, setInitSize] = useState(8);
+  const [liveLink, setLiveLink] = useState('')
 
   const navigate = useNavigate();
+
+  const getLiveLink = async () => {
+    try {
+      const data = await axios.get(`${import.meta.env.VITE_SERVER_API}/getLiveRaffleRound`)
+      if (data.data.data.message) {
+        throw Error(data.data.data.message);
+      } else {
+        setLiveLink(data.data.data);
+      }
+    } catch (error) {
+      toast.error(error.message);
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  }
 
   useEffect(() => {
     currentUserValidation();
     getRaffles();
+    getLiveLink();
   }, []);
 
   const handleSeeMore = (show) => {
@@ -88,75 +106,78 @@ function RaffleDashbord() {
   return (
     <>
       {/* <div className="flex flex-row justify-between min-h-screen overflow-hidden"> */}
-        {/* <div className="flex-1"> */}
-          {/* home-content */}
-          <div className="flex flex-col xl:px-6 px-4 special:px-12 special:space-y-24 space-y-8 overflow-hidden relative">
-            <div className="xl:flex xl:flex-row flex-col xl:justify-between xl:gap-4 space-y-4 xl:space-y-0">
-              <img
-                src={BG}
-                alt=""
-                className="absolute right-0 -z-10 top-10 w-72 xl:w-96 md:w-96 special:w-1/4 2xl:w-1/4 special:top-40 opacity-60"
-              />
-              {/* left side */}
-              <div className="flex flex-col flex-1">
-                <div className="block xl:hidden space-y-4">
-                  <div className="bg-black rounded-b-3xl py-4">
-                    <TopNav textColor={"white"} />
-                    <div className="pt-10">
-                      <img className="" src={MainCar} alt="main" />
+      {/* <div className="flex-1"> */}
+      {/* home-content */}
+      <div className="flex flex-col xl:px-6 px-4 special:px-12 special:space-y-24 space-y-8 overflow-hidden relative">
+        <div className="xl:flex xl:flex-row flex-col xl:justify-between xl:gap-4 space-y-4 xl:space-y-0">
+          <img
+            src={BG}
+            alt=""
+            className="absolute right-0 -z-10 top-10 w-72 xl:w-96 md:w-96 special:w-1/4 2xl:w-1/4 special:top-40 opacity-60"
+          />
+          {/* left side */}
+          <div className="flex flex-col flex-1">
+            <div className="block xl:hidden space-y-4">
+              <div className="bg-black rounded-b-3xl py-4">
+                <TopNav textColor={"white"} />
+                <div className="pt-10">
+                  <img className="" src={MainCar} alt="main" />
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col 2xl:space-y-8 space-y-6 special:space-y-12">
+              <div className="mt-4 xl:pt-0 pb-4 xl:pb-0">
+                <SearchField />
+              </div>
+              <div className="flex flex-row justify-between items-center">
+                <div className="flex flex-col space-y-2 special:space-y-8 flex-1">
+                  <div className="flex flex-row items-center gap-2 special:gap-4">
+                    {userImage ? (
+                      <img
+                        src={userImage}
+                        className="w-12 h-12 special:w-36 special:h-36 rounded-full"
+                        alt="user"
+                      />
+                    ) : (
+                      <img
+                        src={User}
+                        alt=""
+                        className="w-12 h-12 special:w-36 special:h-36"
+                      />
+                    )}
+
+                    <div className="flex flex-col space-y-1">
+                      <p className="font-bold special:text-4xl">
+                        Earning Balance
+                      </p>
+                      <p className="special:text-6xl">
+                        ${valUser.balance || "0.00"}
+                      </p>
                     </div>
                   </div>
                 </div>
-                <div className="flex flex-col 2xl:space-y-8 space-y-6 special:space-y-12">
-                  <div className="mt-4 xl:pt-0 pb-4 xl:pb-0">
-                    <SearchField />
-                  </div>
-                  <div className="flex flex-row justify-between items-center">
-                    <div className="flex flex-col space-y-2 special:space-y-8 flex-1">
-                      <div className="flex flex-row items-center gap-2 special:gap-4">
-                        {userImage ? (
-                          <img
-                            src={userImage}
-                            className="w-12 h-12 special:w-36 special:h-36 rounded-full"
-                            alt="user"
-                          />
-                        ) : (
-                          <img
-                            src={User}
-                            alt=""
-                            className="w-12 h-12 special:w-36 special:h-36"
-                          />
-                        )}
+              </div>
+              <div className="flex flex-col xl:flex-row md:flex-row gap-2 justify-between items-center">
+                <div className="flex-1 flex">
+                  <iframe
+                    title="YouTube Video"
+                    src="https://www.youtube.com/watch?v=y6qxTSuf91k"
+                    frameBorder="0"
+                    className=""
+                  ></iframe>
+                </div>
+                <Link to="/live" className="flex flex-1">
+                  {
+                    liveLink ?
 
-                        <div className="flex flex-col space-y-1">
-                          <p className="font-bold special:text-4xl">
-                            Earning Balance
-                          </p>
-                          <p className="special:text-6xl">
-                            ${valUser.balance || "0.00"}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex flex-col xl:flex-row md:flex-row gap-2 justify-between items-center">
-                    <div className="flex-1 flex">
-                      <iframe
-                        title="YouTube Video"
-                        src="https://www.youtube.com/watch?v=y6qxTSuf91k"
-                        frameBorder="0"
-                        className=""
-                      ></iframe>
-                    </div>
-                    <Link to="/live" className="flex flex-1">
                       <div className="bg-[#D5B511] hover:bg-[#D5B511]/75 flex-col rounded-3xl 2xl:rounded-[30px] special:rounded-[40px] pr-2 special:pr-4 py-1 space-y-2 shadow-lg">
                         <div className="flex flex-row justify-between items-center">
-                        <div className="w-36 special:w-96 2xl:w-48 min-w-32 aspect-square">
-                          <img
-                            src={CatJeep}
-                            alt=""
-                            className="w-full h-full object-cover"
-                          />
+                          <div className="w-36 special:w-96 2xl:w-48 min-w-32 aspect-square">
+                            <img
+                              src={CatJeep}
+                              alt=""
+                              className="w-full h-full object-cover"
+                            />
                           </div>
 
                           <div className="flex flex-col space-y-4">
@@ -204,72 +225,110 @@ function RaffleDashbord() {
                           </div>
                         </div>
                       </div>
-                    </Link>
-                  </div>
-                </div>
-                <div className="flex xl:flex-row md:flex-row flex-col xl:justify-between gap-2">
-                  <div className="xl:flex md:flex items-end flex-1 w-full"></div>
-                </div>
-              </div>
+                      :
+                      <div className="bg-[#4b4527] hover:bg-[#4b4100]/75 flex-col rounded-3xl 2xl:rounded-[30px] special:rounded-[40px] pr-2 special:pr-4 py-1 space-y-2 shadow-lg">
+                        <div className="flex flex-row justify-between items-center">
+                          <div className="w-36 special:w-96 2xl:w-48 min-w-32 aspect-square">
+                            <img
+                              src={CatJeep}
+                              alt=""
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
 
-              {/* right-side */}
-              <div className="flex-col flex-1 space-y-4 hidden xl:flex">
-                <div className="bg-black rounded-b-[50px] py-4">
-                  <TopNav textColor={"white"} />
-                  <div className="pt-10">
-                    <motion.img
-                      initial={{ x: 80, opacity: 0 }} // Initial position and opacity (hidden)
-                      animate={{ x: 0, opacity: 1 }} // Move and fade in when in view
-                      transition={{ type: "tween", duration: 1, delay: 1 }}
-                      className="w-3/4"
-                      src={MainCar}
-                      alt="main"
-                    />
-                  </div>
-                </div>
+                          <div className="flex flex-col space-y-4">
+                            <div className="flex text-end flex-col z-10 pr-2 items-center space-y-1 special:space-y-2">
+                              <p className="text-white font-bold xl:text-[12px] text-xs special:text-4xl 2xl:text-[16px] text-center">
+                                No Live Yet Please Check Later
+                              </p>
+                              <p className="text-[10px] text-white special:text-xl 2xl:text-[10px]">
+                                2023-SEP-19 TUESDAY
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="grid grid-cols-3 px-5 items-center">
+                          <div className="col-span-2 flex justify-end gap-2 z-10">
+                            <p className="text-[#4FC8E8] font-bold">?</p>
+                            <p className="text-white font-bold">?</p>
+                            <p className="text-white font-bold">?</p>
+                            <p className="text-white font-bold">?</p>
+                            <p className="text-white font-bold">?</p>
+                          </div>
+                          <div className="col-span-1 justify-end flex">
+                            <GoQuestion />
+                          </div>
+                        </div>
+                      </div>
+
+                  }
+                </Link>
               </div>
             </div>
-            <div className="flex flex-col space-y-2 special:space-y-6 2xl:space-y-4">
-              <p className="font-semibold text-lg xl:text-xl 2xl:text-2xl special:text-4xl">
-                Giveaway Categories
-              </p>
-              {loading ? (
-                <div className="flex justify-center">
-                  <FiLoader className="w-9 h-9 2xl:w-12 2xl:h-12 special:w-18 special:h-18 animate-spin" />
-                </div>
-              ) : raffles.length > 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2 2xl:gap-4 special:gap-4">
-                  {raffles.slice(0, initialLength).map((raffle, key) => (
-                    <RaffleDashboardComponent
-                      key={key}
-                      bgColor={raffle.color}
-                      id={raffle._id}
-                      name={raffle.name}
-                      type={raffle.type}
-                      img={raffle.image}
-                      date={raffle.date}
-                    />
-                  ))}
-                  {
-                    raffles.length > 8 && (initialLength == 8 ?
-                      <button onClick={() => handleSeeMore(true)}
-                        className="">
-                        See More
-                      </button> :
-                      <button onClick={() => handleSeeMore(false)}
-                        className="">
-                        See Less
-                      </button>)
-                  }
-                </div>
-              ) : (
-                <p className="flex justify-center font-semibold 2xl:text-2xl xl:text-xl special:text-4xl text-lg">
-                  No Giveaways
-                </p>
-              )}
+            <div className="flex xl:flex-row md:flex-row flex-col xl:justify-between gap-2">
+              <div className="xl:flex md:flex items-end flex-1 w-full"></div>
             </div>
           </div>
-        {/* </div> */}
+
+          {/* right-side */}
+          <div className="flex-col flex-1 space-y-4 hidden xl:flex">
+            <div className="bg-black rounded-b-[50px] py-4">
+              <TopNav textColor={"white"} />
+              <div className="pt-10">
+                <motion.img
+                  initial={{ x: 80, opacity: 0 }} // Initial position and opacity (hidden)
+                  animate={{ x: 0, opacity: 1 }} // Move and fade in when in view
+                  transition={{ type: "tween", duration: 1, delay: 1 }}
+                  className="w-3/4"
+                  src={MainCar}
+                  alt="main"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col space-y-2 special:space-y-6 2xl:space-y-4">
+          <p className="font-semibold text-lg xl:text-xl 2xl:text-2xl special:text-4xl">
+            Giveaway Categories
+          </p>
+          {loading ? (
+            <div className="flex justify-center">
+              <FiLoader className="w-9 h-9 2xl:w-12 2xl:h-12 special:w-18 special:h-18 animate-spin" />
+            </div>
+          ) : raffles.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2 2xl:gap-4 special:gap-4">
+              {raffles.slice(0, initialLength).map((raffle, key) => (
+                <RaffleDashboardComponent
+                  key={key}
+                  bgColor={raffle.color}
+                  id={raffle._id}
+                  name={raffle.name}
+                  type={raffle.type}
+                  img={raffle.image}
+                  date={raffle.date}
+                />
+              ))}
+              {
+                raffles.length > 8 && (initialLength == 8 ?
+                  <button onClick={() => handleSeeMore(true)}
+                    className="">
+                    See More
+                  </button> :
+                  <button onClick={() => handleSeeMore(false)}
+                    className="">
+                    See Less
+                  </button>)
+              }
+            </div>
+          ) : (
+            <p className="flex justify-center font-semibold 2xl:text-2xl xl:text-xl special:text-4xl text-lg">
+              No Giveaways
+            </p>
+          )}
+        </div>
+      </div>
+      {/* </div> */}
       {/* </div> */}
     </>
   );
