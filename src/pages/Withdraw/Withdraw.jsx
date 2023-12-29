@@ -25,8 +25,9 @@ const Withdraw = () => {
   const id = cookies.get("wr_token");
   const [withdrawShow, setWithdrawShow] = useState(false);
   const navigate = useNavigate();
-  const [withdrawMethod, setWithdrawMethod] = useState("Direct Bank");
+  const [withdrawMethod, setWithdrawMethod] = useState(true);
   const [valUser, setValUser] = useState({});
+  const [selectMethod, setSelectMethod] = useState("")
 
   const [amount, setAmount] = useState("");
   const [bankName, setBankName] = useState("");
@@ -36,13 +37,13 @@ const Withdraw = () => {
     currentUserValidation();
   }, []);
 
-  const handleDrowpdownChange = (val) => {
-    setWithdrawMethod(val);
-    handleShowBank();
-  };
+  // const handleDrowpdownChange = (val) => {
+  //   setWithdrawMethod(val);
+  //   handleShowBank();
+  // };
 
   const handleShowBank = () => {
-    setWithdrawShow((prev) => !prev);
+    setWithdrawShow(!withdrawShow);
   };
 
   const currentUserValidation = async () => {
@@ -61,8 +62,8 @@ const Withdraw = () => {
     const response = await axios.post(
       `${import.meta.env.VITE_SERVER_API}/requestFundTransfer`,
       {
-        uid: uid,
-        method: withdrawMethod,
+        uid: valUser.uid,
+        method: selectMethod || "bank",
         bank: bankName,
         accountnumber: accountNumber,
         amount: amount,
@@ -92,6 +93,19 @@ const Withdraw = () => {
       });
     }
   };
+
+  const handlePaymentMethod = (val) => {
+    setWithdrawShow(false)
+    setSelectMethod(val)
+    if(val==="stripe") {
+      setWithdrawMethod(false)
+    }
+    if(val==="bank") {
+      setWithdrawMethod(true)
+    }
+  }
+
+
 
   return (
     <div>
@@ -131,45 +145,42 @@ const Withdraw = () => {
                 Withdraw Method
               </p>
               <div
-                className="bg-[#ECECEC] flex items-center justify-between text-black rounded-xl px-2 py-2 focus:outline-none text-xs xl:text-sm special:text-xl special:py-3"
+                className="bg-[#ECECEC] flex items-center justify-between text-black rounded-xl cursor-pointer px-2 py-2 focus:outline-none text-xs xl:text-sm special:text-xl special:py-3"
                 onClick={handleShowBank}
               >
-                {withdrawMethod}{" "}
+                <p>{selectMethod || "Direct Bank"}</p>
                 <RiArrowDropDownLine className="text-2xl cursor-pointer" />
               </div>
               {withdrawShow && (
                 <div className="absolute top-14 rounded-lg border left-0 w-full p-2 bg-white">
                   <div
-                    className="flex items-center justify-start gap-4 px-3 py-2 hover:bg-gray-200 cursor-pointer"
-                    onClick={() => handleDrowpdownChange("bank")}
+                    className="flex flex-col justify-start gap-4 px-3 py-2"
+                    // onClick={() => handleDrowpdownChange("bank")}
                   >
-                    <div>
+                    <div className="flex flex-row items-center gap-2 hover:bg-gray-200 cursor-pointer p-1 rounded-xl"  onClick={() => handlePaymentMethod("bank")}>
                       <img
                         src={directBankIcon}
                         alt="icon"
-                        className="w-full h-full object-contain"
+                        className="w-8"
                       />
+                        <p>Direct Bank</p>
                     </div>
-                    <h2>Direct Bank</h2>
-                  </div>
-                  <div
-                    className="flex items-center justify-start gap-4 px-3 py-2 hover:bg-gray-200 cursor-pointer"
-                    onClick={() => handleDrowpdownChange("stripe")}
-                  >
-                    <div>
+                    <div className="flex flex-row items-center gap-2 hover:bg-gray-200 cursor-pointer p-1 rounded-xl" onClick={() => handlePaymentMethod("stripe")}>
                       <img
                         src={stripeIcon}
                         alt="icon"
-                        className="w-full h-full object-contain"
+                        className="w-8"
                       />
+                        <p>Stripe</p>
                     </div>
-                    <h2>Stripe</h2>
+                  
                   </div>
+
                 </div>
               )}
             </div>
             {/* ONLY FOR BANK WITHDRAW */}
-            {withdrawMethod == "Direct Bank" ? (
+            {withdrawMethod ? (
               <div className="flex flex-col space-y-2">
                 <div className="flex flex-col space-y-2">
                   <p className="text-black text-sm xl:text-md special:text-xl">

@@ -65,7 +65,7 @@ const CardComponentNoWithdraw = () => {
     <div className="bg-white border-gray-300 border border-solid rounded-xl">
       {loading ? (
         <div className="flex justify-center py-12">
-          <FiLoader className="w-9 h-9 2xl:w-9 2xl:h-9 special:w-18 special:h-18 animate-spin" />
+          <ItemLoader className="w-9 h-9 2xl:w-9 2xl:h-9 special:w-18 special:h-18 animate-spin" />
         </div>
       ) : (
         <div className="flex flex-col p-2 space-y-4 2xl:space-y-4">
