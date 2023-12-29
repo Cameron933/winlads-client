@@ -12,7 +12,8 @@ import DashboardVehicleCard from "../../components/DashboardVehicleCard/Dashboar
 import SmallGoldCard from "../../components/GoldCard/SmallGoldCard";
 import SearchField from "../../components/SearchField/SearchField";
 import { MdOutlineDoNotDisturbOff } from "react-icons/md";
-import { FiLoader } from "react-icons/fi";
+import ItemLoader from "../../components/Loader/ItemLoader";
+
 import SelectRafflePaymentMethod from "../../components/RaffleComponent/SelectRafflePaymentMethod";
 import BG from "../../assets/images/HomesideBg.png";
 import { FaAngleDoubleDown, FaAngleDoubleUp } from "react-icons/fa";
@@ -26,6 +27,7 @@ const Dashboard = () => {
   const [giveaways, setGiveaways] = useState([]);
   const [raffleCount, setRaffleCount] = useState([]);
   const [selectGiveawayId, setSelectGiveawayId] = useState("");
+  const [selectGiveawayName, setSelectGiveName] = useState("");
   const [price, setPrice] = useState("");
   const [selectPayment, setSelectPayment] = useState(false);
   const [initialLength, setInitSize] = useState(8);
@@ -82,9 +84,10 @@ const Dashboard = () => {
       });
   };
 
-  const handleButton = ({ id, price }) => {
+  const handleButton = ({ id, price, name }) => {
     setSelectGiveawayId(id);
     setPrice(price);
+    setSelectGiveName(name);
     setSelectPayment(true);
   };
 
@@ -101,7 +104,7 @@ const Dashboard = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <div className="flex relative mx-auto w-full">
+        <div className="flex relative mx-auto w-full overflow-hidden">
           {/* <SideNav screen="full" name={valUser.name} userId={valUser.uid} /> */}
           <div></div>
           {/* home-content */}
@@ -135,7 +138,8 @@ const Dashboard = () => {
                   <p className="text-xl font-semibold">Next Giveaways</p>
                   {loading ? (
                     <div className="flex justify-center">
-                      <FiLoader className="w-9 h-9 2xl:w-12 2xl:h-12 special:w-18 special:h-18 animate-spin" />
+                      <ItemLoader/>
+
                     </div>
                   ) : giveaways.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2">
@@ -151,6 +155,7 @@ const Dashboard = () => {
                             handleButton({
                               id: giveaway?._id,
                               price: giveaway?.price,
+                              name: giveaway?.raffle?.name
                             });
                           }}
                           bgColor={giveaway.raffle?.color}
@@ -213,7 +218,8 @@ const Dashboard = () => {
                   </p>
                   {loading ? (
                     <div className="flex justify-center">
-                      <FiLoader className="w-9 h-9 2xl:w-12 2xl:h-12 special:w-18 special:h-18 animate-spin" />
+                      <ItemLoader/>
+
                     </div>
                   ) : giveaways.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
@@ -230,6 +236,7 @@ const Dashboard = () => {
                             handleButton({
                               id: giveaway?._id,
                               price: giveaway?.price,
+                              name: giveaway?.raffle?.name
                             });
                           }}
                         />
@@ -291,6 +298,7 @@ const Dashboard = () => {
           userId={valUser.uid}
           giveawayId={selectGiveawayId}
           price={price}
+          name={selectGiveawayName}
         />
       )}
     </>

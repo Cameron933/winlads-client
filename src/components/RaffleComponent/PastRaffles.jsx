@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import Jeep from "../../assets/images/Lottery/Jeep.png";
 import max from "../../assets/images/rafflesImages/max.png";
 import { GoQuestion } from "react-icons/go";
-import { FiLoader } from "react-icons/fi";
+import ItemLoader from "../../components/Loader/ItemLoader";
+
 import { MdOutlineDoNotDisturbOff } from "react-icons/md";
 import { validateCurrentUser } from "../../utils/validateuser";
 import { Link, useNavigate } from "react-router-dom";

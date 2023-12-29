@@ -9,7 +9,8 @@ import axios from "axios";
 import Cookies from "universal-cookie";
 import { MdOutlinePhotoCamera } from "react-icons/md";
 import { toast } from "react-toastify";
-import { FiLoader } from "react-icons/fi";
+import ItemLoader from "../../components/Loader/ItemLoader";
+
 import { storage } from "../../firebase.config";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { Link, useNavigate } from "react-router-dom";
@@ -187,7 +188,8 @@ const Profile = () => {
             <div className="flex flex-col space-y-3">
               {loading ? (
                 <div className="flex justify-center pt-12">
-                  <FiLoader className="w-9 h-9 2xl:w-12 2xl:h-12 special:w-18 special:h-18 animate-spin" />
+                  <ItemLoader/>
+
                 </div>
               ) : (
                 <>

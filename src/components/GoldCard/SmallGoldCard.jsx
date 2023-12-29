@@ -34,28 +34,28 @@ const SmallGoldCard = () => {
     <>
       {!loading && (
         <div
-          className={`relative border border-solid border-${
+          className={`relative border border-solid ${
             valUser.subscripton?.name == "Platinum"
-              ? "black"
+              ? "border-black"
               : "" | (valUser.subscripton?.name == "Black")
-              ? "white"
-              : ""
+              ? "border-white"
+              : "bg-white"
           } overflow-hidden rounded-3xl px-4 flex flex-row justify-between py-4 cursor-pointer gap-2`}
           style={{ backgroundColor: valUser._id ? valUser.subscripton?.color : "white" }}
         >
-          <div className="flex flex-col space-y-1 ">
-            <span className="font-bold text-4xl main-t">
+          <div className="flex flex-col space-y-1 bg-white text-black">
+            {/* <span className="font-bold text-4xl main-t"> */}
               {valUser.subscripton?._id ? (
                 <p>{valUser.subscripton?.name}</p>
               ) : (
                 <div className="flex flex-row items-center gap-4">
                   <img src={Cross} alt="" className="w-12" />
-                  <p className="text-white 2xl:text-xl text-lg">
+                  <p className=" 2xl:text-xl text-lg">
                     Your subscription is currently inactive
                   </p>
                 </div>
               )}
-            </span>
+            {/* </span> */}
             {valUser.subscripton?._id ? <p className="text-sm special:text-lg">{formattedDate}</p> : ""}
           </div>
           {valUser.subscripton?._id ? (

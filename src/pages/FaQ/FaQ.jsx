@@ -9,7 +9,8 @@ import { MdOutlineDoNotDisturbOff } from "react-icons/md";
 import FaQComponent from "../../components/FaQComponent/FaQComponent";
 import SearchField from "../../components/SearchField/SearchField";
 import { validateCurrentUser } from "../../utils/validateuser";
-import { FiLoader } from "react-icons/fi";
+import ItemLoader from "../../components/Loader/ItemLoader";
+
 
 function FaQ() {
   const navigate = useNavigate();
@@ -82,7 +83,7 @@ function FaQ() {
             <div className="mt-10">
               {loading ? (
                 <div className="flex justify-center">
-                  <FiLoader className="w-9 h-9 2xl:w-12 2xl:h-12 special:w-18 special:h-18 animate-spin" />
+<ItemLoader/>
                 </div>
               ) : faqs.length > 0 ? (
                 faqs.slice(0, initialShow).map((faq, key) => (

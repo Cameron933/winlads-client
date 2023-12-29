@@ -14,8 +14,11 @@ import BG from "../../assets/images/HomesideBg.png";
 import { validateCurrentUser } from "../../utils/validateuser";
 import NewJeep from "../../assets/images/rafflesImages/newJeep.png";
 import CatJeep from "../../assets/images/rafflesImages/newJeep.png";
-import { FiLoader } from "react-icons/fi";
+import ItemLoader from "../../components/Loader/ItemLoader";
+
 import SelectRafflePaymentMethod from "../../components/RaffleComponent/SelectRafflePaymentMethod";
+import NoLive from "../../components/Live/NoLive";
+
 
 export const bgStyle = {
   backgroundImage: `url(${bgCar})`,
@@ -30,21 +33,30 @@ function Raffles() {
   const { name, bgColor } = location.state;
   const [valUser, setValUser] = useState({});
   const navigate = useNavigate();
-
+  const [initialLength, setInitSize] = useState(8);
   const params = useParams();
   const { raffleId } = useParams();
   const { search } = useLocation();
   const queryParams = new URLSearchParams(search);
   const [loading, setLoading] = useState(true);
   const [selectPayment, setSelectPayment] = useState(false);
-
+  const [selectedName, setSelectedName]= useState("");
   const [selectGiveawayId, setSelectGiveawayId] = useState("");
   const [price, setPrice] = useState("");
+  const [liveLink, setLiveLink] = useState('')
 
   useEffect(() => {
     getRafflesRounds();
     currentUserValidation();
   }, [raffleRounds, valUser]);
+
+  const handleSeeMore = (show) => {
+    if (show) {
+      setInitSize(raffleRounds.length)
+    } else {
+      setInitSize(8)
+    }
+  }
 
   const currentUserValidation = async () => {
     const validator = await validateCurrentUser();
@@ -72,9 +84,10 @@ function Raffles() {
       });
   };
 
-  const handleButton = ({ id, price }) => {
+  const handleButton = ({ id, price , name}) => {
     setSelectGiveawayId(id);
     setPrice(price);
+    setSelectedName(name);
     setSelectPayment(true);
   };
 
@@ -113,6 +126,8 @@ function Raffles() {
                     </p>
                   </div>
                   <Link to="/live">
+                  {
+                    liveLink ?
                     <div className="bg-[#D5B511] hover:bg-[#D5B511]/75 flex-col rounded-3xl px-2 special:px-4 py-1 space-y-2 xl:w-1/2 md:w-1/2  w-full">
                       <div className="flex flex-row justify-between items-center">
                         <img
@@ -162,6 +177,8 @@ function Raffles() {
                         </div>
                       </div>
                     </div>
+:<NoLive/>
+                  }
                   </Link>
                 </div>
 
@@ -186,7 +203,8 @@ function Raffles() {
             </div>
             {loading ? (
               <div className="flex justify-center">
-                <FiLoader className="w-9 h-9 2xl:w-12 2xl:h-12 special:w-18 special:h-18 animate-spin" />
+                <ItemLoader/>
+
               </div>
             ) : (
               <div className="flex flex-col space-y-2">
@@ -195,7 +213,7 @@ function Raffles() {
                 </p>
                 {raffleRounds.length > 0 ? (
                   <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2">
-                    {raffleRounds.map((raffle, key) => (
+                    {raffleRounds?.slice(0, initialLength).map((raffle, key) => (
                       <div
                         className={`flex flex-row justify-between pr-2 rounded-3xl items-center 2xl:rounded-[30px] special:rounded-[40px] w-full py-2 shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:opacity-75 cursor-pointer }`}
                         style={{ backgroundColor: bgColor }}
@@ -204,6 +222,7 @@ function Raffles() {
                           handleButton({
                             id: raffle?._id,
                             price: raffle?.price,
+                            name:raffle?.name
                           });
                         }}
                       >
@@ -250,6 +269,17 @@ function Raffles() {
                     No Giveaways
                   </p>
                 )}
+                              {
+                raffleRounds.length > 8 && (initialLength == 8 ?
+                  <button onClick={() => handleSeeMore(true)}
+                    className="">
+                    See More
+                  </button> :
+                  <button onClick={() => handleSeeMore(false)}
+                    className="">
+                    See Less
+                  </button>)
+              }
               </div>
             )}
           </div>
@@ -260,6 +290,7 @@ function Raffles() {
           giveawayId={selectGiveawayId}
           price={price}
           userId={valUser.uid}
+          name={selectedName}
           onClose={() => setSelectPayment(false)}
         />
       )}
