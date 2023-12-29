@@ -6,7 +6,8 @@ import SubscribeCard from "../../components/SubscribeCard/SubscribeCard";
 import { motion } from "framer-motion";
 import axios from "axios";
 import { MdOutlineDoNotDisturbOff } from "react-icons/md";
-import { FiLoader } from "react-icons/fi";
+import ItemLoader from "../../components/Loader/ItemLoader";
+
 import "./subscription.css";
 import { useEffect, useState } from "react";
 import SearchField from "../../components/SearchField/SearchField";
@@ -121,7 +122,7 @@ function Subscription() {
             </p>
             {loading ? (
               <div className="flex justify-center">
-                <FiLoader className="w-9 h-9 2xl:w-12 2xl:h-12 special:w-18 special:h-18 animate-spin" />
+                <ItemLoader/>
               </div>
             ) : planes.length > 0 ? (
               <div className="flex flex-col space-y-4">

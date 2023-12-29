@@ -7,7 +7,8 @@ import Rectangle from "../../assets/images/BusinessCard/Rectangle.png";
 import axios from "axios";
 import { validateCurrentUser } from "../../utils/validateuser";
 import { useNavigate } from "react-router-dom";
-import { FiLoader } from "react-icons/fi";
+import ItemLoader from "../../components/Loader/ItemLoader";
+
 
 const BCard = () => {
   const [bCard, setBCard] = useState("");
@@ -52,7 +53,8 @@ const BCard = () => {
     <div className="flex flex-col space-y-4 xl:mx-20 md:mx-20">
       {loading ? (
         <div className="flex justify-center">
-          <FiLoader className="w-9 h-9 2xl:w-12 2xl:h-12 special:w-18 special:h-18 animate-spin" />
+          <ItemLoader/>
+
         </div>
       ) : (
         <>

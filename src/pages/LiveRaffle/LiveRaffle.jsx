@@ -6,7 +6,8 @@ import { useNavigate } from "react-router-dom";
 import ReactPlayer from "react-player";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { FiLoader } from "react-icons/fi";
+import ItemLoader from "../../components/Loader/ItemLoader";
+
 import cutIcon from '../../assets/images/rafflesImages/cutIcon.png'
 import { GoUnmute } from "react-icons/go";
 import { GoMute } from "react-icons/go";
@@ -54,11 +55,11 @@ function LiveRaffle() {
     }
   };
 
-  const handleMute = ()=>{
-    setMute((prev)=> !prev);
+  const handleMute = () => {
+    setMute((prev) => !prev);
   }
-  const handlePause = ()=>{
-    setPause((prev)=> !prev);
+  const handlePause = () => {
+    setPause((prev) => !prev);
   }
 
 
@@ -77,17 +78,17 @@ function LiveRaffle() {
       <div className="w-full flex items-center justify-center">
         {
           !isLoading ? (liveLink?.youtubeLink && <ReactPlayer
-            
+
             url={liveLink.youtubeLink}
             playing={pause}
-            onPlay={()=> setPause(true)}
+            onPlay={() => setPause(true)}
             muted={muted}
             width={'100%'}
             height={'100vh'}
             className="react-player w-full min-h-screen"
           />) :
             <div className="flex justify-center pt-12 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-              <FiLoader className="w-10 h-10 2xl:w-20 2xl:h-20 special:w-32 special:h-32 animate-spin text-white" />
+              <ItemLoader />
             </div>
         }
 
@@ -111,12 +112,12 @@ function LiveRaffle() {
           <div className="flex justify-center flex-col items-center space-y-4 special:space-y-8 2xl:space-y-6">
             <div className="flex flex-row gap-4 2xl:gap-6 special:gap-8 items-center">
               <div className="w-10 h-10 2xl:w-12 2xl:h-12 special:w-24 special:h-24 cursor-pointer hover:brightness-75 bg-indigo-900 rounded-full flex items-center justify-center text-white" onClick={handleMute} title="Mute">
-                {muted ? <GoMute className="text-xl"/> : <GoUnmute className="text-xl"/>}
+                {muted ? <GoMute className="text-xl" /> : <GoUnmute className="text-xl" />}
               </div>
               <div className="w-10 h-10 2xl:w-12 2xl:h-12 special:w-24 special:h-24 cursor-pointer hover:brightness-75 bg-cyan-600 rounded-full flex items-center justify-center text-white" onClick={handlePause} title="Pause/Play">
-                {pause ? <CiPause1 className="text-xl"/>:<CiPlay1 className="text-xl"/>}
+                {pause ? <CiPause1 className="text-xl" /> : <CiPlay1 className="text-xl" />}
               </div>
-              <img src={cutIcon} alt="" className="w-10 h-10 2xl:w-12 2xl:h-12 special:w-24 special:h-24 cursor-pointer hover:brightness-75" onClick={()=>navigate('/dashboard')} title="Go to Dashboard"/>
+              <img src={cutIcon} alt="" className="w-10 h-10 2xl:w-12 2xl:h-12 special:w-24 special:h-24 cursor-pointer hover:brightness-75" onClick={() => navigate('/dashboard')} title="Go to Dashboard" />
             </div>
             <div className="">
               <div
@@ -129,22 +130,22 @@ function LiveRaffle() {
                 <div className="flex flex-col space-y-1 2xl:space-y-3 special:space-y-5">
                   <div className="flex flex-row items-center gap-5">
                     <div className="text-white font-bold rounded-full bg-[#157D98] h-9 w-9 special:w-24 special:h-24 special:text-4xl 2xl:w-12 2xl:h-12 2xl:text-2xl items-center flex justify-center">
-                      {liveLink?.drawNumbers?.letter  ? liveLink?.drawNumbers?.letter : '?'}
+                      {liveLink?.drawNumbers?.letter ? liveLink?.drawNumbers?.letter : '?'}
                     </div>
                     <div className="text-black font-bold h-9 w-9 special:w-24 special:h-24 special:text-4xl 2xl:w-12 2xl:h-12 2xl:text-2xl rounded-full bg-[#D6F6FF] items-center flex justify-center">
-                    {liveLink?.drawNumbers?.n1 ? liveLink?.drawNumbers?.n1 : '?'}
+                      {liveLink?.drawNumbers?.n1 ? liveLink?.drawNumbers?.n1 : '?'}
                     </div>
                     <div className="text-black font-bold h-9 w-9 special:w-24 special:h-24 special:text-4xl 2xl:w-12 2xl:h-12 2xl:text-2xl rounded-full bg-[#D6F6FF] items-center flex justify-center">
-                    {liveLink?.drawNumbers?.n2 ? liveLink?.drawNumbers?.n2 : '?'}
+                      {liveLink?.drawNumbers?.n2 ? liveLink?.drawNumbers?.n2 : '?'}
                     </div>
                     <div className="text-black font-bold h-9 w-9 special:w-24 special:h-24 special:text-4xl 2xl:w-12 2xl:h-12 2xl:text-2xl rounded-full bg-[#D6F6FF] items-center flex justify-center">
-                    {liveLink?.drawNumbers?.n3 ? liveLink?.drawNumbers?.n3 : '?'}
+                      {liveLink?.drawNumbers?.n3 ? liveLink?.drawNumbers?.n3 : '?'}
                     </div>
                     <div className="text-black font-bold h-9 w-9 special:w-24 special:h-24 special:text-4xl 2xl:w-12 2xl:h-12 2xl:text-2xl rounded-full bg-[#D6F6FF] items-center flex justify-center">
-                    {liveLink?.drawNumbers?.n4 ? liveLink?.drawNumbers?.n4 : '?'}
+                      {liveLink?.drawNumbers?.n4 ? liveLink?.drawNumbers?.n4 : '?'}
                     </div>
                     <div className="text-black font-bold h-9 w-9 special:w-24 special:h-24 special:text-4xl 2xl:w-12 2xl:h-12 2xl:text-2xl rounded-full bg-[#D6F6FF] items-center flex justify-center">
-                    {liveLink?.drawNumbers?.n4 ? liveLink?.drawNumbers?.n4 : '?'}
+                      {liveLink?.drawNumbers?.n4 ? liveLink?.drawNumbers?.n4 : '?'}
                     </div>
                   </div>
                   <p className="xl:text-sm text-xs special:text-lg 2xl:text-md text-center font-bold text-black">
@@ -219,9 +220,8 @@ export default LiveRaffle;
           </div>
         </div> */
 
-        const formatDate = (dateTimeString) => {
-          const options = { year: 'numeric', month: 'short', day: 'numeric', weekday: 'long' };
-          const formattedDate = new Date(dateTimeString).toLocaleDateString('en-US', options);
-          return formattedDate.toUpperCase();
-        };
-      
+const formatDate = (dateTimeString) => {
+  const options = { year: 'numeric', month: 'short', day: 'numeric', weekday: 'long' };
+  const formattedDate = new Date(dateTimeString).toLocaleDateString('en-US', options);
+  return formattedDate.toUpperCase();
+};

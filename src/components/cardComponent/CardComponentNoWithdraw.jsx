@@ -3,7 +3,8 @@ import Ticket from "../../assets/images/cardComponent/ticket.png";
 import Money from "../../assets/images/cardComponent/money.png";
 import { validateCurrentUser } from "../../utils/validateuser";
 import axios from "axios";
-import { FiLoader } from "react-icons/fi";
+import ItemLoader from "../../components/Loader/ItemLoader";
+
 
 const CardComponentNoWithdraw = () => {
   const [valUser, setValUser] = useState({});

@@ -6,7 +6,8 @@ import Visa from "../../assets/images/rafflesImages/Visa.png";
 import Usd from "../../assets/images/rafflesImages/Usd.png";
 import bitcoin from "../../assets/images/rafflesImages/bitcoin.png";
 import { toast } from "react-toastify";
-import { FiLoader } from "react-icons/fi";
+import ItemLoader from "../../components/Loader/ItemLoader";
+
 
 const ChoosePlane = ({ onClose, planeId, userId }) => {
   const [loading, setLoading] = useState(false);

@@ -9,7 +9,8 @@ import noMore from "../../assets/images/icons/no-more.svg";
 import { validateCurrentUser } from "../../utils/validateuser";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { FiLoader } from "react-icons/fi";
+import ItemLoader from "../../components/Loader/ItemLoader";
+
 import { PiBookmarkSimpleLight } from "react-icons/pi";
 import { LuMinus } from "react-icons/lu";
 
@@ -154,7 +155,8 @@ const MyEntries = () => {
             </div>
             {isLoading ? (
               <div className="flex justify-center">
-                <FiLoader className="w-9 h-9 2xl:w-12 2xl:h-12 special:w-18 special:h-18 animate-spin" />
+                <ItemLoader/>
+
               </div>
             ) : (
               <>

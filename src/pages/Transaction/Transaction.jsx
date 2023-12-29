@@ -16,7 +16,7 @@ import Stripe from "../../assets/images/transaction/strip.png";
 import Fund from "../../assets/images/transaction/fund.png";
 import Sub from "../../assets/images/transaction/sub.png";
 import Balance from "../../assets/images/transaction/balance.png";
-import { FiLoader } from "react-icons/fi";
+import ItemLoader from "../../components/Loader/ItemLoader";
 import FundTransferForm from "../../components/fundTransfer/FundTransferForm";
 import BG from "../../assets/images/HomesideBg.png";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
@@ -358,7 +358,7 @@ const Transaction = () => {
             </div>
             {loading ? (
               <div className="flex justify-center">
-                <FiLoader className="w-9 h-9 2xl:w-12 2xl:h-12 special:w-18 special:h-18 animate-spin" />
+                <ItemLoader/>
               </div>
             ) : transactions.length > 0 ? (
               <div className="flex flex-col space-y-1">

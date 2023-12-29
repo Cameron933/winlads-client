@@ -9,7 +9,8 @@ import axios from "axios";
 import Cookies from "universal-cookie";
 import { MdOutlinePhotoCamera } from "react-icons/md";
 import { toast } from "react-toastify";
-import { FiLoader } from "react-icons/fi";
+import ItemLoader from "../../components/Loader/ItemLoader";
+
 import { storage } from "../../firebase.config";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { Link, useNavigate } from "react-router-dom";

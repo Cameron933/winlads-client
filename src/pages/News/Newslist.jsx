@@ -5,12 +5,13 @@ import TopNav from "../../components/TopNav/TopNav";
 import NewsListProps from "../../components/NewsList/NewsListProps";
 import axios from "axios";
 import SearchField from "../../components/SearchField/SearchField";
-import { FiLoader } from "react-icons/fi";
+import ItemLoader from "../../components/Loader/ItemLoader";
+
 import { MdOutlineDoNotDisturbOff } from "react-icons/md";
 import BG from "../../assets/images/HomesideBg.png";
 import { validateCurrentUser } from "../../utils/validateuser";
 import { Link, useNavigate } from "react-router-dom";
-
+import newsIcon from '../../assets/images/news/newsicon.svg'
 function Newslist() {
   const [newsList, setNewsList] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -88,14 +89,14 @@ function Newslist() {
 
           {loading ? (
             <div className="flex justify-center">
-              <FiLoader className="w-9 h-9 2xl:w-12 2xl:h-12 special:w-18 special:h-18 animate-spin" />
+              <ItemLoader/>
             </div>
           ) : newsList.length > 0 ? (
             <div className="flex flex-col space-y-4 special:pt-16 2xl:pt-8 xl:pt-8 pt-4 2xl:space-y-6">
               {newsList.map((news, key) => (
                 <NewsListProps
                   key={key}
-                  img={news.image}
+                  img={newsIcon}
                   maintitle={news.maintitle}
                   newstitle={news.newstitle}
                   createdat={news.createdat}

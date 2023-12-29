@@ -16,7 +16,8 @@ import { validateCurrentUser } from "../../utils/validateuser";
 import { ref, getDownloadURL } from "firebase/storage";
 import { storage } from "../../firebase.config";
 import Cookies from "universal-cookie";
-import { FiLoader } from "react-icons/fi";
+import ItemLoader from "../../components/Loader/ItemLoader";
+
 
 const SideNav = ({ screen }) => {
   const cookies = new Cookies(null, { path: "/" });
@@ -86,7 +87,7 @@ const SideNav = ({ screen }) => {
               <div className="flex justify-center items-center w-full">
                 {loading ? (
                   <div className="flex justify-center">
-                    <FiLoader className="w-6 h-6 2xl:w-9 2xl:h-9 special:w-12 special:h-12 animate-spin text-white" />
+                    <ItemLoader/>
                   </div>
                 ) : (
                   userImage ? (
