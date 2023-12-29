@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import SideNav from "../../components/SideNav/SideNav";
 import liveBackground from "../../assets/images/rafflesImages/LiveBackground.png";
 import "./liveRaffle.css";
 import { validateCurrentUser } from "../../utils/validateuser";
@@ -8,8 +7,6 @@ import ReactPlayer from "react-player";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { FiLoader } from "react-icons/fi";
-import soundicon from '../../assets/images/rafflesImages/soundicon.png'
-import displayicon from '../../assets/images/rafflesImages/displayicon.png'
 import cutIcon from '../../assets/images/rafflesImages/cutIcon.png'
 import { GoUnmute } from "react-icons/go";
 import { GoMute } from "react-icons/go";
