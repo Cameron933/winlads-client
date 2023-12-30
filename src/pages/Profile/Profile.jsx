@@ -184,7 +184,7 @@ const Profile = () => {
             </div>
             <CardComponent />
           </div>
-          <div className="flex flex-col space-y-4 flex-1 xl:mx-12">
+          <div className="flex flex-col space-y-4 flex-1 xl:mx-4">
             <div className="flex flex-col space-y-3">
               {loading ? (
                 <div className="flex justify-center pt-12">
