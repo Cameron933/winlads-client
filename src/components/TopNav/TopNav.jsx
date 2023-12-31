@@ -10,7 +10,6 @@ import { getMessaging, getToken } from "firebase/messaging";
 // // Add the public key generated from the console here.
 // getToken(messaging, {vapidKey: import.meta.env.FIREBASE_NOTIFICATIONS});
 
-
 const TopNav = ({ textColor }) => {
   const [notShow, setNotShow] = useState(false);
 
@@ -31,13 +30,18 @@ const TopNav = ({ textColor }) => {
         {/* <span className="navlinks">
         <Link to="/notice">Notice</Link>
       </span> */}
-        <span className="navlinks">
+        {/* <span className="navlinks">
           <Link to="/giveaways">Giveaway</Link>
+        </span> */}
+        <span className="" title="This feature will be available soon">
+          <Link>Giveaway</Link>
         </span>
         <span className="navlinks">
           <Link to="/faq">FAQ</Link>
         </span>
-        <span className="navlinks"><Link to="/support">Support</Link></span>
+        <span className="navlinks">
+          <Link to="/support">Support</Link>
+        </span>
         <span className="navlinks">
           <GoBell onClick={handleClick} />
         </span>
