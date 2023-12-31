@@ -153,7 +153,7 @@ const SideNav = ({ screen }) => {
             </Link>
           </div>
 
-          <div onClick={expandSidebar}>
+          {/* <div onClick={expandSidebar}>
             <Link to="/subscription">
               <button className="flex flex-row items-center gap-2 hover:bg-[#36383b] py-2 px-2 w-full">
                 <img src={Sub} className="w-[18px]" alt="protect" />
@@ -164,6 +164,16 @@ const SideNav = ({ screen }) => {
                 </span>
               </button>
             </Link>
+          </div> */}
+           <div onClick={expandSidebar} title="This feature will be available soon">
+              <button className="flex flex-row items-center gap-2 hover:bg-[#36383b] py-2 px-2 w-full">
+                <img src={Sub} className="w-[18px]" alt="protect" />
+                <span className="mobile-hide">
+                  <p className="link-no-underlin hidden xl:flex text-white">
+                    Subscription
+                  </p>
+                </span>
+              </button>
           </div>
 
           <div onClick={expandSidebar}>
