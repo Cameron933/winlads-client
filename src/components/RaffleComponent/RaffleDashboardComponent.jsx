@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import "./Raffle.css";
 import { useEffect, useState } from "react";
 import CatJeep from "../../assets/images/rafflesImages/newJeep.png";
+import NewVeh from "../../assets/images/newVeh.png"
 
 function RaffleDashboardComponent({ bgColor, id, name, type, img, date }) {
 
@@ -14,7 +15,7 @@ function RaffleDashboardComponent({ bgColor, id, name, type, img, date }) {
         >
           <div className="w-36 special:w-96 2xl:w-48 min-w-32 aspect-square">
           <img
-            src={CatJeep}
+            src={NewVeh}
             alt=""
             className="w-full h-full object-cover"
           />

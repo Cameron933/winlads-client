@@ -13,6 +13,7 @@ import SmallGoldCard from "../../components/GoldCard/SmallGoldCard";
 import SearchField from "../../components/SearchField/SearchField";
 import { MdOutlineDoNotDisturbOff } from "react-icons/md";
 import ItemLoader from "../../components/Loader/ItemLoader";
+import NewVeh from "../../assets/images/newVeh.png"
 
 import SelectRafflePaymentMethod from "../../components/RaffleComponent/SelectRafflePaymentMethod";
 import BG from "../../assets/images/HomesideBg.png";

@@ -62,7 +62,7 @@ const Register = () => {
       firstname: values.firstname,
       lastname: values.lastname,
       email: values.email,
-      mobile: ph,
+      mobile: "+"+ph,
       passport: values.passport,
       tin: values.tin,
       rafflesId: values.rafflesId,

@@ -87,7 +87,18 @@ function Footer() {
 
                 </ul>
               </div>
-           
+              <div className="m-2 sm:m-4 text-[#fff] flex-1 ">
+                <p className="font-bold text-sm mb-3 2xl:text-xl special:text-2xl">
+                  Registration
+                </p>
+                <ul className="text-xs 2xl:text-xl flex flex-col gap-1">
+            
+                <li className="cursor-pointer">ABN: 87671535149</li>  
+                <li className="cursor-pointer">NSW: TP/03199</li>
+                <li className="cursor-pointer">Permit No: ACT TP 23/02687</li>
+
+                </ul>
+              </div>
             </div>
           </div>
         </div>
