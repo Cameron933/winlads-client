@@ -1,13 +1,15 @@
 import React from 'react'
 import CatJeep from "../../assets/images/rafflesImages/newJeep.png";
 import { GoQuestion } from "react-icons/go";
+import NewVeh from "../../assets/images/newVeh.png"
+
 const NoLive = () => {
     return (
         <div className="bg-[#4b4527] hover:bg-[#4b4100]/75 flex-col rounded-3xl 2xl:rounded-[30px] special:rounded-[40px] pr-2 special:pr-4 py-1 space-y-0 shadow-lg xl:w-1/2 md:w-1/2  w-full">
             <div className="flex flex-row justify-between items-center">
                 <div className="w-36 special:w-96 2xl:w-36 min-w-32 aspect-square">
                     <img
-                        src={CatJeep}
+                        src={NewVeh}
                         alt=""
                         className="w-full h-full object-cover"
                     />

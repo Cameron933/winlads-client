@@ -15,6 +15,7 @@ import { validateCurrentUser } from "../../utils/validateuser";
 import NewJeep from "../../assets/images/rafflesImages/newJeep.png";
 import CatJeep from "../../assets/images/rafflesImages/newJeep.png";
 import ItemLoader from "../../components/Loader/ItemLoader";
+import NewVeh from "../../assets/images/newVeh.png"
 
 import SelectRafflePaymentMethod from "../../components/RaffleComponent/SelectRafflePaymentMethod";
 import NoLive from "../../components/Live/NoLive";
@@ -227,7 +228,7 @@ function Raffles() {
                         }}
                       >
                         <img
-                          src={CatJeep}
+                          src={NewVeh}
                           alt=""
                           className="flex w-36 special:w-96 2xl:w-48"
                         />

@@ -11,9 +11,9 @@ function Footer() {
           <div className="flex flex-col md:flex-row md:px-14">
             <div className="xl:w-5/12 lg:w-5/12 md:w-4/12 w-full mx-2 sm:mx-4  2xl:pt-0 lg:pl-0 ">
               <img src={logo2} alt="" className="2xl:w-72 special:max-w-72 max-w-52" />
-              <p className="text-sx sm:text-sm mt-5 2xl:text-xl special:text-2xl text-[#fff]">
+              {/* <p className="text-sx sm:text-sm mt-5 2xl:text-xl special:text-2xl text-[#fff]">
                 Empowering Lives Through Winlads
-              </p>
+              </p> */}
               <p className="text-sx sm:text-sm mt-5 2xl:text-xl special:text-2xl text-[#fff]">
                 Embark on an opulent journey with Winlads LuxeLife Rewards – an
                 exclusive program curated to indulge members in premium and
