@@ -139,6 +139,7 @@ function Subscription() {
 
                   <button
                     type="button"
+                    disabled
                     onClick={handleQuatly}
                     className={`${
                       isQuartly ? "bg-white text-black" : "bg-black text-white"
@@ -149,6 +150,7 @@ function Subscription() {
 
                   <button
                     type="button"
+                    disabled
                     onClick={handleYearly}
                     className={`${
                       isYearly ? "bg-white text-black" : "bg-black text-white"

@@ -107,7 +107,7 @@ const SideNav = ({ screen }) => {
               </div>
             </Link>
             <div className="side-nav-name text-white  items-center justify-center flex-col hidden xl:flex">
-              <p className="text-sm">{valUser.name}</p>
+              <p className="text-sm">{valUser.firstname}</p>
               {/* <p className="text-[10px]">{valUser.uid}</p> */}
             </div>
           </div>

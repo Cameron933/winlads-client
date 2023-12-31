@@ -136,7 +136,6 @@ const Register = () => {
             signInWithPhoneNumber(auth, "+" + ph, verify)
               .then((result) => {
                 setfinal(result);
-                console.log(final, "code sent final");
                 setshow(true);
                 setVerifyDisable(false);
                 setShowOTPBox(true);
@@ -181,8 +180,6 @@ const Register = () => {
     final
       .confirm(otp)
       .then((result) => {
-        // success
-        // console.log("success", result);
         saveFormData(values, result.user.uid);
 
         navigate("/welcome");
@@ -191,16 +188,7 @@ const Register = () => {
         }, 3000);
       })
       .catch((err) => {
-        toast.error("Invalid OTP Code", {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-        });
+        
       });
   };
 
