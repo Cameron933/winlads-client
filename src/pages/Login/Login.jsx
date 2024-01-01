@@ -28,6 +28,8 @@ const Login = () => {
   const [buttonText, setButtonText] = useState("Get OTP");
   const cookies = new Cookies(null, { path: "/" });
 
+  const [loginDisable, setLoginDisable] = useState(false)
+
   const onSubmit = async (values, actions) => {
     // console.log(value, actions)
     // setTimeout(() => {
@@ -36,6 +38,11 @@ const Login = () => {
 
     await new Promise((resolve) => setTimeout(resolve, 1000));
     actions.resetForm();
+  };
+
+  const onPhoneNumberChange = (value, country, e, formattedValue) => {
+    setPh(value);
+    setLoginDisable(value.length > 0);
   };
 
   async function onSignup(e) {
@@ -196,8 +203,8 @@ const Login = () => {
         <Loader />
       ) : (
         <>
-          <div className="h-screen flex items-center md:flex-row flex-col justify-between bg-image">
-            <div className="flex items-center max-w-[1440px] px-10 xl:px-20">
+          <div className="h-screen flex items-center md:flex-row flex-col bg-image">
+            <div className="flex items-center justify-between gap-12 max-w-[1440px] px-10 xl:px-20">
               {/* <div className="img-container scale-150 mb-9 md:mb-0 prevent"> */}
               {/* Dekstop VIew Jeep */}
 
@@ -225,7 +232,7 @@ const Login = () => {
 
               {/* </div> */}
               <div className="flex flex-col ">
-                <span className="text-2xl md:text-2xl lg:text-4xl font-bold special:text-4xl">
+                <span className="text-2xl md:text-2xl xl:text-5xl font-bold special:text-4xl">
                   Sign in to access your account
                 </span>
 
@@ -240,36 +247,11 @@ const Login = () => {
                       <PhoneInput
                         country={"au"}
                         value={ph}
-                        onChange={(value, country, e, formattedValue) =>
-                          setPh(value)
-                        }
+                        onChange={onPhoneNumberChange}
                         onBlur={handleBlur}
                         id="mobile"
                         className="placeholder:text-[16px] border borer-solid border-black"
                       />
-                      {/* <PhoneInput
-                  country={"au"}
-                  type="number"
-                  // value={this.state.phone}
-                  // onChange={(phone) => this.setState({ phone })}
-                  value={ph}
-                  onChange={(e) => setPh(e.target.value)}
-                  onBlur={handleBlur}
-                  id="mobile"
-                  className="placeholder:text-[16px]"
-                /> */}
-                      {/* <FcPhoneAndroid size={20} /> */}
-                      {/* <img src={Flag} alt="" /> */}
-
-                      {/* <input
-                      type="text"
-                      placeholder="+61&nbsp;(Phone Number)"
-                      value={ph}
-                      onChange={(e) => setPh(e.target.value)}
-                      onBlur={handleBlur}
-                      id="mobile"
-                      className="placeholder:text-[16px]"
-                    /> */}
                       <small className="text-error">
                         {errors.mobile && touched.mobile && errors.mobile}
                       </small>
@@ -296,39 +278,13 @@ const Login = () => {
                       </div>
                     )}
 
-                    {/* <div className="flex items-center justify-start w-full text-md">
-                  <div>
-                    <input
-                        className="mr-1"
-                        type="checkbox"
-                        id="remind"
-                        name="remember"
-                        value={values.remind}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                      />
-                    <input type="checkbox" name="" id="rem" />
-                    <label htmlFor="rem" className="ml-2">
-                      Remember me
-                    </label>
-                  </div>
-                </div> */}
-
                     {!final && <div id="recaptcha-container"></div>}
-                    {/* 
-                  <button className="btn-main" type="submit">
-                    <span>Next</span>
-                    <MdOutlineNavigateNext
-                      color={"#fff"}
-                      size={40}
-                      className="mt-1"
-                    />
-                  </button> */}
 
                     <button
-                      className="px-12 w-full py-2 flex justify-center flex-row items-center rounded-lg bg-black hover:bg-black/75"
+                      className={`px-12 w-full py-2 flex justify-center flex-row items-center rounded-lg bg-${loginDisable ? "black" : "gray-500"} hover:bg-${loginDisable ? "black/75" : ""}`}
                       onClick={(e) => onSignup(e)}
                       type="submit"
+                      disabled={!loginDisable}
                     >
                       <span className="xl:text-2xl text-sm text-white font-bold">
                         {buttonText}
@@ -338,7 +294,7 @@ const Login = () => {
                         className="inline-block mt-0 text-2xl"
                       />
                     </button>
-                    <div className="font-semibold text-lg">
+                    <div className="font-semibold text-lg text-center">
                       <span>New Member? </span>
                       <span>
                         <Link

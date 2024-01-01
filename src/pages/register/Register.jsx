@@ -223,7 +223,7 @@ const Register = () => {
         <Loader />
       ) : (
         <div className="h-screen flex items-center justify-center bg-image">
-          <div className="flex items-center justify-between md:flex-row flex-col px-10 xl:px-20 max-w-[1440px]">
+          <div className="flex items-center justify-between gap-12 md:flex-row flex-col px-10 xl:px-20 max-w-[1440px]">
             {/* <div className="login-contain flex items-center justify-center md:flex-row xl:flex-row 4xl:flex-row flex-col"> */}
             <div className="">
               <div className="hidden md:block  transform scale-x-[-1]">
@@ -248,8 +248,8 @@ const Register = () => {
               </div>
               {/* Mobile View Jeep */}
             </div>
-            <div className="flex flex-col xl:space-y-4 md:space-y-4 space-y-2 text-center md:mt-10 lg:mt-20 xl:mt-10 4xl:mt-10 mt-1 mb-10 sm:mb-0 ">
-              <span className="text-2xl md:text-4xl xl:text-4xl fw-bold font-bold 4xl:text-8xl">
+            <div className="flex flex-col xl:space-y-2 md:space-y-4 space-y-2 text-center md:mt-10 lg:mt-20 xl:mt-10 special:mt-10 mt-1 mb-10 sm:mb-0 ">
+              <span className="text-2xl md:text-4xl xl:text-4xl fw-bold font-bold special:text-8xl">
                 Create an Account
               </span>
               <form
@@ -257,7 +257,7 @@ const Register = () => {
                 autoComplete="off"
                 className="form-contain text-center"
               >
-                <div className="flex flex-col justify-center gap-5 mx-auto xl:mt-10 md:mt-10 mt-4 4xl:mt-20">
+                <div className="flex flex-col justify-center space-y-4 mx-auto xl:mt-4 md:mt-10 mt-4 special:mt-20">
                   <div
                     className={
                       errors.name && touched.name
@@ -349,24 +349,7 @@ const Register = () => {
                     </small> */}
                   </div>
 
-                  {/* <div
-                      className={
-                        errors.tin && touched.tin
-                          ? "input-div input-error"
-                          : "input-div"
-                      }
-                    >
-                      <FcViewDetails size={20} />
-                      <input
-                        type="text"
-                        placeholder="Your Tin Number"
-                        value={values.tin}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        id="tin"
-                        className="placeholder:text-[16px]"
-                      />
-                    </div> */}
+                
 
                   <div
                     className={
@@ -463,13 +446,13 @@ const Register = () => {
                   {!final && <div id="recaptcha-container"></div>}
 
                   <button
-                    className={`text-white rounded-xl justify-center px-12 py-3 flex flex-row items-center font-semibold special:text-xl bg-${
+                    className={`text-white rounded-xl justify-center px-12 py-2 flex flex-row items-center font-semibold special:text-xl bg-${
                       isChecked ? "black" : "gray-500"
                     } hover:bg-${isChecked ? "black/50" : ""}`}
                     onClick={(e) => onSignup(e)}
                     disabled={!isChecked}
                   >
-                    <span className="xl:text-2xl md:text-xl 4xl:text-2xl text-lg text-white font-bold">
+                    <span className="xl:text-xl md:text-xl special:text-2xl text-lg text-white font-bold">
                       {buttonText}
                     </span>
                     <MdOutlineNavigateNext
