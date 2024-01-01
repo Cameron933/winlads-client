@@ -26,7 +26,7 @@ const DashboardVehicleCard = ({
         style={{ backgroundColor: color }}
         onClick={handleClick}
       >
-        <img src={NewVeh} alt="" className="flex w-36 special:w-96 2xl:w-48" />
+        <img src={NewVeh} alt="" className="flex w-36 special:w-96 2xl:w-48 " />
         <div className="flex flex-col space-y-4">
           <div className="flex justify-end">
             <img

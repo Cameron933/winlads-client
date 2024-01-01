@@ -132,8 +132,18 @@ const Login = () => {
               console.log("success");
               cookies.set("wr_token", response.data.data._id);
               navigate("/dashboard");
-            } else {
-              alert("Login failed");
+            }
+            if (response.data.status !== 200) {
+              toast.error("Login failed", {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+              });
             }
           })
           .catch((error) => {
@@ -147,7 +157,6 @@ const Login = () => {
               progress: undefined,
               theme: "colored",
             });
-            console.error("Error checking mobile:", error);
           });
       })
       .catch((err) => {
@@ -187,12 +196,12 @@ const Login = () => {
         <Loader />
       ) : (
         <>
-        <div className="h-screen flex items-center justify-center bg-image">
-          <div className="flex items-center justify-between md:flex-row flex-col px-10 xl:px-20 max-w-[1440px]">
-            {/* <div className="img-container scale-150 mb-9 md:mb-0 prevent"> */}
-            {/* Dekstop VIew Jeep */}
-            <div className="">
-              <div className="hidden md:block  transform scale-x-[-1]">
+          <div className="h-screen flex items-center md:flex-row flex-col justify-between bg-image">
+            <div className="flex items-center max-w-[1440px] px-10 xl:px-20">
+              {/* <div className="img-container scale-150 mb-9 md:mb-0 prevent"> */}
+              {/* Dekstop VIew Jeep */}
+
+              <div className="hidden md:block transform scale-x-[-1]">
                 <motion.img
                   initial={{ opacity: 0, x: "40%" }}
                   whileInView={{ opacity: 1, x: "0%" }}
@@ -205,7 +214,7 @@ const Login = () => {
               {/* Mobile View Jeep */}
               <div className="block md:hidden w-full transform scale-x-[-1]">
                 <motion.img
-                  initial={{ opacity: 0, x: "40%"  }}
+                  initial={{ opacity: 0, x: "40%" }}
                   whileInView={{ opacity: 1, x: "0%" }}
                   transition={{ duration: 0.8 }}
                   src={LoginImg}
@@ -213,39 +222,32 @@ const Login = () => {
                   alt="main-img"
                 />
               </div>
-            </div>
 
-            {/* </div> */}
+              {/* </div> */}
+              <div className="flex flex-col ">
+                <span className="text-2xl md:text-2xl lg:text-4xl font-bold special:text-4xl">
+                  Sign in to access your account
+                </span>
 
-            <form
-              onSubmit={handleSubmit}
-              autoComplete="off"
-              className="text-center form-contain items-center"
-            >
-              <span className="text-2xl md:text-2xl lg:text-4xl font-bold special:text-4xl">
-                Sign in to access your account
-              </span>
-
-              <div className="flex flex-col justify-center gap-5 mt-10">
-                <div
-                  // id="recaptcha-container"
-                  className={
-                    errors.otp && touched.opt ? "input-div input-error" : ""
-                  }
-                >
-                  <PhoneInput
-                    country={"au"}
-                    // value={this.state.phone}
-                    // onChange={(phone) => this.setState({ phone })}
-                    value={ph}
-                    onChange={(value, country, e, formattedValue) =>
-                      setPh(value)
-                    }
-                    onBlur={handleBlur}
-                    id="mobile"
-                    className="placeholder:text-[16px] border borer-solid  border-black"
-                  />
-                  {/* <PhoneInput
+                <form onSubmit={handleSubmit} autoComplete="off" className="">
+                  <div className="flex flex-col justify-center gap-5 mt-10">
+                    <div
+                      // id="recaptcha-container"
+                      className={
+                        errors.otp && touched.opt ? "input-div input-error" : ""
+                      }
+                    >
+                      <PhoneInput
+                        country={"au"}
+                        value={ph}
+                        onChange={(value, country, e, formattedValue) =>
+                          setPh(value)
+                        }
+                        onBlur={handleBlur}
+                        id="mobile"
+                        className="placeholder:text-[16px] border borer-solid border-black"
+                      />
+                      {/* <PhoneInput
                   country={"au"}
                   type="number"
                   // value={this.state.phone}
@@ -256,10 +258,10 @@ const Login = () => {
                   id="mobile"
                   className="placeholder:text-[16px]"
                 /> */}
-                  {/* <FcPhoneAndroid size={20} /> */}
-                  {/* <img src={Flag} alt="" /> */}
+                      {/* <FcPhoneAndroid size={20} /> */}
+                      {/* <img src={Flag} alt="" /> */}
 
-                  {/* <input
+                      {/* <input
                       type="text"
                       placeholder="+61&nbsp;(Phone Number)"
                       value={ph}
@@ -268,33 +270,33 @@ const Login = () => {
                       id="mobile"
                       className="placeholder:text-[16px]"
                     /> */}
-                  <small className="text-error">
-                    {errors.mobile && touched.mobile && errors.mobile}
-                  </small>
-                </div>
+                      <small className="text-error">
+                        {errors.mobile && touched.mobile && errors.mobile}
+                      </small>
+                    </div>
 
-                {showOTPBox && (
-                  <div
-                    className={
-                      errors.otp && touched.opt
-                        ? "input-div input-error"
-                        : "input-div"
-                    }
-                  >
-                    <input
-                      type="text"
-                      placeholder="OTP Code"
-                      value={otp}
-                      onChange={(e) => setOtp(e.target.value)}
-                      className="w-full"
-                    />
-                    <small className="text-error">
-                      {errors.otp && touched.opt && errors.otp}
-                    </small>
-                  </div>
-                )}
+                    {showOTPBox && (
+                      <div
+                        className={
+                          errors.otp && touched.opt
+                            ? "input-div input-error"
+                            : "input-div"
+                        }
+                      >
+                        <input
+                          type="text"
+                          placeholder="OTP Code"
+                          value={otp}
+                          onChange={(e) => setOtp(e.target.value)}
+                          className="w-full"
+                        />
+                        <small className="text-error">
+                          {errors.otp && touched.opt && errors.otp}
+                        </small>
+                      </div>
+                    )}
 
-                {/* <div className="flex items-center justify-start w-full text-md">
+                    {/* <div className="flex items-center justify-start w-full text-md">
                   <div>
                     <input
                         className="mr-1"
@@ -312,8 +314,8 @@ const Login = () => {
                   </div>
                 </div> */}
 
-                {!final && <div id="recaptcha-container"></div>}
-                {/* 
+                    {!final && <div id="recaptcha-container"></div>}
+                    {/* 
                   <button className="btn-main" type="submit">
                     <span>Next</span>
                     <MdOutlineNavigateNext
@@ -323,37 +325,39 @@ const Login = () => {
                     />
                   </button> */}
 
-                <button
-                  className="px-12 w-full py-2 flex justify-center flex-row items-center rounded-lg bg-black hover:bg-black/75"
-                  onClick={(e) => onSignup(e)}
-                  type="submit"
-                >
-                  <span className="xl:text-2xl text-sm text-white font-bold">
-                    {buttonText}
-                  </span>
-                  <MdOutlineNavigateNext
-                    color={"#fff"}
-                    className="inline-block mt-0 text-2xl"
-                  />
-                </button>
-                <div className="font-semibold text-lg">
-                  <span>New Member? </span>
-                  <span>
-                    <Link to="/register" className="react-link text-[#157D98]">
-                      Register now
-                    </Link>
-                  </span>
-                </div>
+                    <button
+                      className="px-12 w-full py-2 flex justify-center flex-row items-center rounded-lg bg-black hover:bg-black/75"
+                      onClick={(e) => onSignup(e)}
+                      type="submit"
+                    >
+                      <span className="xl:text-2xl text-sm text-white font-bold">
+                        {buttonText}
+                      </span>
+                      <MdOutlineNavigateNext
+                        color={"#fff"}
+                        className="inline-block mt-0 text-2xl"
+                      />
+                    </button>
+                    <div className="font-semibold text-lg">
+                      <span>New Member? </span>
+                      <span>
+                        <Link
+                          to="/register"
+                          className="react-link text-[#157D98]"
+                        >
+                          Register now
+                        </Link>
+                      </span>
+                    </div>
+                  </div>
+                </form>
               </div>
-            </form>
+            </div>
           </div>
-        </div>
         </>
       )}
     </>
   );
 };
-
-// export {firebase}
 
 export default Login;
