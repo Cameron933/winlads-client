@@ -248,14 +248,14 @@ const Register = () => {
               </div>
               {/* Mobile View Jeep */}
             </div>
-            <div className="flex flex-col xl:space-y-2 md:space-y-4 space-y-2 text-center md:mt-10 lg:mt-20 xl:mt-10 special:mt-10 mt-1 mb-10 sm:mb-0 ">
+            <div className="flex flex-col xl:space-y-2 md:space-y-4 space-y-2 md:mt-10 lg:mt-20 xl:mt-10 special:mt-10 mt-1 mb-10 sm:mb-0 ">
               <span className="text-2xl md:text-4xl xl:text-4xl fw-bold font-bold special:text-8xl">
                 Create an Account
               </span>
               <form
                 onSubmit={handleSubmit}
                 autoComplete="off"
-                className="form-contain text-center"
+                className="form-contain"
               >
                 <div className="flex flex-col justify-center space-y-4 mx-auto xl:mt-4 md:mt-10 mt-4 special:mt-20">
                   <div
@@ -462,7 +462,7 @@ const Register = () => {
                     />
                   </button>
 
-                  <div className="font-semibold text-lg">
+                  <div className="font-semibold text-lg text-center">
                     <span>Already a member? </span>
                     <span>
                       <Link className="react-link text-[#157D98]" to="/login">
