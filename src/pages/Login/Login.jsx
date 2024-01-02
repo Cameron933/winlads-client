@@ -203,8 +203,8 @@ const Login = () => {
         <Loader />
       ) : (
         <>
-          <div className="h-screen flex items-center md:flex-row flex-col bg-image">
-            <div className="flex items-center justify-between gap-12 max-w-[1440px] px-10 xl:px-20">
+          <div className="h-screen flex items-center  bg-image">
+            <div className="flex items-center md:flex-row flex-col justify-between gap-12 max-w-[1440px] px-10 xl:px-20">
               {/* <div className="img-container scale-150 mb-9 md:mb-0 prevent"> */}
               {/* Dekstop VIew Jeep */}
 
