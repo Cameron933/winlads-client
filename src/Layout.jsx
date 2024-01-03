@@ -2,7 +2,7 @@ import React from "react";
 import SideNav from "./components/SideNav/SideNav";
 import { Outlet } from "react-router-dom";
 import MyEntriesButton from "./components/MyEntries/MyEntriesButton";
-import MessengerPlugin from "./utils/MessengerPlugin";
+import MessengerCustomerChat from "react-messenger-customer-chat";
 
 const Layout = () => {
   return (
@@ -10,6 +10,7 @@ const Layout = () => {
       <SideNav />
       <Outlet />
       <MyEntriesButton />
+      <MessengerCustomerChat pageId="171684687116166" />,
     </div>
   );
 };
