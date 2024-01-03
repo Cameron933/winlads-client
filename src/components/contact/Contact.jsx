@@ -1,8 +1,20 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import BgImg from "../../assets/images/conImg.png"
 
 const ContactForm = () => {
+
+  const divStyle = {
+    backgroundImage: `url(${BgImg})`,
+    // backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    // height: "300px",
+    backgroundPosition: 'right bottom'
+  
+  };
+
+
   const [formData, setFormData] = useState({});
 
   const handleInputChange = (event) => {
@@ -61,7 +73,8 @@ const ContactForm = () => {
   return (
     <div className="bg-chose-plan py-4" id="contactUs">
       <form
-      style={{ backgroundImage: 'url(./fadejeep.png)', backgroundRepeat: 'no-repeat', backgroundPosition: 'right bottom' }}
+      // style={{ backgroundImage: 'url(./fadejeep.png)', backgroundRepeat: 'no-repeat', backgroundPosition: 'right bottom' }}
+      style={divStyle}
         onSubmit={handleSubmit}
         method="POST"
         className="px-5 xl:px-10 2xl:px-10 special:px-40 flex flex-col justify-center bg-white w-3/4 mx-auto py-10 shadow-sm rounded-lg mb-5"
