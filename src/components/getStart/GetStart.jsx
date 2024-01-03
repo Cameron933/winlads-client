@@ -31,18 +31,72 @@ const GetStart = () => {
           lives of individuals worldwide.
         </motion.p>
 
-        {/* <motion.p
+        <motion.p
           initial={{ opacity: 0, y: "-40%" }}
           whileInView={{ opacity: 1, y: "0" }}
           transition={{ duration: 0.5, delay: 0.6 }}
           viewport={{ once: true }}
           className="mt-5 sm:mt-6 lg:mt-8 text-center w-10/12 mx-auto text-xs sm:text-sm md:text-base xl:text-base special:text-lg"
         >
-          Picture this: you're kicking back, chilling, and earning easy
-          cash—yeah, it's possible! We've got a stash of unreal deals waiting
-          for ya. Plus, sling our program to your mates, and you'll be raking in
-          dosh on the side. No worries, it's that easy!
-        </motion.p> */}
+          Enabling Transformation: Our philanthropic journey is rooted in a
+          profound commitment to social responsibility. We strive to empower
+          those in need, amplifying the possibilities for a brighter, more
+          promising future. From supporting underprivileged communities to
+          extending a helping hand during critical times, Winlads is dedicated
+          to making a tangible difference where it matters most.
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0, y: "-40%" }}
+          whileInView={{ opacity: 1, y: "0" }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          viewport={{ once: true }}
+          className="mt-5 sm:mt-6 lg:mt-8 text-center w-10/12 mx-auto text-xs sm:text-sm md:text-base xl:text-base special:text-lg"
+        >
+          Partnering with Purpose: We collaborate with esteemed charitable
+          organizations and foundations to channel our efforts effectively.
+          These partnerships enable us to amplify our impact and reach,
+          extending assistance to diverse causes such as education, healthcare,
+          environmental conservation, and socio-economic development.
+        </motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: "-40%" }}
+          whileInView={{ opacity: 1, y: "0" }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          viewport={{ once: true }}
+          className="mt-5 sm:mt-6 lg:mt-8 text-center w-10/12 mx-auto text-xs sm:text-sm md:text-base xl:text-base special:text-lg"
+        >
+          Catalysts of Hope and Change: Through fundraising initiatives,
+          awareness campaigns, and direct contributions, Winlads endeavors to be
+          catalysts of hope and change. Every action we take, every endeavor we
+          embark upon, is driven by the inherent belief that together, we can
+          create a world where compassion, generosity, and kindness reign
+          supreme.
+        </motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: "-40%" }}
+          whileInView={{ opacity: 1, y: "0" }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          viewport={{ once: true }}
+          className="mt-5 sm:mt-6 lg:mt-8 text-center w-10/12 mx-auto text-xs sm:text-sm md:text-base xl:text-base special:text-lg"
+        >
+          Building a Legacy of Compassion: With unwavering determination and an
+          empathetic spirit, Winlads aspires to build a legacy of compassion and
+          empathy. We understand that each act of kindness, no matter how small,
+          has the potential to transform lives, elevate communities, and inspire
+          a ripple effect of positivity and hope.
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0, y: "-40%" }}
+          whileInView={{ opacity: 1, y: "0" }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          viewport={{ once: true }}
+          className="mt-5 sm:mt-6 lg:mt-8 text-center w-10/12 mx-auto text-xs sm:text-sm md:text-base xl:text-base special:text-lg"
+        >
+         
+ Join Us on the Journey: We invite you to join us on this meaningful journey of giving back. Together, we can forge a future where individuals thrive, communities flourish, and hope prevails. Your support and participation in our charitable initiatives empower us to create a world where compassion and kindness reign supreme, ensuring that no one is left behind.
+        </motion.p>
 
         {/* <div className="mt-5 sm:mt-6 lg:mt-8 flex items-center justify-center">
             <motion.button
