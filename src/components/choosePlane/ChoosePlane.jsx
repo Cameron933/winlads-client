@@ -441,7 +441,7 @@ const ChoosePlane = () => {
             </motion.div>
           </div>
         </div> */}
-         <div className="grid xl:grid-cols-5 grid-cols-1 md:grid-cols-3 gap-4 px-3 xs:px-32 md:px-0">
+         <div className="grid xl:grid-cols-5 grid-cols-2 md:grid-cols-3 gap-4 px-3 xs:px-32 md:px-0">
           <Card
             title="Starter Tier"
             // titleColor="white"
@@ -562,6 +562,7 @@ const ChoosePlane = () => {
             arrowColor="[#01819D]"
             buttonTextColor={"white"}
             btnword="SIGN UP FOR FREE"
+            classNames={'col-span-2 md:col-span-1'}
             // point1={Correct}
             // point2={Correct}
             // point3={Correct}

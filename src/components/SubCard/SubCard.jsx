@@ -33,7 +33,8 @@ const SubCard = ({
     point6,
     point7,
     mostPopular = false,
-    yValue
+    yValue,
+    classNames
 }) => {
     const [showmore, setShowmore] = useState(false);
     const [btnBgColor, setBtnBgColor] = useState(buttonColor);
@@ -59,7 +60,7 @@ const SubCard = ({
             whileInView={{y:0, opacity:1}}
             viewport={{once:true}}
             transition={{duration:1, delay:0.5}}
-            className={`rounded-2xl px-2 pt-12 pb-4 shadow-lg shadow-gray-400 relative flex flex-col border-2 border-black`}
+            className={`rounded-2xl px-2 pt-12 pb-4 shadow-lg shadow-gray-400 relative flex flex-col border-2 border-black ${classNames}`}
             style={{
                 background: `linear-gradient(180deg, ${bgColorFrom} 0%, ${bgColorTo} 100%)`,
             }}
