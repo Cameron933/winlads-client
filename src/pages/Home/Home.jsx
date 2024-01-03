@@ -10,6 +10,7 @@ import Gallery2 from "../../components/Gallery/Gallery2";
 import ChoosePlane from "../../components/choosePlane/ChoosePlane";
 import GetStart from "../../components/getStart/GetStart";
 import Contact from "../../components/contact/Contact"
+import MessengerCustomerChat from 'react-messenger-customer-chat';
 
 const Home = () => {
   return (
@@ -24,6 +25,7 @@ const Home = () => {
       <Gallery2/>
       <Contact />
       <Footer />
+      <MessengerCustomerChat pageId="171684687116166" />,
 
     </div>
   );
