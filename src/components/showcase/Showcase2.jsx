@@ -10,7 +10,6 @@ const Showcase2 = () => {
   const [isNavOpen, setNavOpen] = useState(false);
   const [scrolling, setScrolling] = useState(false);
 
-  // bg-[#A0E6EB]
   const scrollTo = (id) => {
     const otherComponentElement = document.getElementById(id);
 
@@ -38,7 +37,7 @@ const Showcase2 = () => {
   return (
     <div className="w-full h-screen">
       <div className={`${
-        scrolling ? 'bg-[#38bfc9]' : 'bg-transparent'} fixed py-4 w-full z-20 hidden xl:flex justify-between items-center px-4`}>
+        scrolling ? 'bg-white' : 'bg-transparent'} fixed py-4 w-full z-20 hidden xl:flex justify-between items-center px-4`}>
         <div>
           <img src={HeaderLogo} alt="" />
         </div>
