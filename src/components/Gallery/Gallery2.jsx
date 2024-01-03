@@ -29,88 +29,22 @@ const Gallery2 = () => {
           Follow Us On Instagram
         </motion.p>
 
-        <div className="flex w-full 2xl:max-w-[2400px] flex-col gap-3">
-          <div className="bg-transparent h-full  py-6 sm:py-8 lg:py-12 w-full ">
-            <div className="mx-auto max-w-[2000px] px-4 md:px-8">
-              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:gap-6 xl:gap-8">
-                {/* image - start */}
-                <a
-                  href="#"
-                  className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80"
-                >
-                  <img
-                    src={dragon}
-                    loading="lazy"
-                    alt="Photo by Minh Pham"
-                    className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
-                  />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
-                 
-                </a>
-                {/* image - end */}
-
-                {/* image - start */}
-                <a
-                  href="#"
-                  className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80"
-                >
-                  <img
-                    src={watermelon}
-                    loading="lazy"
-                    alt="Photo by Magicle"
-                    className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
-                  />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
-                  
-                </a>
-                {/* image - end */}
-                {/* image - start */}
-                <a
-                  href="#"
-                  className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80"
-                >
-                  <img
-                    src={cloud}
-                    loading="lazy"
-                    alt="Photo by Martin Sanchez"
-                    className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
-                  />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
-                  
-                </a>
-                {/* image - end */}
-                {/* image - start */}
-                <a
-                  href="#"
-                  className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80"
-                >
-                  <img
-                    src={pineapple}
-                    loading="lazy"
-                    alt="Photo by Lorenzo Herrera"
-                    className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
-                  />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
-                  
-                </a>
-                {/* image - end */}
-              </div>
-            </div>
+        
+      <div className="flex flex-col xl:space-y-8 space-x-4 py-8">
+        <div className="flex justify-center"><img src="/imgs/winLogo.png" alt="" className="w-48 xl:w-72" /></div>
+        <br />
+        <div className="grid grid-cols-4 xl:px-20 md:px-10 px-5 gap-2">
+          <div className="col-span-5 md:col-span-1 flex flex-col gap-2">
+            <div className="flex flex-col gap-2"><img src="/imgs/img1.png" alt="" className="w-full" /><img src="/imgs/img2.png" alt="" className="w-full" /></div>
           </div>
-
-          <div className="flex items-center justify-center ">
-            <motion.button
-              initial={{ opacity: 0, y: "-40%" }}
-              whileInView={{ opacity: 1, y: "0" }}
-              transition={{ duration: 0.5, delay: 0.9 }}
-              viewport={{ once: true }}
-              className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl px-3 2xl:px-5 special:px-8 py-2 2xl:py-3 special:py-5 text-[#d4d4d4] bg-black rounded-lg hover:text-white hover:bg-[#00F0FF]"
-            >
-              {" "}
-              Load More...
-            </motion.button>
+          <div className="col-span-5 md:col-span-2"><img src="/imgs/img3.png" alt="" className="w-full" /></div>
+          <div className="col-span-5 md:col-span-1">
+            <div className="flex flex-col gap-2"><img src="/imgs/img4.png" alt="" className="w-full" /><img src="/imgs/img5.png" alt="" className="w-full" /></div>
           </div>
         </div>
+      </div>
+
+        
       </div>
     </div>
   );

@@ -37,7 +37,7 @@ const Youtube = () => {
             SOME OUR PARTNERS
           </motion.p>
       <div className="flex flex-col space-y-2">
-            <div className="flex flex-row items-center bg-[#01819D] py-2 w-full">
+            <div className="flex flex-row items-center bgColor py-2 w-full h-[70px]">
               <Marquee>
                 <div className="flex flex-row space-x-8">
                   <p className="text-white font-bold text-lg">Stripe</p>
@@ -80,7 +80,7 @@ const Youtube = () => {
             {/* <img src={Stripe} className="w-full" /> */}
             {/* <img src={Nontera} className="w-full" /> */}
 
-            <div className="flex flex-row items-center bg-white border-2 border-[#01819D] py-2 w-full">
+            <div className="flex flex-row items-center bg-white border-2 border-[#01819D] py-2 w-full h-[70px]">
               <Marquee direction="right">
                 <div className="flex flex-row space-x-8">
                   <p className="text-[#01819D] font-bold text-xl uppercase">

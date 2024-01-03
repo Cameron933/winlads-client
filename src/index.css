@@ -447,3 +447,6 @@ code {
 
 
 
+.bgColor{
+  background: linear-gradient(to right, #E83F3F 100%, #A20505  100%);
+}

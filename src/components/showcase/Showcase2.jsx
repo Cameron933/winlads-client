@@ -20,7 +20,7 @@ const Showcase2 = () => {
 }
 
   return (
-    <div className="w-full">
+    <div className="w-full h-screen">
       <div className="flex flex-col lg:flex-row lg:items-stretch ">
         {/* left */}
         <div className="w-full lg:w-[46%] xl:1/2 bg-left-showcase flex flex-col items-end  ">
@@ -138,22 +138,22 @@ const Showcase2 = () => {
           <div className="p-3 lg:p-5 flex flex-col gap-16   2xl:max-w-[1200px] ">
             {/* web-nav */}
             <nav className="lg:flex items-center justify-end gap-3 xl:gap-5 special:gap-8 hidden">
-              <span className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl hover:text-[#EC263F]" onClick={()=> scrollTo('our-partners')}>
+              <span className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl hover:text-[#0184EA]" onClick={()=> scrollTo('our-partners')}>
                 <Link >Our Partners</Link>
               </span>
-              <span className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl hover:text-[#EC263F] hidden">
+              <span className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl hover:text-[#0184EA] hidden">
                 <Link to="">Become A Partner</Link>
               </span>
-              <span className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl hover:text-[#EC263F]">
+              <span className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl hover:text-[#0184EA]">
                 <a
                   href="https://winladsgiveaway.com/"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  Giveaway
+                  Giveaways
                 </a>
               </span>
-              <span className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl hover:text-[#EC263F] hidden">
+              <span className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl hover:text-[#0184EA]">
                 <Link to="">Shop</Link>
               </span>
               <button className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl px-3 2xl:px-5 special:px-8 py-2 2xl:py-3 special:py-5 text-[#d4d4d4] bg-black rounded-lg hover:text-white hover:bg-black/75" onClick={()=>scrollTo('contactUs')}>

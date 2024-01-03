@@ -61,6 +61,7 @@ const ContactForm = () => {
   return (
     <div className="bg-chose-plan py-4" id="contactUs">
       <form
+      style={{ backgroundImage: 'url(./fadejeep.png)', backgroundRepeat: 'no-repeat', backgroundPosition: 'right bottom' }}
         onSubmit={handleSubmit}
         method="POST"
         className="px-5 xl:px-10 2xl:px-10 special:px-40 flex flex-col justify-center bg-white w-3/4 mx-auto py-10 shadow-sm rounded-lg mb-5"
@@ -74,7 +75,7 @@ const ContactForm = () => {
             type="text"
             placeholder="Your name"
             name="name"
-            className="focus:outline-none relative w-full px-3 py-3 text-sm text-gray-600 placeholder-gray-500  border-b-2 rounded outline-none"
+            className=" bg-transparent focus:outline-none relative w-full px-3 py-3 text-sm text-gray-600 placeholder-gray-500  border-b-2 rounded outline-none"
             required
             onChange={handleInputChange}
           />
@@ -84,7 +85,7 @@ const ContactForm = () => {
             type="email"
             placeholder="Email"
             name="email"
-            className="focus:outline-none relative w-full px-3 py-3 text-sm text-gray-600 placeholder-gray-500  border-b-2 rounded outline-none"
+            className=" bg-transparent focus:outline-none relative w-full px-3 py-3 text-sm text-gray-600 placeholder-gray-500  border-b-2 rounded outline-none"
             required
             onChange={handleInputChange}
           />
@@ -93,7 +94,7 @@ const ContactForm = () => {
           <textarea
             placeholder="Your message"
             name="message"
-            className="focus:outline-none relative w-full px-3 py-3 text-sm text-gray-600 placeholder-gray-500  border-b-2 rounded outline-none"
+            className="bg-transparent focus:outline-none relative w-full px-3 py-3 text-sm text-gray-600 placeholder-gray-500  border-b-2 rounded outline-none"
             required
             onChange={handleInputChange}
           />
