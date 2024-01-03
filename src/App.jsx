@@ -35,7 +35,7 @@ import Support from "./pages/Support/Support";
 import Withdraw from "./pages/Withdraw/Withdraw";
 import { elements } from "chart.js";
 import Youtube from "./components/youtube/Youtube";
-import MessengerPlugin from "./utils/MessengerPlugin";
+
 
 function App() {
   const router = createBrowserRouter([
@@ -235,7 +235,7 @@ function App() {
   return (
     <>
       <GoogleAnalytics trackingCode="G-N927BPJE6K" />
-      <MessengerPlugin pageId="171684687116166"/>
+      {/* <MessengerPlugin pageId="171684687116166"/> */}
       <RouterProvider router={router} />
       <ToastContainer />
     </>
