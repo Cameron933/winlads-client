@@ -40,6 +40,7 @@ const Youtube = () => {
             <div className="flex flex-row items-center bgColor py-2 w-full h-[70px]">
               <Marquee>
                 <div className="flex flex-row space-x-8">
+                <p className="text-white text-lg hidden">|</p>
                   <p className="text-white font-bold text-lg">Stripe</p>
                   <p className="text-white text-lg">|</p>
                   <p className="text-white font-bold text-lg">Stripe</p>
@@ -74,6 +75,7 @@ const Youtube = () => {
                   <p className="text-white text-lg">|</p>
                   <p className="text-white font-bold text-lg">Stripe</p>
                   <p className="text-white text-lg">|</p>
+                  
                 </div>
               </Marquee>
             </div>
