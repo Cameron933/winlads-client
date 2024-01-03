@@ -85,6 +85,7 @@ const Youtube = () => {
             <div className="flex flex-row items-center bg-white border-2 border-[#01819D] py-2 w-full h-[70px]">
               <Marquee direction="right">
                 <div className="flex flex-row space-x-8">
+                <p className="text-white text-lg hidden">|</p>
                   <p className="text-[#01819D] font-bold text-xl uppercase">
                     Nontera
                   </p>
