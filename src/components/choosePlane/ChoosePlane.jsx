@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import Icon from "../../assets/images/chooseplane/Icons.png";
-import Car from "../../assets/images/chooseplane/cjip.png";
+// import Icon from "../../assets/images/chooseplane/Icons.png";
+// import Car from "../../assets/images/chooseplane/cjip.png";
 import { motion } from "framer-motion";
+import Card from "../../components/SubCard/SubCard"
 
 const ChoosePlane = () => {
 
@@ -20,7 +21,7 @@ const ChoosePlane = () => {
           Choose a Subscription plan
         </motion.p>
 
-        <div className="flex flex-col gap-3">
+        {/* <div className="flex flex-col gap-3">
 
           <div className="grid xl:grid-cols-5 grid-cols-1 md:grid-cols-3 gap-4 px-3 xs:px-32 md:px-0">
             <div className="rounded-2xl px-2 pt-12 pb-4 shadow-lg shadow-gray-400 relative flex flex-col border-2 border-black" style={{ background: 'linear-gradient(rgb(0, 148, 255) 0%, rgb(0, 52, 124) 100%)' }}>
@@ -150,7 +151,7 @@ const ChoosePlane = () => {
           <div className="flex w-full 2xl:max-w-[2400px]  gap-3 lg:flex-row flex-col" style={{ display: 'none' }}>
 
 
-            {/* card1 */}
+     
             <motion.div
               viewport={{ once: true }}
               initial={{ opacity: 0, y: "30%" }}
@@ -196,7 +197,7 @@ const ChoosePlane = () => {
               </div>
             </motion.div>
 
-            {/* card2 */}
+
             <motion.div
               initial={{ opacity: 0, y: "-30%" }}
               whileInView={{ opacity: 1, y: "0" }}
@@ -239,7 +240,7 @@ const ChoosePlane = () => {
               </div>
             </motion.div>
 
-            {/* card3 */}
+
             <motion.div
               initial={{ opacity: 0, y: "30%" }}
               whileInView={{ opacity: 1, y: "0" }}
@@ -311,7 +312,7 @@ const ChoosePlane = () => {
               className="absolute lg:w-[600px] 2xl:w-[700px] special:w-[780px] left-0 bottom-0 hidden lg:block"
             />
 
-            {/* car */}
+  
             <div className="max-w-sm w-full 2xl:max-w-lg special:max-w-2xl p-6 xl:py-8 special:py-10 flex items-center  justify-center lg:order-1 order-1">
               <motion.img
                 initial={{ opacity: 0, y: "-40%" }}
@@ -323,7 +324,6 @@ const ChoosePlane = () => {
               />
             </div>
 
-            {/* card4 */}
             <motion.div
               initial={{ opacity: 0, y: "-30%" }}
               whileInView={{ opacity: 1, y: "0" }}
@@ -375,7 +375,7 @@ const ChoosePlane = () => {
               </div>
             </motion.div>
 
-            {/* card5 */}
+
             <motion.div
               initial={{ opacity: 0, y: "30%" }}
               whileInView={{ opacity: 1, y: "0" }}
@@ -440,6 +440,139 @@ const ChoosePlane = () => {
               </div>
             </motion.div>
           </div>
+        </div> */}
+         <div className="grid xl:grid-cols-5 grid-cols-1 md:grid-cols-3 gap-4 px-3 xs:px-32 md:px-0">
+          <Card
+            title="Starter Tier"
+            // titleColor="white"
+            title2="01 FREE ENTRY"
+            titleColor2="black"
+            // price="$9.99"
+            desc1="$9.99 per month"
+            // desc2="Referral Commission: 2.5%"
+            desc2="Partner Store Discounts: 10% discount for 1 month upon sign-up"
+            desc3="Virtual access to Winlads Club Day"
+            // descColor="white"
+            buttonColor="#0082E1"
+            arrowColor="[#01819D]"
+            buttonTextColor={"white"}
+            btnword="SIGN UP FOR FREE"
+            bgColorFrom="#0094FF"
+            bgColorTo="#00347C"
+            // point1={Correct}
+            // point2={Correct}
+            // point3={Correct}
+            titleColor="black"
+            // btnword="Get started now"
+          />
+          <Card
+            bgColorFrom="#FF4700"
+            bgColorTo="#611C00"
+            title="Boomer Tier"
+            titleColor="black"
+            // titleColor="white"
+            title2="03 FREE ENTRIES"
+            titleColor2="black"
+            // price="$19.99"
+            desc1="$19.99 per month"
+            // desc2="Referral Commission: 5%"
+            desc2="Access to partner store database at a 10% discount for 3 months"
+            desc3=" Partner Store Discounts: 10% discount for 3 months"
+            // descColor="white"
+            buttonColor="#CF3A00"
+            arrowColor="white"
+            buttonTextColor="white"
+            btnword="SIGN UP FOR FREE"
+            // point1={Correct}
+            // point2={Correct}
+            // point3={Correct}
+            // point4={Correct}
+          />
+          <Card
+            bgColorFrom="#00ECFF"
+            bgColorTo="#006168"
+            title="Platinum Tier"
+            titleColor="black"
+            // titleColor="[#01819D]"
+            title2="10 FREE ENTRIES"
+            titleColor2="black"
+            // price="$49.99"
+            desc1="$49.99 per month"
+            desc2="Partner Store Database Access"
+            desc3="Partner Store Discounts: 10%-15% discount for 6 months"
+            desc4="Access to Winlads Public Events"
+            desc5="Access to partner store database at a 10%-15% discount for 3 months"
+            // descColor="[#01819D]"
+            buttonColor="#007D87"
+            arrowColor="white"
+            buttonTextColor="white"
+            btnword="SIGN UP FOR FREE"
+            // point1={Correct}
+            // point2={Correct}
+            // point3={Correct}
+            // point4={Correct}
+            // point5={Correct}
+          />
+          <Card
+            bgColorFrom="#FFBE00"
+            bgColorTo="#766000"
+            mostPopular={true}
+            title="Gold Tier"
+            titleColor="black"
+            // titleColor="white"
+            title2="25 FREE ENTRIES"
+            titleColor2="black"
+            // price="$100"
+            desc1="$100 per month"
+            // desc2="Premium Tier"
+            desc2="Partner Store Database Access"
+            desc3="Access to Winlads Urgency Program"
+            desc4="Access to partner store database at a 15% discount for 12 months"
+            desc5="Access to Winlads Public Events"
+            // descColor="white"
+            buttonColor="#000000"
+            arrowColor="[#01819D]"
+            buttonTextColor={"white"}
+            btnword="SIGN UP FOR FREE"
+            // point1={Correct}
+            // point2={Correct}
+            // point3={Correct}
+            // point4={Correct}
+            // point5={Correct}
+            // point6={Correct}
+          />
+          <Card
+            bgColorFrom="#23282E"
+            bgColorTo="#000"
+            title="Black Tier"
+            titleColor="white"
+            // titleColor="white"
+            title2="150 FREE ENTRIES"
+            titleColor2="#FFF"
+            // price="$500"
+            desc1="$500 per month"
+            desc2="Partner Store Discounts rates ranging upto 20%"
+            desc3="Access to Winlads Urgency Program"
+            desc4="Exclusive perks and privileges tailored for Black Tier members"
+            desc5="Winlads OG member Eligibility after 6 months"
+            desc6="12 months access to premium merchant discounts upto 20%."
+            desc7="Access to Winlads limited and Public Events"
+            // descColor="white"
+            buttonColor="#475A79"
+            arrowColor="[#01819D]"
+            buttonTextColor={"white"}
+            btnword="SIGN UP FOR FREE"
+            // point1={Correct}
+            // point2={Correct}
+            // point3={Correct}
+            // point4={Correct}
+            // point5={Correct}
+            // point6={Correct}
+            // point7={Correct}
+          />
+          {/* <Card />
+        <Card />
+        <Card /> */}
         </div>
       </div>
 

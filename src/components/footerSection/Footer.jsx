@@ -14,7 +14,7 @@ function Footer() {
               {/* <p className="text-sx sm:text-sm mt-5 2xl:text-xl special:text-2xl text-[#fff]">
                 Empowering Lives Through Winlads
               </p> */}
-              <p className="text-sx sm:text-sm mt-5 2xl:text-xl special:text-2xl text-[#fff]">
+              <p className="text-sx sm:text-sm mt-5 2xl:text-sm special:text-2xl text-[#fff]">
                 Embark on an opulent journey with Winlads LuxeLife Rewards – an
                 exclusive program curated to indulge members in premium and
                 luxury experiences.
@@ -25,7 +25,7 @@ function Footer() {
                 <p className="font-bold text-sm mb-3 2xl:text-xl special:text-2xl">
                   Quick Links
                 </p>
-                <ul className="text-xs 2xl:text-xl flex flex-col gap-1">
+                <ul className="text-xs 2xl:text-sm flex flex-col gap-1">
                   <li className="cursor-pointer">
                     <Link
                       to="/privacy"
@@ -53,7 +53,7 @@ function Footer() {
               </div>
 
               <div className="m-2 sm:m-4 text-[#fff] flex-1 ">
-                <p className="font-bold mb-3 text-sm 2xl:text-xl special:text-2xl">
+                <p className="font-bold mb-3 text-sm 2xl:text-sm special:text-2xl">
                   Contact Us
                 </p>
                 <ul className="text-xs 2xl:text-xl flex flex-col gap-1 ">
@@ -64,7 +64,7 @@ function Footer() {
                       +61 420 363 993
                     </a>
                   </li>
-                  <li className=" cursor-pointer flex items-center gap-2 2xl:gap-5">
+                  <li className="cursor-pointer flex items-center gap-2 2xl:gap-5">
                     <MdOutlineEmail className="text-white text-sm 2xl:text-lg" />
 
                     <a href="#" target="_blank" rel="noopener noreferrer">
@@ -75,7 +75,7 @@ function Footer() {
               </div>
 
               <div className="m-2 sm:m-4 text-[#fff] flex-1 ">
-                <p className="font-bold text-sm mb-3 2xl:text-xl special:text-2xl">
+                <p className="font-bold text-sm mb-3 2xl:text-sm special:text-2xl">
                   News Letter
                 </p>
                 <ul className="text-xs 2xl:text-xl flex flex-col gap-1">
@@ -88,7 +88,7 @@ function Footer() {
                 </ul>
               </div>
               <div className="m-2 sm:m-4 text-[#fff] flex-1 ">
-                <p className="font-bold text-sm mb-3 2xl:text-xl special:text-2xl">
+                <p className="font-bold text-sm mb-3 2xl:text-sm special:text-2xl">
                   Registration
                 </p>
                 <ul className="text-xs 2xl:text-xl flex flex-col gap-1">
