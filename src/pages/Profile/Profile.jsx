@@ -28,10 +28,14 @@ const Profile = () => {
   const [userId, setUserId] = useState("");
   const [email, setEmail] = useState("");
   const [mobile, setMobile] = useState("");
-  const [passport, setPassport] = useState("");
+  const [nic, setNic] = useState("");
   const [tin, setTin] = useState("");
   const [dob, setDob] = useState("");
   const [address, setAddress] = useState("");
+  const [address2, setAddress2] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [postalcode, setPostalcode] = useState("");
   const [profile, setProfile] = useState("");
   const [loading, setLoading] = useState(false);
   const [userImage, setUserImage] = useState("");
@@ -66,10 +70,14 @@ const Profile = () => {
         setName(response?.data?.data.name);
         setUserId(response?.data?.data.uid);
         setEmail(response?.data?.data.email);
-        setPassport(response?.data?.data.passport);
+        setNic(response?.data?.data.nic);
         setTin(response?.data?.data.tin);
         setDob(response?.data?.data.dob);
         setAddress(response?.data?.data.address);
+        setAddress2(response?.data?.data.address2);
+        setCity(response?.data?.data.city);
+        setState(response?.data?.data.state);
+        setPostalcode(response?.data?.data.postalcode);
         setUserImage(response?.data?.data.image);
         setRefferalId(response?.data?.data.rafflesId);
         console.log(response?.data?.data.image);
@@ -108,10 +116,14 @@ const Profile = () => {
         name,
         email,
         mobile,
-        passport,
+        nic,
         tin,
         dob,
         address,
+        address2,
+        city,
+        state,
+        postalcode,
         image: profileImageName,
       }
     );
@@ -314,14 +326,14 @@ const Profile = () => {
                     </div>
                     <div className="flex flex-col space-y-2">
                       <p className="text-black text-sm xl:text-md special:text-xl">
-                        Passport Number
+                        NIC Number
                       </p>
                       <input
                         className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
-                        placeholder="Enter Passport Number"
+                        placeholder="Enter NIC Number"
                         type="text"
-                        onChange={(e) => setPassport(e.target.value)}
-                        value={passport}
+                        onChange={(e) => setNic(e.target.value)}
+                        value={nic}
                       ></input>
                     </div>
                     <div className="flex flex-col space-y-2">
@@ -357,8 +369,8 @@ const Profile = () => {
                           className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
                           placeholder="Address Line 2"
                           type="text"
-                          value={address}
-                          onChange={(e) => setAddress(e.target.value)}
+                          value={address2}
+                          onChange={(e) => setAddress2(e.target.value)}
                         ></input>
                       </div>
 
@@ -372,8 +384,8 @@ const Profile = () => {
                           className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
                           placeholder="City"
                           type="text"
-                          value={address}
-                          onChange={(e) => setAddress(e.target.value)}
+                          value={city}
+                          onChange={(e) => setCity(e.target.value)}
                         ></input>
                       </div>
                       <div className="flex flex-col space-y-2 w-1/3">
@@ -384,8 +396,8 @@ const Profile = () => {
                           className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
                           placeholder="State"
                           type="text"
-                          value={address}
-                          onChange={(e) => setAddress(e.target.value)}
+                          value={state}
+                          onChange={(e) => setState(e.target.value)}
                         ></input>
                       </div>
                       <div className="flex flex-col space-y-2 w-1/3">
@@ -396,8 +408,8 @@ const Profile = () => {
                           className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
                           placeholder="Postal Code"
                           type="text"
-                          value={address}
-                          onChange={(e) => setAddress(e.target.value)}
+                          value={postalcode}
+                          onChange={(e) => setPostalcode(e.target.value)}
                         ></input>
                       </div>
 

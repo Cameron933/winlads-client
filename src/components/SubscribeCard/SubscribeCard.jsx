@@ -52,7 +52,8 @@ function SubscribeCard({
   planeId,
   year,
   quartly,
-  month
+  month,
+  color
 }) {
   const handleChooseButton = () => {
     onButtonClick();
@@ -60,10 +61,10 @@ function SubscribeCard({
 
   return (
     <div
-      className={`bg-${bgColor} bg-gradient-to-r relative ${gradientFrom} ${gradientTo} border border-solid border-${cardBorderColor} text-${textColor} py-8 px-8 special:py-8 2xl:py-8 rounded-[40px] flex flex-col space-y-6 special:space-y-8 2xl:space-y-8 cursor-pointer`}
+      className={`bg-gradient-to-r relative ${gradientFrom} ${gradientTo} border border-solid border-${cardBorderColor} text-${textColor} py-8 px-8 special:py-8 2xl:py-8 rounded-[40px] flex flex-col space-y-6 special:space-y-8 2xl:space-y-8 cursor-pointer`}
+      style={{backgroundColor: color}}
     >
       <p className="text-sm special:text-xl 2xl:text-lg">{name}&nbsp;Tier</p>
-
 
       <p className="font-semibold text-center text-xl special:text-4xl 2xl:text-2xl">
         {raffleCount} <span className="uppercase"> {subId} free entries</span>
@@ -92,7 +93,13 @@ function SubscribeCard({
             onClick={handleChooseButton}
             // disabled={subId ? true : false}
           >
-            <p className={`text-${buttonText}`}>{(month && planeId == mPlanId ) || (quartly && planeId == qPlanId) || (year && planeId == yPlanId) ? "selected" : "choose plans"}</p>
+            <p className={`text-${buttonText}`}>
+              {(month && planeId == mPlanId) ||
+              (quartly && planeId == qPlanId) ||
+              (year && planeId == yPlanId)
+                ? "selected"
+                : "choose plans"}
+            </p>
           </button>
         </div>
       </div>
