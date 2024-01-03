@@ -20,7 +20,7 @@ function BusinessCard() {
   const currentUserValidation = async () => {
     const validator = await validateCurrentUser();
     if (validator.validatorBl) {
-      console.log("Session OK", validator.user.balance);
+      console.log("Session OK", validator.user);
       setValUser(validator.user);
     } else {
       navigate("/login");

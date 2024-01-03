@@ -177,6 +177,7 @@ function Subscription() {
                       desc1={plane.desc1}
                       desc2={plane.desc2}
                       desc3={plane.desc3}
+                      color={plane.color}
                       bgColor={
                         plane.name == "Starter"
                           ? "[#808080]"

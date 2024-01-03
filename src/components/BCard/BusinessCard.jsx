@@ -20,7 +20,11 @@ function BusinessCard() {
   const [isOrderNow, setOrderNow] = useState(false);
   const [valUser, setValUser] = useState({});
   const [loading, setLoading] = useState(false);
-  const [postalAddress, setPostalAddress] = useState();
+  const [address, setAddress] = useState("");
+  const [addres2, setAddress2] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [postalCode, setPostalCode] = useState("");
   const [bcCard, setBcCard] = useState("")
 
   const handleShareClick = () => {
@@ -73,7 +77,7 @@ function BusinessCard() {
           name: valUser.name,
           mobile: valUser.mobile,
           passport: valUser.passport,
-          address: postalAddress,
+          address: address,
         }
       );
       if (response.data.status == 200) {
@@ -117,11 +121,20 @@ function BusinessCard() {
         <div className="text-left flex flex-col items-center space-y-0 special:space-y-16">
           {isOrderNow ? (
             <ShareForm
-              userName={valUser.name}
-              passPort={valUser.passport}
+              firstName={valUser.firstname}
+              lastName={valUser.lastname}
+              nic={valUser.nic}
               phone={valUser.mobile}
-              postalAddress={valUser.postalAddress}
-              setPostalAddress={setPostalAddress}
+              address={valUser.address}
+              setAddress={setAddress}
+              address2={valUser.address2}
+              setAddress2={setAddress2}
+              city={valUser.city}
+              setCity={setCity}
+              state={valUser.state}
+              setState={setState}
+              postalCode={valUser.postalcode}
+              setPostalCode={setPostalCode}
             />
           ) : (
             <BCard />
@@ -173,18 +186,30 @@ function BusinessCard() {
     </div>
   );
 }
-
 function ShareForm({
   onClose,
-  userName,
-  passPort,
   phone,
-  postalAddress,
-  setPostalAddress,
+  address,
+  setAddress,
+  address2,
+  setAddress2,
+  city,
+  setCity,
+  state,
+  setState,
+  postalCode,
+  setPostalCode,
+  firstName,
+  lastName,
+  nic
 }) {
   // const [postalAddress, setPostalAddress] = useState();
   const handlePostalAddressChange = (e) => {
-    setPostalAddress(e.target.value);
+    setAddress(e.target.value);
+    setAddress2(e.target.value);
+    setCity(e.target.value);
+    state(e.target.value);
+    postalCode(e.target.value);
   };
 
   return (
@@ -197,7 +222,7 @@ function ShareForm({
           type="text"
           placeholder="Your Full Name"
           id="name"
-          value={userName}
+          value={firstName+ " " +lastName}
           disabled
           className="bg-[#ECECEC] placeholder:text-gray-500 outline-none w-full special:placeholder:text-2xl"
         />
@@ -210,7 +235,7 @@ function ShareForm({
           placeholder="Your Passport"
           id="passport"
           disabled
-          value={passPort}
+          value={nic}
           className="bg-[#ECECEC]e focus:outline-none placeholder:text-gray-500 w-full outline-none special:placeholder:text-2xl"
         />
         {/* <img src={basketballBUS} alt="passport" className="w-8 special:w-14" /> */}
@@ -243,7 +268,7 @@ function ShareForm({
             className="bg-[#ECECEC] rounded-xl py-3 px-4 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
             placeholder="Address Line 1"
             type="text"
-            value={postalAddress}
+            value={address}
             onChange={handlePostalAddressChange}
           ></input>
         </div>
@@ -252,7 +277,7 @@ function ShareForm({
             className="bg-[#ECECEC] rounded-xl py-3 px-4 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
             placeholder="Address Line 2"
             type="text"
-            value={postalAddress}
+            value={address2}
             onChange={handlePostalAddressChange}
           ></input>
         </div>
@@ -264,7 +289,7 @@ function ShareForm({
             className="bg-[#ECECEC] rounded-xl py-3 px-4 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
             placeholder="City"
             type="text"
-            value={postalAddress}
+            value={city}
             onChange={handlePostalAddressChange}
           ></input>
         </div>
@@ -273,7 +298,7 @@ function ShareForm({
             className="bg-[#ECECEC] rounded-xl py-3 px-4 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
             placeholder="State"
             type="text"
-            value={postalAddress}
+            value={state}
             onChange={handlePostalAddressChange}
           ></input>
         </div>
@@ -283,7 +308,7 @@ function ShareForm({
             className="bg-[#ECECEC] rounded-xl py-3 px-4 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
             placeholder="Postal Code"
             type="text"
-            value={postalAddress}
+            value={postalCode}
             onChange={handlePostalAddressChange}
           ></input>
         </div>
