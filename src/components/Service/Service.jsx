@@ -27,13 +27,14 @@ const Service = () => {
               viewport={{ once: true }}
             >
               <p className="mb-3 lg:mb-5 xl:mb-6 special:mb-8  text-center lg:text-end text-xs sm:text-sm md:text-base xl:text-base special:text-lg  font-bold">
-                Winlads Urgency Program
+                Access to Extravagance
               </p>
               <p className=" text-center lg:text-end text-xs sm:text-sm md:text-base xl:text-base special:text-lg ">
-                Experience the support you need during critical times with
-                Winlads Urgency Program. Submit your proposal through our
-                platform for a chance at assistance, subject to eligibility.
-                We're here to help when it matters most
+                As a member of Winlads LuxeLife Rewards, you gain access to a
+                curated collection of opulent items that cater to your
+                discerning tastes. Our draws feature an array of luxurious
+                products, promising an upscale lifestyle that transcends
+                ordinary experiences.
               </p>
             </motion.div>
 
@@ -45,13 +46,14 @@ const Service = () => {
               viewport={{ once: true }}
             >
               <p className=" mb-3 lg:mb-5 xl:mb-6 special:mb-8 text-center lg:text-end text-xs sm:text-sm md:text-base xl:text-base special:text-lg  font-bold">
-                Winlads OG Club
+                Exclusive Luxury Draw Experience
               </p>
               <p className=" text-center lg:text-end text-xs sm:text-sm md:text-base xl:text-base special:text-lg ">
-                Join the Winlads OG Club, where devoted members shape decisions
-                and direction. With a democratic approach to decision-making,
-                our members contribute to the essence and evolution of our
-                community
+                Participate in our elite luxury draws held regularly, where the
+                chance to win grandiose prizes becomes an integral part of your
+                Winlads membership. These draws are meticulously designed to
+                offer both men and women the opportunity to acquire bespoke,
+                premium items that exude sophistication and refinement.
               </p>
             </motion.div>
           </div>
@@ -79,30 +81,34 @@ const Service = () => {
               className="w-full"
             >
               <p className="mb-3 lg:mb-5 xl:mb-6 special:mb-8 lg:text-start text-center text-xs sm:text-sm md:text-base xl:text-base special:text-lg  font-bold">
-                Winlads Referral System
+                Elevating Your Lifestyle with Winlads
               </p>
               <p className="lg:text-start text-center text-xs sm:text-sm md:text-base xl:text-base special:text-lg ">
-                Unlock rewards and passive income through Winlads Referral
-                System. Refer friends and family, earn commissions, and watch
-                your network grow organically. Your referrals could be your
-                pathway to ongoing rewards
+                At Winlads, we understand the allure of luxury and aim to make
+                it an accessible reality for our members. The LuxeLife Rewards
+                program encapsulates the epitome of elegance and extravagance,
+                ensuring that every member relishes the experience of living
+                life in the lap of luxury.
               </p>
             </motion.div>
 
             <motion.div
-            initial={{ opacity: 0, x: "-10%" }}
-            whileInView={{ opacity: 1, x: "0" }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            viewport={{ once: true }}
+              initial={{ opacity: 0, x: "-10%" }}
+              whileInView={{ opacity: 1, x: "0" }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              viewport={{ once: true }}
               className="w-full"
             >
               <p className="mb-3 lg:mb-5 xl:mb-6 special:mb-8 lg:text-start text-center text-xs sm:text-sm md:text-base xl:text-base special:text-lg  font-bold">
-                Winlads LuxLife{" "}
+                Empowering Lives Through Winlads
               </p>
               <p className="lg:text-start text-center text-xs sm:text-sm md:text-base xl:text-base special:text-lg ">
-                Indulge in luxury with Winlads Lux. Experience weekly giveaways
-                and exclusive offerings, elevating your lifestyle and adding a
-                touch of opulence to your days
+                A Journey of Giving Back At Winlads, our pursuit extends beyond
+                creating exceptional experiences; it encompasses a heartfelt
+                dedication to transforming lives and fostering positive change
+                within communities. We firmly believe in the profound impact of
+                giving back and are driven by a vision to make a meaningful
+                difference in the lives of individuals worldwide.
               </p>
             </motion.div>
           </div>

@@ -23,10 +23,12 @@ const Benifit = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="text-center w-10/12 mx-auto text-xs sm:text-sm md:text-base xl:text-base special:text-lg"
         >
-          Delight in exclusive discounts, dive into exhilarating giveaways, and
-          stand a chance to seize phenomenal prizes, including luxury cars and
-          bikes, through our captivating weekly giveaways and WINLADS loyalty
-          programs.
+          Join Us on the Journey: We invite you to join us on this meaningful
+          journey of giving back. Together, we can forge a future where
+          individuals thrive, communities flourish, and hope prevails. Your
+          support and participation in our charitable initiatives empower us to
+          create a world where compassion and kindness reign supreme, ensuring
+          that no one is left behind.
         </motion.p>
 
         <div className="flex w-full  flex-col  items-center gap-5 md:gap-8 lg:gap-0 lg:flex-row lg:items-stretch 2xl:max-w-[2400px]">
@@ -40,11 +42,13 @@ const Benifit = () => {
               className="w-full"
             >
               <p className="text-center lg:text-start text-xs sm:text-sm md:text-base xl:text-base special:text-lg font-bold mb-3">
-                Thrill of the draw
+                Winlads Urgency Program
               </p>
               <p className="text-center lg:text-start text-xs sm:text-sm md:text-base xl:text-base special:text-lg">
-                Experience the rush of our exciting class-leading promotions.
-                Could you be the next lucky winner?
+                Experience the support you need during critical times with
+                Winlads Urgency Program. Submit your proposal through our
+                platform for a chance at assistance, subject to eligibility.
+                We're here to help when it matters most.
               </p>
             </motion.div>
 
@@ -56,11 +60,13 @@ const Benifit = () => {
               className="w-full"
             >
               <p className="text-center lg:text-start text-xs sm:text-sm md:text-base xl:text-base special:text-lg font-bold mb-3">
-                Expert support
+                Winlads Referral System
               </p>
               <p className="text-center lg:text-start text-xs sm:text-sm md:text-base xl:text-base special:text-lg">
-                Got questions or need assistance? Our professional support team
-                is always ready to help you navigate your journey with us.
+                "Unlock rewards and passive income through Winlads Referral
+                System. Refer friends and family, earn commissions, and watch
+                your network grow organically. Your referrals could be your
+                pathway to ongoing rewards.
               </p>
             </motion.div>
 
@@ -72,15 +78,17 @@ const Benifit = () => {
               className="w-full"
             >
               <p className="text-center lg:text-start text-xs sm:text-sm md:text-base xl:text-base special:text-lg font-bold mb-3">
-                Exclusive discounts
+                Winlads OG Club
               </p>
               <p className="text-center lg:text-start text-xs sm:text-sm md:text-base xl:text-base special:text-lg">
-                Unlock access to substantial discounts at businesses across
-                Australia, all for a low monthly membership fee.
+                Join the Winlads OG Club, where devoted members shape decisions
+                and direction. With a democratic approach to decision-making,
+                our members contribute to the essence and evolution of our
+                community.
               </p>
             </motion.div>
 
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: "10%" }}
               whileInView={{ opacity: 1, y: "0" }}
               viewport={{ once: true }}
@@ -95,7 +103,7 @@ const Benifit = () => {
                 Sydney to Perth, making your membership truly worthwhile, no
                 matter where you are.
               </p>
-            </motion.div>
+            </motion.div> */}
           </div>
 
           {/* middle car */}
@@ -121,11 +129,12 @@ const Benifit = () => {
               className="w-full"
             >
               <p className="text-center lg:text-end text-xs sm:text-sm md:text-base xl:text-base special:text-lg font-bold mb-3">
-                Community of Enthusiast
+                Winlads LuxLife (formerly Winlads Luxury Program)
               </p>
               <p className="text-center lg:text-end text-xs sm:text-sm md:text-base xl:text-base special:text-lg">
-                Join a community of classic car enthusiasts. Share the
-                excitement, the anticipation, and the joy of winning!
+                Indulge in luxury with Winlads Lux. Experience weekly giveaways
+                and exclusive offerings, elevating your lifestyle and adding a
+                touch of opulence to your days.
               </p>
             </motion.div>
 
@@ -137,11 +146,14 @@ const Benifit = () => {
               className="w-full"
             >
               <p className="text-center lg:text-end text-xs sm:text-sm md:text-base xl:text-base special:text-lg font-bold mb-3">
-                Frequent draws
+                Winlads Club Day
               </p>
               <p className="text-center lg:text-end text-xs sm:text-sm md:text-base xl:text-base special:text-lg">
-                We conduct our membership draws frequently, increasing your
-                chances of changing your life forever.
+                is an exhilarating event where car enthusiasts, families, and
+                the community come together for a day of automotive excitement
+                and entertainment. This special occasion showcases a splendid
+                array of cars, from classic beauties to modern marvels,
+                gathering in one place.
               </p>
             </motion.div>
 
@@ -153,15 +165,20 @@ const Benifit = () => {
               className="w-full"
             >
               <p className="text-center lg:text-end text-xs sm:text-sm md:text-base xl:text-base special:text-lg font-bold mb-3">
-                Trusted Benefitship
+                Winlads DAO System
               </p>
               <p className="text-center lg:text-end text-xs sm:text-sm md:text-base xl:text-base special:text-lg">
-                We ve partnered with reputable businesses nationwide to ensure
-                our members receive only the best deals and offers
+                The Winlads Urgency Program operates as a Decentralized
+                Autonomous Organization (DAO), where voting power is equally
+                split between the Winlads Core Team and OG (Original Gangster)
+                members. For a proposal to secure approval and financial aid, it
+                must obtain a majority vote exceeding 51%, ensuring
+                transparency, fairness, and accountability in supporting members
+                during financial challenges.
               </p>
             </motion.div>
 
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: "10%" }}
               whileInView={{ opacity: 1, y: "0" }}
               transition={{ duration: 0.5, delay: 0.9 }}
@@ -176,9 +193,9 @@ const Benifit = () => {
                 faces represent our brand, ensuring a personalized and
                 professional touch
               </p>
-            </motion.div>
+            </motion.div> */}
 
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: "10%" }}
               whileInView={{ opacity: 1, y: "0" }}
               viewport={{ once: true }}
@@ -193,7 +210,7 @@ const Benifit = () => {
                 savings, exclusive benefits, and the chance to win many luxury
                 prizes.
               </p>
-            </motion.div>
+            </motion.div> */}
           </div>
         </div>
       </div>
