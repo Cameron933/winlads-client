@@ -258,6 +258,7 @@ const Register = () => {
                 className="form-contain"
               >
                 <div className="flex flex-col justify-center space-y-4 mx-auto xl:mt-4 md:mt-10 mt-4 special:mt-20">
+                  <div className={`flex flex-col space-y-4 ${buttonText == 'Sending...' || buttonText == 'Register' ? 'blur-sm' : ''}`}>
                   <div
                     className={
                       errors.name && touched.name
@@ -393,6 +394,7 @@ const Register = () => {
                       disabled={fieldDis}
                     />
                   </div>
+                  </div>
 
                   {showOTPBox && (
                     <div
@@ -442,6 +444,7 @@ const Register = () => {
                       </Link>
                     </div>
                   </div>
+                 
 
                   {!final && <div id="recaptcha-container"></div>}
 

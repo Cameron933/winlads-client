@@ -250,7 +250,7 @@ const Login = () => {
                         onChange={onPhoneNumberChange}
                         onBlur={handleBlur}
                         id="mobile"
-                        className="placeholder:text-[16px] border borer-solid border-black"
+                        className={`placeholder:text-[16px] border borer-solid border-black ${showOTPBox && 'blur-sm'}`}
                       />
                       <small className="text-error">
                         {errors.mobile && touched.mobile && errors.mobile}

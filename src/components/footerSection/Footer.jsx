@@ -75,7 +75,7 @@ function Footer() {
                 </ul>
               </div>
 
-              <div className="m-2 sm:m-4 text-[#fff] flex-1 ">
+              {/* <div className="m-2 sm:m-4 text-[#fff] flex-1 ">
                 <p className="font-bold text-sm mb-3 2xl:text-xl special:text-2xl">
                   News Letter
                 </p>
@@ -87,7 +87,7 @@ function Footer() {
                   <li className="cursor-pointer">3039</li>
 
                 </ul>
-              </div>
+              </div> */}
               <div className="m-2 sm:m-4 text-[#fff] flex-1 ">
                 <p className="font-bold text-sm mb-3 2xl:text-xl special:text-2xl">
                   Registration
