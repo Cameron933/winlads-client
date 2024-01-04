@@ -9,7 +9,7 @@ const WelcomeHome2 = () => {
 
 
   return (
-    <div className="w-full relative">
+    <div className="w-full relative h-[500px] flex items-center justify-center">
       {/* section 01 with ReactPlayer */}
       {/* <ReactPlayer
         url='https://player.vimeo.com/video/898036697?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479'

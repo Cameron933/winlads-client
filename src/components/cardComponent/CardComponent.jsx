@@ -85,7 +85,7 @@ const CardComponent = () => {
                 <p
                   style={{color: !valUser.subscripton?.color || valUser.subscripton?.color === "#000000" ? "white" : valUser.subscripton?.color }}
                 >
-                  {valUser.subscripton?.name || "no plane"}
+                  {valUser.subscripton?.name || "No plan"}
                 </p>
               </div>
               <p className="text-black text-sm">{formattedDate || ""}</p>

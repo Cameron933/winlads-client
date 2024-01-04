@@ -21,10 +21,12 @@ const Service = () => {
           <div className="w-10/12 lg:w-1/3  flex flex-col  justify-center gap-5 md:gap-8 lg:gap-10 xl:gap-16 special:gap-10 lg:order-1 order-1">
             <motion.div
               initial={{ opacity: 0, x: "-10%" }}
-              whileInView={{ opacity: 1, x: "0" }}
+              whileInView={{ opacity: 1, x: "0", borderRadius:'20px' }}
               transition={{ duration: 0.5, delay: 0.3 }}
               className="w-full"
               viewport={{ once: true }}
+              style={{overflow:'hidden'}}
+              whileHover={{padding:'10px',background:'white'}}
             >
               <p className="mb-3 lg:mb-5 xl:mb-6 special:mb-8  text-center lg:text-end text-xs sm:text-sm md:text-base xl:text-base special:text-lg  font-bold">
                 Access to Extravagance
@@ -40,10 +42,11 @@ const Service = () => {
 
             <motion.div
               initial={{ opacity: 0, x: "-10%" }}
-              whileInView={{ opacity: 1, x: "0" }}
+              whileInView={{ opacity: 1, x: "0",borderRadius:'20px' }}
               transition={{ duration: 0.5, delay: 0.6 }}
               className="w-full"
               viewport={{ once: true }}
+              whileHover={{padding:'10px',background:'white'}}
             >
               <p className=" mb-3 lg:mb-5 xl:mb-6 special:mb-8 text-center lg:text-end text-xs sm:text-sm md:text-base xl:text-base special:text-lg  font-bold">
                 Exclusive Luxury Draw Experience
@@ -75,10 +78,11 @@ const Service = () => {
           <div className="w-10/12 lg:w-1/3  flex flex-col  justify-center gap-5 md:gap-8 lg:gap-10 xl:gap-16 special:gap-10 lg:order-3 order-2">
             <motion.div
               initial={{ opacity: 0, x: "-10%" }}
-              whileInView={{ opacity: 1, x: "0" }}
+              whileInView={{ opacity: 1, x: "0",borderRadius:'20px' }}
               transition={{ duration: 0.5, delay: 0.3 }}
               viewport={{ once: true }}
               className="w-full"
+              whileHover={{padding:'10px',background:'white'}}
             >
               <p className="mb-3 lg:mb-5 xl:mb-6 special:mb-8 lg:text-start text-center text-xs sm:text-sm md:text-base xl:text-base special:text-lg  font-bold">
                 Elevating Your Lifestyle with Winlads
@@ -94,10 +98,11 @@ const Service = () => {
 
             <motion.div
               initial={{ opacity: 0, x: "-10%" }}
-              whileInView={{ opacity: 1, x: "0" }}
+              whileInView={{ opacity: 1, x: "0",borderRadius:'20px' }}
               transition={{ duration: 0.5, delay: 0.3 }}
               viewport={{ once: true }}
               className="w-full"
+              whileHover={{padding:'10px',background:'white'}}
             >
               <p className="mb-3 lg:mb-5 xl:mb-6 special:mb-8 lg:text-start text-center text-xs sm:text-sm md:text-base xl:text-base special:text-lg  font-bold">
                 Empowering Lives Through Winlads

@@ -32,12 +32,12 @@ const Youtube = () => {
             whileInView={{ opacity: 1, y: "0" }}
             transition={{ duration: 0.5, delay: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-8 text-base sm:text-lg 2xl:text-xl special:text-3xl font-bold uppercase xl:tracking-[18px] sm:tracking-[16px] tracking-[12px]"
+            className="text-center mb-4 mt-4 text-base sm:text-lg 2xl:text-xl special:text-3xl font-bold uppercase xl:tracking-[18px] sm:tracking-[16px] tracking-[12px]"
           >
             SOME OUR PARTNERS
           </motion.p>
       <div className="flex flex-col space-y-2">
-            <div className="flex flex-row items-center bgColor py-2 w-full h-[70px]">
+            <div className="flex flex-row items-center bg-gradient-to-r from-[#E83F3F] to-[#A20505] py-2 w-full h-[70px]">
               <Marquee>
                 <div className="flex flex-row space-x-8">
                 <p className="text-white text-lg hidden">|</p>

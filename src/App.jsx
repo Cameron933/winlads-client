@@ -80,7 +80,7 @@ function App() {
         },
         {
           path: "/profile",
-          element: <Profile />,
+          element: <Profile/>,
         },
         {
           path: "/live",

@@ -17,6 +17,7 @@ import { ref, getDownloadURL } from "firebase/storage";
 import { storage } from "../../firebase.config";
 import Cookies from "universal-cookie";
 import ItemLoader from "../../components/Loader/ItemLoader";
+import { useRefresh } from "../../utils/RefreshContext";
 
 
 const SideNav = ({ screen }) => {
@@ -27,6 +28,7 @@ const SideNav = ({ screen }) => {
   const [valUser, setValUser] = useState({});
   const [userImage, setUserImage] = useState("");
   const [loading, setLoading] = useState(true);
+  const {refreshCount, refresh} = useRefresh();
 
   const expandSidebar = () => {
     setExpanded((pre) => true);
@@ -38,7 +40,7 @@ const SideNav = ({ screen }) => {
 
   useEffect(() => {
     currentUserValidation();
-  }, []);
+  }, [refreshCount]);
 
   const handleClick = () => {
     cookies.remove("wr_token");
