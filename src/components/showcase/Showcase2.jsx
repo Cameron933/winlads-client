@@ -111,7 +111,7 @@ const Showcase2 = () => {
                 className="font-bold text-base text-white  hover:text-[#EC263F]"
                 onClick={() => scrollTo("our-partners")}
               >
-                <Link>Cashback Programme</Link>
+                <Link>Cashback</Link>
               </span>
               <span
                 className="font-bold text-base text-white  hover:text-[#EC263F]"
@@ -137,11 +137,24 @@ const Showcase2 = () => {
               {/* <span className="font-bold text-base text-white  hover:text-[#EC263F] hidden">
                 <Link to="">Shop</Link>
               </span> */}
+              <span
+                className="font-bold text-base text-white  hover:text-[#EC263F]"
+                onClick={() => scrollTo("faq")}
+              >
+                <Link>FAQ</Link>
+              </span>
               <button
-                className="font-bold text-base  px-3 py-2 text-[#d4d4d4] bg-black rounded-lg hover:text-black hover:bg-white"
+                className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl px-3 2xl:px-5 special:px-8 py-2 2xl:py-3 special:py-5 text-[#d4d4d4] bg-black rounded-lg hover:text-black hover:bg-white"
+                onClick={() => navigate('/login')}
+              >
+                {" "}
+                Sign In
+              </button>
+              <button
+                className="font-bold text-base  px-3 py-2 text-[#d4d4d4] bg-amber-500 rounded-lg hover:text-black hover:bg-white"
                 onClick={() => scrollTo("contactUs")}
               >
-                Contact Us
+                Contact
               </button>
             </div>
           )}
