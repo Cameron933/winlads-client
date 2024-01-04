@@ -96,14 +96,14 @@ const WelcomeHome2 = () => {
           </div>
         </div>
         <div className="flex items-center justify-center xl:gap-8 md:gap-5 gap-3 mt-10">
-          <div className="flex justify-center items-center" onClick={()=> toast.warning('Winlads IOS App Will Launch Soon')}>
+          <div className="flex justify-center items-center" onClick={()=> toast.warning('Winlads IOS app will launch soon')}>
             <img
               src={Apple}
               alt=""
               className="cursor-pointer hover:scale-105"
             />
           </div>
-          <div className="flex justify-center items-center" onClick={()=> toast.warning('Winlads Android App Will Launch Soon')}>
+          <div className="flex justify-center items-center" onClick={()=> toast.warning('Winlads Android app will launch soon')}>
             <img
               src={Google}
               alt=""
