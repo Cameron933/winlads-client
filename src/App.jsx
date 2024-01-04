@@ -80,7 +80,7 @@ function App() {
         },
         {
           path: "/profile",
-          element: <Profile refreshTrigger={handleRefresh}/>,
+          element: <Profile/>,
         },
         {
           path: "/live",
