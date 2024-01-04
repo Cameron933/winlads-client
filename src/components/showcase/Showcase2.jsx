@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Jip from "../../assets/images/showacase/jip.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { IoMdMenu, IoMdClose } from "react-icons/io";
 import WindlandText from "../../assets/images/showacase/windland.png";
 import { motion } from "framer-motion";
@@ -9,6 +9,7 @@ import HeaderLogo from "../../assets/images/headerLogo.png"
 const Showcase2 = () => {
   const [isNavOpen, setNavOpen] = useState(false);
   const [scrolling, setScrolling] = useState(false);
+  const navigate = useNavigate()
 
   const scrollTo = (id) => {
     const otherComponentElement = document.getElementById(id);
@@ -48,6 +49,12 @@ const Showcase2 = () => {
           >
             <Link>Our Partners</Link>
           </span>
+          <span
+            className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl hover:text-[#0184EA]"
+            onClick={() => scrollTo("faq")}
+          >
+            <Link>FAQ</Link>
+          </span>
           <span className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl hover:text-[#0184EA] hidden">
             <Link to="">Become A Partner</Link>
           </span>
@@ -64,11 +71,18 @@ const Showcase2 = () => {
             <Link to="">Shop</Link>
           </span> */}
           <button
-            className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl px-3 2xl:px-5 special:px-8 py-2 2xl:py-3 special:py-5 text-[#d4d4d4] bg-black rounded-lg hover:text-black hover:bg-white"
+            className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl px-3 2xl:px-5 special:px-8 py-2 2xl:py-3 special:py-5 text-black bg-amber-500 rounded-lg hover:text-black hover:bg-white"
             onClick={() => scrollTo("contactUs")}
           >
             {" "}
-            Contact Us
+            Contact
+          </button>
+          <button
+            className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl px-3 2xl:px-5 special:px-8 py-2 2xl:py-3 special:py-5 text-[#d4d4d4] bg-black rounded-lg hover:text-black hover:bg-white"
+            onClick={() => navigate('/login')}
+          >
+            {" "}
+            Sign In
           </button>
         </nav>
       </div>
@@ -225,7 +239,7 @@ const Showcase2 = () => {
               </button>
             </nav> */}
 
-            <div className="hidden lg:flex items-center lg:justify-end justify-center">
+            <div className="hidden lg:flex items-center lg:justify-end justify-center mt-14">
               <motion.img
                 initial={{ opacity: 0, x: "-20%" }}
                 whileInView={{ opacity: 1, x: "0" }}
@@ -233,7 +247,7 @@ const Showcase2 = () => {
                 src={WindlandText}
                 viewport={{ once: true }}
                 alt=""
-                className="lg:w-11/12 md:w-10/12 w-9/12"
+                className="lg:w-10/12 md:w-10/12 w-9/12"
               />
             </div>
 
@@ -267,7 +281,7 @@ const Showcase2 = () => {
               </motion.p>
             </div>
 
-            <Link to="/login">
+            <Link to="/register">
               <div className="hidden lg:flex items-center justify-center lg:justify-end">
                 <motion.button
                   initial={{ opacity: 0, x: "-20%" }}

@@ -190,7 +190,7 @@ const Transaction = () => {
               </p> */}
           </div>
           <div className="flex flex-row gap-1 xl:gap-2 md:gap-6 2xl:text-2xl special:text-3xl">
-            <div className="bg-[#008767] justify-between items-center rounded-2xl gap-1 py-2 xl:px-3 md:px-4 flex flex-1 flex-row px-2 cursor-pointer hover:bg-green-600/75">
+            <div className="bg-[#008767] justify-between items-center rounded-2xl gap-1 py-2 xl:px-3 md:px-4 flex flex-1 flex-row px-2 cursor-default hover:bg-green-600/75">
               <img
                 src={Balance}
                 alt="balance"
@@ -205,7 +205,7 @@ const Transaction = () => {
                 </p>
               </div>
             </div>
-            <div className="bg-[#52A0DF] justify-between items-center rounded-2xl gap-1 py-2 xl:px-4 md:px-4 flex flex-1 flex-row px-2 cursor-pointer hover:bg-[#52A0DF]/75">
+            <div className="bg-[#52A0DF] justify-between items-center rounded-2xl gap-1 py-2 xl:px-4 md:px-4 flex flex-1 flex-row px-2 cursor-default hover:bg-[#52A0DF]/75">
               <img
                 src={Profit}
                 alt=""
@@ -221,7 +221,7 @@ const Transaction = () => {
               </div>
             </div>
 
-            <div className="bg-[#DF7E59] justify-between items-center rounded-2xl gap-1 py-2 xl:px-3 md:px-4 flex flex-1 flex-row px-2 cursor-pointer hover:bg-[#DF7E59]/75">
+            <div className="bg-[#DF7E59] justify-between items-center rounded-2xl gap-1 py-2 xl:px-3 md:px-4 flex flex-1 flex-row px-2 cursor-default hover:bg-[#DF7E59]/75">
               <img
                 src={ShoppingBag}
                 alt=""
@@ -365,7 +365,7 @@ const Transaction = () => {
                 {transactions?.slice(0, initialShow).map((transaction, key) => (
                   <div
                     key={key}
-                    className="flex flex-row items-center justify-between hover:bg-[#F5F5F5] p-2 rounded-lg"
+                    className="flex flex-row items-center justify-between hover:bg-[#F5F5F5] p-2 rounded-lg cursor-default"
                   >
                     <div className="flex flex-row items-center gap-2">
                       <img

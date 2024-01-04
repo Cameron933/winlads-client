@@ -11,43 +11,37 @@ const ContactForm = () => {
     backgroundRepeat: "no-repeat",
     // height: "300px",
     backgroundPosition: 'right bottom'
-  
+
   };
 
 
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState({
+    email: '',
+    name: '',
+    message: ''
+  });
 
   const handleInputChange = (event) => {
-    const { target } = event;
-    const { name, value } = target;
 
+    const { name, value } = event.target;
     setFormData({
       ...formData,
       [name]: value,
     });
+
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_SERVER_API}/contactEmail`,
         {
-          ...formData,
+          formData,
         }
       );
-      if (response.data.status == 200) {
-        toast.success(response.data.message, {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-        });
+      if (response.status == 200) {
+        toast.success(`We have recieved your message, we will contact you on ` + formData.email);
         setFormData({
           name: "",
           email: "",
@@ -73,8 +67,8 @@ const ContactForm = () => {
   return (
     <div className="bg-chose-plan py-4" id="contactUs">
       <form
-      // style={{ backgroundImage: 'url(./fadejeep.png)', backgroundRepeat: 'no-repeat', backgroundPosition: 'right bottom' }}
-      style={divStyle}
+        // style={{ backgroundImage: 'url(./fadejeep.png)', backgroundRepeat: 'no-repeat', backgroundPosition: 'right bottom' }}
+        style={divStyle}
         onSubmit={handleSubmit}
         method="POST"
         className="px-5 xl:px-10 2xl:px-10 special:px-40 flex flex-col justify-center bg-white w-3/4 mx-auto py-10 shadow-sm rounded-lg mb-5"
@@ -88,6 +82,7 @@ const ContactForm = () => {
             type="text"
             placeholder="Your name"
             name="name"
+            value={formData.name}
             className=" bg-transparent focus:outline-none relative w-full px-3 py-3 text-sm text-gray-600 placeholder-gray-500  border-b-2 rounded outline-none"
             required
             onChange={handleInputChange}
@@ -98,6 +93,7 @@ const ContactForm = () => {
             type="email"
             placeholder="Email"
             name="email"
+            value={formData.email}
             className=" bg-transparent focus:outline-none relative w-full px-3 py-3 text-sm text-gray-600 placeholder-gray-500  border-b-2 rounded outline-none"
             required
             onChange={handleInputChange}
@@ -107,6 +103,7 @@ const ContactForm = () => {
           <textarea
             placeholder="Your message"
             name="message"
+            value={formData.message}
             className="bg-transparent focus:outline-none relative w-full px-3 py-3 text-sm text-gray-600 placeholder-gray-500  border-b-2 rounded outline-none"
             required
             onChange={handleInputChange}
