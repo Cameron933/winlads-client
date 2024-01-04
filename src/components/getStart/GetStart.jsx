@@ -3,17 +3,19 @@ import { motion } from "framer-motion";
 
 
 const containerStyle = {
-  padding: '56.25% 0 0 0',
+   padding: '0% 0 0 0',
+   marginBottom:'',
   position: 'relative',
   width:'100%'
 };
 
 const iframeStyle = {
-  position: 'absolute',
-  top: 0,
-  left: 0,
+  // position: 'absolute',
+  // top: 0,
+  // left: 0,
   width: '100%',
   height: '100%',
+  aspectRatio:'16/9'
 };
 
 
@@ -30,39 +32,40 @@ const GetStart = () => {
         {" "}
         Empowering Lives Through Winlads
       </motion.p>
-      <div className="flex items-center lg:flex-row flex-col justify-center bg-welcome2 md:px-14 px-4">
-        <div style={containerStyle}>
+      <div className="flex items-start py-20 lg:flex-row flex-col justify-center bg-welcome2 md:px-14 px-4">
+        <div style={containerStyle} className="flex flex-col space-y-4">
           <iframe
             title="Winlads"
             src="https://player.vimeo.com/video/899812267?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
             frameborder="0"
             allow="autoplay; fullscreen; picture-in-picture;muted"
             style={iframeStyle}
-          ></iframe>
+          />
           <script src="https://player.vimeo.com/api/player.js"></script>
-        </div>
-        <div className="mx-auto 2xl:max-w-[2400px]   w-full py-10 lg:py-0 ">
           <motion.p
             initial={{ opacity: 0, y: "40%" }}
             whileInView={{ opacity: 1, y: "0" }}
             transition={{ duration: 0.5, delay: 0.3 }}
             viewport={{ once: true }}
-            className="mt-5 sm:mt-0 lg:mt-0 text-left w-10/12 mx-auto text-xs sm:text-sm md:text-base xl:text-base special:text-lg"
+            className="mt-5 sm:mt-0 lg:mt-0 text-left mx-auto text-xs sm:text-sm md:text-base xl:text-base special:text-lg w-10/12 lg:w-full"
           >
-            A Journey of Giving Back At Winlads, our pursuit extends beyond
+            <span className="text-2xl">A</span> Journey of Giving Back At Winlads, our pursuit extends beyond
             creating exceptional experiences; it encompasses a heartfelt
             dedication to transforming lives and fostering positive change within
             communities. We firmly believe in the profound impact of giving back
             and are driven by a vision to make a meaningful difference in the
             lives of individuals worldwide.
           </motion.p>
+        </div>
+        <div className="mx-auto 2xl:max-w-[2400px]   w-full py-10 lg:py-0 ">
+          
 
           <motion.p
             initial={{ opacity: 0, y: "-40%" }}
             whileInView={{ opacity: 1, y: "0" }}
             transition={{ duration: 0.5, delay: 0.6 }}
             viewport={{ once: true }}
-            className="mt-5 sm:mt-6 lg:mt-8 text-left w-10/12 mx-auto text-xs sm:text-sm md:text-base xl:text-base special:text-lg"
+            className="mt-0 sm:mt-0 lg:mt-0 text-left w-10/12 mx-auto text-xs sm:text-sm md:text-base xl:text-base special:text-lg"
           >
             Enabling Transformation: Our philanthropic journey is rooted in a
             profound commitment to social responsibility. We strive to empower

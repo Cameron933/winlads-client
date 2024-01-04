@@ -96,7 +96,7 @@ const Faq = () => {
                     }
                 </div>
             </div>
-            <div className='w-full text-center my-4'>
+            <div className='w-full text-right my-4 md:px-16 px-6'>
                 <button onClick={() => setShowAll((prev) => !prev)} className=' font-semibold text-xs md:text-md lg:text-md -translate-x-1/3 hover:text-cyan-600'>{showAll ? 'See less' : 'See more'}</button>
             </div>
         </div>
