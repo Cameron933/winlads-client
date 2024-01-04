@@ -98,12 +98,12 @@ function Footer() {
           </div>
         </div>
         <hr />
-        <div className="py-2 flex items-center justify-between px-10">
-          <div className="flex items-center justify-start">
+        <div className="py-2 flex items-left justify-between md:px-10 px-5">
+          <div className="flex lg:flex-row flex-col justify-start items-start">
             <p className="text-left text-xs special:text-base text-white">
               Copyright 2023 Winlads, All Rights Reserved. |
             </p>
-            <ul className="text-xs flex text-white gap-1">
+            <ul className="text-xs flex md:flex-row flex-col text-white gap-1">
 
               <li className="cursor-pointer">ABN: 87671535149 |</li>
               <li className="cursor-pointer">NSW: TP/03199 |</li>
