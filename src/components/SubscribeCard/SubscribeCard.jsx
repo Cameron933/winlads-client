@@ -53,24 +53,34 @@ function SubscribeCard({
   year,
   quartly,
   month,
-  color
+  color,
+  colorFrom = '#0094FF'
 }) {
   const handleChooseButton = () => {
     onButtonClick();
   };
+  const [initialShow, setInitialShow] = useState(3);
+
+  const handleShowMore = ()=>{
+    if(initialShow == 3){
+    setInitialShow(descList[0].length);
+    }else{
+      setInitialShow(3)
+    }
+  }
 
   return (
     <div
-      className={`bg-gradient-to-r relative ${gradientFrom} ${gradientTo} border border-solid border-${cardBorderColor} text-${textColor} py-8 px-8 special:py-8 2xl:py-8 rounded-[40px] flex flex-col space-y-6 special:space-y-8 2xl:space-y-8 cursor-pointer`}
-      style={{backgroundColor: color}}
+      className={`bg-gradient-to-r relative ${gradientFrom} ${gradientTo} border-2 border-solid border-${cardBorderColor} text-${textColor} py-8 px-6 special:py-8 2xl:py-8 rounded-[10px] flex flex-col  cursor-pointer`}
+      style={{ background: `linear-gradient(180deg, ${colorFrom} 0%, ${color} 100%)` }}
     >
-      <p className="text-sm special:text-xl 2xl:text-lg">{name}&nbsp;Tier</p>
+      <p className="text-lg special:text-3xl 2xl:text-2xl text-center font-bold mb-6">{name}&nbsp;Tier</p>
 
-      <p className="font-semibold text-center text-xl special:text-4xl 2xl:text-2xl">
-        {raffleCount} <span className="uppercase"> {subId} free entries</span>
+      <p className="font-bold text-center text-sm special:text-2xl 2xl:text-lg mb-3">
+        <span className="text-2xl md:text-7xl"> {raffleCount}</span> <span className="uppercase"> {subId} free entries</span>
       </p>
-      <div className="flex justify-center flex-col space-y-4 special:space-y-6 2xl:space-y-4 pb-16">
-        {descList[0].map((disc, key) => (
+      <div className={`relative flex justify-center flex-col space-y-4 special:space-y-6 2xl:space-y-4 pb-16 bg-white text-black py-5 px-2 rounded-xl h-full border-2 border-solid border-${cardBorderColor}`}>
+        {descList[0].slice(0,initialShow).map((disc, key) => (
           <div
             key={key}
             className="flex flex-row gap-2 special:gap-4 2xl:gap-4 items-center"
@@ -83,25 +93,26 @@ function SubscribeCard({
             <p className="text-xs special:text-lg 2xl:text-md">{disc}</p>
           </div>
         ))}
-      </div>
+        {descList[0].length > 3 &&
+        <button onClick={()=>handleShowMore()} className="absolute bottom-1 right-1 text-xs font-semibold" style={{color:color}}>{initialShow == 3 ? 'View More' : 'View Less'}</button>
+        }
+        </div>
 
-      <div className="absolute inset-x-0 bottom-0">
-        <div className="flex justify-center pb-4 px-12">
-          <button
-            type="button"
-            className={`bg-${buttonColor} font-semibold uppercase w-full  border-2 border-transparent hover:border-2 rounded-full hover:border-${hoverButtonBorder} text-black py-2 px-8 special:py-4 special:px-12 2xl:px-10 text-xs special:text-lg 2xl:text-sm mt-4 mb-2 hover:bg-${buttonHover}`}
-            onClick={handleChooseButton}
-            // disabled={subId ? true : false}
-          >
-            <p className={`text-${buttonText}`}>
-              {(month && planeId == mPlanId) ||
+      <div className="">
+        <button
+          type="button"
+          className={`bg-${buttonColor} font-semibold uppercase w-full  border-2 border-transparent hover:border-2 rounded-xl hover:border-${hoverButtonBorder} text-black py-2 px-8 special:py-4 special:px-12 2xl:px-10 text-xs special:text-lg 2xl:text-sm mt-4 mb-2 hover:bg-${buttonHover}`}
+          onClick={handleChooseButton}
+        // disabled={subId ? true : false}
+        >
+          <p className={`text-${buttonText}`}>
+            {(month && planeId == mPlanId) ||
               (quartly && planeId == qPlanId) ||
               (year && planeId == yPlanId)
-                ? "selected"
-                : "choose plans"}
-            </p>
-          </button>
-        </div>
+              ? "selected"
+              : "choose plans"}
+          </p>
+        </button>
       </div>
     </div>
   );

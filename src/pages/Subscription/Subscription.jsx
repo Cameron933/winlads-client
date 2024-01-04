@@ -16,6 +16,8 @@ import BG from "../../assets/images/HomesideBg.png";
 import { validateCurrentUser } from "../../utils/validateuser";
 import { Link, useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
+import SelectRafflePaymentMethod from "../../components/RaffleComponent/SelectRafflePaymentMethod";
+import PlanBuyCard from "../../components/plancard/PlanBuyCard";
 
 function Subscription() {
   const [planes, setPlanes] = useState([]);
@@ -26,16 +28,19 @@ function Subscription() {
   const [loading, setLoading] = useState(true);
 
   const [selectedPlaneId, setSelectedPlaceId] = useState("");
-  const [selectedPlanePrice, setSelectedPlanePrice] = useState("");
+  const [selectedPlanPrice, setSelectedPlanePrice] = useState("");
+
+  const [selectedPlanName, setSelectedPlaneName] = useState("");
   const navigate = useNavigate();
 
   const [valUser, setValUser] = useState({});
   const cookies = new Cookies(null, { path: "/" });
 
-  const handleButton = (id) => {
+  const handleButton = (id,price,name) => {
     setChoosePlane(true);
     setSelectedPlaceId(id);
-    setSelectedPlanePrice();
+    setSelectedPlanePrice(price);
+    setSelectedPlaneName(name)
   };
 
   const handleYear = (val = false) => {
@@ -178,6 +183,7 @@ function Subscription() {
                       desc2={plane.desc2}
                       desc3={plane.desc3}
                       color={plane.color}
+                      colorFrom={plane.colorFrom}
                       bgColor={
                         plane.name == "Starter"
                           ? "[#808080]"
@@ -208,58 +214,44 @@ function Subscription() {
                           : ""
                       }
                       textColor={
-                        plane.name == "Starter"
+                        plane.name == "Black"
                           ? "white"
-                          : "white" | (plane.name == "Boomer")
-                          ? "white"
-                          : "black" | (plane.name == "Black")
-                          ? "white"
-                          : "white" | (plane.name == "Platinum")
-                          ? "[#01819D]"
                           : "black"
                       }
                       cardBorderColor={
-                        plane.name == "Platinum"
-                          ? "black"
-                          : "black" |
-                            (plane.name == "Starter"
-                              ? "[#808080]"
-                              : "[#808080]") |
-                            (plane.name == "Bloomer"
-                              ? "[#366B71]"
-                              : "[#366B71]")
+                        plane.name == "Black"
+                          ? "white"
+                          : "black"
                       }
                       borderColor={
-                        plane.name == "Standard"
+                        plane.name == "Black"
                           ? "white"
-                          : "white" | (plane.name == "Bronz")
-                          ? "black"
                           : "black"
                       }
                       buttonColor={
                         plane.name == "Starter"
-                          ? "white"
+                          ? "black"
                           : "" | (plane.name == "Boomer")
-                          ? "[#01819D]"
+                          ? "black"
                           : "" | (plane.name == "Platinum")
-                          ? "[#01819D]"
+                          ? "black"
                           : "" | (plane.name == "Gold")
-                          ? "white"
+                          ? "black"
                           : "" | (plane.name == "Black")
                           ? "white"
                           : ""
                       }
                       buttonText={
                         plane.name == "Starter"
-                          ? "[#01819D]"
+                          ? "white"
                           : "" | (plane.name == "Boomer")
                           ? "white"
                           : "" | (plane.name == "Platinum")
                           ? "white"
                           : "" | (plane.name == "Gold")
-                          ? "[#01819D]"
+                          ? "white"
                           : "" | (plane.name == "Black")
-                          ? "[#01819D]"
+                          ? "black"
                           : ""
                       }
                       buttonHover={
@@ -276,7 +268,7 @@ function Subscription() {
                           : "[#01819D]"
                       }
                       buttonHoverText={plane.name == "Gold" ? "white" : ""}
-                      hoverButtonBorder={plane.name == "Black" ? "white" : ""}
+                      hoverButtonBorder={plane.name == "Black" ? "white" : "black"}
                       raffleCount={
                         isYearly
                           ? plane.raffle_count_annual
@@ -293,7 +285,9 @@ function Subscription() {
                             ? plane.subidsemiannual
                             : isYearly
                             ? plane.subidannual
-                            : ""
+                            : "",
+                            plane.desc[0].slice(0,1)
+                            ,plane.name
                         )
                       }
                       planeId={valUser.sub_id}
@@ -313,15 +307,22 @@ function Subscription() {
             {/* absolute xl:left-60 left-0 right-0 top-60 bottom-0 flex */}
 
             {choosePlane && (
-              <div className="absolute bottom-0 top-0 left-0 right-0 z-10 bg-white/50">
-                <div className="flex justify-center items-center 2xl:pt-80 xl:pt-60">
-                  <ChoosePlane
-                    onClose={() => setChoosePlane(false)}
-                    planeId={selectedPlaneId}
-                    userId={valUser.uid}
-                  />
-                </div>
-              </div>
+              <PlanBuyCard
+                onClose={()=> setChoosePlane(false)}
+                userId={valUser.uid}
+                giveawayId={selectedPlaneId}
+                price={selectedPlanPrice}
+                name={selectedPlanName}
+              />
+              // <div className="absolute bottom-0 top-0 left-0 right-0 z-10 bg-white/50">
+              //   <div className="flex justify-center items-center 2xl:pt-80 xl:pt-60">
+              //     <ChoosePlane
+              //       onClose={() => setChoosePlane(false)}
+              //       planeId={selectedPlaneId}
+              //       userId={valUser.uid}
+              //     />
+              //   </div>
+              // </div>
             )}
           </div>
 
