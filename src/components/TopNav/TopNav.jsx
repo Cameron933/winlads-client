@@ -24,9 +24,9 @@ const TopNav = ({ textColor }) => {
       <div
         className={`border-none text-${textColor} flex flex-row items-center justify-between cursor-pointer xl:mx-4 mx-5 font-semibold sm:font-bold text-sm xl:text-sm md:text-lg 2xl:text-xl special:text-2xl nav-list-top`}
       >
-        <span className="navlinks">
+        {/* <span className="navlinks">
           <Link to="/dashboard">Home</Link>
-        </span>
+        </span> */}
         {/* <span className="navlinks">
         <Link to="/notice">Notice</Link>
       </span> */}
