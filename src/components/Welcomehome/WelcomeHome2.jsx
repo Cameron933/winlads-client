@@ -4,6 +4,7 @@ import Apple from '../../assets/images/welcomehome/apple.png';
 import Google from '../../assets/images/welcomehome/google.png';
 import { motion } from 'framer-motion';
 import video from '../../assets/video.mp4';
+import { toast } from 'react-toastify';
 const WelcomeHome2 = () => {
 
 
@@ -95,14 +96,14 @@ const WelcomeHome2 = () => {
           </div>
         </div>
         <div className="flex items-center justify-center xl:gap-8 md:gap-5 gap-3 mt-10">
-          <div className="flex justify-center items-center">
+          <div className="flex justify-center items-center" onClick={()=> toast.warning('Winlads IOS App Will Launch Soon')}>
             <img
               src={Apple}
               alt=""
               className="cursor-pointer hover:scale-105"
             />
           </div>
-          <div className="flex justify-center items-center">
+          <div className="flex justify-center items-center" onClick={()=> toast.warning('Winlads Android App Will Launch Soon')}>
             <img
               src={Google}
               alt=""
