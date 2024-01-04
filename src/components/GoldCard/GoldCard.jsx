@@ -39,7 +39,7 @@ const GoldCard = () => {
               : "" | (valUser.subscripton?.name == "Black")
               ? "white"
               : ""
-          } overflow-hidden rounded-3xl px-4 special:px-8 2xl:px-6 flex flex-row justify-between py-4 special:py-8 2xl:py-4 cursor-pointer`}
+          } overflow-hidden rounded-3xl px-4 special:px-8 2xl:px-6 flex flex-row justify-between py-4 special:py-8 2xl:py-4 cursor-default`}
           style={{ backgroundColor: valUser ? valUser.subscripton?.color : "" }}
         >
           {/* <div className="gold-card-inner-sec1"> */}
