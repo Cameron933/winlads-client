@@ -33,7 +33,7 @@ function BusinessCard() {
 
   const handleRequestButton = () => {
     requestNfcCard();
-    setOrderNow(!isOrderNow);
+    setOrderNow(false);
   };
 
   useEffect(() => {
@@ -70,17 +70,17 @@ function BusinessCard() {
 
   const requestNfcCard = async () => {
     try {
-      if(address == ''){
-        throw Error('All fields required');
+      if (!address || !addres2 || !state || !city || !postalCode) {
+        throw Error('One Or More Field is missing');
       }
       const data = {
         uid: valUser.uid,
-        name: valUser.name,
+        name: valUser.firstname + valUser.lastname,
         mobile: valUser.mobile,
         passport: valUser.passport,
-        address: address,
+        address: address + ' ' + addres2 + ' ' + state + ' ' + city + ' ' + postalCode,
       }
-      console.log(data);
+
       const response = await axios.post(
         `${import.meta.env.VITE_SERVER_API}/requestBusinessCard`,
         data
@@ -109,7 +109,19 @@ function BusinessCard() {
         });
       }
     } catch (error) {
-      console.log(error);
+      console.log(error.message);
+
+      toast.error(error.message,{
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      })
+
     }
   };
 
@@ -227,7 +239,7 @@ function ShareForm({
           type="text"
           placeholder="Your Full Name"
           id="name"
-          value={firstName+ " " +lastName}
+          value={firstName + " " + lastName}
           disabled
           className="bg-[#ECECEC] placeholder:text-gray-500 outline-none w-full special:placeholder:text-2xl"
         />
@@ -274,7 +286,7 @@ function ShareForm({
             placeholder="Address Line 1"
             type="text"
             value={address}
-            onChange={handlePostalAddressChange}
+            onChange={(e) => setAddress(e.target.value)}
           ></input>
         </div>
         <div className=" w-1/2">
@@ -283,7 +295,7 @@ function ShareForm({
             placeholder="Address Line 2"
             type="text"
             value={address2}
-            onChange={handlePostalAddressChange}
+            onChange={e => setAddress2(e.target.value)}
           ></input>
         </div>
 
@@ -295,7 +307,7 @@ function ShareForm({
             placeholder="City"
             type="text"
             value={city}
-            onChange={handlePostalAddressChange}
+            onChange={e => setCity(e.target.value)}
           ></input>
         </div>
         <div className="w-1/3">
@@ -304,7 +316,7 @@ function ShareForm({
             placeholder="State"
             type="text"
             value={state}
-            onChange={handlePostalAddressChange}
+            onChange={e => setState(e.target.value)}
           ></input>
         </div>
         <div className=" w-1/3">
@@ -314,7 +326,7 @@ function ShareForm({
             placeholder="Postal Code"
             type="text"
             value={postalCode}
-            onChange={handlePostalAddressChange}
+            onChange={e => setPostalCode(e.target.value)}
           ></input>
         </div>
 

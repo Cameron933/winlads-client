@@ -292,6 +292,7 @@ function Subscription() {
                       }
                       planeId={valUser.sub_id}
                     />
+              
                   ))}
                 </div>
               </div>
@@ -307,22 +308,22 @@ function Subscription() {
             {/* absolute xl:left-60 left-0 right-0 top-60 bottom-0 flex */}
 
             {choosePlane && (
-              <PlanBuyCard
-                onClose={()=> setChoosePlane(false)}
-                userId={valUser.uid}
-                giveawayId={selectedPlaneId}
-                price={selectedPlanPrice}
-                name={selectedPlanName}
-              />
-              // <div className="absolute bottom-0 top-0 left-0 right-0 z-10 bg-white/50">
-              //   <div className="flex justify-center items-center 2xl:pt-80 xl:pt-60">
-              //     <ChoosePlane
-              //       onClose={() => setChoosePlane(false)}
-              //       planeId={selectedPlaneId}
-              //       userId={valUser.uid}
-              //     />
-              //   </div>
-              // </div>
+              // <PlanBuyCard
+              //   onClose={()=> setChoosePlane(false)}
+              //   userId={valUser.uid}
+              //   giveawayId={selectedPlaneId}
+              //   price={selectedPlanPrice}
+              //   name={selectedPlanName}
+              // />
+              <div className="absolute bottom-0 top-0 left-0 right-0 z-10 bg-white/50">
+                <div className="flex justify-center items-center 2xl:pt-80 xl:pt-60">
+                  <ChoosePlane
+                    onClose={() => setChoosePlane(false)}
+                    planeId={selectedPlaneId}
+                    userId={valUser.uid}
+                  />
+                </div>
+              </div>
             )}
           </div>
 
