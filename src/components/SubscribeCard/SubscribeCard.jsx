@@ -74,7 +74,7 @@ function SubscribeCard({
       className={`bg-gradient-to-r relative ${gradientFrom} ${gradientTo} border-2 border-solid border-${cardBorderColor} text-${textColor} py-8 px-6 special:py-8 2xl:py-8 rounded-[10px] flex flex-col  cursor-pointer`}
       style={{ background: `linear-gradient(180deg, ${colorFrom} 0%, ${color} 100%)` }}
     >
-      <p className="text-lg special:text-3xl 2xl:text-2xl text-center font-bold mb-6">{name}&nbsp;Tier</p>
+      <p className="text-lg special:text-3xl 2xl:text-2xl text-center font-bold mb-6 ">{name}&nbsp;Tier</p>
 
       <p className="font-bold text-center text-sm special:text-2xl 2xl:text-lg mb-3">
         <span className="text-2xl md:text-7xl"> {raffleCount}</span> <span className="uppercase"> {subId} free entries</span>
@@ -101,16 +101,16 @@ function SubscribeCard({
       <div className="">
         <button
           type="button"
-          className={`bg-${buttonColor} font-semibold uppercase w-full  border-2 border-transparent hover:border-2 rounded-xl hover:border-${hoverButtonBorder} text-black py-2 px-8 special:py-4 special:px-12 2xl:px-10 text-xs special:text-lg 2xl:text-sm mt-4 mb-2 hover:bg-${buttonHover}`}
+          className={`bg-${buttonColor} text-${buttonText} hover:text-${buttonHoverText} font-semibold uppercase w-full  border-2 border-transparent hover:border-2 rounded-xl hover:border-${hoverButtonBorder} border-white text-black py-2 px-8 special:py-4 special:px-12 2xl:px-10 text-xs special:text-lg 2xl:text-sm mt-4 mb-2 hover:bg-${buttonHover}`}
           onClick={handleChooseButton}
         // disabled={subId ? true : false}
         >
-          <p className={`text-${buttonText}`}>
+          <p className={``}>
             {(month && planeId == mPlanId) ||
               (quartly && planeId == qPlanId) ||
               (year && planeId == yPlanId)
               ? "selected"
-              : "choose plans"}
+              : "choose plan"}
           </p>
         </button>
       </div>

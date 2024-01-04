@@ -255,20 +255,20 @@ function Subscription() {
                           : ""
                       }
                       buttonHover={
-                        plane.name == "Platinum"
-                          ? "[#01819D]/50"
-                          : "[#01819D]" | (plane.name == "Starter")
-                          ? "white/50"
-                          : "white/50" | (plane.name == "Gold")
-                          ? "white/50"
-                          : "white" | (plane.name == "Black")
-                          ? "white/50"
-                          : "white" | (plane.name == "Boomer")
-                          ? "[#01819D]/50"
-                          : "[#01819D]"
+                        plane.name == "Black"
+                          ? "black"
+                          : plane.name == "Starter"
+                          ? "white"
+                          : plane.name == "Gold"
+                          ? "white"
+                          : plane.name == "Black"
+                          ? "black"
+                          : plane.name == "Boomer"
+                          ? "white"
+                          : "white"
                       }
-                      buttonHoverText={plane.name == "Gold" ? "white" : ""}
-                      hoverButtonBorder={plane.name == "Black" ? "white" : "black"}
+                      buttonHoverText={plane.name == "Black" ? "white" : "black"}
+                      hoverButtonBorder={plane.name == "Black" ? "black" : "black"}
                       raffleCount={
                         isYearly
                           ? plane.raffle_count_annual

@@ -16,9 +16,11 @@ import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { Link, useNavigate } from "react-router-dom";
 import { validateCurrentUser } from "../../utils/validateuser";
 import CardComponent from "../../components/cardComponent/CardComponent";
+import { useRefresh } from "../../utils/RefreshContext";
 
 const Profile = () => {
   const cookies = new Cookies(null, { path: "/" });
+  const {refreshCount, refresh} = useRefresh();
   const id = cookies.get("wr_token");
   const [userData, setUserData] = useState({});
   const navigate = useNavigate();
@@ -42,10 +44,10 @@ const Profile = () => {
   const [license, setLicense] = useState("");
   const [isChecked, setIsChecked] = useState(false);
   const [refferalId, setRefferalId] = useState();
-
+  // const [refresh, setRefresh] = useState(false);
   useEffect(() => {
     getUserData();
-  }, []);
+  }, [refreshCount]);
 
   const onCheckboxChange = (e) => {
     setIsChecked(e.target.checked);
@@ -107,6 +109,8 @@ const Profile = () => {
     const storageRef = ref(storage, profileImageName);
     const image = await uploadBytes(storageRef, profile).then((snapshot) => {
       console.log("profile image upload");
+      refresh();
+      refreshTrigger()
     });
     setLoading(true);
     const response = await axios.post(
@@ -200,17 +204,20 @@ const Profile = () => {
             <div className="flex flex-col space-y-3">
               {loading ? (
                 <div className="flex justify-center pt-12">
-                  <ItemLoader/>
+                  <ItemLoader />
 
                 </div>
               ) : (
                 <>
                   <form className="mx-auto mt-4 relative">
                     {userImage ? (
-                      <img
-                        className="special:w-28 w-16 2xl:w-24 rounded-full"
-                        src={userImage}
-                      />
+                      <div className="special:w-28 w-16 2xl:w-20 aspect-square rounded-full overflow-hidden">
+                        <img
+                          className="w-full h-full object-cover"
+                          src={userImage}
+                        />
+                      </div>
+
                     ) : (
                       <img
                         src={User}

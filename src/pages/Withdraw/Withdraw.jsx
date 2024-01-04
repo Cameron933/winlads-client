@@ -97,10 +97,10 @@ const Withdraw = () => {
   const handlePaymentMethod = (val) => {
     setWithdrawShow(false)
     setSelectMethod(val)
-    if(val==="stripe") {
+    if (val === "stripe") {
       setWithdrawMethod(false)
     }
-    if(val==="bank") {
+    if (val === "bank") {
       setWithdrawMethod(true)
     }
   }
@@ -132,13 +132,18 @@ const Withdraw = () => {
               <p className="text-black text-sm xl:text-md special:text-xl">
                 Payout Amount
               </p>
-              <input
-                className="bg-[#ECECEC] rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
-                placeholder="Payout Amount"
-                type="number"
-                value={amount}
-                onChange={(e) => setAmount(e.target.value)}
-              ></input>
+              <div className="w-full relative">
+                <input
+                  className="bg-[#ECECEC] w-full rounded-xl px-2 pl-10 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                  placeholder="Payout Amount"
+                  type="text"
+                  value={amount}
+                  onChange={(e) => setAmount(e.target.value)}
+                />
+                <span className="absolute left-3 top-2">$</span>
+              </div>
+
+
             </div>
             <div className="flex flex-col space-y-2 relative">
               <p className="text-black text-sm xl:text-md special:text-xl">
@@ -148,22 +153,22 @@ const Withdraw = () => {
                 className="bg-[#ECECEC] flex items-center justify-between text-black rounded-xl cursor-pointer px-2 py-2 focus:outline-none text-xs xl:text-sm special:text-xl special:py-3"
                 onClick={handleShowBank}
               >
-                <p>{selectMethod || "Direct Bank"}</p>
+                <p>{selectMethod == 'bank' ? "Direct Bank" : 'Stripe'}</p>
                 <RiArrowDropDownLine className="text-2xl cursor-pointer" />
               </div>
               {withdrawShow && (
                 <div className="absolute top-14 rounded-lg border left-0 w-full p-2 bg-white">
                   <div
                     className="flex flex-col justify-start gap-4 px-3 py-2"
-                    // onClick={() => handleDrowpdownChange("bank")}
+                  // onClick={() => handleDrowpdownChange("bank")}
                   >
-                    <div className="flex flex-row items-center gap-2 hover:bg-gray-200 cursor-pointer p-1 rounded-xl"  onClick={() => handlePaymentMethod("bank")}>
+                    <div className="flex flex-row items-center gap-2 hover:bg-gray-200 cursor-pointer p-1 rounded-xl" onClick={() => handlePaymentMethod("bank")}>
                       <img
                         src={directBankIcon}
                         alt="icon"
                         className="w-8"
                       />
-                        <p>Direct Bank</p>
+                      <p>Direct Bank</p>
                     </div>
                     <div className="flex flex-row items-center gap-2 hover:bg-gray-200 cursor-pointer p-1 rounded-xl" onClick={() => handlePaymentMethod("stripe")}>
                       <img
@@ -171,9 +176,9 @@ const Withdraw = () => {
                         alt="icon"
                         className="w-8"
                       />
-                        <p>Stripe</p>
+                      <p>Stripe</p>
                     </div>
-                  
+
                   </div>
 
                 </div>
@@ -200,10 +205,13 @@ const Withdraw = () => {
                     Account Number
                   </p>
                   <input
-                    className="bg-[#ECECEC] rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                    className="bg-[#ECECEC] rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3 appearance-none remove-arrows"
                     placeholder="Account Number"
-                    type="number"
                     value={accountNumber}
+                    type="number"
+                    inputMode="numeric"
+                    pattern="[0-9]*"
+                    style={{ WebkitAppearance: "", MozAppearance: "textfield", }}
                     onChange={(e) => setAccountNumber(e.target.value)}
                   ></input>
                 </div>
