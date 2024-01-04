@@ -59,10 +59,10 @@ const Benifit = () => {
               viewport={{ once: true }}
               className="w-full"
             >
-              <p className="text-center lg:text-start text-xs sm:text-sm md:text-base xl:text-base special:text-lg font-bold mb-3">
+              <p className="text-center lg:text-start text-xs sm:text-sm md:text-base xl:text-base special:text-lg font-bold mb-3 text-[#01819D]">
                 Winlads Referral System
               </p>
-              <p className="text-center lg:text-start text-xs sm:text-sm md:text-base xl:text-base special:text-lg">
+              <p className="text-center lg:text-start text-xs sm:text-sm md:text-base xl:text-base special:text-lg text-[#01819D]">
                 "Unlock rewards and passive income through Winlads Referral
                 System. Refer friends and family, earn commissions, and watch
                 your network grow organically. Your referrals could be your
@@ -145,10 +145,10 @@ const Benifit = () => {
               viewport={{ once: true }}
               className="w-full"
             >
-              <p className="text-center lg:text-end text-xs sm:text-sm md:text-base xl:text-base special:text-lg font-bold mb-3">
+              <p className="text-center lg:text-end text-xs sm:text-sm md:text-base xl:text-base special:text-lg font-bold mb-3 text-black">
                 Winlads Club Day
               </p>
-              <p className="text-center lg:text-end text-xs sm:text-sm md:text-base xl:text-base special:text-lg">
+              <p className="text-center lg:text-end text-xs sm:text-sm md:text-base xl:text-base special:text-lg text-black">
                 is an exhilarating event where car enthusiasts, families, and
                 the community come together for a day of automotive excitement
                 and entertainment. This special occasion showcases a splendid

@@ -35,7 +35,7 @@ const Showcase2 = () => {
 
 
   return (
-    <div className="w-full h-screen">
+    <div className="w-full ">
       <div className={`${
         scrolling ? 'bg-white' : 'bg-transparent'} fixed py-4 w-full z-20 hidden xl:flex justify-between items-center px-4`}>
         <div>
@@ -64,7 +64,7 @@ const Showcase2 = () => {
             <Link to="">Shop</Link>
           </span> */}
           <button
-            className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl px-3 2xl:px-5 special:px-8 py-2 2xl:py-3 special:py-5 text-[#d4d4d4] bg-black rounded-lg hover:text-white hover:bg-black/75"
+            className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl px-3 2xl:px-5 special:px-8 py-2 2xl:py-3 special:py-5 text-[#d4d4d4] bg-black rounded-lg hover:text-black hover:bg-white"
             onClick={() => scrollTo("contactUs")}
           >
             {" "}
@@ -112,7 +112,7 @@ const Showcase2 = () => {
                 <Link to="">Shop</Link>
               </span> */}
               <button
-                className="font-bold text-base  px-3 py-2 text-[#d4d4d4] bg-black rounded-lg hover:text-white hover:bg-black/75"
+                className="font-bold text-base  px-3 py-2 text-[#d4d4d4] bg-black rounded-lg hover:text-black hover:bg-white"
                 onClick={() => scrollTo("contactUs")}
               >
                 Contact Us
@@ -142,7 +142,7 @@ const Showcase2 = () => {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="text-xs sm:text-sm md:text-base xl:text-lg 2xl:text-xl special:text-2xl font-semibold"
               >
-                With over 200+ businesses across 200+ stores where
+                With over <span className='text-sm sm:text-md md:text-lg xl:text-xl 2xl:text-xl special:text-2xl font-semibold'>200+</span> businesses across 200+ stores where
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, y: "-10%" }}
@@ -237,7 +237,7 @@ const Showcase2 = () => {
               />
             </div>
 
-            <div className="hidden lg:flex flex-col items-center lg:items-end gap-3 lg:gap-5 2xl:gap-6 special:gap-8">
+            <div className="hidden lg:flex flex-col items-center lg:items-end gap-2 lg:gap-3 2xl:gap-4 special:gap-6">
               <motion.p
                 initial={{ opacity: 0, x: "-20%" }}
                 whileInView={{ opacity: 1, x: "0" }}
@@ -245,7 +245,7 @@ const Showcase2 = () => {
                 viewport={{ once: true }}
                 className="text-base xl:text-lg 2xl:text-xl special:text-2xl font-semibold"
               >
-                With over 200+ businesses across 200+ stores where
+                With over <span className='text-sm sm:text-md md:text-lg xl:text-2xl 2xl:text-4xl special:text-3xl font-semibold'>200+</span> businesses across <span className='text-sm sm:text-md md:text-lg xl:text-2xl 2xl:text-4xl special:text-3xl font-semibold'>200+</span> stores where
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, x: "-20%" }}
@@ -263,7 +263,7 @@ const Showcase2 = () => {
                 viewport={{ once: true }}
                 className="text-base xl:text-lg 2xl:text-xl special:text-2xl font-semibold"
               >
-                only $9.99 per month, opt-out anytime
+                only <span className='text-sm sm:text-md md:text-lg xl:text-2xl 2xl:text-4xl special:text-3xl font-semibold'>$9.99</span> per month, opt-out anytime
               </motion.p>
             </div>
 
@@ -274,7 +274,7 @@ const Showcase2 = () => {
                   whileInView={{ opacity: 1, x: "0" }}
                   transition={{ duration: 0.5, delay: 1.2 }}
                   viewport={{ once: true }}
-                  className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl px-3 2xl:px-5 special:px-8 py-2 2xl:py-3 special:py-5 text-[#d4d4d4] bg-black rounded-lg hover:text-white hover:bg-black/75"
+                  className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl px-3 2xl:px-5 special:px-8 py-2 2xl:py-3 special:py-5 text-[#d4d4d4] bg-black rounded-lg hover:text-black hover:bg-white"
                 >
                   {" "}
                   Sign Up for Free
