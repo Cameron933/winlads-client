@@ -25,12 +25,12 @@ const GetStart = () => {
         whileInView={{ opacity: 1, y: "0" }}
         transition={{ duration: 0.5, delay: 0 }}
         viewport={{ once: true }}
-        className="text-center text-base sm:text-lg 2xl:text-xl special:text-3xl font-bold uppercase xl:tracking-[18px] sm:tracking-[16px] tracking-[12px]"
+        className="text-center my-4 md:my-1 text-base sm:text-lg 2xl:text-xl special:text-3xl font-bold uppercase xl:tracking-[18px] sm:tracking-[16px] tracking-[12px]"
       >
         {" "}
         Empowering Lives Through Winlads
       </motion.p>
-      <div className="flex items-center lg:flex-row flex-col justify-center bg-welcome2 px-14">
+      <div className="flex items-center lg:flex-row flex-col justify-center bg-welcome2 md:px-14 px-4">
         <div style={containerStyle}>
           <iframe
             title="Winlads"
