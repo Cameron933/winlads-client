@@ -40,6 +40,7 @@ const ContactForm = () => {
           formData,
         }
       );
+    
       if (response.status == 200) {
         toast.success(`We have recieved your message, we will contact you on ` + formData.email);
         setFormData({
