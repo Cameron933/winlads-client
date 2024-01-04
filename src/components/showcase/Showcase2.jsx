@@ -51,6 +51,12 @@ const Showcase2 = () => {
           </span>
           <span
             className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl hover:text-[#0184EA]"
+            onClick={() => scrollTo("contactUs")}
+          >
+            <Link>Be a Partner</Link>
+          </span>
+          <span
+            className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl hover:text-[#0184EA]"
             onClick={() => scrollTo("our-partners")}
           >
             <Link>Our Partners</Link>
@@ -112,6 +118,12 @@ const Showcase2 = () => {
                 onClick={() => scrollTo("our-partners")}
               >
                 <Link>Cashback</Link>
+              </span>
+              <span
+                className="font-bold text-base text-white  hover:text-[#EC263F]"
+                onClick={() => scrollTo("contactUs")}
+              >
+                <Link>Be a Partner</Link>
               </span>
               <span
                 className="font-bold text-base text-white  hover:text-[#EC263F]"
