@@ -5,8 +5,10 @@ import Img3 from "../../assets/images/gallery/img3.png";
 import Img4 from "../../assets/images/gallery/img4.png";
 import Img5 from "../../assets/images/gallery/img5.png";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Gallery2 = () => {
+
   return (
     <div className="flex flex-col xl:space-y-8 space-y-4 py-8">
       <div className="">
@@ -21,17 +23,20 @@ const Gallery2 = () => {
           @Winlads
         </motion.p>
 
-        <motion.p
-          initial={{ opacity: 0, y: "40%" }}
-          whileInView={{ opacity: 1, y: "0" }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="text-center text-base sm:text-lg 2xl:text-xl special:text-3xl font-bold "
-        >
-          Follow Us On Instagram
-        </motion.p>
+        <Link to={'https://www.instagram.com/winladsau/'} target="_blank">
+          <motion.p
+            initial={{ opacity: 0, y: "40%" }}
+            whileInView={{ opacity: 1, y: "0" }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="text-center text-base sm:text-lg 2xl:text-xl special:text-3xl font-bold hover:text-pink-500"
+          >
+            Follow Us On Instagram
+          </motion.p>
+        </Link>
+        
       </div>
-      <div className="grid grid-cols-4 xl:px-20 md:px-10 px-5 gap-2">
+      <div className="grid grid-cols-4 xl:px-14 md:px-10 px-5 gap-2">
         <div className="col-span-5 md:col-span-1 flex flex-col gap-2 rounded-2xl">
           <div className="flex flex-col gap-2 overflow-hidden rounded-2xl">
             <motion.img src={Img1}

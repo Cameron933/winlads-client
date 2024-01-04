@@ -5,6 +5,7 @@ import { IoMdMenu, IoMdClose } from "react-icons/io";
 import WindlandText from "../../assets/images/showacase/windland.png";
 import { motion } from "framer-motion";
 import HeaderLogo from "../../assets/images/headerLogo.png"
+import { toast } from 'react-toastify';
 
 const Showcase2 = () => {
   const [isNavOpen, setNavOpen] = useState(false);
@@ -37,12 +38,17 @@ const Showcase2 = () => {
 
   return (
     <div className="w-full ">
-      <div className={`${
-        scrolling ? 'bg-white' : 'bg-transparent'} fixed py-4 w-full z-20 hidden xl:flex justify-between items-center px-4`}>
+      <div className={`${scrolling ? 'bg-white' : 'bg-transparent'} fixed py-4 w-full z-20 hidden xl:flex justify-between items-center px-4`}>
         <div>
           <img src={HeaderLogo} alt="" />
         </div>
         <nav className="lg:flex items-center justify-end gap-3 xl:gap-5 special:gap-8 hidden">
+          <span
+            className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl hover:text-[#0184EA]"
+            onClick={() => toast.warning('Cashback under maintainence')}
+          >
+            <Link>Cashback</Link>
+          </span>
           <span
             className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl hover:text-[#0184EA]"
             onClick={() => scrollTo("our-partners")}
@@ -105,6 +111,12 @@ const Showcase2 = () => {
                 className="font-bold text-base text-white  hover:text-[#EC263F]"
                 onClick={() => scrollTo("our-partners")}
               >
+                <Link>Cashback</Link>
+              </span>
+              <span
+                className="font-bold text-base text-white  hover:text-[#EC263F]"
+                onClick={() => scrollTo("our-partners")}
+              >
                 <Link>Our Partners</Link>
               </span>
               <span className="font-bold text-base text-white  hover:text-[#EC263F] hidden">
@@ -125,11 +137,24 @@ const Showcase2 = () => {
               {/* <span className="font-bold text-base text-white  hover:text-[#EC263F] hidden">
                 <Link to="">Shop</Link>
               </span> */}
+              <span
+                className="font-bold text-base text-white  hover:text-[#EC263F]"
+                onClick={() => scrollTo("faq")}
+              >
+                <Link>FAQ</Link>
+              </span>
               <button
-                className="font-bold text-base  px-3 py-2 text-[#d4d4d4] bg-black rounded-lg hover:text-black hover:bg-white"
+                className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl px-3 2xl:px-5 special:px-8 py-2 2xl:py-3 special:py-5 text-[#d4d4d4] bg-black rounded-lg hover:text-black hover:bg-white"
+                onClick={() => navigate('/login')}
+              >
+                {" "}
+                Sign In
+              </button>
+              <button
+                className="font-bold text-base  px-3 py-2 text-[#d4d4d4] bg-amber-500 rounded-lg hover:text-black hover:bg-white"
                 onClick={() => scrollTo("contactUs")}
               >
-                Contact Us
+                Contact
               </button>
             </div>
           )}

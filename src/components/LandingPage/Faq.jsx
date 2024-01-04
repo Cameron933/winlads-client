@@ -10,7 +10,7 @@ const styles = {
 
 const Faq = () => {
     return (
-        <div className='bg-chose-plan py-1' id='faq'>
+        <div className='bg-chose-plan py-1 px-1 md:px-0' id='faq'>
             <h2 className='uppercase text-2xl font-bold text-center my-10'>Frequently Asked Questions</h2>
             <div className='flex items-stretch justify-center md:flex-row flex-col md:px-10'>
                 <div>

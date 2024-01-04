@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const Service = () => {
   return (
-    <div className="w-full bg-service">
+    <div className="w-full bg-service px-10">
       <div className="flex flex-col items-center w-full px-3 lg:px-5 py-10 lg:py-16 gap-10">
         <motion.p
           initial={{ opacity: 0, y: "-40%" }}

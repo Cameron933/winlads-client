@@ -1,9 +1,9 @@
-import Jip from "../../assets/images/services/jip.png";
+import Jip from "../../assets/images/logo-full-col.png";
 import { motion } from "framer-motion";
 
 const Benifit = () => {
   return (
-    <div className="w-full bg-benifit">
+    <div className="w-full bg-benifit px-10">
       <div className="flex flex-col items-center w-full px-3 lg:px-5 py-10 lg:py-16 gap-10">
         <motion.p
           initial={{ opacity: 0, y: "-40%" }}
@@ -59,10 +59,10 @@ const Benifit = () => {
               viewport={{ once: true }}
               className="w-full"
             >
-              <p className="text-center lg:text-start text-xs sm:text-sm md:text-base xl:text-base special:text-lg font-bold mb-3 text-[#01819D]">
+              <p className="text-center lg:text-start text-xs sm:text-sm md:text-base xl:text-base special:text-lg font-bold mb-3 text-cyan-700">
                 Winlads Referral System
               </p>
-              <p className="text-center lg:text-start text-xs sm:text-sm md:text-base xl:text-base special:text-lg text-[#01819D]">
+              <p className="text-center lg:text-start text-xs sm:text-sm md:text-base xl:text-base special:text-lg text-cyan-700">
                 "Unlock rewards and passive income through Winlads Referral
                 System. Refer friends and family, earn commissions, and watch
                 your network grow organically. Your referrals could be your
@@ -120,7 +120,7 @@ const Benifit = () => {
           </div>
 
           {/* right  */}
-          <div className="w-10/12 lg:w-2/5  flex flex-col lg:order-3 order-2 gap-5 text-[#01819D]">
+          <div className="w-10/12 lg:w-2/5  flex flex-col lg:order-3 order-2 gap-5 text-cyan-700">
             <motion.div
               initial={{ opacity: 0, y: "10%" }}
               whileInView={{ opacity: 1, y: "0" }}

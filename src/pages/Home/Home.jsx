@@ -18,8 +18,8 @@ const Home = () => {
     <div className="pageBgColor">
       <Showcase2 />
       <WelcomeHome2 />
-      <GetStart />
       <ChoosePlane/>
+      <GetStart />
       <Service/>
       <Youtube/>
       <Benifit/>
