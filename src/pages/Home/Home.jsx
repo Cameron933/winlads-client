@@ -11,6 +11,7 @@ import ChoosePlane from "../../components/choosePlane/ChoosePlane";
 import GetStart from "../../components/getStart/GetStart";
 import Contact from "../../components/contact/Contact"
 import MessengerCustomerChat from 'react-messenger-customer-chat';
+import Faq from "../../components/Faq/Faq";
 
 const Home = () => {
   return (
@@ -23,6 +24,7 @@ const Home = () => {
       <Youtube/>
       <Benifit/>
       <Gallery2/>
+      <Faq />
       <Contact />
       <Footer />
       <MessengerCustomerChat pageId="171684687116166" />,
