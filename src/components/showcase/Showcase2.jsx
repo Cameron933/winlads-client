@@ -5,6 +5,7 @@ import { IoMdMenu, IoMdClose } from "react-icons/io";
 import WindlandText from "../../assets/images/showacase/windland.png";
 import { motion } from "framer-motion";
 import HeaderLogo from "../../assets/images/headerLogo.png"
+import { toast } from 'react-toastify';
 
 const Showcase2 = () => {
   const [isNavOpen, setNavOpen] = useState(false);
@@ -37,12 +38,17 @@ const Showcase2 = () => {
 
   return (
     <div className="w-full ">
-      <div className={`${
-        scrolling ? 'bg-white' : 'bg-transparent'} fixed py-4 w-full z-20 hidden xl:flex justify-between items-center px-4`}>
+      <div className={`${scrolling ? 'bg-white' : 'bg-transparent'} fixed py-4 w-full z-20 hidden xl:flex justify-between items-center px-4`}>
         <div>
           <img src={HeaderLogo} alt="" />
         </div>
         <nav className="lg:flex items-center justify-end gap-3 xl:gap-5 special:gap-8 hidden">
+          <span
+            className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl hover:text-[#0184EA]"
+            onClick={() => toast.warning('Cashback under maintainence')}
+          >
+            <Link>Cashback</Link>
+          </span>
           <span
             className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl hover:text-[#0184EA]"
             onClick={() => scrollTo("our-partners")}
@@ -101,6 +107,12 @@ const Showcase2 = () => {
 
           {isNavOpen && (
             <div className="flex px-10 py-5 rounded-lg-lg flex-col items-center gap-5 lg:hidden rounded-lg bg-[#38bfc9] absolute z-10 w-full top-12 ">
+              <span
+                className="font-bold text-base text-white  hover:text-[#EC263F]"
+                onClick={() => scrollTo("our-partners")}
+              >
+                <Link>Cashback Programme</Link>
+              </span>
               <span
                 className="font-bold text-base text-white  hover:text-[#EC263F]"
                 onClick={() => scrollTo("our-partners")}
