@@ -6,34 +6,57 @@ import Usd from "../../assets/images/rafflesImages/Usd.png";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const PlanBuyCard = ({ onClose, userId, giveawayId, price, name }) => {
+const PlanBuyCard = ({ onClose, userId, giveawayId, price, name,planeId  }) => {
+  const [loading, setLoading] = useState(false);
   const handleButtonClick = async () => {
+    setLoading(true);
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_SERVER_API}/buyRaffleRoundWithPayment`,
-        {
-          uid: userId,
-          roundid: giveawayId,
-        }
+        `${import.meta.env.VITE_SERVER_API}/checkoutSession`,
+        { subid: planeId, uid: userId }
       );
+      console.log("Response:", response.data);
 
       const payURL = response.data.payurl;
-
-      // Redirect the user to the payURL
-      window.location.href = payURL;
+      setLoading(false);
+      if(payURL==null) {
+        toast.error(response.data.message, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      } else {
+        window.location.href = payURL;
+      }
+      
     } catch (error) {
+      toast.error(error, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      })
+      
       console.log(error);
+      setLoading(false);
     }
   };
+
 
   const handlePointsButtonClick = async () => {
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_SERVER_API}/buyRaffleRoundWithPoints`,
-        {
-          uid: userId,
-          roundid: giveawayId,
-        }
+        `${import.meta.env.VITE_SERVER_API}/subscribeWithPoints`,
+        { subid: planeId, uid: userId }
       );
       if (response.data.status == 200) {
         toast.success(response.data.data.message, {
