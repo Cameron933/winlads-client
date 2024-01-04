@@ -5,6 +5,7 @@ import Visa from "../../assets/images/rafflesImages/Visa.png";
 import Usd from "../../assets/images/rafflesImages/Usd.png";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useState } from "react";
 
 const PlanBuyCard = ({ onClose, userId, giveawayId, price, name,planeId  }) => {
   const [loading, setLoading] = useState(false);
@@ -136,7 +137,7 @@ const PlanBuyCard = ({ onClose, userId, giveawayId, price, name,planeId  }) => {
             Payment Methods
           </p>
           <div className="flex flex-row justify-center items-center lg:gap-4 gap-1 text-black">
-            <div className="bg-white hover:bg-black/5 rounded-xl p-2 flex justify-center items-center cursor-pointer lg:gap-2">
+            <div className="bg-white hover:bg-black/5 rounded-xl p-2 flex justify-center items-center cursor-pointer lg:gap-2" onClick={handlePointsButtonClick}>
               <img
                 src={bitcoin}
                 alt=""
