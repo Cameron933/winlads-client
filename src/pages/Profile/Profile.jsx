@@ -110,7 +110,7 @@ const Profile = () => {
     const image = await uploadBytes(storageRef, profile).then((snapshot) => {
       console.log("profile image upload");
       refresh();
-      refreshTrigger()
+     
     });
     setLoading(true);
     const response = await axios.post(
