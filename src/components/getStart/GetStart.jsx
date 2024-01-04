@@ -19,13 +19,13 @@ const iframeStyle = {
 
 const GetStart = () => {
   return (
-    <>
+    <div className="">
       <motion.p
         initial={{ opacity: 0, y: "-40%" }}
         whileInView={{ opacity: 1, y: "0" }}
         transition={{ duration: 0.5, delay: 0 }}
         viewport={{ once: true }}
-        className="text-center my-4 md:my-1 text-base sm:text-lg 2xl:text-xl special:text-3xl font-bold uppercase xl:tracking-[18px] sm:tracking-[16px] tracking-[12px]"
+        className="text-center my-4 md:my-4 text-base sm:text-lg 2xl:text-xl special:text-3xl font-bold uppercase xl:tracking-[18px] sm:tracking-[16px] tracking-[12px]"
       >
         {" "}
         Empowering Lives Through Winlads
@@ -41,13 +41,13 @@ const GetStart = () => {
           ></iframe>
           <script src="https://player.vimeo.com/api/player.js"></script>
         </div>
-        <div className="mx-auto 2xl:max-w-[2400px]   w-full py-10 lg:py-16 ">
+        <div className="mx-auto 2xl:max-w-[2400px]   w-full py-10 lg:py-0 ">
           <motion.p
             initial={{ opacity: 0, y: "40%" }}
             whileInView={{ opacity: 1, y: "0" }}
             transition={{ duration: 0.5, delay: 0.3 }}
             viewport={{ once: true }}
-            className="mt-5 sm:mt-6 lg:mt-8 text-left w-10/12 mx-auto text-xs sm:text-sm md:text-base xl:text-base special:text-lg"
+            className="mt-5 sm:mt-0 lg:mt-0 text-left w-10/12 mx-auto text-xs sm:text-sm md:text-base xl:text-base special:text-lg"
           >
             A Journey of Giving Back At Winlads, our pursuit extends beyond
             creating exceptional experiences; it encompasses a heartfelt
@@ -137,7 +137,7 @@ const GetStart = () => {
           </div> */}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

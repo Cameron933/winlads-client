@@ -2,7 +2,8 @@ import logo2 from "../../assets/images/logo/logo2.png";
 import { MdOutlineLocalPhone } from "react-icons/md";
 import { MdOutlineEmail } from "react-icons/md";
 import { Link } from "react-router-dom";
-
+import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
+import {FaXTwitter}from "react-icons/fa6"
 function Footer() {
   return (
     <div className="flex items-start justify-center  bg-[#000]">
@@ -79,7 +80,7 @@ function Footer() {
                   News Letter
                 </p>
                 <ul className="text-xs 2xl:text-lg flex flex-col gap-1">
-            
+
                   <li className="cursor-pointer">2009/15 Everage St</li>
                   <li className="cursor-pointer">Moonee Ponds</li>
                   <li className="cursor-pointer">Victoria</li>
@@ -92,21 +93,27 @@ function Footer() {
                   Registration
                 </p>
                 <ul className="text-xs 2xl:text-lg flex flex-col gap-1">
-            
-                <li className="cursor-pointer">ABN: 87671535149</li>  
-                <li className="cursor-pointer">NSW: TP/03199</li>
-                <li className="cursor-pointer">Permit No: ACT TP 23/02687</li>
+
+                  <li className="cursor-pointer">ABN: 87671535149</li>
+                  <li className="cursor-pointer">NSW: TP/03199</li>
+                  <li className="cursor-pointer">Permit No: ACT TP 23/02687</li>
 
                 </ul>
               </div>
             </div>
           </div>
         </div>
-
-        <div className="py-2">
-          <p className="text-center text-xs special:text-base text-white">
+        <hr />
+        <div className="py-2 flex items-center justify-between px-10">
+          <p className="text-left text-xs special:text-base text-white">
             Copyright 2023 Winlads, All Rights Reserved.
           </p>
+          <div className="flex items-center justify-center gap-4 text-white text-2xl">
+                  <FaFacebook className="hover:text-gray-500"/>
+                  <FaInstagram className="hover:text-gray-500"/>
+                  <FaXTwitter className="hover:text-gray-500"/>
+                  <FaTiktok className="hover:text-gray-500"/>
+          </div>
         </div>
       </div>
     </div>

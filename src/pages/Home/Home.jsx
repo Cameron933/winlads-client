@@ -18,8 +18,9 @@ const Home = () => {
     <div className="pageBgColor">
       <Showcase2 />
       <WelcomeHome2 />
-      <ChoosePlane/>
+
       <GetStart />
+      <ChoosePlane/>
       <Service/>
       <Youtube/>
       <Benifit/>
@@ -27,7 +28,7 @@ const Home = () => {
       <Faq/>
       <Contact />
       <Footer />
-      <MessengerCustomerChat pageId="171684687116166" />,
+      <MessengerCustomerChat pageId="171684687116166" />
 
     </div>
   );

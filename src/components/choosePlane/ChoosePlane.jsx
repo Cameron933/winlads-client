@@ -8,18 +8,20 @@ const ChoosePlane = () => {
 
   const navigate = useNavigate();
   return (
-    <div className="w-full bg-chose-plan">
-      <div className="flex flex-col items-center w-full px-3 lg:px-5  py-10 lg:py-16 gap-10">
-        <motion.p
+    <>
+         <motion.p
           initial={{ opacity: 0, y: "-40%" }}
           viewport={{ once: true }}
           whileInView={{ opacity: 1, y: "0" }}
           transition={{ duration: 0.5, delay: 0 }}
-          className="text-center text-base sm:text-lg 2xl:text-xl special:text-3xl font-bold xl:tracking-[18px] sm:tracking-[16px] tracking-[12px] uppercase"
+          className="my-3 text-center text-base sm:text-lg 2xl:text-xl special:text-3xl font-bold xl:tracking-[18px] sm:tracking-[16px] tracking-[12px] uppercase"
         >
           {" "}
           Choose a Subscription plan
         </motion.p>
+    <div className="w-full bg-chose-plan">
+      <div className="flex flex-col items-center w-full px-3 lg:px-5  py-10 lg:py-16 gap-10">
+   
 
         {/* <div className="flex flex-col gap-3">
 
@@ -578,6 +580,7 @@ const ChoosePlane = () => {
       </div>
 
     </div>
+    </>
   );
 };
 
