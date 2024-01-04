@@ -1,25 +1,33 @@
 import "./SideNav.css";
 import { useEffect, useState } from "react";
 import Credit from "../../assets/images/side-bar/Credit.png";
-import Logout from "../../assets/images/side-bar/Logout.png";
+
 import User from "../../assets/images/side-bar/User3.png";
 import OutsideClickHandler from "react-outside-click-handler";
 import { Link, useNavigate } from "react-router-dom";
-import Modal from "react-modal";
-import Auth from "../../assets/images/dashboard-icon/1.png";
-import Transaction from "../../assets/images/side-bar/Transactions2.png";
-import News from "../../assets/images/side-bar/News2.png";
-import Sub from "../../assets/images/side-bar/PayWall2.png";
-import Messages from "../../assets/images/side-bar/Messages2.png";
-import Business from "../../assets/images/side-bar/Credit2.png";
+
+import Logout from "../../assets/images/side-bar/icons/logout1.png";
+import Transaction from "../../assets/images/side-bar/icons/transaction1.png";
+import News from "../../assets/images/side-bar/icons/news1.png";
+import Sub from "../../assets/images/side-bar/icons/subscription1.png";
+import Messages from "../../assets/images/side-bar/icons/Messages1.png";
+import Business from "../../assets/images/side-bar/icons/bcard.png";
+import Affillicate from "../../assets/images/side-bar/icons/Affiliate1.png";
+import Promo from "../../assets/images/side-bar/icons/promo.png";
+import Form from "../../assets/images/side-bar/icons/forum.png";
+import Setting from "../../assets/images/side-bar/icons/settings 1.png";
+import Giveaway from "../../assets/images/side-bar/icons/giveaway.png";
+import Home from "../../assets/images/side-bar/icons/home.png";
+import Entry from "../../assets/images/side-bar/icons/entries.png";
+
+
+
 import { validateCurrentUser } from "../../utils/validateuser";
 import { ref, getDownloadURL } from "firebase/storage";
 import { storage } from "../../firebase.config";
 import Cookies from "universal-cookie";
 import ItemLoader from "../../components/Loader/ItemLoader";
 import { useRefresh } from "../../utils/RefreshContext";
-import FooterLogo from "../../assets/images/logo/flogo.png";
-import FooterLogoMobile from "../../assets/images/logo/logo2mobile.png";
 
 const SideNav = ({ screen }) => {
   const cookies = new Cookies(null, { path: "/" });
@@ -114,16 +122,30 @@ const SideNav = ({ screen }) => {
         </div>
 
         <div className="flex flex-col space-y-4 w-full">
-          
-          <hr />
+          <div className="flex justify-center items-center">
+            <hr className="w-10/12 rounded-xl " />
+          </div>
 
           <div onClick={expandSidebar}>
             <Link to="/dashboard">
               <button className="flex flex-row items-center  xl:justify-start justify-center xl:px-5  xl:gap-2 hover:bg-[#36383b] py-2  w-full  ">
-                <img src={Transaction} className="w-[14px]" alt="protect" />
+                <img src={Home} className="w-[14px]" alt="protect" />
                 <span className="mobile-hide">
                   <p className="link-no-underlin  hidden xl:flex text-white ">
                     Home
+                  </p>
+                </span>
+              </button>
+            </Link>
+          </div>
+
+          <div onClick={expandSidebar}>
+            <Link to="/giveaways">
+              <button className="flex flex-row items-center xl:justify-start justify-center xl:px-5 xl:gap-2 hover:bg-[#36383b] py-2 px-2 w-full">
+                <img src={Giveaway} className="w-[18px]" alt="protect" />
+                <span className="mobile-hide">
+                  <p className="link-no-underlin hidden xl:flex text-white">
+                    Giveaways
                   </p>
                 </span>
               </button>
@@ -136,12 +158,26 @@ const SideNav = ({ screen }) => {
                 <img src={Sub} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
                   <p className="link-no-underlin hidden xl:flex text-white">
-                    Subscription
+                    Subscriptions
                   </p>
                 </span>
               </button>
             </Link>
           </div>
+
+          <div onClick={expandSidebar}>
+            <Link to="/myentries">
+              <button className="flex flex-row items-center xl:justify-start justify-center xl:px-5 xl:gap-2 hover:bg-[#36383b] py-2 px-2 w-full">
+                <img src={Entry} className="w-[18px]" alt="protect" />
+                <span className="mobile-hide">
+                  <p className="link-no-underlin hidden xl:flex text-white">
+                    My Entries
+                  </p>
+                </span>
+              </button>
+            </Link>
+          </div>
+
 
           <div onClick={expandSidebar}>
             <Link to="/transaction">
@@ -149,19 +185,21 @@ const SideNav = ({ screen }) => {
                 <img src={Transaction} className="w-[14px]" alt="protect" />
                 <span className="mobile-hide">
                   <p className="link-no-underlin  hidden xl:flex text-white ">
-                    Transaction
+                    Transactions
                   </p>
                 </span>
               </button>
             </Link>
           </div>
 
-          <hr />
+          <div className="flex justify-center items-center">
+            <hr className="w-10/12 rounded-xl" />
+          </div>
 
           <div onClick={expandSidebar}>
             <Link to="/dashboard">
               <button className="flex flex-row items-center xl:justify-start justify-center xl:px-5 xl:gap-2 hover:bg-[#36383b] py-2 px-2 w-full">
-                <img src={Business} className="w-[18px]" alt="protect" />
+                <img src={Affillicate} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
                   <p className="link-no-underlin  hidden xl:flex text-white">
                     Affiliate
@@ -174,7 +212,7 @@ const SideNav = ({ screen }) => {
           <div onClick={expandSidebar}>
             <Link to="/dashboard">
               <button className="flex flex-row items-center xl:justify-start justify-center xl:px-5 xl:gap-2 hover:bg-[#36383b] py-2 px-2 w-full">
-                <img src={Business} className="w-[18px]" alt="protect" />
+                <img src={Promo} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
                   <p className="link-no-underlin  hidden xl:flex text-white">
                     Promo Tools
@@ -197,7 +235,9 @@ const SideNav = ({ screen }) => {
             </Link>
           </div>
 
-          <hr />
+          <div className="flex justify-center items-center">
+            <hr className="w-10/12 rounded-xl" />
+          </div>
 
           <div onClick={expandSidebar}>
             <Link to="/newslist">
@@ -228,7 +268,7 @@ const SideNav = ({ screen }) => {
           <div onClick={expandSidebar}>
             <Link to="/dashboard">
               <button className="flex flex-row items-center xl:justify-start justify-center xl:px-5 xl:gap-2 hover:bg-[#36383b] py-2 px-2 w-full">
-                <img src={Messages} className="w-[18px]" alt="protect" />
+                <img src={Form} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
                   <p className="link-no-underlin hidden xl:flex text-white">
                     Forum
@@ -238,9 +278,9 @@ const SideNav = ({ screen }) => {
             </Link>
           </div>
 
-          <hr />
-
-          
+          <div className="flex justify-center items-center">
+            <hr className="w-10/12 rounded-xl" />
+          </div>
 
           {/* <div onClick={expandSidebar} title="This feature will be available soon">
               <button className="flex flex-row items-center xl:justify-start justify-center xl:px-5 xl:gap-2 hover:bg-[#36383b] py-2 px-2 w-full">
@@ -253,12 +293,10 @@ const SideNav = ({ screen }) => {
               </button>
           </div> */}
 
-          
-
           <div onClick={expandSidebar}>
             <Link to="/profile">
               <button className="flex flex-row items-center xl:justify-start justify-center xl:px-5 xl:gap-2 hover:bg-[#36383b] py-2 px-2 w-full">
-                <img src={Business} className="w-[18px]" alt="protect" />
+                <img src={Setting} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
                   <p className="link-no-underlin  hidden xl:flex text-white">
                     Settings
@@ -277,8 +315,6 @@ const SideNav = ({ screen }) => {
               <span className=" text-white hidden xl:flex">Sign out</span>
             </button>
           </div>
-
-          
         </div>
       </div>
     </OutsideClickHandler>
