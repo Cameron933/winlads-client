@@ -392,8 +392,8 @@ const Transaction = () => {
                     <div>
                       <p
                         className={`text-${transaction.transactiontype == "DR"
-                            ? "green-400"
-                            : "red-400"
+                            ? "red-400"
+                            : "green-400"
                           } text-lg`}
                       >
                         ${transaction.amount}

@@ -385,7 +385,7 @@ const Register = () => {
                     <FcSmartphoneTablet size={20} />
                     <input
                       type="text"
-                      placeholder="Refferal Id"
+                      placeholder="Affiliate Id"
                       value={values.rafflesId}
                       onChange={handleChange}
                       onBlur={handleBlur}
