@@ -32,8 +32,8 @@ function BusinessCard() {
   };
 
   const handleRequestButton = () => {
-    setOrderNow(!isOrderNow);
     requestNfcCard();
+    setOrderNow(!isOrderNow);
   };
 
   useEffect(() => {
@@ -70,15 +70,20 @@ function BusinessCard() {
 
   const requestNfcCard = async () => {
     try {
+      if(address == ''){
+        throw Error('All fields required');
+      }
+      const data = {
+        uid: valUser.uid,
+        name: valUser.name,
+        mobile: valUser.mobile,
+        passport: valUser.passport,
+        address: address,
+      }
+      console.log(data);
       const response = await axios.post(
         `${import.meta.env.VITE_SERVER_API}/requestBusinessCard`,
-        {
-          uid: valUser.uid,
-          name: valUser.name,
-          mobile: valUser.mobile,
-          passport: valUser.passport,
-          address: address,
-        }
+        data
       );
       if (response.data.status == 200) {
         toast.success(response.data.message, {
