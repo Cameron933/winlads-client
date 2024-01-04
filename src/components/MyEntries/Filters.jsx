@@ -11,6 +11,7 @@ const Filters = ({
   selectCatValue,
   round,
   numbers,
+  activeEntries = 0
 }) => {
   const [isCatShow, setIsCat] = useState(false);
   const [isRoundShow, setIsRound] = useState(false);
@@ -57,9 +58,10 @@ const Filters = ({
 
   return (
     <>
-      <h1 className="special:text-4xl xl:text-3xl md:text-xl text-lg font-extrabold mb-10 xl:block hidden">
+      <h1 className="special:text-4xl xl:text-3xl md:text-xl text-lg font-extrabold mb-2 xl:block hidden">
         My Entries
       </h1>
+      <h5 className="mb-5 text-green-600">Total Active Entries : {activeEntries}</h5>
       <div className="hidden xl:grid grid-cols-5 mb-4 gap-2">
         <div className="col-span-1">
           <div

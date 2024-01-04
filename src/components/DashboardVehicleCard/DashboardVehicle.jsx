@@ -22,7 +22,7 @@ const DashboardVehicleCard = ({
   return (
     <>
       <div
-        className={`flex flex-row justify-between pr-2 rounded-3xl 2xl:rounded-[30px] special:rounded-[40px] w-full py-2 shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:opacity-75 cursor-pointer`}
+        className={`flex flex-row justify-between pr-2 rounded-3xl 2xl:rounded-[30px] special:rounded-[40px] w-full py-2 shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:opacity-75 cursor-pointer overflow-hidden`}
         style={{ backgroundColor: color }}
         onClick={handleClick}
       >

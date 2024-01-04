@@ -19,8 +19,7 @@ const BCard = () => {
   useEffect(() => {
     getBCard();
     currentUserValidation();
-  }, [bCard, valUser]);
-
+  }, [bCard,valUser]);
   const currentUserValidation = async () => {
     const validator = await validateCurrentUser();
     if (validator.validatorBl) {

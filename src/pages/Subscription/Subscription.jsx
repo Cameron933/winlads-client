@@ -292,6 +292,7 @@ function Subscription() {
                       }
                       planeId={valUser.sub_id}
                     />
+              
                   ))}
                 </div>
               </div>
@@ -313,6 +314,9 @@ function Subscription() {
                 giveawayId={selectedPlaneId}
                 price={selectedPlanPrice}
                 name={selectedPlanName}
+                planeId={selectedPlaneId}
+                
+             
               />
               // <div className="absolute bottom-0 top-0 left-0 right-0 z-10 bg-white/50">
               //   <div className="flex justify-center items-center 2xl:pt-80 xl:pt-60">
