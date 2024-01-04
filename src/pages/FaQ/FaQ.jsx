@@ -11,7 +11,6 @@ import SearchField from "../../components/SearchField/SearchField";
 import { validateCurrentUser } from "../../utils/validateuser";
 import ItemLoader from "../../components/Loader/ItemLoader";
 
-
 function FaQ() {
   const navigate = useNavigate();
   const [valUser, setValUser] = useState({});
@@ -36,13 +35,13 @@ function FaQ() {
     }
   };
 
-  const handleSeeMore = (show)=>{
-    if(show){
-      setInitShow(faqs.length)
-    }else{
-      setInitShow(6)
+  const handleSeeMore = (show) => {
+    if (show) {
+      setInitShow(faqs.length);
+    } else {
+      setInitShow(6);
     }
-  }
+  };
 
   const getFaqs = async () => {
     await axios
@@ -83,17 +82,19 @@ function FaQ() {
             <div className="mt-10">
               {loading ? (
                 <div className="flex justify-center">
-<ItemLoader/>
+                  <ItemLoader />
                 </div>
               ) : faqs.length > 0 ? (
-                faqs.slice(0, initialShow).map((faq, key) => (
-                  <FaQComponent
-                    key={key}
-                    title={faq.q}
-                    desc={faq.a}
-                    number={key}
-                  />
-                ))
+                faqs
+                  .slice(0, initialShow)
+                  .map((faq, key) => (
+                    <FaQComponent
+                      key={key}
+                      title={faq.q}
+                      desc={faq.a}
+                      number={key}
+                    />
+                  ))
               ) : (
                 <div className="flex flex-col items-center space-y-2">
                   <MdOutlineDoNotDisturbOff className="w-12 h-12 2xl:w-16 2xl:h-16 special:w-24 special:h-24" />
@@ -103,10 +104,11 @@ function FaQ() {
                 </div>
               )}
             </div>
-            {
-              initialShow == 6 ? <button onClick={()=>handleSeeMore(true)}>See More</button> : <button onClick={()=>handleSeeMore(false)}>See Less</button>
-            }
-            
+            {initialShow == 6 ? (
+              <button onClick={() => handleSeeMore(true)}>See More</button>
+            ) : (
+              <button onClick={() => handleSeeMore(false)}>See Less</button>
+            )}
           </div>
 
           {/* right-side */}
