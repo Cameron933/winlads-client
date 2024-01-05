@@ -176,6 +176,7 @@ function Subscription() {
                       year={isYearly}
                       quartly={isQuartly}
                       month={isMonthly}
+                      isPopular= {plane.name == 'Platinum' ? true : false}
                       price={isYearly ? plane.annualy : "" | isQuartly ? plane.price_id_semiannual : "" | isMonthly ? plane.price_id : ""}
                       // descList={Array.isArray(plane.desc) ? plane.desc : []}
                       descList={Array.isArray(plane.desc) ? plane.desc : []}

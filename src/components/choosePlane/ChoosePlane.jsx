@@ -447,7 +447,7 @@ const ChoosePlane = () => {
           <Card
             title="Starter Tier"
             // titleColor="white"
-            title2="01 FREE ENTRY"
+            title2="01 ENTRY"
             titleColor2="black"
             // price="AUD 9.99"
             desc1="AUD 9.99 per month"
@@ -458,7 +458,7 @@ const ChoosePlane = () => {
             buttonColor="#0082E1"
             arrowColor="[#01819D]"
             buttonTextColor={"white"}
-            btnword="SIGN UP FOR FREE"
+            btnword="SIGN UP NOW"
             bgColorFrom="#0094FF"
             bgColorTo="#00347C"
             // point1={Correct}
@@ -473,7 +473,7 @@ const ChoosePlane = () => {
             title="Boomer Tier"
             titleColor="black"
             // titleColor="white"
-            title2="03 FREE ENTRIES"
+            title2="03 ENTRIES"
             titleColor2="black"
             // price="AUD 19.99"
             desc1="AUD 19.99 per month"
@@ -486,7 +486,7 @@ const ChoosePlane = () => {
             buttonColor="#CF3A00"
             arrowColor="white"
             buttonTextColor="white"
-            btnword="SIGN UP FOR FREE"
+            btnword="SIGN UP NOW"
             // point1={Correct}
             // point2={Correct}
             // point3={Correct}
@@ -498,7 +498,7 @@ const ChoosePlane = () => {
             title="Platinum Tier"
             titleColor="black"
             // titleColor="[#01819D]"
-            title2="10 FREE ENTRIES"
+            title2="10 ENTRIES"
             titleColor2="black"
             // price="AUD 49.99"
             desc1="AUD 49.99 per month"
@@ -511,8 +511,9 @@ const ChoosePlane = () => {
             // descColor="[#01819D]"
             buttonColor="#007D87"
             arrowColor="white"
+            mostPopular={true}
             buttonTextColor="white"
-            btnword="SIGN UP FOR FREE"
+            btnword="SIGN UP NOW"
             // point1={Correct}
             // point2={Correct}
             // point3={Correct}
@@ -526,7 +527,7 @@ const ChoosePlane = () => {
             title="Gold Tier"
             titleColor="black"
             // titleColor="white"
-            title2="25 FREE ENTRIES"
+            title2="25 ENTRIES"
             titleColor2="black"
             // price="AUD 100"
             desc1="AUD 100 per month"
@@ -553,7 +554,7 @@ const ChoosePlane = () => {
             bgColorFrom="#23282E"
             bgColorTo="#000"
             title="Black Tier"
-            mostPopular={true}
+           
             titleColor="white"
             // titleColor="white"
             title2="150 FREE ENTRIES"
