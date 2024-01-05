@@ -8,7 +8,7 @@ const PurchaseCard = () => {
       <div className="flex flex-row justify-between mb-2">
         <div className="flex flex-col">
           <span className="text-[#22CCEE] xl:text-xl text-md">Purchase Balance</span>
-          <span className="text-white text-3xl text-center font-bold">$0</span>
+          <span className="text-white text-3xl text-center font-bold">AUD 0</span>
         </div>
         <div className="">
           <img src={Vector1} alt="vector1" className="img-fluid" />
@@ -21,7 +21,7 @@ const PurchaseCard = () => {
       <div className="flex flex-row justify-between mt-2">
         <div className="flex flex-col">
           <span className="xl:text-xl text-md text-[#F38744]">Earning Balance</span>
-          <span className="text-white text-3xl text-center font-bold">$0</span>
+          <span className="text-white text-3xl text-center font-bold">AUD 0</span>
         </div>
         <div className="">
           <img src={Vector2} alt="vector2" className="img-fluid" />

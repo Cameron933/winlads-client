@@ -96,7 +96,7 @@ const CardComponent = () => {
               <img src={Money} alt="" className="" />
               <div className="flex flex-col text-white">
                 <p className="font-semibold 2xl:text-xl special:text-2xl text-lg">
-                  ${wallet.earning || "0.00"}
+                AUD {wallet.earning || "0.00"}
                 </p>
                 <p className="capitalize text-sm">Earning</p>
               </div>

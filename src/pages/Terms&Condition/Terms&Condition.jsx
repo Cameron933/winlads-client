@@ -57,7 +57,7 @@ const sampleData = [
   {
     id: 9,
     name: "Total prize value",
-    description: "Total prize pool (inc GST): $75,000.00",
+    description: "Total prize pool (inc GST): AUD 75,000.00",
   },
   {
     id: 10,

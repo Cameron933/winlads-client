@@ -74,7 +74,7 @@ const CardComponentNoWithdraw = () => {
               <p className="2xl:text-lg font-semibold capitalize">
                 your balance
               </p>
-              <p className="font-semibold">${valUser.balance || "0.00"}</p>
+              <p className="font-semibold">AUD {valUser.balance || "0.00"}</p>
             </div>
             <div className="flex flex-col space-x-1">
               <div className="bg-black rounded-full py-1 text-center px-2">
@@ -98,7 +98,7 @@ const CardComponentNoWithdraw = () => {
               <img src={Money} alt="" className="" />
               <div className="flex flex-col text-white">
                 <p className="font-semibold 2xl:text-xl special:text-2xl text-lg">
-                  ${wallet.earning || "0.00"}
+                  AUD {wallet.earning || "0.00"}
                 </p>
                 <p className="capitalize text-sm">Earning</p>
               </div>
@@ -107,7 +107,7 @@ const CardComponentNoWithdraw = () => {
               <img src={Ticket} alt="" />
               <div className="flex flex-col text-white">
                 <p className="font-semibold 2xl:text-xl special:text-2xl text-lg">
-                  ${wallet.purchase || "0.00"}
+                  AUD {wallet.purchase || "0.00"}
                 </p>
                 <p className="capitalize text-sm">Purchase</p>
               </div>

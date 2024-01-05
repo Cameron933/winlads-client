@@ -103,7 +103,7 @@ const ChoosePlane = ({ onClose, planeId, userId }) => {
 
         <div className="flex flex-col special:px-24 2xl:px-12 px-8 space-y-4 special:space-y-12 2xl:space-y-8 items-center">
           <p className="font-bold text-white text-center xl:text-5xl 2xl:text-6xl special:text-9xl md:5xl text-3xl">
-            $9.99
+            AUD 9.99
           </p>
           <p className="text-white text-center special:text-4xl">User/Month</p>
           {/* <div className="flex justify-center flex-col space-y-2 special:space-y-6 2xl:space-y-4">

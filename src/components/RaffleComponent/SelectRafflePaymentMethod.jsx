@@ -93,7 +93,7 @@ const SelectRafflePaymentMethod = ({
           </p>
 
           <p className="font-bold text-black text-center xl:text-5xl 2xl:text-6xl special:text-9xl md:5xl text-3xl">
-            ${price}
+            AUD {price}
           </p>
           {/* <p className="text-white text-center special:text-4xl">User/Month</p> */}
           {/* <div className="flex justify-center flex-col space-y-2 special:space-y-6 2xl:space-y-4">

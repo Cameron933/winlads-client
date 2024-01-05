@@ -140,7 +140,7 @@ const Withdraw = () => {
                   value={amount}
                   onChange={(e) => setAmount(e.target.value)}
                 />
-                <span className="absolute left-3 top-2">$</span>
+                <span className="absolute left-3 top-2">AUD</span>
               </div>
 
 
