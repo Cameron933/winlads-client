@@ -50,7 +50,7 @@ function Thirdpage() {
         <div className=" text-center p-2 4xl:p-4 relative xl:mx-32 lg:mx-24 items-center">
       
           <h1 className="uppercase font-bold text-2xl">Welcome to WINLADS</h1>
-          <p className="mt-5 font-bold linehi">Get ready to dive into an epic network of over 1,000 Aussie mate-approved stores! We've cherry-picked these spots to give you ripper discounts that'll make your wallet smile. Starting at just $9.99 a month, you'll be swimming in savings!</p>
+          <p className="mt-5 font-bold linehi">Get ready to dive into an epic network of over 1,000 Aussie mate-approved stores! We've cherry-picked these spots to give you ripper discounts that'll make your wallet smile. Starting at just AUD 9.99 a month, you'll be swimming in savings!</p>
           <p className="mt-5 font-bold linehi">Picture this: you're kicking back, chilling, and earning easy cash—yeah, it's possible! We've got a stash of unreal deals waiting for ya. Plus, sling our program to your mates, and you'll be raking in dosh on the side. No worries, it's that easy!</p>
           <a href="/register" className="inline-block mt-5 mb-5">
             <div className="flex justify-center px-4 py-4 2xl:px-8  border-black 2xl:py-6 2xl:text-xl text-md font-bold items-center text-white buttonBg frontbtns" style={{ borderRadius: '5px', cursor: 'pointer' }}>

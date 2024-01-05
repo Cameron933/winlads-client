@@ -216,7 +216,7 @@ function Welcomehome() {
                         Get ready to dive into an epic network of over 1,000 Aussie mate-approved stores! We've cherry-picked these spots to give you ripper
                     </p>
                     <p className="pb-2 text-md xl:text-xl 4xl:text-4xl text-center">
-                        discounts that'll make your wallet smile. Starting at just $9.99 a month, you'll be swimming in savings!
+                        discounts that'll make your wallet smile. Starting at just AUD 9.99 a month, you'll be swimming in savings!
                     </p>
                 </div>
                 <div className="transition duration-700 hover:scale-105 mt-10 mb-10">
