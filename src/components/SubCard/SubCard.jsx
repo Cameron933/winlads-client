@@ -95,7 +95,7 @@ const SubCard = ({
                     <span className="text-6xl lg:text-7xl">
                         {title2.slice(0, 3).trim()}
                     </span>{" "}
-                    <span className="text-xs">FREE ENTRIES</span>
+                    <span className="text-xs"> ENTRIES</span>
                 </p>
             </div>
             <div className="relative flex flex-col space-y-2  border-2 border-black bg-white px-2 py-4 rounded-xl md:mb-10 mb-5 h-full">

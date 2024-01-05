@@ -12,6 +12,7 @@ import Visa from "../../assets/images/subcription/visa.png";
 import BitCoin from "../../assets/images/subcription/bitcoin.png";
 import Save from "../../assets/images/subcription/save.png";
 import GreenCorrect from "../../assets/images/subcription/Icons.png";
+import { FaStar } from "react-icons/fa";
 
 const PaymentModal = ({ handleClose, show }) => {
   return (
@@ -26,6 +27,7 @@ const PaymentModal = ({ handleClose, show }) => {
 };
 
 function SubscribeCard({
+  isPopular,
   name,
   price,
   desc1,
@@ -61,26 +63,34 @@ function SubscribeCard({
   };
   const [initialShow, setInitialShow] = useState(3);
 
-  const handleShowMore = ()=>{
-    if(initialShow == 3){
-    setInitialShow(descList[0].length);
-    }else{
+  const handleShowMore = () => {
+    if (initialShow == 3) {
+      setInitialShow(descList[0].length);
+    } else {
       setInitialShow(3)
     }
   }
 
   return (
     <div
-      className={`bg-gradient-to-r relative ${gradientFrom} ${gradientTo} border-2 border-solid border-${cardBorderColor} text-${textColor} py-8 px-6 special:py-8 2xl:py-8 rounded-[10px] flex flex-col  cursor-pointer`}
+      className={`bg-gradient-to-r relative ${gradientFrom} ${gradientTo} border-2 border-solid border-${cardBorderColor} text-${textColor} py-8 px-6 special:py-8 2xl:py-8 xl:pt-10 rounded-[10px] flex flex-col  cursor-pointer`}
       style={{ background: `linear-gradient(180deg, ${colorFrom} 0%, ${color} 100%)` }}
     >
+      {isPopular && (
+        <div
+          className="flex items-center justify-center gap-2 text-center absolute rounded-t-xl top-0 left-0 w-full py-2 bg-black font-semibold"
+          style={{ color: '#fff' }}
+        >
+          <FaStar /> Most Popular
+        </div>
+      )}
       <p className="text-lg special:text-3xl 2xl:text-2xl text-center font-bold mb-6 ">{name}&nbsp;Tier</p>
 
       <p className="font-bold text-center text-sm special:text-2xl 2xl:text-lg mb-3">
         <span className="text-2xl md:text-7xl"> {raffleCount}</span> <span className="uppercase"> {subId} free entries</span>
       </p>
       <div className={`relative flex justify-center flex-col space-y-4 special:space-y-6 2xl:space-y-4 pb-16 bg-white text-black py-5 px-2 rounded-xl h-full border-2 border-solid border-${cardBorderColor}`}>
-        {descList[0].slice(0,initialShow).map((disc, key) => (
+        {descList[0].slice(0, initialShow).map((disc, key) => (
           <div
             key={key}
             className="flex flex-row gap-2 special:gap-4 2xl:gap-4 items-center"
@@ -94,9 +104,9 @@ function SubscribeCard({
           </div>
         ))}
         {descList[0].length > 3 &&
-        <button onClick={()=>handleShowMore()} className="absolute bottom-1 right-1 text-xs font-semibold" style={{color:color}}>{initialShow == 3 ? 'View More' : 'View Less'}</button>
+          <button onClick={() => handleShowMore()} className="absolute bottom-1 right-1 text-xs font-semibold" style={{ color: color }}>{initialShow == 3 ? 'View More' : 'View Less'}</button>
         }
-        </div>
+      </div>
 
       <div className="">
         <button
