@@ -21,6 +21,8 @@ const SubCard = ({
     desc5,
     desc6,
     desc7,
+    desc8,
+    desc9,
     descColor = "black",
     buttonColor,
     arrowColor,
@@ -159,6 +161,30 @@ const SubCard = ({
                                 </p>
                             </div>
                         )}
+                        {
+                            desc8 && (
+                                <div className="flex flex-row items-start gap-2">
+                            <img src={Correct} alt="" />
+                            <p
+                                className={`text-${descColor} text-xs 2xl:text-[16px] leading-6`}
+                            >
+                                {desc8}
+                            </p>
+                        </div>
+                            )
+                        }
+                        {
+                            desc9 && (
+                                <div className="flex flex-row items-start gap-2">
+                            <img src={Correct} alt="" />
+                            <p
+                                className={`text-${descColor} text-xs 2xl:text-[16px] leading-6`}
+                            >
+                                {desc9}
+                            </p>
+                        </div>
+                            )
+                        }
                     </div>
                 )}
                 {desc4 && (

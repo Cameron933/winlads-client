@@ -159,7 +159,7 @@ const SideNav = ({ screen }) => {
           <hr />
 
           <div onClick={expandSidebar}>
-            <Link to="/dashboard">
+            <Link to="/affiliate">
               <button className="flex flex-row items-center xl:justify-start justify-center xl:px-5 xl:gap-2 hover:bg-[#36383b] py-2 px-2 w-full">
                 <img src={Business} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
@@ -172,7 +172,7 @@ const SideNav = ({ screen }) => {
           </div>
 
           <div onClick={expandSidebar}>
-            <Link to="/dashboard">
+            <Link to="/promo">
               <button className="flex flex-row items-center xl:justify-start justify-center xl:px-5 xl:gap-2 hover:bg-[#36383b] py-2 px-2 w-full">
                 <img src={Business} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
