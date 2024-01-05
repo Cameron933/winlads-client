@@ -3,6 +3,7 @@ import SideNav from "./components/SideNav/SideNav";
 import { Outlet } from "react-router-dom";
 import MyEntriesButton from "./components/MyEntries/MyEntriesButton";
 import { RefreshProvider } from "./utils/RefreshContext";
+import Logout from "./components/logout/Logout";
 
 const Layout = () => {
   return (
@@ -10,7 +11,8 @@ const Layout = () => {
       <RefreshProvider>
         <SideNav />
         <Outlet />
-        <MyEntriesButton />
+        {/* <MyEntriesButton /> */}
+        <Logout/>
       </RefreshProvider>
 
     </div>

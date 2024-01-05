@@ -6,7 +6,13 @@ import Usd from "../../assets/images/rafflesImages/Usd.png";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const SelectRafflePaymentMethod = ({ onClose, userId, giveawayId, price, name }) => {
+const SelectRafflePaymentMethod = ({
+  onClose,
+  userId,
+  giveawayId,
+  price,
+  name,
+}) => {
   const handleButtonClick = async () => {
     try {
       const response = await axios.post(
@@ -66,7 +72,7 @@ const SelectRafflePaymentMethod = ({ onClose, userId, giveawayId, price, name })
   return (
     <div
       className="popup-container bg-black/50 justify-center items-center"
-    //   onClick={handleBackdropClick}
+      //   onClick={handleBackdropClick}
     >
       <div className="popup-content text-black flex flex-col bg-white shadow-lg space-y-4 special:space-y-12 2xl:space-y-8 justify-center py-4 special:py-8 2xl:py-6">
         <div className="flex justify-between items-center">
@@ -82,6 +88,10 @@ const SelectRafflePaymentMethod = ({ onClose, userId, giveawayId, price, name })
         </div>
 
         <div className="flex flex-col special:px-24 2xl:px-8 px-0 space-y-4 special:space-y-12 2xl:space-y-8">
+          <p className="text-black text-lg font-bold 2xl:text-xl special:text-4xl">
+            Single Entry
+          </p>
+
           <p className="font-bold text-black text-center xl:text-5xl 2xl:text-6xl special:text-9xl md:5xl text-3xl">
             ${price}
           </p>
@@ -121,15 +131,21 @@ const SelectRafflePaymentMethod = ({ onClose, userId, giveawayId, price, name })
               />
               <p className="text-xs md:block hidden">Pay by Ethereum</p>
             </div>
-            <div className="bg-white hover:bg-black/5 rounded-xl p-2 flex justify-center items-center cursor-pointer lg:gap-2" onClick={handlePointsButtonClick}>
+            <div
+              className="bg-white hover:bg-black/5 rounded-xl p-2 flex justify-center items-center cursor-pointer lg:gap-2"
+              onClick={handlePointsButtonClick}
+            >
               <img
                 src={Usd}
                 alt=""
                 className="w-7 h-7 special:h-14 special:w-14 2xl:h-9 2xl:w-9"
               />
-              <p className="text-xs md:block hidden">Pay by cash</p>
+              <p className="text-xs md:block hidden">Pay by Balance </p>
             </div>
-            <div className="bg-white hover:bg-black/5 rounded-xl p-2 flex justify-center items-center cursor-pointer lg:gap-2" onClick={handleButtonClick}>
+            <div
+              className="bg-white hover:bg-black/5 rounded-xl p-2 flex justify-center items-center cursor-pointer lg:gap-2"
+              onClick={handleButtonClick}
+            >
               <img
                 src={Visa}
                 alt=""

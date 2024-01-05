@@ -1,5 +1,5 @@
 import CatJeep from "../../assets/images/rafflesImages/newJeep.png";
-import NewVeh from "../../assets/images/newVeh.png"
+import NewVeh from "../../assets/images/newVeh.png";
 
 const DashboardVehicleCard = ({
   bgColor,
@@ -16,34 +16,49 @@ const DashboardVehicleCard = ({
   };
 
   const dateObject = new Date(date);
-  const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
-  const formattedDate = dateObject.toLocaleString('en-US', options);
+  const options = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    second: "numeric",
+  };
+  const formattedDate = dateObject.toLocaleString("en-US", options);
 
   return (
     <>
       <div
-        className={`flex flex-row justify-between pr-2 rounded-3xl 2xl:rounded-[30px] special:rounded-[40px] w-full py-2 shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:opacity-75 cursor-pointer overflow-hidden`}
-        style={{ backgroundColor: color }}
-        onClick={handleClick}
+        className={`flex text-white flex-row justify-between pr-2 rounded-2xl  w-full py-2 shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:opacity-75 cursor-pointer overflow-hidden border-2 border-[#000]`}
+        // style={{ backgroundColor: color }}
+
+        style={{
+          background: `linear-gradient(90deg, ${color} 0%, #000608 100%)`,
+        }}
+       
       >
-        <img src={NewVeh} alt="" className="flex w-36 special:w-96 2xl:w-48 " />
-        <div className="flex flex-col space-y-4">
+        <img src={NewVeh} alt="" className="flex w-36 special:w-96 2xl:w-48 shadow-xl" />
+        
+        <div className="flex flex-col space-y-4 ">
           <div className="flex justify-end">
             <img
               src={icon}
               alt=""
-              className="2xl:w-12 xl:w-8 w-8 special:w-16"
+              className="2xl:w-12 xl:w-8 w-8 special:w-16  " 
             />
             {/* <p>{type}</p> */}
           </div>
           <div className="flex text-end flex-col z-10 pr-2 items-center space-y-2 2xl:space-y-4 special:space-y-4">
-              <p className="text-white font-bold xl:text-[12px] text-xs special:text-4xl 2xl:text-[16px] text-center">
-                {name}
-              </p>
-              <p className="text-[10px] text-white special:text-xl 2xl:text-[10px]">
-                {formattedDate}
-              </p>
-            </div>
+            <p className=" font-bold xl:text-[12px] text-xs special:text-4xl 2xl:text-[16px] text-center">
+              {name}
+            </p>
+            <p className="text-[10px]  special:text-xl 2xl:text-[10px]">
+              {formattedDate}
+            </p>
+          </div>
+          <div>
+            <button  onClick={handleClick} className="rounded-md border-2 hover:bg-black bg-white text-black cursor-pointer border-white  py-1 hover:scale-105 hover:transition-transform ease-out duration-300 mt-auto hover:text-white text-sm px-1">Try Single Entries</button>
+          </div>
         </div>
       </div>
     </>

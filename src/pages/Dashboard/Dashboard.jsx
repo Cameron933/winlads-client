@@ -215,7 +215,7 @@ const Dashboard = () => {
                 </div>
                 <div className="flex flex-col space-y-2 w-full xl:w-web pt-12">
                   <p className="text-2xl 2xl:text-2xl special:text-5xl font-semibold mb-2">
-                    Next Giveaways
+                    Up Coming Giveaways
                   </p>
                   {loading ? (
                     <div className="flex justify-center">
@@ -227,7 +227,7 @@ const Dashboard = () => {
                       {giveaways.slice(0, initialLength).map((giveaway, key) => (
                         <DashboardVehicleCard
                           key={key}
-                          name={giveaway.raffle?.name}
+                          name={giveaway.name}
                           date={giveaway?.endtime}
                           color={giveaway?.raffle?.color}
                           fromColor={giveaway.raffle?.color}
@@ -237,7 +237,7 @@ const Dashboard = () => {
                             handleButton({
                               id: giveaway?._id,
                               price: giveaway?.price,
-                              name: giveaway?.raffle?.name
+                              name: giveaway?.name
                             });
                           }}
                         />
