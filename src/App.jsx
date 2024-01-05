@@ -37,6 +37,7 @@ import { elements } from "chart.js";
 import Youtube from "./components/youtube/Youtube";
 import Affiliate from "./pages/Affiliate/Affiliate";
 import Promo from "./pages/Promo/Promo";
+import RefCount from "./pages/Affiliate/RefferalCount";
 
 
 function App() {
@@ -123,6 +124,10 @@ function App() {
         {
           path:'/promo',
           element:<Promo/>
+        },
+        {
+          path:'/ref',
+          element:<RefCount/>
         }
       ],
     },
