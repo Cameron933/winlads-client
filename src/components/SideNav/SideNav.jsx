@@ -306,7 +306,7 @@ const SideNav = ({ screen }) => {
             </Link>
           </div>
 
-          <div onClick={expandSidebar}>
+          {/* <div onClick={expandSidebar}>
             <button
               onClick={handleClick}
               className="flex flex-row items-center xl:justify-start justify-center xl:gap-2 xl:px-5 hover:bg-[#36383b] py-2 px-2  w-full "
@@ -314,7 +314,7 @@ const SideNav = ({ screen }) => {
               <img src={Logout} style={{ width: "16px" }} alt="protect" />
               <span className=" text-white hidden xl:flex">Sign out</span>
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
     </OutsideClickHandler>
