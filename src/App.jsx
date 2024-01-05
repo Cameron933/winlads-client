@@ -35,6 +35,8 @@ import Support from "./pages/Support/Support";
 import Withdraw from "./pages/Withdraw/Withdraw";
 import { elements } from "chart.js";
 import Youtube from "./components/youtube/Youtube";
+import Affiliate from "./pages/Affiliate/Affiliate";
+import Promo from "./pages/Promo/Promo";
 
 
 function App() {
@@ -114,6 +116,14 @@ function App() {
           path: "/support",
           element: <Support />,
         },
+        {
+          path:'/affiliate',
+          element:<Affiliate/>
+        },
+        {
+          path:'/promo',
+          element:<Promo/>
+        }
       ],
     },
 
