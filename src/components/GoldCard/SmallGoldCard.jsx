@@ -45,7 +45,7 @@ const SmallGoldCard = () => {
           }}
         >
           <div className="flex flex-col space-y-1 text-white">
-            {/* <span className="font-bold text-4xl main-t"> */}
+            {/* <span className="font-bold text-4xl main-t tt"> */}
             {valUser.subscripton?._id ? (
               <p className="font-semibold text-lg">{valUser.subscripton?.name}</p>
             ) : (
