@@ -331,7 +331,7 @@ const Profile = () => {
                         value={mobile}
                       ></input>
                     </div>
-                    <div className="flex flex-col space-y-2">
+                    {/* <div className="flex flex-col space-y-2">
                       <p className="text-black text-sm xl:text-md special:text-xl">
                         NIC Number
                       </p>
@@ -342,7 +342,7 @@ const Profile = () => {
                         onChange={(e) => setNic(e.target.value)}
                         value={nic}
                       ></input>
-                    </div>
+                    </div> */}
                     <div className="flex flex-col space-y-2">
                       <p className="text-black text-sm xl:text-md special:text-xl">
                         Date of Birth
@@ -422,7 +422,7 @@ const Profile = () => {
 
                     </div>
 
-                    <div className="flex flex-col space-y-2">
+                    {/* <div className="flex flex-col space-y-2">
                       <p className="text-black text-sm xl:text-md special:text-xl">
                         License Number
                       </p>
@@ -433,8 +433,8 @@ const Profile = () => {
                         value={license}
                         onChange={(e) => setLicense(e.target.value)}
                       ></input>
-                    </div>
-                    <div className="flex flex-col space-y-2">
+                    </div> */}
+                    {/* <div className="flex flex-col space-y-2">
                       <p className="text-black text-sm xl:text-md special:text-xl">
                         TIN
                       </p>
@@ -445,7 +445,7 @@ const Profile = () => {
                         value={tin}
                         onChange={(e) => setTin(e.target.value)}
                       />
-                    </div>
+                    </div> */}
                     {refferalId ? (
                       <div className="flex flex-col space-y-2">
                         <p className="text-black text-sm xl:text-md special:text-xl">
