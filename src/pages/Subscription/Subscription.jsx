@@ -150,7 +150,7 @@ function Subscription() {
                       isQuartly ? "bg-white text-black" : "bg-black text-white"
                     } text-[10px] text-semibold xl:text-sm md:text-sm text-center special:py-4 special:text-xl 2xl:text-lg rounded-full py-2 flex-1`}
                   >
-                    Quartly
+                    Quartly (Save10%)
                   </button>
 
                   <button
@@ -161,7 +161,7 @@ function Subscription() {
                       isYearly ? "bg-white text-black" : "bg-black text-white"
                     } text-[10px] text-semibold xl:text-sm md:text-sm text-center special:py-4 special:text-xl 2xl:text-lg rounded-full py-2 flex-1`}
                   >
-                    Yearly (Save2.5%)
+                    Yearly (Save20%)
                   </button>
                 </div>
                 <div
