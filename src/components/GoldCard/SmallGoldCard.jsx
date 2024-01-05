@@ -45,13 +45,13 @@ const SmallGoldCard = () => {
           }}
         >
           <div className="flex flex-col space-y-1 text-white">
-            {/* <span className="font-bold text-4xl main-t"> */}
+            {/* <span className="font-bold text-4xl main-t tt"> */}
             {valUser.subscripton?._id ? (
               <p className="font-semibold text-lg">{valUser.subscripton?.name}</p>
             ) : (
               <div className="flex flex-row items-center gap-4">
                 <img src={Cross} alt="" className="w-12" />
-                <p className=" 2xl:text-xl text-xl">
+                <p className=" 2xl:text-xl text-xl text-black">
                   Your subscription is currently inactive
                 </p>
               </div>
