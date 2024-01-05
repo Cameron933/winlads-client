@@ -60,7 +60,7 @@ const SubCard = ({
             whileInView={{y:0, opacity:1}}
             viewport={{once:true}}
             transition={{duration:1, delay:0.5}}
-            className={`rounded-2xl px-2 md:pt-12 pt-5 pb-4 shadow-lg shadow-gray-400 relative flex flex-col border-2 border-black ${classNames}`}
+            className={`rounded-2xl px-2 md:pt-12 pt-14 pb-4 shadow-lg shadow-gray-400 relative flex flex-col border-2 border-black ${classNames}`}
             style={{
                 background: `linear-gradient(180deg, ${bgColorFrom} 0%, ${bgColorTo} 100%)`,
             }}
@@ -68,7 +68,7 @@ const SubCard = ({
             {mostPopular && (
                 <div
                     className="flex items-center justify-center gap-2 text-center absolute rounded-t-xl top-0 left-0 w-full py-2 bg-black font-semibold"
-                    style={{ color: bgColorFrom }}
+                    style={{ color: '#fff' }}
                 >
                     <FaStar /> Most Popular
                 </div>

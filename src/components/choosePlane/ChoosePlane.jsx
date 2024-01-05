@@ -518,7 +518,7 @@ const ChoosePlane = () => {
           <Card
             bgColorFrom="#FFBE00"
             bgColorTo="#766000"
-            mostPopular={true}
+           
             title="Gold Tier"
             titleColor="black"
             // titleColor="white"
@@ -547,6 +547,7 @@ const ChoosePlane = () => {
             bgColorFrom="#23282E"
             bgColorTo="#000"
             title="Black Tier"
+            mostPopular={true}
             titleColor="white"
             // titleColor="white"
             title2="150 FREE ENTRIES"

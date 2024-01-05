@@ -158,7 +158,7 @@ function BusinessCard() {
           )}
 
           <div className="w-full xl:w-1/2 special:w-2/5 flex gap-16 justify-center py-5">
-            <div className="flex flex-col items-center">
+            {/* <div className="flex flex-col items-center">
               <button className="text-2xl md:text-4xl pro:text-5xl xl:text-2xl special:text-5xl p-3 rounded-[20px] bg-[#CCBAB3] hover:bg-[#D1D5DB]">
                 <IoMdShare />
               </button>
@@ -166,36 +166,37 @@ function BusinessCard() {
                 {" "}
                 Share
               </label>
-            </div>
-            <div className="flex flex-col items-center" onClick={handleSaveCard}>
+            </div> */}
+            {/* <div className="flex flex-col items-center" onClick={handleSaveCard}>
               <button className="text-2xl md:text-4xl pro:text-5xl xl:text-2xl special:text-5xl p-3 rounded-[20px] bg-[#CCBAB3] hover:bg-[#D1D5DB]">
                 <IoMdSave />
               </button>
               <label className="text-sm md:text-lg pro:text-xl xl:text-sm special:text-2xl">
                 Save
               </label>
-            </div>
+            </div> */}
             <div className="flex flex-col items-center">
               {isOrderNow ? (
                 // Display "orderNow" image when isOrderNow is true
                 <button
-                  className="text-2xl md:text-4xl pro:text-5xl xl:text-2xl special:text-5xl p-3 rounded-[20px] bg-[#CCBAB3] hover:bg-[#D1D5DB]"
+                  className="text-md md:text-lg pro:text-xl xl:text-xl special:text-xl p-3 rounded-[20px] bg-black hover:bg-white hover:text-black hover:border-black border-2 text-white"
                   onClick={handleRequestButton}
                 >
-                  <MdOutlineAddShoppingCart />
+                  {/* <MdOutlineAddShoppingCart /> */}
+                  Get One
                 </button>
               ) : (
                 // Display "add" image when isOrderNow is false
                 <button
-                  className="text-2xl md:text-4xl pro:text-5xl xl:text-2xl special:text-5xl p-3 rounded-[20px] bg-[#CCBAB3] hover:bg-[#D1D5DB]"
+                  className="text-sm md:text-md pro:text-lg xl:text-md special:text-lg p-3 rounded-[20px] bg-black text-white hover:bg-white  hover:text-black border-2 hover:border-black"
                   onClick={handleShareClick}
                 >
-                  <MdPersonAddAlt1 />
+                  {/* <MdPersonAddAlt1 /> */} Order My Business Card
                 </button>
               )}
-              <label className="text-sm md:text-lg pro:text-xl xl:text-sm special:text-2xl">
+              {/* <label className="text-sm md:text-lg pro:text-xl xl:text-sm special:text-2xl">
                 {isOrderNow ? "Order Now" : "Request"}
-              </label>
+              </label> */}
             </div>
           </div>
         </div>
