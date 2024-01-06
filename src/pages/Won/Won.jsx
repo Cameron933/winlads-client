@@ -2,7 +2,7 @@ import React from "react";
 import TopNav from "../../components/TopNav/TopNav";
 import { IoIosArrowBack } from "react-icons/io";
 import BG from "../../assets/images/HomesideBg.png";
-import winlad_car from '../../assets/images/Won/winlad_car.png'
+import Car from '../../assets/images/won/car.png'
 import { useNavigate} from "react-router-dom";
 
 
@@ -67,7 +67,7 @@ const Won = () => {
                 risus nullam eget felis eget nunc lobortis.
               </div>
             </div>
-            <div className="w-2/5 max-xl:w-full"><img src={winlad_car} alt="winlad_car" className="absolute right-0 -z-10 bottom-0 w-1/2 max-xl:w-full special:bottom-0 max-xl:relative"/></div>
+            <div className="w-2/5 max-xl:w-full"><img src={Car} alt="winlad_car" className="absolute right-0 -z-10 bottom-0 w-1/2 max-xl:w-full special:bottom-0 max-xl:relative"/></div>
           </div>
           <img
             src={BG}
