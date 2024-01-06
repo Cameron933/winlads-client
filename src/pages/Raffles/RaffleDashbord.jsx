@@ -222,6 +222,7 @@ function RaffleDashbord() {
                   type={raffle.type}
                   img={raffle.image}
                   date={raffle.date}
+                  raffleimage={raffle?.raffleimage}
                 />
               ))}
               {raffles.length > 8 &&

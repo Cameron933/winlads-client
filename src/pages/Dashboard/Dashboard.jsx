@@ -148,42 +148,35 @@ const Dashboard = () => {
                     </div>
                   ) : giveaways.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2">
-                      {giveaways
-                        .slice(0, initialLength)
-                        .map((giveaway, key) => (
-                          <DashboardVehicleCard
-                            key={key}
-                            name={giveaway.name}
-                            date={giveaway?.startingtime}
-                            fromColor={giveaway.raffle?.color}
-                            color={giveaway?.raffle?.color}
-                            icon={giveaway.raffle?.image}
-                            onButton={() => {
-                              handleButton({
-                                id: giveaway?._id,
-                                price: giveaway?.price,
-                                name: giveaway?.raffle?.name,
-                              });
-                            }}
-                            bgColor={giveaway.raffle?.color}
-                          />
-                        ))}
-                      {giveaways.length > 8 &&
-                        (initialLength == 8 ? (
-                          <button
-                            onClick={() => handleSeeMore(true)}
-                            className="mt-10 flex items-center justify-center mx-auto gap-2 "
-                          >
-                            See More <FaAngleDoubleDown />
-                          </button>
-                        ) : (
-                          <button
-                            onClick={() => handleSeeMore(false)}
-                            className="mt-10 flex items-center justify-center mx-auto gap-2"
-                          >
-                            See Less <FaAngleDoubleUp />
-                          </button>
-                        ))}
+                      {giveaways.slice(0, initialLength).map((giveaway, key) => (
+                        <DashboardVehicleCard
+                          key={key}
+                          name={giveaway.name}
+                          date={giveaway?.startingtime}
+                          fromColor={giveaway.raffle?.color}
+                          color={giveaway?.raffle?.color}
+                          icon={giveaway.raffle?.image}
+                          onButton={() => {
+                            handleButton({
+                              id: giveaway?._id,
+                              price: giveaway?.price,
+                              name: giveaway?.raffle?.name
+                            });
+                          }}
+                          bgColor={giveaway.raffle?.color}
+                        />
+                      ))}
+                      {
+                        giveaways.length > 8 && (initialLength == 8 ?
+                          <button onClick={() => handleSeeMore(true)}
+                            className="mt-10 flex items-center justify-center mx-auto gap-2 ">
+                            See More <FaAngleDoubleDown/>
+                          </button> :
+                          <button onClick={() => handleSeeMore(false)}
+                            className="mt-10 flex items-center justify-center mx-auto gap-2">
+                            See Less <FaAngleDoubleUp/>
+                          </button>)
+                      }
                     </div>
                   ) : (
                     <div className="flex flex-col items-center space-y-2">
@@ -238,26 +231,24 @@ const Dashboard = () => {
                     </div>
                   ) : giveaways.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
-                      {giveaways
-                        .slice(0, initialLength)
-                        .map((giveaway, key) => (
-                          <DashboardVehicleCard
-                            key={key}
-                            name={giveaway.name}
-                            date={giveaway?.endtime}
-                            color={giveaway?.raffle?.color}
-                            fromColor={giveaway.raffle?.color}
-                            icon={giveaway.raffle?.image}
-                            price={giveaway?.price}
-                            onButton={() => {
-                              handleButton({
-                                id: giveaway?._id,
-                                price: giveaway?.price,
-                                name: giveaway?.name,
-                              });
-                            }}
-                          />
-                        ))}
+                      {giveaways.slice(0, initialLength).map((giveaway, key) => (
+                        <DashboardVehicleCard
+                          key={key}
+                          name={giveaway.name}
+                          date={giveaway?.endtime}
+                          color={giveaway?.raffle?.color}
+                          fromColor={giveaway.raffle?.color}
+                          icon={giveaway.raffle?.image}
+                          price={giveaway?.price}
+                          onButton={() => {
+                            handleButton({
+                              id: giveaway?._id,
+                              price: giveaway?.price,
+                              name: giveaway?.name
+                            });
+                          }}
+                        />
+                      ))}
                       {/* {
                         giveaways.length > 7 && (initialLength == 7 ?
                           <button onClick={() => handleSeeMore(true)}

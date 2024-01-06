@@ -12,6 +12,7 @@ const DashboardVehicleCard = ({
   type,
   onButton,
   color,
+  raffleimage
 }) => {
   const handleClick = () => {
     onButton();
@@ -31,7 +32,7 @@ const DashboardVehicleCard = ({
   return (
     <>
       <div
-        className={`flex text-white flex-col justify-between pr-2 rounded-2xl  w-full py-2 shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:opacity-75 cursor-pointer overflow-hidden border-2 border-[#000]`}
+        className={`flex text-white flex-col justify-between pr-2 rounded-2xl  w-full pt-2 shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:opacity-75 cursor-pointer overflow-hidden border-2 border-[#000]`}
         // style={{ backgroundColor: color }}
 
         style={{
@@ -50,7 +51,7 @@ const DashboardVehicleCard = ({
         </div>
         <div className="flex flex-row justify-between items-center">
           <img
-            src={NewVeh}
+            src={raffleimage}
             alt=""
             className="flex w-36 special:w-96 2xl:w-48 shadow-xl"
           />
