@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Ticket from "../../assets/images/cardComponent/ticket.png";
-import Money from "../../assets/images/cardComponent/money.png";
+// import Ticket from "../../assets/images/cardComponent/ticket.png";
+// import Money from "../../assets/images/cardComponent/money.png";
 import { validateCurrentUser } from "../../utils/validateuser";
 import axios from "axios";
 import ItemLoader from "../../components/Loader/ItemLoader";
+import Ticket from "../../assets/images/affiliate/affiliate.png";
+import Money from "../../assets/images/affiliate/earnings.png";
 
 import { useNavigate } from "react-router";
 
@@ -93,19 +95,19 @@ const CardComponent = () => {
           </div>
           <div className="flex flex-row">
             <div className="from-[#008767] to-black bg-gradient-to-r rounded-l-xl flex flex-row flex-1 py-4 md:justify-center xl:justify-center justify-between md:gap-6 xl:gap-6 px-2">
-              <img src={Money} alt="" className="" />
+              <img src={Money} alt="" className="w-10 h-10" />
               <div className="flex flex-col text-white">
                 <p className="font-semibold 2xl:text-xl special:text-2xl text-lg">
-                AUD {wallet.earning || "0.00"}
+                AUD&nbsp;{wallet.earning || "0.00"}
                 </p>
                 <p className="capitalize text-sm">Earning</p>
               </div>
             </div>
             <div className="to-[#CBAD11] from-black bg-gradient-to-r rounded-r-xl flex flex-row flex-1 py-4 md:justify-center xl:justify-center justify-between md:gap-6 xl:gap-6 px-2">
-              <img src={Ticket} alt="" />
+              <img src={Ticket} alt="" className="w-10 h-10" />
               <div className="flex flex-col text-white">
                 <p className="font-semibold 2xl:text-xl special:text-2xl text-lg">
-                  ${wallet.purchase || "0.00"}
+                AUD&nbsp;{wallet.purchase || "0.00"}
                 </p>
                 <p className="capitalize text-sm">Purchase</p>
               </div>
