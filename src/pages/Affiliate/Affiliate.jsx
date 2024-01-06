@@ -17,7 +17,7 @@ import AffiliateCard from "../../components/Affiliate/AffiliateCard";
 
 const Affiliate = () => {
   const cookies = new Cookies(null, { path: "/" });
-  const {refreshCount, refresh} = useRefresh();
+  const { refreshCount, refresh } = useRefresh();
   const id = cookies.get("wr_token");
   const [userData, setUserData] = useState({});
   const navigate = useNavigate();
@@ -107,7 +107,6 @@ const Affiliate = () => {
     const image = await uploadBytes(storageRef, profile).then((snapshot) => {
       console.log("profile image upload");
       refresh();
-     
     });
     setLoading(true);
     const response = await axios.post(
@@ -185,9 +184,7 @@ const Affiliate = () => {
     <div className="bg-[#F2F5FB]">
       <div className="flex relative">
         <div className="right-side-logo max-xl:hidden"></div>
-        <div
-          className="flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-8 pb-5 space-y-4 xl:space-y-0 bg-no-repeat"
-        >
+        <div className="flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-8 pb-5 space-y-4 xl:space-y-0 bg-no-repeat">
           <div className="flex flex-col space-y-4 flex-1 visible xl:hidden">
             <div className="bg-black rounded-b-3xl py-4">
               <TopNav textColor={"white"} />
@@ -202,7 +199,6 @@ const Affiliate = () => {
               {loading ? (
                 <div className="flex justify-center pt-12">
                   <ItemLoader />
-
                 </div>
               ) : (
                 <>
@@ -214,7 +210,6 @@ const Affiliate = () => {
                           src={userImage}
                         />
                       </div>
-
                     ) : (
                       <img
                         src={User}
@@ -222,10 +217,8 @@ const Affiliate = () => {
                         className="special:w-16 2xl:w-16 xl:w-12 w-8"
                       />
                     )}
-
                   </form>
-                  <AffiliateCard/>
-            
+                  <AffiliateCard />
                 </>
               )}
             </div>
@@ -238,63 +231,61 @@ const Affiliate = () => {
               </div>
             </div>
             <div>
-            <div className="flex flex-col space-y-2 special:space-y-5">
-               
-               <div className="flex flex-col space-y-2">
-                 <p className="text-black text-sm xl:text-md special:text-xl">
-                   Full Name
-                 </p>
-                 <input
-                   className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
-                   placeholder="Enter First Name"
-                   type="text"
-                   onChange={(e) => setName(e.target.value)}
-                   disabled
-                   value={userData?.firstname + ' '+ userData?.lastname}
-                 ></input>
-               </div>
-                                   
-             <div className="flex flex-col space-y-2">
-               <p className="text-black text-sm xl:text-md special:text-xl">
-                 Your Email
-               </p>
-               <input
-                 className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
-                 placeholder="Enter Valid EMail"
-                 type="email"
-                 onChange={(e) => setEmail(e.target.value)}
-                 value={email}
-                 disabled
-               ></input>
-             </div>
-             <div className="flex flex-col space-y-2">
-               <p className="text-black text-sm xl:text-md special:text-xl">
-                 Your affiliate ID
-               </p>
-               <input
-                 className="bg-white font-bold rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
-                 placeholder="Enter User Name"
-                 type="text"
-                 value={userData?.uid}
-                 disabled
-               ></input>
-             </div>
+              <div className="flex flex-col space-y-2 special:space-y-5">
+                <div className="flex flex-col space-y-2">
+                  <p className="text-black text-sm xl:text-md special:text-xl">
+                    Full Name
+                  </p>
+                  <input
+                    className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                    placeholder="Enter First Name"
+                    type="text"
+                    onChange={(e) => setName(e.target.value)}
+                    disabled
+                    value={userData?.firstname + " " + userData?.lastname}
+                  ></input>
+                </div>
 
-             <div className="flex flex-col space-y-2">
-               <p className="text-black text-sm xl:text-md special:text-xl">
-                 Your Affiliate Link
-               </p>
-               <input
-                 className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
-                 placeholder="Enter Phone Number"
-                 type="tel"
-                 disabled
-                 onChange={(e) => setMobile(e.target.value)}
-                 value={`https://www.winlads.com/?ref=${userData?.uid}`}
-               ></input>
-             </div>
-           </div>
-              
+                <div className="flex flex-col space-y-2">
+                  <p className="text-black text-sm xl:text-md special:text-xl">
+                    Your Email
+                  </p>
+                  <input
+                    className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                    placeholder="Enter Valid EMail"
+                    type="email"
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email}
+                    disabled
+                  ></input>
+                </div>
+                <div className="flex flex-col space-y-2">
+                  <p className="text-black text-sm xl:text-md special:text-xl">
+                    Your affiliate ID
+                  </p>
+                  <input
+                    className="bg-white font-bold rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                    placeholder="Enter User Name"
+                    type="text"
+                    value={userData?.uid}
+                    disabled
+                  ></input>
+                </div>
+
+                <div className="flex flex-col space-y-2">
+                  <p className="text-black text-sm xl:text-md special:text-xl">
+                    Your Affiliate Link
+                  </p>
+                  <input
+                    className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                    placeholder="Enter Phone Number"
+                    type="tel"
+                    disabled
+                    onChange={(e) => setMobile(e.target.value)}
+                    value={`https://www.winlads.com/?ref=${userData?.uid}`}
+                  ></input>
+                </div>
+              </div>
             </div>
           </div>
         </div>

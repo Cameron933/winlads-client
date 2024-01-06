@@ -8,10 +8,10 @@ import { useNavigate } from "react-router-dom";
 const Won = () => {
   let navigate = useNavigate();
   return (
-    <div className="flex items-stretch w-screen py-4">
+    <div className="flex items-stretch h-screen py-4">
       <div className="w-full">
         <div className="flex flex-col xl:px-6 px-4 special:px-12 2xl:space-y-8 special:space-y-24 overflow-hidden">
-          {/* left side */}
+
           <div className="flex flex-col flex-1 ">
             <div className="block xl:hidden space-y-4">
               <div className="rounded-b-3xl py-4">
@@ -34,7 +34,7 @@ const Won = () => {
               </div>
             </div>
           </div>
-          {/* Content */}
+  
           <div className="w-full flex max-xl:flex-col xl:pt-12">
             <div className="w-3/5 max-xl:w-full flex flex-col gap-5">
               <div className="flex flex-row gap-4 md:gap-8 xl:hidden items-center">
@@ -96,7 +96,7 @@ const Won = () => {
           <img
             src={BG}
             alt=""
-            className="absolute right-0 -z-20 bottom-0 2xl:top-0 w-52 xl:w-96 md:w-96 special:w-1/6 2xl:w-2/5 opacity-60 max-xl:hidden"
+            className="absolute right-0 -z-20 bottom-0 2xl:top-2 w-52 xl:w-96 md:w-96 special:w-1/6 2xl:w-2/6 opacity-60 max-xl:hidden"
           />
         </div>
       </div>
