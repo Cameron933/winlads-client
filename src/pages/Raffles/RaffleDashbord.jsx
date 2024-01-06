@@ -29,6 +29,15 @@ export const bgStyle = {
   backgroundSize: "contain",
 };
 
+const iframeStyle = {
+  // position: 'absolute',
+  // top: 0,
+  // left: 0,
+  width: '100%',
+  height: '100%',
+  aspectRatio:'16/9'
+};
+
 function RaffleDashbord() {
   const [raffles, setRaffles] = useState([]);
   const [value, onChange] = useState(new Date());
@@ -156,19 +165,21 @@ function RaffleDashbord() {
                         Earning Balance
                       </p>
                       <p className="special:text-6xl">
-                        AUD {valUser.balance || "0.00"}
+                        AUD&nbsp;{valUser.balance || "0.00"}
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col  gap-5  ">
-                <div className=" w-full ">
+              <div className="flex flex-col gap-5">
+                <div className="w-full">
                   <iframe
                     title="YouTube Video"
-                    src="https://www.youtube.com/watch?v=y6qxTSuf91k"
+                    src="https://player.vimeo.com/video/899812267?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
                     frameBorder="0"
                     className="w-full"
+                    allow="autoplay; fullscreen; picture-in-picture;muted"
+                    style={iframeStyle}
                   ></iframe>
                 </div>
                 {liveLink ? (

@@ -27,11 +27,12 @@ const Withdraw = () => {
   const navigate = useNavigate();
   const [withdrawMethod, setWithdrawMethod] = useState(true);
   const [valUser, setValUser] = useState({});
-  const [selectMethod, setSelectMethod] = useState("");
+  const [selectMethod, setSelectMethod] = useState("bank");
 
   const [amount, setAmount] = useState("");
   const [bankName, setBankName] = useState("");
   const [accountNumber, setAccountNumber] = useState("");
+  const [bnbnumber, setBnbnumber] = useState("")
 
   useEffect(() => {
     currentUserValidation();
@@ -67,6 +68,7 @@ const Withdraw = () => {
         bank: bankName,
         accountnumber: accountNumber,
         amount: amount,
+        bnbnumber: bnbnumber
       }
     );
     if (response.data.status == 200) {
@@ -216,8 +218,10 @@ const Withdraw = () => {
                     placeholder="BSB Number"
                     type="number"
                     inputMode="numeric"
+                    value={bnbnumber}
                     pattern="[0-9]*"
                     style={{ WebkitAppearance: "", MozAppearance: "textfield" }}
+                    onChange={(e) => setBnbnumber(e.target.value)}
                   ></input>
                 </div>
                 <br />
