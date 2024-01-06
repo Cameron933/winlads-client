@@ -56,7 +56,7 @@ function SubscribeCard({
   quartly,
   month,
   color,
-  colorFrom = '#0094FF'
+  colorFrom = "#0094FF",
 }) {
   const handleChooseButton = () => {
     onButtonClick();
@@ -67,29 +67,36 @@ function SubscribeCard({
     if (initialShow == 3) {
       setInitialShow(descList[0].length);
     } else {
-      setInitialShow(3)
+      setInitialShow(3);
     }
-  }
+  };
 
   return (
     <div
       className={`bg-gradient-to-r relative ${gradientFrom} ${gradientTo} border-2 border-solid border-${cardBorderColor} text-${textColor} py-8 px-6 special:py-8 2xl:py-8 xl:pt-10 rounded-[10px] flex flex-col cursor-pointer`}
-      style={{ background: `linear-gradient(180deg, ${colorFrom} 0%, ${color} 100%)` }}
+      style={{
+        background: `linear-gradient(180deg, ${colorFrom} 0%, ${color} 100%)`,
+      }}
     >
       {isPopular && (
         <div
           className="flex items-center justify-center gap-2 text-center absolute rounded-t-lg top-0 left-0 w-full py-2 bg-black font-semibold"
-          style={{ color: '#fff' }}
+          style={{ color: "#fff" }}
         >
           <FaStar className="text-yellow-400" /> Most Popular
         </div>
       )}
-      <p className="text-lg special:text-3xl 2xl:text-2xl text-center font-bold mb-6 mt-2">{name}&nbsp;Tier</p>
+      <p className="text-lg special:text-3xl 2xl:text-2xl text-center font-bold mb-6 mt-2">
+        {name}&nbsp;Tier
+      </p>
 
       <p className="font-bold text-center text-sm special:text-2xl 2xl:text-lg mb-3">
-        <span className="text-2xl md:text-7xl"> {raffleCount}</span> <span className="uppercase"> {subId} free entries</span>
+        <span className="text-2xl md:text-7xl"> {raffleCount}</span>{" "}
+        <span className="uppercase"> {subId} entries</span>
       </p>
-      <div className={`relative flex justify-center flex-col space-y-4 special:space-y-6 2xl:space-y-4 pb-16 bg-white text-black py-5 px-2 rounded-xl h-full border-2 border-solid border-${cardBorderColor}`}>
+      <div
+        className={`relative flex justify-center flex-col space-y-4 special:space-y-6 2xl:space-y-4 pb-16 bg-white text-black py-5 px-2 rounded-xl h-full border-2 border-solid border-${cardBorderColor}`}
+      >
         {descList[0].slice(0, initialShow).map((disc, key) => (
           <div
             key={key}
@@ -103,27 +110,62 @@ function SubscribeCard({
             <p className="text-xs special:text-lg 2xl:text-md">{disc}</p>
           </div>
         ))}
-        {descList[0].length > 3 &&
-          <button onClick={() => handleShowMore()} className="absolute bottom-1 right-1 text-xs font-semibold" style={{ color: color }}>{initialShow == 3 ? 'View More' : 'View Less'}</button>
-        }
+        <div className="flex flex-row gap-2 special:gap-4 2xl:gap-4 items-center">
+          <img
+            src={GreenCorrect}
+            alt=""
+            className="w-5 h-5 special:h-7 special:w-7 2xl:h-5 2xl:w-5"
+          />
+           <p className="text-xs special:text-lg 2xl:text-md">{raffleCount}&nbsp;<span className="font-bold">Accumulating</span>&nbsp;Entries</p>
+        </div>
+        {descList[0].length > 3 && (
+          <button
+            onClick={() => handleShowMore()}
+            className="absolute bottom-1 right-1 text-xs font-semibold"
+            style={{ color: color }}
+          >
+            {initialShow == 3 ? "View More" : "View Less"}
+          </button>
+        )}
       </div>
 
       <div className="">
-        <button
-          type="button"
-          className={`bg-${buttonColor} text-${buttonText} hover:text-${buttonHoverText} font-semibold uppercase w-full  border-2 border-transparent hover:border-2 rounded-xl hover:border-${hoverButtonBorder} border-white text-black py-2 px-8 special:py-4 special:px-12 2xl:px-10 text-xs special:text-lg 2xl:text-sm mt-4 mb-2 hover:bg-${buttonHover}`}
-          onClick={handleChooseButton}
-        // disabled={subId ? true : false}
-        >
-          <p className={``}>
-            {(month && planeId == mPlanId) ||
-              (quartly && planeId == qPlanId) ||
-              (year && planeId == yPlanId)
-              ? "selected"
-              : "choose plan"}
-          </p>
-        </button>
-      </div>
+  <button
+    type="button"
+    className={`bg-${buttonColor} text-${buttonText} ${
+      !(
+        (month && planeId === mPlanId) ||
+        (quartly && planeId === qPlanId) ||
+        (year && planeId === yPlanId)
+      )
+        ? `hover:text-${buttonHoverText} hover:bg-${buttonHover} hover:border-${hoverButtonBorder}`
+        : ''
+    } font-semibold uppercase w-full border-2 border-transparent rounded-xl text-black py-2 px-8 special:py-4 special:px-12 2xl:px-10 text-xs special:text-lg 2xl:text-sm mt-4 mb-2 ${
+      (
+        (month && planeId === mPlanId) ||
+        (quartly && planeId === qPlanId) ||
+        (year && planeId === yPlanId)
+      )
+        ? 'cursor-not-allowed opacity-50' // Add styles for disabled state
+        : ''
+    }`}
+    onClick={handleChooseButton}
+    disabled={
+      (month && planeId === mPlanId) ||
+      (quartly && planeId === qPlanId) ||
+      (year && planeId === yPlanId)
+    }
+  >
+    <p className={``}>
+      {(month && planeId === mPlanId) ||
+      (quartly && planeId === qPlanId) ||
+      (year && planeId === yPlanId)
+        ? "selected"
+        : "choose plan"}
+    </p>
+  </button>
+</div>
+
     </div>
   );
 }
