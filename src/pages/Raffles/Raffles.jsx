@@ -30,7 +30,7 @@ export const bgStyle = {
 function Raffles() {
   const [raffleRounds, setRaffleRounds] = useState([]);
   const location = useLocation();
-  const { name, bgColor } = location.state;
+  const { name, bgColor, raffleimage } = location.state;
   const [valUser, setValUser] = useState({});
   const navigate = useNavigate();
   const [initialLength, setInitSize] = useState(8);
@@ -216,7 +216,7 @@ function Raffles() {
                       ?.slice(0, initialLength)
                       .map((raffle, key) => (
                         <div
-                          className={`flex flex-row justify-between pr-2 rounded-3xl items-center 2xl:rounded-[30px] special:rounded-[40px] w-full py-2 shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:opacity-75 cursor-pointer }`}
+                          className={`flex flex-row justify-between pr-2 rounded-3xl items-center 2xl:rounded-[30px] special:rounded-[40px] w-full pt-4 shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:opacity-75 cursor-pointer }`}
                           style={{ backgroundColor: bgColor }}
                           key={key}
                           onClick={() => {
@@ -228,7 +228,7 @@ function Raffles() {
                           }}
                         >
                           <img
-                            src={NewVeh}
+                            src={raffleimage}
                             alt=""
                             className="flex w-36 special:w-96 2xl:w-48"
                           />
