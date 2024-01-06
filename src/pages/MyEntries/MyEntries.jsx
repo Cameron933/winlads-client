@@ -25,9 +25,9 @@ const MyEntries = () => {
   const [pastGiveaways, setPastGiveaways] = useState([]);
   const [dataCount, setDataCount] = useState(0);
   const [catValue, setCatValue] = useState("");
-  const [round, setRound] = useState("")
-  const [number, setNumber] = useState("")
-  const [allRounds, setAllRounds] = useState([])
+  const [round, setRound] = useState("");
+  const [number, setNumber] = useState("");
+  const [allRounds, setAllRounds] = useState([]);
 
   const [myGiveaways, setMyGiveaways] = useState([]);
 
@@ -47,34 +47,31 @@ const MyEntries = () => {
     }
   };
 
-
   const getMyGiveaways = async (id, from, to, catValue, roundId, number) => {
-    setIsLoading(true)
+    setIsLoading(true);
     let baseUrl = `${
       import.meta.env.VITE_SERVER_API
     }/myRaffleRounds?uid=${id}&from=${from}&to=${to}`;
 
-    if(catValue !== "") {
-      baseUrl+=`&category=${catValue}`
+    if (catValue !== "") {
+      baseUrl += `&category=${catValue}`;
     }
 
-    if(roundId !== "") {
-      baseUrl+=`&round=${roundId}`
+    if (roundId !== "") {
+      baseUrl += `&round=${roundId}`;
     }
 
-    if(number !== "") {
-      baseUrl+=`&numbers=${number}`
+    if (number !== "") {
+      baseUrl += `&numbers=${number}`;
     }
 
     await axios
-      .get(
-       baseUrl
-      )
+      .get(baseUrl)
       .then((response) => {
         console.log(response.data.data, "data raffle");
         setMyGiveaways(response.data.data.future);
         setPastGiveaways(response.data.data.past);
-        getAllRounds()
+        getAllRounds();
         const onePage = Math.ceil(response.data.data.count / recodeCount);
         setDataCount(response.data.data.count);
         setPageCount(onePage);
@@ -98,7 +95,6 @@ const MyEntries = () => {
     getMyGiveaways(valUser.uid, 1, 10, cat, round, number);
   };
 
-
   const rounds = (round) => {
     setRound(round);
     getMyGiveaways(valUser.uid, 1, 10, catValue, round, number);
@@ -109,13 +105,12 @@ const MyEntries = () => {
     getMyGiveaways(valUser.uid, 1, 10, catValue, round, number);
   };
 
-
   const getAllRounds = async () => {
     await axios
       .get(`${import.meta.env.VITE_SERVER_API}/raffleRoundsAllCategories`)
       .then((response) => {
         console.log(response.data.data, "data");
-        setAllRounds(response.data.data)
+        setAllRounds(response.data.data);
       })
       .catch((error) => {
         console.log(error);
@@ -147,15 +142,19 @@ const MyEntries = () => {
           </div>
           {/* Content */}
           <div className="px-0 md:px-10 relative">
-            <Filters allRounds={allRounds} round={rounds} selectCatValue={categories} numbers={getNumbers}/>
+            <Filters
+              allRounds={allRounds}
+              round={rounds}
+              selectCatValue={categories}
+              numbers={getNumbers}
+            />
             <div className="flex items-center justify-between xl:hidden px-5 my-5">
               <h1 className="text-xl font-bold">Upcoming Entries</h1>
               <IoIosTimer className="text-2xl font-bold" />
             </div>
             {isLoading ? (
               <div className="flex justify-center">
-                <ItemLoader/>
-
+                <ItemLoader />
               </div>
             ) : (
               <>
@@ -254,17 +253,16 @@ const MyEntries = () => {
                               )}
                             </p>
                             <div>
-                            {" "}
-                            {giveaway.winstatus === "win" ? (
-                              <MdDone />
-                            ) : giveaway.winstatus === "lost" ? (
-                              <RxCross1 />
-                            ) : (
-                              ""
-                            )}
+                              {" "}
+                              {giveaway.winstatus === "win" ? (
+                                <MdDone />
+                              ) : giveaway.winstatus === "lost" ? (
+                                <RxCross1 />
+                              ) : (
+                                ""
+                              )}
+                            </div>
                           </div>
-                          </div>
-                        
                         </div>
                       </div>
                     ))}
