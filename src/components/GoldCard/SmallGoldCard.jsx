@@ -77,9 +77,9 @@ const SmallGoldCard = () => {
                 {valUser.subscripton?.name}
               </p>
             ) : (
-              <div className="flex flex-row items-center gap-4">
+              <div className="flex flex-row items-center gap-4 border-2 border-white">
                 <img src={Cross} alt="" className="w-12" />
-                <p className="2xl:text-xl text-xl text-black">
+                <p className="2xl:text-xl text-xl text-white">
                   Your subscription is currently inactive
                 </p>
               </div>
