@@ -13,12 +13,11 @@ import SmallGoldCard from "../../components/GoldCard/SmallGoldCard";
 import SearchField from "../../components/SearchField/SearchField";
 import { MdOutlineDoNotDisturbOff } from "react-icons/md";
 import ItemLoader from "../../components/Loader/ItemLoader";
-import NewVeh from "../../assets/images/newVeh.png"
+import NewVeh from "../../assets/images/newVeh.png";
 
 import SelectRafflePaymentMethod from "../../components/RaffleComponent/SelectRafflePaymentMethod";
 import BG from "../../assets/images/HomesideBg.png";
 import { FaAngleDoubleDown, FaAngleDoubleUp } from "react-icons/fa";
-
 
 const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -52,7 +51,8 @@ const Dashboard = () => {
   const getGiveaways = async () => {
     await axios
       .get(
-        `${import.meta.env.VITE_SERVER_API}/raffleRoundsFuture?uid=${valUser.uid
+        `${import.meta.env.VITE_SERVER_API}/raffleRoundsFuture?uid=${
+          valUser.uid
         }`
       )
       .then((response) => {
@@ -69,7 +69,8 @@ const Dashboard = () => {
   const getRaffleCount = async () => {
     await axios
       .get(
-        `${import.meta.env.VITE_SERVER_API}/getUserRafflesCount?uid=${valUser.uid
+        `${import.meta.env.VITE_SERVER_API}/getUserRafflesCount?uid=${
+          valUser.uid
         }`
       )
       .then((response) => {
@@ -94,11 +95,11 @@ const Dashboard = () => {
 
   const handleSeeMore = (show) => {
     if (show) {
-      setInitSize(giveaways.length)
+      setInitSize(giveaways.length);
     } else {
-      setInitSize(8)
+      setInitSize(8);
     }
-  }
+  };
 
   return (
     <>
@@ -128,10 +129,14 @@ const Dashboard = () => {
                 </div>
                 <div className="left-4 top-20 space-y-4">
                   <div className="flex flex-col space-y-2">
-                    <p className="text-[#22CCEE] text-xl font-semibold">
+                    <p className="text-[#22CCEE] text-lg font-semibold">
                       Earning Balance
                     </p>
-                    <p className="text-3xl text-black">AUD&nbsp;{valUser.balance || "0.00"}</p>
+                    <p className="text-3xl text-black">
+                      <span className="text-base">AUD</span>&nbsp;
+                      
+                      {(typeof valUser.balance === 'number' ? valUser.balance.toFixed(2) : "0.00")}
+                    </p>
                   </div>
                   <SmallGoldCard />
                 </div>
@@ -139,40 +144,46 @@ const Dashboard = () => {
                   <p className="text-xl font-semibold">Next Giveaways</p>
                   {loading ? (
                     <div className="flex justify-center">
-                      <ItemLoader/>
-
+                      <ItemLoader />
                     </div>
                   ) : giveaways.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2">
-                      {giveaways.slice(0, initialLength).map((giveaway, key) => (
-                        <DashboardVehicleCard
-                          key={key}
-                          name={giveaway.name}
-                          date={giveaway?.startingtime}
-                          fromColor={giveaway.raffle?.color}
-                          color={giveaway?.raffle?.color}
-                          icon={giveaway.raffle?.image}
-                          onButton={() => {
-                            handleButton({
-                              id: giveaway?._id,
-                              price: giveaway?.price,
-                              name: giveaway?.raffle?.name
-                            });
-                          }}
-                          bgColor={giveaway.raffle?.color}
-                        />
-                      ))}
-                      {
-                        giveaways.length > 8 && (initialLength == 8 ?
-                          <button onClick={() => handleSeeMore(true)}
-                            className="mt-10 flex items-center justify-center mx-auto gap-2 ">
-                            See More <FaAngleDoubleDown/>
-                          </button> :
-                          <button onClick={() => handleSeeMore(false)}
-                            className="mt-10 flex items-center justify-center mx-auto gap-2">
-                            See Less <FaAngleDoubleUp/>
-                          </button>)
-                      }
+                      {giveaways
+                        .slice(0, initialLength)
+                        .map((giveaway, key) => (
+                          <DashboardVehicleCard
+                            key={key}
+                            name={giveaway.name}
+                            date={giveaway?.startingtime}
+                            fromColor={giveaway.raffle?.color}
+                            color={giveaway?.raffle?.color}
+                            icon={giveaway.raffle?.image}
+                            onButton={() => {
+                              handleButton({
+                                id: giveaway?._id,
+                                price: giveaway?.price,
+                                name: giveaway?.raffle?.name,
+                              });
+                            }}
+                            bgColor={giveaway.raffle?.color}
+                          />
+                        ))}
+                      {giveaways.length > 8 &&
+                        (initialLength == 8 ? (
+                          <button
+                            onClick={() => handleSeeMore(true)}
+                            className="mt-10 flex items-center justify-center mx-auto gap-2 "
+                          >
+                            See More <FaAngleDoubleDown />
+                          </button>
+                        ) : (
+                          <button
+                            onClick={() => handleSeeMore(false)}
+                            className="mt-10 flex items-center justify-center mx-auto gap-2"
+                          >
+                            See Less <FaAngleDoubleUp />
+                          </button>
+                        ))}
                     </div>
                   ) : (
                     <div className="flex flex-col items-center space-y-2">
@@ -187,19 +198,22 @@ const Dashboard = () => {
               <div className="hidden xl:flex flex-col space-y-4 items-end">
                 <div className="bg-black rounded-b-3xl space-y-4 relative w-web">
                   <div className="grid grid-cols-2 gap-4 m-2">
-                    <div className="col-span-1">
+                    <div className="col-span-1 ">
                       <SearchField />
                     </div>
-                    <div className="col-span-1">
+                    <div className="col-span-1  flex flex-col justify-center ">
                       <TopNav textColor={"white"} />
                     </div>
                   </div>
                   <div className="absolute left-4 top-20 space-y-8">
                     <div className="flex flex-col space-y-2">
-                      <p className="text-[#22CCEE] text-2xl font-semibold">
+                      <p className="text-[#22CCEE] text-lg font-semibold">
                         Earning Balance
                       </p>
-                      <p className="text-3xl text-white">AUD&nbsp;{valUser.balance}</p>
+                      <p className="text-3xl text-white">
+                        <span className="text-base">AUD</span>&nbsp;
+                        {(typeof valUser.balance === 'number' ? valUser.balance.toFixed(2) : "0.00")}
+                      </p>
                     </div>
                     <SmallGoldCard />
                   </div>
@@ -210,8 +224,9 @@ const Dashboard = () => {
                     transition={carAnimation.transition}
                     src={MainCar}
                     alt="main"
-                    className="w-[700px]"
+                    className="w-[620px]"
                   />
+                  
                 </div>
                 <div className="flex flex-col space-y-2 w-full xl:w-web pt-12">
                   <p className="text-2xl 2xl:text-2xl special:text-5xl font-semibold mb-2">
@@ -219,29 +234,30 @@ const Dashboard = () => {
                   </p>
                   {loading ? (
                     <div className="flex justify-center">
-                      <ItemLoader/>
-
+                      <ItemLoader />
                     </div>
                   ) : giveaways.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
-                      {giveaways.slice(0, initialLength).map((giveaway, key) => (
-                        <DashboardVehicleCard
-                          key={key}
-                          name={giveaway.name}
-                          date={giveaway?.endtime}
-                          color={giveaway?.raffle?.color}
-                          fromColor={giveaway.raffle?.color}
-                          icon={giveaway.raffle?.image}
-                          price={giveaway?.price}
-                          onButton={() => {
-                            handleButton({
-                              id: giveaway?._id,
-                              price: giveaway?.price,
-                              name: giveaway?.name
-                            });
-                          }}
-                        />
-                      ))}
+                      {giveaways
+                        .slice(0, initialLength)
+                        .map((giveaway, key) => (
+                          <DashboardVehicleCard
+                            key={key}
+                            name={giveaway.name}
+                            date={giveaway?.endtime}
+                            color={giveaway?.raffle?.color}
+                            fromColor={giveaway.raffle?.color}
+                            icon={giveaway.raffle?.image}
+                            price={giveaway?.price}
+                            onButton={() => {
+                              handleButton({
+                                id: giveaway?._id,
+                                price: giveaway?.price,
+                                name: giveaway?.name,
+                              });
+                            }}
+                          />
+                        ))}
                       {/* {
                         giveaways.length > 7 && (initialLength == 7 ?
                           <button onClick={() => handleSeeMore(true)}
@@ -263,32 +279,35 @@ const Dashboard = () => {
                     </div>
                   )}
                   <div className="w-full text-center">
-                    {
-
-                      giveaways.length > 8 && (initialLength == 8 ?
-                        <button onClick={() => handleSeeMore(true)}
-                          className="mt-10 flex items-center justify-center mx-auto gap-2">
-                          See More <FaAngleDoubleDown/>
-                        </button> :
-                        <button onClick={() => handleSeeMore(false)}
-                          className="mt-10 flex items-center justify-center mx-auto gap-2">
-                          See Less <FaAngleDoubleUp/>
-                        </button>)
-                    }
+                    {giveaways.length > 8 &&
+                      (initialLength == 8 ? (
+                        <button
+                          onClick={() => handleSeeMore(true)}
+                          className="mt-10 flex items-center justify-center mx-auto gap-2"
+                        >
+                          See More <FaAngleDoubleDown />
+                        </button>
+                      ) : (
+                        <button
+                          onClick={() => handleSeeMore(false)}
+                          className="mt-10 flex items-center justify-center mx-auto gap-2"
+                        >
+                          See Less <FaAngleDoubleUp />
+                        </button>
+                      ))}
                   </div>
-
                 </div>
               </div>
             </div>
 
             {/* right-side */}
             {/* <div className="flex flex-col flex-1"> */}
-              <img
-                src={BG}
-                alt=""
-                className="absolute right-0 -z-10 md:top-80 top-20 w-72 xl:w-96 md:w-96 special:w-1/4 2xl:w-1/4 special:top-20 opacity-60 2xl:top-40 xl:top-40"
-              />
-              {/* <div className="graph-section "></div> */}
+            <img
+              src={BG}
+              alt=""
+              className="absolute right-0 -z-10 md:top-80 top-20 w-72 xl:w-96 md:w-96 special:w-1/4 2xl:w-1/4 special:top-20 opacity-60 2xl:top-40 xl:top-40"
+            />
+            {/* <div className="graph-section "></div> */}
             {/* </div> */}
           </div>
         </div>

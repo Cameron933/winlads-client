@@ -454,3 +454,11 @@ code {
 .bgColor{
   background: linear-gradient(to right, #E83F3F 100%, #A20505  100%);
 }
+
+
+.side-car-live{
+  background-image: url('./assets/images/live/side-car.png');
+  background-size: contain;
+  background-position-x: left;
+  background-repeat: no-repeat;
+}

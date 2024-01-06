@@ -17,10 +17,10 @@ import { ref, getDownloadURL } from "firebase/storage";
 import { storage } from "../../firebase.config.js";
 import ItemLoader from "../../components/Loader/ItemLoader";
 
-
-
 import CatJeep from "../../assets/images/rafflesImages/newJeep.png";
 import NoLive from "../../components/Live/NoLive.jsx";
+import LiveCard from "../../components/Live/LiveCard.jsx";
+import NoLiveCard from "../../components/Live/NoLiveCard.jsx";
 
 export const bgStyle = {
   backgroundImage: `url(${bgCar})`,
@@ -36,13 +36,15 @@ function RaffleDashbord() {
   const [userImage, setUserImage] = useState("");
   const [loading, setLoading] = useState(true);
   const [initialLength, setInitSize] = useState(8);
-  const [liveLink, setLiveLink] = useState('')
+  const [liveLink, setLiveLink] = useState("");
 
   const navigate = useNavigate();
 
   const getLiveLink = async () => {
     try {
-      const data = await axios.get(`${import.meta.env.VITE_SERVER_API}/getLiveRaffleRound`)
+      const data = await axios.get(
+        `${import.meta.env.VITE_SERVER_API}/getLiveRaffleRound`
+      );
       if (data.data.data.message) {
         throw Error(data.data.data.message);
       } else {
@@ -54,7 +56,7 @@ function RaffleDashbord() {
     } finally {
       setLoading(false);
     }
-  }
+  };
 
   useEffect(() => {
     currentUserValidation();
@@ -64,12 +66,11 @@ function RaffleDashbord() {
 
   const handleSeeMore = (show) => {
     if (show) {
-      setInitSize(raffles.length)
+      setInitSize(raffles.length);
     } else {
-      setInitSize(8)
+      setInitSize(8);
     }
-  }
-
+  };
 
   const currentUserValidation = async () => {
     const validator = await validateCurrentUser();
@@ -161,78 +162,23 @@ function RaffleDashbord() {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col xl:flex-row md:flex-row gap-2 justify-between items-center">
-                <div className="md:w-1/2 w-full">
+              <div className="flex flex-col  gap-5  ">
+                <div className=" w-full ">
                   <iframe
                     title="YouTube Video"
                     src="https://www.youtube.com/watch?v=y6qxTSuf91k"
                     frameBorder="0"
-                    className=""
+                    className="w-full"
                   ></iframe>
                 </div>
-                {
-                  liveLink ?
-
-                    <Link to={'/live'} className="bg-[#D5B511] hover:bg-[#D5B511]/75 flex-col rounded-3xl 2xl:rounded-[30px] special:rounded-[40px] pr-2 special:pr-4 py-1 space-y-2 shadow-lg">
-                      <div className="flex flex-row justify-between items-center">
-                        <div className="w-36 special:w-96 2xl:w-48 min-w-32 aspect-square">
-                          <img
-                            src={CatJeep}
-                            alt=""
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-
-                        <div className="flex flex-col space-y-4">
-                          <div className="justify-end flex">
-                            <div className="flex flex-col">
-                              <img
-                                src={six}
-                                alt=""
-                                className="w-12 special:w-36 2xl:w-16"
-                              />
-
-                              <div className="flex-row flex justify-end gap-1">
-                                <p className="text-white text-[10px] uppercase 2xl:text-sm special:text-lg">
-                                  live
-                                </p>
-                                <span className="relative flex h-1.5 w-1.5 special:h-3.5 special:w-3.5 2xl:h-2.5 2xl:w-2.5 flex-col justify-start items-start">
-                                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-600 opacity-75"></span>
-                                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 special:h-3.5 special:w-3.5 2xl:h-2.5 2xl:w-2.5 bg-red-600"></span>
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div className="flex text-end flex-col z-10 pr-2 items-center space-y-1 special:space-y-2">
-                            <p className="text-white font-bold xl:text-[12px] text-xs special:text-4xl 2xl:text-[16px] text-center">
-                              1991 Land Rover Defender 110
-                            </p>
-                            <p className="text-[10px] text-white special:text-xl 2xl:text-[10px]">
-                              2023-SEP-19 TUESDAY
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="grid grid-cols-3 px-5 items-center">
-                        <div className="col-span-2 flex justify-end gap-2 z-10">
-                          <p className="text-[#4FC8E8] font-bold">R</p>
-                          <p className="text-white font-bold">14</p>
-                          <p className="text-white font-bold">34</p>
-                          <p className="text-white font-bold">38</p>
-                          <p className="text-white font-bold">76</p>
-                        </div>
-                        <div className="col-span-1 justify-end flex">
-                          <GoQuestion />
-                        </div>
-                      </div>
-                    </Link>
-                    :
-                    <NoLive />
-
-                }
-
+                {liveLink ? (
+                  <Link to="/live">
+                    <LiveCard />
+                  </Link>
+                ) : (
+                  // <NoLive />
+                  <NoLiveCard/>
+                )}
               </div>
             </div>
             <div className="flex xl:flex-row md:flex-row flex-col xl:justify-between gap-2">
@@ -263,7 +209,7 @@ function RaffleDashbord() {
           </p>
           {loading ? (
             <div className="flex justify-center">
-              <ItemLoader/>
+              <ItemLoader />
             </div>
           ) : raffles.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2 2xl:gap-4 special:gap-4">
@@ -278,17 +224,16 @@ function RaffleDashbord() {
                   date={raffle.date}
                 />
               ))}
-              {
-                raffles.length > 8 && (initialLength == 8 ?
-                  <button onClick={() => handleSeeMore(true)}
-                    className="">
+              {raffles.length > 8 &&
+                (initialLength == 8 ? (
+                  <button onClick={() => handleSeeMore(true)} className="">
                     See More
-                  </button> :
-                  <button onClick={() => handleSeeMore(false)}
-                    className="">
+                  </button>
+                ) : (
+                  <button onClick={() => handleSeeMore(false)} className="">
                     See Less
-                  </button>)
-              }
+                  </button>
+                ))}
             </div>
           ) : (
             <p className="flex justify-center font-semibold 2xl:text-2xl xl:text-xl special:text-4xl text-lg">
