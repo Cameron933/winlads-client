@@ -202,7 +202,7 @@ const Affiliate = () => {
                 </div>
               ) : (
                 <>
-                  <form className="mx-auto mt-4 relative">
+                  {/* <form className="mx-auto mt-4 relative">
                     {userImage ? (
                       <div className="special:w-32 w-18 2xl:w-52 aspect-square rounded-full overflow-hidden">
                         <img
@@ -217,8 +217,14 @@ const Affiliate = () => {
                         className="special:w-16 2xl:w-16 xl:w-12 w-8"
                       />
                     )}
-                  </form>
+                  </form> */}
+                  <div className="hidden xl:block">
                   <AffiliateCard />
+                  </div>
+                 
+                  <div className="pt-12">
+                    <p className="text-center">You Have No Referral List</p>
+                  </div>
                 </>
               )}
             </div>
