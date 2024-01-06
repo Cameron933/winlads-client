@@ -73,18 +73,18 @@ function SubscribeCard({
 
   return (
     <div
-      className={`bg-gradient-to-r relative ${gradientFrom} ${gradientTo} border-2 border-solid border-${cardBorderColor} text-${textColor} py-8 px-6 special:py-8 2xl:py-8 xl:pt-10 rounded-[10px] flex flex-col  cursor-pointer`}
+      className={`bg-gradient-to-r relative ${gradientFrom} ${gradientTo} border-2 border-solid border-${cardBorderColor} text-${textColor} py-8 px-6 special:py-8 2xl:py-8 xl:pt-10 rounded-[10px] flex flex-col cursor-pointer`}
       style={{ background: `linear-gradient(180deg, ${colorFrom} 0%, ${color} 100%)` }}
     >
       {isPopular && (
         <div
-          className="flex items-center justify-center gap-2 text-center absolute rounded-t-xl top-0 left-0 w-full py-2 bg-black font-semibold"
+          className="flex items-center justify-center gap-2 text-center absolute rounded-t-lg top-0 left-0 w-full py-2 bg-black font-semibold"
           style={{ color: '#fff' }}
         >
-          <FaStar /> Most Popular
+          <FaStar className="text-yellow-400" /> Most Popular
         </div>
       )}
-      <p className="text-lg special:text-3xl 2xl:text-2xl text-center font-bold mb-6 ">{name}&nbsp;Tier</p>
+      <p className="text-lg special:text-3xl 2xl:text-2xl text-center font-bold mb-6 mt-2">{name}&nbsp;Tier</p>
 
       <p className="font-bold text-center text-sm special:text-2xl 2xl:text-lg mb-3">
         <span className="text-2xl md:text-7xl"> {raffleCount}</span> <span className="uppercase"> {subId} free entries</span>
