@@ -156,6 +156,7 @@ const Dashboard = () => {
                           fromColor={giveaway.raffle?.color}
                           color={giveaway?.raffle?.color}
                           icon={giveaway.raffle?.image}
+                          raffleimage={giveaway.raffle?.raffleimage}
                           onButton={() => {
                             handleButton({
                               id: giveaway?._id,
@@ -240,6 +241,7 @@ const Dashboard = () => {
                           fromColor={giveaway.raffle?.color}
                           icon={giveaway.raffle?.image}
                           price={giveaway?.price}
+                          raffleimage={giveaway.raffle?.raffleimage}
                           onButton={() => {
                             handleButton({
                               id: giveaway?._id,
