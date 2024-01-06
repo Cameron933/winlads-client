@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { validateCurrentUser } from "../../utils/validateuser";
 import { Link, useNavigate } from "react-router-dom";
 import Cross from "../../assets/images/subcription/cross.png";
+import SubBG from "../../assets/images/subBg.png";
 
 const GoldCard = () => {
   const navigate = useNavigate();
@@ -18,38 +19,64 @@ const GoldCard = () => {
     if (validator.validatorBl) {
       console.log("Session OK", validator.user);
       setValUser(validator.user);
-      setLoading(false)
+      setLoading(false);
     } else {
       navigate("/login");
-      setLoading(false)
+      setLoading(false);
     }
   };
+  const startDateObject = new Date(valUser.transaction?.startfrom);
+  const endDateObject = new Date(valUser.transaction?.endfrom);
 
-  const dateObject = new Date(valUser.transaction?.endfrom);
-  const options = { year: 'numeric', month: 'long', day: 'numeric', };
-  const formattedDate = dateObject.toLocaleString('en-US', options);
+  const options = { year: "numeric", month: "numeric", day: "numeric" };
+
+  const endDate = endDateObject.toLocaleString("en-US", options);
+  const startDate = startDateObject.toLocaleString("en-US", options);
 
   return (
     <>
       {!loading && (
         <div
-          className={`relative border border-solid border-${
-            valUser.subscripton?.name == "Platinum"
-              ? "black"
-              : "" | (valUser.subscripton?.name == "Black")
-              ? "white"
-              : ""
-          } overflow-hidden rounded-3xl px-4 special:px-8 2xl:px-6 flex flex-row justify-between py-4 special:py-8 2xl:py-4 cursor-default`}
+          className={`relative border border-solid ${
+            valUser.subscripton?.name == "Black"
+              ? "border-white"
+              : "border-black"
+          } overflow-hidden rounded-3xl flex flex-row justify-between cursor-default`}
           // style={{ backgroundColor: valUser ? valUser.subscripton?.color : "" }}
           style={{
-            background: `linear-gradient(90deg, ${valUser._id ? valUser.subscripton?.color : "white"} 0%, ${valUser._id ? valUser.subscripton?.colorFrom : "white"} 100%)`,
+            background: `linear-gradient(90deg, ${
+              valUser._id ? valUser.subscripton?.color : "white"
+            } 0%, ${
+              valUser._id ? valUser.subscripton?.colorFrom : "white"
+            } 100%)`,
           }}
         >
           {/* <div className="gold-card-inner-sec1"> */}
-          <div className="flex flex-col xl:space-y-2 space-y-1 px-2">
+          <div className="flex flex-col pl-4 py-4">
             <span className="xl:text-4xl font-bold text-3xl 2xl:test-5xl special:text-7xl main-t">
               {valUser.subscripton?._id ? (
-                <p>{valUser.subscripton?.name}</p>
+                <p
+                  className={`text-xs special:text-lg font-semibold ${
+                    valUser.subscripton?.name == "Black"
+                      ? "text-white"
+                      : "text-black"
+                  }`}
+                >
+                  <span>Member Since</span>&nbsp;{startDate}
+                </p>
+              ) : (
+                ""
+              )}
+              {valUser.subscripton?._id ? (
+                <p
+                  className={`${
+                    valUser.subscripton?.name == "Black"
+                      ? "text-white"
+                      : "text-black"
+                  }`}
+                >
+                  {valUser.subscripton?.name}
+                </p>
               ) : (
                 <div className="flex flex-row items-center gap-4">
                   <img src={Cross} alt="" className="w-12" />
@@ -60,10 +87,25 @@ const GoldCard = () => {
               )}
             </span>
             <span className="text-xs font-bold xl:text-xl 2xl:text-2xl special:text-3xl">
-              {valUser.subscripton?._id ? <p className="text-sm special:text-lg">{formattedDate}</p> : ""}
+              {valUser.subscripton?._id ? (
+                <p
+                  className={`text-sm special:text-lg font-semibold ${
+                    valUser.subscripton?.name == "Black"
+                      ? "text-white"
+                      : "text-black"
+                  }`}
+                >
+                  <span>Expires on</span>&nbsp;{endDate}
+                </p>
+              ) : (
+                ""
+              )}
             </span>
           </div>
-          {valUser.subscripton?._id ? (
+          <div>
+            <img src={SubBG} alt="" />
+          </div>
+          {/* {valUser.subscripton?._id ? (
             <div className="flex flex-row xl:gap-2 gap-1 special:gap-4 items-center">
               <p className="font-bold text-xs xl:text-xl special:text-4xl 2xl:text-3xl">
                 Auto Renewal
@@ -81,7 +123,7 @@ const GoldCard = () => {
             </div>
           ) : (
             ""
-          )}
+          )} */}
 
           {/* </div> */}
         </div>

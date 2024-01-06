@@ -58,7 +58,7 @@ const SmallGoldCard = () => {
                 className={`text-xs special:text-lg font-semibold ${
                   valUser.subscripton?.name == "Black"
                     ? "text-white"
-                    : "border-black"
+                    : "text-black"
                 }`}
               >
                 <span>Member Since</span>&nbsp;{startDate}
@@ -71,7 +71,7 @@ const SmallGoldCard = () => {
                 className={`font-bold text-4xl ${
                   valUser.subscripton?.name == "Black"
                     ? "text-white"
-                    : "border-black"
+                    : "text-black"
                 }`}
               >
                 {valUser.subscripton?.name}
@@ -90,7 +90,7 @@ const SmallGoldCard = () => {
                 className={`text-sm special:text-lg font-semibold ${
                   valUser.subscripton?.name == "Black"
                     ? "text-white"
-                    : "border-black"
+                    : "text-black"
                 }`}
               >
                 <span>Expires on</span>&nbsp;{endDate}
