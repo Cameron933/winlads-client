@@ -2,25 +2,22 @@ import { Link } from "react-router-dom";
 import "./Raffle.css";
 import { useEffect, useState } from "react";
 import CatJeep from "../../assets/images/rafflesImages/newJeep.png";
-import NewVeh from "../../assets/images/newVeh.png"
+import NewVeh from "../../assets/images/newVeh.png";
 
 function RaffleDashboardComponent({ bgColor, id, name, type, img, date }) {
-
   const linearGradient = `linear-gradient(90deg, ${bgColor} 0%, #000000 100%)`;
 
   return (
     <>
-      <Link to={`/giveaway/${id}`} state={{name, bgColor}} className="w-full">
+      <Link to={`/giveaway/${id}`} state={{ name, bgColor }} className="w-full">
         <div
-          className='flex flex-row items-stretch justify-between pr-2 rounded-3xl 2xl:rounded-[30px] special:rounded-[40px] w-full py-2 shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:opacity-75'
+          className="flex flex-row items-stretch justify-between pr-2 rounded-3xl 2xl:rounded-[30px] special:rounded-[40px] w-full py-2 shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:opacity-75"
           style={{ background: linearGradient }}
         >
           <div className="w-36 special:w-96 2xl:w-48 min-w-32 aspect-square">
-          <img
-            src={NewVeh}
-            alt=""
-            className="w-full h-full object-cover"
-          />
+ 
+            <img src={NewVeh} alt="" className="w-full h-full object-cover" />
+          
           </div>
 
           <div className="flex flex-col space-y-4 w-2/3">
