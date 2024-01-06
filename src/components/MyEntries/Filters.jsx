@@ -76,23 +76,23 @@ const Filters = ({
               <div className="flex flex-col justify-center space-y-2 text-xs">
                 <p
                   className="hover:bg-[#F5F5F5] p-1 rounded-lg cursor-pointer"
-                  onClick={() => handleCat("max")}
-                >
-                  Max
-                </p>
-                <p
-                  className="hover:bg-[#F5F5F5] p-1 rounded-lg cursor-pointer"
-                  onClick={() => handleCat("lottoGreen")}
-                >
-                  LottoGreen
-                </p>
-                <p
-                  className="hover:bg-[#F5F5F5] p-1 rounded-lg cursor-pointer"
                   onClick={() => handleCat("i645")}
                 >
-                  I645
+                  Mistry Box
                 </p>
                 <p
+                  className="hover:bg-[#F5F5F5] p-1 rounded-lg cursor-pointer"
+                  onClick={() => handleCat("Gift")}
+                >
+                  Gift
+                </p>
+                <p
+                  className="hover:bg-[#F5F5F5] p-1 rounded-lg cursor-pointer"
+                  onClick={() => handleCat("Cash Prize")}
+                >
+                 Cash Prize
+                </p>
+                {/* <p
                   className="hover:bg-[#F5F5F5] p-1 rounded-lg cursor-pointer"
                   onClick={() => handleCat("lottoRed")}
                 >
@@ -103,7 +103,7 @@ const Filters = ({
                   onClick={() => handleCat("test")}
                 >
                   Test
-                </p>
+                </p> */}
               </div>
             </div>
           )}
