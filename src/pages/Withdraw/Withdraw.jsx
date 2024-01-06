@@ -207,6 +207,19 @@ const Withdraw = () => {
                     onChange={(e) => setAccountNumber(e.target.value)}
                   ></input>
                 </div>
+                <div className="flex flex-col space-y-2 mb-4">
+                  <p className="text-black text-sm xl:text-md special:text-xl">
+                    BSB Number
+                  </p>
+                  <input
+                    className="bg-[#ECECEC] rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3 appearance-none remove-arrows"
+                    placeholder="BSB Number"
+                    type="number"
+                    inputMode="numeric"
+                    pattern="[0-9]*"
+                    style={{ WebkitAppearance: "", MozAppearance: "textfield" }}
+                  ></input>
+                </div>
                 <br />
               </div>
             ) : (
