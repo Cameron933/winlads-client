@@ -40,12 +40,10 @@ const SmallGoldCard = () => {
               ? "border-white "
               : "bg-white "
           } overflow-hidden rounded-3xl px-4 flex flex-row justify-between py-4 cursor-default gap-2`}
-          // style={{
-          //   background: `linear-gradient(90deg, ${valUser._id ? valUser.subscripton?.color : "white"} 0%, #000608 100%)`,
-          // }}
           style={{
-            background: `${valUser._id ? valUser.subscripton?.color : "white"}`,
+            background: `linear-gradient(90deg, ${valUser._id ? valUser.subscripton?.color : "white"} 0%, ${valUser._id ? valUser.subscripton?.colorFrom : "white"} 100%)`,
           }}
+     
         >
           <div className="flex flex-col space-y-1 text-white">
             {/* <span className="font-bold text-4xl main-t tt"> */}

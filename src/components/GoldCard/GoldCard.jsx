@@ -40,7 +40,10 @@ const GoldCard = () => {
               ? "white"
               : ""
           } overflow-hidden rounded-3xl px-4 special:px-8 2xl:px-6 flex flex-row justify-between py-4 special:py-8 2xl:py-4 cursor-default`}
-          style={{ backgroundColor: valUser ? valUser.subscripton?.color : "" }}
+          // style={{ backgroundColor: valUser ? valUser.subscripton?.color : "" }}
+          style={{
+            background: `linear-gradient(90deg, ${valUser._id ? valUser.subscripton?.color : "white"} 0%, ${valUser._id ? valUser.subscripton?.colorFrom : "white"} 100%)`,
+          }}
         >
           {/* <div className="gold-card-inner-sec1"> */}
           <div className="flex flex-col xl:space-y-2 space-y-1 px-2">
