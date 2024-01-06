@@ -75,7 +75,7 @@ function SubscribeCard({
     <div
       className={`bg-gradient-to-r relative ${gradientFrom} ${gradientTo} border-2 border-solid border-${cardBorderColor} text-${textColor} py-8 px-6 special:py-8 2xl:py-8 xl:pt-10 rounded-[10px] flex flex-col cursor-pointer`}
       style={{
-        background: `linear-gradient(180deg, ${colorFrom} 0%, ${color} 100%)`,
+        background: `linear-gradient(180deg, ${color} 0%, ${colorFrom} 100%)`,
       }}
     >
       {isPopular && (
