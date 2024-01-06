@@ -116,7 +116,7 @@ function SubscribeCard({
             alt=""
             className="w-5 h-5 special:h-7 special:w-7 2xl:h-5 2xl:w-5"
           />
-           <p className="text-xs special:text-lg 2xl:text-md">{raffleCount}&nbsp;<span className="font-bold">Accumulating</span>&nbsp;Entries</p>
+           <p className="text-xs special:text-lg 2xl:text-md"><span className="font-bold">{raffleCount}&nbsp;Accumulating</span>&nbsp;Entries</p>
         </div>
         {descList[0].length > 3 && (
           <button

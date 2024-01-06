@@ -33,8 +33,8 @@ const TopNav = ({ textColor }) => {
         {/* <span className="navlinks">
           <Link to="/giveaways">Giveaway</Link>
         </span> */}
-        <span className="" title="This feature will be available soon">
-          <Link>Giveaway</Link>
+        <span className="navlinks">
+          <a href="https://www.winladsgiveaway.com" target="_blank" rel="noreferrer">Giveaway</a>
         </span>
         <span className="navlinks">
           <Link to="/faq">FAQ</Link>

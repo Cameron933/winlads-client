@@ -27,7 +27,7 @@ const Withdraw = () => {
   const navigate = useNavigate();
   const [withdrawMethod, setWithdrawMethod] = useState(true);
   const [valUser, setValUser] = useState({});
-  const [selectMethod, setSelectMethod] = useState("")
+  const [selectMethod, setSelectMethod] = useState("");
 
   const [amount, setAmount] = useState("");
   const [bankName, setBankName] = useState("");
@@ -95,17 +95,15 @@ const Withdraw = () => {
   };
 
   const handlePaymentMethod = (val) => {
-    setWithdrawShow(false)
-    setSelectMethod(val)
+    setWithdrawShow(false);
+    setSelectMethod(val);
     if (val === "stripe") {
-      setWithdrawMethod(false)
+      setWithdrawMethod(false);
     }
     if (val === "bank") {
-      setWithdrawMethod(true)
+      setWithdrawMethod(true);
     }
-  }
-
-
+  };
 
   return (
     <div>
@@ -132,18 +130,16 @@ const Withdraw = () => {
               <p className="text-black text-sm xl:text-md special:text-xl">
                 Payout Amount
               </p>
-              <div className="w-full relative">
+              <div className="w-full relative flex items-center">
+              
                 <input
-                  className="bg-[#ECECEC] w-full rounded-xl px-2 pl-10 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
-                  placeholder="Payout Amount"
-                  type="text"
+                  className="bg-[#ECECEC] w-full rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                  placeholder="Payout Amount (AUD)"
+                  type="number"
                   value={amount}
                   onChange={(e) => setAmount(e.target.value)}
                 />
-                <span className="absolute left-3 top-2">AUD</span>
               </div>
-
-
             </div>
             <div className="flex flex-col space-y-2 relative">
               <p className="text-black text-sm xl:text-md special:text-xl">
@@ -153,34 +149,30 @@ const Withdraw = () => {
                 className="bg-[#ECECEC] flex items-center justify-between text-black rounded-xl cursor-pointer px-2 py-2 focus:outline-none text-xs xl:text-sm special:text-xl special:py-3"
                 onClick={handleShowBank}
               >
-                <p>{selectMethod == 'bank' ? "Direct Bank" : 'Stripe'}</p>
+                <p>{selectMethod == "bank" ? "Direct Bank" : "Stripe"}</p>
                 <RiArrowDropDownLine className="text-2xl cursor-pointer" />
               </div>
               {withdrawShow && (
                 <div className="absolute top-14 rounded-lg border left-0 w-full p-2 bg-white">
                   <div
                     className="flex flex-col justify-start gap-4 px-3 py-2"
-                  // onClick={() => handleDrowpdownChange("bank")}
+                    // onClick={() => handleDrowpdownChange("bank")}
                   >
-                    <div className="flex flex-row items-center gap-2 hover:bg-gray-200 cursor-pointer p-1 rounded-xl" onClick={() => handlePaymentMethod("bank")}>
-                      <img
-                        src={directBankIcon}
-                        alt="icon"
-                        className="w-8"
-                      />
+                    <div
+                      className="flex flex-row items-center gap-2 hover:bg-gray-200 cursor-pointer p-1 rounded-xl"
+                      onClick={() => handlePaymentMethod("bank")}
+                    >
+                      <img src={directBankIcon} alt="icon" className="w-8" />
                       <p>Direct Bank</p>
                     </div>
-                    <div className="flex flex-row items-center gap-2 hover:bg-gray-200 cursor-pointer p-1 rounded-xl" onClick={() => handlePaymentMethod("stripe")}>
-                      <img
-                        src={stripeIcon}
-                        alt="icon"
-                        className="w-8"
-                      />
+                    <div
+                      className="flex flex-row items-center gap-2 hover:bg-gray-200 cursor-pointer p-1 rounded-xl"
+                      onClick={() => handlePaymentMethod("stripe")}
+                    >
+                      <img src={stripeIcon} alt="icon" className="w-8" />
                       <p>Stripe</p>
                     </div>
-
                   </div>
-
                 </div>
               )}
             </div>
@@ -211,7 +203,7 @@ const Withdraw = () => {
                     type="number"
                     inputMode="numeric"
                     pattern="[0-9]*"
-                    style={{ WebkitAppearance: "", MozAppearance: "textfield", }}
+                    style={{ WebkitAppearance: "", MozAppearance: "textfield" }}
                     onChange={(e) => setAccountNumber(e.target.value)}
                   ></input>
                 </div>

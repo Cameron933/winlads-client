@@ -50,7 +50,6 @@ const MyEntries = () => {
 
   const getMyGiveaways = async (id, from, to, catValue, roundId, number) => {
     setIsLoading(true)
-    console.log(from, to, "from to")
     let baseUrl = `${
       import.meta.env.VITE_SERVER_API
     }/myRaffleRounds?uid=${id}&from=${from}&to=${to}`;

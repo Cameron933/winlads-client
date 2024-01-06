@@ -194,13 +194,13 @@ const Transaction = () => {
               <img
                 src={Balance}
                 alt="balance"
-                className="w-6 h-6 md:h-20 md:w-20 xl:h-16 xl:w-16 max-w-screen-sm"
+                className="w-6 h-6 md:h-20 md:w-20 xl:h-12 xl:w-12 max-w-screen-sm"
               />
               <div className="flex flex-col w-full">
-                <p className="text-white text-lg md:text-xl xl:text-2xl 2xl:text-2xl special:text-3xl">
-                  AUD {wallet.balance || "0.00"}
+                <p className="text-white text-lg md:text-xl xl:text-xl 2xl:text-2xl special:text-3xl">
+                  AUD&nbsp;{wallet.balance || "0.00"}
                 </p>
-                <p className="text-white text-sm md:text-lg xl:text-lg 2xl:text-xl special:text-2xl">
+                <p className="text-white text-sm md:text-lg xl:text-sm 2xl:text-xl special:text-2xl">
                   Balance
                 </p>
               </div>
@@ -209,13 +209,13 @@ const Transaction = () => {
               <img
                 src={Profit}
                 alt=""
-                className="w-6 h-6 md:h-20 md:w-20 xl:h-16 xl:w-16 max-w-screen-sm"
+                className="w-6 h-6 md:h-20 md:w-20 xl:h-12 xl:w-12 max-w-screen-sm"
               />
               <div className="flex flex-col w-full">
-                <p className="text-white text-lg md:text-xl xl:text-2xl 2xl:text-2xl special:text-3xl">
-                  ${wallet.earning || "0.00"}
+                <p className="text-white text-lg md:text-xl xl:text-xl 2xl:text-2xl special:text-3xl">
+                AUD&nbsp;{wallet.earning || "0.00"}
                 </p>
-                <p className="text-white text-sm md:text-lg xl:text-lg 2xl:text-xl special:text-2xl">
+                <p className="text-white text-sm md:text-lg xl:text-sm 2xl:text-xl special:text-2xl">
                   Earning
                 </p>
               </div>
@@ -225,13 +225,13 @@ const Transaction = () => {
               <img
                 src={ShoppingBag}
                 alt=""
-                className="w-6 h-6 md:h-20 md:w-20 xl:h-16 xl:w-16 max-w-screen-sm"
+                className="w-6 h-6 md:h-20 md:w-20 xl:h-12 xl:w-12 max-w-screen-sm"
               />
               <div className="flex flex-col w-full">
-                <p className="text-white text-lg md:text-xl xl:text-2xl 2xl:text-2xl special:text-3xl">
-                  AUD {wallet.purchase || "0.00"}
+                <p className="text-white text-lg md:text-xl xl:text-xl 2xl:text-2xl special:text-3xl">
+                  AUD&nbsp;{wallet.purchase || "0.00"}
                 </p>
-                <p className="text-white text-sm md:text-lg xl:text-lg 2xl:text-xl special:text-2xl">
+                <p className="text-white text-sm md:text-lg xl:text-sm 2xl:text-xl special:text-2xl">
                   Purchase
                 </p>
               </div>
