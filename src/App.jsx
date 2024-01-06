@@ -38,6 +38,7 @@ import Youtube from "./components/youtube/Youtube";
 import Affiliate from "./pages/Affiliate/Affiliate";
 import Promo from "./pages/Promo/Promo";
 import RefCount from "./pages/Affiliate/RefferalCount";
+import Won from "./pages/Won/Won"
 
 
 function App() {
@@ -128,6 +129,10 @@ function App() {
         {
           path:'/ref',
           element:<RefCount/>
+        },
+        {
+          path:'/won',
+          element:<Won/>
         }
       ],
     },

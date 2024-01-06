@@ -1,6 +1,7 @@
 import CatJeep from "../../assets/images/rafflesImages/newJeep.png";
 import NewVeh from "../../assets/images/newVeh.png";
 import { LuInfo } from "react-icons/lu";
+import { Link } from "react-router-dom";
 
 const DashboardVehicleCard = ({
   bgColor,
@@ -38,8 +39,9 @@ const DashboardVehicleCard = ({
         }}
       >
         <div className="flex flex-row items-center justify-between px-1">
-          <LuInfo className="text-white" />
-
+          <Link to="/won">
+            <LuInfo className="text-white" />
+          </Link>
           <img
             src={icon}
             alt=""
