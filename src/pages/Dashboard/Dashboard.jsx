@@ -147,7 +147,7 @@ const Dashboard = () => {
                       {giveaways.slice(0, initialLength).map((giveaway, key) => (
                         <DashboardVehicleCard
                           key={key}
-                          name={giveaway.raffle?.name}
+                          name={giveaway.name}
                           date={giveaway?.startingtime}
                           fromColor={giveaway.raffle?.color}
                           color={giveaway?.raffle?.color}

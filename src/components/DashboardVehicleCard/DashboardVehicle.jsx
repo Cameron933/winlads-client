@@ -54,6 +54,7 @@ const DashboardVehicleCard = ({
             alt=""
             className="flex w-36 special:w-96 2xl:w-48 shadow-xl"
           />
+          
           <div className="flex flex-col space-y-4 items-center">
             <div className="flex text-end flex-col z-10 pr-2 items-center space-y-2 2xl:space-y-4 special:space-y-4">
               <p className=" font-bold xl:text-[12px] text-xs special:text-4xl 2xl:text-[16px] text-center">
