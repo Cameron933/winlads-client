@@ -22,7 +22,10 @@ import {
   FcDiploma1,
   FcButtingIn,
   FcSmartphoneTablet,
+  FcUnlock,
+  FcTwoSmartphones
 } from "react-icons/fc";
+
 
 const inputStyle = {
   border: '1px solid #000000',
@@ -40,6 +43,7 @@ const Register = () => {
   const navigate = useNavigate();
   const [buttonText, setButtonText] = useState("Get OTP");
   const [isChecked, setIsChecked] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState('');
   const cookies = new Cookies(null, { path: "/" });
 
   const [fieldDis, setFieldDis] = useState(false);
@@ -56,19 +60,39 @@ const Register = () => {
     setIsChecked(e.target.checked);
   };
 
+
+  const handleConfirmPasswordChange = (event) => {
+    setConfirmPassword(event.target.value);
+  };
+
   const saveFormData = async (temp_values, uid) => {
+    if (values.password !== values.confirmPassword) {
+      toast.error("Passwords do not match", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+      return; 
+    }
+  
     console.log(temp_values, uid);
     const data = {
       firstname: values.firstname,
       lastname: values.lastname,
       email: values.email,
-      mobile: "+"+ph,
+      password: values.password,
+      mobile: "+" + ph,
       passport: values.passport,
       tin: values.tin,
       rafflesId: values.rafflesId,
       uid: uid,
     };
-
+  
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_SERVER_API}/register`,
@@ -90,6 +114,7 @@ const Register = () => {
       console.error("Error submitting form:", error);
     }
   };
+  
 
   function onSignup(e) {
     setFieldDis(true);
@@ -198,6 +223,7 @@ const Register = () => {
         firstname: "",
         lastname: "",
         email: "",
+        password: "",
         mobile: "",
         passport: "",
         tin: "",
@@ -326,6 +352,52 @@ const Register = () => {
                       {errors.email && touched.email && errors.email}
                     </small>
                   </div>
+                  <div
+                    className={
+                      errors.password && touched.password
+                        ? "input-div input-error"
+                        : "input-div"
+                    }
+                  >
+                    <FcUnlock size={20} />
+                    <input
+                      type="password"
+                      placeholder="Password"
+                      value={values.password}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      id="password"
+                      className="placeholder:text-[16px]"
+                      disabled={fieldDis}
+                    />
+                    <small className="text-error">
+                      {errors.password && touched.password && errors.password}
+                    </small>
+                  </div>
+
+                  <div
+                    className={
+                      errors.confirmPassword && touched.confirmPassword
+                        ? "input-div input-error"
+                        : "input-div"
+                    }
+                  >
+                    <FcTwoSmartphones size={20} />
+                    <input
+                      type="password"
+                      placeholder="Confirm Password"
+                      value={values.confirmPassword}
+                      onChange={handleConfirmPasswordChange}
+                      onBlur={handleBlur}
+                      id="confirmPassword"
+                      className="placeholder:text-[16px]"
+                      disabled={fieldDis}
+                    />
+                    <small className="text-error">
+                      {errors.confirmPassword && touched.confirmPassword && errors.confirmPassword}
+                    </small>
+                  </div>
+
 
                   <div
                     className={
