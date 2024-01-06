@@ -130,11 +130,12 @@ function App() {
           path:'/ref',
           element:<RefCount/>
         },
-        {
-          path:'/won',
-          element:<Won/>
-        }
+       
       ],
+    },
+    {
+      path:'/won',
+      element:<Won/>
     },
 
     {
