@@ -44,7 +44,7 @@ const Won = () => {
                 >
                   <IoIosArrowBack className="text-black bg-gray-200 rounded-full p-1 w-8 h-8" />
                 </div>
-                <div className=" md:text-3xl font-bold special:text-8xl max-sm:text-xl">
+                <div className="md:text-3xl font-bold special:text-8xl text-xl">
                   Lorem ipsum dolor sit amet, consectetur adipiscing
                 </div>
               </div>
@@ -52,10 +52,10 @@ const Won = () => {
                 Lorem ipsum dolor sit amet, consectetur adipiscing
               </div>
 
-              <div className="text-3xl font-normal 2xl:text-4xl special:text-7xl max-sm:text-lg 2xl:pt-8">
+              <div className="text-xl xl:text-2xl font-normal 2xl:text-3xl special:text-6xl 2xl:pt-8">
                 sed do eiusmod tempo
               </div>
-              <div className="text-lg font-normal 2xl:text-xl w-3/4 max-xl:w-full special:text-4xl max-sm:text-xs">
+              <div className="md:text-sm xl:text-sm font-normal 2xl:text-xl w-3/4 max-xl:w-full special:text-4xl text-xs">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet
                 tellus cras adipiscing enim eu turpis. Dictum fusce ut placerat
@@ -68,10 +68,10 @@ const Won = () => {
                 vitae tortor condimentum. Turpis in eu mi bibendum. Sit amet
                 risus nullam eget felis eget nunc lobortis.
               </div>
-              <div className="text-3xl font-normal 2xl:text-4xl special:text-7xl max-sm:text-lg 2xl:pt-4">
+              <div className="text-xl xl:text-2xl font-normal 2xl:text-3xl special:text-6xl 2xl:pt-4">
                 sed do eiusmod tempo
               </div>
-              <div className="text-lg font-normal w-3/4 2xl:text-xl max-xl:w-full special:text-4xl max-sm:text-xs">
+              <div className="md:text-sm xl:text-sm font-normal 2xl:text-xl w-3/4 max-xl:w-full special:text-4xl text-xs">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet
                 tellus cras adipiscing enim eu turpis. Dictum fusce ut placerat
