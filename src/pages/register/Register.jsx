@@ -60,25 +60,7 @@ const Register = () => {
     setIsChecked(e.target.checked);
   };
 
-
-  const handleConfirmPasswordChange = (event) => {
-    setConfirmPassword(event.target.value);
-  };
-
   const saveFormData = async (temp_values, uid) => {
-    if (values.password !== values.confirmPassword) {
-      toast.error("Passwords do not match", {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-      });
-      return; 
-    }
   
     console.log(temp_values, uid);
     const data = {
@@ -224,6 +206,7 @@ const Register = () => {
         lastname: "",
         email: "",
         password: "",
+        confirmPassword: "",
         mobile: "",
         passport: "",
         tin: "",
@@ -387,7 +370,7 @@ const Register = () => {
                       type="password"
                       placeholder="Confirm Password"
                       value={values.confirmPassword}
-                      onChange={handleConfirmPasswordChange}
+                      onChange={handleChange}
                       onBlur={handleBlur}
                       id="confirmPassword"
                       className="placeholder:text-[16px]"
@@ -524,8 +507,10 @@ const Register = () => {
                     className={`text-white rounded-xl justify-center px-12 py-2 flex flex-row items-center font-semibold special:text-xl bg-${
                       isChecked ? "black" : "gray-500"
                     } hover:bg-${isChecked ? "black/50" : ""}`}
-                    onClick={(e) => onSignup(e)}
+                    // onClick={(e) => onSignup(e)}
+                    // onClick={(e) => onSignup(e)}
                     disabled={!isChecked}
+                    type="submit"
                   >
                     <span className="xl:text-xl md:text-xl special:text-2xl text-lg text-white font-bold">
                       {buttonText}
