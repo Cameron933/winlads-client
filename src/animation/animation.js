@@ -3,7 +3,7 @@
 export const carAnimation = {
     initialMobile: { x: 100, opacity: 0 }, 
     initial: { x: 800, opacity: 0 }, 
-    animate: { x: 500, opacity: 1 }, 
+    animate: { x: 650, opacity: 1 }, 
     transition: { type: "tween", duration: 2, delay: 1 }, // Delay the animation for 1 second
   };
   
