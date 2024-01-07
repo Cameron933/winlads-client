@@ -352,6 +352,7 @@ const Login = () => {
                           Register now
                         </Link>
                       </span>
+                      
                     </div>
                   </div>
                 </form>
