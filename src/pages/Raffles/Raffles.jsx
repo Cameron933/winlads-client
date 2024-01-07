@@ -91,6 +91,8 @@ function Raffles() {
     setSelectPayment(true);
   };
 
+  const linearGradient = `linear-gradient(90deg, ${bgColor} 0%, #000000 100%)`;
+
   return (
     <>
       <div className="flex flex-row justify-between mx-auto">
@@ -125,7 +127,67 @@ function Raffles() {
                       live Giveaways
                     </p>
                   </div>
-                  <Link to="/live">
+                  {/* {raffleRounds.length > 0 ? (
+                  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2">
+                    {raffleRounds
+                      ?.slice(0, initialLength)
+                      .map((raffle, key) => (
+                        <div
+                          className={`flex flex-row justify-between pr-2 rounded-3xl items-center 2xl:rounded-[30px] special:rounded-[40px] w-full pt-4 shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:opacity-75 cursor-pointer }`}
+                          style={{ background: linearGradient }}
+                          key={key}
+                          onClick={() => {
+                            handleButton({
+                              id: raffle?._id,
+                              price: raffle?.price,
+                              name: raffle?.name,
+                            });
+                          }}
+                        >
+                          <img
+                            src={raffleimage}
+                            alt=""
+                            className="flex w-36 special:w-96 2xl:w-48"
+                          />
+                          <div className="flex flex-col space-y-4">
+                            <div className="flex justify-end">
+                              <img
+                                src={raffle.img}
+                                alt=""
+                                className="2xl:w-12 xl:w-8 w-8 special:w-16"
+                              />
+                            </div>
+                            <div className="flex text-end flex-col z-10 pr-2 items-center space-y-2 2xl:space-y-4 special:space-y-4">
+                              <p className="text-white font-bold xl:text-[12px] text-xs special:text-4xl 2xl:text-[16px] text-center">
+                                {raffle.name}
+                              </p>
+                              <p className="text-[10px] text-white special:text-xl 2xl:text-[10px]">
+                                {new Date(raffle.endtime).toLocaleString(
+                                  "en-US",
+                                  {
+                                    year: "numeric",
+                                    month: "long",
+                                    day: "numeric",
+                                    hour: "numeric",
+                                    minute: "numeric",
+                                    second: "numeric",
+                                  }
+                                )}
+                              </p>
+                            </div>
+                            <div className="grid grid-cols-3 px-5 items-center">
+                              <div className="col-span-2 flex justify-end gap-2 z-10"></div>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                  </div>
+                ) : (
+                  <p className="flex justify-center font-semibold 2xl:text-2xl xl:text-xl special:text-4xl text-lg pt-12">
+                    No Giveaways
+                  </p>
+                )} */}
+                  {/* <Link to="/live">
                     {liveLink ? (
                       <div className="bg-[#D5B511] hover:bg-[#D5B511]/75 flex-col rounded-3xl px-2 special:px-4 py-1 space-y-2 xl:w-1/2 md:w-1/2  w-full">
                         <div className="flex flex-row justify-between items-center">
@@ -179,7 +241,7 @@ function Raffles() {
                     ) : (
                       <NoLive />
                     )}
-                  </Link>
+                  </Link> */}
                 </div>
 
                 {/* <GucciCard /> */}
@@ -217,7 +279,7 @@ function Raffles() {
                       .map((raffle, key) => (
                         <div
                           className={`flex flex-row justify-between pr-2 rounded-3xl items-center 2xl:rounded-[30px] special:rounded-[40px] w-full pt-4 shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:opacity-75 cursor-pointer }`}
-                          style={{ backgroundColor: bgColor }}
+                          style={{ background: linearGradient }}
                           key={key}
                           onClick={() => {
                             handleButton({

@@ -7,7 +7,7 @@ const LiveCard = () => {
         <p className=" text-base sm:text-lg font-semibold">Vehicle</p>
       </div>
 
-      <div className="flex items-center justify-center  ">
+      <div className="flex items-center justify-center">
         <img
           src={vechicle}
           alt=""

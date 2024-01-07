@@ -230,7 +230,7 @@ const Dashboard = () => {
                     className="w-[480px]"
                   />
                 </div>
-                <div className="flex flex-col space-y-2 w-full xl:w-web pt-12">
+                <div className="flex flex-col space-y-2 w-full xl:w-web pt-4">
                   <p className="text-2xl 2xl:text-2xl special:text-5xl font-semibold mb-2">
                     Up Coming Giveaways
                   </p>
