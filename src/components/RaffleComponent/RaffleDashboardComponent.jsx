@@ -19,34 +19,34 @@ function RaffleDashboardComponent({
     <>
       <Link to={`/giveaway/${id}`} state={{ name, bgColor, raffleimage }} className="w-full">
         <div
-          className="flex flex-row items-stretch justify-between pr-2 rounded-3xl pt-4 2xl:rounded-[30px] special:rounded-[40px] w-full shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:opacity-75"
+          className="flex flex-row items-stretch justify-between pr-2 h-3/4 rounded-3xl pt-4 2xl:rounded-[30px] special:rounded-[40px] w-full shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:opacity-75"
           style={{ background: linearGradient }}
         >
           <div className="w-36 special:w-96 2xl:w-48 min-w-32 aspect-square">
             <img
               src={raffleimage}
               alt=""
-              className="w-full h-full object-cover"
+              className="w-full h-full"
+              // className=""
             />
           </div>
     
 
           <div className="flex flex-col space-y-4 w-2/3 py-2">
-            <div className="flex justify-end">
+            {/* <div className="flex justify-end">
               <img
                 src={img}
                 alt=""
-                className="2xl:w-12 xl:w-8 w-8 special:w-16"
+                className="2xl:w-16 xl:w-16 w-16 special:w-24"
               />
-              {/* <p>{type}</p> */}
-            </div>
-            <div className="flex text-end flex-col z-10 pr-2 items-center space-y-2 2xl:space-y-4 special:space-y-4">
-              <p className="text-white font-bold xl:text-[12px] text-xs special:text-4xl 2xl:text-[16px] text-center">
+            </div> */}
+            <div className="flex text-end flex-col z-10 pr-2 space-y-2 2xl:space-y-4 special:space-y-4 pt-4">
+              <p className="text-white font-bold xl:text-2xl text-xs special:text-4xl 2xl:text-2xl text-center">
                 {name}
               </p>
-              <p className="text-[10px] text-white special:text-xl 2xl:text-[10px]">
+              {/* <p className="text-[10px] text-white special:text-xl 2xl:text-[10px]">
                 {date}
-              </p>
+              </p> */}
             </div>
             <div className="grid grid-cols-3 px-5 items-center">
               <div className="col-span-2 flex justify-end gap-2 z-10"></div>

@@ -204,7 +204,7 @@ function RaffleDashbord() {
               <div className="pt-10">
                 <motion.img
                   initial={{ x: 80, opacity: 0 }} // Initial position and opacity (hidden)
-                  animate={{ x: 0, opacity: 1 }} // Move and fade in when in view
+                  animate={{ x: 60, opacity: 1 }} // Move and fade in when in view
                   transition={{ type: "tween", duration: 1, delay: 1 }}
                   className="w-3/4"
                   src={MainCar}
