@@ -178,6 +178,11 @@ function Subscription() {
                       price={isYearly ? plane.annualy : "" | isQuartly ? plane.price_id_semiannual : "" | isMonthly ? plane.price_id : ""}
                       // descList={Array.isArray(plane.desc) ? plane.desc : []}
                       descList={Array.isArray(plane.desc) ? plane.desc : []}
+                      descL={
+                        isYearly
+                          ? Array.isArray(plane.desc) ? plane.desc[2] : []
+                          : "" | isQuartly ? Array.isArray(plane.desc) ? plane.desc[1] : [] : "" | isMonthly ? Array.isArray(plane.desc) ? plane.desc[0] : [] : ""
+                      }
                       desc1={plane.desc1}
                       desc2={plane.desc2}
                       desc3={plane.desc3}
