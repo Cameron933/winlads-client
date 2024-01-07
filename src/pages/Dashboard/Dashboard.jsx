@@ -134,8 +134,9 @@ const Dashboard = () => {
                     </p>
                     <p className="text-3xl text-black">
                       <span className="text-base">AUD</span>&nbsp;
-                      
-                      {(typeof valUser.balance === 'number' ? valUser.balance.toFixed(2) : "0.00")}
+                      {typeof valUser.balance === "number"
+                        ? valUser.balance.toFixed(2)
+                        : "0.00"}
                     </p>
                   </div>
                   <SmallGoldCard />
@@ -148,36 +149,43 @@ const Dashboard = () => {
                     </div>
                   ) : giveaways.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2">
-                      {giveaways.slice(0, initialLength).map((giveaway, key) => (
-                        <DashboardVehicleCard
-                          key={key}
-                          name={giveaway.name}
-                          date={giveaway?.startingtime}
-                          fromColor={giveaway.raffle?.color}
-                          color={giveaway?.raffle?.color}
-                          icon={giveaway.raffle?.image}
-                          raffleimage={giveaway.raffle?.raffleimage}
-                          onButton={() => {
-                            handleButton({
-                              id: giveaway?._id,
-                              price: giveaway?.price,
-                              name: giveaway?.raffle?.name
-                            });
-                          }}
-                          bgColor={giveaway.raffle?.color}
-                        />
-                      ))}
-                      {
-                        giveaways.length > 8 && (initialLength == 8 ?
-                          <button onClick={() => handleSeeMore(true)}
-                            className="mt-10 flex items-center justify-center mx-auto gap-2 ">
-                            See More <FaAngleDoubleDown/>
-                          </button> :
-                          <button onClick={() => handleSeeMore(false)}
-                            className="mt-10 flex items-center justify-center mx-auto gap-2">
-                            See Less <FaAngleDoubleUp/>
-                          </button>)
-                      }
+                      {giveaways
+                        .slice(0, initialLength)
+                        .map((giveaway, key) => (
+                          <DashboardVehicleCard
+                            key={key}
+                            name={giveaway.name}
+                            date={giveaway?.startingtime}
+                            fromColor={giveaway.raffle?.color}
+                            color={giveaway?.raffle?.color}
+                            icon={giveaway.raffle?.image}
+                            raffleimage={giveaway.raffle?.raffleimage}
+                            onButton={() => {
+                              handleButton({
+                                id: giveaway?._id,
+                                price: giveaway?.price,
+                                name: giveaway?.raffle?.name,
+                              });
+                            }}
+                            bgColor={giveaway.raffle?.color}
+                          />
+                        ))}
+                      {giveaways.length > 8 &&
+                        (initialLength == 8 ? (
+                          <button
+                            onClick={() => handleSeeMore(true)}
+                            className="mt-10 flex items-center justify-center mx-auto gap-2 "
+                          >
+                            See More <FaAngleDoubleDown />
+                          </button>
+                        ) : (
+                          <button
+                            onClick={() => handleSeeMore(false)}
+                            className="mt-10 flex items-center justify-center mx-auto gap-2"
+                          >
+                            See Less <FaAngleDoubleUp />
+                          </button>
+                        ))}
                     </div>
                   ) : (
                     <div className="flex flex-col items-center space-y-2">
@@ -206,21 +214,21 @@ const Dashboard = () => {
                       </p>
                       <p className="text-3xl text-white">
                         <span className="text-base">AUD</span>&nbsp;
-                        {(typeof valUser.balance === 'number' ? valUser.balance.toFixed(2) : "0.00")}
+                        {typeof valUser.balance === "number"
+                          ? valUser.balance.toFixed(2)
+                          : "0.00"}
                       </p>
                     </div>
                     <SmallGoldCard />
                   </div>
-
                   <motion.img
                     initial={carAnimation.initial}
                     animate={carAnimation.animate}
                     transition={carAnimation.transition}
                     src={MainCar}
                     alt="main"
-                    className="w-[520px]"
+                    className="w-[480px]"
                   />
-                  
                 </div>
                 <div className="flex flex-col space-y-2 w-full xl:w-web pt-12">
                   <p className="text-2xl 2xl:text-2xl special:text-5xl font-semibold mb-2">
@@ -232,25 +240,27 @@ const Dashboard = () => {
                     </div>
                   ) : giveaways.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
-                      {giveaways.slice(0, initialLength).map((giveaway, key) => (
-                        <DashboardVehicleCard
-                          key={key}
-                          name={giveaway.name}
-                          date={giveaway?.endtime}
-                          color={giveaway?.raffle?.color}
-                          fromColor={giveaway.raffle?.color}
-                          icon={giveaway.raffle?.image}
-                          price={giveaway?.price}
-                          raffleimage={giveaway.raffle?.raffleimage}
-                          onButton={() => {
-                            handleButton({
-                              id: giveaway?._id,
-                              price: giveaway?.price,
-                              name: giveaway?.name
-                            });
-                          }}
-                        />
-                      ))}
+                      {giveaways
+                        .slice(0, initialLength)
+                        .map((giveaway, key) => (
+                          <DashboardVehicleCard
+                            key={key}
+                            name={giveaway.name}
+                            date={giveaway?.endtime}
+                            color={giveaway?.raffle?.color}
+                            fromColor={giveaway.raffle?.color}
+                            icon={giveaway.raffle?.image}
+                            price={giveaway?.price}
+                            raffleimage={giveaway.raffle?.raffleimage}
+                            onButton={() => {
+                              handleButton({
+                                id: giveaway?._id,
+                                price: giveaway?.price,
+                                name: giveaway?.name,
+                              });
+                            }}
+                          />
+                        ))}
                       {/* {
                         giveaways.length > 7 && (initialLength == 7 ?
                           <button onClick={() => handleSeeMore(true)}
