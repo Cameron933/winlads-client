@@ -535,10 +535,7 @@ const Register = () => {
         </div>
       )}
 
-      <script>
-        window.dataLayer = window.dataLayer || []; window.dataLayer.push(
-        {{ event: "sign_up", method: "google" }});{" "}
-      </script>
+    
     </>
   );
 };

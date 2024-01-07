@@ -8,13 +8,13 @@ import { MdOutlinePhotoCamera } from "react-icons/md";
 import { toast } from "react-toastify";
 import ItemLoader from "../../components/Loader/ItemLoader";
 import { storage } from "../../firebase.config";
+import { motion } from "framer-motion";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { Link, useNavigate } from "react-router-dom";
 import { validateCurrentUser } from "../../utils/validateuser";
 import CardComponent from "../../components/cardComponent/CardComponent";
 import { useRefresh } from "../../utils/RefreshContext";
 import AffiliateCard from "../../components/Affiliate/AffiliateCard";
-import { motion } from "framer-motion";
 
 const Affiliate = () => {
   const cookies = new Cookies(null, { path: "/" });
@@ -252,11 +252,11 @@ const Affiliate = () => {
                   </p>
                   <input
                     className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
-                    placeholder="Enter First Name"
+                    placeholder="loading..."
                     type="text"
                     onChange={(e) => setName(e.target.value)}
                     disabled
-                    value={userData?.firstname + " " + userData?.lastname}
+                    value={userData?.firstname || ""}
                   ></input>
                 </div>
 
@@ -266,10 +266,10 @@ const Affiliate = () => {
                   </p>
                   <input
                     className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
-                    placeholder="Enter Valid EMail"
+                    placeholder="loading..."
                     type="email"
                     onChange={(e) => setEmail(e.target.value)}
-                    value={email}
+                    value={email || ""}
                     disabled
                   ></input>
                 </div>
@@ -279,9 +279,9 @@ const Affiliate = () => {
                   </p>
                   <input
                     className="bg-white font-bold rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
-                    placeholder="Enter User Name"
+                    placeholder="loading..."
                     type="text"
-                    value={userData?.uid}
+                    value={userId || ""}
                     disabled
                   ></input>
                 </div>
@@ -296,7 +296,7 @@ const Affiliate = () => {
                     type="tel"
                     disabled
                     onChange={(e) => setMobile(e.target.value)}
-                    value={`https://www.winlads.com/?ref=${userData?.uid}`}
+                    value={`https://www.winlads.com/?ref=${userId}`}
                   ></input>
                 </div>
               </div>

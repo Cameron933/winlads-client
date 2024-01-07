@@ -22,12 +22,13 @@ const ForgotPassword = () => {
 
   const [valUser, setValUser] = useState("");
 
-  const [isCodeSent, setIsCodeSent] = useState(false);
+  const [codeState, setCodeState] = useState("forget")
 
-  
 
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const cookies = new Cookies(null, { path: "/" });
 
   const [loginDisable, setLoginDisable] = useState(true);
@@ -38,12 +39,34 @@ const ForgotPassword = () => {
   };
 
   async function onSignup(e) {
-    try {
-      const response = await axios.get(
-        `${import.meta.env.VITE_SERVER_API}/checkEmail?email=${email}`
-      );
-      if (!response.data.exists) {
-        toast.error("Email is not registered. Please register first.", {
+    setIsLoading(true);
+    if (codeState == "forget") {
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_SERVER_API}/forgetPassword?email=${email}`
+        );
+        console.log(response.data)
+        if (response.data.status == 200) {
+          setCodeState("validate")
+          setButtonText("Submit OTP")
+          setIsLoading(false);
+        } else {
+          toast.error("Password reset failed. Please try again", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          });
+          setIsLoading(false);
+
+
+        }
+      } catch (error) {
+        toast.error(error.message, {
           position: "top-center",
           autoClose: 5000,
           hideProgressBar: false,
@@ -54,49 +77,24 @@ const ForgotPassword = () => {
           theme: "colored",
         });
         setIsLoading(false);
-      } else {
-        try {
-          const data = {
-            email: email,
-          };
-
-          const response = await axios.get(
-            `${import.meta.env.VITE_SERVER_API}/forgetPassword?email=${email}`,
-            data
-          );
-          if (response.data.status == 200) {
-            setIsLoading(false);
-            toast.success("Send code your email", {
-              position: "top-center",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "colored",
-            });
-            setEmail("");
-            setIsCodeSent(true);
-            setButtonText("Send Code");
-            setIsEmailBlurred(true)
-          } else {
-            setIsLoading(false);
-            toast.error("Invalid email", {
-              position: "top-center",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "colored",
-            });
-          }
-        } catch (error) {
-          console.log(error);
+      }
+    } else if (codeState == "validate") {
+      try {
+        const data = {
+          email: email,
+          token: code
+        }
+        const response = await axios.post(
+          `${import.meta.env.VITE_SERVER_API}/validateToken`,
+          data
+        );
+        console.log(response.data)
+        if (response.data.status == 200 && response.data.validate) {
+          setCodeState("reset")
+          setButtonText("Change Password")
           setIsLoading(false);
-          toast.error("Something went wrong, Please try again!", {
+        } else {
+          toast.error("Invalid code. Try again!", {
             position: "top-center",
             autoClose: 5000,
             hideProgressBar: false,
@@ -106,13 +104,97 @@ const ForgotPassword = () => {
             progress: undefined,
             theme: "colored",
           });
+          setIsLoading(false);
+
+
         }
+      } catch (error) {
+        toast.error(error.message, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+        setIsLoading(false);
       }
-    } catch (error) {
-      setIsLoading(false);
+    } else if (codeState == "reset") {
+
+      if (password != confirmPassword) {
+        toast.error("Password does not matched!", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+        setIsLoading(false);
+        return;
+      }
+
+      try {
+        const data = {
+          email: email,
+          token: code,
+          password
+        }
+        const response = await axios.post(
+          `${import.meta.env.VITE_SERVER_API}/resetPassword`,
+          data
+        );
+        console.log(response.data)
+        if (response.data.status == 200) {
+          setCodeState("validate")
+          setButtonText("Change Password")
+          setIsLoading(false);
+          toast.success("Password changed!", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          });
+          navigate("/login");
+        } else {
+          toast.error("Invalid code. Try again!", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          });
+          setIsLoading(false);
+
+
+        }
+      } catch (error) {
+        toast.error(error.message, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+        setIsLoading(false);
+      }
+
     }
   }
-
   useEffect(() => {
     currentUserValidation();
   }, []);
@@ -127,53 +209,6 @@ const ForgotPassword = () => {
       console.log("");
     }
   };
-
-  async function sendCode() {
-    const data = {
-      code: code,
-      uid: valUser.uid,
-    };
-    try {
-      const response = await axios.post(
-        `${import.meta.env.VITE_SERVER_API}/validateToken`,
-        data
-      );
-      if (response.data.status == 200) {
-        toast.success("Code send successful", {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-        });
-      } else {
-        toast.error("Invalid code", {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-        });
-      }
-    } catch (err) {
-      toast.error("Something went wrong", {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-      });
-    }
-  }
 
   // Set loading
   useEffect(() => {
@@ -229,29 +264,28 @@ const ForgotPassword = () => {
 
                 <form onSubmit={handleSubmit} autoComplete="off" className="">
                   <div className="flex flex-col justify-center gap-5 mt-10">
-                    <div
-                      className={
-                        errors.email && touched.email
-                          ? "input-div input-error"
-                          : "input-div"
-                      }
-                    >
-                      <FcFeedback size={20} />
-                      <input
-                        type="email"
-                        placeholder="Email Address"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        id="email"
-                        className="placeholder:text-[16px]"
-                        disabled={isEmailBlurred}
-                      />
-                      <small className="text-error">
-                        {errors.email && touched.email && errors.email}
-                      </small>
-                    </div>
-                    {isCodeSent && (
-                      <div
+                    {
+                      codeState == "forget" ? <div
+                        className={
+                          errors.email && touched.email
+                            ? "input-div input-error"
+                            : "input-div"
+                        }
+                      >
+                        <FcFeedback size={20} />
+                        <input
+                          type="email"
+                          placeholder="Email Address"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          id="email"
+                          className="placeholder:text-[16px]"
+                          disabled={isEmailBlurred}
+                        />
+                        <small className="text-error">
+                          {errors.email && touched.email && errors.email}
+                        </small>
+                      </div> : codeState == "validate" ? <div
                         className={
                           errors.code && touched.code
                             ? "input-div input-error"
@@ -267,13 +301,46 @@ const ForgotPassword = () => {
                           id="code"
                           className="placeholder:text-[16px]"
                         />
-                      </div>
-                    )}
+                      </div> : codeState == "reset" ? <div><div
+                        className={
+                          errors.code && touched.code
+                            ? "input-div input-error"
+                            : "input-div"
+                        }
+                      >
+                        <FcDocument size={20} />
+                        <input
+                          type="password"
+                          placeholder="New Password"
+                          value={password}
+                          onChange={(e) => setPassword(e.target.value)}
+                          id="password"
+                          className="placeholder:text-[16px]"
+                        />
+                      </div><br /><div
+                        className={
+                          errors.code && touched.code
+                            ? "input-div input-error"
+                            : "input-div"
+                        }
+                      >
+                          <FcDocument size={20} />
+                          <input
+                            type="password"
+                            placeholder="Confirm Password"
+                            value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                            id="confirm"
+                            className="placeholder:text-[16px]"
+                          />
+                        </div></div> : <div></div>
+                    }
+
+
 
                     <button
-                      className={`px-12 w-full py-2 flex justify-center flex-row items-center rounded-lg bg-${
-                        loginDisable ? "black" : "gray-500"
-                      } hover:bg-${loginDisable ? "black/75" : ""}`}
+                      className={`px-12 w-full py-2 flex justify-center flex-row items-center rounded-lg bg-${loginDisable ? "black" : "gray-500"
+                        } hover:bg-${loginDisable ? "black/75" : ""}`}
                       onClick={(e) => onSignup(e)}
                       type="submit"
                       disabled={!loginDisable}
