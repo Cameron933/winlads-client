@@ -120,7 +120,7 @@ const Login = () => {
       setIsLoading(false);
       console.error("Error checking mobile:", error);
       // alert("An error occurred while checking the mobile number.");
-      toast.error("An error occurred while checking the mobile number.", {
+      toast.error("Something went wrong.Please try agin", {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
