@@ -1,6 +1,4 @@
 import { useNavigate } from "react-router-dom";
-// import Icon from "../../assets/images/chooseplane/Icons.png";
-// import Car from "../../assets/images/chooseplane/cjip.png";
 import { motion } from "framer-motion";
 import Card from "../../components/SubCard/SubCard";
 
@@ -39,9 +37,7 @@ const ChoosePlane = () => {
               btnword="SIGN UP NOW"
               bgColorFrom="#0094FF"
               bgColorTo="#00347C"
-              // point1={Correct}
-              // point2={Correct}
-              // point3={Correct}
+       
               titleColor="black"
               // btnword="Get started now"
             />
@@ -66,10 +62,7 @@ const ChoosePlane = () => {
               arrowColor="white"
               buttonTextColor="white"
               btnword="SIGN UP NOW"
-              // point1={Correct}
-              // point2={Correct}
-              // point3={Correct}
-              // point4={Correct}
+           
             />
             <Card
               bgColorFrom="#00ECFF"
@@ -122,13 +115,8 @@ const ChoosePlane = () => {
               buttonColor="#000000"
               arrowColor="[#01819D]"
               buttonTextColor={"white"}
-              btnword="SIGN UP FOR FREE"
-              // point1={Correct}
-              // point2={Correct}
-              // point3={Correct}
-              // point4={Correct}
-              // point5={Correct}
-              // point6={Correct}
+              btnword="SIGN UP NOW"
+    
             />
             <Card
               bgColorFrom="#23282E"
@@ -153,19 +141,11 @@ const ChoosePlane = () => {
               buttonColor="#475A79"
               arrowColor="[#01819D]"
               buttonTextColor={"white"}
-              btnword="SIGN UP FOR FREE"
+              btnword="SIGN UP NOW"
               classNames={""}
-              // point1={Correct}
-              // point2={Correct}
-              // point3={Correct}
-              // point4={Correct}
-              // point5={Correct}
-              // point6={Correct}
-              // point7={Correct}
+      
             />
-            {/* <Card />
-        <Card />
-        <Card /> */}
+      
           </div>
         </div>
       </div>
