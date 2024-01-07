@@ -82,7 +82,7 @@ const GoldCard = () => {
                         : "text-black"
                     }`}
                   >
-                    <span>Expires on</span>&nbsp;{endDate}
+                    <span>Auto Renews On</span>&nbsp;{endDate}
                   </p>
                 </span>
               </span>
