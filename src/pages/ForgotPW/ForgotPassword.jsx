@@ -12,14 +12,22 @@ import { toast } from "react-toastify";
 import { validateCurrentUser } from "../../utils/validateuser.js";
 import LoginImg from "../../assets/images/MainCar.png";
 import "react-phone-input-2/lib/style.css";
-import { FcFeedback, FcDiploma1 } from "react-icons/fc";
+import { FcFeedback, FcDocument } from "react-icons/fc";
 
 const ForgotPassword = () => {
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
-  const [buttonText, setButtonText] = useState("Login");
+  const [buttonText, setButtonText] = useState("Send Email");
+  const [isEmailBlurred, setIsEmailBlurred] = useState(false);
+
+  const [valUser, setValUser] = useState("");
+
+  const [isCodeSent, setIsCodeSent] = useState(false);
+
+  
 
   const [email, setEmail] = useState("");
+  const [code, setCode] = useState("");
   const cookies = new Cookies(null, { path: "/" });
 
   const [loginDisable, setLoginDisable] = useState(true);
@@ -57,6 +65,7 @@ const ForgotPassword = () => {
             data
           );
           if (response.data.status == 200) {
+            setIsLoading(false);
             toast.success("Send code your email", {
               position: "top-center",
               autoClose: 5000,
@@ -68,7 +77,9 @@ const ForgotPassword = () => {
               theme: "colored",
             });
             setEmail("");
-            setIsLoading(false);
+            setIsCodeSent(true);
+            setButtonText("Send Code");
+            setIsEmailBlurred(true)
           } else {
             setIsLoading(false);
             toast.error("Invalid email", {
@@ -110,11 +121,59 @@ const ForgotPassword = () => {
     const validator = await validateCurrentUser();
     if (validator.validatorBl) {
       console.log("Session OK", validator.user);
+      setValUser(validator.user);
       navigate("/dashboard");
     } else {
       console.log("");
     }
   };
+
+  async function sendCode() {
+    const data = {
+      code: code,
+      uid: valUser.uid,
+    };
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_SERVER_API}/validateToken`,
+        data
+      );
+      if (response.data.status == 200) {
+        toast.success("Code send successful", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      } else {
+        toast.error("Invalid code", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      }
+    } catch (err) {
+      toast.error("Something went wrong", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+    }
+  }
 
   // Set loading
   useEffect(() => {
@@ -185,11 +244,32 @@ const ForgotPassword = () => {
                         onChange={(e) => setEmail(e.target.value)}
                         id="email"
                         className="placeholder:text-[16px]"
+                        disabled={isEmailBlurred}
                       />
                       <small className="text-error">
                         {errors.email && touched.email && errors.email}
                       </small>
                     </div>
+                    {isCodeSent && (
+                      <div
+                        className={
+                          errors.code && touched.code
+                            ? "input-div input-error"
+                            : "input-div"
+                        }
+                      >
+                        <FcDocument size={20} />
+                        <input
+                          type="text"
+                          placeholder="Code"
+                          value={code}
+                          onChange={(e) => setCode(e.target.value)}
+                          id="code"
+                          className="placeholder:text-[16px]"
+                        />
+                      </div>
+                    )}
+
                     <button
                       className={`px-12 w-full py-2 flex justify-center flex-row items-center rounded-lg bg-${
                         loginDisable ? "black" : "gray-500"
