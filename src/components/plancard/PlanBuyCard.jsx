@@ -105,7 +105,7 @@ const PlanBuyCard = ({ onClose, userId, giveawayId, price, name, planeId }) => {
 
         <div className="flex flex-col special:px-24 2xl:px-8 px-0 space-y-4 special:space-y-12 2xl:space-y-8">
           <p className="font-bold text-black text-center xl:text-4xl 2xl:text-5xl special:text-8xl md:4xl text-2xl">
-            {price}
+            AUD&nbsp;{price}
           </p>
           {/* <p className="text-white text-center special:text-4xl">User/Month</p> */}
           {/* <div className="flex justify-center flex-col space-y-2 special:space-y-6 2xl:space-y-4">
