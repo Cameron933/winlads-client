@@ -78,7 +78,7 @@ const GoldCard = () => {
                   {valUser.subscripton?.name}
                 </p>
               ) : (
-                <div className="flex flex-row items-center gap-4 border-black border-2">
+                <div className="flex flex-row gap-4 items-center justify-center">
                   <img src={Cross} alt="" className="w-12" />
                   <p className="text-black 2xl:text-xl text-lg">
                     Your subscription is currently inactive

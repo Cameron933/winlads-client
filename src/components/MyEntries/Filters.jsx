@@ -11,7 +11,7 @@ const Filters = ({
   selectCatValue,
   round,
   numbers,
-  activeEntries = 0
+  activeEntries = 0,
 }) => {
   const [isCatShow, setIsCat] = useState(false);
   const [isRoundShow, setIsRound] = useState(false);
@@ -44,33 +44,36 @@ const Filters = ({
 
   const handleCat = (val) => {
     selectCatValue(val);
-    setIsCat(false)
+    setIsCat(false);
   };
 
   const handleRound = (id) => {
-    round(id)
-    setIsRound(false)
+    round(id);
+    setIsRound(false);
   };
 
   const handleNumbers = (num) => {
-    numbers(num)
-  }
+    numbers(num);
+  };
 
   return (
     <>
       <h1 className="special:text-4xl xl:text-3xl md:text-xl text-lg font-extrabold mb-2 xl:block hidden">
         My Entries
       </h1>
-      <h5 className="mb-5 text-green-600">Total Active Entries : {activeEntries}</h5>
-      <div className="hidden xl:grid grid-cols-5 mb-4 gap-2">
+      <h5 className="mb-5 text-green-600">
+        Total Active Entries : {activeEntries}
+      </h5>
+      <div className="hidden xl:grid grid-cols-6 mb-4 gap-2">
         <div className="col-span-1">
           <div
             className="w-full text-ellipsis overflow-hidden flex items-center justify-between bg-gray-300 px-4 py-3 gap-2 rounded-full text-xl font-semibold"
             onClick={handleCategoryShow}
           >
-            <p className="2xl:text-lg xl:text-sm">Giveaway Category</p>
+            <p className="2xl:text-sm xl:text-xs">Giveaway Category</p>
             <IoIosOptions className="2xl:text-xl xl:text-sm m-1 cursor-pointer flex-shrink-0" />
           </div>
+
           {isCatShow && (
             <div className="bg-white absolute border border-solid border-black rounded-xl p-2 w-48 2xl:w-64 mt-2">
               <div className="flex flex-col justify-center space-y-2 text-xs">
@@ -90,7 +93,7 @@ const Filters = ({
                   className="hover:bg-[#F5F5F5] p-1 rounded-lg cursor-pointer"
                   onClick={() => handleCat("Cash Prize")}
                 >
-                 Cash Prize
+                  Cash Prize
                 </p>
                 {/* <p
                   className="hover:bg-[#F5F5F5] p-1 rounded-lg cursor-pointer"
@@ -109,13 +112,18 @@ const Filters = ({
           )}
         </div>
         {/* Giveaway Rounds */}
-        <div className="col-span-4">
+        <div className="col-span-5">
+          
           <div className="flex flex-row space-x-2 justify-between">
-            <div className="flex w-full  items-center justify-between bg-gray-300 px-4 py-3 gap-2 rounded-full text-xl font-semibold" onClick={handleRoundsShow}>
-              <p className="2xl:text-lg xl:text-sm">Giveaway Rounds</p>
-              <IoIosOptions
-                className="2xl:text-xl xl:text-sm m-1 cursor-pointer"
-              />
+          <div className="bg-gray-300 px-4 py-3 rounded-full text-xl w-full font-semibold">
+            <p className="2xl:text-sm xl:text-xs">Giveaway Name</p>
+          </div>
+            <div
+              className="flex items-center justify-between bg-gray-300 px-4 w-full py-3 gap-2 rounded-full text-xl font-semibold"
+              onClick={handleRoundsShow}
+            >
+              <p className="2xl:text-sm xl:text-xs">Giveaway Rounds</p>
+              <IoIosOptions className="2xl:text-xl xl:text-sm m-1 cursor-pointer" />
             </div>
             {isRoundShow && (
               <div className="bg-white absolute border border-solid border-black rounded-xl p-2 w-48 2xl:w-64 mt-14">
@@ -137,7 +145,7 @@ const Filters = ({
             <input
               type="number"
               name="entry-number"
-              className="bg-gray-300 w-full  px-4 py-3 gap-2 rounded-full 2xl:text-lg xl:text-sm font-semibold placeholder:2xl:text-lg placeholder:xl:text-sm  placeholder:text-black outline-none"
+              className="bg-gray-300 w-full  px-4 py-3 gap-2 rounded-full 2xl:text-sm xl:text-xs font-semibold placeholder:2xl:text-lg placeholder:xl:text-sm  placeholder:text-black outline-none"
               placeholder="Entry Numbers"
               onChange={(e) => handleNumbers(e.target.value)}
             />
@@ -153,7 +161,7 @@ const Filters = ({
                 className="flex items-center w-48 justify-between bg-gray-300 px-4 py-3 gap-2 rounded-full text-xl font-semibold"
                 onClick={handleWinShow}
               >
-                <p className="2xl:text-lg xl:text-sm">Win State</p>
+                <p className="2xl:text-sm xl:text-xs">Win State</p>
               </div>
               {winShow && (
                 <div className="bg-white absolute border border-solid border-black rounded-xl p-2 w-24 2xl:w-36 mt-2">

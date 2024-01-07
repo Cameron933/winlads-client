@@ -149,7 +149,7 @@ const MyEntries = () => {
               numbers={getNumbers}
             />
             <div className="flex items-center justify-between xl:hidden px-5 my-5">
-              <h1 className="text-xl font-bold">Upcoming Entries</h1>
+              <h1 className="text-xl font-bold">My Entries</h1>
               <IoIosTimer className="text-2xl font-bold" />
             </div>
             {isLoading ? (
@@ -163,7 +163,7 @@ const MyEntries = () => {
                     {myGiveaways.map((giveaway, key) => (
                       <div
                         key={key}
-                        className="xl:grid grid-cols-5 px-2 xl:px-0 flex flex-col"
+                        className="xl:grid grid-cols-6 px-2 xl:px-0 flex flex-col"
                       >
                         <div
                           className="xl:rounded-l-full col-span-1 justify-between items-center rounded-t-2xl py-4 xl:pl-4 px-2 "
@@ -176,7 +176,10 @@ const MyEntries = () => {
                             <PiBookmarkSimpleLight />
                           </div>
                         </div>
-                        <div className="bg-blue-100 py-3 text-xs 2xl:text-sm xl:pr-4 pl-2 pr-2 xl:pl-4 xl:rounded-b-none rounded-b-2xl xl:flex col-span-4 xl:items-center justify-between space-y-1 xl:space-y-0">
+                        <div className="bg-blue-100 py-3 text-xs 2xl:text-sm xl:pr-4 pl-2 pr-2 xl:pl-4 xl:rounded-b-none rounded-b-2xl xl:flex col-span-5 xl:items-center justify-between space-y-1 xl:space-y-0">
+                        <div>
+                            <p className="capitalize">{giveaway.round.name}</p>
+                          </div>
                           <div>
                             <p className="capitalize">{giveaway.round.name}</p>
                           </div>
