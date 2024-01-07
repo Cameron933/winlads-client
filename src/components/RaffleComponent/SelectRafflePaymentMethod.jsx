@@ -15,7 +15,8 @@ const SelectRafflePaymentMethod = ({
   name,
 }) => {
   const [count, setCount] = useState(0);
-  
+  const [coupon, setCoupon] = useState("")
+
   const handleButtonClick = async () => {
     try {
       const response = await axios.post(
@@ -23,7 +24,8 @@ const SelectRafflePaymentMethod = ({
         {
           uid: userId,
           roundid: giveawayId,
-          count: count
+          count: count,
+          coupen: coupon
         }
       );
 
@@ -133,31 +135,39 @@ const SelectRafflePaymentMethod = ({
               </p>
             </div>
           </div> */}
-          <div className="flex justify-center items-center">
-            <div className="rounded-2xl flex flex-row justify-between items-center px-4 w-48 border border-solid border-black bg-[##F3F3F3] py-2">
+          <div className="flex justify-center items-center  flex-col space-y-2">
+            <div className="rounded-2xl flex flex-row justify-between items-center px-4 w-48 border border-solid border-black bg-[##F3F3F3] py-1">
               <div onClick={handleMinus} className="cursor-pointer text-lg">
                 -
               </div>
 
-              <div>{count}</div>
+              <div className="text-lg">{count}</div>
               <div onClick={handlePlus} className="cursor-pointer text-lg">
                 +
               </div>
             </div>
+            <input
+              type="text"
+              className="rounded-2xl border border-solid border-black placeholder:text-xs text-xs px-4 py-2 placeholder:text-gray-700 w-48"
+              placeholder="Coupon code"
+              value={coupon}
+              id="coupon"
+              onChange={(e) => setCoupon(e.target.value)}
+            />
           </div>
 
           <p className="text-black text-lg font-bold 2xl:text-xl special:text-4xl">
             Payment Methods
           </p>
           <div className="flex flex-row justify-center items-center lg:gap-4 gap-1 text-black">
-            <div className="bg-white hover:bg-black/5 rounded-xl p-2 flex justify-center items-center cursor-pointer lg:gap-2">
+            {/* <div className="bg-white hover:bg-black/5 rounded-xl p-2 flex justify-center items-center cursor-pointer lg:gap-2">
               <img
                 src={bitcoin}
                 alt=""
                 className="w-7 h-7 special:h-14 special:w-14 2xl:h-9 2xl:w-9"
               />
               <p className="text-xs md:block hidden">Pay by Ethereum</p>
-            </div>
+            </div> */}
             <div
               className="bg-white hover:bg-black/5 rounded-xl p-2 flex justify-center items-center cursor-pointer lg:gap-2"
               onClick={handlePointsButtonClick}
