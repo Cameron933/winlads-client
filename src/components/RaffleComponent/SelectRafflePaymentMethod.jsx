@@ -5,6 +5,7 @@ import Visa from "../../assets/images/rafflesImages/Visa.png";
 import Usd from "../../assets/images/rafflesImages/Usd.png";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useState } from "react";
 
 const SelectRafflePaymentMethod = ({
   onClose,
@@ -13,6 +14,8 @@ const SelectRafflePaymentMethod = ({
   price,
   name,
 }) => {
+  const [count, setCount] = useState(0);
+  
   const handleButtonClick = async () => {
     try {
       const response = await axios.post(
@@ -20,6 +23,7 @@ const SelectRafflePaymentMethod = ({
         {
           uid: userId,
           roundid: giveawayId,
+          count: count
         }
       );
 
@@ -66,6 +70,16 @@ const SelectRafflePaymentMethod = ({
       }
     } catch (error) {
       console.log(error);
+    }
+  };
+
+  const handlePlus = () => {
+    setCount(count + 1);
+  };
+
+  const handleMinus = () => {
+    if (count > 0) {
+      setCount(count - 1);
     }
   };
 
@@ -119,6 +133,19 @@ const SelectRafflePaymentMethod = ({
               </p>
             </div>
           </div> */}
+          <div className="flex justify-center items-center">
+            <div className="rounded-2xl flex flex-row justify-between items-center px-4 w-48 border border-solid border-black bg-[##F3F3F3] py-2">
+              <div onClick={handleMinus} className="cursor-pointer text-lg">
+                -
+              </div>
+
+              <div>{count}</div>
+              <div onClick={handlePlus} className="cursor-pointer text-lg">
+                +
+              </div>
+            </div>
+          </div>
+
           <p className="text-black text-lg font-bold 2xl:text-xl special:text-4xl">
             Payment Methods
           </p>
