@@ -218,7 +218,7 @@ const Dashboard = () => {
                     transition={carAnimation.transition}
                     src={MainCar}
                     alt="main"
-                    className="w-[620px]"
+                    className="w-[520px]"
                   />
                   
                 </div>
