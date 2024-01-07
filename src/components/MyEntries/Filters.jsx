@@ -11,7 +11,8 @@ const Filters = ({
   selectCatValue,
   round,
   numbers,
-  activeEntries = 0,
+  // activeEntries = 0,
+  myTickets,
 }) => {
   const [isCatShow, setIsCat] = useState(false);
   const [isRoundShow, setIsRound] = useState(false);
@@ -62,16 +63,18 @@ const Filters = ({
         My Entries
       </h1>
       <h5 className="mb-5 text-green-600">
-        Total Active Entries : {activeEntries}
+        Total Active Entries : {myTickets}
       </h5>
-      <div className="hidden xl:grid grid-cols-6 mb-4 gap-2">
+      <div className="hidden xl:grid grid-cols-5 mb-4 gap-2">
         <div className="col-span-1">
           <div
-            className="w-full text-ellipsis overflow-hidden flex items-center justify-between bg-gray-300 px-4 py-3 gap-2 rounded-full text-xl font-semibold"
+            className="w-full text-ellipsis overflow-hidden flex items-center justify-between bg-gray-300 px-4 py-2 gap-2 rounded-full text-xl font-semibold"
             onClick={handleCategoryShow}
           >
-            <p className="2xl:text-sm xl:text-xs">Giveaway Category</p>
-            <IoIosOptions className="2xl:text-xl xl:text-sm m-1 cursor-pointer flex-shrink-0" />
+            <p className="2xl:text-sm xl:text-xs text-black">
+              Giveaway Category
+            </p>
+            <IoIosOptions className="2xl:text-xl xl:text-sm m-1 cursor-pointer flex-shrink-0 text-black" />
           </div>
 
           {isCatShow && (
@@ -112,18 +115,16 @@ const Filters = ({
           )}
         </div>
         {/* Giveaway Rounds */}
-        <div className="col-span-5">
-          
+        <div className="col-span-4">
           <div className="flex flex-row space-x-2 justify-between">
-          <div className="bg-gray-300 px-4 py-3 rounded-full text-xl w-full font-semibold">
-            <p className="2xl:text-sm xl:text-xs">Giveaway Name</p>
-          </div>
             <div
-              className="flex items-center justify-between bg-gray-300 px-4 w-full py-3 gap-2 rounded-full text-xl font-semibold"
+              className="flex items-center justify-between bg-gray-300 px-4 py-2 w-full rounded-full text-xl font-semibold"
               onClick={handleRoundsShow}
             >
-              <p className="2xl:text-sm xl:text-xs">Giveaway Rounds</p>
-              <IoIosOptions className="2xl:text-xl xl:text-sm m-1 cursor-pointer" />
+              <p className="2xl:text-sm xl:text-xs text-black">
+                Giveaway Rounds
+              </p>
+              <IoIosOptions className="2xl:text-xl xl:text-sm m-1 cursor-pointer text-black" />
             </div>
             {isRoundShow && (
               <div className="bg-white absolute border border-solid border-black rounded-xl p-2 w-48 2xl:w-64 mt-14">
@@ -145,23 +146,23 @@ const Filters = ({
             <input
               type="number"
               name="entry-number"
-              className="bg-gray-300 w-full  px-4 py-3 gap-2 rounded-full 2xl:text-sm xl:text-xs font-semibold placeholder:2xl:text-lg placeholder:xl:text-sm  placeholder:text-black outline-none"
+              className="bg-gray-300 w-full px-4 rounded-full 2xl:text-sm xl:text-xs font-semibold placeholder:2xl:text-lg placeholder:xl:text-sm  placeholder:text-black outline-none"
               placeholder="Entry Numbers"
               onChange={(e) => handleNumbers(e.target.value)}
             />
             <input
               type="date"
               name="valid-date"
-              className="bg-gray-300 w-full px-4 py-3 gap-2 rounded-full 2xl:text-lg xl:text-sm font-semibold cursor-pointer"
+              className="bg-gray-300 w-full px-4 py-2 gap-2 rounded-full 2xl:text-lg xl:text-sm font-semibold cursor-pointer"
               placeholder="Valid Date"
               onChange={(e) => validDate(e.target.value)}
             />
             <div className="relative cursor-pointer">
               <div
-                className="flex items-center w-48 justify-between bg-gray-300 px-4 py-3 gap-2 rounded-full text-xl font-semibold"
+                className="flex items-center w-48 justify-between text-black bg-gray-300 px-4 py-3 gap-2 rounded-full text-xl font-semibold"
                 onClick={handleWinShow}
               >
-                <p className="2xl:text-sm xl:text-xs">Win State</p>
+                <p className="2xl:text-sm xl:text-xs">Status</p>
               </div>
               {winShow && (
                 <div className="bg-white absolute border border-solid border-black rounded-xl p-2 w-24 2xl:w-36 mt-2">

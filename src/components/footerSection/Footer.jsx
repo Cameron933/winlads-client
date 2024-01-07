@@ -58,13 +58,13 @@ function Footer() {
                   Contact Us
                 </p>
                 <ul className="text-xs 2xl:text-lg flex flex-col gap-1 ">
-                  <li className=" cursor-pointer flex items-center gap-2 2xl:gap-5">
+                  {/* <li className=" cursor-pointer flex items-center gap-2 2xl:gap-5">
                     <MdOutlineLocalPhone className="text-white text-sm 2xl:text-lg" />
 
                     <a href="#" target="_blank" rel="noopener noreferrer">
                       +61 420 363 993
                     </a>
-                  </li>
+                  </li> */}
                   <li className="cursor-pointer flex items-center gap-2 2xl:gap-5">
                     <MdOutlineEmail className="text-white text-sm 2xl:text-lg" />
 

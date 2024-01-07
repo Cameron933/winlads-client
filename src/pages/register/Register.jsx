@@ -382,7 +382,7 @@ const Register = () => {
                   </div>
 
 
-                  <div
+                  {/* <div
                     className={
                       errors.passport && touched.passport
                         ? "input-div input-error"
@@ -400,10 +400,8 @@ const Register = () => {
                       className="placeholder:text-[16px]"
                       disabled={fieldDis}
                     />
-                    {/* <small className="text-error">
-                      {errors.passport && touched.passport && errors.passport}
-                    </small> */}
-                  </div>
+                 
+                  </div> */}
 
                 
 
