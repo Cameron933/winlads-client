@@ -23,13 +23,12 @@ import {
   FcButtingIn,
   FcSmartphoneTablet,
   FcUnlock,
-  FcTwoSmartphones
+  FcTwoSmartphones,
 } from "react-icons/fc";
 
-
 const inputStyle = {
-  border: '1px solid #000000',
-  borderRadius: '1px',
+  border: "1px solid #000000",
+  borderRadius: "1px",
 };
 
 const Register = () => {
@@ -43,7 +42,7 @@ const Register = () => {
   const navigate = useNavigate();
   const [buttonText, setButtonText] = useState("Get OTP");
   const [isChecked, setIsChecked] = useState(false);
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState("");
   const cookies = new Cookies(null, { path: "/" });
 
   const [fieldDis, setFieldDis] = useState(false);
@@ -61,7 +60,6 @@ const Register = () => {
   };
 
   const saveFormData = async (temp_values, uid) => {
-  
     console.log(temp_values, uid);
     const data = {
       firstname: values.firstname,
@@ -74,7 +72,7 @@ const Register = () => {
       rafflesId: values.rafflesId,
       uid: uid,
     };
-  
+
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_SERVER_API}/register`,
@@ -96,7 +94,6 @@ const Register = () => {
       console.error("Error submitting form:", error);
     }
   };
-  
 
   function onSignup(e) {
     setFieldDis(true);
@@ -194,9 +191,7 @@ const Register = () => {
           navigate("/dashboard");
         }, 3000);
       })
-      .catch((err) => {
-        
-      });
+      .catch((err) => {});
   };
 
   const { values, handleChange, handleBlur, handleSubmit, errors, touched } =
@@ -267,122 +262,129 @@ const Register = () => {
                 className="form-contain"
               >
                 <div className="flex flex-col justify-center space-y-4 mx-auto xl:mt-4 md:mt-10 mt-4 special:mt-20">
-                  <div className={`flex flex-col space-y-4 ${buttonText == 'Sending...' || buttonText == 'Register' ? 'blur-sm' : ''}`}>
                   <div
-                    className={
-                      errors.name && touched.name
-                        ? "input-div input-error"
-                        : "input-div"
-                    }
+                    className={`flex flex-col space-y-4 ${
+                      buttonText == "Sending..." || buttonText == "Register"
+                        ? "blur-sm"
+                        : ""
+                    }`}
                   >
-                    <FcBusinessman size={20} />
-                    <input
-                      type="text"
-                      placeholder="Your First Name"
-                      value={values.firstname}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      id="firstname"
-                      className="placeholder:text-[16px]"
-                      disabled={fieldDis}
-                    />
-                    <small className="text-error">
-                      {errors.name && touched.name && errors.name}
-                    </small>
-                  </div>
-                  <div
-                    className={
-                      errors.name && touched.name
-                        ? "input-div input-error"
-                        : "input-div"
-                    }
-                  >
-                    <FcButtingIn size={20} />
-                    <input
-                      type="text"
-                      placeholder="Your Surname"
-                      value={values.lastname}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      id="lastname"
-                      className="placeholder:text-[16px]"
-                      disabled={fieldDis}
-                    />
-                    <small className="text-error">
-                      {errors.name && touched.name && errors.name}
-                    </small>
-                  </div>
+                    <div
+                      className={
+                        errors.name && touched.name
+                          ? "input-div input-error"
+                          : "input-div"
+                      }
+                    >
+                      <FcBusinessman size={20} />
+                      <input
+                        type="text"
+                        placeholder="Your First Name"
+                        value={values.firstname}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        id="firstname"
+                        className="placeholder:text-[16px]"
+                        disabled={fieldDis}
+                      />
+                      <small className="text-error">
+                        {errors.name && touched.name && errors.name}
+                      </small>
+                    </div>
+                    <div
+                      className={
+                        errors.name && touched.name
+                          ? "input-div input-error"
+                          : "input-div"
+                      }
+                    >
+                      <FcButtingIn size={20} />
+                      <input
+                        type="text"
+                        placeholder="Your Surname"
+                        value={values.lastname}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        id="lastname"
+                        className="placeholder:text-[16px]"
+                        disabled={fieldDis}
+                      />
+                      <small className="text-error">
+                        {errors.name && touched.name && errors.name}
+                      </small>
+                    </div>
 
-                  <div
-                    className={
-                      errors.email && touched.email
-                        ? "input-div input-error"
-                        : "input-div"
-                    }
-                  >
-                    <FcFeedback size={20} />
-                    <input
-                      type="email"
-                      placeholder="Your Email Address"
-                      value={values.email}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      id="email"
-                      className="placeholder:text-[16px]"
-                      disabled={fieldDis}
-                    />
-                    <small className="text-error">
-                      {errors.email && touched.email && errors.email}
-                    </small>
-                  </div>
-                  <div
-                    className={
-                      errors.password && touched.password
-                        ? "input-div input-error"
-                        : "input-div"
-                    }
-                  >
-                    <FcUnlock size={20} />
-                    <input
-                      type="password"
-                      placeholder="Password"
-                      value={values.password}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      id="password"
-                      className="placeholder:text-[16px]"
-                      disabled={fieldDis}
-                    />
-                    <small className="text-error">
-                      {errors.password && touched.password && errors.password}
-                    </small>
-                  </div>
+                    <div
+                      className={
+                        errors.email && touched.email
+                          ? "input-div input-error"
+                          : "input-div"
+                      }
+                    >
+                      <FcFeedback size={20} />
+                      <input
+                        type="email"
+                        placeholder="Your Email Address"
+                        value={values.email}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        id="email"
+                        className="placeholder:text-[16px]"
+                        disabled={fieldDis}
+                      />
+                      <small className="text-error">
+                        {errors.email && touched.email && errors.email}
+                      </small>
+                    </div>
+                    <div
+                      className={
+                        errors.password && touched.password
+                          ? "input-div input-error"
+                          : "input-div"
+                      }
+                    >
+                      <FcUnlock size={20} />
+                      <input
+                        type="password"
+                        placeholder="Password"
+                        value={values.password}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        id="password"
+                        className="placeholder:text-[16px]"
+                        disabled={fieldDis}
+                      />
+                      <small className="text-error">
+                        {errors.password && touched.password && errors.password}
+                      </small>
+                    </div>
 
-                  <div
-                    className={
-                      errors.confirmPassword && touched.confirmPassword
-                        ? "input-div input-error"
-                        : "input-div"
-                    }
-                  >
-                    <FcTwoSmartphones size={20} />
-                    <input
-                      type="password"
-                      placeholder="Confirm Password"
-                      value={values.confirmPassword}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      id="confirmPassword"
-                      className="placeholder:text-[16px]"
-                      disabled={fieldDis}
-                    />
-                    <small className="text-error">
-                      {errors.confirmPassword && touched.confirmPassword && errors.confirmPassword}
-                    </small>
-                  </div>
+                    <div
+                      className={
+                        errors.confirmPassword && touched.confirmPassword
+                          ? "input-div input-error"
+                          : "input-div"
+                      }
+                    >
+                      <FcTwoSmartphones size={20} />
+                      <input
+                        type="password"
+                        placeholder="Confirm Password"
+                        value={values.confirmPassword}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        id="confirmPassword"
+                        className="placeholder:text-[16px]"
+                        disabled={fieldDis}
+                      />
+                      <small className="text-error">
+                        {errors.confirmPassword &&
+                          touched.confirmPassword &&
+                          errors.confirmPassword}
+                      </small>
+                    </div>
 
-
-                  {/* <div
+                    {/* <div
                     className={
                       errors.passport && touched.passport
                         ? "input-div input-error"
@@ -403,50 +405,48 @@ const Register = () => {
                  
                   </div> */}
 
-                
-
-                  <div
-                    className={
-                      errors.mobile && touched.mobile
-                        ? "input-div input-error"
-                        : ""
-                    }
-                  >
-                    <PhoneInput
-                      country={"au"}
-                      value={ph}
-                      onChange={(value, country, e, formattedValue) =>
-                        setPh(value)
+                    <div
+                      className={
+                        errors.mobile && touched.mobile
+                          ? "input-div input-error"
+                          : ""
                       }
-                      onBlur={handleBlur}
-                      id="mobile"
-                      className="placeholder:text-[16px]  border borer-solid focus:outline-none xl:w-96 w-64 border-black"
-                      disabled={fieldDis}
-                    />
-                    <small className="text-error">
-                      {errors.mobile && touched.mobile && errors.mobile}
-                    </small>
-                  </div>
+                    >
+                      <PhoneInput
+                        country={"au"}
+                        value={ph}
+                        onChange={(value, country, e, formattedValue) =>
+                          setPh(value)
+                        }
+                        onBlur={handleBlur}
+                        id="mobile"
+                        className="placeholder:text-[16px]  border borer-solid focus:outline-none xl:w-96 w-64 border-black"
+                        disabled={fieldDis}
+                      />
+                      <small className="text-error">
+                        {errors.mobile && touched.mobile && errors.mobile}
+                      </small>
+                    </div>
 
-                  <div
-                    className={
-                      errors.rafflesId && touched.rafflesId
-                        ? "input-div input-error"
-                        : "input-div"
-                    }
-                  >
-                    <FcSmartphoneTablet size={20} />
-                    <input
-                      type="text"
-                      placeholder="Affiliate Id"
-                      value={values.rafflesId}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      id="rafflesId"
-                      className="placeholder:text-[16px]"
-                      disabled={fieldDis}
-                    />
-                  </div>
+                    <div
+                      className={
+                        errors.rafflesId && touched.rafflesId
+                          ? "input-div input-error"
+                          : "input-div"
+                      }
+                    >
+                      <FcSmartphoneTablet size={20} />
+                      <input
+                        type="text"
+                        placeholder="Affiliate Id"
+                        value={values.rafflesId}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        id="rafflesId"
+                        className="placeholder:text-[16px]"
+                        disabled={fieldDis}
+                      />
+                    </div>
                   </div>
 
                   {showOTPBox && (
@@ -497,7 +497,6 @@ const Register = () => {
                       </Link>
                     </div>
                   </div>
-                 
 
                   {!final && <div id="recaptcha-container"></div>}
 
@@ -535,6 +534,11 @@ const Register = () => {
           </div>
         </div>
       )}
+
+      <script>
+        window.dataLayer = window.dataLayer || []; window.dataLayer.push(
+        {{ event: "sign_up", method: "google" }});{" "}
+      </script>
     </>
   );
 };

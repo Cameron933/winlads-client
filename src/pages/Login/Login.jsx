@@ -336,9 +336,10 @@ const Login = () => {
                         />
                       </button>
                       <Link to="/forgotPassword">
-                      <div className="flex justify-end cursor-pointer text-xs xl:text-sm">Forgot Password</div>
+                        <div className="flex justify-end cursor-pointer text-xs xl:text-sm">
+                          Forgot Password
+                        </div>
                       </Link>
-                     
                     </div>
 
                     <div className="font-semibold text-lg text-center">
@@ -359,6 +360,11 @@ const Login = () => {
           </div>
         </>
       )}
+
+      <script>
+        window.dataLayer = window.dataLayer || []; window.dataLayer.push(
+        {{ event: "login", method: "google" }});{" "}
+      </script>
     </>
   );
 };
