@@ -78,8 +78,32 @@ const Register = () => {
         `${import.meta.env.VITE_SERVER_API}/register`,
         data
       );
-      // console.log(response.data);
       cookies.set("wr_token", response.data.data._id);
+      if (response.data.status == 200) {
+        toast.success("Successful create new account", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      }
+      else {
+        toast.error("Something went wrong", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      }
+    
     } catch (error) {
       toast.error("Error submitting login credentials", {
         position: "top-center",
