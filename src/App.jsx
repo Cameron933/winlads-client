@@ -39,6 +39,7 @@ import Affiliate from "./pages/Affiliate/Affiliate";
 import Promo from "./pages/Promo/Promo";
 import RefCount from "./pages/Affiliate/RefferalCount";
 import Won from "./pages/Won/Won"
+import ForgotPassword from "./pages/ForgotPW/ForgotPassword";
 
 
 function App() {
@@ -150,10 +151,7 @@ function App() {
       path: "*",
       element: <NotFound />,
     },
-    // {
-    //   path: "/dashboard",
-    //   element: <Dashboard />,
-    // },
+
     {
       path: "/register",
       element: <Register />,
@@ -162,101 +160,24 @@ function App() {
       path: "/login",
       element: <Login />,
     },
-    // {
-    //   path: "/authentication",
-    //   element: <Authentication />,
-    // },
-    // {
-    //   path: "/loader",
-    //   element: <Loader />,
-    // },
-
-    // {
-    //   path: "/newslist",
-    //   element: <Newslist />,
-    // },
-    // {
-    //   path: "/news/:id",
-    //   element: <News />,
-    // },
-    // {
-    //   path: "/subscription",
-    //   element: <Subscription />,
-    // },
+    {
+      path: "/forgotPassword",
+      element: <ForgotPassword />,
+    },
     {
       path: "/welcome",
       element: <Welcome />,
     },
-    // {
-    //   path: "/giveaways",
-    //   element: <RafflesDashboard />,
-    // },
-    // {
-    //   path: "/giveaway/:id",
-    //   element: <Raffles />,
-    // },
-    // {
-    //   path: "/faq",
-    //   element: <FaQ />,
-    // },
-    // {
-    //   path: "/notice",
-    //   element: <Notice />,
-    // },
-    // {
-    //   path: "/notice-inner",
-    //   element: <NoticeInner />,
-    // },
-    // {
-    //   path: "transaction/",
-    //   element: <Transaction />,
-    // },
-    // {
-    //   path: "/business-card",
-    //   element: <BusinessCard />,
-    // },
-    // {
-    //   path: "/profile",
-    //   element: <Profile />
-    // },
-    // {
-    //   path: "/live",
-    //   element: <LiveRaffle />,
-    // },
-    // {
-    //   path: "/messages",
-    //   element: <Messages />,
-    // },
-    // {
-    //   path: "/history",
-    //   element: <History />,
-    // },
-    // {
-    //   path: "/subscription-done",
-    //   element: <SubcriptionDone />,
-    // },
-    // {
-    //   path: "/payment-success",
-    //   element: <PaymentSuccess />,
-    // },
-    // {
-    //   path: "/conditions",
-    //   element: <TermsCondition />,
-    // },
+  
     {
       path: "/privacy",
       element: <Privacy />,
     },
-    // {
-    //   path: "/myentries",
-    //   element: <MyEntries />,
-    // },
   ]);
 
   return (
     <>
       <GoogleAnalytics trackingCode="G-N927BPJE6K" />
-      {/* <MessengerPlugin pageId="171684687116166"/> */}
       <RouterProvider router={router} />
       <ToastContainer />
     </>
