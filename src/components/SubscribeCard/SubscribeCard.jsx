@@ -116,7 +116,10 @@ function SubscribeCard({
             alt=""
             className="w-5 h-5 special:h-7 special:w-7 2xl:h-5 2xl:w-5"
           />
-           <p className="text-xs special:text-lg 2xl:text-md"><span className="font-bold">{raffleCount}&nbsp;Accumulating</span>&nbsp;Entries</p>
+          <p className="text-xs special:text-lg 2xl:text-md">
+            <span className="font-bold">{raffleCount}&nbsp;Accumulating</span>
+            &nbsp;Entries
+          </p>
         </div>
         {descList[0].length > 3 && (
           <button
@@ -130,42 +133,39 @@ function SubscribeCard({
       </div>
 
       <div className="">
-  <button
-    type="button"
-    className={`bg-${buttonColor} text-${buttonText} ${
-      !(
-        (month && planeId === mPlanId) ||
-        (quartly && planeId === qPlanId) ||
-        (year && planeId === yPlanId)
-      )
-        ? `hover:text-${buttonHoverText} hover:bg-${buttonHover} hover:border-${hoverButtonBorder}`
-        : ''
-    } font-semibold uppercase w-full border-2 border-transparent rounded-xl text-black py-2 px-8 special:py-4 special:px-12 2xl:px-10 text-xs special:text-lg 2xl:text-sm mt-4 mb-2 ${
-      (
-        (month && planeId === mPlanId) ||
-        (quartly && planeId === qPlanId) ||
-        (year && planeId === yPlanId)
-      )
-        ? 'cursor-not-allowed opacity-50' // Add styles for disabled state
-        : ''
-    }`}
-    onClick={handleChooseButton}
-    disabled={
-      (month && planeId === mPlanId) ||
-      (quartly && planeId === qPlanId) ||
-      (year && planeId === yPlanId)
-    }
-  >
-    <p className={``}>
-      {(month && planeId === mPlanId) ||
-      (quartly && planeId === qPlanId) ||
-      (year && planeId === yPlanId)
-        ? "selected"
-        : "choose plan"}
-    </p>
-  </button>
-</div>
-
+        <button
+          type="button"
+          className={`bg-${buttonColor} text-${buttonText} ${
+            !(
+              (month && planeId === mPlanId) ||
+              (quartly && planeId === qPlanId) ||
+              (year && planeId === yPlanId)
+            )
+              ? `hover:text-${buttonHoverText} hover:bg-${buttonHover} hover:border-${hoverButtonBorder}`
+              : ""
+          } font-semibold uppercase w-full border-2 border-transparent rounded-xl text-black py-2 px-8 special:py-4 special:px-12 2xl:px-10 text-xs special:text-lg 2xl:text-sm mt-4 mb-2 ${
+            (month && planeId === mPlanId) ||
+            (quartly && planeId === qPlanId) ||
+            (year && planeId === yPlanId)
+              ? "cursor-not-allowed opacity-50" // Add styles for disabled state
+              : ""
+          }`}
+          onClick={handleChooseButton}
+          disabled={
+            (month && planeId === mPlanId) ||
+            (quartly && planeId === qPlanId) ||
+            (year && planeId === yPlanId)
+          }
+        >
+          <p className={``}>
+            {(month && planeId === mPlanId) ||
+            (quartly && planeId === qPlanId) ||
+            (year && planeId === yPlanId)
+              ? "selected"
+              : "choose plan"}
+          </p>
+        </button>
+      </div>
     </div>
   );
 }

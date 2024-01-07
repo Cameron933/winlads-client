@@ -19,6 +19,7 @@ import NewVeh from "../../assets/images/newVeh.png";
 
 import SelectRafflePaymentMethod from "../../components/RaffleComponent/SelectRafflePaymentMethod";
 import NoLive from "../../components/Live/NoLive";
+import CardComponent from "../../components/cardComponent/CardComponent";
 
 export const bgStyle = {
   backgroundImage: `url(${bgCar})`,
@@ -121,12 +122,13 @@ function Raffles() {
                   <div className="mt-4 xl:pt-0 pb-4 xl:pb-0">
                     <SearchField />
                   </div>
-
+{/* 
                   <div className="flex flex-row items-center justify-between">
                     <p className="capitalize text-black font-semibold text-xl 2xl:text-2xl special:text-5xl">
                       live Giveaways
                     </p>
-                  </div>
+                  </div> */}
+                  <CardComponent />
                   {/* {raffleRounds.length > 0 ? (
                   <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2">
                     {raffleRounds
@@ -253,7 +255,7 @@ function Raffles() {
                   <div className="pt-10">
                     <motion.img
                       initial={{ x: 80, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
+                      animate={{ x: 80, opacity: 1 }}
                       transition={{ type: "tween", duration: 1, delay: 1 }}
                       className="w-3/4"
                       src={MainCar}

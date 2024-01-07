@@ -10,7 +10,7 @@ import Cookies from "universal-cookie";
 import { MdOutlinePhotoCamera } from "react-icons/md";
 import { toast } from "react-toastify";
 import ItemLoader from "../../components/Loader/ItemLoader";
-
+import { motion } from "framer-motion";
 import { storage } from "../../firebase.config";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { Link, useNavigate } from "react-router-dom";
@@ -20,7 +20,7 @@ import { useRefresh } from "../../utils/RefreshContext";
 
 const Profile = () => {
   const cookies = new Cookies(null, { path: "/" });
-  const {refreshCount, refresh} = useRefresh();
+  const { refreshCount, refresh } = useRefresh();
   const id = cookies.get("wr_token");
   const [userData, setUserData] = useState({});
   const navigate = useNavigate();
@@ -110,7 +110,6 @@ const Profile = () => {
     const image = await uploadBytes(storageRef, profile).then((snapshot) => {
       console.log("profile image upload");
       refresh();
-     
     });
     setLoading(true);
     const response = await axios.post(
@@ -188,9 +187,7 @@ const Profile = () => {
     <div className="bg-[#F2F5FB]">
       <div className="flex relative">
         <div className="right-side-logo max-xl:hidden"></div>
-        <div
-          className="flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-8 pb-5 space-y-4 xl:space-y-0 bg-no-repeat"
-        >
+        <div className="flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-8 pb-5 space-y-4 xl:space-y-0 bg-no-repeat">
           <div className="flex flex-col space-y-4 flex-1 visible xl:hidden">
             <div className="bg-black rounded-b-3xl py-4">
               <TopNav textColor={"white"} />
@@ -205,7 +202,6 @@ const Profile = () => {
               {loading ? (
                 <div className="flex justify-center pt-12">
                   <ItemLoader />
-
                 </div>
               ) : (
                 <>
@@ -217,7 +213,6 @@ const Profile = () => {
                           src={userImage}
                         />
                       </div>
-
                     ) : (
                       <img
                         src={User}
@@ -380,7 +375,6 @@ const Profile = () => {
                           onChange={(e) => setAddress2(e.target.value)}
                         ></input>
                       </div>
-
                     </div>
                     <div className="flex items-center gap-2">
                       <div className="flex flex-col space-y-2 w-1/3">
@@ -419,7 +413,6 @@ const Profile = () => {
                           onChange={(e) => setPostalcode(e.target.value)}
                         ></input>
                       </div>
-
                     </div>
 
                     {/* <div className="flex flex-col space-y-2">
@@ -513,8 +506,9 @@ const Profile = () => {
                       <button
                         disabled={!isChecked}
                         onClick={() => updateUserDatails()}
-                        className={`text-white rounded-xl px-12 py-3 font-semibold special:text-xl bg-${isChecked ? "black" : "gray-500"
-                          } hover:bg-${isChecked ? "black/50" : ""}`}
+                        className={`text-white rounded-xl px-12 py-3 font-semibold special:text-xl bg-${
+                          isChecked ? "black" : "gray-500"
+                        } hover:bg-${isChecked ? "black/50" : ""}`}
                       >
                         Confirm
                       </button>
@@ -528,7 +522,14 @@ const Profile = () => {
             <div className="bg-black rounded-b-3xl py-4">
               <TopNav textColor={"white"} />
               <div className="pt-10">
-                <img className="w-3/4" src={MainCar} alt="main" />
+                <motion.img
+                  initial={{ x: 80, opacity: 0 }}
+                  animate={{ x: 80, opacity: 1 }}
+                  transition={{ type: "tween", duration: 1, delay: 1 }}
+                  className="w-3/4"
+                  src={MainCar}
+                  alt="main"
+                />
               </div>
             </div>
 

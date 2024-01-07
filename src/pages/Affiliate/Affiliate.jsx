@@ -14,6 +14,7 @@ import { validateCurrentUser } from "../../utils/validateuser";
 import CardComponent from "../../components/cardComponent/CardComponent";
 import { useRefresh } from "../../utils/RefreshContext";
 import AffiliateCard from "../../components/Affiliate/AffiliateCard";
+import { motion } from "framer-motion";
 
 const Affiliate = () => {
   const cookies = new Cookies(null, { path: "/" });
@@ -219,9 +220,9 @@ const Affiliate = () => {
                     )}
                   </form> */}
                   <div className="hidden xl:block">
-                  <AffiliateCard />
+                    <AffiliateCard />
                   </div>
-                 
+
                   <div className="pt-12">
                     <p className="text-center">You Have No Referral List</p>
                   </div>
@@ -233,7 +234,14 @@ const Affiliate = () => {
             <div className="bg-black rounded-b-3xl py-4">
               <TopNav textColor={"white"} />
               <div className="pt-10">
-                <img className="w-3/4" src={MainCar} alt="main" />
+                <motion.img
+                  initial={{ x: 80, opacity: 0 }}
+                  animate={{ x: 80, opacity: 1 }}
+                  transition={{ type: "tween", duration: 1, delay: 1 }}
+                  className="w-3/4"
+                  src={MainCar}
+                  alt="main"
+                />
               </div>
             </div>
             <div>
