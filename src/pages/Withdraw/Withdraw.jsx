@@ -83,7 +83,7 @@ const Withdraw = () => {
         theme: "colored",
       });
     } else {
-      toast.success(response.data.message, {
+      toast.error(response.data.message, {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
