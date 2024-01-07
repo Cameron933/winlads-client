@@ -21,6 +21,9 @@ import FundTransferForm from "../../components/fundTransfer/FundTransferForm";
 import BG from "../../assets/images/HomesideBg.png";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 import Line from "../../assets/images/line.png";
+import NewBalance from "../../assets/images/new/balance.png"
+import NewEarning from "../../assets/images/new/earnings.png"
+import NewPurcahase from "../../assets/images/new/purchase.png"
 
 const Transaction = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -187,7 +190,7 @@ const Transaction = () => {
             style={{}}
             >
               <img
-                src={Balance}
+                src={NewBalance}
                 alt="balance"
                 className="w-6 h-6 md:h-20 md:w-20 xl:h-12 xl:w-12 max-w-screen-sm"
               />
@@ -202,7 +205,7 @@ const Transaction = () => {
             </div>
             <div className="from-[#008767] to-black bg-gradient-to-r justify-between items-center rounded-2xl gap-1 py-2 xl:px-4 md:px-4 flex flex-1 flex-row px-2 cursor-default hover:bg-[#52A0DF]/75">
               <img
-                src={Profit}
+                src={NewEarning}
                 alt=""
                 className="w-6 h-6 md:h-20 md:w-20 xl:h-12 xl:w-12 max-w-screen-sm"
               />
@@ -218,7 +221,7 @@ const Transaction = () => {
 
             <div className="to-[#CBAD11] from-black bg-gradient-to-r justify-between items-center rounded-2xl gap-1 py-2 xl:px-3 md:px-4 flex flex-1 flex-row px-2 cursor-default hover:bg-[#DF7E59]/75">
               <img
-                src={ShoppingBag}
+                src={NewPurcahase}
                 alt=""
                 className="w-6 h-6 md:h-20 md:w-20 xl:h-12 xl:w-12 max-w-screen-sm"
               />
