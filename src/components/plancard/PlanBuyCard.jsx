@@ -151,7 +151,7 @@ const PlanBuyCard = ({ onClose, userId, giveawayId, price, name,planeId  }) => {
                 alt=""
                 className="w-7 h-7 special:h-14 special:w-14 2xl:h-9 2xl:w-9"
               />
-              <p className="text-xs md:block hidden">Pay by cash</p>
+              <p className="text-xs md:block hidden">Pay by Balance</p>
             </div>
             <div className="bg-white hover:bg-black/5 rounded-xl p-2 flex justify-center items-center cursor-pointer lg:gap-2" onClick={handleButtonClick}>
               <img

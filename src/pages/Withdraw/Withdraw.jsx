@@ -10,7 +10,7 @@ import Cookies from "universal-cookie";
 import { MdOutlinePhotoCamera } from "react-icons/md";
 import { toast } from "react-toastify";
 import ItemLoader from "../../components/Loader/ItemLoader";
-
+import { motion } from "framer-motion";
 import { storage } from "../../firebase.config";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { Link, useNavigate } from "react-router-dom";
@@ -247,7 +247,14 @@ const Withdraw = () => {
             <div className="bg-black rounded-b-3xl py-4">
               <TopNav textColor={"white"} />
               <div className="pt-10">
-                <img className="w-3/4" src={MainCar} alt="main" />
+              <motion.img
+                  initial={{ x: 80, opacity: 0 }}
+                  animate={{ x: 80, opacity: 1 }}
+                  transition={{ type: "tween", duration: 1, delay: 1 }}
+                  className="w-3/4"
+                  src={MainCar}
+                  alt="main"
+                />
               </div>
             </div>
 
