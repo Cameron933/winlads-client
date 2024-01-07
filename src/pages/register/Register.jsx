@@ -507,7 +507,7 @@ const Register = () => {
                     className={`text-white rounded-xl justify-center px-12 py-2 flex flex-row items-center font-semibold special:text-xl bg-${
                       isChecked ? "black" : "gray-500"
                     } hover:bg-${isChecked ? "black/50" : ""}`}
-                    // onClick={(e) => onSignup(e)}
+                    onClick={(e) => onSignup(e)}
                     // onClick={(e) => onSignup(e)}
                     disabled={!isChecked}
                     type="submit"

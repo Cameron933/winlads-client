@@ -15,6 +15,15 @@ import { validateCurrentUser } from "../../utils/validateuser.js";
 import LoginImg from "../../assets/images/MainCar.png";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import {
+  FcBusinessman,
+  FcFeedback,
+  FcDiploma1,
+  FcButtingIn,
+  FcSmartphoneTablet,
+  FcUnlock,
+  FcTwoSmartphones
+} from "react-icons/fc";
 
 const Login = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -25,10 +34,14 @@ const Login = () => {
   const [final, setfinal] = useState("");
   const [show, setshow] = useState(false);
   const [showOTPBox, setShowOTPBox] = useState(false);
-  const [buttonText, setButtonText] = useState("Get OTP");
+  const [buttonText, setButtonText] = useState("Login");
+
+  const [email, setEmail] = useState("")
   const cookies = new Cookies(null, { path: "/" });
 
-  const [loginDisable, setLoginDisable] = useState(false)
+  const [password, setPassword] = useState("");
+
+  const [loginDisable, setLoginDisable] = useState(true)
 
   const onSubmit = async (values, actions) => {
     // console.log(value, actions)
@@ -46,30 +59,50 @@ const Login = () => {
   };
 
   async function onSignup(e) {
-    if (buttonText === "Login") {
-      ValidateOtp();
-    } else {
-      setButtonText("Sending...");
+    setIsLoading(true);
+    setButtonText("Login...");
 
-      try {
-        console.log("signup called");
-        // console.log(ph, "phone");
-        // let verify = new auth.RecaptchaVerifier("recaptcha-container");
-        window.recaptchaVerifier = new RecaptchaVerifier(
-          auth,
-          "recaptcha-container",
-          {}
+    try {
+      console.log("signup called");
+
+      // console.log(`${import.meta.env.VITE_SERVER_API}/checkMobile?mobile=${ph}, "ccc"`)
+      const response = await axios.get(
+        `${import.meta.env.VITE_SERVER_API}/checkEmail?email=${email}`
+      );
+      if (!response.data.exists) {
+        // alert("Mobile number is not registered. Please register first.");
+        toast.error(
+          "Email is not registered. Please register first.",
+          {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          }
         );
-        let verify = window.recaptchaVerifier;
-        // console.log(`${import.meta.env.VITE_SERVER_API}/checkMobile?mobile=${ph}, "ccc"`)
-        const response = await axios.get(
-          `${import.meta.env.VITE_SERVER_API}/checkMobile?mobile=${ph}`
-        );
-        if (!response.data.exists) {
-          // alert("Mobile number is not registered. Please register first.");
-          toast.error(
-            "Mobile number is not registered. Please register first.",
-            {
+      } else {
+        try {
+          const data = {
+            email: email,
+            password: password
+          }
+
+          const response = await axios.post(
+            `${import.meta.env.VITE_SERVER_API}/loginWithPassword`,
+            data
+          );
+          if (response.data.status == 200) {
+
+            cookies.set("wr_token", response.data.data._id);
+            navigate("/dashboard");
+            setIsLoading(false)
+          } else {
+            setIsLoading(false)
+            toast.error("Invalid email or password", {
               position: "top-center",
               autoClose: 5000,
               hideProgressBar: false,
@@ -78,35 +111,37 @@ const Login = () => {
               draggable: true,
               progress: undefined,
               theme: "colored",
-            }
-          );
-        } else {
-          try {
-            const result = await signInWithPhoneNumber(auth, "+" + ph, verify);
-            setfinal(result);
-            // console.log(final, "code sent final");
-            setshow(true);
-            setShowOTPBox(true);
-            setButtonText("Login");
-          } catch (error) {
-            console.log(error, "fir error");
+            });
           }
+        } catch (error) {
+          console.log(error)
+          setIsLoading(false)
+          toast.error("Something went wrong, Please try again!", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          });
         }
-      } catch (error) {
-        console.error("Error checking mobile:", error);
-        setButtonText("Get OTP");
-        // alert("An error occurred while checking the mobile number.");
-        toast.error("An error occurred while checking the mobile number.", {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-        });
       }
+    } catch (error) {
+      setIsLoading(false)
+      console.error("Error checking mobile:", error);
+      // alert("An error occurred while checking the mobile number.");
+      toast.error("An error occurred while checking the mobile number.", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
     }
   }
 
@@ -124,61 +159,61 @@ const Login = () => {
     }
   };
 
-  const ValidateOtp = () => {
-    if (otp === null || final === null) return;
-    final
-      .confirm(otp)
-      .then((result) => {
-        // success
-        const uid = result.user.uid;
+  // const ValidateOtp = () => {
+  //   if (otp === null || final === null) return;
+  //   final
+  //     .confirm(otp)
+  //     .then((result) => {
+  //       // success
+  //       const uid = result.user.uid;
 
-        axios
-          .get(`${import.meta.env.VITE_SERVER_API}/login?uid=${uid}`)
-          .then((response) => {
-            if (response.data.exists) {
-              console.log("success");
-              cookies.set("wr_token", response.data.data._id);
-              navigate("/dashboard");
-            }
-            if (response.data.status !== 200) {
-              toast.error("Login failed", {
-                position: "top-center",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-              });
-            }
-          })
-          .catch((error) => {
-            toast.error("Error checking mobile number. Please try again", {
-              position: "top-center",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "colored",
-            });
-          });
-      })
-      .catch((err) => {
-        toast.error("Invalid OTP Code", {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-        });
-      });
-  };
+  //       axios
+  //         .get(`${import.meta.env.VITE_SERVER_API}/login?uid=${uid}`)
+  //         .then((response) => {
+  //           if (response.data.exists) {
+  //             console.log("success");
+  //             cookies.set("wr_token", response.data.data._id);
+  //             navigate("/dashboard");
+  //           }
+  //           if (response.data.status !== 200) {
+  //             toast.error("Login failed", {
+  //               position: "top-center",
+  //               autoClose: 5000,
+  //               hideProgressBar: false,
+  //               closeOnClick: true,
+  //               pauseOnHover: true,
+  //               draggable: true,
+  //               progress: undefined,
+  //               theme: "colored",
+  //             });
+  //           }
+  //         })
+  //         .catch((error) => {
+  //           toast.error("Error checking mobile number. Please try again", {
+  //             position: "top-center",
+  //             autoClose: 5000,
+  //             hideProgressBar: false,
+  //             closeOnClick: true,
+  //             pauseOnHover: true,
+  //             draggable: true,
+  //             progress: undefined,
+  //             theme: "colored",
+  //           });
+  //         });
+  //     })
+  //     .catch((err) => {
+  //       toast.error("Invalid OTP Code", {
+  //         position: "top-center",
+  //         autoClose: 5000,
+  //         hideProgressBar: false,
+  //         closeOnClick: true,
+  //         pauseOnHover: true,
+  //         draggable: true,
+  //         progress: undefined,
+  //         theme: "colored",
+  //       });
+  //     });
+  // };
 
   // Set loading
   useEffect(() => {
@@ -192,6 +227,7 @@ const Login = () => {
       initialValues: {
         mobile: "",
         remind: "",
+        password: ""
       },
       // validationSchema: basicSchemasLogin,
       onSubmit,
@@ -239,25 +275,42 @@ const Login = () => {
                 <form onSubmit={handleSubmit} autoComplete="off" className="">
                   <div className="flex flex-col justify-center gap-5 mt-10">
                     <div
-                      // id="recaptcha-container"
                       className={
-                        errors.otp && touched.opt ? "input-div input-error" : ""
+                        errors.email && touched.email
+                          ? "input-div input-error"
+                          : "input-div"
                       }
                     >
-                      <PhoneInput
-                        country={"au"}
-                        value={ph}
-                        onChange={onPhoneNumberChange}
-                        onBlur={handleBlur}
-                        id="mobile"
-                        className={`placeholder:text-[16px] border borer-solid border-black ${showOTPBox && 'blur-sm'}`}
+                      <FcFeedback size={20} />
+                      <input
+                        type="email"
+                        placeholder="Email Address"
+                        value={values.email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        id="email"
+                        className="placeholder:text-[16px]"
+
                       />
                       <small className="text-error">
-                        {errors.mobile && touched.mobile && errors.mobile}
+                        {errors.email && touched.email && errors.email}
                       </small>
                     </div>
+                    <div className="input-div">
+                      <FcDiploma1 size={20} />
+                      <input
+                        type="password"
+                        placeholder="Password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        id="passport"
+                        className="placeholder:text-[16px]"
 
-                    {showOTPBox && (
+                      />
+                      {/* <small className="text-error">
+                      {errors.passport && touched.passport && errors.passport}
+                    </small> */}
+                    </div>
+                    {/* {showOTPBox && (
                       <div
                         className={
                           errors.otp && touched.opt
@@ -276,9 +329,9 @@ const Login = () => {
                           {errors.otp && touched.opt && errors.otp}
                         </small>
                       </div>
-                    )}
+                    )} */}
 
-                    {!final && <div id="recaptcha-container"></div>}
+                    {/* {!final && <div id="recaptcha-container"></div>} */}
 
                     <button
                       className={`px-12 w-full py-2 flex justify-center flex-row items-center rounded-lg bg-${loginDisable ? "black" : "gray-500"} hover:bg-${loginDisable ? "black/75" : ""}`}
