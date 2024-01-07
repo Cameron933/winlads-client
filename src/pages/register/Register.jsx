@@ -69,7 +69,7 @@ const Register = () => {
       mobile: "+" + ph,
       passport: values.passport,
       tin: values.tin,
-      rafflesId: values.rafflesId,
+      refferalId: values.rafflesId,
       uid: uid,
     };
 
