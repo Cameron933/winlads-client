@@ -7,7 +7,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useState } from "react";
 
-const PlanBuyCard = ({ onClose, userId, giveawayId, price, name,planeId  }) => {
+const PlanBuyCard = ({ onClose, userId, giveawayId, price, name, planeId }) => {
   const [loading, setLoading] = useState(false);
   const handleButtonClick = async () => {
     setLoading(true);
@@ -20,7 +20,7 @@ const PlanBuyCard = ({ onClose, userId, giveawayId, price, name,planeId  }) => {
 
       const payURL = response.data.payurl;
       setLoading(false);
-      if(payURL==null) {
+      if (payURL == null) {
         toast.error(response.data.message, {
           position: "top-center",
           autoClose: 5000,
@@ -34,7 +34,6 @@ const PlanBuyCard = ({ onClose, userId, giveawayId, price, name,planeId  }) => {
       } else {
         window.location.href = payURL;
       }
-      
     } catch (error) {
       toast.error(error, {
         position: "top-center",
@@ -45,13 +44,12 @@ const PlanBuyCard = ({ onClose, userId, giveawayId, price, name,planeId  }) => {
         draggable: true,
         progress: undefined,
         theme: "colored",
-      })
-      
+      });
+
       console.log(error);
       setLoading(false);
     }
   };
-
 
   const handlePointsButtonClick = async () => {
     try {
@@ -90,7 +88,7 @@ const PlanBuyCard = ({ onClose, userId, giveawayId, price, name,planeId  }) => {
   return (
     <div
       className="popup-container bg-black/50 justify-center items-center"
-    //   onClick={handleBackdropClick}
+      //   onClick={handleBackdropClick}
     >
       <div className="popup-content text-black flex flex-col bg-white shadow-lg space-y-4 special:space-y-12 2xl:space-y-8 justify-center py-4 special:py-8 2xl:py-6">
         <div className="flex justify-between items-center">
@@ -137,7 +135,10 @@ const PlanBuyCard = ({ onClose, userId, giveawayId, price, name,planeId  }) => {
             Payment Methods
           </p>
           <div className="flex flex-row justify-center items-center lg:gap-4 gap-1 text-black">
-            <div className="bg-white hover:bg-black/5 rounded-xl p-2 flex justify-center items-center cursor-pointer lg:gap-2" onClick={handlePointsButtonClick}>
+            <div
+              className="bg-white hover:bg-black/5 rounded-xl p-2 flex justify-center items-center cursor-pointer lg:gap-2"
+              onClick={handlePointsButtonClick}
+            >
               <img
                 src={bitcoin}
                 alt=""
@@ -145,7 +146,10 @@ const PlanBuyCard = ({ onClose, userId, giveawayId, price, name,planeId  }) => {
               />
               <p className="text-xs md:block hidden">Pay by Ethereum</p>
             </div>
-            <div className="bg-white hover:bg-black/5 rounded-xl p-2 flex justify-center items-center cursor-pointer lg:gap-2" onClick={handlePointsButtonClick}>
+            <div
+              className="bg-white hover:bg-black/5 rounded-xl p-2 flex justify-center items-center cursor-pointer lg:gap-2"
+              onClick={handlePointsButtonClick}
+            >
               <img
                 src={Usd}
                 alt=""
@@ -153,7 +157,10 @@ const PlanBuyCard = ({ onClose, userId, giveawayId, price, name,planeId  }) => {
               />
               <p className="text-xs md:block hidden">Pay by Balance</p>
             </div>
-            <div className="bg-white hover:bg-black/5 rounded-xl p-2 flex justify-center items-center cursor-pointer lg:gap-2" onClick={handleButtonClick}>
+            <div
+              className="bg-white hover:bg-black/5 rounded-xl p-2 flex justify-center items-center cursor-pointer lg:gap-2"
+              onClick={handleButtonClick}
+            >
               <img
                 src={Visa}
                 alt=""

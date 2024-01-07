@@ -36,11 +36,11 @@ function Subscription() {
   const [valUser, setValUser] = useState({});
   const cookies = new Cookies(null, { path: "/" });
 
-  const handleButton = (id,price,name) => {
+  const handleButton = (id, price, name) => {
     setChoosePlane(true);
     setSelectedPlaceId(id);
     setSelectedPlanePrice(price);
-    setSelectedPlaneName(name)
+    setSelectedPlaneName(name);
   };
 
   const handleYear = (val = false) => {
@@ -97,7 +97,6 @@ function Subscription() {
   return (
     <>
       <div className="flex relative min-h-screen w-full">
-
         {/* home-content */}
         <div className="xl:flex xl:flex-row flex-col xl:justify-between px-4 special:px-12 2xl:px-8 flex-1 xl:gap-4 special:gap-8 2xl:gap-6 space-y-4 xl:space-y-0">
           {/* left side */}
@@ -127,7 +126,7 @@ function Subscription() {
             </p>
             {loading ? (
               <div className="flex justify-center">
-                <ItemLoader/>
+                <ItemLoader />
               </div>
             ) : planes.length > 0 ? (
               <div className="flex flex-col space-y-4">
@@ -174,14 +173,32 @@ function Subscription() {
                       year={isYearly}
                       quartly={isQuartly}
                       month={isMonthly}
-                      isPopular= {plane.name == 'Platinum' ? true : false}
-                      price={isYearly ? plane.annualy : "" | isQuartly ? plane.price_id_semiannual : "" | isMonthly ? plane.price_id : ""}
+                      isPopular={plane.name == "Platinum" ? true : false}
+                      price={
+                        isYearly
+                          ? plane.annualy
+                          : "" | isQuartly
+                          ? plane.price_id_semiannual
+                          : "" | isMonthly
+                          ? plane.price_id
+                          : ""
+                      }
                       // descList={Array.isArray(plane.desc) ? plane.desc : []}
                       descList={Array.isArray(plane.desc) ? plane.desc : []}
                       descL={
                         isYearly
-                          ? Array.isArray(plane.desc) ? plane.desc[2] : []
-                          : "" | isQuartly ? Array.isArray(plane.desc) ? plane.desc[1] : [] : "" | isMonthly ? Array.isArray(plane.desc) ? plane.desc[0] : [] : ""
+                          ? Array.isArray(plane.desc)
+                            ? plane.desc[2]
+                            : []
+                          : "" | isQuartly
+                          ? Array.isArray(plane.desc)
+                            ? plane.desc[1]
+                            : []
+                          : "" | isMonthly
+                          ? Array.isArray(plane.desc)
+                            ? plane.desc[0]
+                            : []
+                          : ""
                       }
                       desc1={plane.desc1}
                       desc2={plane.desc2}
@@ -217,21 +234,11 @@ function Subscription() {
                           ? "to-[#9D7C00]"
                           : ""
                       }
-                      textColor={
-                        plane.name == "Black"
-                          ? "white"
-                          : "black"
-                      }
+                      textColor={plane.name == "Black" ? "white" : "black"}
                       cardBorderColor={
-                        plane.name == "Black"
-                          ? "white"
-                          : "black"
+                        plane.name == "Black" ? "white" : "black"
                       }
-                      borderColor={
-                        plane.name == "Black"
-                          ? "white"
-                          : "black"
-                      }
+                      borderColor={plane.name == "Black" ? "white" : "black"}
                       buttonColor={
                         plane.name == "Starter"
                           ? "black"
@@ -271,12 +278,20 @@ function Subscription() {
                           ? "white"
                           : "white"
                       }
-                      buttonHoverText={plane.name == "Black" ? "white" : "black"}
-                      hoverButtonBorder={plane.name == "Black" ? "black" : "black"}
+                      buttonHoverText={
+                        plane.name == "Black" ? "white" : "black"
+                      }
+                      hoverButtonBorder={
+                        plane.name == "Black" ? "black" : "black"
+                      }
                       raffleCount={
                         isYearly
                           ? plane.raffle_count_annual
-                          : "" | isQuartly ? plane.raffle_count_semiannual : "" | isMonthly ? plane.raffle_count : ""
+                          : "" | isQuartly
+                          ? plane.raffle_count_semiannual
+                          : "" | isMonthly
+                          ? plane.raffle_count
+                          : ""
                       }
                       mPlanId={plane.subid}
                       qPlanId={plane.subidsemiannual}
@@ -290,13 +305,20 @@ function Subscription() {
                             : isYearly
                             ? plane.subidannual
                             : "",
-                            plane.desc[0].slice(0,1)
-                            ,plane.name
+                          // plane.desc[0].slice(0, 1),
+                          isMonthly
+                          ? plane.monthly
+                          : isQuartly
+                          ? plane.semiannualy
+                          : isYearly
+                          ? plane.annualy
+                          : "",
+                          plane.name,
+                       
                         )
                       }
                       planeId={valUser.sub_id}
                     />
-              
                   ))}
                 </div>
               </div>
@@ -313,14 +335,12 @@ function Subscription() {
 
             {choosePlane && (
               <PlanBuyCard
-                onClose={()=> setChoosePlane(false)}
+                onClose={() => setChoosePlane(false)}
                 userId={valUser.uid}
                 giveawayId={selectedPlaneId}
                 price={selectedPlanPrice}
                 name={selectedPlanName}
                 planeId={selectedPlaneId}
-                
-             
               />
               // <div className="absolute bottom-0 top-0 left-0 right-0 z-10 bg-white/50">
               //   <div className="flex justify-center items-center 2xl:pt-80 xl:pt-60">
