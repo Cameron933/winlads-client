@@ -22,8 +22,6 @@ const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   const cookies = new Cookies(null, { path: "/" });
 
-  const [password, setPassword] = useState("");
-
   const [loginDisable, setLoginDisable] = useState(true);
 
   const onSubmit = async (values, actions) => {
@@ -32,17 +30,11 @@ const ForgotPassword = () => {
   };
 
   async function onSignup(e) {
-    setIsLoading(true);
-    setButtonText("Login...");
-
     try {
-
-      // console.log(`${import.meta.env.VITE_SERVER_API}/checkMobile?mobile=${ph}, "ccc"`)
       const response = await axios.get(
         `${import.meta.env.VITE_SERVER_API}/checkEmail?email=${email}`
       );
       if (!response.data.exists) {
-        // alert("Mobile number is not registered. Please register first.");
         toast.error("Email is not registered. Please register first.", {
           position: "top-center",
           autoClose: 5000,
@@ -53,23 +45,33 @@ const ForgotPassword = () => {
           progress: undefined,
           theme: "colored",
         });
+        setIsLoading(false);
       } else {
         try {
           const data = {
             email: email,
           };
 
-          const response = await axios.post(
-            `${import.meta.env.VITE_SERVER_API}/forgetPassword`,
+          const response = await axios.get(
+            `${import.meta.env.VITE_SERVER_API}/forgetPassword?email=${email}`,
             data
           );
           if (response.data.status == 200) {
-            cookies.set("wr_token", response.data.data._id);
-            navigate("/dashboard");
+            toast.success("Send code your email", {
+              position: "top-center",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "colored",
+            });
+            setEmail("");
             setIsLoading(false);
           } else {
             setIsLoading(false);
-            toast.error("Invalid email or password", {
+            toast.error("Invalid email", {
               position: "top-center",
               autoClose: 5000,
               hideProgressBar: false,
@@ -97,18 +99,6 @@ const ForgotPassword = () => {
       }
     } catch (error) {
       setIsLoading(false);
-      console.error("Error checking mobile:", error);
-      // alert("An error occurred while checking the mobile number.");
-      toast.error("An error occurred while checking the mobile number.", {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-      });
     }
   }
 
@@ -136,9 +126,9 @@ const ForgotPassword = () => {
   const { values, handleChange, handleBlur, handleSubmit, errors, touched } =
     useFormik({
       initialValues: {
-        email: ""
+        email: "",
       },
-      // validationSchema: basicSchemasLogin,
+      //   validationSchema: basicSchemasLogin,
       onSubmit,
     });
 
@@ -191,7 +181,7 @@ const ForgotPassword = () => {
                       <input
                         type="email"
                         placeholder="Email Address"
-                        value={values.email}
+                        value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         id="email"
                         className="placeholder:text-[16px]"
