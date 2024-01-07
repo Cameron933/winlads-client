@@ -57,6 +57,7 @@ function SubscribeCard({
   month,
   color,
   colorFrom = "#0094FF",
+  descL = []
 }) {
   const handleChooseButton = () => {
     onButtonClick();
@@ -92,15 +93,15 @@ function SubscribeCard({
 
       <p className="font-bold text-center text-sm special:text-2xl 2xl:text-lg mb-3">
         <span className="text-2xl md:text-7xl"> {raffleCount}</span>{" "}
-        <span className="uppercase"> {subId} entries</span>
+        <span className="uppercase">{subId} entries</span>
       </p>
       <div
-        className={`relative flex justify-center flex-col space-y-4 special:space-y-6 2xl:space-y-4 pb-16 bg-white text-black py-5 px-2 rounded-xl h-full border-2 border-solid border-${cardBorderColor}`}
+        className={`relative flex justify-center flex-col space-y-4 special:space-y-6 2xl:space-y-4 pb-16 bg-white text-black pt-2 px-2 rounded-xl h-full border-2 border-solid border-${cardBorderColor}`}
       >
-        {descList[0].slice(0, initialShow).map((disc, key) => (
+        {descL.slice(0, initialShow).map((disc, key) => (
           <div
             key={key}
-            className="flex flex-row gap-2 special:gap-4 2xl:gap-4 items-center"
+            className="flex flex-row space-x-2 special:gap-4 2xl:gap-4 items-center"
           >
             <img
               src={GreenCorrect}
@@ -121,7 +122,7 @@ function SubscribeCard({
             &nbsp;Entries
           </p>
         </div>
-        {descList[0].length > 3 && (
+        {descL.length > 3 && (
           <button
             onClick={() => handleShowMore()}
             className="absolute bottom-1 right-1 text-xs font-semibold"
