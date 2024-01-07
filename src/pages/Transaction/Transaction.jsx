@@ -39,12 +39,11 @@ const Transaction = () => {
 
   const handleSeeMore = (show) => {
     if (show) {
-      setInitShow(transactions.length)
+      setInitShow(transactions.length);
     } else {
-      setInitShow(5)
+      setInitShow(5);
     }
-  }
-
+  };
 
   const currentUserValidation = async () => {
     const validator = await validateCurrentUser();
@@ -54,15 +53,12 @@ const Transaction = () => {
       getTransactionsFunction(validator.user.uid);
     } else {
       navigate("/login");
-
     }
   };
 
   const getEarning = async (valuid) => {
     await axios
-      .get(
-        `${import.meta.env.VITE_SERVER_API}/getPointBalances?uid=${valuid}`
-      )
+      .get(`${import.meta.env.VITE_SERVER_API}/getPointBalances?uid=${valuid}`)
       .then((response) => {
         setWallet(response?.data?.data);
       })
@@ -74,9 +70,7 @@ const Transaction = () => {
 
   const getTransactionsFunction = async (valuid) => {
     await axios
-      .get(
-        `${import.meta.env.VITE_SERVER_API}/getTransactions?uid=${valuid}`
-      )
+      .get(`${import.meta.env.VITE_SERVER_API}/getTransactions?uid=${valuid}`)
       .then((response) => {
         console.log(response.data.data);
         getTransactions(response?.data?.data);
@@ -145,7 +139,6 @@ const Transaction = () => {
   const chartWidth = windowWidth > 700 ? 400 : windowWidth - 80;
 
   return (
-
     <div className="flex relative min-h-screen w-full overflow-hidden">
       <div className="xl:flex xl:flex-row flex-col xl:justify-between px-3 special:px-12 2xl:px-8 flex-1 xl:gap-8 special:gap-16 2xl:gap-12 space-y-4 xl:space-y-0">
         <img
@@ -189,8 +182,10 @@ const Transaction = () => {
                 ${valUser.balance}
               </p> */}
           </div>
-          <div className="flex flex-row gap-1 xl:gap-2 md:gap-6 2xl:text-2xl special:text-3xl">
-            <div className="bg-[#008767] justify-between items-center rounded-2xl gap-1 py-2 xl:px-3 md:px-4 flex flex-1 flex-row px-2 cursor-default hover:bg-green-600/75">
+          <div className="flex xl:flex-row md:flex-row flex-col gap-1 xl:gap-2 md:gap-6 2xl:text-2xl special:text-3xl">
+            <div className="from-[#005887] to-black bg-gradient-to-r justify-between items-center rounded-2xl gap-1 py-2 xl:px-3 md:px-4 flex flex-1 flex-row px-2 cursor-default hover:bg-green-600/75"
+            style={{}}
+            >
               <img
                 src={Balance}
                 alt="balance"
@@ -205,7 +200,7 @@ const Transaction = () => {
                 </p>
               </div>
             </div>
-            <div className="bg-[#52A0DF] justify-between items-center rounded-2xl gap-1 py-2 xl:px-4 md:px-4 flex flex-1 flex-row px-2 cursor-default hover:bg-[#52A0DF]/75">
+            <div className="from-[#008767] to-black bg-gradient-to-r justify-between items-center rounded-2xl gap-1 py-2 xl:px-4 md:px-4 flex flex-1 flex-row px-2 cursor-default hover:bg-[#52A0DF]/75">
               <img
                 src={Profit}
                 alt=""
@@ -213,7 +208,7 @@ const Transaction = () => {
               />
               <div className="flex flex-col w-full">
                 <p className="text-white text-lg md:text-xl xl:text-xl 2xl:text-2xl special:text-3xl">
-                AUD&nbsp;{wallet.earning || "0.00"}
+                  AUD&nbsp;{wallet.earning || "0.00"}
                 </p>
                 <p className="text-white text-sm md:text-lg xl:text-sm 2xl:text-xl special:text-2xl">
                   Earning
@@ -221,7 +216,7 @@ const Transaction = () => {
               </div>
             </div>
 
-            <div className="bg-[#DF7E59] justify-between items-center rounded-2xl gap-1 py-2 xl:px-3 md:px-4 flex flex-1 flex-row px-2 cursor-default hover:bg-[#DF7E59]/75">
+            <div className="to-[#CBAD11] from-black bg-gradient-to-r justify-between items-center rounded-2xl gap-1 py-2 xl:px-3 md:px-4 flex flex-1 flex-row px-2 cursor-default hover:bg-[#DF7E59]/75">
               <img
                 src={ShoppingBag}
                 alt=""
@@ -373,8 +368,8 @@ const Transaction = () => {
                           transaction.type == "stripe"
                             ? Stripe
                             : transaction.type == "CR"
-                              ? Fund
-                              : Sub
+                            ? Fund
+                            : Sub
                         }
                         alt=""
                         className="w-12"
@@ -391,19 +386,27 @@ const Transaction = () => {
 
                     <div>
                       <p
-                        className={`text-${transaction.transactiontype == "DR"
-                          ? "red-400"
-                          : "green-400"
-                          } text-lg`}
+                        className={`text-${
+                          transaction.transactiontype == "DR"
+                            ? "red-400"
+                            : "green-400"
+                        } text-lg`}
                       >
                         AUD {transaction.amount}
                       </p>
                     </div>
                   </div>
                 ))}
-                {
-                  transactions.length > 5 && (initialShow == 5 ? <button onClick={() => handleSeeMore(true)}>See More</button> : <button onClick={() => handleSeeMore(false)}>See Less</button>)
-                }
+                {transactions.length > 5 &&
+                  (initialShow == 5 ? (
+                    <button onClick={() => handleSeeMore(true)}>
+                      See More
+                    </button>
+                  ) : (
+                    <button onClick={() => handleSeeMore(false)}>
+                      See Less
+                    </button>
+                  ))}
               </div>
             ) : (
               <p className="flex justify-center text-lg text-black">
@@ -530,7 +533,6 @@ const Transaction = () => {
         {/* </div> */}
       </div>
     </div>
-
   );
 };
 

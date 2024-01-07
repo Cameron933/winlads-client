@@ -18,3 +18,5 @@ const GoogleAnalytics = ({ trackingCode }) => (
 );
 
 export default GoogleAnalytics;
+
+
