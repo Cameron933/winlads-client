@@ -16,9 +16,9 @@ import { useRefresh } from "../../utils/RefreshContext";
 import AffiliateCard from "../../components/Affiliate/AffiliateCard";
 import { motion } from "framer-motion";
 import { FaRegCopy } from "react-icons/fa";
-import Banner1 from '../../assets/images/banner-1.png';
-import Banner2 from '../../assets/images/banner-2.png';
-import Banner3 from '../../assets/images/banner-3.png';
+import Banner1 from '../../assets/images/banner-1.gif';
+import Banner2 from '../../assets/images/banner-2.gif';
+import Banner3 from '../../assets/images/banner-3.gif';
 
 const publicPath = 'https://www.winlads.com';
 
