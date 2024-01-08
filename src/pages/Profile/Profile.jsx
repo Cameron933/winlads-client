@@ -187,7 +187,7 @@ const Profile = () => {
     <div className="bg-[#F2F5FB] w-full">
       <div className="flex relative w-full">
         <div className="right-side-logo max-xl:hidden"></div>
-        <div className="flex xl:flex-row flex-col xl:justify-between flex-1 md:mx-5 xl:gap-8 pb-5 space-y-4 xl:space-y-0 bg-no-repeat w-full">
+        <div className="flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-8 pb-5 space-y-4 xl:space-y-0 bg-no-repeat w-full">
           <div className="flex flex-col space-y-4 flex-1 visible xl:hidden">
             <div className="bg-black rounded-b-3xl py-4">
               <TopNav textColor={"white"} />
@@ -249,7 +249,7 @@ const Profile = () => {
                     {/* <p className="special:text-xl">Verified User</p> */}
                     <p className="special:text-xl">{valUser.name}</p>
                   </div>
-                  <div className="flex flex-col space-y-2 special:space-y-5 px-5 md:px-0">
+                  <div className="flex flex-col space-y-2 special:space-y-5">
                     <div className="flex flex-col space-y-2">
                       <p className="text-black text-sm xl:text-md special:text-xl">
                         User ID
