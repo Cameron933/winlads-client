@@ -204,9 +204,9 @@ const Affiliate = () => {
   };
 
   // Function to handle copying the input value to clipboard
-  const handleCopyToClipboard = async () => {
+  const handleCopyToClipboard = async (txt) => {
     try {
-      await navigator.clipboard.writeText(userId);
+      await navigator.clipboard.writeText(txt);
       toast.success('Copied to Clipboard')
     } catch (err) {
       console.error(
@@ -337,7 +337,7 @@ const Affiliate = () => {
                       value={userId || ""}
                       disabled
                     />
-                    <button onClick={handleCopyToClipboard} className="absolute right-1 bottom-0 text-xl p-3 hover:bg-gray-300 rounded-full bg-white"><FaRegCopy /></button>
+                    <button onClick={()=>handleCopyToClipboard(userId)} className="absolute right-1 bottom-0 text-xl p-3 hover:bg-gray-300 rounded-full bg-white"><FaRegCopy /></button>
 
                   </div>
 
@@ -347,14 +347,17 @@ const Affiliate = () => {
                   <p className="text-black text-sm xl:text-md special:text-xl">
                     Your Affiliate Link
                   </p>
+                  <div className="w-full relative">
                   <input
-                    className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                    className="bg-white w-full rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
                     placeholder="Enter Phone Number"
                     type="tel"
                     disabled
                     onChange={(e) => setMobile(e.target.value)}
                     value={`https://www.winlads.com/register?ref=${userId}`}
                   ></input>
+                    <button onClick={()=>handleCopyToClipboard(`https://www.winlads.com/register?ref=${userId}`)} className="absolute right-1 bottom-0 text-xl p-3 hover:bg-gray-300 rounded-full bg-white"><FaRegCopy /></button>
+                  </div>
                 </div>
               </div>
             </div>

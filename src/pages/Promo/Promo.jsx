@@ -194,9 +194,9 @@ const Promo = () => {
   };
 
   // Function to handle copying the input value to clipboard
-  const handleCopyToClipboard = async () => {
+  const handleCopyToClipboard = async (tex) => {
     try {
-      await navigator.clipboard.writeText(userData.uid);
+      await navigator.clipboard.writeText(tex);
       toast.success('Copied to Clipboard')
     } catch (err) {
       console.error(
@@ -260,7 +260,7 @@ const Promo = () => {
                     value={userData?.uid}
                     disabled
                   ></input>
-                  <button onClick={handleCopyToClipboard} className="absolute right-1 bottom-0 text-xl p-3 hover:bg-gray-300 rounded-full bg-white"><FaRegCopy /></button>
+                  <button onClick={() => handleCopyToClipboard(userData?.uid)} className="absolute right-1 bottom-0 text-xl p-3 hover:bg-gray-300 rounded-full bg-white"><FaRegCopy /></button>
                 </div>
               </div>
 
@@ -268,14 +268,17 @@ const Promo = () => {
                 <p className="text-black text-sm xl:text-md special:text-xl">
                   Your Affiliate Link
                 </p>
-                <input
-                  className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
-                  placeholder="Enter Phone Number"
-                  type="tel"
-                  disabled
-                  onChange={(e) => setMobile(e.target.value)}
-                  value={`https://www.winlads.com/?ref=${userData?.uid}`}
-                ></input>
+                <div className="w-full relative">
+                  <input
+                    className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                    placeholder="Enter Phone Number"
+                    type="tel"
+                    disabled
+                    onChange={(e) => setMobile(e.target.value)}
+                    value={`https://www.winlads.com/?ref=${userData?.uid}`}
+                  ></input>
+                  <button onClick={() => handleCopyToClipboard(`https://www.winlads.com/?ref=${userData?.uid}`)} className="absolute right-1 bottom-0 text-xl p-3 hover:bg-gray-300 rounded-full bg-white"><FaRegCopy /></button>
+                </div>
               </div>
             </div>
 
@@ -406,7 +409,7 @@ const Promo = () => {
                       value={userData?.uid}
                       disabled
                     ></input>
-                    <button onClick={handleCopyToClipboard} className="absolute right-1 bottom-0 text-xl p-3 hover:bg-gray-300 rounded-full"><FaRegCopy /></button>
+                    <button onClick={()=>handleCopyToClipboard(userData?.uid)} className="absolute right-1 bottom-0 text-xl p-3 hover:bg-gray-300 rounded-full"><FaRegCopy /></button>
                   </div>
                 </div>
 
@@ -414,14 +417,17 @@ const Promo = () => {
                   <p className="text-black text-sm xl:text-md special:text-xl">
                     Your Affiliate Link
                   </p>
-                  <input
-                    className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
-                    placeholder="Enter Phone Number"
-                    type="tel"
-                    disabled
-                    onChange={(e) => setMobile(e.target.value)}
-                    value={`https://www.winlads.com/?ref=${userData?.uid}`}
-                  ></input>
+                  <div className="w-full relative">
+                    <input
+                      className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3 w-full"
+                      placeholder="Enter Phone Number"
+                      type="tel"
+                      disabled
+                      onChange={(e) => setMobile(e.target.value)}
+                      value={`https://www.winlads.com/?ref=${userData?.uid}`}
+                    ></input>
+                    <button onClick={() => handleCopyToClipboard(`https://www.winlads.com/?ref=${userData?.uid}`)} className="absolute right-1 bottom-0 text-xl p-3 hover:bg-gray-300 rounded-full bg-white"><FaRegCopy /></button>
+                  </div>
                 </div>
               </div>
             </div>
