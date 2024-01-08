@@ -105,12 +105,17 @@ const Profile = () => {
   };
 
   const updateUserDatails = async () => {
-    const profileImageName = `${userId}_username`;
-    const storageRef = ref(storage, profileImageName);
-    const image = await uploadBytes(storageRef, profile).then((snapshot) => {
-      console.log("profile image upload");
-      refresh();
-    });
+    let profileImageName = `${userId}_username`;
+    if (profile) {
+      const storageRef = ref(storage, profileImageName);
+      const image = await uploadBytes(storageRef, profile).then((snapshot) => {
+        console.log("profile image upload");
+        refresh();
+      });
+    }
+    if(!profile){
+      profileImageName = null
+    }
     setLoading(true);
     const response = await axios.post(
       `${import.meta.env.VITE_SERVER_API}/editUser`,
@@ -502,14 +507,13 @@ const Profile = () => {
                           </Link>
                         </div>
                       </div>
-                      
+
 
                       <button
                         disabled={!isChecked}
                         onClick={() => updateUserDatails()}
-                        className={`text-white rounded-xl md:px-12 px-5 py-3 font-semibold special:text-xl bg-${
-                          isChecked ? "black" : "gray-500"
-                        } hover:bg-${isChecked ? "black/50" : ""}`}
+                        className={`text-white rounded-xl md:px-12 px-5 py-3 font-semibold special:text-xl bg-${isChecked ? "black" : "gray-500"
+                          } hover:bg-${isChecked ? "black/50" : ""}`}
                       >
                         Confirm
                       </button>
