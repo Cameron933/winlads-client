@@ -93,7 +93,7 @@ function SubscribeCard({
 
       <p className="font-bold text-center text-sm special:text-2xl 2xl:text-lg mb-3">
         <span className="text-4xl md:text-4xl"> {raffleCount}</span>{" "}
-        <span className="uppercase text-xs">{subId}&nbsp;Accumulating entries</span>
+        <span className="uppercase text-xs">{subId}&nbsp;Accumulating {raffleCount == 1 ? "Entry" : "Entries"}</span>
       </p>
       <div
         className={`relative flex justify-center flex-col space-y-4 special:space-y-6 2xl:space-y-4 pb-16 bg-white text-black pt-2 px-2 rounded-xl h-full border-2 border-solid border-${cardBorderColor}`}
