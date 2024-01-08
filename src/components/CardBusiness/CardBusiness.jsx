@@ -19,7 +19,7 @@ const BCard = () => {
   useEffect(() => {
     getBCard();
     currentUserValidation();
-  }, [bCard,valUser]);
+  }, [bCard, valUser]);
   const currentUserValidation = async () => {
     const validator = await validateCurrentUser();
     if (validator.validatorBl) {
@@ -52,12 +52,16 @@ const BCard = () => {
     <div className="flex flex-col space-y-4 xl:mx-20 md:mx-20">
       {loading ? (
         <div className="flex justify-center">
-          <ItemLoader/>
+          <ItemLoader />
 
         </div>
       ) : (
         <>
-          <div className="bg-black rounded-[35px] px-4 special:px-8 2xl:px-6 justify-between py-4 special:py-8 2xl:py-4 cursor-pointer">
+          <div className="bg-black rounded-[35px] px-4 special:px-8 2xl:px-6 justify-between py-4 special:py-8 2xl:py-4 cursor-pointer"
+            style={{
+              background: `linear-gradient(90deg, ${valUser.subscripton?.color} 0%, #000608 100%)`,
+            }}
+          >
             <div className="flex flex-row justify-between item-center">
               <div className="col-span-8">
                 <img
@@ -86,7 +90,11 @@ const BCard = () => {
               </span>
             </div>
           </div>
-          <div className="bg-black rounded-[35px] px-4 special:px-8 2xl:px-6 item-center py-2 special:py-4 2xl:py-4 cursor-pointer">
+          <div className="bg-black rounded-[35px] px-4 special:px-8 2xl:px-6 item-center py-2 special:py-4 2xl:py-4 cursor-pointer"
+            style={{
+              background: `linear-gradient(90deg, ${valUser.subscripton?.color} 0%, #000608 100%)`,
+            }}
+          >
             <div className="flex flex-row justify-between item-center">
               <div className="col-span-12">
                 <img

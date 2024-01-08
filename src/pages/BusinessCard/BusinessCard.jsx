@@ -22,6 +22,7 @@ function BusinessCard() {
     if (validator.validatorBl) {
       console.log("Session OK", validator.user);
       setValUser(validator.user);
+      console.log(validator.user);
     } else {
       navigate("/login");
     }

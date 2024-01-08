@@ -219,7 +219,7 @@ const Transaction = () => {
               </div>
             </div>
 
-            <div className="to-[#CBAD11] from-black bg-gradient-to-r justify-between items-center rounded-2xl gap-1 py-2 xl:px-3 md:px-4 flex flex-1 flex-row px-2 cursor-default hover:bg-[#DF7E59]/75">
+            <div className="from-[#CBAD11] to-black bg-gradient-to-r justify-between items-center rounded-2xl gap-1 py-2 xl:px-3 md:px-4 flex flex-1 flex-row px-2 cursor-default hover:bg-[#DF7E59]/75">
               <img
                 src={NewPurcahase}
                 alt=""

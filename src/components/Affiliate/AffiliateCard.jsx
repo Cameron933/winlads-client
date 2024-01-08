@@ -13,6 +13,7 @@ const AffiliateCard = () => {
   const [wallet, setWallet] = useState([]);
   const [refferals, setRefferals] = useState({});
   const navigate = useNavigate();
+  const [formattedDate, setDate] = useState('');
 
   useEffect(() => {
     currentUserValidation();
@@ -26,6 +27,12 @@ const AffiliateCard = () => {
       // getTransactionsFunction();
       getEarning(validator.user.uid);
       getAffiliats(validator.user.uid);
+
+      if (validator.user.transaction?.endfrom) {
+        const dateObject = new Date(validator.user.transaction.endfrom);
+        const options = { year: "numeric", month: "long", day: "numeric" };
+        setDate(dateObject.toLocaleString("en-US", options))
+      }
     } else {
       setLoading(false);
     }
@@ -57,9 +64,6 @@ const AffiliateCard = () => {
       });
   };
 
-  const dateObject = new Date(valUser.transaction?.endfrom);
-  const options = { year: "numeric", month: "long", day: "numeric" };
-  const formattedDate = dateObject.toLocaleString("en-US", options);
 
   return (
     <div className="bg-white border-gray-300 border border-solid rounded-xl mt-5">
