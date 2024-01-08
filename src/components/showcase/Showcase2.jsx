@@ -201,7 +201,7 @@ const Showcase2 = () => {
                 transition={{ duration: 0.5, delay: 0.6 }}
                 className="text-xs sm:text-sm md:text-base xl:text-lg 2xl:text-xl special:text-2xl font-semibold"
               >
-                you can accessexclusive discounts Australia Wide from
+                you can access exclusive discounts Australia Wide from
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, y: "-10%" }}
@@ -305,7 +305,7 @@ const Showcase2 = () => {
                 viewport={{ once: true }}
                 className="text-base xl:text-lg 2xl:text-xl special:text-2xl font-semibold"
               >
-                you can accessexclusive discounts Australia Widefrom
+                you can access exclusive discounts Australia Widefrom
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, x: "-20%" }}
@@ -314,7 +314,7 @@ const Showcase2 = () => {
                 viewport={{ once: true }}
                 className="text-base xl:text-lg 2xl:text-xl special:text-2xl font-semibold"
               >
-                only <span className='text-sm sm:text-md md:text-lg xl:text-2xl 2xl:text-4xl special:text-3xl font-semibold'>AUD 9.99</span> per month, opt-out anytime
+                only AUD <span className='text-sm sm:text-md md:text-lg xl:text-2xl 2xl:text-4xl special:text-3xl font-semibold'>9.99</span> per month, opt-out anytime
               </motion.p>
             </div>
 
