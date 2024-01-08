@@ -95,7 +95,7 @@ const SmallGoldCard = () => {
         ) : (
           <div className="flex flex-row gap-4 items-center justify-between rounded-lg w-full border-2 border-black py-2 px-4">
             <img src={Cross} alt="" className="w-12" />
-            <p className="text-black 2xl:text-xl text-lg">
+            <p className="text-white 2xl:text-xl text-lg mbsmalltext">
               Your subscription is currently inactive
             </p>
           </div>
