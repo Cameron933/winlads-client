@@ -78,7 +78,7 @@ const Register = ({ location }) => {
       mobile: "+" + ph,
       passport: values.passport,
       tin: values.tin,
-      rafflesId: values.rafflesId,
+      rafflesId: refId,
       uid: uid,
     };
 
