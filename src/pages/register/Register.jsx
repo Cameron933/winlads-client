@@ -69,18 +69,38 @@ const Register = () => {
       mobile: "+" + ph,
       passport: values.passport,
       tin: values.tin,
-      refferalId: values.rafflesId,
+      rafflesId: values.rafflesId,
       uid: uid,
     };
 
-    try {
-      const response = await axios.post(
-        `${import.meta.env.VITE_SERVER_API}/register`,
-        data
-      );
-      cookies.set("wr_token", response.data.data._id);
-      if (response.data.status == 200) {
-        toast.success("Successful create new account", {
+    const response = await axios.get(
+      `${import.meta.env.VITE_SERVER_API}/checkEmail?email=${values.email}`
+    );
+    console.log(response.data);
+    if (response.data.status == 200) {
+      if (!response.data.exists) {
+        try {
+          const response = await axios.post(
+            `${import.meta.env.VITE_SERVER_API}/register`,
+            data
+          );
+          console.log(response.data);
+          cookies.set("wr_token", response.data.data._id);
+        } catch (error) {
+          toast.error("Error submitting login credentials", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          });
+          console.error("Error submitting form:", error);
+        }
+      } else {
+        toast.error("Email already registered!", {
           position: "top-center",
           autoClose: 5000,
           hideProgressBar: false,
@@ -91,21 +111,8 @@ const Register = () => {
           theme: "colored",
         });
       }
-      else {
-        toast.error("Something went wrong", {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-        });
-      }
-    
-    } catch (error) {
-      toast.error("Error submitting login credentials", {
+    } else {
+      toast.error("Please try again!", {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -115,7 +122,6 @@ const Register = () => {
         progress: undefined,
         theme: "colored",
       });
-      console.error("Error submitting form:", error);
     }
   };
 
@@ -558,8 +564,6 @@ const Register = () => {
           </div>
         </div>
       )}
-
-    
     </>
   );
 };
