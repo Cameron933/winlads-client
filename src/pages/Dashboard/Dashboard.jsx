@@ -19,6 +19,7 @@ import SelectRafflePaymentMethod from "../../components/RaffleComponent/SelectRa
 import BG from "../../assets/images/HomesideBg.png";
 import { FaAngleDoubleDown, FaAngleDoubleUp } from "react-icons/fa";
 import Cookies from "universal-cookie";
+import FreeEntries from "../../assets/images/freeEntries.png";
 
 const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -38,16 +39,17 @@ const Dashboard = () => {
 
   useEffect(() => {
     const sortedArray = [...giveaways];
-    sortedArray.sort((a, b) => new Date(a.startingtime) - new Date(b.startingtime));
+    sortedArray.sort(
+      (a, b) => new Date(a.startingtime) - new Date(b.startingtime)
+    );
     setSortedGiveaways(sortedArray);
   }, [giveaways]);
 
   useEffect(() => {
     currentUserValidation();
-    if(cookies.get('selected-package-id')){
-      navigate('/subscription')
+    if (cookies.get("selected-package-id")) {
+      navigate("/subscription");
     }
-   
   }, [raffleCount]);
 
   const currentUserValidation = async () => {
@@ -81,7 +83,7 @@ const Dashboard = () => {
   const getRaffleCount = async (valuid) => {
     await axios
       .get(
-       ` ${import.meta.env.VITE_SERVER_API}/getUserRafflesCount?uid=${valuid}`
+        ` ${import.meta.env.VITE_SERVER_API}/getUserRafflesCount?uid=${valuid}`
       )
       .then((response) => {
         console.log(response.data, "countData");
@@ -127,14 +129,27 @@ const Dashboard = () => {
                 <div className="bg-black rounded-b-3xl py-4">
                   <TopNav textColor={"white"} />
                   <div className="pt-10">
-                    <motion.img
+                    {/* <motion.img
                       initial={carAnimation.initialMobile}
                       animate={{ x: 0, opacity: 1 }}
                       transition={carAnimation.transition}
                       className="w-4/5"
                       src={MainCar}
                       alt="main"
-                    />
+                    /> */}
+                    <div className="flex justify-center px-2">
+                    <div className="flex flex-col space-y-2">
+                      <img src={FreeEntries} alt="" className="w-[600px]" />
+                      <div className="pb-2">
+                        <Link to="/requestEntries">
+                          <button className="bg-[#F7B928] text-black rounded-lg py-1 w-64 hover:bg-[#F7B928]/75">
+                            Request
+                          </button>
+                        </Link>
+                      </div>
+                    </div>
+                    </div>
+                     
                   </div>
                 </div>
                 <div className="left-4 top-20 space-y-4">
@@ -231,15 +246,30 @@ const Dashboard = () => {
                     </div>
                     <SmallGoldCard />
                   </div>
-                  <motion.img
+
+                  <div className="flex justify-end">
+                    <div className="flex flex-col space-y-2">
+                      <img src={FreeEntries} alt="" className="w-[600px]" />
+                      <div className="pb-2">
+                        <Link to="/requestEntries">
+                          <button className="bg-[#F7B928] text-black rounded-lg py-1 w-64 hover:bg-[#F7B928]/75">
+                            Request
+                          </button>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* <motion.img
                     initial={carAnimation.initial}
                     animate={carAnimation.animate}
                     transition={carAnimation.transition}
                     src={MainCar}
                     alt="main"
                     className="w-[480px]"
-                  />
+                  /> */}
                 </div>
+
                 <div className="flex flex-col space-y-2 w-full xl:w-web pt-4">
                   <p className="text-2xl 2xl:text-2xl special:text-5xl font-semibold mb-2">
                     Up Coming Giveaways
