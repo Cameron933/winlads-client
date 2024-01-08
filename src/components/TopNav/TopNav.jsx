@@ -5,6 +5,7 @@ import { useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 // import { messaging } from "../../firebase.config";
 import { getMessaging, getToken } from "firebase/messaging";
+import OutsideClickHandler from "react-outside-click-handler";
 
 // const messaging = getMessaging();
 // // Add the public key generated from the console here.
@@ -66,6 +67,7 @@ const TopNav = ({ textColor }) => {
 
       </div>
       {notShow ? (
+        <OutsideClickHandler onOutsideClick={()=>setNotShow(false)}>
         <div className="absolute right-8">
           <div className="bg-white flex flex-col mt-8 rounded-xl p-2 w-72 border border-solid border-black">
             {/* <div className="flex justify-end">
@@ -74,6 +76,7 @@ const TopNav = ({ textColor }) => {
             <p className="text-center">No more notification</p>
           </div>
         </div>
+        </OutsideClickHandler>
       ) : (
         ""
       )}
