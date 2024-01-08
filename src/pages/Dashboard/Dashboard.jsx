@@ -18,6 +18,7 @@ import NewVeh from "../../assets/images/newVeh.png";
 import SelectRafflePaymentMethod from "../../components/RaffleComponent/SelectRafflePaymentMethod";
 import BG from "../../assets/images/HomesideBg.png";
 import { FaAngleDoubleDown, FaAngleDoubleUp } from "react-icons/fa";
+import Cookies from "universal-cookie";
 
 const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -31,9 +32,13 @@ const Dashboard = () => {
   const [price, setPrice] = useState("");
   const [selectPayment, setSelectPayment] = useState(false);
   const [initialLength, setInitSize] = useState(8);
+  const cookies = new Cookies(null, { path: "/" });
 
   useEffect(() => {
     currentUserValidation();
+    if(cookies.get('selected-package-id')){
+      navigate('/subscription')
+    }
    
   }, [raffleCount]);
 
