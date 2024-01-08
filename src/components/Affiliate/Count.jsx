@@ -13,7 +13,7 @@ const Count = ({ count = 0 }) => {
             <CountUp start={0} end={count} delay={0}>
                 {({ countUpRef }) => (
                     <div>
-                        <span ref={countUpRef} />
+                        {count < 10 ? '0' :''}<span ref={countUpRef} />
                     </div>
                 )}
             </CountUp>

@@ -256,7 +256,7 @@ const Affiliate = () => {
                     )}
                   </form> */}
                   <div className="md:mt-10 mt-5">
-                    <Count count={0} />
+                    <Count count={refferals?.data?.length} />
                   </div>
                   <div className="hidden xl:block">
                     <AffiliateCard />
