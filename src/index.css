@@ -17,6 +17,12 @@ input::-webkit-inner-spin-button {
   background: linear-gradient(to right, #80E2E2 0%, #FFE9E9 100%);
 }
 
+@media (max-width: 1280px){
+  .hidemb{
+    display: none;
+  }
+}
+
 
 /* button animaion */
 .animate_btn {
