@@ -68,9 +68,9 @@ const DashboardVehicleCard = ({
             <div>
               <button
                 onClick={handleClick}
-                className="rounded-md border-2 hover:bg-black bg-white text-black cursor-pointer border-white  py-1 hover:scale-105 hover:transition-transform ease-out duration-300 mt-auto hover:text-white text-sm px-1"
+                className="rounded-md border-2 capitalize hover:bg-black bg-white text-black cursor-pointer border-white  py-1 hover:scale-105 hover:transition-transform ease-out duration-300 mt-auto hover:text-white text-sm px-1"
               >
-                Try Single Entries
+                one off packages
               </button>
             </div>
           </div>

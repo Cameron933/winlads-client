@@ -230,8 +230,8 @@ const Affiliate = () => {
               )}
             </div>
           </div>
-          <div className="xl:flex flex-col space-y-4 flex-1 hidden">
-            <div className="bg-black rounded-b-3xl py-4">
+          <div className="xl:flex flex-col space-y-4 flex-1">
+            <div className="bg-black rounded-b-3xl py-4 hidemb">
               <TopNav textColor={"white"} />
               <div className="pt-10">
                 <motion.img
@@ -275,7 +275,7 @@ const Affiliate = () => {
                 </div>
                 <div className="flex flex-col space-y-2">
                   <p className="text-black text-sm xl:text-md special:text-xl">
-                    Your affiliate ID
+                    Your Affiliate ID
                   </p>
                   <input
                     className="bg-white font-bold rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
