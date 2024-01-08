@@ -21,6 +21,10 @@ input::-webkit-inner-spin-button {
   .hidemb{
     display: none;
   }
+
+  .mbsmalltext{
+    color: black;
+  }
 }
 
 
