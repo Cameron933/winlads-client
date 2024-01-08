@@ -23,11 +23,13 @@ const DashboardVehicleCard = ({
     year: "numeric",
     month: "long",
     day: "numeric",
-    hour: "numeric",
-    minute: "numeric",
-    second: "numeric",
+    // hour: "numeric",
+    // minute: "numeric",
+    // second: "numeric",
+    timeZone: "UTC", // Set the timeZone option to "UTC"
   };
-  const formattedDate = dateObject.toLocaleString("en-US", options);
+  
+  const formattedDate = new Intl.DateTimeFormat("en-US", options).format(dateObject);
 
   return (
     <>
@@ -46,7 +48,7 @@ const DashboardVehicleCard = ({
           <img
             src={icon}
             alt=""
-            className="2xl:w-16 xl:w-16 w-16 special:w-24 "
+            className="2xl:w-20 xl:w-16 w-16 special:w-28 "
           />
         </div>
         <div className="flex flex-row justify-between items-center">
