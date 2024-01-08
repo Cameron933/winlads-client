@@ -34,6 +34,14 @@ const Dashboard = () => {
   const [initialLength, setInitSize] = useState(8);
   const cookies = new Cookies(null, { path: "/" });
 
+  const [sortedGiveaways, setSortedGiveaways] = useState([]);
+
+  useEffect(() => {
+    const sortedArray = [...giveaways];
+    sortedArray.sort((a, b) => new Date(a.startingtime) - new Date(b.startingtime));
+    setSortedGiveaways(sortedArray);
+  }, [giveaways]);
+
   useEffect(() => {
     currentUserValidation();
     if(cookies.get('selected-package-id')){
@@ -149,9 +157,9 @@ const Dashboard = () => {
                     <div className="flex justify-center">
                       <ItemLoader />
                     </div>
-                  ) : giveaways.length > 0 ? (
+                  ) : sortedGiveaways.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2">
-                      {giveaways
+                      {sortedGiveaways
                         .slice(0, initialLength)
                         .map((giveaway, key) => (
                           <DashboardVehicleCard
@@ -240,9 +248,9 @@ const Dashboard = () => {
                     <div className="flex justify-center">
                       <ItemLoader />
                     </div>
-                  ) : giveaways.length > 0 ? (
+                  ) : sortedGiveaways.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
-                      {giveaways
+                      {sortedGiveaways
                         .slice(0, initialLength)
                         .map((giveaway, key) => (
                           <DashboardVehicleCard
