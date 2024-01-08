@@ -100,7 +100,7 @@ const SideNav = ({ screen }) => {
                     <ItemLoader />
                   </div>
                 ) : userImage ? (
-                  <div className="w-[35px] xl:w-[100px] rounded-full overflow-hidden">
+                  <div className="w-[35px] xl:w-[100px] rounded-full overflow-hidden aspect-square">
                   <img
                     src={userImage}
                     className="w-full h-full object-cover"

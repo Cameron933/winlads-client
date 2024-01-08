@@ -147,11 +147,13 @@ function RaffleDashbord() {
                 <div className="flex flex-col space-y-2 special:space-y-8 flex-1">
                   <div className="flex flex-row items-center gap-2 special:gap-4">
                     {userImage ? (
+                      <div className="w-12 h-12 special:w-36 special:h-36 rounded-full aspect-square">
                       <img
                         src={userImage}
-                        className="w-12 h-12 special:w-36 special:h-36 rounded-full"
+                        className="w-full h-full object-cover"
                         alt="user"
                       />
+                      </div>
                     ) : (
                       <img
                         src={User}
