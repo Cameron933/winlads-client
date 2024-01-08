@@ -90,7 +90,7 @@ const Register = ({ location }) => {
       mobile: "+" + ph,
       passport: values.passport,
       tin: values.tin,
-      rafflesId: refId,
+      refferalId: values.refferalId,
       uid: uid,
     };
 
@@ -245,7 +245,7 @@ const Register = ({ location }) => {
         mobile: "",
         passport: "",
         tin: "",
-        rafflesId: "",
+        refferalId: "",
       },
       validationSchema: basicSchemasRegister,
       onSubmit: saveFormData,
@@ -469,7 +469,7 @@ const Register = ({ location }) => {
 
                     <div
                       className={
-                        errors.rafflesId && touched.rafflesId
+                        errors.refferalId && touched.refferalId
                           ? "input-div input-error"
                           : "input-div"
                       }
@@ -478,10 +478,10 @@ const Register = ({ location }) => {
                       <input
                         type="text"
                         placeholder="Affiliate Id"
-                        value={refId}
-                        onChange={(e) => setRefId(e.target.value)}
+                        value={values.refferalId}
+                        onChange={handleChange}
                         onBlur={handleBlur}
-                        id="rafflesId"
+                        id="refferalId"
                         className="placeholder:text-[16px]"
                         disabled={fieldDis}
                       />
