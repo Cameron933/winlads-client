@@ -15,6 +15,7 @@ import { validateCurrentUser } from "../../utils/validateuser";
 import CardComponent from "../../components/cardComponent/CardComponent";
 import { useRefresh } from "../../utils/RefreshContext";
 import AffiliateCard from "../../components/Affiliate/AffiliateCard";
+import RefCount from "./RefferalCount";
 
 const Affiliate = () => {
   const cookies = new Cookies(null, { path: "/" });
@@ -42,9 +43,11 @@ const Affiliate = () => {
   const [license, setLicense] = useState("");
   const [isChecked, setIsChecked] = useState(false);
   const [refferalId, setRefferalId] = useState();
+  const [refferals, setRefferals] = useState({});
   // const [refresh, setRefresh] = useState(false);
   useEffect(() => {
     getUserData();
+
   }, [refreshCount]);
 
   const onCheckboxChange = (e) => {
@@ -58,6 +61,21 @@ const Affiliate = () => {
       setProfile(file);
     }
   };
+
+  const getAffiliats = async (valuid) => {
+    await axios
+      .get(`${import.meta.env.VITE_SERVER_API}/getRefferals?uid=${valuid}`)
+      .then((response) => {
+        console.log(response.data)
+        setRefferals(response.data)
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false);
+      });
+  };
+
 
   const getUserData = async () => {
     setLoading(true);
@@ -84,6 +102,7 @@ const Affiliate = () => {
         if (response?.data?.data.image != undefined) {
           getProfileImage(response?.data?.data.image);
         }
+        getAffiliats(response?.data?.data.uid);
         setLoading(false);
       })
       .catch((error) => {
@@ -221,10 +240,20 @@ const Affiliate = () => {
                   </form> */}
                   <div className="hidden xl:block">
                     <AffiliateCard />
+
                   </div>
 
-                  <div className="pt-12">
-                    <p className="text-center">You Have No Referral List</p>
+
+                  <div className="pt-6">   
+                  <h3 style={{ fontWeight: 'bold' }}>Affiliate List</h3>
+                  <br />
+                    {refferals?.data?.map((ref, key) => (
+                      <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', flexWrap: 'wrap', backgroundColor: '#FFFFFF', borderRadius: 10, padding: 5, marginBottom: 5 }}>
+                        <h6>{key + 1}</h6>
+                        <h3>{ref.firstname}</h3>
+                        <span>{ref.email}</span>
+                      </div>
+                    ))}
                   </div>
                 </>
               )}
@@ -296,7 +325,7 @@ const Affiliate = () => {
                     type="tel"
                     disabled
                     onChange={(e) => setMobile(e.target.value)}
-                    value={`https://www.winlads.com/?ref=${userId}`}
+                    value={`https://www.winlads.com/register?ref=${userId}`}
                   ></input>
                 </div>
               </div>
