@@ -44,6 +44,13 @@ const Login = () => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
     actions.resetForm();
   };
+  const handleSEOLogin = () => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event': 'login',
+      'method': 'google' //it can be email,facebook, or google. This value is optional
+    });
+  }
 
   const onPhoneNumberChange = (value, country, e, formattedValue) => {
     setPh(value);
@@ -142,6 +149,7 @@ const Login = () => {
     const validator = await validateCurrentUser();
     if (validator.validatorBl) {
       console.log("Session OK", validator.user);
+      handleSEOLogin();
       navigate("/dashboard");
     } else {
       console.log("");
@@ -321,9 +329,8 @@ const Login = () => {
                     {/* {!final && <div id="recaptcha-container"></div>} */}
                     <div className="flex flex-col space-y-1">
                       <button
-                        className={`px-12 w-full py-2 flex justify-center flex-row items-center rounded-lg bg-${
-                          loginDisable ? "black" : "gray-500"
-                        } hover:bg-${loginDisable ? "black/75" : ""}`}
+                        className={`px-12 w-full py-2 flex justify-center flex-row items-center rounded-lg bg-${loginDisable ? "black" : "gray-500"
+                          } hover:bg-${loginDisable ? "black/75" : ""}`}
                         onClick={(e) => onSignup(e)}
                         type="submit"
                         disabled={!loginDisable}
@@ -337,9 +344,9 @@ const Login = () => {
                         />
                       </button>
                       <Link to="/forgotPassword">
-                      <div className="flex justify-end cursor-pointer text-xs xl:text-sm">Forgot Password</div>
+                        <div className="flex justify-end cursor-pointer text-xs xl:text-sm">Forgot Password</div>
                       </Link>
-                     
+
                     </div>
 
                     <div className="font-semibold text-lg text-center">

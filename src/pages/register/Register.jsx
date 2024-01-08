@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useLocation, useParams, useSearchParams } from "react-router-dom";
 import Loader from "../../components/Loader/Loader";
 import { basicSchemasRegister } from "../../schemas/index.js";
 import { useFormik } from "formik";
@@ -32,6 +32,7 @@ const inputStyle = {
 };
 
 const Register = ({ location }) => {
+  const {selectedPackage} = useParams();
   const [otp, setOtp] = useState("");
   const [ph, setPh] = useState("");
   const [isLoading, setIsLoading] = useState(true);
@@ -47,19 +48,22 @@ const Register = ({ location }) => {
   const [fieldDis, setFieldDis] = useState(false);
 
   const [refId, setRefId] = useState("");
-  
+
   const [searchParams] = useSearchParams();
   // set loading
   useEffect(() => {
+    if(selectedPackage){
+      cookies.set('selected-package-id', selectedPackage);
+    }
     setTimeout(() => {
       setIsLoading(false);
     }, 1000);
     currentUserValidation();
 
-    const ref = searchParams.get('ref'); 
+    const ref = searchParams.get('ref');
 
-    if(ref != undefined){
-        setRefId(ref)
+    if (ref != undefined) {
+      setRefId(ref)
     }
 
   }, []);
@@ -67,6 +71,14 @@ const Register = ({ location }) => {
   const onCheckboxChange = (e) => {
     setIsChecked(e.target.checked);
   };
+
+  const handleSEOReg = () => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event': 'sign_up',
+      'method': 'google' //it can be email,facebook, or google. This value is optional
+    });
+  }
 
   const saveFormData = async (temp_values, uid) => {
     console.log(temp_values, uid);
@@ -86,29 +98,16 @@ const Register = ({ location }) => {
       `${import.meta.env.VITE_SERVER_API}/checkEmail?email=${values.email}`
     );
     console.log(response.data);
-      if (!response.data.exists) {
-        try {
-          const response = await axios.post(
-            `${import.meta.env.VITE_SERVER_API}/register`,
-            data
-          );
-          console.log(response.data);
-          cookies.set("wr_token", response.data.data._id);
-        } catch (error) {
-          toast.error("Error submitting login credentials", {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-          });
-          console.error("Error submitting form:", error);
-        }
-      } else {
-        toast.error("Email already registered!", {
+    if (!response.data.exists) {
+      try {
+        const response = await axios.post(
+          `${import.meta.env.VITE_SERVER_API}/register`,
+          data
+        );
+        console.log(response.data);
+        cookies.set("wr_token", response.data.data._id);
+      } catch (error) {
+        toast.error("Error submitting login credentials", {
           position: "top-center",
           autoClose: 5000,
           hideProgressBar: false,
@@ -118,7 +117,20 @@ const Register = ({ location }) => {
           progress: undefined,
           theme: "colored",
         });
+        console.error("Error submitting form:", error);
       }
+    } else {
+      toast.error("Email already registered!", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+    }
   };
 
   function onSignup(e) {
@@ -213,11 +225,13 @@ const Register = ({ location }) => {
         saveFormData(values, result.user.uid);
 
         navigate("/welcome");
+        // SIGN UP SUCCESS
+        handleSEOReg();
         setTimeout(() => {
           navigate("/dashboard");
         }, 3000);
       })
-      .catch((err) => {});
+      .catch((err) => { });
   };
 
   const { values, handleChange, handleBlur, handleSubmit, errors, touched } =
@@ -289,11 +303,10 @@ const Register = ({ location }) => {
               >
                 <div className="flex flex-col justify-center space-y-4 mx-auto xl:mt-4 md:mt-10 mt-4 special:mt-20">
                   <div
-                    className={`flex flex-col space-y-4 ${
-                      buttonText == "Sending..." || buttonText == "Register"
-                        ? "blur-sm"
-                        : ""
-                    }`}
+                    className={`flex flex-col space-y-4 ${buttonText == "Sending..." || buttonText == "Register"
+                      ? "blur-sm"
+                      : ""
+                      }`}
                   >
                     <div
                       className={
@@ -488,7 +501,7 @@ const Register = ({ location }) => {
                         placeholder="OTP Code"
                         value={otp}
                         onChange={(e) => setOtp(e.target.value)}
-                        // id="tin"
+                      // id="tin"
                       />
                       <small className="text-error">
                         {errors.otp && touched.opt && errors.otp}
@@ -527,9 +540,8 @@ const Register = ({ location }) => {
                   {!final && <div id="recaptcha-container"></div>}
 
                   <button
-                    className={`text-white rounded-xl justify-center px-12 py-2 flex flex-row items-center font-semibold special:text-xl bg-${
-                      isChecked ? "black" : "gray-500"
-                    } hover:bg-${isChecked ? "black/50" : ""}`}
+                    className={`text-white rounded-xl justify-center px-12 py-2 flex flex-row items-center font-semibold special:text-xl bg-${isChecked ? "black" : "gray-500"
+                      } hover:bg-${isChecked ? "black/50" : ""}`}
                     onClick={(e) => onSignup(e)}
                     // onClick={(e) => onSignup(e)}
                     disabled={!isChecked}
