@@ -77,7 +77,6 @@ const Register = () => {
       `${import.meta.env.VITE_SERVER_API}/checkEmail?email=${values.email}`
     );
     console.log(response.data);
-    if (response.data.status == 200) {
       if (!response.data.exists) {
         try {
           const response = await axios.post(
@@ -111,18 +110,6 @@ const Register = () => {
           theme: "colored",
         });
       }
-    } else {
-      toast.error("Please try again!", {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-      });
-    }
   };
 
   function onSignup(e) {
