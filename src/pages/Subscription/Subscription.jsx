@@ -34,7 +34,6 @@ function Subscription() {
   const navigate = useNavigate();
 
   const [valUser, setValUser] = useState({});
-  const cookies = new Cookies(null, { path: "/" });
 
   const handleButton = (id, price, name) => {
     setChoosePlane(true);
@@ -169,6 +168,7 @@ function Subscription() {
                   {planes.map((plane, key) => (
                     <SubscribeCard
                       key={key}
+                      id={plane._id}
                       name={plane.name}
                       year={isYearly}
                       quartly={isQuartly}

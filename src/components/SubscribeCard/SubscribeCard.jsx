@@ -13,6 +13,7 @@ import BitCoin from "../../assets/images/subcription/bitcoin.png";
 import Save from "../../assets/images/subcription/save.png";
 import GreenCorrect from "../../assets/images/subcription/Icons.png";
 import { FaStar } from "react-icons/fa";
+import Cookies from "universal-cookie";
 
 const PaymentModal = ({ handleClose, show }) => {
   return (
@@ -57,11 +58,20 @@ function SubscribeCard({
   month,
   color,
   colorFrom = "#0094FF",
-  descL = []
+  descL = [],
+  id
 }) {
+  const cookies = new Cookies(null, { path: "/" });
   const handleChooseButton = () => {
     onButtonClick();
   };
+  useEffect(()=>{
+    const selectedPlaneId = cookies.get('selected-package-id')
+    if(selectedPlaneId && selectedPlaneId ==id ){
+      handleChooseButton()
+      cookies.remove('selected-package-id')
+    }
+  },[])
   const [initialShow, setInitialShow] = useState(3);
 
   const handleShowMore = () => {
