@@ -20,6 +20,7 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import CardComponentNoWithdraw from "../../components/cardComponent/CardComponentNoWithdraw";
 import directBankIcon from "../../assets/images/icons/direct-bank.svg";
 import stripeIcon from "../../assets/images/icons/stripe.svg";
+import { IoIosArrowBack } from "react-icons/io";
 const Withdraw = () => {
   const cookies = new Cookies(null, { path: "/" });
   const id = cookies.get("wr_token");
@@ -33,7 +34,6 @@ const Withdraw = () => {
   const [bankName, setBankName] = useState("");
   const [accountNumber, setAccountNumber] = useState("");
   const [bnbnumber, setBnbnumber] = useState("")
-
   useEffect(() => {
     currentUserValidation();
   }, []);
@@ -107,6 +107,10 @@ const Withdraw = () => {
     }
   };
 
+  const handleBackward = ()=>{
+    navigate(-1);
+  }
+
   return (
     <div>
       <div className="flex relative">
@@ -121,8 +125,8 @@ const Withdraw = () => {
             </div>
             <CardComponentNoWithdraw />
           </div>
-
-          <div className="flex flex-col space-y-4 flex-1 xl:mx-12">
+          <button className="absolute top-2 left-2 text-3xl rounded-full bg-white hover:bg-gray-200 cursor-pointer p-2" onClick={()=>handleBackward()}><IoIosArrowBack/></button>
+          <div className="flex flex-col space-y-4 flex-1 xl:mx-12 ">
             <div className="flex flex-col space-y-3 md:mt-20 mt-0">
               <div className="flex items-center justify-start gap-2">
                 <h1 className="text-2xl font-bold">Withdraw Funds</h1>

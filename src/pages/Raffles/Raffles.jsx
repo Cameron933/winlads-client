@@ -20,6 +20,7 @@ import NewVeh from "../../assets/images/newVeh.png";
 import SelectRafflePaymentMethod from "../../components/RaffleComponent/SelectRafflePaymentMethod";
 import NoLive from "../../components/Live/NoLive";
 import CardComponent from "../../components/cardComponent/CardComponent";
+import AffiliateCard from "../../components/Affiliate/AffiliateCard";
 
 export const bgStyle = {
   backgroundImage: `url(${bgCar})`,
@@ -122,6 +123,7 @@ function Raffles() {
                   <div className="mt-4 xl:pt-0 pb-4 xl:pb-0">
                     <SearchField />
                   </div>
+                  <AffiliateCard/>
 {/* 
                   <div className="flex flex-row items-center justify-between">
                     <p className="capitalize text-black font-semibold text-xl 2xl:text-2xl special:text-5xl">
