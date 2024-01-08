@@ -82,7 +82,7 @@ const Profile = () => {
         setPostalcode(response?.data?.data.postalcode);
         setUserImage(response?.data?.data.image);
         setRefferalId(response?.data?.data.rafflesId);
-        console.log(response?.data?.data.image);
+        //console.log(response?.data?.data.image);
         if (response?.data?.data.image != undefined) {
           getProfileImage(response?.data?.data.image);
         }
@@ -351,7 +351,7 @@ const Profile = () => {
                         className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
                         placeholder="Enter Date of Birth"
                         type="date"
-                        value={dob}
+                        value={dob?.substring(0, 10)}
                         onChange={(e) => setDob(e.target.value)}
                       ></input>
                     </div>
