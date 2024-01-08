@@ -217,7 +217,7 @@ const Profile = () => {
                       <img
                         src={User}
                         alt="profile-pic"
-                        className="special:w-16 2xl:w-16 xl:w-12 w-8"
+                        className="special:w-16 2xl:w-16 xl:w-14 w-14"
                       />
                     )}
 
