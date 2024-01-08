@@ -43,6 +43,7 @@ const Dashboard = () => {
       (a, b) => new Date(a.startingtime) - new Date(b.startingtime)
     );
     setSortedGiveaways(sortedArray);
+    checkCoupen()
   }, [giveaways]);
 
   useEffect(() => {
@@ -112,6 +113,13 @@ const Dashboard = () => {
       setInitSize(8);
     }
   };
+
+  const checkCoupen = () => {
+    const checkCode = cookies.get("COUPEN")
+    if(checkCode === "WINFREE") {
+      navigate("/requestEntries")
+    }
+  }
 
   return (
     <>

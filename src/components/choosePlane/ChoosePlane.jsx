@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import Card from "../../components/SubCard/SubCard";
+import FreeEntryCard from "../FreeEntry/FreeEntryCard";
 
 const ChoosePlane = () => {
   const navigate = useNavigate();
@@ -37,7 +38,6 @@ const ChoosePlane = () => {
               btnword="SIGN UP NOW"
               bgColorFrom="#0094FF"
               bgColorTo="#00347C"
-       
               titleColor="black"
               // btnword="Get started now"
             />
@@ -62,7 +62,6 @@ const ChoosePlane = () => {
               arrowColor="white"
               buttonTextColor="white"
               btnword="SIGN UP NOW"
-           
             />
             <Card
               bgColorFrom="#00ECFF"
@@ -116,7 +115,6 @@ const ChoosePlane = () => {
               arrowColor="[#01819D]"
               buttonTextColor={"white"}
               btnword="SIGN UP NOW"
-    
             />
             <Card
               bgColorFrom="#23282E"
@@ -143,9 +141,10 @@ const ChoosePlane = () => {
               buttonTextColor={"white"}
               btnword="SIGN UP NOW"
               classNames={""}
-      
             />
-      
+          </div>
+          <div className="px-3 xs:px-32 md:px-0 flex justify-center">
+            <FreeEntryCard />
           </div>
         </div>
       </div>
