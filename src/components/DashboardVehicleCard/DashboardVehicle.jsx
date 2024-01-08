@@ -13,6 +13,7 @@ const DashboardVehicleCard = ({
   onButton,
   color,
   raffleimage,
+  id
 }) => {
   const handleClick = () => {
     onButton();
@@ -42,7 +43,7 @@ const DashboardVehicleCard = ({
         }}
       >
         <div className="flex flex-row items-center justify-between px-1">
-          <Link to="/won">
+          <Link to={`/won/${id}`}>
             <LuInfo className="text-white" />
           </Link>
           <img

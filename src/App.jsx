@@ -135,7 +135,7 @@ function App() {
       ],
     },
     {
-      path:'/won',
+      path:'/won/:id',
       element:<Won/>
     },
 

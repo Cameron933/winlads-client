@@ -242,6 +242,7 @@ const Dashboard = () => {
                         .map((giveaway, key) => (
                           <DashboardVehicleCard
                             key={key}
+                            id={giveaway._id}
                             name={giveaway.name}
                             date={giveaway?.endtime}
                             color={giveaway?.raffle?.color}
