@@ -14,7 +14,7 @@ const SelectRafflePaymentMethod = ({
   price,
   name,
 }) => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
   const [coupon, setCoupon] = useState("")
 
   const handleButtonClick = async () => {
