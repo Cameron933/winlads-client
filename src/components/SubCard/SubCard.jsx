@@ -89,7 +89,7 @@ const SubCard = ({
           <span className="text-4xl lg:text-5xl">
             {title2.slice(0, 3).trim()}
           </span>{" "}
-          <span className="text-xs uppercase">Accumulating Entries</span>
+          <span className="text-xs uppercase">Accumulating {title2.slice(0, 3).trim() == "01" ? "Entry" : "Entries"}</span>
         </p>
       </div>
       <div className="relative flex flex-col space-y-2  border-2 border-black bg-white px-2 py-4 rounded-xl md:mb-10 mb-5 h-full">
