@@ -1,12 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import TopNav from "../../components/TopNav/TopNav";
 import { IoIosArrowBack } from "react-icons/io";
 import BG from "../../assets/images/HomesideBg.png";
 import Car from "../../assets/images/won/car.png";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import ItemLoader from "../../components/Loader/ItemLoader";
+import axios from "axios";
+import ReactPlayer from "react-player";
 
 const Won = () => {
   let navigate = useNavigate();
+  const { id } = useParams();
+  const [round, setRound] = useState({});
+  const [isLoading, setLoading] = useState(true);
+  const getRound = async () => {
+    await axios
+      .get(
+        `${import.meta.env.VITE_SERVER_API}/getRaffleRound?raffleroundid=${id}`
+      )
+      .then((response) => {
+        console.log(response.data.data, "data raffle");
+        setRound(response?.data?.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        setLoading(false);
+        console.log(error);
+      });
+  };
+  useEffect(() => {
+    getRound();
+
+  }, [])
   return (
     <div className="flex items-stretch h-screen py-4">
       <div className="w-full">
@@ -34,65 +59,141 @@ const Won = () => {
               </div>
             </div>
           </div>
-  
-          <div className="w-full flex max-xl:flex-col xl:pt-12">
-            <div className="w-3/5 max-xl:w-full flex flex-col gap-5">
-              <div className="flex flex-row gap-4 md:gap-8 xl:hidden items-center">
-                <div
-                  className="col-span-1 cursor-pointer"
-                  onClick={() => navigate(-1)}
-                >
-                  <IoIosArrowBack className="text-black bg-gray-200 rounded-full p-1 w-8 h-8" />
+          {isLoading ? (
+            <div className="flex justify-center">
+              <ItemLoader />
+            </div>
+          ) :
+            (<div className="w-full flex max-xl:flex-col xl:pt-12">
+              <div className="w-3/5 max-xl:w-full flex flex-col gap-5">
+                <div className="flex flex-row gap-4 md:gap-8 xl:hidden items-center">
+                  <div
+                    className="col-span-1 cursor-pointer"
+                    onClick={() => navigate(-1)}
+                  >
+                    <IoIosArrowBack className="text-black bg-gray-200 rounded-full p-1 w-8 h-8" />
+                  </div>
+                  <div className="md:text-3xl font-bold special:text-8xl text-xl">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing
+                  </div>
                 </div>
-                <div className="md:text-3xl font-bold special:text-8xl text-xl">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing
+                <div className="text-4xl font-bold special:text-8xl 2xl:text-6xl max-sm:text-3xl hidden xl:block">
+                  {round.name}
                 </div>
-              </div>
-              <div className="text-4xl font-bold special:text-8xl 2xl:text-6xl max-sm:text-3xl hidden xl:block">
-                Lorem ipsum dolor sit amet, consectetur adipiscing
-              </div>
 
-              <div className="text-xl xl:text-2xl font-normal 2xl:text-3xl special:text-6xl 2xl:pt-8">
-                sed do eiusmod tempo
+                <div className="hidden text-xl xl:text-2xl font-normal 2xl:text-3xl special:text-6xl 2xl:pt-8">
+                  sed do eiusmod tempo
+                </div>
+                {/* <div className="md:text-sm xl:text-sm font-normal 2xl:text-xl w-3/4 max-xl:w-full special:text-4xl text-xs">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                  eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet
+                  tellus cras adipiscing enim eu turpis. Dictum fusce ut placerat
+                  orci nulla. Tincidunt arcu non sodales neque sodales. Cras
+                  tincidunt lobortis feugiat vivamus. Sem integer vitae justo
+                  eget. Odio ut sem nulla pharetra diam sit amet nisl. Porttitor
+                  massa id neque aliquam vestibulum morbi. Nisl rhoncus mattis
+                  rhoncus urna. Morbi tristique senectus et netus et malesuada.
+                  Malesuada bibendum arcu vitae elementum curabitur. Amet massa
+                  vitae tortor condimentum. Turpis in eu mi bibendum. Sit amet
+                  risus nullam eget felis eget nunc lobortis.
+                </div> */}
+                {
+                  round.youtubeLink &&
+                  <>
+                    <div className="w-3/4">
+                      <div className="flex md:hidden">
+                        <iframe
+                          src="https://player.vimeo.com/video/899812267?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                          width="310"
+                          height="200"
+                          //   frameborder="0"
+                          allow="autoplay; fullscreen; picture-in-picture"
+                          title="Winlads"
+                        ></iframe>
+                      </div>
+                      <div className="hidden md:flex pro:hidden xl:hidden pt-2">
+                        <iframe
+                          src="https://player.vimeo.com/video/899812267?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                          width="690"
+                          height="400"
+                          //   frameborder="0"
+                          allow="autoplay; fullscreen; picture-in-picture"
+                          title="Winlads"
+                        ></iframe>
+                      </div>
+                      <div className="hidden pro:flex xl:hidden">
+                        <iframe
+                          src="https://player.vimeo.com/video/899812267?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                          width="940"
+                          height="620"
+                          //   frameborder="0"
+                          allow="autoplay; fullscreen; picture-in-picture"
+                          title="Winlads"
+                        ></iframe>
+                      </div>
+                      <div className="hidden xl:flex 2xl:hidden">
+                        <iframe
+                          src="https://player.vimeo.com/video/899812267?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                          width="680"
+                          height="400"
+                          //   frameborder="0"
+                          allow="autoplay; fullscreen; picture-in-picture"
+                          title="Winlads"
+                        ></iframe>
+                      </div>
+                      <div className="hidden 2xl:flex special:hidden">
+                        <iframe
+                          src="https://player.vimeo.com/video/899812267?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                          width="780"
+                          height="450"
+                          //   frameborder="0"
+                          allow="autoplay; fullscreen; picture-in-picture"
+                          title="Winlads"
+                        ></iframe>
+                      </div>
+                      <div className="hidden special:flex">
+                        <iframe
+                          src="https://player.vimeo.com/video/899812267?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                          width="1650"
+                          height="950"
+                          //   frameborder="0"
+                          allow="autoplay; fullscreen; picture-in-picture"
+                          title="Winlads"
+                        ></iframe>
+                      </div>
+                    </div>
+
+                    <div className="text-xl xl:text-2xl font-normal 2xl:text-3xl special:text-6xl 2xl:pt-4">
+                      Other Details
+                    </div>
+                    <div className="md:text-sm xl:text-sm flex items-start font-normal 2xl:text-xl w-3/4 max-xl:w-full special:text-4xl text-xs">
+                      <div className="w-full flex flex-col space-y-3">
+                        <p>• 3.5 Tonne Towing Capacity</p>
+                        <p>• Apple Carplay</p>
+                        <p>• Leather Interior & Roof Racks</p>
+                        <p>• Delivered Australia-Wide</p>
+                        <p>• Valued at $68,750</p>
+                      </div>
+                      <div className="w-full flex flex-col space-y-3">
+                        <p>• Brand New Mazda BT-50 SP Model</p>
+                        <p>• 3.0L Turbo Diesel</p>
+                        <p>• 140KW & 450NM of Torque</p>
+                        <p>• Crystal LED Headlights</p>
+                        <p>• 18 Inch Black Metallic Alloys</p>
+                      </div>
+                    </div>
+                  </>
+                }
               </div>
-              <div className="md:text-sm xl:text-sm font-normal 2xl:text-xl w-3/4 max-xl:w-full special:text-4xl text-xs">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet
-                tellus cras adipiscing enim eu turpis. Dictum fusce ut placerat
-                orci nulla. Tincidunt arcu non sodales neque sodales. Cras
-                tincidunt lobortis feugiat vivamus. Sem integer vitae justo
-                eget. Odio ut sem nulla pharetra diam sit amet nisl. Porttitor
-                massa id neque aliquam vestibulum morbi. Nisl rhoncus mattis
-                rhoncus urna. Morbi tristique senectus et netus et malesuada.
-                Malesuada bibendum arcu vitae elementum curabitur. Amet massa
-                vitae tortor condimentum. Turpis in eu mi bibendum. Sit amet
-                risus nullam eget felis eget nunc lobortis.
+              <div className="w-2/5 max-xl:w-full">
+                <img
+                  src={round.raffle?.raffleimage || Car}
+                  alt="winlad_car"
+                  className="absolute right-0 -z-10 bottom-0 2xl:top-80 w-1/2 max-xl:w-full special:bottom-0 max-xl:relative"
+                />
               </div>
-              <div className="text-xl xl:text-2xl font-normal 2xl:text-3xl special:text-6xl 2xl:pt-4">
-                sed do eiusmod tempo
-              </div>
-              <div className="md:text-sm xl:text-sm font-normal 2xl:text-xl w-3/4 max-xl:w-full special:text-4xl text-xs">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet
-                tellus cras adipiscing enim eu turpis. Dictum fusce ut placerat
-                orci nulla. Tincidunt arcu non sodales neque sodales. Cras
-                tincidunt lobortis feugiat vivamus. Sem integer vitae justo
-                eget. Odio ut sem nulla pharetra diam sit amet nisl. Porttitor
-                massa id neque aliquam vestibulum morbi. Nisl rhoncus mattis
-                rhoncus urna. Morbi tristique senectus et netus et malesuada.
-                Malesuada bibendum arcu vitae elementum curabitur. Amet massa
-                vitae tortor condimentum. Turpis in eu mi bibendum. Sit amet
-                risus nullam eget felis eget nunc lobortis.
-              </div>
-            </div>
-            <div className="w-2/5 max-xl:w-full">
-              <img
-                src={Car}
-                alt="winlad_car"
-                className="absolute right-0 -z-10 bottom-0 2xl:top-80 w-1/2 max-xl:w-full special:bottom-0 max-xl:relative"
-              />
-            </div>
-          </div>
+            </div>)
+          }
           <img
             src={BG}
             alt=""
