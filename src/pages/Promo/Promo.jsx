@@ -215,12 +215,12 @@ const Promo = () => {
                         placeholder="Enter First Name"
                         type="text"
                         disabled
-                        value={"https://www.winlads.com/assets/banner-1.png"}
+                        value={"https://www.winlads.com/banner-1.png"}
                       ></input>
                     </div>
                     <div className="w-full">
                       <img
-                        src="/src/assets/images/banner-1.png"
+                        src="./banner-1.png"
                         className="w-8/12 mr-auto h-full object-contain"
                       />
                     </div>
@@ -233,13 +233,13 @@ const Promo = () => {
                         className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
                         placeholder="Enter Valid EMail"
                         type="email"
-                        value={"https://www.winlads.com/assets/banner-2.png"}
+                        value={"https://www.winlads.com/banner-2.png"}
                         disabled
                       ></input>
                     </div>
                     <div className="w-full h-32">
                       <img
-                        src="/src/assets/images/banner-2.png"
+                        src="./banner-2.png"
                         className="w-full h-full object-contain"
                       />
                     </div>
@@ -251,13 +251,13 @@ const Promo = () => {
                         className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
                         placeholder="Enter User Name"
                         type="text"
-                        value={"https://www.winlads.com/assets/banner-3.png"}
+                        value={"https://www.winlads.com/banner-3.png"}
                         disabled
                       ></input>
                     </div>
                     <div className="w-32 h-32 mr-auto">
                       <img
-                        src="/src/assets/images/banner-3.png"
+                        src="./banner-3.png"
                         className="w-full h-full object-contain"
                       />
                     </div>
