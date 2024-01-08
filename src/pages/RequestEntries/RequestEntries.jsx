@@ -157,7 +157,7 @@ const RequestEntries = () => {
                 })
               }
             >
-              <p className="text-white font-semibold">Withdraw</p>
+              <p className="text-white font-semibold">Request</p>
             </div>
           </div>
           <div className="xl:flex flex-col space-y-4 flex-1 hidden">
