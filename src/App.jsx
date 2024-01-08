@@ -153,7 +153,7 @@ function App() {
     },
 
     {
-      path: "/register",
+      path: "/register/:selectedPackage?",
       element: <Register />,
     },
     {
