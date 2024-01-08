@@ -61,7 +61,7 @@ const RequestEntries = () => {
         }
       );
       if (responseRequest.data.status == 200) {
-        toast.success("Request Success", {
+        toast.success("Successfully requested", {
           position: "top-center",
           autoClose: 5000,
           hideProgressBar: false,
@@ -72,7 +72,7 @@ const RequestEntries = () => {
           theme: "colored",
         });
       } else {
-        toast.error("Something went wrong", {
+        toast.error("You have already requested", {
           position: "top-center",
           autoClose: 5000,
           hideProgressBar: false,

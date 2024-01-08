@@ -1,5 +1,10 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation, useParams, useSearchParams } from "react-router-dom";
+import {
+  Link,
+  useLocation,
+  useParams,
+  useSearchParams,
+} from "react-router-dom";
 import Loader from "../../components/Loader/Loader";
 import { basicSchemasRegister } from "../../schemas/index.js";
 import { useFormik } from "formik";
@@ -32,7 +37,8 @@ const inputStyle = {
 };
 
 const Register = ({ location }) => {
-  const {selectedPackage} = useParams();
+  const [searchParams] = useSearchParams();
+  const { selectedPackage } = useParams();
   const [otp, setOtp] = useState("");
   const [ph, setPh] = useState("");
   const [isLoading, setIsLoading] = useState(true);
@@ -49,23 +55,22 @@ const Register = ({ location }) => {
 
   const [refId, setRefId] = useState("");
 
-  const [searchParams] = useSearchParams();
   // set loading
   useEffect(() => {
-    if(selectedPackage){
-      cookies.set('selected-package-id', selectedPackage);
+    if (selectedPackage) {
+      cookies.set("selected-package-id", selectedPackage);
     }
     setTimeout(() => {
       setIsLoading(false);
     }, 1000);
     currentUserValidation();
 
-    const ref = searchParams.get('ref');
+    const ref = searchParams.get("ref");
 
     if (ref != undefined) {
-      setRefId(ref)
+      setRefId(ref);
     }
-
+    getFreeEntry()
   }, []);
 
   const onCheckboxChange = (e) => {
@@ -75,13 +80,21 @@ const Register = ({ location }) => {
   const handleSEOReg = () => {
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
-      'event': 'sign_up',
-      'method': 'google' //it can be email,facebook, or google. This value is optional
+      event: "sign_up",
+      method: "google", //it can be email,facebook, or google. This value is optional
     });
-  }
+  };
 
   const saveFormData = async (temp_values, uid) => {
     console.log(temp_values, uid);
+
+    let coupen = ""
+
+    const checkAbility = searchParams.get("ability")
+    if(checkAbility === "WINACCESSEN") {
+      coupen === "MAZDABT50S"
+    }
+
     const data = {
       firstname: values.firstname,
       lastname: values.lastname,
@@ -92,6 +105,7 @@ const Register = ({ location }) => {
       tin: values.tin,
       refferalId: values.refferalId,
       uid: uid,
+      coupen: coupen
     };
 
     const response = await axios.get(
@@ -231,7 +245,7 @@ const Register = ({ location }) => {
           navigate("/dashboard");
         }, 3000);
       })
-      .catch((err) => { });
+      .catch((err) => {});
   };
 
   const { values, handleChange, handleBlur, handleSubmit, errors, touched } =
@@ -259,6 +273,15 @@ const Register = ({ location }) => {
     } else {
       console.log("");
     }
+  };
+
+  const getFreeEntry = () => {
+    const coupen = searchParams.get("COUPEN");
+    if (coupen === "WINFREE") {
+      cookies.set("COUPEN", "WINFREE")
+      console.log(coupen, "copen")
+    }
+    console.log(coupen, "copen 2")
   };
 
   return (
@@ -303,10 +326,11 @@ const Register = ({ location }) => {
               >
                 <div className="flex flex-col justify-center space-y-4 mx-auto xl:mt-4 md:mt-10 mt-4 special:mt-20">
                   <div
-                    className={`flex flex-col space-y-4 ${buttonText == "Sending..." || buttonText == "Register"
-                      ? "blur-sm"
-                      : ""
-                      }`}
+                    className={`flex flex-col space-y-4 ${
+                      buttonText == "Sending..." || buttonText == "Register"
+                        ? "blur-sm"
+                        : ""
+                    }`}
                   >
                     <div
                       className={
@@ -501,7 +525,7 @@ const Register = ({ location }) => {
                         placeholder="OTP Code"
                         value={otp}
                         onChange={(e) => setOtp(e.target.value)}
-                      // id="tin"
+                        // id="tin"
                       />
                       <small className="text-error">
                         {errors.otp && touched.opt && errors.otp}
@@ -540,8 +564,9 @@ const Register = ({ location }) => {
                   {!final && <div id="recaptcha-container"></div>}
 
                   <button
-                    className={`text-white rounded-xl justify-center px-12 py-2 flex flex-row items-center font-semibold special:text-xl bg-${isChecked ? "black" : "gray-500"
-                      } hover:bg-${isChecked ? "black/50" : ""}`}
+                    className={`text-white rounded-xl justify-center px-12 py-2 flex flex-row items-center font-semibold special:text-xl bg-${
+                      isChecked ? "black" : "gray-500"
+                    } hover:bg-${isChecked ? "black/50" : ""}`}
                     onClick={(e) => onSignup(e)}
                     // onClick={(e) => onSignup(e)}
                     disabled={!isChecked}
