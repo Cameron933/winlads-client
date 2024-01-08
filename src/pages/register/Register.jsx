@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import Loader from "../../components/Loader/Loader";
 import { basicSchemasRegister } from "../../schemas/index.js";
 import { useFormik } from "formik";
@@ -31,7 +31,7 @@ const inputStyle = {
   borderRadius: "1px",
 };
 
-const Register = () => {
+const Register = ({ location }) => {
   const [otp, setOtp] = useState("");
   const [ph, setPh] = useState("");
   const [isLoading, setIsLoading] = useState(true);
@@ -44,15 +44,24 @@ const Register = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState("");
   const cookies = new Cookies(null, { path: "/" });
-
   const [fieldDis, setFieldDis] = useState(false);
 
+  const [refId, setRefId] = useState("");
+  
+  const [searchParams] = useSearchParams();
   // set loading
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
     }, 1000);
     currentUserValidation();
+
+    const ref = searchParams.get('ref'); 
+
+    if(ref != undefined){
+        setRefId(ref)
+    }
+
   }, []);
 
   const onCheckboxChange = (e) => {
@@ -456,8 +465,8 @@ const Register = () => {
                       <input
                         type="text"
                         placeholder="Affiliate Id"
-                        value={values.rafflesId}
-                        onChange={handleChange}
+                        value={refId}
+                        onChange={(e) => setRefId(e.target.value)}
                         onBlur={handleBlur}
                         id="rafflesId"
                         className="placeholder:text-[16px]"
