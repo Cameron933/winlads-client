@@ -56,7 +56,7 @@ function BusinessCard() {
                 </div>
               </div>
             </div>
-            <SearchField />
+            {/* <SearchField /> */}
             <BusinessCardComponent />
           </div>
 
