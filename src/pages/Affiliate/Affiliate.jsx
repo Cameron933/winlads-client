@@ -247,13 +247,16 @@ const Affiliate = () => {
                   <div className="pt-6">   
                   <h3 style={{ fontWeight: 'bold' }}>Affiliate List</h3>
                   <br />
-                    {refferals?.data?.map((ref, key) => (
+                  {
+                    refferals?.data?.length > 0 ? refferals?.data?.map((ref, key) => (
                       <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', flexWrap: 'wrap', backgroundColor: '#FFFFFF', borderRadius: 10, padding: 5, marginBottom: 5 }}>
                         <h6>{key + 1}</h6>
                         <h3>{ref.firstname}</h3>
                         <span>{ref.email}</span>
                       </div>
-                    ))}
+                    )) : <p>You have no affiliates</p>
+                  }
+                   
                   </div>
                 </>
               )}
