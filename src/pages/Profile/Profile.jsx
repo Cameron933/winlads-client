@@ -184,10 +184,10 @@ const Profile = () => {
     }
   };
   return (
-    <div className="bg-[#F2F5FB]">
-      <div className="flex relative">
+    <div className="bg-[#F2F5FB] w-full">
+      <div className="flex relative w-full">
         <div className="right-side-logo max-xl:hidden"></div>
-        <div className="flex xl:flex-row flex-col xl:justify-between flex-1 mx-5 xl:gap-8 pb-5 space-y-4 xl:space-y-0 bg-no-repeat">
+        <div className="flex xl:flex-row flex-col xl:justify-between flex-1 md:mx-5 xl:gap-8 pb-5 space-y-4 xl:space-y-0 bg-no-repeat w-full">
           <div className="flex flex-col space-y-4 flex-1 visible xl:hidden">
             <div className="bg-black rounded-b-3xl py-4">
               <TopNav textColor={"white"} />
@@ -249,7 +249,7 @@ const Profile = () => {
                     {/* <p className="special:text-xl">Verified User</p> */}
                     <p className="special:text-xl">{valUser.name}</p>
                   </div>
-                  <div className="flex flex-col space-y-2 special:space-y-5">
+                  <div className="flex flex-col space-y-2 special:space-y-5 px-5 md:px-0">
                     <div className="flex flex-col space-y-2">
                       <p className="text-black text-sm xl:text-md special:text-xl">
                         User ID
@@ -268,7 +268,7 @@ const Profile = () => {
                           First Name
                         </p>
                         <input
-                          className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                          className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3 w-full"
                           placeholder="Enter First Name"
                           type="text"
                           onChange={(e) => setName(e.target.value)}
@@ -280,7 +280,7 @@ const Profile = () => {
                           Surname
                         </p>
                         <input
-                          className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                          className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3 w-full"
                           placeholder="Enter First Name"
                           type="text"
                           onChange={(e) => setName(e.target.value)}
@@ -356,7 +356,7 @@ const Profile = () => {
                           Address Line 1
                         </p>
                         <input
-                          className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
+                          className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
                           placeholder="Address Line 1"
                           type="text"
                           value={address}
@@ -368,7 +368,7 @@ const Profile = () => {
                           Address Line 2
                         </p>
                         <input
-                          className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
+                          className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
                           placeholder="Address Line 2"
                           type="text"
                           value={address2}
@@ -382,7 +382,7 @@ const Profile = () => {
                           City
                         </p>
                         <input
-                          className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
+                          className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
                           placeholder="City"
                           type="text"
                           value={city}
@@ -394,7 +394,7 @@ const Profile = () => {
                           State
                         </p>
                         <input
-                          className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
+                          className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
                           placeholder="State"
                           type="text"
                           value={state}
@@ -406,7 +406,7 @@ const Profile = () => {
                           Postal Code
                         </p>
                         <input
-                          className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3"
+                          className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
                           placeholder="Postal Code"
                           type="text"
                           value={postalcode}
@@ -486,7 +486,7 @@ const Profile = () => {
                         />
                         <div className="flex flex-row items-center gap-2">
                           <p
-                            className="text-sm xl:text-md special:text-xl cursor-pointer"
+                            className="text-xs md:text-sm xl:text-md special:text-xl cursor-pointer"
                             onClick={() => setIsChecked(!isChecked)}
                           >
                             I agree with the
@@ -496,17 +496,18 @@ const Profile = () => {
                             target="_blank"
                             className="yellow-text"
                           >
-                            <p className="text-sm xl:text-md special:text-xl cursor-pointer">
+                            <p className="text-xs md:text-sm xl:text-md special:text-xl cursor-pointer">
                               Terms of use
                             </p>
                           </Link>
                         </div>
                       </div>
+                      
 
                       <button
                         disabled={!isChecked}
                         onClick={() => updateUserDatails()}
-                        className={`text-white rounded-xl px-12 py-3 font-semibold special:text-xl bg-${
+                        className={`text-white rounded-xl md:px-12 px-5 py-3 font-semibold special:text-xl bg-${
                           isChecked ? "black" : "gray-500"
                         } hover:bg-${isChecked ? "black/50" : ""}`}
                       >
