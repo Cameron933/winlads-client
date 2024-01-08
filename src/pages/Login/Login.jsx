@@ -62,6 +62,7 @@ const Login = () => {
         `${import.meta.env.VITE_SERVER_API}/checkEmail?email=${email}`
       );
       if (!response.data.exists) {
+        setIsLoading(false)
         // alert("Mobile number is not registered. Please register first.");
         toast.error("Email is not registered. Please register first.", {
           position: "top-center",
@@ -120,7 +121,7 @@ const Login = () => {
       setIsLoading(false);
       console.error("Error checking mobile:", error);
       // alert("An error occurred while checking the mobile number.");
-      toast.error("Something went wrong.Please try agin", {
+      toast.error("An error occurred while checking the mobile number.", {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -336,10 +337,9 @@ const Login = () => {
                         />
                       </button>
                       <Link to="/forgotPassword">
-                        <div className="flex justify-end cursor-pointer text-xs xl:text-sm">
-                          Forgot Password
-                        </div>
+                      <div className="flex justify-end cursor-pointer text-xs xl:text-sm">Forgot Password</div>
                       </Link>
+                     
                     </div>
 
                     <div className="font-semibold text-lg text-center">
@@ -352,7 +352,6 @@ const Login = () => {
                           Register now
                         </Link>
                       </span>
-                      
                     </div>
                   </div>
                 </form>
@@ -361,7 +360,6 @@ const Login = () => {
           </div>
         </>
       )}
-
     </>
   );
 };
