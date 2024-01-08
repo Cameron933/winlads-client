@@ -119,7 +119,7 @@ const MyEntries = () => {
   };
 
   return (
-    <div className="flex items-stretch w-full py-4">
+    <div className="flex items-stretch justify-center w-full py-4">
       <div className="w-full">
         <div className="flex flex-col xl:flex-col flex-1 px-1 gap-5 w-full">
           {/* left side */}
@@ -149,7 +149,7 @@ const MyEntries = () => {
               numbers={getNumbers}
               myTickets={myGiveaways.length}
             />
-            <div className="flex items-center justify-between xl:hidden px-5 my-5">
+            <div className="flex items-center justify-between xl:hidden px-2 my-5">
               <h1 className="text-xl font-bold">My Entries</h1>
               <IoIosTimer className="text-2xl font-bold" />
             </div>

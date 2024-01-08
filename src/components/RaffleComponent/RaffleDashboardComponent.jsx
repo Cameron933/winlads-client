@@ -41,7 +41,7 @@ function RaffleDashboardComponent({
               />
             </div> */}
             <div className="flex text-end flex-col z-10 pr-2 space-y-2 2xl:space-y-4 special:space-y-4 pt-4">
-              <p className="text-white font-bold xl:text-2xl text-xs special:text-4xl 2xl:text-2xl text-center">
+              <p className="text-white font-bold xl:text-2xl text-lg special:text-4xl 2xl:text-2xl text-center">
                 {name}
               </p>
               {/* <p className="text-[10px] text-white special:text-xl 2xl:text-[10px]">
