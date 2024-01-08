@@ -34,7 +34,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     currentUserValidation();
-    getRaffleCount();
+   
   }, [raffleCount]);
 
   const currentUserValidation = async () => {
@@ -42,18 +42,17 @@ const Dashboard = () => {
     if (validator.validatorBl) {
       console.log("Session OK", validator.user);
       setValUser(validator.user);
-      getGiveaways();
+      getGiveaways(validator.user.uid);
+      getRaffleCount(validator.user.uid);
     } else {
       navigate("/login");
     }
   };
 
-  const getGiveaways = async () => {
+  const getGiveaways = async (valuid) => {
     await axios
       .get(
-        `${import.meta.env.VITE_SERVER_API}/raffleRoundsFuture?uid=${
-          valUser.uid
-        }`
+        `${import.meta.env.VITE_SERVER_API}/raffleRoundsFuture?uid=${valuid}`
       )
       .then((response) => {
         console.log(response.data.data, "data raffle");
@@ -66,12 +65,10 @@ const Dashboard = () => {
       });
   };
 
-  const getRaffleCount = async () => {
+  const getRaffleCount = async (valuid) => {
     await axios
       .get(
-        `${import.meta.env.VITE_SERVER_API}/getUserRafflesCount?uid=${
-          valUser.uid
-        }`
+       ` ${import.meta.env.VITE_SERVER_API}/getUserRafflesCount?uid=${valuid}`
       )
       .then((response) => {
         console.log(response.data, "countData");
