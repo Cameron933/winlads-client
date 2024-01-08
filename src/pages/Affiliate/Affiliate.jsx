@@ -16,6 +16,8 @@ import CardComponent from "../../components/cardComponent/CardComponent";
 import { useRefresh } from "../../utils/RefreshContext";
 import AffiliateCard from "../../components/Affiliate/AffiliateCard";
 import RefCount from "./RefferalCount";
+import Count from "../../components/Affiliate/Count";
+import { FaRegCopy } from "react-icons/fa";
 
 const Affiliate = () => {
   const cookies = new Cookies(null, { path: "/" });
@@ -200,6 +202,21 @@ const Affiliate = () => {
       navigate("/login");
     }
   };
+
+  // Function to handle copying the input value to clipboard
+  const handleCopyToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(userId);
+      toast.success('Copied to Clipboard')
+    } catch (err) {
+      console.error(
+        "Unable to copy to clipboard.",
+        err
+      );
+      alert("Copy to clipboard failed.");
+    }
+  };
+
   return (
     <div className="bg-[#F2F5FB]">
       <div className="flex relative">
@@ -238,25 +255,28 @@ const Affiliate = () => {
                       />
                     )}
                   </form> */}
+                  <div className="md:mt-10 mt-5">
+                    <Count count={0} />
+                  </div>
                   <div className="hidden xl:block">
                     <AffiliateCard />
 
                   </div>
 
 
-                  <div className="pt-6">   
-                  <h3 style={{ fontWeight: 'bold' }}>Affiliate List</h3>
-                  <br />
-                  {
-                    refferals?.data?.length > 0 ? refferals?.data?.map((ref, key) => (
-                      <div style={{ display: 'flex', flexDirection: 'row', gap:50,  flexWrap: 'wrap', backgroundColor: '#FFFFFF', borderRadius: 10, padding: 5, marginBottom: 5 }}>
-                        <h6>{key + 1}</h6>
-                        <h3>{ref.firstname}</h3>
-                        <span>{ref.email}</span>
-                      </div>
-                    )) : <p>You have no affiliates</p>
-                  }
-                   
+                  <div className="pt-6">
+                    <h3 style={{ fontWeight: 'bold' }}>Affiliate List</h3>
+                    <br />
+                    {
+                      refferals?.data?.length > 0 ? refferals?.data?.map((ref, key) => (
+                        <div style={{ display: 'flex', flexDirection: 'row', gap: 50, flexWrap: 'wrap', backgroundColor: '#FFFFFF', borderRadius: 10, padding: 5, marginBottom: 5 }}>
+                          <h6>{key + 1}</h6>
+                          <h3>{ref.firstname}</h3>
+                          <span>{ref.email}</span>
+                        </div>
+                      )) : <p>You have no affiliates</p>
+                    }
+
                   </div>
                 </>
               )}
@@ -309,13 +329,18 @@ const Affiliate = () => {
                   <p className="text-black text-sm xl:text-md special:text-xl">
                     Your Affiliate ID
                   </p>
-                  <input
-                    className="bg-white font-bold rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
-                    placeholder="loading..."
-                    type="text"
-                    value={userId || ""}
-                    disabled
-                  ></input>
+                  <div className="w-full relative">
+                    <input
+                      className="bg-white font-bold rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3 w-full"
+                      placeholder="loading..."
+                      type="text"
+                      value={userId || ""}
+                      disabled
+                    />
+                    <button onClick={handleCopyToClipboard} className="absolute right-1 bottom-0 text-xl p-3 hover:bg-gray-300 rounded-full bg-white"><FaRegCopy /></button>
+
+                  </div>
+
                 </div>
 
                 <div className="flex flex-col space-y-2">
