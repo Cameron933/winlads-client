@@ -92,8 +92,8 @@ function SubscribeCard({
       </p>
 
       <p className="font-bold text-center text-sm special:text-2xl 2xl:text-lg mb-3">
-        <span className="text-2xl md:text-7xl"> {raffleCount}</span>{" "}
-        <span className="uppercase">{subId} entries</span>
+        <span className="text-4xl md:text-4xl"> {raffleCount}</span>{" "}
+        <span className="uppercase text-xs">{subId}&nbsp;Accumulating entries</span>
       </p>
       <div
         className={`relative flex justify-center flex-col space-y-4 special:space-y-6 2xl:space-y-4 pb-16 bg-white text-black pt-2 px-2 rounded-xl h-full border-2 border-solid border-${cardBorderColor}`}
@@ -111,7 +111,7 @@ function SubscribeCard({
             <p className="text-xs special:text-lg 2xl:text-md">{disc}</p>
           </div>
         ))}
-        <div className="flex flex-row gap-2 special:gap-4 2xl:gap-4 items-center">
+        {/* <div className="flex flex-row gap-2 special:gap-4 2xl:gap-4 items-center">
           <img
             src={GreenCorrect}
             alt=""
@@ -121,7 +121,7 @@ function SubscribeCard({
             <span className="font-bold">{raffleCount}&nbsp;Accumulating</span>
             &nbsp;Entries
           </p>
-        </div>
+        </div> */}
         {descL.length > 3 && (
           <button
             onClick={() => handleShowMore()}
