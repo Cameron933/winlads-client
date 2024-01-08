@@ -16,9 +16,9 @@ const UnderDev = () => {
         </div>
       </div>
       <div className=' flex items-center justify-center w-full mx-auto relative'>
-        <div className='flex items-center md:flex-row flex-col justify-center relative'>
+        <div className='flex items-center md:flex-row flex-col justify-center relative pt-16 md:pt-12 xl:pt-8 md:mt-0'>
           <div className='md:w-1/2 w-full z-10'>
-            <div className='w-max mx-auto'>
+            <div className='w-max md:mx-auto px-2'>
               <h2 className='text-4xl font-bold'>This feature</h2>
               <h2 className='text-4xl font-bold'>remains unavailable</h2>
               <h2 className='text-4xl font-bold'>at the moment.</h2>
@@ -45,7 +45,7 @@ const UnderDev = () => {
       <img
         src={BG}
         alt=""
-        className="absolute right-0 -z-10 bottom-0 w-52 xl:w-96 md:w-96 special:w-1/6 2xl:w-1/5  opacity-60 "
+        className="absolute right-0 -z-10 bottom-0 w-52 xl:w-96 md:w-96 special:w-1/6 2xl:w-1/5 hidden md:block  opacity-60 "
       />
     </div>
   )

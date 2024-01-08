@@ -62,7 +62,7 @@ const Filters = ({
       <h1 className="special:text-4xl xl:text-3xl md:text-xl text-lg font-extrabold mb-2 xl:block hidden">
         My Entries
       </h1>
-      <h5 className="mb-5 text-green-600">
+      <h5 className="mb-5 text-green-600 px-2 xl:px-0">
         Total Active Entries : {myTickets}
       </h5>
       <div className="hidden xl:grid grid-cols-5 mb-4 gap-2">
