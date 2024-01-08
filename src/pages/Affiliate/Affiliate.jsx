@@ -249,7 +249,7 @@ const Affiliate = () => {
                   <br />
                   {
                     refferals?.data?.length > 0 ? refferals?.data?.map((ref, key) => (
-                      <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', flexWrap: 'wrap', backgroundColor: '#FFFFFF', borderRadius: 10, padding: 5, marginBottom: 5 }}>
+                      <div style={{ display: 'flex', flexDirection: 'row', gap:50,  flexWrap: 'wrap', backgroundColor: '#FFFFFF', borderRadius: 10, padding: 5, marginBottom: 5 }}>
                         <h6>{key + 1}</h6>
                         <h3>{ref.firstname}</h3>
                         <span>{ref.email}</span>
