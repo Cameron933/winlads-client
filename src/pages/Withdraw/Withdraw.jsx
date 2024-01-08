@@ -52,14 +52,12 @@ const Withdraw = () => {
     if (validator.validatorBl) {
       console.log("Session OK");
       setValUser(validator.user);
-      setTransactions(validator.user.uid);
     } else {
       navigate("/login");
     }
   };
 
-  const setTransactions = async (uid) => {
-    console.log(uid, "click");
+  const setTransactions = async (ud) => {
     const response = await axios.post(
       `${import.meta.env.VITE_SERVER_API}/requestFundTransfer`,
       {
