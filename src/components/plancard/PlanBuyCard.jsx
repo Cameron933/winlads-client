@@ -135,7 +135,7 @@ const PlanBuyCard = ({ onClose, userId, giveawayId, price, name, planeId }) => {
             Payment Methods
           </p>
           <div className="flex flex-row justify-center items-center lg:gap-4 gap-1 text-black">
-            <div
+            {/* <div
               className="bg-white hover:bg-black/5 rounded-xl p-2 flex justify-center items-center cursor-pointer lg:gap-2"
               onClick={handlePointsButtonClick}
             >
@@ -145,7 +145,7 @@ const PlanBuyCard = ({ onClose, userId, giveawayId, price, name, planeId }) => {
                 className="w-7 h-7 special:h-14 special:w-14 2xl:h-9 2xl:w-9"
               />
               <p className="text-xs md:block hidden">Pay by Ethereum</p>
-            </div>
+            </div> */}
             <div
               className="bg-white hover:bg-black/5 rounded-xl p-2 flex justify-center items-center cursor-pointer lg:gap-2"
               onClick={handlePointsButtonClick}
