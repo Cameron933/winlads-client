@@ -195,13 +195,13 @@ const MyEntries = () => {
                           </div>
                         </div>
                         <div className="bg-blue-100 py-3 text-xs 2xl:text-sm xl:pr-4 pl-2 pr-2 xl:pl-4 xl:rounded-b-none rounded-b-2xl xl:flex col-span-4 xl:items-center justify-between space-y-1 xl:space-y-0">
-                          <div>
+                          <div className=" w-1/3">
                             <p className="capitalize">{giveaway.round.name}</p>
                           </div>
-                          <div>
+                          <div className=" w-1/3">
                             <p>{giveaway.entryNumber}</p>
                           </div>
-                          <div className="flex flex-row justify-between 2xl:gap-36 xl:gap-12">
+                          <div className="flex flex-row justify-between 2xl:gap-36 xl:gap-12 w-1/3">
                             <p className="text-xs xl:text-sm">
                               {" "}
                               {new Date(giveaway.round.endtime).toLocaleString(
@@ -217,7 +217,7 @@ const MyEntries = () => {
                               )}
                             </p>
                           </div>
-                          <div>
+                          <div className="w-48">
                             {" "}
                             {giveaway.winstatus === "pending" ? (
                               'Pending'

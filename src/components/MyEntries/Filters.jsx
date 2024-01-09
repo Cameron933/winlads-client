@@ -146,17 +146,20 @@ const Filters = ({
             <input
               type="number"
               name="entry-number"
-              className="bg-gray-300 w-full px-4 rounded-full 2xl:text-sm xl:text-xs font-semibold placeholder:2xl:text-lg placeholder:xl:text-sm  placeholder:text-black outline-none"
+              className="bg-gray-300 w-full px-4 rounded-full 2xl:text-sm xl:text-xs font-semibold placeholder:2xl:text-sm placeholder:xl:text-sm  placeholder:text-black outline-none"
               placeholder="Entry Numbers"
               onChange={(e) => handleNumbers(e.target.value)}
             />
+            <div className="relative bg-gray-300 w-full px-4 py-2 gap-2 rounded-full 2xl:text-sm xl:text-sm font-semibold cursor-pointer overflow-hidden flex items-center justify-center">
+            <label htmlFor="valid-date" className=" text-xs absolute right-10 top-1/2 -translate-y-1/2">Valid Date</label>
             <input
               type="date"
               name="valid-date"
-              className="bg-gray-300 w-full px-4 py-2 gap-2 rounded-full 2xl:text-lg xl:text-sm font-semibold cursor-pointer"
+              className="w-full bg-inherit outline-none"
               placeholder="Valid Date"
               onChange={(e) => validDate(e.target.value)}
             />
+            </div>
             <div className="relative cursor-pointer">
               <div
                 className="flex items-center w-48 justify-between text-black bg-gray-300 px-4 py-3 gap-2 rounded-full text-xl font-semibold"
