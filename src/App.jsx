@@ -41,9 +41,16 @@ import RefCount from "./pages/Affiliate/RefferalCount";
 import Won from "./pages/Won/Won"
 import ForgotPassword from "./pages/ForgotPW/ForgotPassword";
 import RequestEntries from "./pages/RequestEntries/RequestEntries";
+import TagManager from 'react-gtm-module'
+import SubDone from "./pages/SubDone";
 
 
 function App() {
+  const tagManagerArgs = {
+    gtmId: 'GTM-P2DVFZVB'
+}
+
+TagManager.initialize(tagManagerArgs)
   const router = createBrowserRouter([
     {
       element: <Layout />,
@@ -98,11 +105,14 @@ function App() {
         },
         {
           path: "/subscription-done",
-          element: <SubcriptionDone />,
+          element: <SubDone />,
+          // subscription-done?suc=0&fail=1&sub_id=ds Sample Done Route
         },
         {
-          path: "/payment-success",
+          path: "/payment-done",
           element: <PaymentSuccess />,
+          // payment-done?suc=1&round_id=sadc  Sample Success Route
+          // payment-done?suc=0&fail=1&round_id=ds  Sample Fail Route
         },
         {
           path: "/myentries",

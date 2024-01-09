@@ -27,6 +27,6 @@ export const UserData = [
       id: 5,
       year: 2020,
       userGain: 4300,
-      userLost: 234,
+      userLost: 2345,
     },
   ];
