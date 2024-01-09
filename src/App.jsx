@@ -41,6 +41,7 @@ import RefCount from "./pages/Affiliate/RefferalCount";
 import Won from "./pages/Won/Won"
 import ForgotPassword from "./pages/ForgotPW/ForgotPassword";
 import RequestEntries from "./pages/RequestEntries/RequestEntries";
+import SubDone from "./pages/SubDone";
 
 
 function App() {
@@ -98,7 +99,7 @@ function App() {
         },
         {
           path: "/subscription-done",
-          element: <PaymentSuccess />,
+          element: <SubDone />,
           // subscription-done?suc=0&fail=1&sub_id=ds Sample Done Route
         },
         {
