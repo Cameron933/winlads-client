@@ -41,9 +41,15 @@ import RefCount from "./pages/Affiliate/RefferalCount";
 import Won from "./pages/Won/Won"
 import ForgotPassword from "./pages/ForgotPW/ForgotPassword";
 import RequestEntries from "./pages/RequestEntries/RequestEntries";
+import TagManager from 'react-gtm-module'
 
 
 function App() {
+  const tagManagerArgs = {
+    gtmId: 'GTM-P2DVFZVB'
+}
+
+TagManager.initialize(tagManagerArgs)
   const router = createBrowserRouter([
     {
       element: <Layout />,
