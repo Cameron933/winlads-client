@@ -502,12 +502,13 @@ const Register = ({ location }) => {
                       <input
                         type="text"
                         placeholder="Affiliate Id"
-                        value={values.refferalId}
+                        value={values.refferalId || refId}
+                        disabled={refId ? true : false || fieldDis}
                         onChange={handleChange}
                         onBlur={handleBlur}
                         id="refferalId"
                         className="placeholder:text-[16px]"
-                        disabled={fieldDis}
+                        
                       />
                     </div>
                   </div>
