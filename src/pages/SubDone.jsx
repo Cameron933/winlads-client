@@ -1,33 +1,58 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom';
-import Correct from "../assets/images/payment_success/success.png"
+import Correct from "../assets/images/payment_success/success.png";
 import Bg from "../assets/images/payment_success/bg.png";
-import {successAnimation} from "../animation/animation"
+import { successAnimation } from "../animation/animation"
 import { motion, useAnimation } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { ImCross } from "react-icons/im";
 
-const SubDone = () => {
-  // const history = useHistory();
+
+function SubDone() {
+  const controls = useAnimation();
+  const [isSuccess, setSuccess] = useState(true);
+  const [seconds, setSeconds] = useState(5);
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
   const navigate = useNavigate();
 
-  const controls = useAnimation();
+  // Access individual query parameters
+  const suc = searchParams.get('suc');
+  const round_id = searchParams.get('round_id');
 
   useEffect(() => {
+    if (suc == 0) {
+      setSuccess(false)
+    } else {
+      setSuccess(true);
+    }
     controls.start(successAnimation.animate);
 
-    const timeoutId = setTimeout(() => {
-      navigate('/dashboard');
-    }, 4000);
+    const intervalId = setInterval(() => {
+      setSeconds((prev) => {
+        // Ensure that the countdown stops at 0
+        if (prev <= 1) {
+          clearInterval(intervalId);
+          navigate('/dashboard');
+          return 0;
+        }
+        return prev - 1;
+      });
 
-    return () => clearTimeout(timeoutId);
+      if (seconds < 1) {
+        navigate('/dashboard')
+      }
+    }, 1000)
 
+    return () => {
+      // Clear the interval when the component unmounts
+      clearInterval(intervalId);
+    };
 
   }, [controls]);
-  
 
- return (
+  return (
     <div
-      className="flex"
+      className="flex w-full"
       style={{
         backgroundImage: `url(${Bg})`,
         backgroundPosition: "center",
@@ -35,21 +60,33 @@ const SubDone = () => {
         backgroundSize: "contain",
       }}
     >
+      {/* <SideNav screen="screen" /> */}
 
-      <div className="flex flex-col xl:mx-10 mx-5 flex-1 pt-4  items-center justify-center ">
+      <div className="flex flex-col xl:mx-10 mx-5 flex-1 pt-4  items-center justify-center w-full">
         <div className="flex flex-col justify-center items-center container xl:gap-10 lg:gap-8 md:gap-6 sm:gap-5 gap-5">
-          <div className=" flex items-center justify-center">
-            <motion.img
-              src={Correct}
-              alt=""
-              className="xl:w-9/12 lg:w-8/12 md:w-6/12 sm:w-5/12 w-3/12"
-              initial="initial"
-              animate={controls}
-              transition={successAnimation.transition}
-            />
+          <div className=" flex items-center flex-col space-y-5 justify-center">
+            <p>You will redirect to the dashboard after {seconds}</p>
+            {
+              isSuccess ? <motion.img
+                src={Correct}
+                alt=""
+                className="xl:w-7/12 lg:w-8/12 md:w-6/12 sm:w-5/12 w-3/12"
+                initial="initial"
+                animate={controls}
+                transition={successAnimation.transition}
+              /> : <motion.div
+                className="text-center w-full text-6xl text-red-500"
+                initial="initial"
+                animate={controls}
+                transition={successAnimation.transition}
+              >
+                <ImCross className="mx-auto" />
+              </motion.div>
+            }
+
           </div>
-          <p className="font-bold  xl:text-6xl lg:text-5xl md:text-4xl sm:text-3xl text-2xl">
-            Payment Successful !
+          <p className="font-bold  xl:text-4xl lg:text-5xl md:text-4xl sm:text-3xl text-xl">
+            {isSuccess ? 'Subscription Successful !' : 'Subscription Fail'}
           </p>
         </div>
       </div>
@@ -57,4 +94,4 @@ const SubDone = () => {
   );
 }
 
-export default SubDone
+export default SubDone;
