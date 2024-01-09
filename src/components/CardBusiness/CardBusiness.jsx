@@ -19,11 +19,12 @@ const BCard = () => {
   useEffect(() => {
     getBCard();
     currentUserValidation();
+    //bug :  USE EFFECT IS RUNNING INFINITE
   }, [bCard, valUser]);
   const currentUserValidation = async () => {
     const validator = await validateCurrentUser();
     if (validator.validatorBl) {
-      console.log("Session OK", validator.user);
+      //console.log("Session OK", validator.user);
       setValUser(validator.user);
     } else {
       navigate("/login");
@@ -49,7 +50,7 @@ const BCard = () => {
   };
 
   return (
-    <div className= {`flex flex-col space-y-4 xl:mx-20 md:mx-20 ${valUser.subscripton?.name == 'Black' ||valUser.subscripton == null  ? 'text-white' : 'text-black'} `}>
+    <div className= {`flex flex-col space-y-4 xl:mx-20 md:mx-20 text-white `}>
       {loading ? (
         <div className="flex justify-center">
           <ItemLoader />
