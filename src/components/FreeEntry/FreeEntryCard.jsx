@@ -1,5 +1,5 @@
 import React from "react";
-import FreeEntry from "../../assets/images/freeEntryImg.png";
+import FreeEntry from "../../assets/images/freeEntryImg2.png";
 
 const FreeEntryCard = () => {
   const handleClickButton = () => {
@@ -7,7 +7,7 @@ const FreeEntryCard = () => {
   };
 
   return (
-    <div className="rounded-2xl xl:w-72 w-full md:w-72  shadow-lg bg-[#F7B928] shadow-gray-400 relative flex flex-col border-2 border-black">
+    <div className="rounded-2xl xl:w-72 md:w-full w-full   shadow-lg bg-[#F7B928] shadow-gray-400 relative flex flex-col border-2 border-black">
       <div>
         <img
           src={FreeEntry}

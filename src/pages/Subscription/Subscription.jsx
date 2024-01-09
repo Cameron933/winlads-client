@@ -18,6 +18,8 @@ import { Link, useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
 import SelectRafflePaymentMethod from "../../components/RaffleComponent/SelectRafflePaymentMethod";
 import PlanBuyCard from "../../components/plancard/PlanBuyCard";
+import FreeEntryCard from "../../components/FreeEntry/FreeEntryCard";
+import FreeEntryCardDashboard from "../../components/FreeEntry/FreeEntryCardDashboard";
 
 function Subscription() {
   const [planes, setPlanes] = useState([]);
@@ -320,6 +322,9 @@ function Subscription() {
                       planeId={valUser.sub_id}
                     />
                   ))}
+                  <div className=" flex justify-center items-center ">
+                    <FreeEntryCardDashboard />
+                  </div>
                 </div>
               </div>
             ) : (
