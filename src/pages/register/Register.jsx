@@ -94,7 +94,7 @@ const Register = ({ location }) => {
 
     const checkAbility = searchParams.get("ability")
     if(checkAbility === "WINACCESSEN") {
-      coupen === "MAZDABT50S"
+      coupen = "MAZDABT50S"
     }
 
     const data = {
