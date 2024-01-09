@@ -18,6 +18,8 @@ import { Link, useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
 import SelectRafflePaymentMethod from "../../components/RaffleComponent/SelectRafflePaymentMethod";
 import PlanBuyCard from "../../components/plancard/PlanBuyCard";
+import FreeEntryCard from "../../components/FreeEntry/FreeEntryCard";
+import FreeEntryCardDashboard from "../../components/FreeEntry/FreeEntryCardDashboard";
 
 function Subscription() {
   const [planes, setPlanes] = useState([]);
@@ -128,7 +130,7 @@ function Subscription() {
                 <ItemLoader />
               </div>
             ) : planes.length > 0 ? (
-              <div className="flex flex-col space-y-4">
+              <div className="flex flex-col space-y-4 ">
                 <div className="flex flex-row justify-between bg-black items-center rounded-full px-1 py-1 special:py-2 special:px-2">
                   <button
                     type="button"
@@ -320,6 +322,9 @@ function Subscription() {
                       planeId={valUser.sub_id}
                     />
                   ))}
+                  <div className=" flex justify-center items-center ">
+                    <FreeEntryCardDashboard />
+                  </div>
                 </div>
               </div>
             ) : (
