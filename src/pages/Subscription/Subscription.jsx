@@ -130,7 +130,7 @@ function Subscription() {
                 <ItemLoader />
               </div>
             ) : planes.length > 0 ? (
-              <div className="flex flex-col space-y-4">
+              <div className="flex flex-col space-y-4 ">
                 <div className="flex flex-row justify-between bg-black items-center rounded-full px-1 py-1 special:py-2 special:px-2">
                   <button
                     type="button"
