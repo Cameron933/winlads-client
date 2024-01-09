@@ -93,9 +93,11 @@ const Register = ({ location }) => {
     let coupen = ""
 
     const checkAbility = searchParams.get("ability")
-    if(checkAbility === "WINACCESSEN") {
+    if(checkAbility == "WINACCESSEN") {
       coupen = "MAZDABT50S"
+      console.log("co", coupen)
     }
+    console.log(coupen)
 
     const data = {
       firstname: values.firstname,
@@ -109,6 +111,8 @@ const Register = ({ location }) => {
       uid: uid,
       coupen: coupen
     };
+
+    console.log(data)
 
     const response = await axios.get(
       `${import.meta.env.VITE_SERVER_API}/checkEmail?email=${values.email}`
