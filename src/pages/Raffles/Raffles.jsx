@@ -293,6 +293,7 @@ function Raffles() {
                             });
                           }}
                         >
+                          
                           <img
                             src={raffleimage}
                             alt=""

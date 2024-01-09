@@ -3,6 +3,7 @@ import TopNav from "../../components/TopNav/TopNav";
 import { IoIosArrowBack } from "react-icons/io";
 import BG from "../../assets/images/HomesideBg.png";
 import Car from "../../assets/images/won/car.png";
+import Money from "../../assets/images/won/money.png";
 import { useNavigate, useParams } from "react-router-dom";
 import ItemLoader from "../../components/Loader/ItemLoader";
 import axios from "axios";
@@ -30,13 +31,11 @@ const Won = () => {
   };
   useEffect(() => {
     getRound();
-
-  }, [])
+  }, []);
   return (
     <div className="flex items-stretch h-screen py-4">
       <div className="w-full">
         <div className="flex flex-col xl:px-6 px-4 special:px-12 2xl:space-y-8 special:space-y-24 overflow-hidden">
-
           <div className="flex flex-col flex-1 ">
             <div className="block xl:hidden space-y-4">
               <div className="rounded-b-3xl py-4">
@@ -63,8 +62,8 @@ const Won = () => {
             <div className="flex justify-center">
               <ItemLoader />
             </div>
-          ) :
-            (<div className="w-full flex max-xl:flex-col xl:pt-12">
+          ) : (
+            <div className="w-full flex max-xl:flex-col xl:pt-12">
               <div className="w-3/5 max-xl:w-full flex flex-col gap-5">
                 <div className="flex flex-row gap-4 md:gap-8 xl:hidden items-center">
                   <div
@@ -74,31 +73,31 @@ const Won = () => {
                     <IoIosArrowBack className="text-black bg-gray-200 rounded-full p-1 w-8 h-8" />
                   </div>
                   <div className="md:text-3xl font-bold special:text-8xl text-xl">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing
+                  $1500 Cash Prize
                   </div>
                 </div>
                 <div className="text-4xl font-bold special:text-8xl 2xl:text-6xl max-sm:text-3xl hidden xl:block">
-                  {round.name}
+                  {/* {round.name} */}
+                  $1500 Cash Prize
                 </div>
 
-                <div className="hidden text-xl xl:text-2xl font-normal 2xl:text-3xl special:text-6xl 2xl:pt-8">
-                  sed do eiusmod tempo
+                <div className=" text-xl xl:text-2xl font-normal 2xl:text-3xl special:text-6xl 2xl:pt-8">
+                  <span className="font-semibold">Draw Date:</span> 2024 January 17
                 </div>
-                {/* <div className="md:text-sm xl:text-sm font-normal 2xl:text-xl w-3/4 max-xl:w-full special:text-4xl text-xs">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                  eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet
-                  tellus cras adipiscing enim eu turpis. Dictum fusce ut placerat
-                  orci nulla. Tincidunt arcu non sodales neque sodales. Cras
-                  tincidunt lobortis feugiat vivamus. Sem integer vitae justo
-                  eget. Odio ut sem nulla pharetra diam sit amet nisl. Porttitor
-                  massa id neque aliquam vestibulum morbi. Nisl rhoncus mattis
-                  rhoncus urna. Morbi tristique senectus et netus et malesuada.
-                  Malesuada bibendum arcu vitae elementum curabitur. Amet massa
-                  vitae tortor condimentum. Turpis in eu mi bibendum. Sit amet
-                  risus nullam eget felis eget nunc lobortis.
-                </div> */}
-                {
-                  round.youtubeLink &&
+
+                <div className=" text-xl xl:text-2xl font-normal 2xl:text-3xl special:text-6xl 2xl:pt-8">
+                 <span className="font-semibold"> Winner Announcement:</span> We will announce the lucky winner on
+                  social media
+                </div>
+
+                <div className="md:text-sm xl:text-sm font-normal 2xl:text-xl w-3/4 max-xl:w-full special:text-4xl text-xs">
+                  Participants must be subscribed to our platform to qualify for
+                  the automatic entry. One-off entries can be purchased directly
+                  on our platform. The more entries you have, the higher your
+                  chances of winning. The $1500 cash prize will be awarded to
+                  the winner.
+                </div>
+                {round.youtubeLink && (
                   <>
                     <div className="w-3/4">
                       <div className="flex md:hidden">
@@ -183,17 +182,18 @@ const Won = () => {
                       </div>
                     </div>
                   </>
-                }
+                )}
               </div>
-              <div className="w-2/5 max-xl:w-full">
+              <div className="w-2/5 max-xl:w-full ">
                 <img
-                  src={round.raffle?.raffleimage || Car}
+                  // src={round.raffle?.raffleimage || Car}
+                  src={Money}
                   alt="winlad_car"
-                  className="absolute right-0 -z-10 bottom-0 2xl:top-80 w-1/2 max-xl:w-full special:bottom-0 max-xl:relative"
+                  className="absolute right-0 -z-10 bottom-0 2xl:top-80 w-5/12 max-xl:8/12 special:bottom-0 max-xl:relative"
                 />
               </div>
-            </div>)
-          }
+            </div>
+          )}
           <img
             src={BG}
             alt=""
