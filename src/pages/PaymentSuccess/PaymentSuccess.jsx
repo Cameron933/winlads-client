@@ -29,12 +29,21 @@ function PaymentSuccess() {
     controls.start(successAnimation.animate);
 
     const intervalId = setInterval(() => {
-      setSeconds((prev) => prev - 1);
-    }, 1000);
+      setSeconds((prev) => {
+        // Ensure that the countdown stops at 0
+        if (prev <= 1) {
+          clearInterval(intervalId);
+          navigate('/dashboard');
+          return 0;
+        }
+        return prev - 1;
+      });
 
-    setTimeout(()=>{
-      navigate('/dashboard')
-    }, 5000)
+      if (seconds < 1) {
+        navigate('/dashboard')
+      }
+    }, 1000)
+
     return () => {
       // Clear the interval when the component unmounts
       clearInterval(intervalId);
@@ -57,7 +66,7 @@ function PaymentSuccess() {
       <div className="flex flex-col xl:mx-10 mx-5 flex-1 pt-4  items-center justify-center w-full">
         <div className="flex flex-col justify-center items-center container xl:gap-10 lg:gap-8 md:gap-6 sm:gap-5 gap-5">
           <div className=" flex items-center flex-col space-y-5 justify-center">
-            <p>You Will Redirect to the dashboard after {seconds}</p>
+            <p>You will redirect to the dashboard after {seconds}</p>
             {
               isSuccess ? <motion.img
                 src={Correct}
@@ -66,14 +75,14 @@ function PaymentSuccess() {
                 initial="initial"
                 animate={controls}
                 transition={successAnimation.transition}
-              /> :  <motion.div
-              className="xl:w-7/12 lg:w-8/12 md:w-6/12 sm:w-5/12 w-3/12 text-6xl text-red-500"
-              initial="initial"
-              animate={controls}
-              transition={successAnimation.transition}
-            >
-              <ImCross/>
-            </motion.div>
+              /> : <motion.div
+                className="text-center w-full text-6xl text-red-500"
+                initial="initial"
+                animate={controls}
+                transition={successAnimation.transition}
+              >
+                <ImCross className="mx-auto" />
+              </motion.div>
             }
 
           </div>
