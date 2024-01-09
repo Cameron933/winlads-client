@@ -69,6 +69,27 @@ function Subscription() {
     getPlanes();
   }, []);
 
+  const logDetailsToDataLayer = () => {
+    const data = {
+      userId: valUser.uid,
+      giveawayId: selectedPlaneId,
+      price: selectedPlanPrice,
+      name: selectedPlanName,
+      planeId: selectedPlaneId
+    };
+    console.log('Logging to data layer:', data);
+    window.dataLayer.push({
+      event: 'purchaseDetails',
+      data: data
+    });
+  };
+
+  useEffect(() => {
+    if (choosePlane) {
+      logDetailsToDataLayer();
+    }
+  }, [choosePlane, valUser.uid, selectedPlaneId, selectedPlanPrice, selectedPlanName]);
+
   const currentUserValidation = async () => {
     const validator = await validateCurrentUser();
     if (validator.validatorBl) {
