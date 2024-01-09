@@ -15,7 +15,7 @@ function NoticeComponent() {
               <img src={Male} alt="" className="special:w-24 w-10" />
               <div className="ml-1 sm:ml-5  text-sm sm:text-base ">
                 <p className="special:text-3xl text-xl">Kathryn Murphy</p>
-                <p className="special:text-2xl text-lg">Kathryn sent you AUD 0</p>
+                <p className="special:text-2xl text-lg">Kathryn sent you $ 0</p>
               </div>
             </div>
             <img src={morenotice} alt="" />
@@ -28,7 +28,7 @@ function NoticeComponent() {
               <img src={Male} alt="" className="special:w-24 w-10" />
               <div className="ml-1 sm:ml-5  text-sm sm:text-base ">
                 <p className="special:text-3xl text-xl">Annette Black</p>
-                <p className="special:text-2xl text-lg">Annette sent you AUD 0</p>
+                <p className="special:text-2xl text-lg">Annette sent you $ 0</p>
               </div>
             </div>
             <img src={morenotice} alt="" />
@@ -40,7 +40,7 @@ function NoticeComponent() {
             <img src={Male} alt="" className="special:w-24 w-10" />
             <div className="ml-1 sm:ml-5  text-sm sm:text-base ">
               <p className="special:text-3xl text-xl">Jerome Bell</p>
-              <p className="special:text-2xl text-lg">Jerome sent you AUD 0</p>
+              <p className="special:text-2xl text-lg">Jerome sent you $ 0</p>
             </div>
           </div>
           <img src={morenotice} alt="" />
@@ -51,7 +51,7 @@ function NoticeComponent() {
             <img src={Female} alt="" className="special:w-24 w-10" />
             <div className="ml-1 sm:ml-5  text-sm sm:text-base ">
               <p className="special:text-3xl text-xll">Albert Flores</p>
-              <p className="special:text-2xl text-lg">Albert sent you AUD 0</p>
+              <p className="special:text-2xl text-lg">Albert sent you $ 0</p>
             </div>
           </div>
           <img src={morenotice} alt="" />
@@ -62,7 +62,7 @@ function NoticeComponent() {
             <img src={Male} alt="" className="special:w-24 w-10" />
             <div className="ml-1 sm:ml-5  text-sm sm:text-base ">
               <p className="special:text-3xl text-xll">Eleanor Pena</p>
-              <p className="special:text-2xl text-lg">Eleanor sent you AUD 0</p>
+              <p className="special:text-2xl text-lg">Eleanor sent you $ 0</p>
             </div>
           </div>
           <img src={morenotice} alt="" />
@@ -73,7 +73,7 @@ function NoticeComponent() {
             <img src={Male} alt="" className="special:w-24 w-10" />
             <div className="ml-1 sm:ml-5  text-sm sm:text-base ">
               <p className="special:text-3xl text-xll">Courtney Henry</p>
-              <p className="special:text-2xl text-lg">Courtney sent you AUD 0</p>
+              <p className="special:text-2xl text-lg">Courtney sent you $ 0</p>
             </div>
           </div>
           <img src={morenotice} alt="" />
@@ -84,7 +84,7 @@ function NoticeComponent() {
             <img src={Female} alt="" className="special:w-24 w-10" />
             <div className="ml-1 sm:ml-5  text-sm sm:text-base flex-1">
               <p className="special:text-3xl text-xll">Cody Fisher</p>
-              <p className="special:text-2xl text-lg">Cody sent you AUD 0</p>
+              <p className="special:text-2xl text-lg">Cody sent you $ 0</p>
             </div>
           </div>
           <img src={morenotice} alt="" />

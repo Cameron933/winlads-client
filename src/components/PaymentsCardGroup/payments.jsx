@@ -122,7 +122,7 @@ function Payments() {
                 <h5 className="text-xl font-bold capitalize ">{packageName}</h5>
                 <h6 className="text-gray-300 text-xs mb-3">For The <br /> Basic</h6>
                 <div className="mb-5">
-                  <h2 className="text-4xl font-bold">AUD {el.price}</h2>
+                  <h2 className="text-4xl font-bold">$ {el.price}</h2>
                   <h6 className="text-gray-300 text-xs mb-3">Per Agent Per Month</h6>
                 </div>
                 <div

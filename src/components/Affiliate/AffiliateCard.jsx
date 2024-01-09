@@ -84,7 +84,7 @@ const AffiliateCard = () => {
               </div>
               <div className="flex flex-col text-white">
                 <p className="font-semibold 2xl:text-xl special:text-2xl text-lg">
-                  AUD {wallet.earning || "0.00"}
+                  $ {wallet.earning || "0.00"}
                 </p>
                 <p className="capitalize text-sm">Total Earnings</p>
               </div>
@@ -107,7 +107,7 @@ const AffiliateCard = () => {
                 your balance
               </p>
               <p className="font-bold text-4xl">
-                AUD {valUser.balance || "0.00"}
+                $ {valUser.balance || "0.00"}
               </p>
             </div>
             <div className="flex flex-col space-x-1">

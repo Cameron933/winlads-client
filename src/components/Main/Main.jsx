@@ -15,7 +15,7 @@ return (
       With over 650+ businesses across 1000+ stores where you can access
       <br></br>
       exclusive discounts Australia Wide <br></br>
-      from only AUD 19.99 per month, opt-out anytime <br></br>
+      from only $ 19.99 per month, opt-out anytime <br></br>
     </p>
 
     <div className="flex xl:flex-row flex-col justify-center items-center gap-4 mt-4">
