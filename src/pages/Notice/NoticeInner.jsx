@@ -191,7 +191,7 @@ function NoticeInner() {
                       Kathryn Murphy
                     </p>
                     <p className="text-gray-700 special:text-4xl 2xl:text-2xl">
-                      Kathryn sent you AUD 0
+                      Kathryn sent you $ 0
                     </p>
                   </div>
                 </div>

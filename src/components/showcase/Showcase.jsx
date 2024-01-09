@@ -126,7 +126,7 @@ function Showcase() {
           With over 650+ businesses across 1000+ stores where you can accessexclusive discounts.
           </p>
           <p className="font-semibold text-right text-md 4xl:text-4xl xl:text-1xl mt-3">
-          Australia Widefrom only AUD 9.99 per month, opt-out anytime
+          Australia Widefrom only $ 9.99 per month, opt-out anytime
           </p>
         </div>
         <div className="flex justify-end z-10">

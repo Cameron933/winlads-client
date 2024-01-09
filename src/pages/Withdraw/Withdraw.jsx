@@ -138,7 +138,7 @@ const Withdraw = () => {
               
                 <input
                   className="bg-[#ECECEC] w-full rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
-                  placeholder="Payout Amount (AUD)"
+                  placeholder="Payout Amount ($)"
                   type="number"
                   value={amount}
                   onChange={(e) => setAmount(e.target.value)}

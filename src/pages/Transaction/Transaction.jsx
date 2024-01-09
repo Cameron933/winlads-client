@@ -196,7 +196,7 @@ const Transaction = () => {
               />
               <div className="flex flex-col w-full">
                 <p className="text-white text-lg md:text-xl xl:text-xl 2xl:text-2xl special:text-3xl">
-                  AUD&nbsp;{ Math.floor((wallet.balance * 100))/100 || "0.00"}
+                  $&nbsp;{ Math.floor((wallet.balance * 100))/100 || "0.00"}
                 </p>
                 <p className="text-white text-sm md:text-lg xl:text-sm 2xl:text-xl special:text-2xl">
                   Balance
@@ -211,7 +211,7 @@ const Transaction = () => {
               />
               <div className="flex flex-col w-full">
                 <p className="text-white text-lg md:text-xl xl:text-xl 2xl:text-2xl special:text-3xl">
-                  AUD&nbsp;{wallet.earning || "0.00"}
+                  $&nbsp;{wallet.earning || "0.00"}
                 </p>
                 <p className="text-white text-sm md:text-lg xl:text-sm 2xl:text-xl special:text-2xl">
                   Earning
@@ -227,7 +227,7 @@ const Transaction = () => {
               />
               <div className="flex flex-col w-full">
                 <p className="text-white text-lg md:text-xl xl:text-xl 2xl:text-2xl special:text-3xl">
-                  AUD&nbsp;{wallet.purchase || "0.00"}
+                  $&nbsp;{wallet.purchase || "0.00"}
                 </p>
                 <p className="text-white text-sm md:text-lg xl:text-sm 2xl:text-xl special:text-2xl">
                   Purchase
@@ -395,7 +395,7 @@ const Transaction = () => {
                             : "green-400"
                         } text-lg`}
                       >
-                        AUD {transaction.amount}
+                        $ {transaction.amount}
                       </p>
                     </div>
                   </div>
@@ -436,7 +436,7 @@ const Transaction = () => {
                   </div>
                 </div>
                 <p className="text-[#4FC8E8] font-semibold xl:text-lg 2xl:text-2xl special:text-4xl">
-                  -AUD 250
+                  -$ 250
                 </p>
               </div>
             )}
@@ -460,7 +460,7 @@ const Transaction = () => {
                   </div>
                 </div>
                 <p className="text-[#059713] font-semibold xl:text-lg 2xl:text-2xl special:text-4xl">
-                  AUD 2250
+                  $ 2250
                 </p>
               </div>
             )}
@@ -484,7 +484,7 @@ const Transaction = () => {
                   </div>
                 </div>
                 <p className="text-[#059713] font-semibold xl:text-lg 2xl:text-2xl special:text-4xl">
-                  AUD 250
+                  $ 250
                 </p>
               </div>
             )}

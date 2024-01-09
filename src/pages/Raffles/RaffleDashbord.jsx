@@ -167,7 +167,7 @@ function RaffleDashbord() {
                         Earning Balance
                       </p>
                       <p className="special:text-6xl">
-                        AUD&nbsp;{valUser.balance || "0.00"}
+                        $&nbsp;{valUser.balance || "0.00"}
                       </p>
                     </div>
                   </div>

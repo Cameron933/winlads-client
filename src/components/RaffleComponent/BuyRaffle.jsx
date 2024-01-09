@@ -93,7 +93,7 @@ const BuyRaffle = ({
 
             <div className="flex flex-col special:px-24 2xl:px-8 px-4 space-y-4 special:space-y-12 2xl:space-y-8">
               <p className="font-bold text-white text-center xl:text-5xl 2xl:text-6xl special:text-9xl md:5xl text-3xl">
-                AUD 10
+                $ 10
               </p>
               <p className="text-white text-center special:text-4xl">
                 User/Month

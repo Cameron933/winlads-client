@@ -168,7 +168,7 @@ const Dashboard = () => {
                       Earning Balance
                     </p>
                     <p className="text-3xl text-black">
-                      <span className="text-base">AUD</span>&nbsp;
+                      <span className="text-base">$</span>&nbsp;
                       {typeof valUser.balance === "number"
                         ? valUser.balance.toFixed(2)
                         : "0.00"}
@@ -250,7 +250,7 @@ const Dashboard = () => {
                         Earning Balance
                       </p>
                       <p className="text-3xl text-white">
-                        <span className="text-base">AUD</span>&nbsp;
+                        <span className="text-base">$</span>&nbsp;
                         {typeof valUser.balance === "number"
                           ? valUser.balance.toFixed(2)
                           : "0.00"}

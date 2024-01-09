@@ -53,7 +53,7 @@ function Fifthpage() {
               >
                 <p className="mt-4 font-bold p-2 2xl:text-xl border-black rounded-md">
                   Starter Tier                </p>
-                <p className="text-4xl 2xl:text-6xl">AUD 9.99</p>
+                <p className="text-4xl 2xl:text-6xl">$ 9.99</p>
                 <p className="2xl:text-2xl">User/Month</p>
                 <div className="flex flex-col space-y-2 text-center">
                   <p className="2xl:text-2xl"> -Entry Tier</p>
@@ -85,7 +85,7 @@ function Fifthpage() {
                 <p className="mt-4 font-bold 2xl:text-xl p-2 border-black rounded-md">
                   Boomer Tier
                 </p>
-                <p className="text-4xl 2xl:text-6xl">AUD 19.99</p>
+                <p className="text-4xl 2xl:text-6xl">$ 19.99</p>
                 <p className="2xl:text-2xl">User/Month</p>
                 <div className="flex flex-col space-y-2 text-center">
                   <p className="2xl:text-2xl">
@@ -121,7 +121,7 @@ function Fifthpage() {
                 <p className="mt-4 font-bold p-2 2xl:text-xl border-black rounded-md">
                   Platinum Tier
                 </p>
-                <p className="text-4xl 2xl:text-6xl">AUD 49.99</p>
+                <p className="text-4xl 2xl:text-6xl">$ 49.99</p>
                 <p className="2xl:text-2xl">User/Month</p>
                 <div className="flex flex-col space-y-2 text-center">
                   <p className="2xl:text-2xl">
@@ -167,7 +167,7 @@ function Fifthpage() {
                 <p className="mt-4 font-bold p-2 2xl:text-xl border-black rounded-md">
                   Gold
                 </p>
-                <p className="text-4xl 2xl:text-6xl">AUD 100</p>
+                <p className="text-4xl 2xl:text-6xl">$ 100</p>
                 <p className="2xl:text-2xl">User/Month</p>
                 <div className="flex flex-col space-y-2 text-center">
                   <p className="2xl:text-2xl">
@@ -205,7 +205,7 @@ function Fifthpage() {
                 <p className="mt-4 font-bold p-2 2xl:text-xl border-black rounded-md">
                   Black
                 </p>
-                <p className="text-4xl 2xl:text-6xl">AUD 500</p>
+                <p className="text-4xl 2xl:text-6xl">$ 500</p>
                 <p className="2xl:text-2xl">User/Month</p>
                 <div className="flex flex-col space-y-2 text-center">
                   <p className="2xl:text-2xl">

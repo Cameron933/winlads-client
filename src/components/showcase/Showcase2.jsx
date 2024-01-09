@@ -209,7 +209,7 @@ const Showcase2 = () => {
                 transition={{ duration: 0.5, delay: 0.9 }}
                 className="text-xs sm:text-sm md:text-base xl:text-lg 2xl:text-xl special:text-2xl font-semibold"
               >
-                only AUD 9.99 per month, opt-out anytime
+                only $ 9.99 per month, opt-out anytime
               </motion.p>
             </div>
 
@@ -314,7 +314,7 @@ const Showcase2 = () => {
                 viewport={{ once: true }}
                 className="text-base xl:text-lg 2xl:text-xl special:text-2xl font-semibold"
               >
-                only AUD <span className='text-sm sm:text-md md:text-lg xl:text-2xl 2xl:text-4xl special:text-3xl font-semibold'>9.99</span> per month, opt-out anytime
+                only $ <span className='text-sm sm:text-md md:text-lg xl:text-2xl 2xl:text-4xl special:text-3xl font-semibold'>9.99</span> per month, opt-out anytime
               </motion.p>
             </div>
 
