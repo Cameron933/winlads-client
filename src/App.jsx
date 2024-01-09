@@ -97,11 +97,14 @@ function App() {
           element: <Messages />,
         },
         {
+          // subscription-done?suc=0&fail=1&sub_id=ds Sample Done Route
           path: "/subscription-done",
           element: <SubcriptionDone />,
         },
         {
-          path: "/payment-success",
+          // payment-done?suc=1&round_id=sadc  Sample Success Route
+          // payment-done?suc=0&fail=1&round_id=ds  Sample Fail Route
+          path: "/payment-done",
           element: <PaymentSuccess />,
         },
         {

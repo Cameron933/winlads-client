@@ -117,6 +117,8 @@ const Dashboard = () => {
   const checkCoupen = () => {
     const checkCode = cookies.get("COUPEN")
     if(checkCode === "WINFREE") {
+      // REMOVED THE COOKIE FOR AVOID STUCK IN ENTRIES PAGE,:)
+      cookies.remove("COUPEN")
       navigate("/requestEntries")
     }
   }
