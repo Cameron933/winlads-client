@@ -116,7 +116,7 @@ const AffiliateCard = () => {
                   style={{
                     color:
                       !valUser.subscripton?.color ||
-                        valUser.subscripton?.color === "#000000"
+                        valUser.subscripton?.color === "#22272C"
                         ? "white"
                         : valUser.subscripton?.color,
                   }}

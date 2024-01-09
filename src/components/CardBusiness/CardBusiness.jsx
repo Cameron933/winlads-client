@@ -50,7 +50,7 @@ const BCard = () => {
   };
 
   return (
-    <div className= {`flex flex-col space-y-4 xl:mx-20 md:mx-20 text-white `}>
+    <div className= {`flex flex-col space-y-4 xl:mx-20 md:mx-20  text-white`}>
       {loading ? (
         <div className="flex justify-center">
           <ItemLoader />
@@ -60,7 +60,7 @@ const BCard = () => {
         <>
           <div className={`bg-black rounded-[35px] px-4 special:px-8 2xl:px-6 justify-between py-4 special:py-8 2xl:py-4 cursor-pointer `}
             style={{
-              background: `linear-gradient(90deg, ${valUser.subscripton?.color} 0%, #000608 100%)`,
+              background: `linear-gradient(90deg, ${valUser.subscripton?.color ? valUser.subscripton?.color : '#15803D'} 0%, #000608 100%)`,
             }}
           >
             <div className="flex flex-row justify-between item-center">
@@ -81,7 +81,7 @@ const BCard = () => {
               </div>
             </div>
             <div className="flex flex-col items-center">
-              <div className="mx-20">
+              <div className="mx-auto">
                 <img src={png2} alt="" className="w-full " />
               </div>
 
@@ -93,7 +93,7 @@ const BCard = () => {
           </div>
           <div className="bg-black rounded-[35px] px-4 special:px-8 2xl:px-6 item-center py-2 special:py-4 2xl:py-4 cursor-pointer"
             style={{
-              background: `linear-gradient(90deg, ${valUser.subscripton?.color} 0%, #000608 100%)`,
+              background: `linear-gradient(90deg, ${valUser.subscripton?.color ? valUser.subscripton?.color : '#15803D'} 0%, #000608 100%)`,
             }}
           >
             <div className="flex flex-row justify-between item-center">

@@ -220,7 +220,7 @@ const MyEntries = () => {
                           <div>
                             {" "}
                             {giveaway.winstatus === "pending" ? (
-                              <LuMinus />
+                              'Pending'
                             ) : (
                               <RxCross1 />
                             )}
