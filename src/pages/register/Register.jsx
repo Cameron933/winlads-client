@@ -78,11 +78,12 @@ const Register = ({ location }) => {
     setIsChecked(e.target.checked);
   };
 
-  const handleSEOReg = () => {
+  const handleSEOReg = (data) => {
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event: "sign_up",
       method: "google", //it can be email,facebook, or google. This value is optional
+      data:data
     });
   };
 
@@ -112,7 +113,7 @@ const Register = ({ location }) => {
     const response = await axios.get(
       `${import.meta.env.VITE_SERVER_API}/checkEmail?email=${values.email}`
     );
-    console.log(response.data);
+    handleSEOReg(data);
     if (!response.data.exists) {
       try {
         const response = await axios.post(
@@ -163,6 +164,7 @@ const Register = ({ location }) => {
       });
       return;
     }
+
     if (buttonText === "Register") {
       ValidateOtp();
     } else {
@@ -197,6 +199,7 @@ const Register = ({ location }) => {
                 setVerifyDisable(false);
                 setShowOTPBox(true);
                 setButtonText("Register");
+
               })
               .catch((err) => {
                 toast.error(err.message, {
