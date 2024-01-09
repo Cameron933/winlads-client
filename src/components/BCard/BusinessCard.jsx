@@ -8,6 +8,7 @@ import { IoMdShare } from "react-icons/io";
 import { IoMdSave } from "react-icons/io";
 import { MdPersonAddAlt1 } from "react-icons/md";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
+import { IoIosArrowBack } from "react-icons/io";
 import BCard from "../CardBusiness/CardBusiness";
 import "./modal.css";
 import { validateCurrentUser } from "../../utils/validateuser";
@@ -73,6 +74,7 @@ function BusinessCard() {
       if (!address || !addres2 || !state || !city || !postalCode) {
         throw Error('One Or More Field is missing');
       }
+    
       const data = {
         uid: valUser.uid,
         name: valUser.firstname + valUser.lastname,
@@ -80,6 +82,7 @@ function BusinessCard() {
         passport: valUser.passport,
         address: address + ' ' + addres2 + ' ' + state + ' ' + city + ' ' + postalCode,
       }
+      console.log(data);
 
       const response = await axios.post(
         `${import.meta.env.VITE_SERVER_API}/requestBusinessCard`,
@@ -111,7 +114,7 @@ function BusinessCard() {
     } catch (error) {
       console.log(error.message);
 
-      toast.error(error.message,{
+      toast.error(error.message, {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -127,6 +130,12 @@ function BusinessCard() {
 
   return (
     <div className="flex flex-col space-y-4 special:space-y-16">
+      {
+        isOrderNow &&
+      <button className="p-2 rounded-full bg-white hover:bg-gray-300 w-fit md:text-3xl text-2xl" onClick={()=>setOrderNow((prev)=>!prev)}><IoIosArrowBack /></button>
+
+      }
+
       <div className="flex flex-col special:space-y-5">
         <p className="text-xl font-bold xl:text-xl md:text-xl special:text-4xl">
           Get My NFC
@@ -201,9 +210,9 @@ function BusinessCard() {
             </div>
           </div>
           {
-            !valUser.subscripton &&   <p className="text-xs md:text-lg font-semibold text-center capitalize">You are not eligeble, <span className="text-red-500">please subscribe first !</span></p>
+            !valUser.subscripton && <p className="text-xs md:text-lg font-semibold text-center capitalize">You are not eligeble, <span className="text-red-500">please subscribe first !</span></p>
           }
-         
+
         </div>
       </div>
     </div>
@@ -227,6 +236,13 @@ function ShareForm({
   nic
 }) {
   // const [postalAddress, setPostalAddress] = useState();
+  useEffect(()=>{
+    setAddress(address);
+    setAddress2(address2);
+    setCity(city);
+    setState(state);
+    setPostalCode(postalCode);
+  },[])
   const handlePostalAddressChange = (e) => {
     setAddress(e.target.value);
     setAddress2(e.target.value);
@@ -252,17 +268,19 @@ function ShareForm({
         {/* <img src={userBUS} alt="user" className="w-8 special:w-14" /> */}
       </div>
 
-      <div className="bg-[#ECECEC] border-black flex flex-row-reverse items-center py-3 px-4 gap-3 rounded-2xl justify-end">
+      {/* <div className="bg-[#ECECEC] border-black flex flex-row-reverse items-center py-3 px-4 gap-3 rounded-2xl justify-end">
         <input
           type="text"
-          placeholder="Your Passport"
+          placeholder="Your NIC"
           id="passport"
           disabled
           value={nic}
           className="bg-[#ECECEC]e focus:outline-none placeholder:text-gray-500 w-full outline-none special:placeholder:text-2xl"
         />
-        {/* <img src={basketballBUS} alt="passport" className="w-8 special:w-14" /> */}
-      </div>
+      </div> */}
+
+      {/* <img src={basketballBUS} alt="passport" className="w-8 special:w-14" /> */}
+
       <div className="bg-[#ECECEC] flex flex-row-reverse items-center py-3 px-4 gap-3 rounded-2xl justify-end">
         <input
           type="text"

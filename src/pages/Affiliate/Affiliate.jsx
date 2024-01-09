@@ -263,21 +263,21 @@ const Affiliate = () => {
 
                   </div>
 
-{ valUser.subscripton &&
-                  <div className="pt-6">
-                    <h3 style={{ fontWeight: 'bold' }}>Affiliate List</h3>
-                    <br />
-                    {
-                      refferals?.data?.length > 0 ? refferals?.data?.map((ref, key) => (
-                        <div style={{ display: 'flex', flexDirection: 'row', gap: 50, flexWrap: 'wrap', backgroundColor: '#FFFFFF', borderRadius: 10, padding: 5, marginBottom: 5 }}>
-                          <h6>{key + 1}</h6>
-                          <h3>{ref.firstname}</h3>
-                          <span>{ref.email}</span>
-                        </div>
-                      )) : <p>You have no affiliates</p>
-                    }
-                  </div>
-              }
+                  {valUser.subscripton &&
+                    <div className="pt-6">
+                      <h3 style={{ fontWeight: 'bold' }}>Affiliate List</h3>
+                      <br />
+                      {
+                        refferals?.data?.length > 0 ? refferals?.data?.map((ref, key) => (
+                          <div style={{ display: 'flex', flexDirection: 'row', gap: 50, flexWrap: 'wrap', backgroundColor: '#FFFFFF', borderRadius: 10, padding: 5, marginBottom: 5 }}>
+                            <h6>{key + 1}</h6>
+                            <h3>{ref.firstname}</h3>
+                            <span>{ref.email}</span>
+                          </div>
+                        )) : <p>You have no affiliates</p>
+                      }
+                    </div>
+                  }
                   {!valUser.subscripton && <p className="text-xs md:text-lg font-semibold text-center capitalize">You are not eligeble <span className="text-red-500">Please Subscribe First !</span></p>}
 
                 </>
@@ -306,11 +306,11 @@ const Affiliate = () => {
                   </p>
                   <input
                     className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
-                    placeholder="loading..."
+                    placeholder="Loading..."
                     type="text"
                     onChange={(e) => setName(e.target.value)}
                     disabled
-                    value={userData?.firstname || ""}
+                    value={ userData.firstname &&(userData?.firstname + ' ' + userData?.lastname) || ""}
                   ></input>
                 </div>
 
@@ -320,7 +320,7 @@ const Affiliate = () => {
                   </p>
                   <input
                     className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
-                    placeholder="loading..."
+                    placeholder="Loading..."
                     type="email"
                     onChange={(e) => setEmail(e.target.value)}
                     value={email || ""}
@@ -339,7 +339,7 @@ const Affiliate = () => {
                       value={valUser.subscripton ? userId || "N/A" : 'N/A'}
                       disabled
                     />
-                    <button onClick={()=>handleCopyToClipboard(userId)} className="absolute right-1 bottom-0 text-xl p-3 hover:bg-gray-300 rounded-full bg-white"><FaRegCopy /></button>
+                    <button onClick={() => handleCopyToClipboard(userId)} className="absolute right-1 bottom-0 text-xl p-3 hover:bg-gray-300 rounded-full bg-white"><FaRegCopy /></button>
 
                   </div>
 
@@ -350,15 +350,15 @@ const Affiliate = () => {
                     Your Affiliate Link
                   </p>
                   <div className="w-full relative">
-                  <input
-                    className="bg-white w-full rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
-                    placeholder="Enter Phone Number"
-                    type="tel"
-                    disabled
-                    onChange={(e) => setMobile(e.target.value)}
-                    value={valUser.subscripton ? `https://www.winlads.com/register?ref=${userId}` : 'N/A'}
-                  ></input>
-                    <button onClick={()=>handleCopyToClipboard(`https://www.winlads.com/register?ref=${userId}`)} className="absolute right-1 bottom-0 text-xl p-3 hover:bg-gray-300 rounded-full bg-white"><FaRegCopy /></button>
+                    <input
+                      className="bg-white w-full rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                      placeholder="Enter Phone Number"
+                      type="tel"
+                      disabled
+                      onChange={(e) => setMobile(e.target.value)}
+                      value={valUser.subscripton ? `https://www.winlads.com/register?ref=${userId}` : 'N/A'}
+                    ></input>
+                    <button onClick={() => handleCopyToClipboard(`https://www.winlads.com/register?ref=${userId}`)} className="absolute right-1 bottom-0 text-xl p-3 hover:bg-gray-300 rounded-full bg-white"><FaRegCopy /></button>
                   </div>
                 </div>
               </div>

@@ -43,6 +43,7 @@ import ForgotPassword from "./pages/ForgotPW/ForgotPassword";
 import RequestEntries from "./pages/RequestEntries/RequestEntries";
 import TagManager from 'react-gtm-module'
 import SubDone from "./pages/SubDone";
+import MyEntriesTable from "./pages/MyEntries/MyEntriesTable";
 
 
 function App() {
