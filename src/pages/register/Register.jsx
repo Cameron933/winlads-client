@@ -69,6 +69,7 @@ const Register = ({ location }) => {
 
     if (ref != undefined) {
       setRefId(ref);
+      values.refferalId = ref;
     }
     getFreeEntry()
   }, []);
@@ -501,13 +502,14 @@ const Register = ({ location }) => {
                       <FcSmartphoneTablet size={20} />
                       <input
                         type="text"
-                        placeholder="Affiliate Id"
-                        value={values.refferalId}
+                        placeholder="Affiliate ID (Optional)"
+                        value={values.refferalId || refId}
+                        disabled={refId ? true : false || fieldDis}
                         onChange={handleChange}
                         onBlur={handleBlur}
                         id="refferalId"
                         className="placeholder:text-[16px]"
-                        disabled={fieldDis}
+                        
                       />
                     </div>
                   </div>

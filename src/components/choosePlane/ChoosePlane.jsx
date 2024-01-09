@@ -142,10 +142,14 @@ const ChoosePlane = () => {
               btnword="SIGN UP NOW"
               classNames={""}
             />
+
+            {/* <div className="w-full xl:hidden md:flex  hidden">
+              <FreeEntryCard />
+            </div> */}
           </div>
-          <div className="px-3 xs:px-32 md:px-0 flex justify-center">
-            <FreeEntryCard />
-          </div>
+          {/* <div className="px-3 xs:px-32 md:px-0 flex md:hidden justify-center mt-4 xl:flex ">
+          <FreeEntryCard />
+        </div> */}
         </div>
       </div>
     </>

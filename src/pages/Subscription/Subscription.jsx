@@ -18,6 +18,8 @@ import { Link, useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
 import SelectRafflePaymentMethod from "../../components/RaffleComponent/SelectRafflePaymentMethod";
 import PlanBuyCard from "../../components/plancard/PlanBuyCard";
+import FreeEntryCard from "../../components/FreeEntry/FreeEntryCard";
+import FreeEntryCardDashboard from "../../components/FreeEntry/FreeEntryCardDashboard";
 
 function Subscription() {
   const [planes, setPlanes] = useState([]);
@@ -149,7 +151,7 @@ function Subscription() {
                 <ItemLoader />
               </div>
             ) : planes.length > 0 ? (
-              <div className="flex flex-col space-y-4">
+              <div className="flex flex-col space-y-4  pb-1">
                 <div className="flex flex-row justify-between bg-black items-center rounded-full px-1 py-1 special:py-2 special:px-2">
                   <button
                     type="button"
@@ -182,7 +184,7 @@ function Subscription() {
                   </button>
                 </div>
                 <div
-                  className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2 special:gap-6 2xl:gap-4 ${
+                  className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2 special:gap-6 2xl:gap-4   ${
                     choosePlane == "true ? bg-white/50"
                   }`}
                 >
@@ -257,9 +259,9 @@ function Subscription() {
                       }
                       textColor={plane.name == "Black" ? "white" : "black"}
                       cardBorderColor={
-                        plane.name == "Black" ? "white" : "black"
+                        plane.name == "Black" ? "black" : "black"
                       }
-                      borderColor={plane.name == "Black" ? "white" : "black"}
+                      borderColor={plane.name == "white" ? "black" : "black"}
                       buttonColor={
                         plane.name == "Starter"
                           ? "black"
@@ -341,6 +343,9 @@ function Subscription() {
                       planeId={valUser.sub_id}
                     />
                   ))}
+                  <div className=" flex justify-center items-center  ">
+                    <FreeEntryCardDashboard />
+                  </div>
                 </div>
               </div>
             ) : (

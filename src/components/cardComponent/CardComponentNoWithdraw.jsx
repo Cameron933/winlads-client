@@ -89,7 +89,7 @@ const CardComponentNoWithdraw = () => {
                         : valUser.subscripton?.color,
                   }}
                 >
-                  {valUser.subscripton?.name || "no plane"}
+                  {valUser.subscripton?.name || "No Plan"}
                 </p>
               </div>
               <p className="text-black text-sm">{formattedDate || ""}</p>

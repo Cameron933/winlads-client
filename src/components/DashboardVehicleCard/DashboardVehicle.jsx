@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 const DashboardVehicleCard = ({
   bgColor,
+  isSubscribed,
   name,
   date,
   icon,
@@ -29,19 +30,24 @@ const DashboardVehicleCard = ({
     // second: "numeric",
     timeZone: "UTC", // Set the timeZone option to "UTC"
   };
-  
+
   const formattedDate = new Intl.DateTimeFormat("en-US", options).format(dateObject);
 
   return (
     <>
       <div
-        className={`flex text-white flex-col justify-between pr-2 rounded-2xl  w-full pt-2 shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:opacity-75 cursor-pointer overflow-hidden border-2 border-[#000]`}
+        className={`relative flex text-white flex-col justify-between pr-2 rounded-2xl  w-full pt-2 shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:opacity-75 cursor-pointer overflow-hidden border-2 border-[#000]`}
         // style={{ backgroundColor: color }}
 
         style={{
           background: `linear-gradient(90deg, ${color} 0%, #000608 100%)`,
         }}
       >
+        {
+          (!isSubscribed && type != 'max') && <div className="text-center bg-gradient-to-t from-black to-transparent absolute top-0 left-0 w-full h-full flex items-center justify-center cursor-not-allowed z-20">
+            <p className="text-xs md:text-lg font-semibold text-white capitalize">You are not eligeble,<br /> please subscribe first !</p>
+          </div>
+        }
         <div className="flex flex-row items-center justify-between px-1">
           <Link to={`/won/${id}`}>
             <LuInfo className="text-white" />

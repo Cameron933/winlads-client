@@ -188,8 +188,9 @@ function BusinessCard() {
               ) : (
                 // Display "add" image when isOrderNow is false
                 <button
-                  className="text-sm md:text-md pro:text-lg xl:text-md special:text-lg p-3 rounded-[20px] bg-black text-white hover:bg-white  hover:text-black border-2 hover:border-black"
+                  className={`text-sm md:text-md pro:text-lg xl:text-md special:text-lg p-3 rounded-[20px] bg-black text-white hover:bg-white  hover:text-black border-2 hover:border-black ${!valUser.subscripton && 'cursor-not-allowed'}`}
                   onClick={handleShareClick}
+                  disabled={!valUser.subscripton}
                 >
                   {/* <MdPersonAddAlt1 /> */} Order My Business Card
                 </button>
@@ -199,6 +200,10 @@ function BusinessCard() {
               </label> */}
             </div>
           </div>
+          {
+            !valUser.subscripton &&   <p className="text-xs md:text-lg font-semibold text-center capitalize">You are not eligeble, <span className="text-red-500">please subscribe first !</span></p>
+          }
+         
         </div>
       </div>
     </div>
