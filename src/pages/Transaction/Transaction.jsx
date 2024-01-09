@@ -196,7 +196,7 @@ const Transaction = () => {
               />
               <div className="flex flex-col w-full">
                 <p className="text-white text-lg md:text-xl xl:text-xl 2xl:text-2xl special:text-3xl">
-                  AUD&nbsp;{wallet.balance || "0.00"}
+                  AUD&nbsp;{ Math.floor((wallet.balance * 100))/100 || "0.00"}
                 </p>
                 <p className="text-white text-sm md:text-lg xl:text-sm 2xl:text-xl special:text-2xl">
                   Balance
