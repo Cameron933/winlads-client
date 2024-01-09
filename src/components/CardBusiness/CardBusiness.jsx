@@ -49,7 +49,7 @@ const BCard = () => {
   };
 
   return (
-    <div className="flex flex-col space-y-4 xl:mx-20 md:mx-20">
+    <div className= {`flex flex-col space-y-4 xl:mx-20 md:mx-20 ${valUser.subscripton?.name == 'Black' ||valUser.subscripton == null  ? 'text-white' : 'text-black'} `}>
       {loading ? (
         <div className="flex justify-center">
           <ItemLoader />
@@ -57,7 +57,7 @@ const BCard = () => {
         </div>
       ) : (
         <>
-          <div className="bg-black rounded-[35px] px-4 special:px-8 2xl:px-6 justify-between py-4 special:py-8 2xl:py-4 cursor-pointer"
+          <div className={`bg-black rounded-[35px] px-4 special:px-8 2xl:px-6 justify-between py-4 special:py-8 2xl:py-4 cursor-pointer `}
             style={{
               background: `linear-gradient(90deg, ${valUser.subscripton?.color} 0%, #000608 100%)`,
             }}
@@ -66,7 +66,7 @@ const BCard = () => {
               <div className="col-span-8">
                 <img
                   src={winladsCard}
-                  className="w-16 2xl:w-24 special:w-36 md:w-36"
+                  className="w-16 2xl:w-24 special:w-36 md:w-36 brightness-200"
                   alt="Winlads Card"
                 />
               </div>
@@ -81,10 +81,10 @@ const BCard = () => {
             </div>
             <div className="flex flex-col items-center">
               <div className="mx-20">
-                <img src={png2} alt="" className="w-full" />
+                <img src={png2} alt="" className="w-full " />
               </div>
 
-              <span className="text-blue text-[8px] text-center md:text-sm xl:text-[8px] 2xl:text-xs special:text-xl">
+              <span className=" text-[8px] text-center md:text-sm xl:text-[8px] 2xl:text-xs special:text-xl">
                 "Connecting hearts, uplifting lives: Our People-centric
                 giveaways"
               </span>
@@ -99,7 +99,7 @@ const BCard = () => {
               <div className="col-span-12">
                 <img
                   src={Icon}
-                  className="w-8 2xl:w-16 special:w-24"
+                  className="w-8 2xl:w-16 special:w-24 brightness-200"
                   alt="Winlads Card"
                 />
               </div>
@@ -113,7 +113,7 @@ const BCard = () => {
                 />
               </div>
 
-              <span className="text-blue text-center md:text-sm xl:text-sm 2xl:text-xl special:text-2xl">
+              <span className="text-center md:text-sm xl:text-sm 2xl:text-xl special:text-2xl">
                 giveaways@winlads.com.au
               </span>
             </div>

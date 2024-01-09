@@ -127,11 +127,13 @@ const AffiliateCard = () => {
               <p className="text-black text-sm">{formattedDate || ""}</p>
             </div>
           </div>
-          <div
-            className="bg-black py-2 text-center rounded-xl cursor-pointer hover:bg-black/75"
-            onClick={() => navigate("/withdraw")}>
+          <button
+            className={`bg-black py-2 text-center rounded-xl hover:bg-black/75 ${!valUser.subscripton ? 'cursor-not-allowed' : 'cursor-pointer'}`}
+            onClick={() => navigate("/withdraw")}
+            disabled={!valUser.subscripton}
+            >
             <p className="text-white font-semibold">Withdraw</p>
-          </div>
+          </button>
         </div>
       )}
     </div>

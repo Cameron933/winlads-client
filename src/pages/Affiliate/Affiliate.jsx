@@ -263,7 +263,7 @@ const Affiliate = () => {
 
                   </div>
 
-
+{ valUser.subscripton &&
                   <div className="pt-6">
                     <h3 style={{ fontWeight: 'bold' }}>Affiliate List</h3>
                     <br />
@@ -276,8 +276,10 @@ const Affiliate = () => {
                         </div>
                       )) : <p>You have no affiliates</p>
                     }
-
                   </div>
+              }
+                  {!valUser.subscripton && <p className="text-xs md:text-lg font-semibold text-center capitalize">You are not eligeble <span className="text-red-500">Please Subscribe First !</span></p>}
+
                 </>
               )}
             </div>
@@ -334,7 +336,7 @@ const Affiliate = () => {
                       className="bg-white font-bold rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3 w-full"
                       placeholder="loading..."
                       type="text"
-                      value={userId || ""}
+                      value={valUser.subscripton ? userId || "N/A" : 'N/A'}
                       disabled
                     />
                     <button onClick={()=>handleCopyToClipboard(userId)} className="absolute right-1 bottom-0 text-xl p-3 hover:bg-gray-300 rounded-full bg-white"><FaRegCopy /></button>
@@ -354,7 +356,7 @@ const Affiliate = () => {
                     type="tel"
                     disabled
                     onChange={(e) => setMobile(e.target.value)}
-                    value={`https://www.winlads.com/register?ref=${userId}`}
+                    value={valUser.subscripton ? `https://www.winlads.com/register?ref=${userId}` : 'N/A'}
                   ></input>
                     <button onClick={()=>handleCopyToClipboard(`https://www.winlads.com/register?ref=${userId}`)} className="absolute right-1 bottom-0 text-xl p-3 hover:bg-gray-300 rounded-full bg-white"><FaRegCopy /></button>
                   </div>

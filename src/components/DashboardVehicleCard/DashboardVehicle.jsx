@@ -45,7 +45,7 @@ const DashboardVehicleCard = ({
       >
         {
           (!isSubscribed && type != 'max') && <div className="text-center bg-gradient-to-t from-black to-transparent absolute top-0 left-0 w-full h-full flex items-center justify-center cursor-not-allowed z-20">
-            <p className="text-xs md:text-lg font-semibold text-red-500">You are not eligeble<br /> please subscribe first</p>
+            <p className="text-xs md:text-lg font-semibold text-white capitalize">You are not eligeble,<br /> please subscribe first !</p>
           </div>
         }
         <div className="flex flex-row items-center justify-between px-1">

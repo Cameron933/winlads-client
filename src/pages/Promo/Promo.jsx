@@ -406,7 +406,7 @@ const Promo = () => {
                       className="bg-white font-bold rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3 w-full"
                       placeholder="Enter User Name"
                       type="text"
-                      value={userData?.uid}
+                      value={valUser.subscripton ? userData?.uid : 'N/A'}
                       disabled
                     ></input>
                     <button onClick={()=>handleCopyToClipboard(userData?.uid)} className="absolute right-1 bottom-0 text-xl p-3 hover:bg-gray-300 rounded-full"><FaRegCopy /></button>
@@ -424,7 +424,7 @@ const Promo = () => {
                       type="tel"
                       disabled
                       onChange={(e) => setMobile(e.target.value)}
-                      value={`https://www.winlads.com/?ref=${userData?.uid}`}
+                      value={valUser.subscripton ? `https://www.winlads.com/?ref=${userData?.uid}` : 'N/A'}
                     ></input>
                     <button onClick={() => handleCopyToClipboard(`https://www.winlads.com/?ref=${userData?.uid}`)} className="absolute right-1 bottom-0 text-xl p-3 hover:bg-gray-300 rounded-full bg-white"><FaRegCopy /></button>
                   </div>
