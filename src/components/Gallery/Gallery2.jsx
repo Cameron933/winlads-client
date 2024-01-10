@@ -1,8 +1,8 @@
 import React from "react";
-import Img1 from "../../assets/images/gallery/img1.png";
+import Img1 from "../../assets/images/gallery/DSC_6409.jpg";
 import Img2 from "../../assets/images/gallery/img2.png";
-import Img3 from "../../assets/images/gallery/img3.png";
-import Img4 from "../../assets/images/gallery/img4.png";
+import Img3 from "../../assets/images/gallery/DSC_6380.jpg";
+import Img4 from "../../assets/images/gallery/DSC_6442.jpg";
 import Img5 from "../../assets/images/gallery/img5.png";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";

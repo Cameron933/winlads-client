@@ -15,11 +15,11 @@ const OurPartners = () => {
           >
             PARTNERS
           </motion.p>
-          <div className='flex items-center justify-center gap-5 md:flex-row flex-col'>
-                    <div className='md:w-1/3 w-3/4'>
+          <div className='flex items-center justify-center gap-5 md:flex-row flex-col md:px-20 px-10'>
+                    <div className='md:w-1/2 w-full'>
                         <img src={nontera} className='w-full h-full object-contain' />
                     </div>
-                    <div className='md:w-1/3 w-3/4'>
+                    <div className='md:w-1/2 w-full'>
                         <img src={stripe} className='w-full h-full object-contain' />
                     </div>
           </div>
