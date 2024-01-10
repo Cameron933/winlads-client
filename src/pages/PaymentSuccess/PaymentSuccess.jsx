@@ -27,7 +27,11 @@ function PaymentSuccess() {
         const data = JSON.parse(storedData);
         
         // Pushing data to the data layer
-        logDetailsToDataLayer(data.valUser, data.giveawayId, data.price, data.name, data.planeId);
+
+        window.dataLayer.push({
+          event: 'purchaseDetails',
+          data: data
+      });
 
         // Clearing data from localStorage
         localStorage.removeItem('paymentSuccessData');

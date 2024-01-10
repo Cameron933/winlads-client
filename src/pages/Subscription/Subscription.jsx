@@ -89,12 +89,6 @@ function Subscription() {
     });
   };
 
-  useEffect(() => {
-    if (choosePlane) {
-      logDetailsToDataLayer();
-    }
-  }, [choosePlane, valUser.uid, selectedPlaneId, selectedPlanPrice, selectedPlanName]);
-
   const currentUserValidation = async () => {
     const validator = await validateCurrentUser();
     if (validator.validatorBl) {
