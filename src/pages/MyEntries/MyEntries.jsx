@@ -28,6 +28,7 @@ const MyEntries = () => {
   const [round, setRound] = useState("");
   const [number, setNumber] = useState("");
   const [allRounds, setAllRounds] = useState([]);
+  const [totalEntries,setTotEntries] = useState(0);
 
   const [myGiveaways, setMyGiveaways] = useState([]);
 
@@ -74,6 +75,7 @@ const MyEntries = () => {
         getAllRounds();
         const onePage = Math.ceil(response.data.data.count / recodeCount);
         setDataCount(response.data.data.count);
+        setTotEntries(response.data.data.activeRounds);
         setPageCount(onePage);
         setIsLoading(false);
       })
@@ -147,7 +149,7 @@ const MyEntries = () => {
               round={rounds}
               selectCatValue={categories}
               numbers={getNumbers}
-              myTickets={myGiveaways.length}
+              myTickets={totalEntries || 'Loading'}
             />
             <div className="flex items-center justify-between xl:hidden px-2 my-5">
               <h1 className="text-xl font-bold">My Entries</h1>
@@ -195,13 +197,13 @@ const MyEntries = () => {
                           </div>
                         </div>
                         <div className="bg-blue-100 py-3 text-xs 2xl:text-sm xl:pr-4 pl-2 pr-2 xl:pl-4 xl:rounded-b-none rounded-b-2xl xl:flex col-span-4 xl:items-center justify-between space-y-1 xl:space-y-0">
-                          <div className=" w-1/3">
+                          <div className=" md:w-1/3 w-full">
                             <p className="capitalize">{giveaway.round.name}</p>
                           </div>
-                          <div className=" w-1/3">
+                          <div className=" md:w-1/3 w-full">
                             <p>{giveaway.entryNumber}</p>
                           </div>
-                          <div className="flex flex-row justify-between 2xl:gap-36 xl:gap-12 w-1/3">
+                          <div className="flex flex-row justify-between 2xl:gap-36 xl:gap-12 md:w-1/3 w-full">
                             <p className="text-xs xl:text-sm">
                               {" "}
                               {new Date(giveaway.round.endtime).toLocaleString(
@@ -238,24 +240,24 @@ const MyEntries = () => {
                         className="xl:grid grid-cols-5 px-2 xl:px-0 flex flex-col"
                       >
                         <div
-                          className="xl:rounded-l-full col-span-1 justify-between items-center rounded-t-2xl py-4 xl:pl-4 px-2 "
+                          className="col-span-1 flex justify-between items-center "
                           style={{ backgroundColor: giveaway?.raffle?.color }}
                         >
-                          <div className="flex flex-row justify-between items-center">
-                            <p className="text-black capitalize text-xs">
+                          <div className="flex flex-row justify-between items-center pl-2">
+                        <p className="text-black capitalize text-xs">
                               {giveaway?.raffle.name}
                             </p>
                             <PiBookmarkSimpleLight />
                           </div>
                         </div>
                         <div className="bg-blue-100 py-3 text-xs 2xl:text-sm xl:pr-4 pl-2 pr-2 xl:pl-4 xl:rounded-b-none rounded-b-2xl xl:flex col-span-4 xl:items-center justify-between space-y-1 xl:space-y-0">
-                          <div>
+                          <div className="md:w-1/3 w-full">
                             <p className="capitalize">{giveaway.round.name}</p>
                           </div>
-                          <div>
+                          <div className="md:w-1/3 w-full">
                             <p>{giveaway.entryNumber}</p>
                           </div>
-                          <div className="flex flex-row justify-between 2xl:gap-36 xl:gap-12">
+                          <div className="flex flex-row justify-between 2xl:gap-36 xl:gap-12 md:w-1/3 w-full">
                             <p className="text-xs xl:text-sm">
                               {" "}
                               {new Date(giveaway.round.endtime).toLocaleString(
@@ -270,7 +272,8 @@ const MyEntries = () => {
                                 }
                               )}
                             </p>
-                            <div>
+                          </div>
+                          <div className="md:w-48" w-full>
                               {" "}
                               {giveaway.winstatus === "win" ? (
                                 <MdDone />
@@ -280,7 +283,6 @@ const MyEntries = () => {
                                 ""
                               )}
                             </div>
-                          </div>
                         </div>
                       </div>
                     ))}
