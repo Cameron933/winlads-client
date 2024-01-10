@@ -74,6 +74,7 @@ const PlanBuyCard = ({ onClose, userId, giveawayId, price, name, planeId }) => {
         { subid: planeId, uid: userId }
       );
       if (response.data.status == 200) {
+        logDetailsToDataLayer();
         toast.success(response.data.data.message, {
           position: "top-center",
           autoClose: 5000,
