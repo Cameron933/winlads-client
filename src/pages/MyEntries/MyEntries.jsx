@@ -243,7 +243,7 @@ const MyEntries = () => {
                           className="col-span-1 flex justify-between items-center "
                           style={{ backgroundColor: giveaway?.raffle?.color }}
                         >
-                          <div className="flex flex-row justify-between items-center pl-2">
+                          <div className="flex flex-row justify-between items-center pl-2 w-full">
                         <p className="text-black capitalize text-xs">
                               {giveaway?.raffle.name}
                             </p>
@@ -274,7 +274,6 @@ const MyEntries = () => {
                             </p>
                           </div>
                           <div className="md:w-48" w-full>
-                              {" "}
                               {giveaway.winstatus === "win" ? (
                                 <MdDone />
                               ) : giveaway.winstatus === "lost" ? (

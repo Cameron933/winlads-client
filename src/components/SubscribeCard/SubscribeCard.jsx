@@ -14,6 +14,8 @@ import Save from "../../assets/images/subcription/save.png";
 import GreenCorrect from "../../assets/images/subcription/Icons.png";
 import { FaStar } from "react-icons/fa";
 import Cookies from "universal-cookie";
+import { toast } from "react-toastify";
+import axios from "axios";
 
 const PaymentModal = ({ handleClose, show }) => {
   return (
@@ -59,19 +61,20 @@ function SubscribeCard({
   color,
   colorFrom = "#0094FF",
   descL = [],
-  id
+  id,
+  showUnSubModal
 }) {
   const cookies = new Cookies(null, { path: "/" });
   const handleChooseButton = () => {
     onButtonClick();
   };
-  useEffect(()=>{
+  useEffect(() => {
     const selectedPlaneId = cookies.get('selected-package-id')
-    if(selectedPlaneId && selectedPlaneId ==id ){
+    if (selectedPlaneId && selectedPlaneId == id) {
       handleChooseButton()
       cookies.remove('selected-package-id')
     }
-  },[])
+  }, [])
   const [initialShow, setInitialShow] = useState(3);
 
   const handleShowMore = () => {
@@ -82,9 +85,18 @@ function SubscribeCard({
     }
   };
 
+
+
   return (
     <div
-      className={`bg-gradient-to-r relative ${gradientFrom} ${gradientTo} border-2 border-solid border-${cardBorderColor} text-${textColor} py-8 px-6 special:py-8 2xl:py-8 xl:pt-10 rounded-[10px] flex flex-col cursor-pointer`}
+      className={`bg-gradient-to-r relative ${gradientFrom} ${gradientTo} border-2 border-solid border-${cardBorderColor} text-${textColor} py-8 px-6 special:py-8 2xl:py-8 xl:pt-10 rounded-[10px] flex flex-col cursor-pointer
+      ${planeId && ((month && planeId === mPlanId) ||
+          (quartly && planeId === qPlanId) ||
+          (year && planeId === yPlanId)
+          ? "" // Add styles for disabled state
+          : "filter saturate-0 pointer-events-none")
+        }
+      `}
       style={{
         background: `linear-gradient(180deg, ${color} 0%, ${colorFrom} 100%)`,
       }}
@@ -144,38 +156,31 @@ function SubscribeCard({
       </div>
 
       <div className="">
-        <button
-          type="button"
-          className={`bg-${buttonColor} text-${buttonText} ${
-            !(
-              (month && planeId === mPlanId) ||
-              (quartly && planeId === qPlanId) ||
-              (year && planeId === yPlanId)
-            )
-              ? `hover:text-${buttonHoverText} hover:bg-${buttonHover} hover:border-${hoverButtonBorder}`
-              : ""
-          } font-semibold uppercase w-full border-2 border-transparent rounded-xl text-black py-2 px-8 special:py-4 special:px-12 2xl:px-10 text-xs special:text-lg 2xl:text-sm mt-4 mb-2 ${
+        {
+          !(
             (month && planeId === mPlanId) ||
             (quartly && planeId === qPlanId) ||
             (year && planeId === yPlanId)
-              ? "cursor-not-allowed opacity-50" // Add styles for disabled state
-              : ""
-          }`}
-          onClick={handleChooseButton}
-          disabled={
-            (month && planeId === mPlanId) ||
-            (quartly && planeId === qPlanId) ||
-            (year && planeId === yPlanId)
-          }
-        >
-          <p className={``}>
-            {(month && planeId === mPlanId) ||
-            (quartly && planeId === qPlanId) ||
-            (year && planeId === yPlanId)
-              ? "selected"
-              : "choose plan"}
-          </p>
-        </button>
+          )
+            ?         <button
+            type="button"
+            className={`bg-${buttonColor} text-${buttonText} font-semibold uppercase w-full border-2 border-transparent rounded-xl text-black py-2 px-8 special:py-4 special:px-12 2xl:px-10 text-xs special:text-lg 2xl:text-sm mt-4 mb-2 hover:text-${buttonHoverText} hover:bg-${buttonHover} hover:border-${hoverButtonBorder}`}
+            onClick={handleChooseButton}
+          >
+            <p className={``}>
+              Choose Plan
+            </p>
+          </button>
+            :         <button
+            type="button"
+            className={`bg-transparent border-${buttonHover} text-${buttonText} font-semibold uppercase w-full border-2 rounded-xl text-black py-2 px-8 special:py-4 special:px-12 2xl:px-10 text-xs special:text-lg 2xl:text-sm mt-4 mb-2 hover:text-${buttonHoverText} hover:bg-${buttonHover} hover:border-${hoverButtonBorder}`}
+            onClick={showUnSubModal}
+          >
+            <p className={``}>
+              Unsubscribe
+            </p>
+          </button>
+        }
       </div>
     </div>
   );
