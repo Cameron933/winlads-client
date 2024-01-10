@@ -3,6 +3,7 @@ import TopNav from "../../components/TopNav/TopNav";
 import { IoIosArrowBack } from "react-icons/io";
 import BG from "../../assets/images/HomesideBg.png";
 import Car from "../../assets/images/won/car.png";
+import Money from "../../assets/images/won/money.png";
 import { useNavigate, useParams } from "react-router-dom";
 import ItemLoader from "../../components/Loader/ItemLoader";
 import axios from "axios";
@@ -259,11 +260,12 @@ const Won = () => {
                   </>
                 )}
               </div>
-              <div className="w-2/5 max-xl:w-full">
+              <div className="w-2/5 max-xl:w-full ">
                 <img
-                  src={round.raffle?.raffleimage || Car}
+                  // src={round.raffle?.raffleimage || Car}
+                  src={Money}
                   alt="winlad_car"
-                  className="absolute right-0 -z-10 bottom-0 2xl:top-80 w-1/2 max-xl:w-full special:bottom-0 max-xl:relative"
+                  className="absolute right-0 -z-10 bottom-0 2xl:top-80 w-4/12 max-xl:w-10/12 special:bottom-0 max-xl:relative"
                 />
               </div>
             </div>
