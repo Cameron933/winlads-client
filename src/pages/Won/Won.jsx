@@ -4,6 +4,8 @@ import { IoIosArrowBack } from "react-icons/io";
 import BG from "../../assets/images/HomesideBg.png";
 import Car from "../../assets/images/won/car.png";
 import Money from "../../assets/images/won/money.png";
+import Makita from "../../assets/images/won/makita.png";
+import Gift from "../../assets/images/won/gift.png";
 import { useNavigate, useParams } from "react-router-dom";
 import ItemLoader from "../../components/Loader/ItemLoader";
 import axios from "axios";
@@ -152,9 +154,10 @@ const Won = () => {
                     excellence. Comprising each instrument is meticulously
                     crafted for optimal performance. The tools are presented in
                     an enduring and portable case, offering versatility and
-                    convenience for a spectrum of projects. <br /><br />
-
-                    The momentous announcement of the winner will be made on social media.
+                    convenience for a spectrum of projects. <br />
+                    <br />
+                    The momentous announcement of the winner will be made on
+                    social media.
                   </div>
                 ) : (
                   <div></div>
@@ -261,12 +264,47 @@ const Won = () => {
                 )}
               </div>
               <div className="w-2/5 max-xl:w-full ">
-                <img
-                  // src={round.raffle?.raffleimage || Car}
-                  src={Money}
-                  alt="winlad_car"
-                  className="absolute right-0 -z-10 bottom-0 2xl:top-80 w-4/12 max-xl:w-10/12 special:bottom-0 max-xl:relative"
-                />
+                {round.name === "$1500 Cash Prize" && (
+                  <img
+                    src={Money}
+                    alt="winlad_car"
+                    className="absolute right-0 -z-10 bottom-0 2xl:top-80 w-4/12 max-xl:w-10/12 special:bottom-0 max-xl:relative"
+                  />
+                )}
+
+                {round.name === "$1000 Cash Prize" && (
+                  <img
+                    src={Money}
+                    alt="winlad_car"
+                    className="absolute right-0 -z-10 bottom-0 2xl:top-80 w-4/12 max-xl:w-10/12 special:bottom-0 max-xl:relative"
+                  />
+                )}
+
+                {round.name === "2023 MAZDA BT-50" && (
+                  <img
+                    src={Car}
+                    alt="winlad_car"
+                    className="absolute right-0 -z-10 bottom-0 2xl:top-80 w-1/2 max-xl:full special:bottom-0 max-xl:relative"
+                  />
+                )}
+
+                {round.name === "Makita Tool Set" && (
+                  <img
+                    src={Makita}
+                    alt="winlad_car"
+                    className="absolute right-0 -z-10 bottom-0 2xl:top-80 w-4/12 max-xl:w-10/12 special:bottom-0 max-xl:relative"
+                  />
+                )}
+
+                {round.name === "Mystery Gift" && (
+                  <img
+                    src={Gift}
+                    alt="winlad_car"
+                    className="absolute right-0 -z-10 bottom-0 2xl:top-80 w-4/12 max-xl:w-10/12 special:bottom-0 max-xl:relative"
+                  />
+                )}
+
+
               </div>
             </div>
           )}
