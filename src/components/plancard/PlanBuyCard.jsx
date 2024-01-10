@@ -7,7 +7,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useState } from "react";
 
-const PlanBuyCard = ({ onClose, userId, giveawayId, price, name, planeId }) => {
+const PlanBuyCard = ({ onClose, userId, giveawayId, price, name, planeId, logDetailsToDataLayer}) => {
   const [loading, setLoading] = useState(false);
   const handleButtonClick = async () => {
     setLoading(true);
@@ -19,8 +19,7 @@ const PlanBuyCard = ({ onClose, userId, giveawayId, price, name, planeId }) => {
       console.log("Response:", response.data);
 
       const payURL = response.data.payurl;
-      console.log(response);
-      setTimeout(() => {},10000)
+
       setLoading(false);
       if (payURL == null) {
         toast.error(response.data.message, {
@@ -34,6 +33,7 @@ const PlanBuyCard = ({ onClose, userId, giveawayId, price, name, planeId }) => {
           theme: "colored",
         });
       } else {
+        logDetailsToDataLayer();
         window.location.href = payURL;
       }
     } catch (error) {
@@ -59,7 +59,9 @@ const PlanBuyCard = ({ onClose, userId, giveawayId, price, name, planeId }) => {
         `${import.meta.env.VITE_SERVER_API}/subscribeWithPoints`,
         { subid: planeId, uid: userId }
       );
-      if (response.data.status == 200) {
+      if (response.data.status) {
+        logDetailsToDataLayer();
+        console.log(response.data.data);
         toast.success(response.data.data.message, {
           position: "top-center",
           autoClose: 5000,
