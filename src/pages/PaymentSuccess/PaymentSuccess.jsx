@@ -22,6 +22,7 @@ function PaymentSuccess() {
   useEffect(() => {
     // Retrieve data from localStorage
     const storedData = localStorage.getItem('paymentSuccessData');
+    console.log("PaymentSuccess page loaded: " + JSON.stringify(storedData));
     
     if (storedData) {
         const data = JSON.parse(storedData);
