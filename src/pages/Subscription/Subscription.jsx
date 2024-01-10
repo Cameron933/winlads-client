@@ -361,7 +361,7 @@ function Subscription() {
                 price={selectedPlanPrice}
                 name={selectedPlanName}
                 planeId={selectedPlaneId}
-                logDetailsToDataLayer={logDetailsToDataLayer(valUser, giveawayId,price,name,planeId)}
+                logDetailsToDataLayer={() => logDetailsToDataLayer(valUser, giveawayId, price, name, planeId)}
               />
               // <div className="absolute bottom-0 top-0 left-0 right-0 z-10 bg-white/50">
               //   <div className="flex justify-center items-center 2xl:pt-80 xl:pt-60">
