@@ -7,22 +7,8 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useState } from "react";
 
-const PlanBuyCard = ({ onClose, userId, giveawayId, price, name, planeId }) => {
+const PlanBuyCard = ({ onClose, userId, giveawayId, price, name, planeId, logDetailsToDataLayer}) => {
   const [loading, setLoading] = useState(false);
-  const logDetailsToDataLayer = () => {
-    const data = {
-      userId: userId,
-      giveawayId: giveawayId,
-      price: price,
-      name: name,
-      planeId: planeId
-    };
-    console.log('Logging to data layer:', data);
-    window.dataLayer.push({
-      event: 'purchaseDetails',
-      data: data
-    });
-  };
   const handleButtonClick = async () => {
     setLoading(true);
     try {

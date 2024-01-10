@@ -95,6 +95,21 @@ function Subscription() {
       });
   };
 
+  const logDetailsToDataLayer = (valUser, giveawayId,price,name,planeId) => {
+    const data = {
+      user: valUser,
+      giveawayId: giveawayId,
+      price: price,
+      plan_name: name,
+      plan_id: planeId
+    }
+    console.log('Logging to data layer:', data);
+    window.dataLayer.push({
+      event: 'purchaseDetails',
+      data: data
+    });
+  };
+
   return (
     <>
       <div className="flex relative min-h-screen w-full">
@@ -346,6 +361,7 @@ function Subscription() {
                 price={selectedPlanPrice}
                 name={selectedPlanName}
                 planeId={selectedPlaneId}
+                logDetailsToDataLayer={logDetailsToDataLayer(valUser, giveawayId,price,name,planeId)}
               />
               // <div className="absolute bottom-0 top-0 left-0 right-0 z-10 bg-white/50">
               //   <div className="flex justify-center items-center 2xl:pt-80 xl:pt-60">
