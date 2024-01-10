@@ -7,7 +7,6 @@ import { motion } from "framer-motion";
 import axios from "axios";
 import { MdOutlineDoNotDisturbOff } from "react-icons/md";
 import ItemLoader from "../../components/Loader/ItemLoader";
-
 import "./subscription.css";
 import { useEffect, useState } from "react";
 import SearchField from "../../components/SearchField/SearchField";
@@ -20,6 +19,9 @@ import SelectRafflePaymentMethod from "../../components/RaffleComponent/SelectRa
 import PlanBuyCard from "../../components/plancard/PlanBuyCard";
 import FreeEntryCard from "../../components/FreeEntry/FreeEntryCard";
 import FreeEntryCardDashboard from "../../components/FreeEntry/FreeEntryCardDashboard";
+import OutsideClickHandler from "react-outside-click-handler";
+import { toast } from "react-toastify";
+import { IoCloseSharp } from "react-icons/io5";
 
 function Subscription() {
   const [planes, setPlanes] = useState([]);
@@ -28,13 +30,13 @@ function Subscription() {
   const [isQuartly, setIsQuartly] = useState(false);
   const [choosePlane, setChoosePlane] = useState(false);
   const [loading, setLoading] = useState(true);
-
+  const [Refresh, setRefresh] = useState(false);
   const [selectedPlaneId, setSelectedPlaceId] = useState("");
   const [selectedPlanPrice, setSelectedPlanePrice] = useState("");
-
+  const [showUnsubscribeModal, setUnsubModal] = useState(false);
   const [selectedPlanName, setSelectedPlaneName] = useState("");
   const navigate = useNavigate();
-
+  const cookies = new Cookies(null, { path: "/" });
   const [valUser, setValUser] = useState({});
 
   const handleButton = (id, price, name) => {
@@ -67,9 +69,31 @@ function Subscription() {
   };
 
   useEffect(() => {
-    currentUserValidation();
-    getPlanes();
-  }, []);
+      currentUserValidation()
+      getPlanes(); 
+
+  }, [Refresh]);
+
+  const logDetailsToDataLayer = () => {
+    const data = {
+      userId: valUser.uid,
+      giveawayId: selectedPlaneId,
+      price: selectedPlanPrice,
+      name: selectedPlanName,
+      planeId: selectedPlaneId
+    };
+    console.log('Logging to data layer:', data);
+    window.dataLayer.push({
+      event: 'purchaseDetails',
+      data: data
+    });
+  };
+
+  useEffect(() => {
+    if (choosePlane) {
+      logDetailsToDataLayer();
+    }
+  }, [choosePlane, valUser.uid, selectedPlaneId, selectedPlanPrice, selectedPlanName]);
 
   const currentUserValidation = async () => {
     const validator = await validateCurrentUser();
@@ -95,20 +119,30 @@ function Subscription() {
       });
   };
 
-  const logDetailsToDataLayer = (valUser, giveawayId,price,name,planeId) => {
-    const data = {
-      user: valUser,
-      giveawayId: giveawayId || "",
-      price: price || "",
-      plan_name: name || "",
-      plan_id: planeId || ""
+  // UNSUBSCRIBE FROM PLAN
+  const handleUnsubscribe = async () => {
+    try {
+      if (!valUser.uid) {
+        throw Error('Please Provide a User Id or Login Again')
+      }
+
+      const response = await axios.post(`${import.meta.env.VITE_SERVER_API}/unsubscribe`, { uid: valUser.uid })
+      if (response.data.status == 200) {
+        cookies.remove('selected-package-id')
+        toast.success('Successfully Unsubscribed!')
+      }
+    } catch (error) {
+      toast.error(error.message);
+      console.log(error);
+    } finally {
+      setUnsubModal(false)
+      setRefresh((prev) => !prev)
     }
-    console.log('Logging to data layer again:', data);
-    window.dataLayer.push({
-      event: 'purchaseDetails',
-      data: data
-    });
-  };
+  }
+
+  const handleShowUnsub = () => {
+    setUnsubModal((prev) => !prev);
+  }
 
   return (
     <>
@@ -150,9 +184,8 @@ function Subscription() {
                   <button
                     type="button"
                     onClick={handleMonthly}
-                    className={`${
-                      isMonthly ? "bg-white text-black" : "bg-black text-white"
-                    } text-[10px] text-semibold xl:text-sm md:text-sm text-center special:py-4 special:text-xl 2xl:text-lg rounded-full py-2 flex-1`}
+                    className={`${isMonthly ? "bg-white text-black" : "bg-black text-white"
+                      } text-[10px] text-semibold xl:text-sm md:text-sm text-center special:py-4 special:text-xl 2xl:text-lg rounded-full py-2 flex-1`}
                   >
                     Monthly
                   </button>
@@ -160,9 +193,8 @@ function Subscription() {
                   <button
                     type="button"
                     onClick={handleQuatly}
-                    className={`${
-                      isQuartly ? "bg-white text-black" : "bg-black text-white"
-                    } text-[10px] text-semibold xl:text-sm md:text-sm text-center special:py-4 special:text-xl 2xl:text-lg rounded-full py-2 flex-1`}
+                    className={`${isQuartly ? "bg-white text-black" : "bg-black text-white"
+                      } text-[10px] text-semibold xl:text-sm md:text-sm text-center special:py-4 special:text-xl 2xl:text-lg rounded-full py-2 flex-1`}
                   >
                     Quartly (Save10%)
                   </button>
@@ -170,17 +202,15 @@ function Subscription() {
                   <button
                     type="button"
                     onClick={handleYearly}
-                    className={`${
-                      isYearly ? "bg-white text-black" : "bg-black text-white"
-                    } text-[10px] text-semibold xl:text-sm md:text-sm text-center special:py-4 special:text-xl 2xl:text-lg rounded-full py-2 flex-1`}
+                    className={`${isYearly ? "bg-white text-black" : "bg-black text-white"
+                      } text-[10px] text-semibold xl:text-sm md:text-sm text-center special:py-4 special:text-xl 2xl:text-lg rounded-full py-2 flex-1`}
                   >
                     Yearly (Save20%)
                   </button>
                 </div>
                 <div
-                  className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2 special:gap-6 2xl:gap-4   ${
-                    choosePlane == "true ? bg-white/50"
-                  }`}
+                  className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2 special:gap-6 2xl:gap-4   ${choosePlane == "true ? bg-white/50"
+                    }`}
                 >
                   {planes.map((plane, key) => (
                     <SubscribeCard
@@ -195,10 +225,10 @@ function Subscription() {
                         isYearly
                           ? plane.annualy
                           : "" | isQuartly
-                          ? plane.price_id_semiannual
-                          : "" | isMonthly
-                          ? plane.price_id
-                          : ""
+                            ? plane.price_id_semiannual
+                            : "" | isMonthly
+                              ? plane.price_id
+                              : ""
                       }
                       // descList={Array.isArray(plane.desc) ? plane.desc : []}
                       descList={Array.isArray(plane.desc) ? plane.desc : []}
@@ -208,14 +238,14 @@ function Subscription() {
                             ? plane.desc[2]
                             : []
                           : "" | isQuartly
-                          ? Array.isArray(plane.desc)
-                            ? plane.desc[1]
-                            : []
-                          : "" | isMonthly
-                          ? Array.isArray(plane.desc)
-                            ? plane.desc[0]
-                            : []
-                          : ""
+                            ? Array.isArray(plane.desc)
+                              ? plane.desc[1]
+                              : []
+                            : "" | isMonthly
+                              ? Array.isArray(plane.desc)
+                                ? plane.desc[0]
+                                : []
+                              : ""
                       }
                       desc1={plane.desc1}
                       desc2={plane.desc2}
@@ -226,30 +256,30 @@ function Subscription() {
                         plane.name == "Starter"
                           ? "[#808080]"
                           : "black" | (plane.name == "Boomer")
-                          ? "[#366B71]"
-                          : "black" | (plane.name == "Platinum")
-                          ? "white"
-                          : "black" | (plane.name == "Black")
-                          ? "black"
-                          : ""
+                            ? "[#366B71]"
+                            : "black" | (plane.name == "Platinum")
+                              ? "white"
+                              : "black" | (plane.name == "Black")
+                                ? "black"
+                                : ""
                       }
                       gradientFrom={
                         plane.name == "Bronz"
                           ? "from-red-400"
                           : "black" | (plane.name == "Silver")
-                          ? "from-gray-200"
-                          : "black" | (plane.name == "Gold")
-                          ? "from-[#FFDF37]"
-                          : ""
+                            ? "from-gray-200"
+                            : "black" | (plane.name == "Gold")
+                              ? "from-[#FFDF37]"
+                              : ""
                       }
                       gradientTo={
                         plane.name == "Bronz"
                           ? "to-white"
                           : "black" | (plane.name == "Silver")
-                          ? "to-white"
-                          : "black" | (plane.name == "Gold")
-                          ? "to-[#9D7C00]"
-                          : ""
+                            ? "to-white"
+                            : "black" | (plane.name == "Gold")
+                              ? "to-[#9D7C00]"
+                              : ""
                       }
                       textColor={plane.name == "Black" ? "white" : "black"}
                       cardBorderColor={
@@ -260,40 +290,40 @@ function Subscription() {
                         plane.name == "Starter"
                           ? "black"
                           : "" | (plane.name == "Boomer")
-                          ? "black"
-                          : "" | (plane.name == "Platinum")
-                          ? "black"
-                          : "" | (plane.name == "Gold")
-                          ? "black"
-                          : "" | (plane.name == "Black")
-                          ? "white"
-                          : ""
+                            ? "black"
+                            : "" | (plane.name == "Platinum")
+                              ? "black"
+                              : "" | (plane.name == "Gold")
+                                ? "black"
+                                : "" | (plane.name == "Black")
+                                  ? "white"
+                                  : ""
                       }
                       buttonText={
                         plane.name == "Starter"
                           ? "white"
                           : "" | (plane.name == "Boomer")
-                          ? "white"
-                          : "" | (plane.name == "Platinum")
-                          ? "white"
-                          : "" | (plane.name == "Gold")
-                          ? "white"
-                          : "" | (plane.name == "Black")
-                          ? "black"
-                          : ""
+                            ? "white"
+                            : "" | (plane.name == "Platinum")
+                              ? "white"
+                              : "" | (plane.name == "Gold")
+                                ? "white"
+                                : "" | (plane.name == "Black")
+                                  ? "black"
+                                  : ""
                       }
                       buttonHover={
                         plane.name == "Black"
                           ? "black"
                           : plane.name == "Starter"
-                          ? "white"
-                          : plane.name == "Gold"
-                          ? "white"
-                          : plane.name == "Black"
-                          ? "black"
-                          : plane.name == "Boomer"
-                          ? "white"
-                          : "white"
+                            ? "white"
+                            : plane.name == "Gold"
+                              ? "white"
+                              : plane.name == "Black"
+                                ? "black"
+                                : plane.name == "Boomer"
+                                  ? "white"
+                                  : "white"
                       }
                       buttonHoverText={
                         plane.name == "Black" ? "white" : "black"
@@ -305,10 +335,10 @@ function Subscription() {
                         isYearly
                           ? plane.raffle_count_annual
                           : "" | isQuartly
-                          ? plane.raffle_count_semiannual
-                          : "" | isMonthly
-                          ? plane.raffle_count
-                          : ""
+                            ? plane.raffle_count_semiannual
+                            : "" | isMonthly
+                              ? plane.raffle_count
+                              : ""
                       }
                       mPlanId={plane.subid}
                       qPlanId={plane.subidsemiannual}
@@ -318,23 +348,24 @@ function Subscription() {
                           isMonthly
                             ? plane.subid
                             : isQuartly
-                            ? plane.subidsemiannual
-                            : isYearly
-                            ? plane.subidannual
-                            : "",
+                              ? plane.subidsemiannual
+                              : isYearly
+                                ? plane.subidannual
+                                : "",
                           // plane.desc[0].slice(0, 1),
                           isMonthly
-                          ? plane.monthly
-                          : isQuartly
-                          ? plane.semiannualy
-                          : isYearly
-                          ? plane.annualy
-                          : "",
+                            ? plane.monthly
+                            : isQuartly
+                              ? plane.semiannualy
+                              : isYearly
+                                ? plane.annualy
+                                : "",
                           plane.name,
-                       
+
                         )
                       }
                       planeId={valUser.sub_id}
+                      showUnSubModal={handleShowUnsub}
                     />
                   ))}
                   <div className=" flex justify-center items-center  ">
@@ -397,6 +428,23 @@ function Subscription() {
             </div>
           </div>
         </div>
+        {
+          showUnsubscribeModal &&
+          <div className="popup-container bg-black/50 justify-center items-center flex">
+          <OutsideClickHandler onOutsideClick={() => setUnsubModal(false)}>
+            <div className="md:w-96 w-full relative mx-auto rounded-xl bg-white p-10 text-center shadow-lg border-gray-400 border-2 translate-x-5">
+              <div className="text-xl absolute top-2 right-2 cursor-pointer" onClick={() => setUnsubModal(false)}>
+                <IoCloseSharp/>
+              </div>
+              <h6 className="xl:text-lg text-md font-bold mb-4">Are You Sure ?</h6>
+              <div className="flex items-center justify-center gap-2">
+                <button className="px-5 py-1 rounded-xl bg-black hover:bg-white text-white hover:text-black" onClick={() => setUnsubModal(false)}>No</button>
+                <button className="px-5 py-1 rounded-xl bg-white hover:bg-black border-2 text-black hover:text-white" onClick={handleUnsubscribe}>Yes</button>
+              </div>
+            </div>
+          </OutsideClickHandler>
+          </div>
+        }
       </div>
     </>
   );
