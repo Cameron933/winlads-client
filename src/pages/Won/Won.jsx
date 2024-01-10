@@ -83,7 +83,7 @@ const Won = () => {
                 </div>
 
                 <div className="text-xl xl:text-2xl font-normal 2xl:text-3xl special:text-6xl 2xl:pt-8">
-                  Draw Date: {round.startingtime.substring(0, 10)}
+                  Draw Date: {round.endtime.substring(0, 10)}
                 </div>
 
                 {round.name == "$1500 Cash Prize" ? (
@@ -303,8 +303,6 @@ const Won = () => {
                     className="absolute right-0 -z-10 bottom-0 2xl:top-80 w-4/12 max-xl:w-10/12 special:bottom-0 max-xl:relative"
                   />
                 )}
-
-
               </div>
             </div>
           )}
