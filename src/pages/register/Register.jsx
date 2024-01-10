@@ -61,13 +61,13 @@ const Register = ({ location }) => {
   const [refId, setRefId] = useState("");
   const [selectedPlanPrice, setSelPlanPrice] = useState('');
   const [selectedPlanName, setSelectedPlanName] = useState('')
-  const [selectedSubId,setSelectedSubId] = useState('');
+  const [selectedSubId, setSelectedSubId] = useState('');
 
   // set loading
   useEffect(() => {
     if (selectedPackage) {
       cookies.set("selected-package-id", selectedPackage);
-     // setChosenPlan(selectedPackage);
+      // setChosenPlan(selectedPackage);
     }
     getPlanes();
     setTimeout(() => {
@@ -88,7 +88,7 @@ const Register = ({ location }) => {
     await axios
       .get(`${import.meta.env.VITE_SERVER_API}/getSubscriptionPlans`)
       .then((response) => {
-       
+
         setPlans(response?.data?.data);
         const selectedPlan = response?.data?.data.find((pl) => pl._id === selectedPackage);
         setChosenPlan(selectedPlan._id)
@@ -139,8 +139,9 @@ const Register = ({ location }) => {
       refferalId: values.refferalId,
       uid: uid,
       coupen: coupen,
-      subid:selectedSubId,
-      type:memberShipType
+      subid: selectedSubId,
+      type: memberShipType,
+      roundid:selectedSubId
 
     };
 
@@ -157,9 +158,9 @@ const Register = ({ location }) => {
           data
         );
         console.log(response.data);
-        if(response.data?.payurl){
+        if (response.data?.payurl) {
           window.location.href = response.data?.payurl
-        }{
+        } {
           console.log('NO PAY');
         }
         //cookies.set("wr_token", response.data.data._id);
@@ -305,7 +306,7 @@ const Register = ({ location }) => {
         passport: "",
         tin: "",
         refferalId: "",
-        
+
       },
       validationSchema: basicSchemasRegister,
       onSubmit: saveFormData,
@@ -336,6 +337,16 @@ const Register = ({ location }) => {
     setSelectedPlanName(selectedPlan.name)
     setSelectedSubId(selectedPlan.subid)
     setSelPlanPrice(selectedPlan.monthly)
+  }
+
+  const handleMemType = (e) => {
+    setMemType(e.target.value)
+    if (e.target.value == 'round') {
+      setChosenPlan('')
+      setSelectedPlanName('One off round')
+      setSelectedSubId('6582b82ea332291cc7752d92')
+      setSelPlanPrice(5)
+    }
   }
 
   return (
@@ -691,11 +702,11 @@ const Register = ({ location }) => {
                     <p className="text-sm font-bold border-b">Membership Types</p>
 
                     <div className="bg-white border border-black px-4 py-1 rounded-xl w-full">
-                      <input type="radio" name="selectPack" value={'round'} onChange={e => setMemType(e.target.value)} checked={memberShipType === 'oneOff'} />
+                      <input type="radio" name="selectPack" value={'round'} onChange={handleMemType} checked={memberShipType === 'round'} />
                       <label htmlFor="selectPack" className="text-sm" > One off package</label>
                     </div>
                     <div className="bg-white border border-black px-4 py-1 rounded-xl w-full">
-                      <input type="radio" name="selectPack" value={'subscription'} onChange={e => setMemType(e.target.value)} checked={memberShipType === 'subscription'} />
+                      <input type="radio" name="selectPack" value={'subscription'} onChange={handleMemType} checked={memberShipType === 'subscription'} />
                       <label htmlFor="selectPack" className="text-sm">Subscription (Most popular accumulating entries)</label>
                     </div>
 
