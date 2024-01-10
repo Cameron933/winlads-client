@@ -12,7 +12,7 @@ import { IoIosArrowBack } from "react-icons/io";
 import BCard from "../CardBusiness/CardBusiness";
 import "./modal.css";
 import { validateCurrentUser } from "../../utils/validateuser";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 
@@ -74,7 +74,7 @@ function BusinessCard() {
       if (!address || !addres2 || !state || !city || !postalCode) {
         throw Error('One Or More Field is missing');
       }
-    
+
       const data = {
         uid: valUser.uid,
         name: valUser.firstname + valUser.lastname,
@@ -132,7 +132,7 @@ function BusinessCard() {
     <div className="flex flex-col space-y-4 special:space-y-16">
       {
         isOrderNow &&
-      <button className="p-2 rounded-full bg-white hover:bg-gray-300 w-fit md:text-3xl text-2xl" onClick={()=>setOrderNow((prev)=>!prev)}><IoIosArrowBack /></button>
+        <button className="p-2 rounded-full bg-white hover:bg-gray-300 w-fit md:text-3xl text-2xl" onClick={() => setOrderNow((prev) => !prev)}><IoIosArrowBack /></button>
 
       }
 
@@ -196,13 +196,22 @@ function BusinessCard() {
                 </button>
               ) : (
                 // Display "add" image when isOrderNow is false
-                <button
-                  className={`text-sm capitalize md:text-md pro:text-lg xl:text-md special:text-lg p-3 rounded-[20px] bg-black text-white hover:bg-white  hover:text-black border-2 hover:border-black ${!valUser.subscripton && 'cursor-not-allowed'}`}
-                  onClick={handleShareClick}
-                  disabled={!valUser.subscripton}
-                >
-                  {/* <MdPersonAddAlt1 /> */} Apply for a Business Card
-                </button>
+                <>
+                  <button
+                    className={`text-sm capitalize md:text-md pro:text-lg xl:text-md special:text-lg p-3 rounded-[20px] bg-black text-white hover:bg-white  hover:text-black border-2 hover:border-black ${!valUser.subscripton && 'cursor-not-allowed'}`}
+                    onClick={handleShareClick}
+                    disabled={!valUser.subscripton}
+                  >
+                    {/* <MdPersonAddAlt1 /> */} Apply for a Business Card
+                  </button>
+
+                  <Link
+                    className={`text-xs capitalize md:text-xs pro:text-xs xl:text-sm special:text-sm px-3 py-2 my-0 rounded-[20px] hover:text-blue-500`}
+                  >
+                    {/* <MdPersonAddAlt1 /> */}How to use the card?
+                  </Link>
+                  
+                </>
               )}
               {/* <label className="text-sm md:text-lg pro:text-xl xl:text-sm special:text-2xl">
                 {isOrderNow ? "Order Now" : "Request"}
@@ -236,13 +245,13 @@ function ShareForm({
   nic
 }) {
   // const [postalAddress, setPostalAddress] = useState();
-  useEffect(()=>{
+  useEffect(() => {
     setAddress(address);
     setAddress2(address2);
     setCity(city);
     setState(state);
     setPostalCode(postalCode);
-  },[])
+  }, [])
   const handlePostalAddressChange = (e) => {
     setAddress(e.target.value);
     setAddress2(e.target.value);

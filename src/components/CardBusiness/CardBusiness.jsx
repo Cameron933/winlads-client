@@ -81,7 +81,7 @@ const BCard = () => {
               </div>
             </div>
             <div className="flex flex-col items-center">
-              <div className="mx-auto">
+              <div className="md:mx-20 mx-auto">
                 <img src={png2} alt="" className="w-full " />
               </div>
 
