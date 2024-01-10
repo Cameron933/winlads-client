@@ -3,7 +3,6 @@ import TopNav from "../../components/TopNav/TopNav";
 import { IoIosArrowBack } from "react-icons/io";
 import BG from "../../assets/images/HomesideBg.png";
 import Car from "../../assets/images/won/car.png";
-import Money from "../../assets/images/won/money.png";
 import { useNavigate, useParams } from "react-router-dom";
 import ItemLoader from "../../components/Loader/ItemLoader";
 import axios from "axios";
@@ -73,30 +72,106 @@ const Won = () => {
                     <IoIosArrowBack className="text-black bg-gray-200 rounded-full p-1 w-8 h-8" />
                   </div>
                   <div className="md:text-3xl font-bold special:text-8xl text-xl">
-                  $1500 Cash Prize
+                    {round.name}
                   </div>
                 </div>
                 <div className="text-4xl font-bold special:text-8xl 2xl:text-6xl max-sm:text-3xl hidden xl:block">
-                  {/* {round.name} */}
-                  $1500 Cash Prize
+                  {round.name}
                 </div>
 
-                <div className=" text-xl xl:text-2xl font-normal 2xl:text-3xl special:text-6xl 2xl:pt-8">
-                  <span className="font-semibold">Draw Date:</span> 2024 January 17
+                <div className="text-xl xl:text-2xl font-normal 2xl:text-3xl special:text-6xl 2xl:pt-8">
+                  Draw Date: {round.startingtime.substring(0, 10)}
                 </div>
 
-                <div className=" text-xl xl:text-2xl font-normal 2xl:text-3xl special:text-6xl 2xl:pt-8">
-                 <span className="font-semibold"> Winner Announcement:</span> We will announce the lucky winner on
-                  social media
-                </div>
+                {round.name == "$1500 Cash Prize" ? (
+                  <div className="md:text-sm xl:text-sm font-normal 2xl:text-xl w-3/4 max-xl:w-full special:text-4xl text-xs">
+                    Participants must be subscribed to our platform to qualify
+                    for the automatic entry. <br />
+                    <br />
+                    One-off entries can be purchased directly on our platform.{" "}
+                    <br />
+                    <br />
+                    The more entries you have, the higher your chances of
+                    winning. <br />
+                    <br />
+                    The $1500 cash prize will be awarded to the winner.
+                  </div>
+                ) : round.name == "$1000 Cash Prize" ? (
+                  <div className="md:text-sm xl:text-sm font-normal 2xl:text-xl w-3/4 max-xl:w-full special:text-4xl text-xs">
+                    Participants must be subscribed to our platform to qualify
+                    for the automatic entry. <br />
+                    <br />
+                    One-off entries can be purchased directly on our platform.{" "}
+                    <br />
+                    <br />
+                    The more entries you have, the higher your chances of
+                    winning. <br />
+                    <br /> The $1000 cash prize will be awarded to the winner.
+                  </div>
+                ) : round.name == "Mystery Gift" ? (
+                  <div className="md:text-sm xl:text-sm font-normal 2xl:text-xl w-3/4 max-xl:w-full special:text-4xl text-xs">
+                    Mystery Gift Extravaganza! We're thrilled to offer you the
+                    chance to win an extraordinary mystery gift that promises an
+                    unforgettable experience.
+                    <br /> <br />
+                    Direct One-Off Entries: Purchase direct, one-off entries on
+                    Winlads. Each entry opens up new possibilities for claiming
+                    the ultimate surprise.
+                    <br />
+                    <br />
+                    Every subscriber is automatically entered into the Mystery
+                    Gift Draw. <br />
+                    <br />
+                    Direct one-off entries can be purchased on our platform,
+                    offering additional chances to claim the mystery gift.{" "}
+                    <br />
+                    The more entries you have, the higher the likelihood of
+                    unveiling the ultimate surprise. <br />
+                    <br />
+                    The draw is open to all our users.
+                    <br />
+                    <br />
+                    The mystery gift will be exclusively revealed to the winner
+                    during the winner announcement, adding an extra layer of
+                    excitement. Don't miss out on the thrill of anticipation!
+                    <br />
+                    <br />
+                  </div>
+                ) : round.name == "Makita Tool Set" ? (
+                  <div className="md:text-sm xl:text-sm font-normal 2xl:text-xl w-3/4 max-xl:w-full special:text-4xl text-xs">
+                    We are offering a chance to win an exemplary tool kit that
+                    embodies precision, durability, and innovation. <br />
+                    <br />
+                    For those seeking additional entries, one-off entries may be
+                    acquired directly through our Winlads Dashboard. Each
+                    supplementary entry enhances the likelihood of securing the
+                    prestigious Makita tool kit. <br />
+                    <br />
+                    This comprehensive kit encapsulates Makita's commitment to
+                    excellence. Comprising each instrument is meticulously
+                    crafted for optimal performance. The tools are presented in
+                    an enduring and portable case, offering versatility and
+                    convenience for a spectrum of projects. <br /><br />
 
-                <div className="md:text-sm xl:text-sm font-normal 2xl:text-xl w-3/4 max-xl:w-full special:text-4xl text-xs">
-                  Participants must be subscribed to our platform to qualify for
-                  the automatic entry. One-off entries can be purchased directly
-                  on our platform. The more entries you have, the higher your
-                  chances of winning. The $1500 cash prize will be awarded to
-                  the winner.
-                </div>
+                    The momentous announcement of the winner will be made on social media.
+                  </div>
+                ) : (
+                  <div></div>
+                )}
+
+                {/* <div className="md:text-sm xl:text-sm font-normal 2xl:text-xl w-3/4 max-xl:w-full special:text-4xl text-xs">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                  eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet
+                  tellus cras adipiscing enim eu turpis. Dictum fusce ut placerat
+                  orci nulla. Tincidunt arcu non sodales neque sodales. Cras
+                  tincidunt lobortis feugiat vivamus. Sem integer vitae justo
+                  eget. Odio ut sem nulla pharetra diam sit amet nisl. Porttitor
+                  massa id neque aliquam vestibulum morbi. Nisl rhoncus mattis
+                  rhoncus urna. Morbi tristique senectus et netus et malesuada.
+                  Malesuada bibendum arcu vitae elementum curabitur. Amet massa
+                  vitae tortor condimentum. Turpis in eu mi bibendum. Sit amet
+                  risus nullam eget felis eget nunc lobortis.
+                </div> */}
                 {round.youtubeLink && (
                   <>
                     <div className="w-3/4">
@@ -184,12 +259,11 @@ const Won = () => {
                   </>
                 )}
               </div>
-              <div className="w-2/5 max-xl:w-full ">
+              <div className="w-2/5 max-xl:w-full">
                 <img
-                  // src={round.raffle?.raffleimage || Car}
-                  src={Money}
+                  src={round.raffle?.raffleimage || Car}
                   alt="winlad_car"
-                  className="absolute right-0 -z-10 bottom-0 2xl:top-80 w-5/12 max-xl:8/12 special:bottom-0 max-xl:relative"
+                  className="absolute right-0 -z-10 bottom-0 2xl:top-80 w-1/2 max-xl:w-full special:bottom-0 max-xl:relative"
                 />
               </div>
             </div>
