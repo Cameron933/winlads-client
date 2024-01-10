@@ -196,7 +196,7 @@ function Subscription() {
                     className={`${isQuartly ? "bg-white text-black" : "bg-black text-white"
                       } text-[10px] text-semibold xl:text-sm md:text-sm text-center special:py-4 special:text-xl 2xl:text-lg rounded-full py-2 flex-1`}
                   >
-                    Quartly (Save10%)
+                    Quartly (Save 10%)
                   </button>
 
                   <button
@@ -205,7 +205,7 @@ function Subscription() {
                     className={`${isYearly ? "bg-white text-black" : "bg-black text-white"
                       } text-[10px] text-semibold xl:text-sm md:text-sm text-center special:py-4 special:text-xl 2xl:text-lg rounded-full py-2 flex-1`}
                   >
-                    Yearly (Save20%)
+                    Yearly (Save 20%)
                   </button>
                 </div>
                 <div

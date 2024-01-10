@@ -197,11 +197,11 @@ function BusinessCard() {
               ) : (
                 // Display "add" image when isOrderNow is false
                 <button
-                  className={`text-sm md:text-md pro:text-lg xl:text-md special:text-lg p-3 rounded-[20px] bg-black text-white hover:bg-white  hover:text-black border-2 hover:border-black ${!valUser.subscripton && 'cursor-not-allowed'}`}
+                  className={`text-sm capitalize md:text-md pro:text-lg xl:text-md special:text-lg p-3 rounded-[20px] bg-black text-white hover:bg-white  hover:text-black border-2 hover:border-black ${!valUser.subscripton && 'cursor-not-allowed'}`}
                   onClick={handleShareClick}
                   disabled={!valUser.subscripton}
                 >
-                  {/* <MdPersonAddAlt1 /> */} Order My Business Card
+                  {/* <MdPersonAddAlt1 /> */} Apply for a Business Card
                 </button>
               )}
               {/* <label className="text-sm md:text-lg pro:text-xl xl:text-sm special:text-2xl">
