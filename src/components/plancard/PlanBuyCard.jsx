@@ -73,7 +73,7 @@ const PlanBuyCard = ({ onClose, userId, giveawayId, price, name, planeId }) => {
         `${import.meta.env.VITE_SERVER_API}/subscribeWithPoints`,
         { subid: planeId, uid: userId }
       );
-      if (response.data.status == 200) {
+      if (response.data.status) {
         logDetailsToDataLayer();
         toast.success(response.data.data.message, {
           position: "top-center",
