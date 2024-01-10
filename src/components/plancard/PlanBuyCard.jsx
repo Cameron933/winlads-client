@@ -60,7 +60,10 @@ const PlanBuyCard = ({ onClose, userId, giveawayId, price, name, planeId, logDet
         { subid: planeId, uid: userId }
       );
       if (response.data.status === 200) {
-        logDetailsToDataLayer();
+        window.dataLayer.push({
+          event: 'purchaseDetails',
+          data: data
+      });
         console.log(response.data.data);
         toast.success(response.data.data.message, {
           position: "top-center",

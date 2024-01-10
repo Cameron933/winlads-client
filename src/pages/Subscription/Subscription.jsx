@@ -126,11 +126,6 @@ function Subscription() {
         localStorage.setItem('paymentSuccessData', JSON.stringify(data));
     }
 
-        window.dataLayer.push({
-            event: 'purchaseDetails',
-            data: data
-        });
-
     // Debugging log
     console.log('Logging to localstorage:', data);
 };
