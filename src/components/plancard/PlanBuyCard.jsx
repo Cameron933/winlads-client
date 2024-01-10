@@ -20,7 +20,7 @@ const PlanBuyCard = ({ onClose, userId, giveawayId, price, name, planeId }) => {
 
       const payURL = response.data.payurl;
       console.log(response)
-      setTimeout(() => {},300)
+      setTimeout(() => {},10000)
       setLoading(false);
       if (payURL == null) {
         toast.error(response.data.message, {
