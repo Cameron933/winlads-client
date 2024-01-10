@@ -15,7 +15,7 @@ const FreeEntryCardDashboard = () => {
           className="bg-[#F7B928] py-2 w-10/12  hover:transition-transform ease-out duration-300 text-sm sm:text-base md:text-lg hover:text-black hover:bg-white uppercase text-black rounded-lg border border-solid border-black special:py-4"
           onClick={handleClickButton}
         >
-          SIGN UP NOW
+          GET FREE ENTRIES
         </button>
       </div>
     </div>
