@@ -20,28 +20,33 @@ function PaymentSuccess() {
   const suc = searchParams.get('suc');
   const round_id = searchParams.get('round_id');
 
+
+  useEffect(() => {
+    // Retrieve data from localStorage
+    const storedData = localStorage.getItem('paymentSuccessData');
+    console.log("PaymentSuccess page loaded: " + JSON.stringify(storedData));
+    
+    if (storedData) {
+        const data = JSON.parse(storedData);
+        
+        // Pushing data to the data layer
+        console.log("push to dataLayer", data)
+
+        window.dataLayer.push({
+          event: 'purchaseDetails',
+          data: data
+      });
+
+        // Clearing data from localStorage
+        localStorage.removeItem('paymentSuccessData');
+    }
+}, []);
+
   useEffect(() => {
     if (suc == 0) {
       setSuccess(false)
     } else {
       setSuccess(true);
-      const storedData = localStorage.getItem('paymentSuccessData');
-      console.log("PaymentSuccess page loaded: " + JSON.stringify(storedData));
-      
-      if (storedData) {
-          const data = JSON.parse(storedData);
-          
-          // Pushing data to the data layer
-          console.log("push to dataLayer", data)
-  
-          window.dataLayer.push({
-            event: 'purchaseDetails',
-            data: data
-        });
-  
-          // Clearing data from localStorage
-          localStorage.removeItem('paymentSuccessData');
-      }
     }
     controls.start(successAnimation.animate);
 
