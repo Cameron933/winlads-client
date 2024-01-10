@@ -12,17 +12,18 @@ import GetStart from "../../components/getStart/GetStart";
 import Contact from "../../components/contact/Contact"
 import MessengerCustomerChat from 'react-messenger-customer-chat';
 import Faq from "../../components/LandingPage/Faq";
+import OurPartners from "../../components/OurPartners/OurPartners";
 
 const Home = () => {
   return (
     <div className="pageBgColor">
       <Showcase2 />
       <WelcomeHome2 />
-
+      <Youtube/>
       <GetStart />
       <ChoosePlane/>
       <Service/>
-      <Youtube/>
+      <OurPartners/>
       <Benifit/>
       <Gallery2/>
       <Faq/>

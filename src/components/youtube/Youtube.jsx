@@ -11,9 +11,9 @@ const Youtube = () => {
 
   return (
     <div className="w-full mb-8" id="our-partners">
-      <div className="w-full mx-auto bg-youtube py-8">
+      <div className="w-full mx-auto bg-youtube py-4">
         <div className="flex mx-auto 2xl:max-w-[2400px] w-full items-center justify-center">
-          <div className="w-11/12 r-player">
+          {/* <div className="w-11/12 r-player">
             <ReactPlayer
               // url={videoUrl}
               controls={true}
@@ -23,11 +23,11 @@ const Youtube = () => {
               playing={true}
               muted={true}
             />
-          </div>
+          </div> */}
         </div>
       </div>
       
-      <motion.p
+      {/* <motion.p
             initial={{ opacity: 0, y: "-40%" }}
             whileInView={{ opacity: 1, y: "0" }}
             transition={{ duration: 0.5, delay: 0 }}
@@ -35,7 +35,7 @@ const Youtube = () => {
             className="text-center mb-4 mt-4 text-base sm:text-lg 2xl:text-xl special:text-3xl font-bold uppercase xl:tracking-[18px] sm:tracking-[16px] tracking-[12px]"
           >
             SOME OUR PARTNERS
-          </motion.p>
+          </motion.p> */}
       <div className="flex flex-col space-y-2">
             <div className="flex flex-row items-center bg-gradient-to-r from-[#E83F3F] to-[#A20505] py-2 w-full h-[70px]">
               <Marquee>
