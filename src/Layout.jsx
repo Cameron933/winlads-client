@@ -12,7 +12,7 @@ const Layout = () => {
         <SideNav />
         <Outlet />
         {/* <MyEntriesButton /> */}
-        <Logout/>
+        {/* <Logout/> */}
       </RefreshProvider>
 
     </div>

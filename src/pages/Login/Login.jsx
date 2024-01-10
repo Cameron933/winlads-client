@@ -344,7 +344,7 @@ const Login = () => {
                         />
                       </button>
                       <Link to="/forgotPassword">
-                        <div className="flex justify-end cursor-pointer text-xs xl:text-sm">Forget Password?</div>
+                        <div className="flex justify-end cursor-pointer text-xs xl:text-sm">Forgot Password?</div>
                       </Link>
 
                     </div>
