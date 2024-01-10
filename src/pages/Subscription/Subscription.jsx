@@ -98,10 +98,10 @@ function Subscription() {
   const logDetailsToDataLayer = (valUser, giveawayId,price,name,planeId) => {
     const data = {
       user: valUser,
-      giveawayId: giveawayId,
-      price: price,
-      plan_name: name,
-      plan_id: planeId
+      giveawayId: giveawayId || "",
+      price: price || "",
+      plan_name: name || "",
+      plan_id: planeId || ""
     }
     console.log('Logging to data layer again:', data);
     window.dataLayer.push({
