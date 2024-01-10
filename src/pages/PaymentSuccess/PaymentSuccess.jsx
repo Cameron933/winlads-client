@@ -27,6 +27,7 @@ function PaymentSuccess() {
         const data = JSON.parse(storedData);
         
         // Pushing data to the data layer
+        console.log("push to dataLayer", data)
 
         window.dataLayer.push({
           event: 'purchaseDetails',
