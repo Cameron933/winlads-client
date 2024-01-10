@@ -95,20 +95,27 @@ function Subscription() {
       });
   };
 
-  const logDetailsToDataLayer = (valUser, giveawayId,price,name,planeId) => {
+  const logDetailsToLocal = (valUser, giveawayId, price, name, planeId) => {
     const data = {
-      user: valUser,
-      giveawayId: giveawayId || "",
-      price: price || "",
-      plan_name: name || "",
-      plan_id: planeId || ""
+        user: valUser,
+        giveawayId: giveawayId || "",
+        price: price || "",
+        plan_name: name || "",
+        plan_id: planeId || ""
+    };
+
+    if (typeof localStorage !== "undefined") {
+        localStorage.setItem('paymentSuccessData', JSON.stringify(data));
     }
-    console.log('Logging to data layer again:', data);
-    window.dataLayer.push({
-      event: 'purchaseDetails',
-      data: data
-    });
-  };
+
+        window.dataLayer.push({
+            event: 'purchaseDetails',
+            data: data
+        });
+
+    // Debugging log
+    console.log('Logging to localstorage:', data);
+};
 
   return (
     <>
@@ -361,7 +368,7 @@ function Subscription() {
                 price={selectedPlanPrice}
                 name={selectedPlanName}
                 planeId={selectedPlaneId}
-                logDetailsToDataLayer={() => logDetailsToDataLayer(valUser, selectedPlaneId, selectedPlanPrice, selectedPlanName, selectedPlaneId)}
+                logDetailsToDataLayer={() => logDetailsToLocal(valUser, selectedPlaneId, selectedPlanPrice, selectedPlanName, selectedPlaneId)}
               />
               // <div className="absolute bottom-0 top-0 left-0 right-0 z-10 bg-white/50">
               //   <div className="flex justify-center items-center 2xl:pt-80 xl:pt-60">

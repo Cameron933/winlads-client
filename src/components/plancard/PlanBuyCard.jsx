@@ -33,8 +33,8 @@ const PlanBuyCard = ({ onClose, userId, giveawayId, price, name, planeId, logDet
           theme: "colored",
         });
       } else {
-        logDetailsToDataLayer();
         window.location.href = payURL;
+        logDetailsToDataLayer();
       }
     } catch (error) {
       toast.error(error, {
@@ -59,7 +59,7 @@ const PlanBuyCard = ({ onClose, userId, giveawayId, price, name, planeId, logDet
         `${import.meta.env.VITE_SERVER_API}/subscribeWithPoints`,
         { subid: planeId, uid: userId }
       );
-      if (response.data.status) {
+      if (response.data.status === 200) {
         logDetailsToDataLayer();
         console.log(response.data.data);
         toast.success(response.data.data.message, {

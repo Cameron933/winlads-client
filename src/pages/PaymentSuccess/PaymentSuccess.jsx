@@ -19,6 +19,20 @@ function PaymentSuccess() {
   // Access individual query parameters
   const suc = searchParams.get('suc');
   const round_id = searchParams.get('round_id');
+  useEffect(() => {
+    // Retrieve data from localStorage
+    const storedData = localStorage.getItem('paymentSuccessData');
+    
+    if (storedData) {
+        const data = JSON.parse(storedData);
+        
+        // Pushing data to the data layer
+        logDetailsToDataLayer(data.valUser, data.giveawayId, data.price, data.name, data.planeId);
+
+        // Clearing data from localStorage
+        localStorage.removeItem('paymentSuccessData');
+    }
+}, []);
 
   useEffect(() => {
     if (suc == 0) {
@@ -50,6 +64,7 @@ function PaymentSuccess() {
     };
 
   }, [controls]);
+  
 
   return (
     <div
