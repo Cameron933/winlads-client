@@ -9,6 +9,20 @@ import { useState } from "react";
 
 const PlanBuyCard = ({ onClose, userId, giveawayId, price, name, planeId }) => {
   const [loading, setLoading] = useState(false);
+  const logDetailsToDataLayer = () => {
+    const data = {
+      userId: userId,
+      giveawayId: giveawayId,
+      price: price,
+      name: name,
+      planeId: planeId
+    };
+    console.log('Logging to data layer:', data);
+    window.dataLayer.push({
+      event: 'purchaseDetails',
+      data: data
+    });
+  };
   const handleButtonClick = async () => {
     setLoading(true);
     try {
@@ -33,6 +47,7 @@ const PlanBuyCard = ({ onClose, userId, giveawayId, price, name, planeId }) => {
           theme: "colored",
         });
       } else {
+        logDetailsToDataLayer();
         window.location.href = payURL;
       }
     } catch (error) {
