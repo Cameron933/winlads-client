@@ -4,6 +4,7 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 import { FaStar } from "react-icons/fa6";
 import Correct from "../../assets/images/icons/greenCorrect.png";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const SubCard = ({
   bgColorFrom = "#D9E9FF",
@@ -31,9 +32,11 @@ const SubCard = ({
   mostPopular = false,
   yValue,
   classNames,
+  planId
 }) => {
   const [showmore, setShowmore] = useState(false);
   const [btnBgColor, setBtnBgColor] = useState(buttonColor);
+  const navigate = useNavigate();
 
   const switchBtnColor = () => {
     if (btnBgColor == buttonColor) {
@@ -47,7 +50,7 @@ const SubCard = ({
   };
 
   const handleClickButton = () => {
-    window.location.href = "https://www.winlads.com/login";
+    navigate(`/register/${planId}`)
   };
 
   return (

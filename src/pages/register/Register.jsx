@@ -55,17 +55,19 @@ const Register = ({ location }) => {
   const cookies = new Cookies(null, { path: "/" });
   const [fieldDis, setFieldDis] = useState(false);
 
-  const [chosenPlan, setChosenPlan] = useState('6571d15acbb0daab63a1346a');
+  const [chosenPlan, setChosenPlan] = useState('');
   const [memberShipType, setMemType] = useState('subscription')
   const [plans, setPlans] = useState([]);
   const [refId, setRefId] = useState("");
-  const [selectedPlanPrice, setSelPlanPrice] = useState(9.99);
-  const [selectedPlanName, setSelectedPlanName] = useState('Starter')
+  const [selectedPlanPrice, setSelPlanPrice] = useState('');
+  const [selectedPlanName, setSelectedPlanName] = useState('')
+  const [selectedSubId,setSelectedSubId] = useState('');
 
   // set loading
   useEffect(() => {
     if (selectedPackage) {
       cookies.set("selected-package-id", selectedPackage);
+     // setChosenPlan(selectedPackage);
     }
     getPlanes();
     setTimeout(() => {
@@ -88,6 +90,11 @@ const Register = ({ location }) => {
       .then((response) => {
        
         setPlans(response?.data?.data);
+        const selectedPlan = response?.data?.data.find((pl) => pl._id === selectedPackage);
+        setChosenPlan(selectedPlan._id)
+        setSelectedPlanName(selectedPlan.name)
+        setSelectedSubId(selectedPlan.subid)
+        setSelPlanPrice(selectedPlan.monthly)
         setIsLoading(false);
       })
       .catch((error) => {
@@ -132,7 +139,7 @@ const Register = ({ location }) => {
       refferalId: values.refferalId,
       uid: uid,
       coupen: coupen,
-      subid:chosenPlan,
+      subid:selectedSubId,
       type:memberShipType
 
     };
@@ -324,9 +331,10 @@ const Register = ({ location }) => {
   };
 
   const handleChosePlan = (id) => {
-    const selectedPlan = plans.find((pl) => pl.subid === id);
+    const selectedPlan = plans.find((pl) => pl._id === id);
     setChosenPlan(id)
     setSelectedPlanName(selectedPlan.name)
+    setSelectedSubId(selectedPlan.subid)
     setSelPlanPrice(selectedPlan.monthly)
   }
 
@@ -369,7 +377,7 @@ const Register = ({ location }) => {
                       {
                         plans.map((plan) => (
                           <Card
-                            planId={plan.subid}
+                            planId={plan._id}
                             title={plan.name + ' Tier'}
                             title2={plan.raffle_count}
                             titleColor2={
@@ -629,7 +637,7 @@ const Register = ({ location }) => {
                             {
                               plans.map((plan) => (
                                 <Card
-                                  planId={plan.subid}
+                                  planId={plan._id}
                                   title={plan.name + ' Tier'}
                                   title2={plan.raffle_count}
                                   titleColor2={
