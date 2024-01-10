@@ -103,7 +103,7 @@ function Subscription() {
       plan_name: name,
       plan_id: planeId
     }
-    console.log('Logging to data layer:', data);
+    console.log('Logging to data layer again:', data);
     window.dataLayer.push({
       event: 'purchaseDetails',
       data: data
