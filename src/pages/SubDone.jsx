@@ -1,11 +1,11 @@
 import Correct from "../assets/images/payment_success/success.png";
 import Bg from "../assets/images/payment_success/bg.png";
-import { successAnimation } from "../animation/animation"
+import { successAnimation } from "../animation/animation";
 import { motion, useAnimation } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { ImCross } from "react-icons/im";
-
+import { validateCurrentUser } from "../utils/validateuser";
 
 function SubDone() {
   const controls = useAnimation();
@@ -15,34 +15,38 @@ function SubDone() {
   const searchParams = new URLSearchParams(location.search);
   const navigate = useNavigate();
 
+
   // Access individual query parameters
-  const suc = searchParams.get('suc');
-  const round_id = searchParams.get('round_id');
+  const suc = searchParams.get("suc");
+  const round_id = searchParams.get("round_id");
+
+  const [valUser, setValUser] = useState({})
 
   useEffect(() => {
     // Retrieve data from localStorage
-    const storedData = localStorage.getItem('paymentSuccessData');
+    const storedData = localStorage.getItem("paymentSuccessData");
     console.log("PaymentSuccess page loaded: " + JSON.stringify(storedData));
-    
-    if (storedData) {
-        const data = JSON.parse(storedData);
-        
-        // Pushing data to the data layer
-        console.log("push to dataLayer", data)
 
-        window.dataLayer.push({
-          event: 'purchaseDetails',
-          data: data
+    if (storedData) {
+      const data = JSON.parse(storedData);
+
+      // Pushing data to the data layer
+      console.log("push to dataLayer", data);
+
+      window.dataLayer.push({
+        event: "purchaseDetails",
+        data: data,
       });
 
-        // Clearing data from localStorage
-        localStorage.removeItem('paymentSuccessData');
+      // Clearing data from localStorage
+      localStorage.removeItem("paymentSuccessData");
     }
-}, []);
+  }, []);
 
   useEffect(() => {
+    currentUserValidation()
     if (suc == 0) {
-      setSuccess(false)
+      setSuccess(false);
     } else {
       setSuccess(true);
     }
@@ -53,23 +57,32 @@ function SubDone() {
         // Ensure that the countdown stops at 0
         if (prev <= 1) {
           clearInterval(intervalId);
-          navigate('/dashboard');
+          navigate("/dashboard");
           return 0;
         }
         return prev - 1;
       });
 
       if (seconds < 1) {
-        navigate('/dashboard')
+        navigate("/dashboard");
       }
-    }, 1000)
+    }, 1000);
 
     return () => {
       // Clear the interval when the component unmounts
       clearInterval(intervalId);
     };
-
   }, [controls]);
+
+  const currentUserValidation = async () => {
+    const validator = await validateCurrentUser();
+    if (validator.validatorBl) {
+      console.log("Session OK", validator.user.balance);
+      setValUser(validator.user);
+    } else {
+      navigate("/login");
+    }
+  };
 
   return (
     <div
@@ -87,15 +100,17 @@ function SubDone() {
         <div className="flex flex-col justify-center items-center container xl:gap-10 lg:gap-8 md:gap-6 sm:gap-5 gap-5">
           <div className=" flex items-center flex-col space-y-5 justify-center">
             <p>You will redirect to the dashboard after {seconds}</p>
-            {
-              isSuccess ? <motion.img
+            {isSuccess ? (
+              <motion.img
                 src={Correct}
                 alt=""
                 className="xl:w-7/12 lg:w-8/12 md:w-6/12 sm:w-5/12 w-3/12"
                 initial="initial"
                 animate={controls}
                 transition={successAnimation.transition}
-              /> : <motion.div
+              />
+            ) : (
+              <motion.div
                 className="text-center w-full text-6xl text-red-500"
                 initial="initial"
                 animate={controls}
@@ -103,11 +118,10 @@ function SubDone() {
               >
                 <ImCross className="mx-auto" />
               </motion.div>
-            }
-
+            )}
           </div>
           <p className="font-bold  xl:text-4xl lg:text-5xl md:text-4xl sm:text-3xl text-xl">
-            {isSuccess ? 'Subscription Successful !' : 'Subscription Fail'}
+            {isSuccess ? "Subscription Successful !" : "Subscription Fail"}
           </p>
         </div>
       </div>
