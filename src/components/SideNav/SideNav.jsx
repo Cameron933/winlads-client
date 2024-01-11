@@ -162,20 +162,19 @@ const SideNav = ({ screen }) => {
 
           {showDropdown && (
             <div className="bg-black flex flex-col space-y-2 text-xs text-white text-start ml-10">
-              <Link to="/pastGiveaways">
-                <p className="cursor-pointer hover:bg-[#36383b] px-2 py-1 hidden xl:block">
-                  Past
-                </p>
-
-              </Link>
               <Link to="/ongoingGiveaways">
                 <p className="cursor-pointer hover:bg-[#36383b] px-2 py-1 hidden xl:block">
-                  On going
+                  Ongoing
                 </p>
               </Link>
               <Link to="/upcomingGiveaways">
                 <p className="cursor-pointer hover:bg-[#36383b] px-2 py-1 hidden xl:block">
                   Upcoming
+                </p>
+              </Link>
+              <Link to="/pastGiveaways">
+                <p className="cursor-pointer hover:bg-[#36383b] px-2 py-1 hidden xl:block">
+                  Past
                 </p>
               </Link>
             </div>
