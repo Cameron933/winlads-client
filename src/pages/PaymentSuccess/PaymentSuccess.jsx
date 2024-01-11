@@ -24,7 +24,7 @@ function PaymentSuccess() {
   useEffect(() => {
     // Retrieve data from localStorage
     const storedData = localStorage.getItem('paymentSuccessData');
-    console.log("PaymentSuccess page loaded: " + JSON.stringify(storedData));
+    console.log("one_off_packages page loaded: " + JSON.stringify(storedData));
     
     if (storedData) {
         const data = JSON.parse(storedData);
@@ -33,7 +33,7 @@ function PaymentSuccess() {
         console.log("push to dataLayer", data)
 
         window.dataLayer.push({
-          event: 'purchaseDetails',
+          event: 'one_off_packages',
           data: data
       });
 

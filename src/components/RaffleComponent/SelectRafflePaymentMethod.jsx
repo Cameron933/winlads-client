@@ -13,6 +13,7 @@ const SelectRafflePaymentMethod = ({
   giveawayId,
   price,
   name,
+  logDetailsToDataLayer
 }) => {
   const [count, setCount] = useState(1);
   const [coupon, setCoupon] = useState("")
@@ -32,6 +33,7 @@ const SelectRafflePaymentMethod = ({
       const payURL = response.data.payurl;
 
       // Redirect the user to the payURL
+      logDetailsToDataLayer();
       window.location.href = payURL;
     } catch (error) {
       console.log(error);
