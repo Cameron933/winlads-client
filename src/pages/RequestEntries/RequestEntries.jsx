@@ -1,26 +1,13 @@
 import React, { useEffect, useState } from "react";
-import SideNav from "../../components/SideNav/SideNav";
 import TopNav from "../../components/TopNav/TopNav";
-import User from "../../assets/images/side-bar/User2.png";
-import GoldCard from "../../components/GoldCard/GoldCard";
 import MainCar from "../../assets/images/MainCar.png";
-import backgroundcar from "../../assets/images/background/Background-car.png";
 import axios from "axios";
 import Cookies from "universal-cookie";
-import { MdOutlinePhotoCamera } from "react-icons/md";
 import { toast } from "react-toastify";
-import ItemLoader from "../../components/Loader/ItemLoader";
 import { motion } from "framer-motion";
-import { storage } from "../../firebase.config";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { validateCurrentUser } from "../../utils/validateuser";
-import CardComponent from "../../components/cardComponent/CardComponent";
-import { RiArrowDropDownLine } from "react-icons/ri";
 import CardComponentNoWithdraw from "../../components/cardComponent/CardComponentNoWithdraw";
-import directBankIcon from "../../assets/images/icons/direct-bank.svg";
-import stripeIcon from "../../assets/images/icons/stripe.svg";
-import { IoIosArrowBack } from "react-icons/io";
 
 const RequestEntries = () => {
   const cookies = new Cookies(null, { path: "/" });
@@ -149,13 +136,20 @@ const RequestEntries = () => {
               </div>
             </div> */}
             <div
-              className="bg-black py-2 text-center rounded-xl cursor-pointer hover:bg-black/75 md:w-1/2 w-full ml-auto"
-              onClick={() =>
-                setRequest({
-                  instausername,
-                  instalink,
-                })
-              }
+              className={`bg-black py-2 text-center rounded-xl cursor-pointer hover:bg-black/75 md:w-1/2 w-full ml-auto ${
+                !instausername
+                  ? "opacity-50 cursor-not-allowed"
+                  : ""
+              }`}
+              onClick={() => {
+                if (instausername) {
+                  setRequest({
+                    instausername,
+                    instalink,
+                  });
+                }
+              }}
+              disabled={!instausername}
             >
               <p className="text-white font-semibold">Request</p>
             </div>

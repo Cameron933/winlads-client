@@ -285,7 +285,7 @@ const Dashboard = () => {
 
                 <div className="flex flex-col space-y-2 w-full xl:w-web pt-4">
                   <p className="text-2xl 2xl:text-2xl special:text-5xl font-semibold mb-2">
-                    Up Coming Giveaways
+                    Ongoing Giveaways
                   </p>
                   {loading ? (
                     <div className="flex justify-center">
