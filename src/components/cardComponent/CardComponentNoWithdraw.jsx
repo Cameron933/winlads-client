@@ -7,7 +7,6 @@ import ItemLoader from "../../components/Loader/ItemLoader";
 import Ticket from "../../assets/images/affiliate/affiliate.png";
 import Money from "../../assets/images/affiliate/earnings.png";
 
-
 const CardComponentNoWithdraw = () => {
   const [valUser, setValUser] = useState({});
   const [loading, setLoading] = useState(true);
@@ -76,7 +75,12 @@ const CardComponentNoWithdraw = () => {
               <p className="2xl:text-lg font-semibold capitalize">
                 your balance
               </p>
-              <p className="font-semibold">$ {valUser.balance || "0.00"}</p>
+              <p className="font-semibold">
+                ${" "}
+                {typeof valUser.balance === "number"
+                  ? valUser.balance.toFixed(2)
+                  : "0.00"}
+              </p>
             </div>
             <div className="flex flex-col space-x-1">
               <div className="bg-black rounded-full py-1 text-center px-2">
@@ -100,7 +104,10 @@ const CardComponentNoWithdraw = () => {
               <img src={Money} alt="" className="w-10 h-10" />
               <div className="flex flex-col text-white">
                 <p className="font-semibold 2xl:text-xl special:text-2xl text-lg">
-                $&nbsp;{wallet.earning || "0.00"}
+                  $&nbsp;
+                  {typeof wallet.earning === "number"
+                    ? wallet.earning.toFixed(2)
+                    : "0.00"}
                 </p>
                 <p className="capitalize text-sm">Earning</p>
               </div>
@@ -109,7 +116,10 @@ const CardComponentNoWithdraw = () => {
               <img src={Ticket} alt="" className="w-10 h-10" />
               <div className="flex flex-col text-white">
                 <p className="font-semibold 2xl:text-xl special:text-2xl text-lg">
-                $&nbsp;{wallet.purchase || "0.00"}
+                  $&nbsp;{" "}
+                  {typeof wallet.purchase === "number"
+                    ? wallet.purchase.toFixed(2)
+                    : "0.00"}
                 </p>
                 <p className="capitalize text-sm">Purchase</p>
               </div>

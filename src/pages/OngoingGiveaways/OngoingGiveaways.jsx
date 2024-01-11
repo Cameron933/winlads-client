@@ -59,6 +59,7 @@ const OngoingGiveaways = () => {
       console.log("Session OK", validator.user);
       setValUser(validator.user);
       getGiveaways(validator.user.uid);
+      getProfileImage(validator.user.image);
       // getRaffleCount(validator.user.uid);
     } else {
       navigate("/login");
@@ -161,7 +162,9 @@ const OngoingGiveaways = () => {
                         Earning Balance
                       </p>
                       <p className="special:text-6xl">
-                        $&nbsp;{valUser.balance || "0.00"}
+                        $&nbsp;{typeof valUser.balance === "number"
+                        ? valUser.balance.toFixed(2)
+                        : "0.00"}
                       </p>
                     </div>
                   </div>

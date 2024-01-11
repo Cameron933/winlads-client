@@ -43,7 +43,7 @@ const Dashboard = () => {
       (a, b) => new Date(a.startingtime) - new Date(b.startingtime)
     );
     setSortedGiveaways(sortedArray);
-    checkCoupen()
+    checkCoupen();
   }, [giveaways]);
 
   useEffect(() => {
@@ -67,9 +67,7 @@ const Dashboard = () => {
 
   const getGiveaways = async (valuid) => {
     await axios
-      .get(
-        `${import.meta.env.VITE_SERVER_API}/raffleRoundsOngoing`
-      )
+      .get(`${import.meta.env.VITE_SERVER_API}/raffleRoundsOngoing`)
       .then((response) => {
         console.log(response.data.data, "data raffle");
         setGiveaways(response?.data?.data);
@@ -115,13 +113,13 @@ const Dashboard = () => {
   };
 
   const checkCoupen = () => {
-    const checkCode = cookies.get("COUPEN")
-    if(checkCode === "WINFREE") {
+    const checkCode = cookies.get("COUPEN");
+    if (checkCode === "WINFREE") {
       // REMOVED THE COOKIE FOR AVOID STUCK IN ENTRIES PAGE,:)
-      cookies.remove("COUPEN")
-      navigate("/requestEntries")
+      cookies.remove("COUPEN");
+      navigate("/requestEntries");
     }
-  }
+  };
 
   return (
     <>
@@ -148,18 +146,17 @@ const Dashboard = () => {
                       alt="main"
                     /> */}
                     <div className="flex justify-center px-2">
-                    <div className="flex flex-col space-y-2">
-                      <img src={FreeEntries} alt="" className="w-[600px]" />
-                      <div className="pb-2">
-                        <Link to="/requestEntries">
-                          <button className="bg-[#F7B928] text-black rounded-lg py-1 w-64 hover:bg-[#F7B928]/75">
-                            Request
-                          </button>
-                        </Link>
+                      <div className="flex flex-col space-y-2">
+                        <img src={FreeEntries} alt="" className="w-[600px]" />
+                        <div className="pb-2">
+                          <Link to="/requestEntries">
+                            <button className="bg-[#F7B928] text-black rounded-lg py-1 w-64 hover:bg-[#F7B928]/75">
+                              Request
+                            </button>
+                          </Link>
+                        </div>
                       </div>
                     </div>
-                    </div>
-                     
                   </div>
                 </div>
                 <div className="left-4 top-20 space-y-4">
@@ -199,7 +196,9 @@ const Dashboard = () => {
                             icon={giveaway.raffle?.image}
                             raffleimage={giveaway.raffle?.raffleimage}
                             eligeble={true}
-                            oneOffPackage={giveaway.raffle?.name === "Vehicle" ? true : false}
+                            oneOffPackage={
+                              giveaway.raffle?.name === "Vehicle" ? true : false
+                            }
                             onButton={() => {
                               handleButton({
                                 id: giveaway?._id,
@@ -311,7 +310,9 @@ const Dashboard = () => {
                             price={giveaway?.price}
                             raffleimage={giveaway.raffle?.raffleimage}
                             eligeble={true}
-                            oneOffPackage={giveaway.raffle?.name === "Vehicle" ? true : false}
+                            oneOffPackage={
+                              giveaway.raffle?.name === "Vehicle" ? true : false
+                            }
                             onButton={() => {
                               handleButton({
                                 id: giveaway?._id,
