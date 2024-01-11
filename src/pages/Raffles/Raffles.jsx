@@ -94,12 +94,12 @@ function Raffles() {
   };
 
   const logDetailsToDataLayer = (valUser, giveawayId, price, name) => {
-    const data = {
-        user: valUser || "",
-        giveawayId: giveawayId || "",
-        price: price || "",
-        plan_name: name || "",
-    };
+    // const data = {
+    //     user: valUser || "",
+    //     giveawayId: giveawayId || "",
+    //     price: price || "",
+    //     plan_name: name || "",
+    // };
 
     if (typeof localStorage !== "undefined") {
         localStorage.setItem('paymentSuccessData', JSON.stringify(data));
@@ -375,7 +375,7 @@ function Raffles() {
           userId={valUser.uid}
           name={selectedName}
           onClose={() => setSelectPayment(false)}
-          logDetailsToDataLayer = {() => logDetailsToDataLayer(valUser, selectGiveawayId, price, selectedName)}
+          logDetailsToDataLayer = {logDetailsToDataLayer(valUser, selectGiveawayId, price, selectedName)}
         />
       )}
     </>
