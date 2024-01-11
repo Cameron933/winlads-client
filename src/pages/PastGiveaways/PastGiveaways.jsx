@@ -145,7 +145,9 @@ const PastGiveaways = () => {
                         Earning Balance
                       </p>
                       <p className="special:text-6xl">
-                        $&nbsp;{valUser.balance || "0.00"}
+                        $&nbsp;{typeof valUser.balance === "number"
+                        ? valUser.balance.toFixed(2)
+                        : "0.00"}
                       </p>
                     </div>
                   </div>

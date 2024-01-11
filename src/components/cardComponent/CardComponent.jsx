@@ -26,7 +26,7 @@ const CardComponent = () => {
       console.log("Session OK", validator.user);
       setValUser(validator.user);
       // getTransactionsFunction();
-      getEarning(validator.user.uid)
+      getEarning(validator.user.uid);
     } else {
       setLoading(false);
     }
@@ -34,9 +34,7 @@ const CardComponent = () => {
 
   const getEarning = async (valuid) => {
     await axios
-      .get(
-        `${import.meta.env.VITE_SERVER_API}/getPointBalances?uid=${valuid}`
-      )
+      .get(`${import.meta.env.VITE_SERVER_API}/getPointBalances?uid=${valuid}`)
       .then((response) => {
         setWallet(response?.data?.data);
         setLoading(false);
@@ -80,12 +78,23 @@ const CardComponent = () => {
               <p className="2xl:text-lg font-semibold capitalize">
                 your balance
               </p>
-              <p className="font-semibold">${valUser.balance || "0.00"}</p>
+              <p className="font-semibold">
+                $
+                {typeof valUser.balance === "number"
+                  ? valUser.balance.toFixed(2)
+                  : "0.00"}
+              </p>
             </div>
             <div className="flex flex-col space-x-1">
               <div className="bg-black rounded-full py-1 text-center px-2">
                 <p
-                  style={{color: !valUser.subscripton?.color || valUser.subscripton?.color === "#000000" ? "white" : valUser.subscripton?.color }}
+                  style={{
+                    color:
+                      !valUser.subscripton?.color ||
+                      valUser.subscripton?.color === "#000000"
+                        ? "white"
+                        : valUser.subscripton?.color,
+                  }}
                 >
                   {valUser.subscripton?.name || "No plan"}
                 </p>
@@ -98,7 +107,10 @@ const CardComponent = () => {
               <img src={Money} alt="" className="w-10 h-10" />
               <div className="flex flex-col text-white">
                 <p className="font-semibold 2xl:text-xl special:text-2xl text-lg">
-                $&nbsp;{wallet.earning || "0.00"}
+                  $&nbsp;{" "}
+                  {typeof wallet.earning === "number"
+                    ? wallet.earning.toFixed(2)
+                    : "0.00"}
                 </p>
                 <p className="capitalize text-sm">Earning</p>
               </div>
@@ -107,13 +119,19 @@ const CardComponent = () => {
               <img src={Ticket} alt="" className="w-10 h-10" />
               <div className="flex flex-col text-white">
                 <p className="font-semibold 2xl:text-xl special:text-2xl text-lg">
-                $&nbsp;{wallet.purchase || "0.00"}
+                  $&nbsp;{" "}
+                  {typeof wallet.purchase === "number"
+                    ? wallet.purchase.toFixed(2)
+                    : "0.00"}
                 </p>
                 <p className="capitalize text-sm">Purchase</p>
               </div>
             </div>
           </div>
-          <div className="bg-black py-2 text-center rounded-xl cursor-pointer hover:bg-black/75" onClick={()=> navigate('/withdraw')}>
+          <div
+            className="bg-black py-2 text-center rounded-xl cursor-pointer hover:bg-black/75"
+            onClick={() => navigate("/withdraw")}
+          >
             <p className="text-white font-semibold">Withdraw</p>
           </div>
         </div>

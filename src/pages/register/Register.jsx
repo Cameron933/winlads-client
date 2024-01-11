@@ -178,6 +178,9 @@ const Register = ({ location }) => {
           console.log("NO PAY");
         }
 
+        setTimeout(() => {
+          navigate("/welcome");
+        }, 3000);
         //cookies.set("wr_token", response.data.data._id);
       } catch (error) {
         toast.error("Error submitting login credentials", {
@@ -301,9 +304,7 @@ const Register = ({ location }) => {
         // navigate("/welcome");
         // SIGN UP SUCCESS
         handleSEOReg();
-        setTimeout(() => {
-          //navigate("/dashboard");
-        }, 3000);
+    
       })
       .catch((err) => {});
   };
@@ -329,9 +330,9 @@ const Register = ({ location }) => {
     const validator = await validateCurrentUser();
     if (validator.validatorBl) {
       console.log("Session OK", validator.user);
-      setTimeout(() => {
-        navigate("/welcome");
-      }, 3000);
+      // setTimeout(() => {
+      //   navigate("/welcome");
+      // }, 3000);
       navigate("/dashboard");
     } else {
       console.log("");
