@@ -89,6 +89,10 @@ const Register = ({ location }) => {
       setRefId(ref);
       values.refferalId = ref;
     }
+    const checkAbility = searchParams.get("ability");
+    if (checkAbility == "WINACCESSEN") {
+      setEligible(true);
+    }
     getFreeEntry();
   }, []);
 

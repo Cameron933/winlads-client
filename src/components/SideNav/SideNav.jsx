@@ -146,10 +146,10 @@ const SideNav = ({ screen }) => {
           </div>
 
           <div onClick={expandSidebar}>
-            <button className="flex flex-row items-center xl:justify-start justify-center xl:px-5 xl:gap-2 hover:bg-[#36383b] py-2 px-2 w-full">
+            <button className="flex xl:flex-row flex-col space-y-2 xl:space-y-0 items-center xl:justify-start justify-center xl:px-5 xl:gap-2 hover:bg-[#36383b] py-2 px-2 w-full">
               <img src={Giveaway} className="w-[18px]" alt="protect" />
               <div
-                className="mobile-hide flex flex-row gap-2 items-center"
+                className="mobile-hide flex xl:flex-row  gap-2 items-center"
                 onClick={handleDropdownClick}
               >
                 <p className="link-no-underlin hidden xl:flex text-white">
@@ -163,17 +163,18 @@ const SideNav = ({ screen }) => {
           {showDropdown && (
             <div className="bg-black flex flex-col space-y-2 text-xs text-white text-start ml-10">
               <Link to="/pastGiveaways">
-                <p className="cursor-pointer hover:bg-[#36383b] px-2 py-1">
+                <p className="cursor-pointer hover:bg-[#36383b] px-2 py-1 hidden xl:block">
                   Past
                 </p>
+
               </Link>
               <Link to="/ongoingGiveaways">
-                <p className="cursor-pointer hover:bg-[#36383b] px-2 py-1">
+                <p className="cursor-pointer hover:bg-[#36383b] px-2 py-1 hidden xl:block">
                   On going
                 </p>
               </Link>
               <Link to="/upcomingGiveaways">
-                <p className="cursor-pointer hover:bg-[#36383b] px-2 py-1">
+                <p className="cursor-pointer hover:bg-[#36383b] px-2 py-1 hidden xl:block">
                   Upcoming
                 </p>
               </Link>
