@@ -358,8 +358,8 @@ function Raffles() {
           price={price}
           userId={valUser.uid}
           name={selectedName}
-          onClose={() => setSelectPayment(false)}
           valUser = {valUser}
+          onClose={() => setSelectPayment(false)}
         />
       )}
     </>
