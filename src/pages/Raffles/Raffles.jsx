@@ -93,7 +93,7 @@ function Raffles() {
     setSelectPayment(true);
   };
 
-    const logDetailsToLocal = (valUser, giveawayId, price, name) => {
+  const logDetailsToLocal = (valUser, giveawayId, price, name) => {
     const data = {
         user: valUser,
         giveawayId: giveawayId || "",
@@ -375,7 +375,7 @@ function Raffles() {
           userId={valUser.uid}
           name={selectedName}
           onClose={() => setSelectPayment(false)}
-          logDetailsToLocal = {() => logDetailsToLocal(valUser, selectGiveawayId, price, selectedName)}
+          logDetailsToDataLayer = {() => logDetailsToLocal(valUser, selectGiveawayId, price, selectedName)}
         />
       )}
     </>
