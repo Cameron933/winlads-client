@@ -50,7 +50,6 @@ const SelectRafflePaymentMethod = ({
         }
       );
       if (response.data.status == 200) {
-        console.log("points");
         toast.success(response.data.data.message, {
           position: "top-center",
           autoClose: 5000,
