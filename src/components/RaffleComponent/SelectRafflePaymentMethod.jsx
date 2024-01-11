@@ -20,7 +20,7 @@ const SelectRafflePaymentMethod = ({
 
   const logDetailsToDataLayer = (valUser, giveawayId, price, name) => {
     const data = {
-        user: valUser || "",
+        user: valUser,
         giveawayId: giveawayId || "",
         price: price || "",
         plan_name: name || "",
