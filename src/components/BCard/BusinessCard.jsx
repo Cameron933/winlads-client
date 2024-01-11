@@ -26,7 +26,7 @@ function BusinessCard() {
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [postalCode, setPostalCode] = useState("");
-  const [bcCard, setBcCard] = useState("")
+  const [bcCard, setBcCard] = useState("");
 
   const handleShareClick = () => {
     setOrderNow(!isOrderNow);
@@ -38,9 +38,8 @@ function BusinessCard() {
   };
 
   useEffect(() => {
-    currentUserValidation()
+    currentUserValidation();
   }, []);
-
 
   const currentUserValidation = async () => {
     const validator = await validateCurrentUser();
@@ -51,12 +50,15 @@ function BusinessCard() {
     }
   };
 
-
   const saveBC = async () => {
     await axios
-      .get(`${import.meta.env.VITE_SERVER_API}/downloadBusinessCard?uid=${valUser.uid}`)
+      .get(
+        `${import.meta.env.VITE_SERVER_API}/downloadBusinessCard?uid=${
+          valUser.uid
+        }`
+      )
       .then((response) => {
-        console.log(response?.data?.data, "downloadddd")
+        console.log(response?.data?.data, "downloadddd");
         setBcCard(response?.data?.data);
       })
       .catch((error) => {
@@ -67,12 +69,12 @@ function BusinessCard() {
 
   const handleSaveCard = () => {
     saveBC();
-  }
+  };
 
   const requestNfcCard = async () => {
     try {
       if (!address || !addres2 || !state || !city || !postalCode) {
-        throw Error('One Or More Field is missing');
+        throw Error("One Or More Field is missing");
       }
 
       const data = {
@@ -80,8 +82,9 @@ function BusinessCard() {
         name: valUser.firstname + valUser.lastname,
         mobile: valUser.mobile,
         passport: valUser.passport,
-        address: address + ' ' + addres2 + ' ' + state + ' ' + city + ' ' + postalCode,
-      }
+        address:
+          address + " " + addres2 + " " + state + " " + city + " " + postalCode,
+      };
       console.log(data);
 
       const response = await axios.post(
@@ -123,27 +126,27 @@ function BusinessCard() {
         draggable: true,
         progress: undefined,
         theme: "colored",
-      })
-
+      });
     }
   };
 
   return (
     <div className="flex flex-col space-y-4 special:space-y-16">
-      {
-        isOrderNow &&
-        <button className="p-2 rounded-full bg-white hover:bg-gray-300 w-fit md:text-3xl text-2xl" onClick={() => setOrderNow((prev) => !prev)}><IoIosArrowBack /></button>
-
-      }
+      {isOrderNow && (
+        <button
+          className="p-2 rounded-full bg-white hover:bg-gray-300 w-fit md:text-3xl text-2xl"
+          onClick={() => setOrderNow((prev) => !prev)}
+        >
+          <IoIosArrowBack />
+        </button>
+      )}
 
       <div className="flex flex-col special:space-y-5">
         <p className="text-xl font-bold xl:text-xl md:text-xl special:text-4xl">
           Get My NFC
         </p>
       </div>
-      <div
-        className=""
-      >
+      <div className="">
         <div className="text-left flex flex-col items-center space-y-0 special:space-y-16">
           {isOrderNow ? (
             <ShareForm
@@ -198,9 +201,11 @@ function BusinessCard() {
                 // Display "add" image when isOrderNow is false
                 <>
                   <button
-                    className={`text-sm capitalize md:text-md pro:text-lg xl:text-md special:text-lg p-3 rounded-[20px] bg-black text-white hover:bg-white  hover:text-black border-2 hover:border-black ${!valUser.subscripton && 'cursor-not-allowed'}`}
+                    className={`text-sm capitalize md:text-md pro:text-lg xl:text-md special:text-lg p-3 rounded-[20px] bg-black text-white hover:bg-white  hover:text-black border-2 hover:border-black ${
+                      !valUser.subscripton || valUser.subscripton?.name === "Starter" && "cursor-not-allowed"
+                    }`}
                     onClick={handleShareClick}
-                    disabled={!valUser.subscripton}
+                    disabled={!valUser.subscripton || valUser.subscripton?.name === "Starter"}
                   >
                     {/* <MdPersonAddAlt1 /> */} Apply for a Business Card
                   </button>
@@ -210,7 +215,6 @@ function BusinessCard() {
                   >
                     {/* <MdPersonAddAlt1 /> */}How to use the card?
                   </Link>
-                  
                 </>
               )}
               {/* <label className="text-sm md:text-lg pro:text-xl xl:text-sm special:text-2xl">
@@ -218,10 +222,22 @@ function BusinessCard() {
               </label> */}
             </div>
           </div>
-          {
-            !valUser.subscripton && <p className="text-xs md:text-lg font-semibold text-center capitalize">You are not eligeble, <span className="text-red-500">please subscribe first !</span></p>
-          }
-
+          {!valUser.subscripton && (
+            <p className="text-xs md:text-lg font-semibold text-center capitalize">
+              You are not eligeble,{" "}
+              <span className="text-red-500">please subscribe first (Above Starter) !</span>
+            </p>
+          )}
+          {valUser.subscripton?.name === "Starter" && (
+            <p className="text-xs md:text-lg font-semibold text-center capitalize">
+              You are not eligeble,{" "}
+              <span className="text-red-500">
+                You are currently on the Starter Subscription. To request a
+                Business Card, kindly upgrade your subscription beyond the
+                Starter level. !
+              </span>
+            </p>
+          )}
         </div>
       </div>
     </div>
@@ -242,7 +258,7 @@ function ShareForm({
   setPostalCode,
   firstName,
   lastName,
-  nic
+  nic,
 }) {
   // const [postalAddress, setPostalAddress] = useState();
   useEffect(() => {
@@ -251,7 +267,7 @@ function ShareForm({
     setCity(city);
     setState(state);
     setPostalCode(postalCode);
-  }, [])
+  }, []);
   const handlePostalAddressChange = (e) => {
     setAddress(e.target.value);
     setAddress2(e.target.value);
@@ -328,10 +344,9 @@ function ShareForm({
             placeholder="Address Line 2"
             type="text"
             value={address2}
-            onChange={e => setAddress2(e.target.value)}
+            onChange={(e) => setAddress2(e.target.value)}
           ></input>
         </div>
-
       </div>
       <div className="flex items-center gap-2">
         <div className="w-1/3">
@@ -340,7 +355,7 @@ function ShareForm({
             placeholder="City"
             type="text"
             value={city}
-            onChange={e => setCity(e.target.value)}
+            onChange={(e) => setCity(e.target.value)}
           ></input>
         </div>
         <div className="w-1/3">
@@ -349,20 +364,18 @@ function ShareForm({
             placeholder="State"
             type="text"
             value={state}
-            onChange={e => setState(e.target.value)}
+            onChange={(e) => setState(e.target.value)}
           ></input>
         </div>
         <div className=" w-1/3">
-
           <input
             className="bg-[#ECECEC] rounded-xl py-3 px-4 focus:outline-none placeholder:text-sm placeholder:special:text-xl special:py-3 w-full"
             placeholder="Postal Code"
             type="text"
             value={postalCode}
-            onChange={e => setPostalCode(e.target.value)}
+            onChange={(e) => setPostalCode(e.target.value)}
           ></input>
         </div>
-
       </div>
     </form>
   );

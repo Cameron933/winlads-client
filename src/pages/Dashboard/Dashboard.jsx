@@ -48,9 +48,9 @@ const Dashboard = () => {
 
   useEffect(() => {
     currentUserValidation();
-    if (cookies.get("selected-package-id")) {
-      navigate("/subscription");
-    }
+    // if (cookies.get("selected-package-id")) {
+    //   navigate("/subscription");
+    // }
   }, [raffleCount]);
 
   const currentUserValidation = async () => {
@@ -68,7 +68,7 @@ const Dashboard = () => {
   const getGiveaways = async (valuid) => {
     await axios
       .get(
-        `${import.meta.env.VITE_SERVER_API}/raffleRoundsFuture?uid=${valuid}`
+        `${import.meta.env.VITE_SERVER_API}/raffleRoundsOngoing`
       )
       .then((response) => {
         console.log(response.data.data, "data raffle");
@@ -198,6 +198,8 @@ const Dashboard = () => {
                             color={giveaway?.raffle?.color}
                             icon={giveaway.raffle?.image}
                             raffleimage={giveaway.raffle?.raffleimage}
+                            eligeble={true}
+                            oneOffPackage={giveaway.raffle?.name === "Vehicle" ? true : false}
                             onButton={() => {
                               handleButton({
                                 id: giveaway?._id,
@@ -285,7 +287,7 @@ const Dashboard = () => {
 
                 <div className="flex flex-col space-y-2 w-full xl:w-web pt-4">
                   <p className="text-2xl 2xl:text-2xl special:text-5xl font-semibold mb-2">
-                    Up Coming Giveaways
+                    Ongoing Giveaways
                   </p>
                   {loading ? (
                     <div className="flex justify-center">
@@ -308,6 +310,8 @@ const Dashboard = () => {
                             icon={giveaway.raffle?.image}
                             price={giveaway?.price}
                             raffleimage={giveaway.raffle?.raffleimage}
+                            eligeble={true}
+                            oneOffPackage={giveaway.raffle?.name === "Vehicle" ? true : false}
                             onButton={() => {
                               handleButton({
                                 id: giveaway?._id,
@@ -375,6 +379,7 @@ const Dashboard = () => {
         <SelectRafflePaymentMethod
           onClose={() => setSelectPayment(false)}
           userId={valUser.uid}
+          subPlane={valUser.subscripton}
           giveawayId={selectGiveawayId}
           price={price}
           name={selectGiveawayName}

@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import CatJeep from "../../assets/images/rafflesImages/newJeep.png";
 import NewVeh from "../../assets/images/newVeh.png";
 import { LuInfo } from "react-icons/lu";
@@ -14,8 +15,18 @@ const DashboardVehicleCard = ({
   onButton,
   color,
   raffleimage,
-  id
+  id,
+  eligeble,
+  oneOffPackage,
 }) => {
+  const [eligebleOne, setEligebleOne] = useState(true);
+  const [onePackage, setOnePackage] = useState(true);
+
+  useEffect(() => {
+    setOnePackage(oneOffPackage);
+    setEligebleOne(eligeble);
+  }, []);
+
   const handleClick = () => {
     onButton();
   };
@@ -31,7 +42,9 @@ const DashboardVehicleCard = ({
     timeZone: "UTC", // Set the timeZone option to "UTC"
   };
 
-  const formattedDate = new Intl.DateTimeFormat("en-US", options).format(dateObject);
+  const formattedDate = new Intl.DateTimeFormat("en-US", options).format(
+    dateObject
+  );
 
   return (
     <>
@@ -43,11 +56,14 @@ const DashboardVehicleCard = ({
           background: `linear-gradient(90deg, ${color} 0%, #000608 100%)`,
         }}
       >
-        {
-          (!isSubscribed && type != 'max') && <div className="text-center bg-gradient-to-t from-black to-transparent absolute top-0 left-0 w-full h-full flex items-center justify-center cursor-not-allowed z-20">
-            <p className="text-xs md:text-lg font-semibold text-white capitalize">You are not eligeble,<br /> please subscribe first !</p>
+        {eligebleOne && !isSubscribed && type != "max" && (
+          <div className="text-center bg-gradient-to-t from-black to-transparent absolute top-0 left-0 w-full h-full flex items-center justify-center cursor-not-allowed z-20">
+            <p className="text-xs md:text-lg font-semibold text-white capitalize">
+              You are not eligeble,
+              <br /> please subscribe first !
+            </p>
           </div>
-        }
+        )}
         <div className="flex flex-row items-center justify-between px-1">
           <Link to={`/won/${id}`}>
             <LuInfo className="text-white" />
@@ -74,14 +90,16 @@ const DashboardVehicleCard = ({
                 {formattedDate}
               </p>
             </div>
-            <div>
-              <button
-                onClick={handleClick}
-                className="rounded-md border-2 capitalize hover:bg-black bg-white text-black cursor-pointer border-white  py-1 hover:scale-105 hover:transition-transform ease-out duration-300 mt-auto hover:text-white text-sm px-1"
-              >
-                one off packages
-              </button>
-            </div>
+            {onePackage && (
+              <div>
+                <button
+                  onClick={handleClick}
+                  className="rounded-md border-2 capitalize hover:bg-black bg-white text-black cursor-pointer border-white  py-1 hover:scale-105 hover:transition-transform ease-out duration-300 mt-auto hover:text-white text-sm px-1"
+                >
+                  one off packages
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>

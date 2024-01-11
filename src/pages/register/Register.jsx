@@ -30,6 +30,9 @@ import {
   FcUnlock,
   FcTwoSmartphones,
 } from "react-icons/fc";
+import Card from "../../components/SubCard/CardToReg.jsx";
+import DashboardVehicleCard from "../../components/DashboardVehicleCard/DashboardVehicle.jsx";
+import VehicleCardForReg from "../../components/DashboardVehicleCard/VehicleCardForReg.jsx";
 
 const inputStyle = {
   border: "1px solid #000000",
@@ -53,17 +56,32 @@ const Register = ({ location }) => {
   const cookies = new Cookies(null, { path: "/" });
   const [fieldDis, setFieldDis] = useState(false);
 
+  const [chosenPlan, setChosenPlan] = useState("");
+  const [memberShipType, setMemType] = useState("subscription");
+  const [plans, setPlans] = useState([]);
   const [refId, setRefId] = useState("");
+  const [selectedPlanPrice, setSelPlanPrice] = useState("");
+  const [selectedPlanName, setSelectedPlanName] = useState("");
+  const [selectedSubId, setSelectedSubId] = useState("");
+  const [initialOneOffShow, setInitialOneOffShow] = useState(1);
+  const [eligible, setEligible] = useState(false);
 
   // set loading
   useEffect(() => {
     if (selectedPackage) {
-      cookies.set("selected-package-id", selectedPackage);
+     // cookies.set("selected-package-id", selectedPackage);
+      // setChosenPlan(selectedPackage);
     }
+    getPlanes();
     setTimeout(() => {
       setIsLoading(false);
     }, 1000);
     currentUserValidation();
+    const mem = searchParams.get("mem");
+    if (mem != undefined) {
+      // /register?mem=true
+      handleMemType({ target: { value: "round" } });
+    }
 
     const ref = searchParams.get("ref");
 
@@ -71,8 +89,32 @@ const Register = ({ location }) => {
       setRefId(ref);
       values.refferalId = ref;
     }
-    getFreeEntry()
+    const checkAbility = searchParams.get("ability");
+    if (checkAbility == "WINACCESSEN") {
+      setEligible(true);
+    }
+    getFreeEntry();
   }, []);
+
+  const getPlanes = async () => {
+    await axios
+      .get(`${import.meta.env.VITE_SERVER_API}/getSubscriptionPlans`)
+      .then((response) => {
+        setPlans(response?.data?.data);
+        const selectedPlan = response?.data?.data.find(
+          (pl) => pl._id === selectedPackage
+        );
+        setChosenPlan(selectedPlan._id);
+        setSelectedPlanName(selectedPlan.name);
+        setSelectedSubId(selectedPlan.subid);
+        setSelPlanPrice(selectedPlan.monthly);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        setIsLoading(false);
+      });
+  };
 
   const onCheckboxChange = (e) => {
     setIsChecked(e.target.checked);
@@ -83,21 +125,22 @@ const Register = ({ location }) => {
     window.dataLayer.push({
       event: "sign_up",
       method: "google", //it can be email,facebook, or google. This value is optional
-      data:data
+      data: data,
     });
   };
 
   const saveFormData = async (temp_values, uid) => {
     console.log(temp_values, uid);
 
-    let coupen = ""
+    let coupen = "";
 
-    const checkAbility = searchParams.get("ability")
-    if(checkAbility == "WINACCESSEN") {
-      coupen = "MAZDABT50S"
-      console.log("co", coupen)
+    const checkAbility = searchParams.get("ability");
+    if (checkAbility == "WINACCESSEN") {
+      setEligible(true);
+      coupen = "MAZDABT50S";
+      console.log("co", coupen);
     }
-    console.log(coupen)
+    console.log(coupen);
 
     const data = {
       firstname: values.firstname,
@@ -109,10 +152,13 @@ const Register = ({ location }) => {
       tin: values.tin,
       refferalId: values.refferalId,
       uid: uid,
-      coupen: coupen
+      coupen: coupen,
+      subid: selectedSubId,
+      type: memberShipType,
+      roundid: selectedSubId, //Used the same variable for store roundid OR subid
     };
 
-    console.log(data)
+    console.log(data);
 
     const response = await axios.get(
       `${import.meta.env.VITE_SERVER_API}/checkEmail?email=${values.email}`
@@ -121,11 +167,17 @@ const Register = ({ location }) => {
     if (!response.data.exists) {
       try {
         const response = await axios.post(
-          `${import.meta.env.VITE_SERVER_API}/register`,
+          `${import.meta.env.VITE_SERVER_API}/registerWithStripe`,
           data
         );
         console.log(response.data);
-        cookies.set("wr_token", response.data.data._id);
+        if (response.data?.payurl) {
+          window.location.href = response.data?.payurl;
+        }
+        {
+          console.log("NO PAY");
+        }
+        //cookies.set("wr_token", response.data.data._id);
       } catch (error) {
         toast.error("Error submitting login credentials", {
           position: "top-center",
@@ -203,7 +255,6 @@ const Register = ({ location }) => {
                 setVerifyDisable(false);
                 setShowOTPBox(true);
                 setButtonText("Register");
-
               })
               .catch((err) => {
                 toast.error(err.message, {
@@ -216,7 +267,7 @@ const Register = ({ location }) => {
                   progress: undefined,
                   theme: "colored",
                 });
-                window.location.reload();
+                //window.location.reload();
                 setButtonText("Get OTP");
               });
           }
@@ -246,11 +297,11 @@ const Register = ({ location }) => {
       .then((result) => {
         saveFormData(values, result.user.uid);
 
-        navigate("/welcome");
+        // navigate("/welcome");
         // SIGN UP SUCCESS
         handleSEOReg();
         setTimeout(() => {
-          navigate("/dashboard");
+          //navigate("/dashboard");
         }, 3000);
       })
       .catch((err) => {});
@@ -286,10 +337,33 @@ const Register = ({ location }) => {
   const getFreeEntry = () => {
     const coupen = searchParams.get("COUPEN");
     if (coupen === "WINFREE") {
-      cookies.set("COUPEN", "WINFREE")
-      console.log(coupen, "copen")
+      cookies.set("COUPEN", "WINFREE");
+      console.log(coupen, "copen");
     }
-    console.log(coupen, "copen 2")
+    console.log(coupen, "copen 2");
+  };
+
+  const handleChosePlan = (id) => {
+    const selectedPlan = plans.find((pl) => pl._id === id);
+    setChosenPlan(id);
+    setSelectedPlanName(selectedPlan.name);
+    setSelectedSubId(selectedPlan.subid);
+    setSelPlanPrice(selectedPlan.monthly);
+  };
+
+  const handleMemType = (e) => {
+    setMemType(e.target.value);
+    if (e.target.value == "round") {
+      setChosenPlan("");
+      setSelectedPlanName("One off round");
+      setSelectedSubId("6582b82ea332291cc7752d92");
+      setSelPlanPrice(10);
+    } else {
+      setChosenPlan("");
+      setSelectedPlanName("");
+      setSelectedSubId("");
+      setSelPlanPrice(0);
+    }
   };
 
   return (
@@ -297,8 +371,17 @@ const Register = ({ location }) => {
       {isLoading ? (
         <Loader />
       ) : (
-        <div className="h-screen flex items-center justify-center bg-image">
-          <div className="flex items-center justify-between gap-12 md:flex-row flex-col px-10 xl:px-20 max-w-[1440px]">
+        <div className="min-h-screen flex flex-col items-center justify-center bg-image">
+          {eligible && (
+            <div className="py-4 w-full bg-yellow-300 text-center">
+              <p className="text-black font-semibold">
+                Congratulations! You are eligible for free entry on this
+                registration.
+              </p>
+            </div>
+          )}
+
+          <div className="flex items-start justify-between gap-12 md:flex-row flex-col px-10 xl:px-20 max-w-[1440px]">
             {/* <div className="login-contain flex items-center justify-center md:flex-row xl:flex-row 4xl:flex-row flex-col"> */}
             <div className="">
               <div className="hidden md:block  transform scale-x-[-1]">
@@ -311,6 +394,7 @@ const Register = ({ location }) => {
                   alt="main-img"
                 />
               </div>
+              {/* Mobile View Jeep */}
               <div className="block md:hidden w-full transform scale-x-[-1]">
                 <motion.img
                   initial={{ opacity: 0, x: "40%" }}
@@ -321,7 +405,67 @@ const Register = ({ location }) => {
                   alt="main-img"
                 />
               </div>
-              {/* Mobile View Jeep */}
+
+              {/* SUB PLANS SHOW DESKTOP */}
+              <div className=" hidden md:flex items-stretch md:flex-wrap justify-start gap-3">
+                {memberShipType == "subscription" ? (
+                  <>
+                    {plans.map((plan, key) => (
+                      <Card
+                        key={key}
+                        planId={plan._id}
+                        title={plan.name + " Tier"}
+                        title2={plan.raffle_count}
+                        titleColor2={plan.name == "Black" ? "white" : "black"}
+                        desc1={plan.desc[0]}
+                        desc2={plan.desc[1]}
+                        desc3={plan.desc[2]}
+                        buttonColor={
+                          plan.name == "Starter"
+                            ? "black"
+                            : "" | (plan.name == "Boomer")
+                            ? "black"
+                            : "" | (plan.name == "Platinum")
+                            ? "black"
+                            : "" | (plan.name == "Gold")
+                            ? "black"
+                            : "" | (plan.name == "Black")
+                            ? "white"
+                            : "black"
+                        }
+                        arrowColor="[#01819D]"
+                        buttonTextColor={
+                          plan.name == "Black" ? "black" : "white"
+                        }
+                        btnword="CHOSE PLAN"
+                        handleChosePlan={handleChosePlan}
+                        bgColorFrom={plan.color}
+                        bgColorTo={plan.colorFrom}
+                        titleColor={plan.name == "Black" ? "white" : "black"}
+                        classNames={
+                          "basis-[100%] md:basis-[48%] xl:basis-[28%]"
+                        }
+                        chosenPlan={chosenPlan}
+                        isShowDetails={true}
+                      />
+                    ))}
+                  </>
+                ) : (
+                  <>
+                  <VehicleCardForReg
+                    type={"vehicle"}
+                    name={"2023 MAZDA BT-50"}
+                    date={"2024-02-28"}
+                    color={"#D51111"}
+                    fromColor={"#D51111"}
+                    raffleimage={
+                      "https://winland.onrender.com/public/images/vehicle.png"
+                    }
+                  />
+                  <button className="md:text-sm text-xs text-blue-500">See More</button>
+                  </>
+                )}
+              </div>
             </div>
             <div className="flex flex-col xl:space-y-2 md:space-y-4 space-y-2 md:mt-10 lg:mt-20 xl:mt-10 special:mt-10 mt-1 mb-10 sm:mb-0 ">
               <span className="text-2xl md:text-4xl xl:text-4xl fw-bold font-bold special:text-8xl">
@@ -516,8 +660,111 @@ const Register = ({ location }) => {
                         onBlur={handleBlur}
                         id="refferalId"
                         className="placeholder:text-[16px]"
-                        
                       />
+                    </div>
+                    {/* <div className="w-full"> */}
+                    {/* SUB PLANS SHOW MOBILE*/}
+                    <div className=" md:hidden w-[80vw] overflow-x-scroll">
+                      {memberShipType == "subscription" ? (
+                        <div className="w-max gap-2 flex items-stretch justify-between">
+                          {plans.map((plan, key) => (
+                            <Card
+                              key={key}
+                              planId={plan._id}
+                              title={plan.name + " Tier"}
+                              title2={plan.raffle_count}
+                              titleColor2={
+                                plan.name == "Black" ? "white" : "black"
+                              }
+                              buttonColor={
+                                plan.name == "Starter"
+                                  ? "black"
+                                  : "" | (plan.name == "Boomer")
+                                  ? "black"
+                                  : "" | (plan.name == "Platinum")
+                                  ? "black"
+                                  : "" | (plan.name == "Gold")
+                                  ? "black"
+                                  : "" | (plan.name == "Black")
+                                  ? "white"
+                                  : "black"
+                              }
+                              arrowColor="[#01819D]"
+                              buttonTextColor={
+                                plan.name == "Black" ? "black" : "white"
+                              }
+                              btnword="CHOSE PLAN"
+                              handleChosePlan={handleChosePlan}
+                              bgColorFrom={plan.color}
+                              bgColorTo={plan.colorFrom}
+                              titleColor={
+                                plan.name == "Black" ? "white" : "black"
+                              }
+                              classNames={"w-[150px]"}
+                              chosenPlan={chosenPlan}
+                            />
+                          ))}
+                        </div>
+                      ) : (
+                        // <div className="flex items-center justify-center w-max gap-2">
+                        <VehicleCardForReg
+                          isSubscribed={true}
+                          type={"vehicle"}
+                          name={"2023 MAZDA BT-50"}
+                          date={"2024-02-28"}
+                          color={"#D51111"}
+                          fromColor={"#D51111"}
+                          icon={
+                            "https://winland.onrender.com/public/images/max.png"
+                          }
+                          raffleimage={
+                            "https://winland.onrender.com/public/images/vehicle.png"
+                          }
+                          
+                        />
+                      )}
+                     
+                    </div>
+                    <p className="text-sm font-bold border-b">
+                      Membership Types
+                    </p>
+
+                    <div className="bg-white border border-black px-4 py-1 rounded-xl w-full">
+                      <input
+                        type="radio"
+                        name="selectPack"
+                        value={"round"}
+                        onChange={handleMemType}
+                        checked={memberShipType === "round"}
+                      />
+                      <label htmlFor="selectPack" className="text-sm">
+                        {" "}
+                        One off package
+                      </label>
+                    </div>
+                    <div className="bg-white border border-black px-4 py-1 rounded-xl w-full">
+                      <input
+                        type="radio"
+                        name="selectPack"
+                        value={"subscription"}
+                        onChange={handleMemType}
+                        checked={memberShipType === "subscription"}
+                      />
+                      <label htmlFor="selectPack" className="text-sm">
+                        {" "}
+                        Subscription (Most popular accumulating entries)
+                      </label>
+                    </div>
+
+                    {/* </div> */}
+                    <p className="text-sm font-bold border-b border-gray-500">
+                      Amount
+                    </p>
+                    <div className="flex items-start justify-between text-xs text-gray-500 border-b border-gray-500">
+                      <p>{selectedPlanName} Tier</p> <p>${selectedPlanPrice}</p>
+                    </div>
+                    <div className="flex items-start justify-between text-xs font-bold">
+                      <p>Order Total</p> <p>${selectedPlanPrice}</p>
                     </div>
                   </div>
 
@@ -604,6 +851,22 @@ const Register = ({ location }) => {
             </div>
             {/* </div> */}
           </div>
+
+          {/* MEMBERSHIP TYPE */}
+          {/* <div className="flex items-center justify-between gap-12 md:flex-row flex-col px-10 xl:px-20 max-w-[1440px]">
+            <div className="w-full">
+
+            </div>
+            <div className="w-full">
+              <p>Membership Types</p>
+              <hr />
+              <div className="bg-white border border-black px-4 py-2 rounded-xl w-full">
+                <input type="radio" name="selected" />
+                <label htmlFor="selected"> One off package</label>
+              </div>
+
+            </div>
+          </div> */}
         </div>
       )}
     </>

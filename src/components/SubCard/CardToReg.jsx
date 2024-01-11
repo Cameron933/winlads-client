@@ -4,7 +4,6 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 import { FaStar } from "react-icons/fa6";
 import Correct from "../../assets/images/icons/greenCorrect.png";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
 
 const SubCard = ({
   bgColorFrom = "#D9E9FF",
@@ -32,11 +31,13 @@ const SubCard = ({
   mostPopular = false,
   yValue,
   classNames,
-  planId
+  planId,
+  handleChosePlan,
+  chosenPlan,
+  isShowDetails= false
 }) => {
   const [showmore, setShowmore] = useState(false);
   const [btnBgColor, setBtnBgColor] = useState(buttonColor);
-  const navigate = useNavigate();
 
   const switchBtnColor = () => {
     if (btnBgColor == buttonColor) {
@@ -47,10 +48,6 @@ const SubCard = ({
   };
   const handleClick = () => {
     setShowmore(!showmore);
-  };
-
-  const handleClickButton = () => {
-    navigate(`/register/${planId}`)
   };
 
   return (
@@ -90,11 +87,13 @@ const SubCard = ({
           style={{ color: titleColor2 }}
         >
           <span className="text-4xl lg:text-5xl">
-            {title2.slice(0, 3).trim()}
+            {title2}
           </span>{" "}
-          <span className="text-xs uppercase">Accumulating {title2.slice(0, 3).trim() == "01" ? "Entry" : "Entries"}</span>
+          <span className="text-xs uppercase">Accumulating {title2 == "01" ? "Entry" : "Entries"}</span>
         </p>
       </div>
+      {
+        isShowDetails &&
       <div className="relative flex flex-col space-y-2  border-2 border-black bg-white px-2 py-4 rounded-xl md:mb-10 mb-5 h-full">
         <div className="flex flex-row items-start gap-2">
           <img src={Correct} alt="" />
@@ -203,15 +202,16 @@ const SubCard = ({
           </div>
         )}
       </div>
+      }
       <div
         className={`rounded-md border-2 hover:bg-white hover:text-black cursor-pointer border-white flex flex-row justify-center py-2 hover:scale-105 hover:transition-transform ease-out duration-300 mt-auto text-${buttonTextColor}`}
         style={{ backgroundColor: btnBgColor }}
-        onClick={handleClickButton}
+        onClick={()=>handleChosePlan(planId)}
         onMouseEnter={() => switchBtnColor()}
         onMouseLeave={() => switchBtnColor()}
       >
         <button className="flex flex-row items-center gap-2">
-          <p className={` text-xs 2xl:text-lg`}>{btnword}</p>
+          <p className={` text-xs 2xl:text-lg`}>{chosenPlan == planId ?  'SELECTED': btnword}</p>
           {/* <MdKeyboardArrowRight className={`text-${arrowColor}`} /> */}
         </button>
       </div>

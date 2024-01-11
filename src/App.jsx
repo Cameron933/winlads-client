@@ -15,15 +15,11 @@ import Welcome from "./components/Welcome/Welcome";
 import Raffles from "./pages/Raffles/Raffles";
 import RafflesDashboard from "./pages/Raffles/RaffleDashbord";
 import FaQ from "./pages/FaQ/FaQ";
-import Notice from "./pages/Notice/Notice";
 import BusinessCard from "./pages/BusinessCard/BusinessCard";
 import Transaction from "./pages/Transaction/Transaction";
 import LiveRaffle from "./pages/LiveRaffle/LiveRaffle";
 import Profile from "./pages/Profile/Profile";
-import NoticeInner from "./pages/Notice/NoticeInner";
 import Messages from "./pages/Messages/Messages";
-import History from "./pages/History/History";
-import SubcriptionDone from "./pages/SubDone";
 import PaymentSuccess from "./pages/PaymentSuccess/PaymentSuccess";
 import GoogleAnalytics from "./utils/GoogleAnalytics";
 import TermsCondition from "./pages/Terms&Condition/Terms&Condition";
@@ -33,8 +29,6 @@ import MyEntries from "./pages/MyEntries/MyEntries";
 import NotFound from "./pages/NotFound";
 import Support from "./pages/Support/Support";
 import Withdraw from "./pages/Withdraw/Withdraw";
-import { elements } from "chart.js";
-import Youtube from "./components/youtube/Youtube";
 import Affiliate from "./pages/Affiliate/Affiliate";
 import Promo from "./pages/Promo/Promo";
 import RefCount from "./pages/Affiliate/RefferalCount";
@@ -43,7 +37,9 @@ import ForgotPassword from "./pages/ForgotPW/ForgotPassword";
 import RequestEntries from "./pages/RequestEntries/RequestEntries";
 import TagManager from 'react-gtm-module'
 import SubDone from "./pages/SubDone";
-import MyEntriesTable from "./pages/MyEntries/MyEntriesTable";
+import PastGiveaways from "./pages/PastGiveaways/PastGiveaways";
+import OngoingGiveaways from "./pages/OngoingGiveaways/OngoingGiveaways";
+import UpcomingGiveaways from "./pages/UpcomingGiveaways/UpcomingGiveaways";
 
 
 function App() {
@@ -146,6 +142,18 @@ TagManager.initialize(tagManagerArgs)
         {
           path:'/requestEntries',
           element:<RequestEntries/>
+        },
+        {
+          path:'/pastGiveaways',
+          element:<PastGiveaways/>
+        },
+        {
+          path:'/ongoingGiveaways',
+          element:<OngoingGiveaways/>
+        },
+        {
+          path:'/upcomingGiveaways',
+          element:<UpcomingGiveaways/>
         },
        
       ],

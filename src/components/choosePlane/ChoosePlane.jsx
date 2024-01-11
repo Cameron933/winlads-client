@@ -39,6 +39,7 @@ const ChoosePlane = () => {
               bgColorFrom="#0094FF"
               bgColorTo="#00347C"
               titleColor="black"
+              planId={'657c40018406aeb95f876ca2'}
               // btnword="Get started now"
             />
             <Card
@@ -62,6 +63,7 @@ const ChoosePlane = () => {
               arrowColor="white"
               buttonTextColor="white"
               btnword="SIGN UP NOW"
+              planId={'657c757b8406aeb95f876ca7'}
             />
             <Card
               bgColorFrom="#00ECFF"
@@ -91,6 +93,7 @@ const ChoosePlane = () => {
               // point3={Correct}
               // point4={Correct}
               // point5={Correct}
+              planId={'657c766e8406aeb95f876cac'}
             />
             <Card
               bgColorFrom="#FFBE00"
@@ -115,6 +118,7 @@ const ChoosePlane = () => {
               arrowColor="[#01819D]"
               buttonTextColor={"white"}
               btnword="SIGN UP NOW"
+              planId={'657c775f8406aeb95f876cb1'}
             />
             <Card
               bgColorFrom="#23282E"
@@ -141,6 +145,7 @@ const ChoosePlane = () => {
               buttonTextColor={"white"}
               btnword="SIGN UP NOW"
               classNames={""}
+              planId={'657c77b68406aeb95f876cb6'}
             />
 
             {/* <div className="w-full xl:hidden md:flex  hidden">

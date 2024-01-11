@@ -65,7 +65,7 @@ const Filters = ({
       <h5 className="mb-5 text-green-600 px-2 xl:px-0">
         Total Active Entries : {myTickets}
       </h5>
-      <div className="hidden xl:grid grid-cols-5 mb-4 gap-2">
+      <div className="hidden xl:grid grid-cols-4 mb-4 gap-2">
         <div className="col-span-1">
           <div
             className="w-full text-ellipsis overflow-hidden flex items-center justify-between bg-gray-300 px-4 py-2 gap-2 rounded-full text-xl font-semibold"
@@ -115,7 +115,7 @@ const Filters = ({
           )}
         </div>
         {/* Giveaway Rounds */}
-        <div className="col-span-4">
+        <div className="col-span-3">
           <div className="flex flex-row space-x-2 justify-between">
             <div
               className="flex items-center justify-between bg-gray-300 px-4 py-2 w-full rounded-full text-xl font-semibold"
@@ -151,16 +151,21 @@ const Filters = ({
               onChange={(e) => handleNumbers(e.target.value)}
             />
             <div className="relative bg-gray-300 w-full px-4 py-2 gap-2 rounded-full 2xl:text-sm xl:text-sm font-semibold cursor-pointer overflow-hidden flex items-center justify-center">
-            <label htmlFor="valid-date" className=" text-xs absolute right-10 top-1/2 -translate-y-1/2">Valid Date</label>
-            <input
-              type="date"
-              name="valid-date"
-              className="w-full bg-inherit outline-none"
-              placeholder="Valid Date"
-              onChange={(e) => validDate(e.target.value)}
-            />
+              <label
+                htmlFor="valid-date"
+                className=" text-xs absolute right-10 top-1/2 -translate-y-1/2"
+              >
+                Valid Date
+              </label>
+              <input
+                type="date"
+                name="valid-date"
+                className="w-full bg-inherit outline-none"
+                placeholder="Valid Date"
+                onChange={(e) => validDate(e.target.value)}
+              />
             </div>
-            <div className="relative cursor-pointer">
+            {/* <div className="relative cursor-pointer">
               <div
                 className="flex items-center w-48 justify-between text-black bg-gray-300 px-4 py-3 gap-2 rounded-full text-xl font-semibold"
                 onClick={handleWinShow}
@@ -176,7 +181,7 @@ const Filters = ({
                   </div>
                 </div>
               )}
-            </div>
+            </div> */}
 
             <input
               type="text"
