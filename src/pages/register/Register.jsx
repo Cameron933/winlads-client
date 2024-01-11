@@ -177,11 +177,7 @@ const Register = ({ location }) => {
         {
           console.log("NO PAY");
         }
-
-        setTimeout(() => {
-          navigate("/welcome");
-        }, 3000);
-        //cookies.set("wr_token", response.data.data._id);
+        cookies.set("wr_token", response.data.data._id);
       } catch (error) {
         toast.error("Error submitting login credentials", {
           position: "top-center",
