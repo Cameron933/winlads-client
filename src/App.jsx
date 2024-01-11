@@ -68,10 +68,10 @@ TagManager.initialize(tagManagerArgs)
           path: "/subscription",
           element: <Subscription />,
         },
-        {
-          path: "/giveaways",
-          element: <RafflesDashboard />,
-        },
+        // {
+        //   path: "/giveaways",
+        //   element: <RafflesDashboard />,
+        // },
         {
           path: "/giveaway/:id",
           element: <Raffles />,
