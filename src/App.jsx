@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider, createHashRouter } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Home from "./pages/Home/Home";
 import Dashboard from "./pages/Dashboard/Dashboard";
@@ -48,7 +48,7 @@ function App() {
 }
 
 TagManager.initialize(tagManagerArgs)
-  const router = createHashRouter([
+  const router = createBrowserRouter([
     {
       element: <Layout />,
       children: [
