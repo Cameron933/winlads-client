@@ -357,7 +357,7 @@ const Register = ({ location }) => {
       setChosenPlan("");
       setSelectedPlanName("One off round");
       setSelectedSubId("6582b82ea332291cc7752d92");
-      setSelPlanPrice(5);
+      setSelPlanPrice(10);
     } else {
       setChosenPlan("");
       setSelectedPlanName("");
