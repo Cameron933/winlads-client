@@ -32,6 +32,7 @@ import {
 } from "react-icons/fc";
 import Card from "../../components/SubCard/CardToReg.jsx";
 import DashboardVehicleCard from "../../components/DashboardVehicleCard/DashboardVehicle.jsx";
+import VehicleCardForReg from "../../components/DashboardVehicleCard/VehicleCardForReg.jsx";
 
 const inputStyle = {
   border: "1px solid #000000",
@@ -74,6 +75,11 @@ const Register = ({ location }) => {
       setIsLoading(false);
     }, 1000);
     currentUserValidation();
+    const mem = searchParams.get("mem");
+    if(mem != undefined){
+      // /register?mem=true
+      handleMemType({target: {value:'round'}})
+    }
 
     const ref = searchParams.get("ref");
 
@@ -141,7 +147,7 @@ const Register = ({ location }) => {
       coupen: coupen,
       subid: selectedSubId,
       type: memberShipType,
-      roundid:selectedSubId
+      roundid:selectedSubId //Used the same variable for store roundid OR subid
 
     };
 
@@ -346,6 +352,11 @@ const Register = ({ location }) => {
       setSelectedPlanName('One off round')
       setSelectedSubId('6582b82ea332291cc7752d92')
       setSelPlanPrice(5)
+    }else{
+      setChosenPlan('')
+      setSelectedPlanName('')
+      setSelectedSubId('')
+      setSelPlanPrice(0)
     }
   }
 
@@ -431,14 +442,12 @@ const Register = ({ location }) => {
                       }
                     </>
                     :
-                    <DashboardVehicleCard
-                      isSubscribed={true}
+                    <VehicleCardForReg
                       type={'vehicle'}
                       name={'2023 MAZDA BT-50'}
                       date={'2024-02-28'}
                       color={'#D51111'}
                       fromColor={'#D51111'}
-                      icon={'https://winland.onrender.com/public/images/max.png'}
                       raffleimage={'https://winland.onrender.com/public/images/vehicle.png'}
                     />
                 }
@@ -707,7 +716,7 @@ const Register = ({ location }) => {
                     </div>
                     <div className="bg-white border border-black px-4 py-1 rounded-xl w-full">
                       <input type="radio" name="selectPack" value={'subscription'} onChange={handleMemType} checked={memberShipType === 'subscription'} />
-                      <label htmlFor="selectPack" className="text-sm">Subscription (Most popular accumulating entries)</label>
+                      <label htmlFor="selectPack" className="text-sm"> Subscription (Most popular accumulating entries)</label>
                     </div>
 
                     {/* </div> */}
