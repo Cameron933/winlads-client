@@ -51,10 +51,6 @@ const SelectRafflePaymentMethod = ({
       );
       if (response.data.status == 200) {
         console.log("points");
-        window.dataLayer.push({
-          event: 'one_off_packages',
-          data: data
-      });
         toast.success(response.data.data.message, {
           position: "top-center",
           autoClose: 5000,
