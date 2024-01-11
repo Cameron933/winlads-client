@@ -93,22 +93,6 @@ function Raffles() {
     setSelectPayment(true);
   };
 
-  const logDetailsToDataLayer = (valUser, giveawayId, price, name) => {
-    // const data = {
-    //     user: valUser || "",
-    //     giveawayId: giveawayId || "",
-    //     price: price || "",
-    //     plan_name: name || "",
-    // };
-
-    if (typeof localStorage !== "undefined") {
-        localStorage.setItem('paymentSuccessData', JSON.stringify(data));
-    }
-
-    // Debugging log
-    console.log('Logging to localstorage one off payment:', data);
- };
-
   const linearGradient = `linear-gradient(90deg, ${bgColor} 0%, #000000 100%)`;
 
   return (
@@ -375,7 +359,7 @@ function Raffles() {
           userId={valUser.uid}
           name={selectedName}
           onClose={() => setSelectPayment(false)}
-          logDetailsToDataLayer = {() => logDetailsToDataLayer()}
+          valUser = {valUser}
         />
       )}
     </>

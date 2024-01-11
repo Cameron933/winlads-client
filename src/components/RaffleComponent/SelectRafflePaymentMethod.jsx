@@ -13,10 +13,26 @@ const SelectRafflePaymentMethod = ({
   giveawayId,
   price,
   name,
-  logDetailsToDataLayer
+  valUser
 }) => {
   const [count, setCount] = useState(1);
   const [coupon, setCoupon] = useState("")
+
+  const logDetailsToDataLayer = (valUser, giveawayId, price, name) => {
+    const data = {
+        user: valUser || "",
+        giveawayId: giveawayId || "",
+        price: price || "",
+        plan_name: name || "",
+    };
+
+    if (typeof localStorage !== "undefined") {
+        localStorage.setItem('paymentSuccessData', JSON.stringify(data));
+    }
+
+    // Debugging log
+    console.log('Logging to localstorage one off payment:', data);
+ };
 
   const handleButtonClick = async () => {
     try {
@@ -33,8 +49,8 @@ const SelectRafflePaymentMethod = ({
       const payURL = response.data.payurl;
       
       // Redirect the user to the payURL
+      logDetailsToDataLayer(valUser, giveawayId,price, name);
       window.location.href = payURL;
-      logDetailsToDataLayer();
     } catch (error) {
       console.log(error);
     }
