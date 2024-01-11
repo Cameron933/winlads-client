@@ -107,7 +107,7 @@ function Raffles() {
 
     // Debugging log
     console.log('Logging to localstorage one off payment:', data);
-};
+ };
 
   const linearGradient = `linear-gradient(90deg, ${bgColor} 0%, #000000 100%)`;
 
