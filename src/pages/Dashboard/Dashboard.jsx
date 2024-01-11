@@ -375,6 +375,7 @@ const Dashboard = () => {
         <SelectRafflePaymentMethod
           onClose={() => setSelectPayment(false)}
           userId={valUser.uid}
+          subPlane={valUser.subscripton}
           giveawayId={selectGiveawayId}
           price={price}
           name={selectGiveawayName}

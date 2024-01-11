@@ -290,7 +290,7 @@ const Register = ({ location }) => {
       .then((result) => {
         saveFormData(values, result.user.uid);
 
-        navigate("/welcome");
+        // navigate("/welcome");
         // SIGN UP SUCCESS
         handleSEOReg();
         setTimeout(() => {
