@@ -34,7 +34,7 @@ const SubCard = ({
   planId,
   handleChosePlan,
   chosenPlan,
-  isShowDetails= false
+  isShowDetails = false,
 }) => {
   const [showmore, setShowmore] = useState(false);
   const [btnBgColor, setBtnBgColor] = useState(buttonColor);
@@ -86,38 +86,56 @@ const SubCard = ({
           className={`font-bold text-lg 2xl:text-xl`}
           style={{ color: titleColor2 }}
         >
-          <span className="text-4xl lg:text-5xl">
-            {title2}
-          </span>{" "}
-          <span className="text-xs uppercase">Accumulating {title2 == "01" ? "Entry" : "Entries"}</span>
+          <span className="text-4xl lg:text-5xl">{title2}</span>{" "}
+          <span className="text-xs uppercase">
+            Accumulating {title2 == "01" ? "Entry" : "Entries"}
+          </span>
         </p>
       </div>
-      {
-        isShowDetails &&
-      <div className="relative flex flex-col space-y-2  border-2 border-black bg-white px-2 py-4 rounded-xl md:mb-10 mb-5 h-full">
-        <div className="flex flex-row items-start gap-2">
-          <img src={Correct} alt="" />
-          <p className={`text-${descColor} text-xs 2xl:text-[16px] leading-6`}>
-            {desc1}
-          </p>
-        </div>
-        <div className="flex flex-row items-start gap-2">
-          <img src={Correct} alt="" />
-          <p className={`text-${descColor} text-xs 2xl:text-[16px] leading-6`}>
-            {desc2}
-          </p>
-        </div>
-        
-        {desc3 && (
+      {isShowDetails && (
+        <div className="relative flex flex-col space-y-2  border-2 border-black bg-white px-2 py-4 rounded-xl md:mb-10 mb-5 h-full">
           <div className="flex flex-row items-start gap-2">
             <img src={Correct} alt="" />
             <p
-              className={`text-${descColor} text-xs 2xl:text-[16px] leading-6`}
+              className={`text-${descColor} text-[10px] 2xl:text-[16px] leading-6`}
+            >
+              {desc1}
+            </p>
+          </div>
+
+          {showmore && (
+            // desc3 && (
+            <>
+              <div className="flex flex-row items-start gap-2">
+                <img src={Correct} alt="" />
+                <p
+                  className={`text-${descColor} text-[10px] 2xl:text-[16px] leading-6`}
+                >
+                  {desc2}
+                </p>
+              </div>
+              <div className="flex flex-row items-start gap-2">
+                <img src={Correct} alt="" />
+                <p
+                  className={`text-${descColor} text-[10px] 2xl:text-[16px] leading-6`}
+                >
+                  {desc3}
+                </p>
+              </div>
+            </>
+
+            // )
+          )}
+          {/* {desc3 && (
+          <div className="flex flex-row items-start gap-2">
+            <img src={Correct} alt="" />
+            <p
+              className={`text-${descColor} text-[10px] 2xl:text-[16px] leading-6`}
             >
               {desc3}
             </p>
           </div>
-        )}
+        )} */}
           {/* {desc10 && (
           <div className="flex flex-row items-start gap-2 pb-4">
             <img src={Correct} alt="" />
@@ -128,7 +146,7 @@ const SubCard = ({
             </p>
           </div>
         )} */}
-        {showmore && (
+          {/* {showmore && (
           <div>
             <div className="flex flex-row items-start gap-2">
               <img src={Correct} alt="" />
@@ -189,29 +207,31 @@ const SubCard = ({
               </div>
             )}
           </div>
-        )}
-        {desc4 && (
-          <div className="absolute bottom-2 right-2">
-            <p
-              className="capitalize flex justify-end text-xs cursor-pointer"
-              style={{ color: buttonColor }}
-              onClick={handleClick}
-            >
-              {showmore ? "View Less" : "View More"}
-            </p>
-          </div>
-        )}
-      </div>
-      }
+        )} */}
+          {desc2 && (
+            <div className="absolute bottom-2 right-2">
+              <p
+                className="capitalize flex justify-end text-xs cursor-pointer text-black"
+                // style={{ color: buttonColor }}
+                onClick={handleClick}
+              >
+                {showmore ? "See Less" : "See More"}
+              </p>
+            </div>
+          )}
+        </div>
+      )}
       <div
         className={`rounded-md border-2 hover:bg-white hover:text-black cursor-pointer border-white flex flex-row justify-center py-2 hover:scale-105 hover:transition-transform ease-out duration-300 mt-auto text-${buttonTextColor}`}
         style={{ backgroundColor: btnBgColor }}
-        onClick={()=>handleChosePlan(planId)}
+        onClick={() => handleChosePlan(planId)}
         onMouseEnter={() => switchBtnColor()}
         onMouseLeave={() => switchBtnColor()}
       >
         <button className="flex flex-row items-center gap-2">
-          <p className={` text-xs 2xl:text-lg`}>{chosenPlan == planId ?  'SELECTED': btnword}</p>
+          <p className={` text-xs 2xl:text-lg`}>
+            {chosenPlan == planId ? "SELECTED" : btnword}
+          </p>
           {/* <MdKeyboardArrowRight className={`text-${arrowColor}`} /> */}
         </button>
       </div>
