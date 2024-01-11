@@ -177,6 +177,7 @@ const Register = ({ location }) => {
         {
           console.log("NO PAY");
         }
+
         //cookies.set("wr_token", response.data.data._id);
       } catch (error) {
         toast.error("Error submitting login credentials", {
@@ -328,6 +329,9 @@ const Register = ({ location }) => {
     const validator = await validateCurrentUser();
     if (validator.validatorBl) {
       console.log("Session OK", validator.user);
+      setTimeout(() => {
+        navigate("/welcome");
+      }, 3000);
       navigate("/dashboard");
     } else {
       console.log("");
