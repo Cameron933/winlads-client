@@ -412,7 +412,7 @@ const Register = ({ location }) => {
               </div>
 
               {/* SUB PLANS SHOW DESKTOP */}
-              <div className=" hidden md:flex items-stretch md:flex-wrap justify-start gap-3">
+              <div className="hidden md:flex items-stretch md:flex-wrap justify-start gap-3">
                 {memberShipType == "subscription" ? (
                   <>
                     {plans.map((plan, key) => (
@@ -669,7 +669,7 @@ const Register = ({ location }) => {
                     </div>
                     {/* <div className="w-full"> */}
                     {/* SUB PLANS SHOW MOBILE*/}
-                    <div className=" md:hidden w-[80vw] overflow-x-scroll">
+                    <div className="md:hidden w-[80vw] overflow-x-scroll">
                       {memberShipType == "subscription" ? (
                         <div className="w-max gap-2 flex items-stretch justify-between">
                           {plans.map((plan, key) => (
