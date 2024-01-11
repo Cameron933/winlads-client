@@ -67,7 +67,7 @@ const Register = ({ location }) => {
   // set loading
   useEffect(() => {
     if (selectedPackage) {
-      cookies.set("selected-package-id", selectedPackage);
+     // cookies.set("selected-package-id", selectedPackage);
       // setChosenPlan(selectedPackage);
     }
     getPlanes();
@@ -294,7 +294,7 @@ const Register = ({ location }) => {
         // SIGN UP SUCCESS
         handleSEOReg();
         setTimeout(() => {
-          navigate("/dashboard");
+          //navigate("/dashboard");
         }, 3000);
       })
       .catch((err) => {});
