@@ -64,6 +64,8 @@ const Register = ({ location }) => {
   const [selectedPlanName, setSelectedPlanName] = useState("");
   const [selectedSubId, setSelectedSubId] = useState("");
 
+  const [eligible, setEligible] = useState(false);
+
   // set loading
   useEffect(() => {
     if (selectedPackage) {
@@ -130,6 +132,7 @@ const Register = ({ location }) => {
 
     const checkAbility = searchParams.get("ability");
     if (checkAbility == "WINACCESSEN") {
+      setEligible(true);
       coupen = "MAZDABT50S";
       console.log("co", coupen);
     }
@@ -365,6 +368,15 @@ const Register = ({ location }) => {
         <Loader />
       ) : (
         <div className="min-h-screen flex flex-col items-center justify-center bg-image">
+          {eligible && (
+            <div className="py-4 w-full bg-yellow-300 text-center">
+              <p className="text-black font-semibold">
+                Congratulations! You are eligible for free entry on this
+                registration.
+              </p>
+            </div>
+          )}
+
           <div className="flex items-start justify-between gap-12 md:flex-row flex-col px-10 xl:px-20 max-w-[1440px]">
             {/* <div className="login-contain flex items-center justify-center md:flex-row xl:flex-row 4xl:flex-row flex-col"> */}
             <div className="">
