@@ -33,7 +33,7 @@ const SelectRafflePaymentMethod = ({
       const payURL = response.data.payurl;
 
       // Redirect the user to the payURL
-      logDetailsToDataLayer();
+      // logDetailsToDataLayer();
       window.location.href = payURL;
     } catch (error) {
       console.log(error);
