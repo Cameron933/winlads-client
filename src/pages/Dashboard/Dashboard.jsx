@@ -199,7 +199,7 @@ const Dashboard = () => {
                             icon={giveaway.raffle?.image}
                             raffleimage={giveaway.raffle?.raffleimage}
                             eligeble={true}
-                            oneOffPackage={true}
+                            oneOffPackage={giveaway.raffle?.name === "Vehicle" ? true : false}
                             onButton={() => {
                               handleButton({
                                 id: giveaway?._id,
@@ -311,7 +311,7 @@ const Dashboard = () => {
                             price={giveaway?.price}
                             raffleimage={giveaway.raffle?.raffleimage}
                             eligeble={true}
-                            oneOffPackage={true}
+                            oneOffPackage={giveaway.raffle?.name === "Vehicle" ? true : false}
                             onButton={() => {
                               handleButton({
                                 id: giveaway?._id,

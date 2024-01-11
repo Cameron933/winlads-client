@@ -229,7 +229,7 @@ const OngoingGiveaways = () => {
                   price={giveaway?.price}
                   raffleimage={giveaway.raffle?.raffleimage}
                   eligeble={true}
-                  oneOffPackage={true}
+                  oneOffPackage={giveaway.raffle?.name === "Vehicle" ? true : false}
                   onButton={() => {
                     handleButton({
                       id: giveaway?._id,

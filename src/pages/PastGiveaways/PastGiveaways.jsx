@@ -213,7 +213,7 @@ const PastGiveaways = () => {
                   price={giveaway?.price}
                   raffleimage={giveaway.raffle?.raffleimage}
                   eligeble={false}
-                  oneOffPackage={false}
+                  oneOffPackage={giveaway.raffle?.name === "Vehicle" ? true : false}
                   // onButton={() => {
                   //   handleButton({
                   //     id: giveaway?._id,
