@@ -375,7 +375,7 @@ function Raffles() {
           userId={valUser.uid}
           name={selectedName}
           onClose={() => setSelectPayment(false)}
-          logDetailsToDataLayer = {logDetailsToDataLayer(valUser, selectGiveawayId, price, selectedName)}
+          logDetailsToDataLayer = {() => logDetailsToDataLayer()}
         />
       )}
     </>
