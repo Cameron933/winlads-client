@@ -26,6 +26,9 @@ import Cookies from "universal-cookie";
 import ItemLoader from "../../components/Loader/ItemLoader";
 import { useRefresh } from "../../utils/RefreshContext";
 import { IoIosArrowDown } from "react-icons/io";
+import Past from "../../assets/images/new/past.png";
+import Ongoing from "../../assets/images/new/ongoing.png";
+import Upcoming from "../../assets/images/new/upcoming.png";
 
 const SideNav = ({ screen }) => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -161,21 +164,30 @@ const SideNav = ({ screen }) => {
           </div>
 
           {showDropdown && (
-            <div className="bg-black flex flex-col space-y-2 text-xs text-white text-start ml-10">
+            <div className="bg-black flex flex-col space-y-2 text-xs text-white text-start xl:ml-10 ml-4">
               <Link to="/ongoingGiveaways">
-                <p className="cursor-pointer hover:bg-[#36383b] px-2 py-1 hidden xl:block">
-                  Ongoing
-                </p>
+                <div className="flex flex-row space-x-2 items-center">
+                  <img src={Ongoing} alt="" className="w-[18px]" />
+                  <p className="cursor-pointer hover:bg-[#36383b] px-2 py-1 hidden xl:block">
+                    Ongoing
+                  </p>
+                </div>
               </Link>
               <Link to="/upcomingGiveaways">
-                <p className="cursor-pointer hover:bg-[#36383b] px-2 py-1 hidden xl:block">
-                  Upcoming
-                </p>
+                <div className="flex flex-row space-x-2 items-center">
+                  <img src={Upcoming} alt="" className="w-[18px]" />
+                  <p className="cursor-pointer hover:bg-[#36383b] px-2 py-1 hidden xl:block">
+                    Upcoming
+                  </p>
+                </div>
               </Link>
               <Link to="/pastGiveaways">
-                <p className="cursor-pointer hover:bg-[#36383b] px-2 py-1 hidden xl:block">
-                  Past
-                </p>
+                <div className="flex flex-row space-x-2 items-center">
+                  <img src={Past} alt="" className="w-[18px]" />
+                  <p className="cursor-pointer hover:bg-[#36383b] px-2 py-1 hidden xl:block">
+                    Past
+                  </p>
+                </div>
               </Link>
             </div>
           )}
