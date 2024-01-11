@@ -51,9 +51,6 @@ const OngoingGiveaways = () => {
 
   useEffect(() => {
     currentUserValidation();
-    if (cookies.get("selected-package-id")) {
-      navigate("/subscription");
-    }
   }, []);
 
   const currentUserValidation = async () => {

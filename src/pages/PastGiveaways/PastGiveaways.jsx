@@ -11,6 +11,7 @@ import User from "../../assets/images/user4.png";
 import { motion } from "framer-motion";
 import NoLiveCard from "../../components/Live/NoLiveCard.jsx";
 import LiveCard from "../../components/Live/LiveCard.jsx";
+import axios from "axios";
 
 const PastGiveaways = () => {
 
@@ -24,7 +25,14 @@ const PastGiveaways = () => {
   const [userImage, setUserImage] = useState("");
   const [valUser, setValUser] = useState({});
   const [liveLink, setLiveLink] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [giveaways, setGiveaways] = useState([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    currentUserValidation();
+  }, []);
+
 
 
   const currentUserValidation = async () => {
@@ -36,6 +44,22 @@ const PastGiveaways = () => {
     } else {
       navigate("/login");
     }
+  };
+
+  const getGiveaways = async (valuid) => {
+    await axios
+      .get(
+        `${import.meta.env.VITE_SERVER_API}/raffleRoundsFuture?uid=${valuid}`
+      )
+      .then((response) => {
+        console.log(response.data.data, "data raffle");
+        setGiveaways(response?.data?.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false);
+      });
   };
 
   function getProfileImage(img) {
