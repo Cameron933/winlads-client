@@ -68,7 +68,7 @@ const Dashboard = () => {
   const getGiveaways = async (valuid) => {
     await axios
       .get(
-        `${import.meta.env.VITE_SERVER_API}/raffleRoundsFuture?uid=${valuid}`
+        `${import.meta.env.VITE_SERVER_API}/raffleRoundsOngoing`
       )
       .then((response) => {
         console.log(response.data.data, "data raffle");
@@ -198,6 +198,8 @@ const Dashboard = () => {
                             color={giveaway?.raffle?.color}
                             icon={giveaway.raffle?.image}
                             raffleimage={giveaway.raffle?.raffleimage}
+                            eligeble={true}
+                            oneOffPackage={true}
                             onButton={() => {
                               handleButton({
                                 id: giveaway?._id,
@@ -308,6 +310,8 @@ const Dashboard = () => {
                             icon={giveaway.raffle?.image}
                             price={giveaway?.price}
                             raffleimage={giveaway.raffle?.raffleimage}
+                            eligeble={true}
+                            oneOffPackage={true}
                             onButton={() => {
                               handleButton({
                                 id: giveaway?._id,
