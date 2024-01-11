@@ -134,7 +134,7 @@ const RequestEntries = () => {
               </div>
             </div>
 
-            <div className="flex flex-col space-y-2">
+            {/* <div className="flex flex-col space-y-2">
               <p className="text-black text-sm xl:text-md special:text-xl">
                 Instagram Post Link
               </p>
@@ -147,7 +147,7 @@ const RequestEntries = () => {
                   onChange={(e) => setInstalink(e.target.value)}
                 />
               </div>
-            </div>
+            </div> */}
             <div
               className="bg-black py-2 text-center rounded-xl cursor-pointer hover:bg-black/75 md:w-1/2 w-full ml-auto"
               onClick={() =>
