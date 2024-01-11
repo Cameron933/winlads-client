@@ -378,6 +378,7 @@ const Dashboard = () => {
           giveawayId={selectGiveawayId}
           price={price}
           name={selectGiveawayName}
+          valUser={valUser}
         />
       )}
     </>
