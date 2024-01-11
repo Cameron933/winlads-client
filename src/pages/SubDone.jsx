@@ -5,7 +5,6 @@ import { motion, useAnimation } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { ImCross } from "react-icons/im";
-import { validateCurrentUser } from "../utils/validateuser";
 
 function SubDone() {
   const controls = useAnimation();
@@ -19,8 +18,6 @@ function SubDone() {
   // Access individual query parameters
   const suc = searchParams.get("suc");
   const round_id = searchParams.get("round_id");
-
-  const [valUser, setValUser] = useState({})
 
   useEffect(() => {
     // Retrieve data from localStorage
@@ -44,7 +41,6 @@ function SubDone() {
   }, []);
 
   useEffect(() => {
-    currentUserValidation()
     if (suc == 0) {
       setSuccess(false);
     } else {
@@ -74,15 +70,7 @@ function SubDone() {
     };
   }, [controls]);
 
-  const currentUserValidation = async () => {
-    const validator = await validateCurrentUser();
-    if (validator.validatorBl) {
-      console.log("Session OK", validator.user.balance);
-      setValUser(validator.user);
-    } else {
-      navigate("/login");
-    }
-  };
+
 
   return (
     <div
