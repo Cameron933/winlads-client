@@ -63,7 +63,7 @@ const Register = ({ location }) => {
   const [selectedPlanPrice, setSelPlanPrice] = useState("");
   const [selectedPlanName, setSelectedPlanName] = useState("");
   const [selectedSubId, setSelectedSubId] = useState("");
-
+  const [initialOneOffShow, setInitialOneOffShow] = useState(1);
   const [eligible, setEligible] = useState(false);
 
   // set loading
@@ -451,6 +451,7 @@ const Register = ({ location }) => {
                     ))}
                   </>
                 ) : (
+                  <>
                   <VehicleCardForReg
                     type={"vehicle"}
                     name={"2023 MAZDA BT-50"}
@@ -461,6 +462,8 @@ const Register = ({ location }) => {
                       "https://winland.onrender.com/public/images/vehicle.png"
                     }
                   />
+                  <button className="md:text-sm text-xs text-blue-500">See More</button>
+                  </>
                 )}
               </div>
             </div>
@@ -703,7 +706,8 @@ const Register = ({ location }) => {
                           ))}
                         </div>
                       ) : (
-                        <DashboardVehicleCard
+                        // <div className="flex items-center justify-center w-max gap-2">
+                        <VehicleCardForReg
                           isSubscribed={true}
                           type={"vehicle"}
                           name={"2023 MAZDA BT-50"}
@@ -716,8 +720,10 @@ const Register = ({ location }) => {
                           raffleimage={
                             "https://winland.onrender.com/public/images/vehicle.png"
                           }
+                          
                         />
                       )}
+                     
                     </div>
                     <p className="text-sm font-bold border-b">
                       Membership Types
