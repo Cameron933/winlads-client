@@ -28,7 +28,7 @@ const MyEntries = () => {
   const [round, setRound] = useState("");
   const [number, setNumber] = useState("");
   const [allRounds, setAllRounds] = useState([]);
-  const [totalEntries,setTotEntries] = useState(0);
+  const [totalEntries, setTotEntries] = useState(0);
 
   const [myGiveaways, setMyGiveaways] = useState([]);
 
@@ -149,7 +149,7 @@ const MyEntries = () => {
               round={rounds}
               selectCatValue={categories}
               numbers={getNumbers}
-              myTickets={totalEntries || 'Loading'}
+              myTickets={totalEntries || "Loading"}
             />
             <div className="flex items-center justify-between xl:hidden px-2 my-5">
               <h1 className="text-xl font-bold">My Entries</h1>
@@ -166,7 +166,7 @@ const MyEntries = () => {
                     {myGiveaways.map((giveaway, key) => (
                       <div
                         key={key}
-                        className="xl:grid grid-cols-5 px-2 xl:px-0 flex flex-col"
+                        className="xl:grid grid-cols-4 px-2 xl:px-0 flex flex-col"
                       >
                         <div
                           className="col-span-1 justify-between items-center"
@@ -196,7 +196,7 @@ const MyEntries = () => {
                             <PiBookmarkSimpleLight className="text-white" />
                           </div>
                         </div>
-                        <div className="bg-blue-100 py-3 text-xs 2xl:text-sm xl:pr-4 pl-2 pr-2 xl:pl-4 xl:rounded-b-none rounded-b-2xl xl:flex col-span-4 xl:items-center justify-between space-y-1 xl:space-y-0">
+                        <div className="bg-blue-100 py-3 text-xs 2xl:text-sm xl:pr-4 pl-2 pr-2 xl:pl-4 xl:rounded-b-none rounded-b-2xl xl:flex col-span-3 xl:items-center justify-between space-y-1 xl:space-y-0">
                           <div className=" md:w-1/3 w-full">
                             <p className="capitalize">{giveaway.round.name}</p>
                           </div>
@@ -222,7 +222,7 @@ const MyEntries = () => {
                           <div className="w-48">
                             {" "}
                             {giveaway.winstatus === "pending" ? (
-                              'Pending'
+                              "Pending"
                             ) : (
                               <RxCross1 />
                             )}
@@ -244,7 +244,7 @@ const MyEntries = () => {
                           style={{ backgroundColor: giveaway?.raffle?.color }}
                         >
                           <div className="flex flex-row justify-between items-center pl-2 w-full">
-                        <p className="text-black capitalize text-xs">
+                            <p className="text-black capitalize text-xs">
                               {giveaway?.raffle.name}
                             </p>
                             <PiBookmarkSimpleLight />
@@ -273,15 +273,15 @@ const MyEntries = () => {
                               )}
                             </p>
                           </div>
-                          <div className="md:w-48" w-full>
-                              {giveaway.winstatus === "win" ? (
-                                <MdDone />
-                              ) : giveaway.winstatus === "lost" ? (
-                                <RxCross1 />
-                              ) : (
-                                ""
-                              )}
-                            </div>
+                          {/* <div className="md:w-48" w-full>
+                            {giveaway.winstatus === "win" ? (
+                              <MdDone />
+                            ) : giveaway.winstatus === "lost" ? (
+                              <RxCross1 />
+                            ) : (
+                              ""
+                            )}
+                          </div> */}
                         </div>
                       </div>
                     ))}
