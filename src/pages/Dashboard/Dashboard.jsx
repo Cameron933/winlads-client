@@ -48,9 +48,9 @@ const Dashboard = () => {
 
   useEffect(() => {
     currentUserValidation();
-    if (cookies.get("selected-package-id")) {
-      navigate("/subscription");
-    }
+    // if (cookies.get("selected-package-id")) {
+    //   navigate("/subscription");
+    // }
   }, [raffleCount]);
 
   const currentUserValidation = async () => {

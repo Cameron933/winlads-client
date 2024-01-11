@@ -56,13 +56,13 @@ const Register = ({ location }) => {
   const cookies = new Cookies(null, { path: "/" });
   const [fieldDis, setFieldDis] = useState(false);
 
-  const [chosenPlan, setChosenPlan] = useState('');
-  const [memberShipType, setMemType] = useState('subscription')
+  const [chosenPlan, setChosenPlan] = useState("");
+  const [memberShipType, setMemType] = useState("subscription");
   const [plans, setPlans] = useState([]);
   const [refId, setRefId] = useState("");
-  const [selectedPlanPrice, setSelPlanPrice] = useState('');
-  const [selectedPlanName, setSelectedPlanName] = useState('')
-  const [selectedSubId, setSelectedSubId] = useState('');
+  const [selectedPlanPrice, setSelPlanPrice] = useState("");
+  const [selectedPlanName, setSelectedPlanName] = useState("");
+  const [selectedSubId, setSelectedSubId] = useState("");
 
   // set loading
   useEffect(() => {
@@ -76,9 +76,9 @@ const Register = ({ location }) => {
     }, 1000);
     currentUserValidation();
     const mem = searchParams.get("mem");
-    if(mem != undefined){
+    if (mem != undefined) {
       // /register?mem=true
-      handleMemType({target: {value:'round'}})
+      handleMemType({ target: { value: "round" } });
     }
 
     const ref = searchParams.get("ref");
@@ -87,20 +87,21 @@ const Register = ({ location }) => {
       setRefId(ref);
       values.refferalId = ref;
     }
-    getFreeEntry()
+    getFreeEntry();
   }, []);
 
   const getPlanes = async () => {
     await axios
       .get(`${import.meta.env.VITE_SERVER_API}/getSubscriptionPlans`)
       .then((response) => {
-
         setPlans(response?.data?.data);
-        const selectedPlan = response?.data?.data.find((pl) => pl._id === selectedPackage);
-        setChosenPlan(selectedPlan._id)
-        setSelectedPlanName(selectedPlan.name)
-        setSelectedSubId(selectedPlan.subid)
-        setSelPlanPrice(selectedPlan.monthly)
+        const selectedPlan = response?.data?.data.find(
+          (pl) => pl._id === selectedPackage
+        );
+        setChosenPlan(selectedPlan._id);
+        setSelectedPlanName(selectedPlan.name);
+        setSelectedSubId(selectedPlan.subid);
+        setSelPlanPrice(selectedPlan.monthly);
         setIsLoading(false);
       })
       .catch((error) => {
@@ -118,21 +119,21 @@ const Register = ({ location }) => {
     window.dataLayer.push({
       event: "sign_up",
       method: "google", //it can be email,facebook, or google. This value is optional
-      data: data
+      data: data,
     });
   };
 
   const saveFormData = async (temp_values, uid) => {
     console.log(temp_values, uid);
 
-    let coupen = ""
+    let coupen = "";
 
-    const checkAbility = searchParams.get("ability")
+    const checkAbility = searchParams.get("ability");
     if (checkAbility == "WINACCESSEN") {
-      coupen = "MAZDABT50S"
-      console.log("co", coupen)
+      coupen = "MAZDABT50S";
+      console.log("co", coupen);
     }
-    console.log(coupen)
+    console.log(coupen);
 
     const data = {
       firstname: values.firstname,
@@ -147,11 +148,10 @@ const Register = ({ location }) => {
       coupen: coupen,
       subid: selectedSubId,
       type: memberShipType,
-      roundid:selectedSubId //Used the same variable for store roundid OR subid
-
+      roundid: selectedSubId, //Used the same variable for store roundid OR subid
     };
 
-    console.log(data)
+    console.log(data);
 
     const response = await axios.get(
       `${import.meta.env.VITE_SERVER_API}/checkEmail?email=${values.email}`
@@ -165,9 +165,10 @@ const Register = ({ location }) => {
         );
         console.log(response.data);
         if (response.data?.payurl) {
-          window.location.href = response.data?.payurl
-        } {
-          console.log('NO PAY');
+          window.location.href = response.data?.payurl;
+        }
+        {
+          console.log("NO PAY");
         }
         //cookies.set("wr_token", response.data.data._id);
       } catch (error) {
@@ -247,7 +248,6 @@ const Register = ({ location }) => {
                 setVerifyDisable(false);
                 setShowOTPBox(true);
                 setButtonText("Register");
-
               })
               .catch((err) => {
                 toast.error(err.message, {
@@ -297,7 +297,7 @@ const Register = ({ location }) => {
           navigate("/dashboard");
         }, 3000);
       })
-      .catch((err) => { });
+      .catch((err) => {});
   };
 
   const { values, handleChange, handleBlur, handleSubmit, errors, touched } =
@@ -312,7 +312,6 @@ const Register = ({ location }) => {
         passport: "",
         tin: "",
         refferalId: "",
-
       },
       validationSchema: basicSchemasRegister,
       onSubmit: saveFormData,
@@ -331,34 +330,34 @@ const Register = ({ location }) => {
   const getFreeEntry = () => {
     const coupen = searchParams.get("COUPEN");
     if (coupen === "WINFREE") {
-      cookies.set("COUPEN", "WINFREE")
-      console.log(coupen, "copen")
+      cookies.set("COUPEN", "WINFREE");
+      console.log(coupen, "copen");
     }
-    console.log(coupen, "copen 2")
+    console.log(coupen, "copen 2");
   };
 
   const handleChosePlan = (id) => {
     const selectedPlan = plans.find((pl) => pl._id === id);
-    setChosenPlan(id)
-    setSelectedPlanName(selectedPlan.name)
-    setSelectedSubId(selectedPlan.subid)
-    setSelPlanPrice(selectedPlan.monthly)
-  }
+    setChosenPlan(id);
+    setSelectedPlanName(selectedPlan.name);
+    setSelectedSubId(selectedPlan.subid);
+    setSelPlanPrice(selectedPlan.monthly);
+  };
 
   const handleMemType = (e) => {
-    setMemType(e.target.value)
-    if (e.target.value == 'round') {
-      setChosenPlan('')
-      setSelectedPlanName('One off round')
-      setSelectedSubId('6582b82ea332291cc7752d92')
-      setSelPlanPrice(5)
-    }else{
-      setChosenPlan('')
-      setSelectedPlanName('')
-      setSelectedSubId('')
-      setSelPlanPrice(0)
+    setMemType(e.target.value);
+    if (e.target.value == "round") {
+      setChosenPlan("");
+      setSelectedPlanName("One off round");
+      setSelectedSubId("6582b82ea332291cc7752d92");
+      setSelPlanPrice(5);
+    } else {
+      setChosenPlan("");
+      setSelectedPlanName("");
+      setSelectedSubId("");
+      setSelPlanPrice(0);
     }
-  }
+  };
 
   return (
     <>
@@ -393,64 +392,60 @@ const Register = ({ location }) => {
 
               {/* SUB PLANS SHOW DESKTOP */}
               <div className=" hidden md:flex items-stretch md:flex-wrap justify-start gap-3">
-                {
-                  memberShipType == 'subscription' ?
-                    <>
-                      {
-                        plans.map((plan) => (
-                          <Card
-                            planId={plan._id}
-                            title={plan.name + ' Tier'}
-                            title2={plan.raffle_count}
-                            titleColor2={
-                              plan.name == 'Black' ? 'white' : 'black'
-                            }
-                            desc1={plan.desc[0]}
-                            desc2={plan.desc[1]}
-                            desc3={plan.desc[2]}
-                            buttonColor={
-                              plan.name == "Starter"
-                                ? "black"
-                                : "" | (plan.name == "Boomer")
-                                  ? "black"
-                                  : "" | (plan.name == "Platinum")
-                                    ? "black"
-                                    : "" | (plan.name == "Gold")
-                                      ? "black"
-                                      : "" | (plan.name == "Black")
-                                        ? "white"
-                                        : "black"
-                            }
-                            arrowColor="[#01819D]"
-                            buttonTextColor={
-                              plan.name == "Black"
-                                ? "black"
-                                : "white"
-                            }
-                            btnword="CHOSE PLAN"
-                            handleChosePlan={handleChosePlan}
-                            bgColorFrom={plan.color}
-                            bgColorTo={plan.colorFrom}
-                            titleColor={
-                              plan.name == 'Black' ? 'white' : 'black'
-                            }
-                            classNames={'basis-[100%] md:basis-[48%] xl:basis-[28%]'}
-                            chosenPlan={chosenPlan}
-                            isShowDetails={true}
-                          />
-                        ))
-                      }
-                    </>
-                    :
-                    <VehicleCardForReg
-                      type={'vehicle'}
-                      name={'2023 MAZDA BT-50'}
-                      date={'2024-02-28'}
-                      color={'#D51111'}
-                      fromColor={'#D51111'}
-                      raffleimage={'https://winland.onrender.com/public/images/vehicle.png'}
-                    />
-                }
+                {memberShipType == "subscription" ? (
+                  <>
+                    {plans.map((plan, key) => (
+                      <Card
+                        key={key}
+                        planId={plan._id}
+                        title={plan.name + " Tier"}
+                        title2={plan.raffle_count}
+                        titleColor2={plan.name == "Black" ? "white" : "black"}
+                        desc1={plan.desc[0]}
+                        desc2={plan.desc[1]}
+                        desc3={plan.desc[2]}
+                        buttonColor={
+                          plan.name == "Starter"
+                            ? "black"
+                            : "" | (plan.name == "Boomer")
+                            ? "black"
+                            : "" | (plan.name == "Platinum")
+                            ? "black"
+                            : "" | (plan.name == "Gold")
+                            ? "black"
+                            : "" | (plan.name == "Black")
+                            ? "white"
+                            : "black"
+                        }
+                        arrowColor="[#01819D]"
+                        buttonTextColor={
+                          plan.name == "Black" ? "black" : "white"
+                        }
+                        btnword="CHOSE PLAN"
+                        handleChosePlan={handleChosePlan}
+                        bgColorFrom={plan.color}
+                        bgColorTo={plan.colorFrom}
+                        titleColor={plan.name == "Black" ? "white" : "black"}
+                        classNames={
+                          "basis-[100%] md:basis-[48%] xl:basis-[28%]"
+                        }
+                        chosenPlan={chosenPlan}
+                        isShowDetails={true}
+                      />
+                    ))}
+                  </>
+                ) : (
+                  <VehicleCardForReg
+                    type={"vehicle"}
+                    name={"2023 MAZDA BT-50"}
+                    date={"2024-02-28"}
+                    color={"#D51111"}
+                    fromColor={"#D51111"}
+                    raffleimage={
+                      "https://winland.onrender.com/public/images/vehicle.png"
+                    }
+                  />
+                )}
               </div>
             </div>
             <div className="flex flex-col xl:space-y-2 md:space-y-4 space-y-2 md:mt-10 lg:mt-20 xl:mt-10 special:mt-10 mt-1 mb-10 sm:mb-0 ">
@@ -464,10 +459,11 @@ const Register = ({ location }) => {
               >
                 <div className="flex flex-col justify-center space-y-4 mx-auto xl:mt-4 md:mt-10 mt-4 special:mt-20">
                   <div
-                    className={`flex flex-col space-y-4 ${buttonText == "Sending..." || buttonText == "Register"
-                      ? "blur-sm"
-                      : ""
-                      }`}
+                    className={`flex flex-col space-y-4 ${
+                      buttonText == "Sending..." || buttonText == "Register"
+                        ? "blur-sm"
+                        : ""
+                    }`}
                   >
                     <div
                       className={
@@ -645,82 +641,103 @@ const Register = ({ location }) => {
                         onBlur={handleBlur}
                         id="refferalId"
                         className="placeholder:text-[16px]"
-
                       />
                     </div>
                     {/* <div className="w-full"> */}
                     {/* SUB PLANS SHOW MOBILE*/}
                     <div className=" md:hidden w-[80vw] overflow-x-scroll">
-                      {
-                        memberShipType == 'subscription' ?
-                          <div className="w-max gap-2 flex items-stretch justify-between">
-                            {
-                              plans.map((plan) => (
-                                <Card
-                                  planId={plan._id}
-                                  title={plan.name + ' Tier'}
-                                  title2={plan.raffle_count}
-                                  titleColor2={
-                                    plan.name == 'Black' ? 'white' : 'black'
-                                  }
-                                  buttonColor={
-                                    plan.name == "Starter"
-                                      ? "black"
-                                      : "" | (plan.name == "Boomer")
-                                        ? "black"
-                                        : "" | (plan.name == "Platinum")
-                                          ? "black"
-                                          : "" | (plan.name == "Gold")
-                                            ? "black"
-                                            : "" | (plan.name == "Black")
-                                              ? "white"
-                                              : "black"
-                                  }
-                                  arrowColor="[#01819D]"
-                                  buttonTextColor={
-                                    plan.name == "Black"
-                                      ? "black"
-                                      : "white"
-                                  }
-                                  btnword="CHOSE PLAN"
-                                  handleChosePlan={handleChosePlan}
-                                  bgColorFrom={plan.color}
-                                  bgColorTo={plan.colorFrom}
-                                  titleColor={
-                                    plan.name == 'Black' ? 'white' : 'black'
-                                  }
-                                  classNames={'w-[150px]'}
-                                  chosenPlan={chosenPlan}
-                                />
-                              ))
-                            }
-                          </div>
-                          :
-                          <DashboardVehicleCard
-                            isSubscribed={true}
-                            type={'vehicle'}
-                            name={'2023 MAZDA BT-50'}
-                            date={'2024-02-28'}
-                            color={'#D51111'}
-                            fromColor={'#D51111'}
-                            icon={'https://winland.onrender.com/public/images/max.png'}
-                            raffleimage={'https://winland.onrender.com/public/images/vehicle.png'}
-                          />
-                      }
+                      {memberShipType == "subscription" ? (
+                        <div className="w-max gap-2 flex items-stretch justify-between">
+                          {plans.map((plan, key) => (
+                            <Card
+                              key={key}
+                              planId={plan._id}
+                              title={plan.name + " Tier"}
+                              title2={plan.raffle_count}
+                              titleColor2={
+                                plan.name == "Black" ? "white" : "black"
+                              }
+                              buttonColor={
+                                plan.name == "Starter"
+                                  ? "black"
+                                  : "" | (plan.name == "Boomer")
+                                  ? "black"
+                                  : "" | (plan.name == "Platinum")
+                                  ? "black"
+                                  : "" | (plan.name == "Gold")
+                                  ? "black"
+                                  : "" | (plan.name == "Black")
+                                  ? "white"
+                                  : "black"
+                              }
+                              arrowColor="[#01819D]"
+                              buttonTextColor={
+                                plan.name == "Black" ? "black" : "white"
+                              }
+                              btnword="CHOSE PLAN"
+                              handleChosePlan={handleChosePlan}
+                              bgColorFrom={plan.color}
+                              bgColorTo={plan.colorFrom}
+                              titleColor={
+                                plan.name == "Black" ? "white" : "black"
+                              }
+                              classNames={"w-[150px]"}
+                              chosenPlan={chosenPlan}
+                            />
+                          ))}
+                        </div>
+                      ) : (
+                        <DashboardVehicleCard
+                          isSubscribed={true}
+                          type={"vehicle"}
+                          name={"2023 MAZDA BT-50"}
+                          date={"2024-02-28"}
+                          color={"#D51111"}
+                          fromColor={"#D51111"}
+                          icon={
+                            "https://winland.onrender.com/public/images/max.png"
+                          }
+                          raffleimage={
+                            "https://winland.onrender.com/public/images/vehicle.png"
+                          }
+                        />
+                      )}
                     </div>
-                    <p className="text-sm font-bold border-b">Membership Types</p>
+                    <p className="text-sm font-bold border-b">
+                      Membership Types
+                    </p>
 
                     <div className="bg-white border border-black px-4 py-1 rounded-xl w-full">
-                      <input type="radio" name="selectPack" value={'round'} onChange={handleMemType} checked={memberShipType === 'round'} />
-                      <label htmlFor="selectPack" className="text-sm" > One off package</label>
+                      <input
+                        type="radio"
+                        name="selectPack"
+                        value={"round"}
+                        onChange={handleMemType}
+                        checked={memberShipType === "round"}
+                      />
+                      <label htmlFor="selectPack" className="text-sm">
+                        {" "}
+                        One off package
+                      </label>
                     </div>
                     <div className="bg-white border border-black px-4 py-1 rounded-xl w-full">
-                      <input type="radio" name="selectPack" value={'subscription'} onChange={handleMemType} checked={memberShipType === 'subscription'} />
-                      <label htmlFor="selectPack" className="text-sm"> Subscription (Most popular accumulating entries)</label>
+                      <input
+                        type="radio"
+                        name="selectPack"
+                        value={"subscription"}
+                        onChange={handleMemType}
+                        checked={memberShipType === "subscription"}
+                      />
+                      <label htmlFor="selectPack" className="text-sm">
+                        {" "}
+                        Subscription (Most popular accumulating entries)
+                      </label>
                     </div>
 
                     {/* </div> */}
-                    <p className="text-sm font-bold border-b border-gray-500">Amount</p>
+                    <p className="text-sm font-bold border-b border-gray-500">
+                      Amount
+                    </p>
                     <div className="flex items-start justify-between text-xs text-gray-500 border-b border-gray-500">
                       <p>{selectedPlanName} Tier</p> <p>${selectedPlanPrice}</p>
                     </div>
@@ -742,7 +759,7 @@ const Register = ({ location }) => {
                         placeholder="OTP Code"
                         value={otp}
                         onChange={(e) => setOtp(e.target.value)}
-                      // id="tin"
+                        // id="tin"
                       />
                       <small className="text-error">
                         {errors.otp && touched.opt && errors.otp}
@@ -781,8 +798,9 @@ const Register = ({ location }) => {
                   {!final && <div id="recaptcha-container"></div>}
 
                   <button
-                    className={`text-white rounded-xl justify-center px-12 py-2 flex flex-row items-center font-semibold special:text-xl bg-${isChecked ? "black" : "gray-500"
-                      } hover:bg-${isChecked ? "black/50" : ""}`}
+                    className={`text-white rounded-xl justify-center px-12 py-2 flex flex-row items-center font-semibold special:text-xl bg-${
+                      isChecked ? "black" : "gray-500"
+                    } hover:bg-${isChecked ? "black/50" : ""}`}
                     onClick={(e) => onSignup(e)}
                     // onClick={(e) => onSignup(e)}
                     disabled={!isChecked}
