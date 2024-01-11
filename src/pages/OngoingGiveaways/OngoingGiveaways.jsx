@@ -68,7 +68,7 @@ const OngoingGiveaways = () => {
   const getGiveaways = async (valuid) => {
     await axios
       .get(
-        `${import.meta.env.VITE_SERVER_API}/raffleRoundsFuture?uid=${valuid}`
+        `${import.meta.env.VITE_SERVER_API}/raffleRoundsOngoing`
       )
       .then((response) => {
         console.log(response.data.data, "data raffle");
@@ -228,6 +228,8 @@ const OngoingGiveaways = () => {
                   icon={giveaway.raffle?.image}
                   price={giveaway?.price}
                   raffleimage={giveaway.raffle?.raffleimage}
+                  eligeble={true}
+                  oneOffPackage={true}
                   onButton={() => {
                     handleButton({
                       id: giveaway?._id,
@@ -262,15 +264,15 @@ const OngoingGiveaways = () => {
               </p>
             </div>
           )}
-            {selectPayment && (
-        <SelectRafflePaymentMethod
-          onClose={() => setSelectPayment(false)}
-          userId={valUser.uid}
-          giveawayId={selectGiveawayId}
-          price={price}
-          name={selectGiveawayName}
-        />
-      )}
+          {selectPayment && (
+            <SelectRafflePaymentMethod
+              onClose={() => setSelectPayment(false)}
+              userId={valUser.uid}
+              giveawayId={selectGiveawayId}
+              price={price}
+              name={selectGiveawayName}
+            />
+          )}
         </div>
       </div>
     </>

@@ -12,6 +12,10 @@ import { motion } from "framer-motion";
 import NoLiveCard from "../../components/Live/NoLiveCard.jsx";
 import LiveCard from "../../components/Live/LiveCard.jsx";
 import axios from "axios";
+import { FaAngleDoubleDown, FaAngleDoubleUp } from "react-icons/fa";
+import { MdOutlineDoNotDisturbOff } from "react-icons/md";
+import ItemLoader from "../../components/Loader/ItemLoader";
+import DashboardVehicleCard from "../../components/DashboardVehicleCard/DashboardVehicle";
 
 const PastGiveaways = () => {
 
@@ -28,10 +32,24 @@ const PastGiveaways = () => {
   const [loading, setLoading] = useState(true);
   const [giveaways, setGiveaways] = useState([]);
   const navigate = useNavigate();
+  const [sortedGiveaways, setSortedGiveaways] = useState([]);
+  const [initialLength, setInitSize] = useState(8);
+
 
   useEffect(() => {
     currentUserValidation();
   }, []);
+
+
+  useEffect(() => {
+    const sortedArray = [...giveaways];
+    sortedArray.sort(
+      (a, b) => new Date(a.startingtime) - new Date(b.startingtime)
+    );
+    setSortedGiveaways(sortedArray);
+  }, [giveaways]);
+
+
 
 
 
@@ -41,15 +59,16 @@ const PastGiveaways = () => {
       console.log("Session OK");
       setValUser(validator.user);
       getProfileImage(validator.user.image);
+      getGiveaways()
     } else {
       navigate("/login");
     }
   };
 
-  const getGiveaways = async (valuid) => {
+  const getGiveaways = async () => {
     await axios
       .get(
-        `${import.meta.env.VITE_SERVER_API}/raffleRoundsFuture?uid=${valuid}`
+        `${import.meta.env.VITE_SERVER_API}/raffleRoundsPast`
       )
       .then((response) => {
         console.log(response.data.data, "data raffle");
@@ -72,6 +91,14 @@ const PastGiveaways = () => {
       });
   }
 
+
+  const handleSeeMore = (show) => {
+    if (show) {
+      setInitSize(giveaways.length);
+    } else {
+      setInitSize(8);
+    }
+  };
   return (
     <>
     <div className="flex flex-col xl:px-6 px-4 special:px-12 special:space-y-24 space-y-8 overflow-hidden relative">
@@ -166,7 +193,61 @@ const PastGiveaways = () => {
         <p className="font-semibold text-lg xl:text-xl 2xl:text-2xl special:text-4xl">
           Past Giveaways
         </p>
-
+        {loading ? (
+            <div className="flex justify-center">
+              <ItemLoader />
+            </div>
+          ) : sortedGiveaways.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
+              {sortedGiveaways.slice(0, initialLength).map((giveaway, key) => (
+                <DashboardVehicleCard
+                  isSubscribed={valUser.subscripton}
+                  key={key}
+                  type={giveaway.raffle.type}
+                  id={giveaway._id}
+                  name={giveaway.name}
+                  date={giveaway?.endtime}
+                  color={giveaway?.raffle?.color}
+                  fromColor={giveaway.raffle?.color}
+                  icon={giveaway.raffle?.image}
+                  price={giveaway?.price}
+                  raffleimage={giveaway.raffle?.raffleimage}
+                  eligeble={false}
+                  oneOffPackage={false}
+                  // onButton={() => {
+                  //   handleButton({
+                  //     id: giveaway?._id,
+                  //     price: giveaway?.price,
+                  //     name: giveaway?.name,
+                  //   });
+                  // }}
+                />
+              ))}
+              {giveaways.length > 8 &&
+                (initialLength == 8 ? (
+                  <button
+                    onClick={() => handleSeeMore(true)}
+                    className="mt-10 flex items-center justify-center mx-auto gap-2 "
+                  >
+                    See More <FaAngleDoubleDown />
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => handleSeeMore(false)}
+                    className="mt-10 flex items-center justify-center mx-auto gap-2"
+                  >
+                    See Less <FaAngleDoubleUp />
+                  </button>
+                ))}
+            </div>
+          ) : (
+            <div className="flex flex-col items-center space-y-2 pt-12">
+              <MdOutlineDoNotDisturbOff className="w-12 h-12 2xl:w-12 2xl:h-12 special:w-24 special:h-24" />
+              <p className="font-bold text-2xl 2xl:text-2xl special:text-6xl">
+                No More Giveaways
+              </p>
+            </div>
+          )}
       </div>
     </div>
     </>

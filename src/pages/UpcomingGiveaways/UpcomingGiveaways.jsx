@@ -71,7 +71,7 @@ const UpcomingGiveaways = () => {
   const getGiveaways = async (valuid) => {
     await axios
       .get(
-        `${import.meta.env.VITE_SERVER_API}/raffleRoundsFuture?uid=${valuid}`
+        `${import.meta.env.VITE_SERVER_API}/raffleRoundsFuture`
       )
       .then((response) => {
         console.log(response.data.data, "data raffle");
@@ -231,6 +231,8 @@ const UpcomingGiveaways = () => {
                   icon={giveaway.raffle?.image}
                   price={giveaway?.price}
                   raffleimage={giveaway.raffle?.raffleimage}
+                  eligeble={false}
+                  oneOffPackage={false}
                   onButton={() => {
                     handleButton({
                       id: giveaway?._id,
