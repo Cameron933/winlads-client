@@ -464,7 +464,7 @@ const Register = ({ location }) => {
                       "https://winland.onrender.com/public/images/vehicle.png"
                     }
                   />
-                  <button className="md:text-sm text-xs text-blue-500">See More</button>
+                  {/* <button className="md:text-sm text-xs text-blue-500">See More</button> */}
                   </>
                 )}
               </div>
