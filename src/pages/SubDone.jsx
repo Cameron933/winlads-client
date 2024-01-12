@@ -52,28 +52,30 @@ function SubDone() {
       setSuccess(true);
     }
     controls.start(successAnimation.animate);
-
     if (token) {
       console.log('Register Token :' + token);
       cookies.set('wr_token', token)
 
-      const intervalId = setInterval(() => {
+       const intervalId = setInterval(() => {
         setSeconds((prev) => {
           // Ensure that the countdown stops at 0
           if (prev <= 1) {
             clearInterval(intervalId);
+            setTimeout(()=>{
+              navigate("/dashboard");
+            },3000)
             navigate("/welcome");
             return 0;
           }
           return prev - 1;
         });
-
-        if (seconds < 1) {
-          navigate("/dashboard");
-        }
       }, 1000);
+      return () => {
+        // Clear the interval when the component unmounts
+        clearInterval(intervalId);
+      };
     } else {
-      const intervalId = setInterval(() => {
+       const intervalId = setInterval(() => {
         setSeconds((prev) => {
           // Ensure that the countdown stops at 0
           if (prev <= 1) {
@@ -88,12 +90,14 @@ function SubDone() {
           navigate("/dashboard");
         }
       }, 1000);
-    }
 
+      
     return () => {
       // Clear the interval when the component unmounts
       clearInterval(intervalId);
     };
+    }
+
   }, [controls]);
 
 
