@@ -68,10 +68,10 @@ const Register = ({ location }) => {
 
   // set loading
   useEffect(() => {
-    if (selectedPackage) {
-     // cookies.set("selected-package-id", selectedPackage);
-      // setChosenPlan(selectedPackage);
-    }
+    // if (selectedPackage) {
+    //  cookies.set("selected-package-id", selectedPackage);
+    //   setChosenPlan(selectedPackage);
+    // }
     getPlanes();
     setTimeout(() => {
       setIsLoading(false);
@@ -140,9 +140,10 @@ const Register = ({ location }) => {
       setEligible(true);
       coupen = "MAZDABT50S";
       console.log("co", coupen);
+     // setMemType('trial')
     }
     console.log(coupen);
-
+    
     const data = {
       firstname: values.firstname,
       lastname: values.lastname,

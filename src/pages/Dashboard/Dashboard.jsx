@@ -166,7 +166,7 @@ const Dashboard = () => {
                     </p>
                     <p className="text-3xl text-black">
                       <span className="text-base">$</span>&nbsp;
-                      {typeof valUser.balance === "number"
+                      {valUser.balance
                         ?  Math.floor((valUser.balance * 100))/100
                         : "0.00"}
                     </p>

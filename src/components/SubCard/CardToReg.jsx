@@ -56,7 +56,7 @@ const SubCard = ({
       whileInView={{ y: 0, opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 1, delay: 0.5 }}
-      className={`rounded-2xl px-2 md:pt-12 pt-14 pb-4 shadow-lg shadow-gray-400 relative flex flex-col border-2 border-black ${classNames}`}
+      className={`rounded-2xl px-2 md:pt-8 pt-14 pb-4 shadow-lg shadow-gray-400 relative flex flex-col border-2 border-black ${classNames}`}
       style={{
         background: `linear-gradient(180deg, ${bgColorFrom} 0%, ${bgColorTo} 100%)`,
       }}
@@ -97,7 +97,7 @@ const SubCard = ({
           <div className="flex flex-row items-start gap-2">
             <img src={Correct} alt="" />
             <p
-              className={`text-${descColor} text-[10px] 2xl:text-[16px] leading-6`}
+              className={`text-${descColor} text-[8px] 2xl:text-[16px] leading-5`}
             >
               {desc1}
             </p>
@@ -109,7 +109,7 @@ const SubCard = ({
               <div className="flex flex-row items-start gap-2">
                 <img src={Correct} alt="" />
                 <p
-                  className={`text-${descColor} text-[10px] 2xl:text-[16px] leading-6`}
+                  className={`text-${descColor} text-[8px] 2xl:text-[16px] leading-5`}
                 >
                   {desc2}
                 </p>
@@ -117,7 +117,7 @@ const SubCard = ({
               <div className="flex flex-row items-start gap-2">
                 <img src={Correct} alt="" />
                 <p
-                  className={`text-${descColor} text-[10px] 2xl:text-[16px] leading-6`}
+                  className={`text-${descColor} text-[8px] 2xl:text-[16px] leading-5`}
                 >
                   {desc3}
                 </p>
@@ -211,7 +211,7 @@ const SubCard = ({
           {desc2 && (
             <div className="absolute bottom-2 right-2">
               <p
-                className="capitalize flex justify-end text-xs cursor-pointer text-black"
+                className="capitalize flex justify-end text-[8px] cursor-pointer text-black"
                 // style={{ color: buttonColor }}
                 onClick={handleClick}
               >
