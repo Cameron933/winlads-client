@@ -62,19 +62,20 @@ function SubscribeCard({
   colorFrom = "#0094FF",
   descL = [],
   id,
-  showUnSubModal
+  showUnSubModal,
+  trailUserTest
 }) {
   const cookies = new Cookies(null, { path: "/" });
   const handleChooseButton = () => {
     onButtonClick();
   };
   useEffect(() => {
-    const selectedPlaneId = cookies.get('selected-package-id')
+    const selectedPlaneId = cookies.get("selected-package-id");
     if (selectedPlaneId && selectedPlaneId == id) {
-      handleChooseButton()
-      cookies.remove('selected-package-id')
+      handleChooseButton();
+      cookies.remove("selected-package-id");
     }
-  }, [])
+  }, []);
   const [initialShow, setInitialShow] = useState(3);
 
   const handleShowMore = () => {
@@ -85,17 +86,17 @@ function SubscribeCard({
     }
   };
 
-
-
   return (
     <div
       className={`bg-gradient-to-r relative ${gradientFrom} ${gradientTo} border-2 border-solid border-${cardBorderColor} text-${textColor} py-8 px-6 special:py-8 2xl:py-8 xl:pt-10 rounded-[10px] flex flex-col cursor-pointer
-      ${planeId && ((month && planeId === mPlanId) ||
-          (quartly && planeId === qPlanId) ||
-          (year && planeId === yPlanId)
+      ${
+        planeId &&
+        ((month && planeId === mPlanId) ||
+        (quartly && planeId === qPlanId) ||
+        (year && planeId === yPlanId)
           ? "" // Add styles for disabled state
           : "filter saturate-0 pointer-events-none")
-        }
+      }
       `}
       style={{
         background: `linear-gradient(180deg, ${color} 0%, ${colorFrom} 100%)`,
@@ -115,7 +116,10 @@ function SubscribeCard({
 
       <p className="font-bold text-center text-sm special:text-2xl 2xl:text-lg mb-3">
         <span className="text-4xl md:text-4xl"> {raffleCount}</span>{" "}
-        <span className="uppercase text-xs">{subId}&nbsp;FREE Accumulating {raffleCount == 1 ? "Entry" : "Entries"}</span>
+        <span className="uppercase text-xs">
+          {subId}&nbsp;FREE Accumulating{" "}
+          {raffleCount == 1 ? "Entry" : "Entries"}
+        </span>
       </p>
       <div
         className={`relative flex justify-center flex-col space-y-4 special:space-y-6 2xl:space-y-4 pb-16 bg-white text-black pt-2 px-2 rounded-xl h-full border-2 border-solid border-${cardBorderColor}`}
@@ -156,31 +160,27 @@ function SubscribeCard({
       </div>
 
       <div className="">
-        {
-          !(
-            (month && planeId === mPlanId) ||
-            (quartly && planeId === qPlanId) ||
-            (year && planeId === yPlanId)
-          )
-            ?         <button
+        {!(
+          (month && planeId === mPlanId) ||
+          (quartly && planeId === qPlanId) ||
+          (year && planeId === yPlanId)
+        ) ? (
+          <button
             type="button"
             className={`bg-${buttonColor} text-${buttonText} font-semibold uppercase w-full border-2 border-transparent rounded-xl text-black py-2 px-8 special:py-4 special:px-12 2xl:px-10 text-xs special:text-lg 2xl:text-sm mt-4 mb-2 hover:text-${buttonHoverText} hover:bg-${buttonHover} hover:border-${hoverButtonBorder}`}
             onClick={handleChooseButton}
           >
-            <p className={``}>
-              Choose Plan
-            </p>
+            <p className="">{trailUserTest ? "End Trial Subscription" : "Choose Plan"}</p>
           </button>
-            :         <button
+        ) : (
+          <button
             type="button"
             className={`bg-transparent border-${buttonHover} text-${buttonText} font-semibold uppercase w-full border-2 rounded-xl text-black py-2 px-8 special:py-4 special:px-12 2xl:px-10 text-xs special:text-lg 2xl:text-sm mt-4 mb-2 hover:text-${buttonHoverText} hover:bg-${buttonHover} hover:border-${hoverButtonBorder}`}
             onClick={showUnSubModal}
           >
-            <p className={``}>
-              Unsubscribe
-            </p>
+            <p className={``}>{trailUserTest ? "End Trial Subscription" : "Unsubscribe"}</p>
           </button>
-        }
+        )}
       </div>
     </div>
   );
