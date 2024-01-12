@@ -6,6 +6,7 @@ import Usd from "../../assets/images/rafflesImages/Usd.png";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SelectRafflePaymentMethod = ({
   onClose,
@@ -13,11 +14,13 @@ const SelectRafflePaymentMethod = ({
   giveawayId,
   price,
   name,
+  subPlane,
   valUser
 }) => {
   const [count, setCount] = useState(1);
-  const [coupon, setCoupon] = useState("")
-
+  const [coupon, setCoupon] = useState("");
+  const navigate = useNavigate();
+  const [buttonMode, setButtonMode] = useState(1);    //1 =  PaybySub + OneOff  \ 0 = PayBy Balance + PayBy Card
   const logDetailsToDataLayer = (valUser, giveawayId, price, name) => {
     const data = {
         user: valUser,
@@ -33,7 +36,6 @@ const SelectRafflePaymentMethod = ({
     // Debugging log
     console.log('Logging to localstorage one off payment:', data);
  };
-
   const handleButtonClick = async () => {
     try {
       const response = await axios.post(
@@ -42,7 +44,7 @@ const SelectRafflePaymentMethod = ({
           uid: userId,
           roundid: giveawayId,
           count: count,
-          coupen: coupon
+          coupen: coupon,
         }
       );
 
@@ -103,10 +105,13 @@ const SelectRafflePaymentMethod = ({
     }
   };
 
+  const handleSubPlane = () => {
+    navigate("/subscription")
+  }
   return (
     <div
       className="popup-container bg-black/50 justify-center items-center"
-      //   onClick={handleBackdropClick}
+    //   onClick={handleBackdropClick}
     >
       <div className="popup-content text-black flex flex-col bg-white shadow-lg space-y-4 special:space-y-12 2xl:space-y-8 justify-center py-4 special:py-8 2xl:py-6">
         <div className="flex justify-between items-center">
@@ -178,36 +183,51 @@ const SelectRafflePaymentMethod = ({
             Payment Methods
           </p>
           <div className="flex flex-row justify-center items-center lg:gap-4 gap-1 text-black">
-            <div className="bg-white hover:bg-black/5 rounded-xl p-2 flex justify-center items-center cursor-pointer lg:gap-2">
-              <img
-                src={Usd}
-                alt=""
-                className="w-7 h-7 special:h-14 special:w-14 2xl:h-9 2xl:w-9"
-              />
-              <p className="text-xs md:block hidden">Pay by Subscription</p>
-            </div>
-            <div
-              className="bg-white hover:bg-black/5 rounded-xl p-2 flex justify-center items-center cursor-pointer lg:gap-2"
-              onClick={handlePointsButtonClick}
-            >
-              <img
-                src={Usd}
-                alt=""
-                className="w-7 h-7 special:h-14 special:w-14 2xl:h-9 2xl:w-9"
-              />
-              <p className="text-xs md:block hidden">Pay by Balance </p>
-            </div>
-            <div
-              className="bg-white hover:bg-black/5 rounded-xl p-2 flex justify-center items-center cursor-pointer lg:gap-2"
-              onClick={handleButtonClick}
-            >
-              <img
-                src={Visa}
-                alt=""
-                className="w-7 h-7 special:h-14 special:w-14 2xl:h-9 2xl:w-9"
-              />
-              <p className="text-xs md:block hidden">Pay by Card</p>
-            </div>
+            {
+              buttonMode ? (<> <div className="bg-white hover:bg-black/5 rounded-xl p-2 flex justify-center items-center cursor-pointer lg:gap-2" onClick={handleSubPlane}>
+                <img
+                  src={Usd}
+                  alt=""
+                  className="w-7 h-7 special:h-14 special:w-14 2xl:h-9 2xl:w-9"
+                />
+                <p className="text-xs md:block hidden">Pay by Subscription</p>
+              </div>
+                <div className="bg-white hover:bg-black/5 rounded-xl p-2 flex justify-center items-center cursor-pointer lg:gap-2" onClick={()=> setButtonMode(0)}>
+                  <img
+                    src={Usd}
+                    alt=""
+                    className="w-7 h-7 special:h-14 special:w-14 2xl:h-9 2xl:w-9"
+                  />
+                  <p className="text-xs md:block hidden">One Off Payment</p>
+                </div>
+              </>
+              ) : (
+                <>
+                  <div
+                    className="bg-white hover:bg-black/5 rounded-xl p-2 flex justify-center items-center cursor-pointer lg:gap-2"
+                    onClick={handlePointsButtonClick}
+                  >
+                    <img
+                      src={Usd}
+                      alt=""
+                      className="w-7 h-7 special:h-14 special:w-14 2xl:h-9 2xl:w-9"
+                    />
+                    <p className="text-xs md:block hidden">Pay by Balance </p>
+                  </div>
+                  <div
+                    className="bg-white hover:bg-black/5 rounded-xl p-2 flex justify-center items-center cursor-pointer lg:gap-2"
+                    onClick={handleButtonClick}
+                  >
+                    <img
+                      src={Visa}
+                      alt=""
+                      className="w-7 h-7 special:h-14 special:w-14 2xl:h-9 2xl:w-9"
+                    />
+                    <p className="text-xs md:block hidden">Pay by Card</p>
+                  </div>
+                </>
+              )
+            }
           </div>
         </div>
       </div>
