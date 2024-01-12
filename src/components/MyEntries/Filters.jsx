@@ -165,7 +165,7 @@ const Filters = ({
                 onChange={(e) => validDate(e.target.value)}
               />
             </div>
-            {/* <div className="relative cursor-pointer">
+            <div className="relative cursor-pointer">
               <div
                 className="flex items-center w-48 justify-between text-black bg-gray-300 px-4 py-3 gap-2 rounded-full text-xl font-semibold"
                 onClick={handleWinShow}
@@ -181,7 +181,7 @@ const Filters = ({
                   </div>
                 </div>
               )}
-            </div> */}
+            </div>
 
             <input
               type="text"

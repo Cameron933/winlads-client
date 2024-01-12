@@ -273,15 +273,15 @@ const MyEntries = () => {
                               )}
                             </p>
                           </div>
-                          {/* <div className="md:w-48" w-full>
+                          <div className="md:w-48" w-full>
                             {giveaway.winstatus === "win" ? (
-                              <MdDone />
+                              'Won'
                             ) : giveaway.winstatus === "lost" ? (
-                              <RxCross1 />
+                              'Loss'
                             ) : (
-                              ""
+                              "Pending"
                             )}
-                          </div> */}
+                          </div>
                         </div>
                       </div>
                     ))}
