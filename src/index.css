@@ -27,6 +27,9 @@ input::-webkit-inner-spin-button {
   }
 }
 
+/* input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+} */
 
 /* button animaion */
 .animate_btn {

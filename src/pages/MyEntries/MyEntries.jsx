@@ -166,45 +166,57 @@ const MyEntries = () => {
                     {myGiveaways.map((giveaway, key) => (
                       <div
                         key={key}
-                        className="xl:grid grid-cols-4 px-2 xl:px-0 flex flex-col"
+                        className="xl:grid grid-cols-4 px-2 xl:px-0 flex flex-col xl:items-center"
                       >
                         <div
-                          className="col-span-1 justify-between items-center"
+                          className="col-span-1 justify-center items-center rounded-full bg-[#F3F3F3] flex xl:hidden"
                           // style={{ backgroundColor: giveaway?.raffle?.color }}
 
-                          style={{
-                            background: `linear-gradient(90deg, ${giveaway.raffle?.color} 0%, #000608 100%)`,
-                          }}
+                          // style={{
+                          //   background: `linear-gradient(90deg, ${giveaway.raffle?.color} 0%, #000608 100%)`,
+                          // }}
                         >
-                          <div className="flex flex-row justify-between items-center">
+                          <div className="justify-center items-center py-2 flex">
                             {/* <p className="text-black capitalize text-xs">
                               {giveaway?.raffle.name}
                             </p> */}
                             <img
                               src={giveaway.raffle?.raffleimage}
                               alt=""
-                              className="w-12"
+                              className="w-10"
                             />
-                            <div
+                            {/* <div
                               className="text-black capitalize rounded-lg py-1 items-center text-xs px-2"
                               style={{
                                 backgroundColor: giveaway.raffle?.color,
                               }}
                             >
                               {giveaway?.raffle.name}
-                            </div>
-                            <PiBookmarkSimpleLight className="text-white" />
+                            </div> */}
+                            {/* <PiBookmarkSimpleLight className="text-white" /> */}
                           </div>
                         </div>
-                        <div className="bg-blue-100 py-3 text-xs 2xl:text-sm xl:pr-4 pl-2 pr-2 xl:pl-4 xl:rounded-b-none rounded-b-2xl xl:flex col-span-3 xl:items-center justify-between space-y-1 xl:space-y-0">
-                          <div className=" md:w-1/3 w-full">
+                        <div className="md:w-1/3 w-full hidden xl:block">
+                          <p className="capitalize">{giveaway.round.name}</p>
+                        </div>
+                        <div className="py-3 text-xs 2xl:text-sm pl-2 pr-2 xl:rounded-b-none rounded-b-2xl xl:flex col-span-3 xl:items-center justify-between space-y-1 xl:space-y-0">
+                          <div className=" md:w-1/3 w-full block xl:hidden">
                             <p className="capitalize">{giveaway.round.name}</p>
                           </div>
-                          <div className=" md:w-1/3 w-full">
+                          <div className="md:w-1/3 justify-center items-center rounded-full bg-[#F3F3F3] hidden xl:flex">
+                            <div className="justify-center items-center py-2 flex">
+                              <img
+                                src={giveaway.raffle?.raffleimage}
+                                alt=""
+                                className="w-10"
+                              />
+                            </div>
+                          </div>
+                          <div className=" md:w-1/3 w-full xl:pl-8">
                             <p>{giveaway.entryNumber}</p>
                           </div>
                           <div className="flex flex-row justify-between 2xl:gap-36 xl:gap-12 md:w-1/3 w-full">
-                            <p className="text-xs xl:text-sm">
+                            <p className="text-xs">
                               {" "}
                               {new Date(giveaway.round.endtime).toLocaleString(
                                 "en-US",
@@ -219,13 +231,25 @@ const MyEntries = () => {
                               )}
                             </p>
                           </div>
-                          <div className="w-48">
+                          <div className="xl:w-48 w-24">
                             {" "}
-                            {giveaway.winstatus === "pending" ? (
-                              "Pending"
-                            ) : (
-                              <RxCross1 />
-                            )}
+                            {
+                              giveaway.winstatus === "pending" ? (
+                                <div className="rounded-full px-2 py-2 bg-[#F8C541]">
+                                  Pending..
+                                </div>
+                              ) : giveaway.winstatus === "win" ? (
+                                <div className="rounded-full px-2 py-2 bg-[#00D82F]">
+                                  Win..
+                                </div>
+                              ) : (
+                                <div className="rounded-full px-2 py-2 bg-[#F92626]">
+                                  Lost..
+                                </div>
+                              )
+
+                              // <RxCross1 />
+                            }
                           </div>
                         </div>
                       </div>
@@ -273,14 +297,12 @@ const MyEntries = () => {
                               )}
                             </p>
                           </div>
-                          <div className="md:w-48" w-full>
-                            {giveaway.winstatus === "win" ? (
-                              'Won'
-                            ) : giveaway.winstatus === "lost" ? (
-                              'Loss'
-                            ) : (
-                              "Pending"
-                            )}
+                          <div className="md:w-48">
+                            {giveaway.winstatus === "win"
+                              ? "Won"
+                              : giveaway.winstatus === "lost"
+                              ? "Loss"
+                              : "Pending"}
                           </div>
                         </div>
                       </div>
