@@ -209,7 +209,9 @@ const SelectRafflePaymentMethod = ({
               </motion.div>
             }
             <div className={`to-[#22272C] from-[#23282E] hover:scale-105 mb-2 transition-all cursor-pointer px-2 py-2 text-xs rounded-full bg-gradient-to-t capitalize ${count === 150 ? 'scale-105' : 'scale-100'} text-white`} onClick={() => setCount(150)}>
-              150 Free Accumulating entries package
+            <div className="col-span-1 bg-gradient-to-t text-black to-[#FFBE00] from-[#766000] rounded-full py-2 px-4 text-center">
+                25 Free Accumulating entries package
+              </div>
             </div>
             {
               count == 150 && <motion.div className="p-3 bg-white rounded-xl border text-[0.7rem]"

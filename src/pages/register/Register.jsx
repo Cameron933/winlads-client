@@ -66,6 +66,7 @@ const Register = ({ location }) => {
   const [initialOneOffShow, setInitialOneOffShow] = useState(1);
   const [eligible, setEligible] = useState(false);
   const [showOneOff, setShowOneOff] = useState(true);
+  const [count, setCount] = useState("")
 
   // set loading
   useEffect(() => {
@@ -159,6 +160,7 @@ const Register = ({ location }) => {
       coupen: coupen,
       subid: selectedSubId,
       type: eligible ? "trial" : memberShipType,
+      count: count,
       roundid: selectedSubId, //Used the same variable for store roundid OR subid
     };
 
@@ -723,6 +725,7 @@ const Register = ({ location }) => {
                           raffleimage={
                             "https://winland.onrender.com/public/images/vehicle.png"
                           }
+                          count={count}
                         />
                       )}
                     </div>
