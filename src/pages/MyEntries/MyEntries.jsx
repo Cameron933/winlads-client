@@ -169,7 +169,7 @@ const MyEntries = () => {
                         className="xl:grid grid-cols-4 px-2 xl:px-0 flex flex-col xl:items-center"
                       >
                         <div
-                          className="col-span-1 justify-center items-center rounded-full bg-[#F3F3F3] flex xl:hidden"
+                          className="col-span-1 justify-center items-center rounded-full flex xl:hidden"
                           // style={{ backgroundColor: giveaway?.raffle?.color }}
 
                           // style={{
@@ -203,7 +203,7 @@ const MyEntries = () => {
                           <div className=" md:w-1/3 w-full block xl:hidden">
                             <p className="capitalize">{giveaway.round.name}</p>
                           </div>
-                          <div className="md:w-1/3 justify-center items-center rounded-full bg-[#F3F3F3] hidden xl:flex">
+                          <div className="md:w-1/3 justify-center items-center rounded-full hidden xl:flex">
                             <div className="justify-center items-center py-2 flex">
                               <img
                                 src={giveaway.raffle?.raffleimage}
