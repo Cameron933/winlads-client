@@ -29,11 +29,14 @@ function PaymentSuccess() {
 
       // Pushing data to the data layer
       console.log("push to dataLayer", data);
-
+      if(isSuccess){
       window.dataLayer.push({
         event: "one_off_packages",
         data: data,
       });
+    } else {
+        console.log("Payment failed!")
+      }
 
       // Clearing data from localStorage
       localStorage.removeItem("paymentSuccessData");
