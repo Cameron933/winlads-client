@@ -192,6 +192,10 @@ TagManager.initialize(tagManagerArgs)
       path: "/welcome",
       element: <Welcome />,
     },
+    {
+      path: "/subscription-done",
+      element: <SubDone />,
+    },
   
     {
       path: "/privacy",
