@@ -155,8 +155,8 @@ const VehicleCardForReg = ({
         className="flex items-stretch md:flex-wrap justify-start gap-3 "
       >
         <div
-          className={`bg-gradient-to-t to-[#0094FF] from-[#00347C] hover:opacity-75 rounded-lg flex flex-col py-4 md:px-2 px-4 w-[350px] ${
-            select === "01" ? "border-2 border-black" : ""
+          className={`bg-gradient-to-t border-2 to-[#0094FF] from-[#00347C] hover:opacity-75 rounded-lg flex flex-col py-4 md:px-2 px-4 w-[350px] ${
+            select === "01" ? "border-black" : ""
           }`}
           onClick={() =>
             handleClickOneOff("01", "01 Free Accumulating entries package")
@@ -172,8 +172,8 @@ const VehicleCardForReg = ({
           </div>
         </div>
         <div
-          className={`bg-gradient-to-t to-[#FC4701] from-[#661E01] hover:opacity-75 rounded-lg flex flex-col py-4 md:px-2 px-4 w-[350px] ${
-            select === "03" ? "border-2 border-black" : ""
+          className={`bg-gradient-to-t border-2 to-[#FC4701] from-[#661E01] hover:opacity-75 rounded-lg flex flex-col py-4 md:px-2 px-4 w-[350px] ${
+            select === "03" ? " border-black" : ""
           }`}
           onClick={() =>
             handleClickOneOff("03", "03 Free Accumulating entries package")
@@ -189,8 +189,8 @@ const VehicleCardForReg = ({
           </div>
         </div>
         <div
-          className={`bg-gradient-to-t to-[#01E9FC] from-[#01666D] hover:opacity-75 rounded-lg flex flex-col py-4 md:px-2 px-4 w-[350px] ${
-            select === "10" ? "border-2 border-black" : ""
+          className={`bg-gradient-to-t border-2 to-[#01E9FC] from-[#01666D] hover:opacity-75 rounded-lg flex flex-col py-4 md:px-2 px-4 w-[350px] ${
+            select === "10" ? "border-black" : ""
           }`}
           onClick={() =>
             handleClickOneOff("10", "10 Free Accumulating entries package")
@@ -206,8 +206,8 @@ const VehicleCardForReg = ({
           </div>
         </div>
         <div
-          className={`bg-gradient-to-t to-[#F5B701] from-[#796201] hover:opacity-75 rounded-lg flex flex-col py-4 md:px-2 px-4 w-[350px] ${
-            select === "25" ? "border-2 border-black" : ""
+          className={`bg-gradient-to-t border-2 to-[#F5B701] from-[#796201] hover:opacity-75 rounded-lg flex flex-col py-4 md:px-2 px-4 w-[350px] ${
+            select === "25" ? "border-black" : ""
           }`}
           onClick={() =>
             handleClickOneOff("25", "25 Free Accumulating entries package")
@@ -223,8 +223,8 @@ const VehicleCardForReg = ({
           </div>
         </div>
         <div
-          className={`bg-gradient-to-t to-[#22282D] from-[#010101] hover:opacity-75 rounded-lg flex flex-col py-4 md:px-2 px-4 w-[350px] ${
-            select === "150" ? "border-2 border-black" : ""
+          className={`bg-gradient-to-t border-2 to-[#22282D] from-[#010101] hover:opacity-75 rounded-lg flex flex-col py-4 md:px-2 px-4 w-[350px] ${
+            select === "150" ? "border-black" : ""
           }`}
           onClick={() =>
             handleClickOneOff("150", "150 Free Accumulating entries package")

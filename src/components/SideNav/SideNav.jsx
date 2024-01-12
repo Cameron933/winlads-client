@@ -30,6 +30,16 @@ import Past from "../../assets/images/new/past.png";
 import Ongoing from "../../assets/images/new/ongoing.png";
 import Upcoming from "../../assets/images/new/upcoming.png";
 
+import Giv from "../../assets/images/newIcons/giv.png"
+import PromoIcon from "../../assets/images/newIcons/promo.png"
+import Aff from "../../assets/images/newIcons/aff.png"
+import NewsIcon from "../../assets/images/newIcons/news.png"
+import BC from "../../assets/images/newIcons/bc.png"
+import SubIcon from "../../assets/images/newIcons/sub.png"
+import EntryIcon from "../../assets/images/newIcons/entry.png"
+import Trans from "../../assets/images/newIcons/trans.png"
+
+
 const SideNav = ({ screen }) => {
   const [showDropdown, setShowDropdown] = useState(false);
 
@@ -150,7 +160,7 @@ const SideNav = ({ screen }) => {
 
           <div onClick={expandSidebar}>
             <button className="flex xl:flex-row flex-col space-y-2 xl:space-y-0 items-center xl:justify-start justify-center xl:px-5 xl:gap-2 hover:bg-[#36383b] py-2 px-2 w-full">
-              <img src={Giveaway} className="w-[18px]" alt="protect" />
+              <img src={Giv} className="w-[18px]" alt="protect" />
               <div
                 className="mobile-hide flex xl:flex-row  gap-2 items-center"
                 onClick={handleDropdownClick}
@@ -195,7 +205,7 @@ const SideNav = ({ screen }) => {
           <div onClick={expandSidebar}>
             <Link to="/subscription">
               <button className="flex flex-row items-center xl:justify-start justify-center xl:px-5 xl:gap-2 hover:bg-[#36383b] py-2 px-2 w-full">
-                <img src={Sub} className="w-[18px]" alt="protect" />
+                <img src={SubIcon} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
                   <p className="link-no-underlin hidden xl:flex text-white">
                     Subscriptions
@@ -208,7 +218,7 @@ const SideNav = ({ screen }) => {
           <div onClick={expandSidebar}>
             <Link to="/myentries">
               <button className="flex flex-row items-center xl:justify-start justify-center xl:px-5 xl:gap-2 hover:bg-[#36383b] py-2 px-2 w-full">
-                <img src={Entry} className="w-[18px]" alt="protect" />
+                <img src={EntryIcon} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
                   <p className="link-no-underlin hidden xl:flex text-white">
                     My Entries
@@ -221,7 +231,7 @@ const SideNav = ({ screen }) => {
           <div onClick={expandSidebar}>
             <Link to="/transaction">
               <button className="flex flex-row items-center  xl:justify-start justify-center xl:px-5  xl:gap-2 hover:bg-[#36383b] py-2  w-full  ">
-                <img src={Transaction} className="w-[14px]" alt="protect" />
+                <img src={Trans} className="w-[14px]" alt="protect" />
                 <span className="mobile-hide">
                   <p className="link-no-underlin  hidden xl:flex text-white ">
                     Transactions
@@ -238,7 +248,7 @@ const SideNav = ({ screen }) => {
           <div onClick={expandSidebar}>
             <Link to="/affiliate">
               <button className="flex flex-row items-center xl:justify-start justify-center xl:px-5 xl:gap-2 hover:bg-[#36383b] py-2 px-2 w-full">
-                <img src={Affillicate} className="w-[18px]" alt="protect" />
+                <img src={Aff} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
                   <p className="link-no-underlin  hidden xl:flex text-white">
                     Affiliate
@@ -251,7 +261,7 @@ const SideNav = ({ screen }) => {
           <div onClick={expandSidebar}>
             <Link to="/promo">
               <button className="flex flex-row items-center xl:justify-start justify-center xl:px-5 xl:gap-2 hover:bg-[#36383b] py-2 px-2 w-full">
-                <img src={Promo} className="w-[18px]" alt="protect" />
+                <img src={PromoIcon} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
                   <p className="link-no-underlin  hidden xl:flex text-white">
                     Promo Tools
@@ -264,7 +274,7 @@ const SideNav = ({ screen }) => {
           <div onClick={expandSidebar}>
             <Link to="/business-card">
               <button className="flex flex-row items-center xl:justify-start justify-center xl:px-5 xl:gap-2 hover:bg-[#36383b] py-2 px-2 w-full">
-                <img src={Business} className="w-[18px]" alt="protect" />
+                <img src={BC} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
                   <p className="link-no-underlin  hidden xl:flex text-white">
                     Business card
@@ -281,7 +291,7 @@ const SideNav = ({ screen }) => {
           <div onClick={expandSidebar}>
             <Link to="/newslist">
               <button className="flex flex-row items-center xl:justify-start justify-center xl:px-5 xl:gap-2 hover:bg-[#36383b] py-2 px-2 w-full">
-                <img src={News} className="w-[18px]" alt="protect" />
+                <img src={NewsIcon} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
                   <p className="link-no-underlin hidden xl:flex text-white">
                     News

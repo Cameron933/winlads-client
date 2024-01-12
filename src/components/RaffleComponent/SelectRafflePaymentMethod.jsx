@@ -235,7 +235,7 @@ const SelectRafflePaymentMethod = ({
                 01 Free<br/> Acuminating
                 <br /> Entry Packages
               </p>
-              <div className="bg-white text-black rounded-lg md:py-4 py-2 text-center px-2 md:text-xs text-[8px]">
+              <div className="bg-white text-black rounded-lg md:py-4 py-2 text-center px-2 md:text-[10px] text-[8px]">
                 Partner Store Discounts: 10%
               </div>
             </div>
@@ -246,12 +246,12 @@ const SelectRafflePaymentMethod = ({
               onClick={() => setCount(3)}
             >
               <p className="text-black font-semibold xl:text-lg md:text-xl text-lg xl:pb-12 pb-16 md:pb-8 text-center px-4">
-                01 Free
+                03 Free
                 <br /> Acuminating
                 <br /> Entry Packages
               </p>
-              <div className="bg-white text-black rounded-lg md:py-4 py-2 text-center px-2 md:text-xs text-[8px]">
-                Partner Store Discounts: 10%
+              <div className="bg-white text-black rounded-lg md:py-4 py-2 text-center px-2 md:text-[10px] text-[8px]">
+              Access to Winlad Store Cash Back program
               </div>
             </div>
             <div
@@ -261,12 +261,12 @@ const SelectRafflePaymentMethod = ({
               onClick={() => setCount(10)}
             >
               <p className="text-black font-semibold xl:text-lg md:text-xl text-lg xl:pb-12 pb-16 md:pb-8 text-center px-4">
-                01 Free
+                10 Free
                 <br /> Acuminating
                 <br /> Entry Packages
               </p>
-              <div className="bg-white text-black rounded-lg md:py-4 py-2 text-center px-2 md:text-xs text-[8px]">
-                Partner Store Discounts: 10%
+              <div className="bg-white text-black rounded-lg md:py-4 py-2 text-center px-2 md:text-[10px] text-[8px]">
+              Access to Winlads Public Events
               </div>
             </div>
             <div
@@ -276,12 +276,12 @@ const SelectRafflePaymentMethod = ({
               onClick={() => setCount(25)}
             >
               <p className="text-black font-semibold xl:text-lg md:text-xl text-lg xl:pb-12 pb-16 md:pb-8 text-center px-4">
-                01 Free
+                25 Free
                 <br /> Acuminating
                 <br /> Entry Packages
               </p>
-              <div className="bg-white text-black rounded-lg md:py-4 py-2 text-center px-2 md:text-xs text-[8px]">
-                Partner Store Discounts: 10%
+              <div className="bg-white text-black rounded-lg md:py-4 py-2 text-center px-2 md:text-[10px] text-[8px]">
+              Be Eligible to Apply for Winlad GOLD Card
               </div>
             </div>
             <div
@@ -291,12 +291,12 @@ const SelectRafflePaymentMethod = ({
               onClick={() => setCount(150)}
             >
               <p className="text-white font-semibold xl:text-lg md:text-xl text-lg xl:pb-12 pb-16 md:pb-8 text-center px-4">
-                01 Free
+                150 Free
                 <br /> Acuminating
                 <br /> Entry Packages
               </p>
-              <div className="bg-white text-black rounded-lg md:py-4 py-2 text-center px-2 md:text-xs text-[8px]">
-                Partner Store Discounts: 10%
+              <div className="bg-white text-black rounded-lg md:py-4 py-2 text-center px-2 md:text-[10px] text-[8px]">
+              Access to Winlads Urgency Program
               </div>
             </div>
           </div>
