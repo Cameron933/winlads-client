@@ -139,10 +139,10 @@ const Register = ({ location }) => {
     if (checkAbility == "WINACCESSEN") {
       setEligible(true);
       coupen = "MAZDABT50S";
-      console.log("co", coupen);
-      setMemType('trial')
+      //console.log("co", coupen);
+     // setMemType('trial')
     }
-    console.log(coupen);
+    //console.log(coupen);
     
     const data = {
       firstname: values.firstname,
@@ -150,17 +150,17 @@ const Register = ({ location }) => {
       email: values.email,
       password: values.password,
       mobile: "+" + ph,
-      passport: values.passport,
+      nic: values.passport,
       tin: values.tin,
       refferalId: values.refferalId,
       uid: uid,
       coupen: coupen,
       subid: selectedSubId,
-      type: memberShipType,
+      type: eligible ? 'trial' : memberShipType,
       roundid: selectedSubId, //Used the same variable for store roundid OR subid
     };
 
-    console.log(data);
+    //console.log(data);
 
     const response = await axios.get(
       `${import.meta.env.VITE_SERVER_API}/checkEmail?email=${values.email}`
@@ -181,6 +181,7 @@ const Register = ({ location }) => {
           console.log("NO PAY");
         }
       } catch (error) {
+        console.log(data,'Submitted data');
         toast.error("Error submitting login credentials", {
           position: "top-center",
           autoClose: 5000,
