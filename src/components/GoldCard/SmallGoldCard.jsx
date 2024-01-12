@@ -28,11 +28,13 @@ const SmallGoldCard = () => {
 
   const startDateObject = new Date(valUser.transaction?.startfrom);
   const endDateObject = new Date(valUser.transaction?.endfrom);
+  const trialEndDateObject = new Date(valUser?.trialend);
 
   const options = { year: "numeric", month: "numeric", day: "numeric" };
 
   const endDate = endDateObject.toLocaleString("en-US", options);
   const startDate = startDateObject.toLocaleString("en-US", options);
+  const trialEndDate = trialEndDateObject.toLocaleString("en-US", options);
 
   return (
     <>
@@ -83,6 +85,11 @@ const SmallGoldCard = () => {
                         : "text-black"
                     }`}
                   >
+                    {valUser.trial && (
+                      <>
+                        <span>Trial Renews On</span>&nbsp;{trialEndDate}
+                      </>
+                    )}
                     <span>Auto Renews On</span>&nbsp;{endDate}
                   </p>
                 </span>

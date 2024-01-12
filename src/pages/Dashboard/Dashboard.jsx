@@ -199,6 +199,7 @@ const Dashboard = () => {
                             oneOffPackage={
                               giveaway.raffle?.name === "Vehicle" ? true : false
                             }
+                            checkTrial={valUser.trial}
                             onButton={() => {
                               handleButton({
                                 id: giveaway?._id,
@@ -313,6 +314,7 @@ const Dashboard = () => {
                             oneOffPackage={
                               giveaway.raffle?.name === "Vehicle" ? true : false
                             }
+                            checkTrial={valUser.trial}
                             onButton={() => {
                               handleButton({
                                 id: giveaway?._id,
