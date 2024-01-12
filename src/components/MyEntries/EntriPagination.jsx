@@ -27,7 +27,7 @@ const EntriPagination = ({ pageCount, buttonClick, currentPage, setCurrentPage }
       return Array.from({ length: totalPages }, (_, index) => (
         <div
           className="p-2 rounded-full hover:bg-gray-300 aspect-square cursor-pointer"
-          style={{ backgroundColor: currentPage === index + 1 ? "grey" : "white" }}
+          style={{ backgroundColor: currentPage === index + 1 ? "#e2e8f0" : "white" }}
           key={index + 1}
           onClick={() => handleClick(index + 1)}
         >
@@ -39,7 +39,7 @@ const EntriPagination = ({ pageCount, buttonClick, currentPage, setCurrentPage }
     const firstPageNumbers = Array.from({ length: visiblePages }, (_, index) => (
       <div
         className="p-2 rounded-full hover:bg-gray-300 aspect-square cursor-pointer"
-        style={{ backgroundColor: currentPage === index + 1 ? "grey" : "white" }}
+        style={{ backgroundColor: currentPage === index + 1 ? "#e2e8f0" : "white" }}
         key={index + 1}
         onClick={() => handleClick(index + 1)}
       >
@@ -50,7 +50,7 @@ const EntriPagination = ({ pageCount, buttonClick, currentPage, setCurrentPage }
     const lastPageNumbers = Array.from({ length: visiblePages }, (_, index) => (
       <div
         className="p-2 rounded-full hover:bg-gray-300 aspect-square cursor-pointer"
-        style={{ backgroundColor: currentPage === totalPages - visiblePages + index + 1 ? "grey" : "white" }}
+        style={{ backgroundColor: currentPage === totalPages - visiblePages + index + 1 ? "#e2e8f0" : "white" }}
         key={totalPages - visiblePages + index + 1}
         onClick={() => handleClick(totalPages - visiblePages + index + 1)}
       >
