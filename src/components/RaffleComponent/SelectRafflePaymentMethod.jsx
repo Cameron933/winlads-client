@@ -158,8 +158,26 @@ const SelectRafflePaymentMethod = ({
               </p>
             </div>
           </div> */}
+          <div className="space-y-2">
+            <div className={`to-[#0094FF] from-[#01819D] hover:scale-105 transition-all cursor-pointer px-2 py-2 text-xs rounded-full capitalize ${count === 1 ? 'bg-gradient-to-b' : 'bg-gradient-to-t'}`} onClick={()=>setCount(1)}>
+              01 Free ACCUMULATING entries package
+            </div>
+            <div className={`to-[#FF4700] from-[#611C00] hover:scale-105 transition-all cursor-pointer px-2 py-2 text-xs rounded-full capitalize ${count === 3 ? 'bg-gradient-to-b' : 'bg-gradient-to-t'}`} onClick={()=>setCount(3)}>
+              03 Free ACCUMULATING entries package
+            </div>
+            <div className={`to-[#00ECFF] from-[#006168] hover:scale-105 transition-all cursor-pointer px-2 py-2 text-xs rounded-full capitalize ${count === 10 ? 'bg-gradient-to-b' : 'bg-gradient-to-t'}`} onClick={()=>setCount(10)}>
+              10 Free ACCUMULATING entries package
+            </div>
+            <div className={`to-[#FFBE00] from-[#766000] hover:scale-105 transition-all cursor-pointer px-2 py-2 text-xs rounded-full capitalize ${count === 25 ? 'bg-gradient-to-b' : 'bg-gradient-to-t'}`} onClick={()=>setCount(25)}>
+              25 Free ACCUMULATING entries package
+            </div>
+            <div className={`to-[#22272C] from-[#23282E] hover:scale-105 transition-all cursor-pointer px-2 py-2 text-xs rounded-full capitalize ${count === 150 ? 'bg-gradient-to-b' : 'bg-gradient-to-t'} text-white`} onClick={()=>setCount(150)}>
+              150 Free ACCUMULATING entries package
+            </div>
+
+          </div>
           <div className="flex justify-center items-center  flex-col space-y-2">
-            <div className="rounded-2xl flex flex-row justify-between items-center px-4 w-48 border border-solid border-black bg-[##F3F3F3] py-1">
+            {/* <div className="rounded-2xl flex flex-row justify-between items-center px-4 w-48 border border-solid border-black bg-[##F3F3F3] py-1">
               <div onClick={handleMinus} className="cursor-pointer text-lg">
                 -
               </div>
@@ -168,7 +186,7 @@ const SelectRafflePaymentMethod = ({
               <div onClick={handlePlus} className="cursor-pointer text-lg">
                 +
               </div>
-            </div>
+            </div> */}
             <input
               type="text"
               className="rounded-2xl border border-solid border-black placeholder:text-xs text-xs px-4 py-2 placeholder:text-gray-700 w-48"
