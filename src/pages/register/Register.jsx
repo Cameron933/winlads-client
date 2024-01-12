@@ -449,6 +449,7 @@ const Register = ({ location }) => {
                         }
                         chosenPlan={chosenPlan}
                         isShowDetails={true}
+                        popular={plan.name === "Platinum" ? true : false}
                       />
                     ))}
                   </>

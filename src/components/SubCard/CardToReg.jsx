@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // import Correct from "../assets/correct.png";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { FaStar } from "react-icons/fa6";
@@ -35,9 +35,15 @@ const SubCard = ({
   handleChosePlan,
   chosenPlan,
   isShowDetails = false,
+  popular
 }) => {
   const [initial, setShowmore] = useState(1);
   const [btnBgColor, setBtnBgColor] = useState(buttonColor);
+  const[showPopular, setShowPopular] = useState(false)
+
+  useEffect(() => {
+    setShowPopular(popular)
+  },[])
 
   const switchBtnColor = () => {
     if (btnBgColor == buttonColor) {
@@ -66,16 +72,16 @@ const SubCard = ({
         background: `linear-gradient(180deg, ${bgColorFrom} 0%, ${bgColorTo} 100%)`,
       }}
     >
-      {mostPopular && (
+      {showPopular && (
         <div
           className="flex items-center justify-center gap-2 text-center absolute rounded-t-xl top-0 left-0 w-full py-2 bg-black font-semibold"
           style={{ color: "#fff" }}
         >
-          <FaStar /> Most Popular
+          <FaStar className="text-yellow-400" /> Most Popular
         </div>
       )}
       <p
-        className={`text-${titleColor} text-center uppercase text-lg lg:text-xl 2xl:text-2xl font-bold md:pb-8`}
+        className={`text-${titleColor} text-center uppercase text-lg lg:text-xl 2xl:text-2xl font-bold md:pb-8 pt-4`}
       >
         {title}
       </p>
