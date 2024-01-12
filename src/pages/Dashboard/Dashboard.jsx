@@ -197,9 +197,9 @@ const Dashboard = () => {
                             raffleimage={giveaway.raffle?.raffleimage}
                             eligeble={true}
                             oneOffPackage={
-                              giveaway.raffle?.name === "Vehicle" || valUser.trial ? true : false
+                              giveaway.raffle?.name === "Vehicle" ? true : false
                             }
-                            checkTrial={valUser.trial}
+                            checkTrial={valUser.trail ? giveaway.raffle?.name === "Vehicle" ? false : true : false}
                             onButton={() => {
                               handleButton({
                                 id: giveaway?._id,

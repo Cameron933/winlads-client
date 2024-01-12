@@ -3,6 +3,7 @@ import CatJeep from "../../assets/images/rafflesImages/newJeep.png";
 import NewVeh from "../../assets/images/newVeh.png";
 import { LuInfo } from "react-icons/lu";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const VehicleCardForReg = ({
   bgColor,
@@ -16,6 +17,7 @@ const VehicleCardForReg = ({
   raffleimage,
   id,
   select,
+  yValue,
   setSelect,
   setSelectedPlanName,
   setSelPlanPrice,
@@ -145,7 +147,13 @@ const VehicleCardForReg = ({
           </div>
         </div>
       </div> */}
-      <div className="flex items-stretch md:flex-wrap justify-start gap-3 ">
+      <motion.div
+        initial={{ y: yValue, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1, delay: 0.5 }}
+        className="flex items-stretch md:flex-wrap justify-start gap-3 "
+      >
         <div
           className={`bg-gradient-to-t to-[#0094FF] from-[#00347C] hover:opacity-75 rounded-lg flex flex-col py-4 md:px-2 px-4 w-[350px] ${
             select === "01" ? "border-2 border-black" : ""
@@ -231,7 +239,7 @@ const VehicleCardForReg = ({
             Access to Winlads Urgency Program
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };
