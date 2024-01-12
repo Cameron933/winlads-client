@@ -15,11 +15,27 @@ const SelectRafflePaymentMethod = ({
   price,
   name,
   subPlane,
+  valUser
 }) => {
   const [count, setCount] = useState(1);
   const [coupon, setCoupon] = useState("");
   const navigate = useNavigate();
   const [buttonMode, setButtonMode] = useState(1);    //1 =  PaybySub + OneOff  \ 0 = PayBy Balance + PayBy Card
+  const logDetailsToDataLayer = (valUser, giveawayId, price, name) => {
+    const data = {
+        user: valUser,
+        giveawayId: giveawayId || "",
+        price: price || "",
+        plan_name: name || "",
+    };
+
+    if (typeof localStorage !== "undefined") {
+        localStorage.setItem('paymentSuccessData', JSON.stringify(data));
+    }
+
+    // Debugging log
+    console.log('Logging to localstorage one off payment:', data);
+ };
   const handleButtonClick = async () => {
     try {
       const response = await axios.post(
@@ -35,6 +51,7 @@ const SelectRafflePaymentMethod = ({
       const payURL = response.data.payurl;
       
       // Redirect the user to the payURL
+      logDetailsToDataLayer(valUser, giveawayId, price, name);
       window.location.href = payURL;
     } catch (error) {
       console.log(error);
