@@ -68,10 +68,10 @@ const Register = ({ location }) => {
 
   // set loading
   useEffect(() => {
-    if (selectedPackage) {
-     // cookies.set("selected-package-id", selectedPackage);
-      // setChosenPlan(selectedPackage);
-    }
+    // if (selectedPackage) {
+    //  cookies.set("selected-package-id", selectedPackage);
+    //   setChosenPlan(selectedPackage);
+    // }
     getPlanes();
     setTimeout(() => {
       setIsLoading(false);
@@ -140,9 +140,10 @@ const Register = ({ location }) => {
       setEligible(true);
       coupen = "MAZDABT50S";
       console.log("co", coupen);
+     // setMemType('trial')
     }
     console.log(coupen);
-
+    
     const data = {
       firstname: values.firstname,
       lastname: values.lastname,
@@ -464,7 +465,7 @@ const Register = ({ location }) => {
                       "https://winland.onrender.com/public/images/vehicle.png"
                     }
                   />
-                  <button className="md:text-sm text-xs text-blue-500">See More</button>
+                  {/* <button className="md:text-sm text-xs text-blue-500">See More</button> */}
                   </>
                 )}
               </div>

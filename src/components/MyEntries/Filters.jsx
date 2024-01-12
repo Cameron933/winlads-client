@@ -122,7 +122,7 @@ const Filters = ({
               onClick={handleRoundsShow}
             >
               <p className="2xl:text-sm xl:text-xs text-black">
-                Giveaway Rounds
+                Giveaway Names
               </p>
               <IoIosOptions className="2xl:text-xl xl:text-sm m-1 cursor-pointer text-black" />
             </div>
