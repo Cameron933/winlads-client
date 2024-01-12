@@ -51,27 +51,44 @@ function SubDone() {
     } else {
       setSuccess(true);
     }
-    if(token){
-      console.log('Register Token :'+token);
-      cookies.set('wr_token', token)
-    }
     controls.start(successAnimation.animate);
 
-    const intervalId = setInterval(() => {
-      setSeconds((prev) => {
-        // Ensure that the countdown stops at 0
-        if (prev <= 1) {
-          clearInterval(intervalId);
-          navigate("/dashboard");
-          return 0;
-        }
-        return prev - 1;
-      });
+    if (token) {
+      console.log('Register Token :' + token);
+      cookies.set('wr_token', token)
 
-      if (seconds < 1) {
-        navigate("/dashboard");
-      }
-    }, 1000);
+      const intervalId = setInterval(() => {
+        setSeconds((prev) => {
+          // Ensure that the countdown stops at 0
+          if (prev <= 1) {
+            clearInterval(intervalId);
+            navigate("/welcome");
+            return 0;
+          }
+          return prev - 1;
+        });
+
+        if (seconds < 1) {
+          navigate("/dashboard");
+        }
+      }, 1000);
+    } else {
+      const intervalId = setInterval(() => {
+        setSeconds((prev) => {
+          // Ensure that the countdown stops at 0
+          if (prev <= 1) {
+            clearInterval(intervalId);
+            navigate("/dashboard");
+            return 0;
+          }
+          return prev - 1;
+        });
+
+        if (seconds < 1) {
+          navigate("/dashboard");
+        }
+      }, 1000);
+    }
 
     return () => {
       // Clear the interval when the component unmounts
