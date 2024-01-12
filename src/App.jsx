@@ -105,12 +105,12 @@ TagManager.initialize(tagManagerArgs)
         //   element: <SubDone />,
         //   subscription-done?suc=0&fail=1&sub_id=ds Sample Done Route
         // },
-        {
-          path: "/payment-done",
-          element: <PaymentSuccess />,
-          // payment-done?suc=1&round_id=sadc  Sample Success Route
-          // payment-done?suc=0&fail=1&round_id=ds  Sample Fail Route
-        },
+        // {
+        //   path: "/payment-done",
+        //   element: <PaymentSuccess />,
+        //   // payment-done?suc=1&round_id=sadc  Sample Success Route
+        //   // payment-done?suc=0&fail=1&round_id=ds  Sample Fail Route
+        // },
         {
           path: "/myentries",
           element: <MyEntries />,
@@ -195,6 +195,12 @@ TagManager.initialize(tagManagerArgs)
     {
       path: "/subscription-done",
       element: <SubDone />,
+    },
+    {
+      path: "/payment-done",
+      element: <PaymentSuccess />,
+      // payment-done?suc=1&round_id=sadc  Sample Success Route
+      // payment-done?suc=0&fail=1&round_id=ds  Sample Fail Route
     },
   
     {

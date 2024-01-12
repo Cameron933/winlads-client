@@ -173,8 +173,8 @@ const Register = ({ location }) => {
         //cookies.set("wr_token", response.data?.data?._id);
         console.log(response.data, "data");
         if (response.data?.payurl) {
-          window.location.href = response.data?.payurl;
-        }
+        //  window.location.href = response.data?.payurl;
+        }else
         {
           console.log("NO PAY");
         }
