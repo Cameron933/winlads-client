@@ -458,7 +458,7 @@ const Register = ({ location }) => {
                     ))}
                   </>
                 ) : (
-                  <>
+                  <div className="hidden md:flex">
                     <VehicleCardForReg
                       type={"vehicle"}
                       name={"2023 MAZDA BT-50"}
@@ -474,7 +474,7 @@ const Register = ({ location }) => {
                       setSelPlanPrice={setSelPlanPrice}
                     />
                     {/* <button className="md:text-sm text-xs text-blue-500">See More</button> */}
-                  </>
+                  </div>
                 )}
               </div>
             </div>
@@ -718,24 +718,26 @@ const Register = ({ location }) => {
                         </div>
                       ) : (
                         // <div className="flex items-center justify-center w-max gap-2">
-                        <VehicleCardForReg
-                          isSubscribed={true}
-                          type={"vehicle"}
-                          name={"2023 MAZDA BT-50"}
-                          date={"2024-02-28"}
-                          color={"#D51111"}
-                          fromColor={"#D51111"}
-                          icon={
-                            "https://winland.onrender.com/public/images/max.png"
-                          }
-                          raffleimage={
-                            "https://winland.onrender.com/public/images/vehicle.png"
-                          }
-                          select={select}
-                          setSelect={setSelect}
-                          setSelectedPlanName={setSelectedPlanName}
-                          setSelPlanPrice={setSelPlanPrice}
-                        />
+                        <div className="">
+                          <VehicleCardForReg
+                            isSubscribed={true}
+                            type={"vehicle"}
+                            name={"2023 MAZDA BT-50"}
+                            date={"2024-02-28"}
+                            color={"#D51111"}
+                            fromColor={"#D51111"}
+                            icon={
+                              "https://winland.onrender.com/public/images/max.png"
+                            }
+                            raffleimage={
+                              "https://winland.onrender.com/public/images/vehicle.png"
+                            }
+                            select={select}
+                            setSelect={setSelect}
+                            setSelectedPlanName={setSelectedPlanName}
+                            setSelPlanPrice={setSelPlanPrice}
+                          />
+                        </div>
                       )}
                     </div>
                     <p className="text-sm font-bold border-b">

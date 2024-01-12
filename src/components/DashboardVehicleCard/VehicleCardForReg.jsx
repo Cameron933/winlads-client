@@ -18,7 +18,7 @@ const VehicleCardForReg = ({
   select,
   setSelect,
   setSelectedPlanName,
-  setSelPlanPrice
+  setSelPlanPrice,
 }) => {
   const handleClick = () => {
     onButton();
@@ -42,15 +42,14 @@ const VehicleCardForReg = ({
   const handleClickOneOff = (count, name) => {
     console.log(name, "name");
     setSelect(count);
-    setSelectedPlanName(name)
-    setSelPlanPrice(count * 10)
+    setSelectedPlanName(name);
+    setSelPlanPrice(count * 10);
   };
 
   return (
     <>
-      <div
+      {/* <div
         className={`relative flex text-white flex-col justify-between pr-2 rounded-2xl  w-full pt-2 shadow-lg  cursor-pointer overflow-hidden border-2 border-[#000]`}
-        // style={{ backgroundColor: color }}
 
         style={{
           background: `linear-gradient(90deg, ${color} 0%, #000608 100%)`,
@@ -143,6 +142,93 @@ const VehicleCardForReg = ({
                 150 Free Accumulating entries package
               </div>
             </div>
+          </div>
+        </div>
+      </div> */}
+      <div className="flex items-stretch md:flex-wrap justify-start gap-3 ">
+        <div
+          className={`bg-gradient-to-t to-[#0094FF] from-[#00347C] hover:opacity-75 rounded-lg flex flex-col py-4 md:px-2 px-4 w-[350px] ${
+            select === "01" ? "border-2 border-black" : ""
+          }`}
+          onClick={() =>
+            handleClickOneOff("01", "01 Free Accumulating entries package")
+          }
+        >
+          <p className="text-black font-semibold xl:text-2xl md:text-xl text-lg xl:pb-12 pb-16 md:pb-8 text-center">
+            01 Free
+            <br /> Acuminating
+            <br /> Entry Packages
+          </p>
+          <div className="bg-white text-black rounded-lg md:py-4 py-2 text-center px-2 md:text-xs text-[8px]">
+            Partner Store Discounts: 10%
+          </div>
+        </div>
+        <div
+          className={`bg-gradient-to-t to-[#FC4701] from-[#661E01] hover:opacity-75 rounded-lg flex flex-col py-4 md:px-2 px-4 w-[350px] ${
+            select === "03" ? "border-2 border-black" : ""
+          }`}
+          onClick={() =>
+            handleClickOneOff("03", "03 Free Accumulating entries package")
+          }
+        >
+          <p className="text-black font-semibold xl:text-2xl md:text-xl text-lg xl:pb-12 pb-16 md:pb-8 text-center">
+            03 Free
+            <br /> Acuminating
+            <br /> Entry Packages
+          </p>
+          <div className="bg-white text-black rounded-lg md:py-4 py-2 text-center px-2  md:text-xs text-[8px]">
+            Access to Winlad Store Cash Back program
+          </div>
+        </div>
+        <div
+          className={`bg-gradient-to-t to-[#01E9FC] from-[#01666D] hover:opacity-75 rounded-lg flex flex-col py-4 md:px-2 px-4 w-[350px] ${
+            select === "10" ? "border-2 border-black" : ""
+          }`}
+          onClick={() =>
+            handleClickOneOff("10", "10 Free Accumulating entries package")
+          }
+        >
+          <p className="text-black font-semibold xl:text-2xl md:text-xl text-lg xl:pb-12 pb-16 md:pb-8 text-center">
+            10 Free
+            <br /> Acuminating
+            <br /> Entry Packages
+          </p>
+          <div className="bg-white text-black rounded-lg md:py-4 py-2 text-center px-2  md:text-xs text-[8px]">
+            Access to Winlads Public Events
+          </div>
+        </div>
+        <div
+          className={`bg-gradient-to-t to-[#F5B701] from-[#796201] hover:opacity-75 rounded-lg flex flex-col py-4 md:px-2 px-4 w-[350px] ${
+            select === "25" ? "border-2 border-black" : ""
+          }`}
+          onClick={() =>
+            handleClickOneOff("25", "25 Free Accumulating entries package")
+          }
+        >
+          <p className="text-black font-semibold xl:text-2xl md:text-xl text-lg xl:pb-12 pb-16 md:pb-8 text-center">
+            25 Free
+            <br /> Acuminating
+            <br /> Entry Packages
+          </p>
+          <div className="bg-white text-black rounded-lg md:py-4 py-2 text-center px-2  md:text-xs text-[8px]">
+            Be Eligible to Apply for Winlad GOLD Card
+          </div>
+        </div>
+        <div
+          className={`bg-gradient-to-t to-[#22282D] from-[#010101] hover:opacity-75 rounded-lg flex flex-col py-4 md:px-2 px-4 w-[350px] ${
+            select === "150" ? "border-2 border-black" : ""
+          }`}
+          onClick={() =>
+            handleClickOneOff("150", "150 Free Accumulating entries package")
+          }
+        >
+          <p className="text-white font-semibold xl:text-2xl md:text-xl text-lg xl:pb-12 pb-16 md:pb-8 text-center">
+            150 Free
+            <br /> Acuminating
+            <br /> Entry Packages
+          </p>
+          <div className="bg-white text-black rounded-lg md:py-4 py-2 text-center px-2  md:text-xs text-[8px]">
+            Access to Winlads Urgency Program
           </div>
         </div>
       </div>
