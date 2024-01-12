@@ -65,6 +65,7 @@ const Register = ({ location }) => {
   const [selectedSubId, setSelectedSubId] = useState("");
   const [initialOneOffShow, setInitialOneOffShow] = useState(1);
   const [eligible, setEligible] = useState(false);
+  const [showOneOff, setShowOneOff] = useState(true);
 
   // set loading
   useEffect(() => {
@@ -92,7 +93,8 @@ const Register = ({ location }) => {
     const checkAbility = searchParams.get("ability");
     if (checkAbility == "WINACCESSEN") {
       setEligible(true);
-     // navigate(`/registerQr?ability=${checkAbility}`)
+      setShowOneOff(false);
+      // navigate(`/registerQr?ability=${checkAbility}`)
     }
     getFreeEntry();
   }, []);
@@ -140,10 +142,10 @@ const Register = ({ location }) => {
       setEligible(true);
       coupen = "MAZDABT50S";
       //console.log("co", coupen);
-     // setMemType('trial')
+      // setMemType('trial')
     }
     //console.log(coupen);
-    
+
     const data = {
       firstname: values.firstname,
       lastname: values.lastname,
@@ -156,7 +158,7 @@ const Register = ({ location }) => {
       uid: uid,
       coupen: coupen,
       subid: selectedSubId,
-      type: eligible ? 'trial' : memberShipType,
+      type: eligible ? "trial" : memberShipType,
       roundid: selectedSubId, //Used the same variable for store roundid OR subid
     };
 
@@ -176,12 +178,11 @@ const Register = ({ location }) => {
         console.log(response.data, "data");
         if (response.data?.payurl) {
           window.location.href = response.data?.payurl;
-        }else
-        {
+        } else {
           console.log("NO PAY");
         }
       } catch (error) {
-        console.log(data,'Submitted data');
+        console.log(data, "Submitted data");
         toast.error("Error submitting login credentials", {
           position: "top-center",
           autoClose: 5000,
@@ -303,7 +304,6 @@ const Register = ({ location }) => {
         // navigate("/welcome");
         // SIGN UP SUCCESS
         handleSEOReg();
-    
       })
       .catch((err) => {});
   };
@@ -454,17 +454,17 @@ const Register = ({ location }) => {
                   </>
                 ) : (
                   <>
-                  <VehicleCardForReg
-                    type={"vehicle"}
-                    name={"2023 MAZDA BT-50"}
-                    date={"2024-02-28"}
-                    color={"#D51111"}
-                    fromColor={"#D51111"}
-                    raffleimage={
-                      "https://winland.onrender.com/public/images/vehicle.png"
-                    }
-                  />
-                  {/* <button className="md:text-sm text-xs text-blue-500">See More</button> */}
+                    <VehicleCardForReg
+                      type={"vehicle"}
+                      name={"2023 MAZDA BT-50"}
+                      date={"2024-02-28"}
+                      color={"#D51111"}
+                      fromColor={"#D51111"}
+                      raffleimage={
+                        "https://winland.onrender.com/public/images/vehicle.png"
+                      }
+                    />
+                    {/* <button className="md:text-sm text-xs text-blue-500">See More</button> */}
                   </>
                 )}
               </div>
@@ -722,28 +722,28 @@ const Register = ({ location }) => {
                           raffleimage={
                             "https://winland.onrender.com/public/images/vehicle.png"
                           }
-                          
                         />
                       )}
-                     
                     </div>
                     <p className="text-sm font-bold border-b">
                       Membership Types
                     </p>
+                    {showOneOff && (
+                      <div className="bg-white border border-black px-4 py-1 rounded-xl w-full">
+                        <input
+                          type="radio"
+                          name="selectPack"
+                          value={"round"}
+                          onChange={handleMemType}
+                          checked={memberShipType === "round"}
+                        />
+                        <label htmlFor="selectPack" className="text-sm">
+                          {" "}
+                          One off package
+                        </label>
+                      </div>
+                    )}
 
-                    <div className="bg-white border border-black px-4 py-1 rounded-xl w-full">
-                      <input
-                        type="radio"
-                        name="selectPack"
-                        value={"round"}
-                        onChange={handleMemType}
-                        checked={memberShipType === "round"}
-                      />
-                      <label htmlFor="selectPack" className="text-sm">
-                        {" "}
-                        One off package
-                      </label>
-                    </div>
                     <div className="bg-white border border-black px-4 py-1 rounded-xl w-full">
                       <input
                         type="radio"
