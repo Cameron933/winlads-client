@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { validateCurrentUser } from "../../utils/validateuser";
 import CardComponentNoWithdraw from "../../components/cardComponent/CardComponentNoWithdraw";
+import Instagram from "../../assets/images/new/instagram.png"
 
 const RequestEntries = () => {
   const cookies = new Cookies(null, { path: "/" });
@@ -104,6 +105,19 @@ const RequestEntries = () => {
                 <h1 className="text-2xl font-bold capitalize">
                   Request free Entries
                 </h1>
+              </div>
+            </div>
+            <div className="flex flex-row bg-[#ECECEC] py-4 px-4 items-center gap-4">
+              <div>
+                <img src={Instagram} alt="" className="w-16" />
+              </div>
+              <div className="flex flex-col space-y-2">
+                <p className="text-xs">
+                Congratulations!
+                </p>
+                <p className="text-xs">
+                You are eligible for free entry to the <span className="font-bold text-sm">Mazda BT50</span>
+                </p>
               </div>
             </div>
             <div className="flex flex-col space-y-2">
