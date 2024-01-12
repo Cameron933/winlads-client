@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import CatJeep from "../../assets/images/rafflesImages/newJeep.png";
 import NewVeh from "../../assets/images/newVeh.png";
 import { LuInfo } from "react-icons/lu";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const DashboardVehicleCard = ({
   bgColor,
@@ -21,7 +21,7 @@ const DashboardVehicleCard = ({
 }) => {
   const [eligebleOne, setEligebleOne] = useState(true);
   const [onePackage, setOnePackage] = useState(true);
-
+  const navigate = useNavigate();
   useEffect(() => {
     setOnePackage(oneOffPackage);
     setEligebleOne(eligeble);
@@ -46,6 +46,10 @@ const DashboardVehicleCard = ({
     dateObject
   );
 
+  const handleNavigateWon = () => {
+    navigate(`/won/${id}`);
+  }
+
   return (
     <>
       <div
@@ -55,6 +59,7 @@ const DashboardVehicleCard = ({
         style={{
           background: `linear-gradient(90deg, ${color} 0%, #000608 100%)`,
         }}
+        onClick={handleNavigateWon}
       >
         {eligebleOne && !isSubscribed && type != "max" && (
           <div className="text-center bg-gradient-to-t from-black to-transparent absolute top-0 left-0 w-full h-full flex items-center justify-center cursor-not-allowed z-20">
@@ -65,9 +70,9 @@ const DashboardVehicleCard = ({
           </div>
         )}
         <div className="flex flex-row items-center justify-between px-1">
-          <Link to={`/won/${id}`}>
+          {/* <Link to={`/won/${id}`}>
             <LuInfo className="text-white" />
-          </Link>
+          </Link> */}
           <img
             src={icon}
             alt=""
@@ -93,7 +98,10 @@ const DashboardVehicleCard = ({
             {onePackage && (
               <div>
                 <button
-                  onClick={handleClick}
+                  onClick={(e) => { 
+                    e.stopPropagation(); 
+                    handleClick() // Replace 'childPage' with the appropriate destination for the child div
+                  }}
                   className="rounded-md border-2 capitalize hover:bg-black bg-white text-black cursor-pointer border-white  py-1 hover:scale-105 hover:transition-transform ease-out duration-300 mt-auto hover:text-white text-sm px-1"
                 >
                   one off packages

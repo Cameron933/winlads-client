@@ -5,6 +5,7 @@ import { motion, useAnimation } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { ImCross } from "react-icons/im";
+import Cookies from "universal-cookie";
 
 function SubDone() {
   const controls = useAnimation();
@@ -13,11 +14,15 @@ function SubDone() {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const navigate = useNavigate();
-
+  const cookies = new Cookies(null, { path: "/" });
 
   // Access individual query parameters
   const suc = searchParams.get("suc");
   const round_id = searchParams.get("round_id");
+
+  // User registration 
+  const token = searchParams.get("id");
+
 
   useEffect(() => {
     // Retrieve data from localStorage
@@ -47,27 +52,52 @@ function SubDone() {
       setSuccess(true);
     }
     controls.start(successAnimation.animate);
+    if (token) {
+      console.log('Register Token :' + token);
+      cookies.set('wr_token', token)
 
-    const intervalId = setInterval(() => {
-      setSeconds((prev) => {
-        // Ensure that the countdown stops at 0
-        if (prev <= 1) {
-          clearInterval(intervalId);
+       const intervalId = setInterval(() => {
+        setSeconds((prev) => {
+          // Ensure that the countdown stops at 0
+          if (prev <= 1) {
+            clearInterval(intervalId);
+            setTimeout(()=>{
+              navigate("/dashboard");
+            },3000)
+            navigate("/welcome");
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+      return () => {
+        // Clear the interval when the component unmounts
+        clearInterval(intervalId);
+      };
+    } else {
+       const intervalId = setInterval(() => {
+        setSeconds((prev) => {
+          // Ensure that the countdown stops at 0
+          if (prev <= 1) {
+            clearInterval(intervalId);
+            navigate("/dashboard");
+            return 0;
+          }
+          return prev - 1;
+        });
+
+        if (seconds < 1) {
           navigate("/dashboard");
-          return 0;
         }
-        return prev - 1;
-      });
+      }, 1000);
 
-      if (seconds < 1) {
-        navigate("/dashboard");
-      }
-    }, 1000);
-
+      
     return () => {
       // Clear the interval when the component unmounts
       clearInterval(intervalId);
     };
+    }
+
   }, [controls]);
 
 

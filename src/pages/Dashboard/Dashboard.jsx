@@ -167,7 +167,7 @@ const Dashboard = () => {
                     <p className="text-3xl text-black">
                       <span className="text-base">$</span>&nbsp;
                       {typeof valUser.balance === "number"
-                        ? valUser.balance.toFixed(2)
+                        ?  Math.floor((valUser.balance * 100))/100
                         : "0.00"}
                     </p>
                   </div>
@@ -254,7 +254,7 @@ const Dashboard = () => {
                       <p className="text-3xl text-white">
                         <span className="text-base">$</span>&nbsp;
                         {typeof valUser.balance === "number"
-                          ? valUser.balance.toFixed(2)
+                          ? Math.floor((valUser.balance * 100))/100
                           : "0.00"}
                       </p>
                     </div>

@@ -40,6 +40,7 @@ import SubDone from "./pages/SubDone";
 import PastGiveaways from "./pages/PastGiveaways/PastGiveaways";
 import OngoingGiveaways from "./pages/OngoingGiveaways/OngoingGiveaways";
 import UpcomingGiveaways from "./pages/UpcomingGiveaways/UpcomingGiveaways";
+import RegisterOld from "./pages/register/RegisterOld";
 
 
 function App() {
@@ -100,17 +101,17 @@ TagManager.initialize(tagManagerArgs)
           path: "/messages",
           element: <Messages />,
         },
-        {
-          path: "/subscription-done",
-          element: <SubDone />,
-          // subscription-done?suc=0&fail=1&sub_id=ds Sample Done Route
-        },
-        {
-          path: "/payment-done",
-          element: <PaymentSuccess />,
-          // payment-done?suc=1&round_id=sadc  Sample Success Route
-          // payment-done?suc=0&fail=1&round_id=ds  Sample Fail Route
-        },
+        // {
+        //   path: "/subscription-done",
+        //   element: <SubDone />,
+        //   subscription-done?suc=0&fail=1&sub_id=ds Sample Done Route
+        // },
+        // {
+        //   path: "/payment-done",
+        //   element: <PaymentSuccess />,
+        //   // payment-done?suc=1&round_id=sadc  Sample Success Route
+        //   // payment-done?suc=0&fail=1&round_id=ds  Sample Fail Route
+        // },
         {
           path: "/myentries",
           element: <MyEntries />,
@@ -175,7 +176,10 @@ TagManager.initialize(tagManagerArgs)
       path: "*",
       element: <NotFound />,
     },
-
+    {
+      path: "/registerQr",
+      element: <RegisterOld />,
+    },
     {
       path: "/register/:selectedPackage?",
       element: <Register />,
@@ -195,6 +199,12 @@ TagManager.initialize(tagManagerArgs)
     {
       path: "/subscription-done",
       element: <SubDone />,
+    },
+    {
+      path: "/payment-done",
+      element: <PaymentSuccess />,
+      // payment-done?suc=1&round_id=sadc  Sample Success Route
+      // payment-done?suc=0&fail=1&round_id=ds  Sample Fail Route
     },
   
     {
