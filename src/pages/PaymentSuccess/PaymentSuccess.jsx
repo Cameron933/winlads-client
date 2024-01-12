@@ -54,12 +54,9 @@ function PaymentSuccess() {
         if (prev <= 1) {
           clearInterval(intervalId);
           navigate("/welcome");
-          
           setTimeout(() => {
             navigate("/dashboard");
           }, 3000);
-   
-
           return 0;
         }
         return prev - 1;

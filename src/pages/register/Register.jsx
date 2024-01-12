@@ -170,14 +170,14 @@ const Register = ({ location }) => {
           `${import.meta.env.VITE_SERVER_API}/registerWithStripe`,
           data
         );
-        console.log(response.data);
+        cookies.set("wr_token", response.data?.data?._id);
+        console.log(response.data, "data");
         if (response.data?.payurl) {
           window.location.href = response.data?.payurl;
         }
         {
           console.log("NO PAY");
         }
-        cookies.set("wr_token", response.data.data._id);
       } catch (error) {
         toast.error("Error submitting login credentials", {
           position: "top-center",
