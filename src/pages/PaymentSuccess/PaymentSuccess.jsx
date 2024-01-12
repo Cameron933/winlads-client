@@ -41,7 +41,7 @@ function PaymentSuccess() {
       // Clearing data from localStorage
       localStorage.removeItem("paymentSuccessData");
     }
-  }, []);
+  }, [isSuccess]);
 
   useEffect(() => {
     if (suc == 0) {
