@@ -193,7 +193,7 @@ TagManager.initialize(tagManagerArgs)
       element: <Welcome />,
     },
     {
-      path: "/subscription-done",
+      path: "/subscription-done-out",
       element: <SubDone />,
     },
   

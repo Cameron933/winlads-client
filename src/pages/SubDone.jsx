@@ -5,6 +5,7 @@ import { motion, useAnimation } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { ImCross } from "react-icons/im";
+import Cookies from "universal-cookie";
 
 function SubDone() {
   const controls = useAnimation();
@@ -13,11 +14,15 @@ function SubDone() {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const navigate = useNavigate();
-
+  const cookies = new Cookies(null, { path: "/" });
 
   // Access individual query parameters
   const suc = searchParams.get("suc");
   const round_id = searchParams.get("round_id");
+
+  // User registration 
+  const token = searchParams.get("id");
+
 
   useEffect(() => {
     // Retrieve data from localStorage
@@ -45,6 +50,10 @@ function SubDone() {
       setSuccess(false);
     } else {
       setSuccess(true);
+    }
+    if(token){
+      console.log('Register Token :'+token);
+      cookies.set('wr_token', token)
     }
     controls.start(successAnimation.animate);
 

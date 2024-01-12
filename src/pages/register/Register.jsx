@@ -170,7 +170,7 @@ const Register = ({ location }) => {
           `${import.meta.env.VITE_SERVER_API}/registerWithStripe`,
           data
         );
-        cookies.set("wr_token", response.data?.data?._id);
+        //cookies.set("wr_token", response.data?.data?._id);
         console.log(response.data, "data");
         if (response.data?.payurl) {
           window.location.href = response.data?.payurl;
