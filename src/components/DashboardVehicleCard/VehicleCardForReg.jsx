@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import CatJeep from "../../assets/images/rafflesImages/newJeep.png";
 import NewVeh from "../../assets/images/newVeh.png";
 import { LuInfo } from "react-icons/lu";
@@ -14,7 +15,10 @@ const VehicleCardForReg = ({
   color,
   raffleimage,
   id,
-  count
+  select,
+  setSelect,
+  setSelectedPlanName,
+  setSelPlanPrice
 }) => {
   const handleClick = () => {
     onButton();
@@ -35,9 +39,12 @@ const VehicleCardForReg = ({
     dateObject
   );
 
-  const handleClickOneOff = (num) => {
-    count(num)
-  }
+  const handleClickOneOff = (count, name) => {
+    console.log(name, "name");
+    setSelect(count);
+    setSelectedPlanName(name)
+    setSelPlanPrice(count * 10)
+  };
 
   return (
     <>
@@ -66,23 +73,73 @@ const VehicleCardForReg = ({
               </p>
             </div>
             <div className="grid grid-cols-2 gap-2">
-              <div className="col-span-1 bg-gradient-to-t hover:opacity-75 text-black to-[#0094FF] from-[#01819D] rounded-full py-2 text-[14px] px-2 text-center" onClick={() => handleClickOneOff("01")}>
-                01 Free Acuminating Entry Packages
+              <div
+                className={`col-span-1 bg-gradient-to-t hover:opacity-75 text-black to-[#FF4700] from-[#611C00] rounded-full py-2 px-2 text-[14px] text-center ${
+                  select === "01" ? "border border-solid border-white" : ""
+                }`}
+                onClick={() =>
+                  handleClickOneOff(
+                    "01",
+                    "01 Free Accumulating entries package"
+                  )
+                }
+              >
+                01 Free Accumulating entries package
               </div>
-              <div className="col-span-1 bg-gradient-to-t hover:opacity-75 text-black to-[#FF4700] from-[#611C00] rounded-full py-2 px-2 text-[14px] text-center" onClick={() => handleClickOneOff("03")}>
+              <div
+                className={`col-span-1 bg-gradient-to-t hover:opacity-75 text-black to-[#FF4700] from-[#611C00] rounded-full py-2 px-2 text-[14px] text-center ${
+                  select === "03" ? "border border-solid border-white" : ""
+                }`}
+                onClick={() =>
+                  handleClickOneOff(
+                    "03",
+                    "03 Free Accumulating entries package"
+                  )
+                }
+              >
                 03 Free Accumulating entries package
               </div>
             </div>
             <div className="grid grid-cols-2 gap-2">
-              <div className="col-span-1 bg-gradient-to-t hover:opacity-75 text-black to-[#00ECFF] from-[#006168] rounded-full py-2 px-2 text-[14px] text-center" onClick={() => handleClickOneOff("10")}>
+              <div
+                className={`col-span-1 bg-gradient-to-t hover:opacity-75 text-black to-[#00ECFF] from-[#006168] rounded-full py-2 px-2 text-[14px] text-center ${
+                  select === "10" ? "border border-solid border-white" : ""
+                }`}
+                onClick={() =>
+                  handleClickOneOff(
+                    "10",
+                    "10 Free Accumulating entries package"
+                  )
+                }
+              >
                 10 Free Accumulating entries package
               </div>
-              <div className="col-span-1 bg-gradient-to-t hover:opacity-75 text-black to-[#FFBE00] from-[#766000] rounded-full py-2 px-2 text-[14px] text-center" onClick={() => handleClickOneOff("25")}>
+              <div
+                className={`col-span-1 bg-gradient-to-t hover:opacity-75 text-black to-[#FFBE00] from-[#766000] rounded-full py-2 px-2 text-[14px] text-center ${
+                  select === "25" ? "border border-solid border-white" : ""
+                }`}
+                onClick={() =>
+                  handleClickOneOff(
+                    "25",
+                    "25 Free Accumulating entries package"
+                  )
+                }
+              >
                 25 Free Accumulating entries package
               </div>
             </div>
-            <div className="grid grid-cols-2">
-              <div className="col-span-2 w-full bg-gradient-to-t hover:opacity-75 text-white to-[#22272C] from-[#23282E] rounded-full py-2 px-2 text-[14px] text-center" onClick={() => handleClickOneOff("150")}>
+            <div className="grid grid-cols-2 pb-2">
+              <div
+                className={`col-span-2 w-full bg-gradient-to-t hover:opacity-75 text-white to-[#22272C] from-[#23282E] rounded-full py-2 px-2 text-[14px] text-center ${
+                  select === "150" ? "border border-solid border-white" : ""
+                }`}
+                onClick={() =>
+                  handleClickOneOff(
+                    "150",
+                    " 150 Free Accumulating entries package"
+                  )
+                }
+              >
                 150 Free Accumulating entries package
               </div>
             </div>

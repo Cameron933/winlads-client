@@ -66,7 +66,9 @@ const Register = ({ location }) => {
   const [initialOneOffShow, setInitialOneOffShow] = useState(1);
   const [eligible, setEligible] = useState(false);
   const [showOneOff, setShowOneOff] = useState(true);
-  const [count, setCount] = useState("")
+  const [count, setCount] = useState("");
+  const [select, setSelect] = useState(null);
+  const [selectOffName, setSelectOffName] = useState("");
 
   // set loading
   useEffect(() => {
@@ -160,7 +162,7 @@ const Register = ({ location }) => {
       coupen: coupen,
       subid: selectedSubId,
       type: eligible ? "trial" : memberShipType,
-      count: count,
+      count: select,
       roundid: selectedSubId, //Used the same variable for store roundid OR subid
     };
 
@@ -466,6 +468,10 @@ const Register = ({ location }) => {
                       raffleimage={
                         "https://winland.onrender.com/public/images/vehicle.png"
                       }
+                      select={select}
+                      setSelect={setSelect}
+                      setSelectedPlanName={setSelectedPlanName}
+                      setSelPlanPrice={setSelPlanPrice}
                     />
                     {/* <button className="md:text-sm text-xs text-blue-500">See More</button> */}
                   </>
@@ -725,7 +731,10 @@ const Register = ({ location }) => {
                           raffleimage={
                             "https://winland.onrender.com/public/images/vehicle.png"
                           }
-                          count={count}
+                          select={select}
+                          setSelect={setSelect}
+                          setSelectedPlanName={setSelectedPlanName}
+                          setSelPlanPrice={setSelPlanPrice}
                         />
                       )}
                     </div>
