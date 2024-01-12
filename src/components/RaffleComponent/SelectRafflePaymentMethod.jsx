@@ -7,6 +7,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const SelectRafflePaymentMethod = ({
   onClose,
@@ -23,19 +24,19 @@ const SelectRafflePaymentMethod = ({
   const [buttonMode, setButtonMode] = useState(1);    //1 =  PaybySub + OneOff  \ 0 = PayBy Balance + PayBy Card
   const logDetailsToDataLayer = (valUser, giveawayId, price, name) => {
     const data = {
-        user: valUser,
-        giveawayId: giveawayId || "",
-        price: price || "",
-        plan_name: name || "",
+      user: valUser,
+      giveawayId: giveawayId || "",
+      price: price || "",
+      plan_name: name || "",
     };
 
     if (typeof localStorage !== "undefined") {
-        localStorage.setItem('paymentSuccessData', JSON.stringify(data));
+      localStorage.setItem('paymentSuccessData', JSON.stringify(data));
     }
 
     // Debugging log
     console.log('Logging to localstorage one off payment:', data);
- };
+  };
   const handleButtonClick = async () => {
     try {
       const response = await axios.post(
@@ -49,7 +50,7 @@ const SelectRafflePaymentMethod = ({
       );
 
       const payURL = response.data.payurl;
-      
+
       // Redirect the user to the payURL
       logDetailsToDataLayer(valUser, giveawayId, price, name);
       window.location.href = payURL;
@@ -158,25 +159,67 @@ const SelectRafflePaymentMethod = ({
               </p>
             </div>
           </div> */}
-          <div className="space-y-2">
-            <div className={`to-[#0094FF] from-[#01819D] hover:scale-105 transition-all cursor-pointer px-2 py-2 text-xs rounded-full capitalize ${count === 1 ? 'bg-gradient-to-b' : 'bg-gradient-to-t'}`} onClick={()=>setCount(1)}>
+          <div className="">
+            <div className={`to-[#0094FF] from-[#01819D] hover:scale-105 mb-2 transition-all cursor-pointer px-2 py-2 text-xs rounded-full bg-gradient-to-t capitalize ${count === 1 ? 'scale-105' : 'scale-100'}`} onClick={() => setCount(1)}>
               01 Free Accumulating entries package
             </div>
-            {/* <div className="p-3 bg-white rounded-xl border text-xs">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt quo deleniti neque ullam itaque provident veritatis asperiores enim iure modi soluta quis dignissimos
-            </div> */}
-            <div className={`to-[#FF4700] from-[#611C00] hover:scale-105 transition-all cursor-pointer px-2 py-2 text-xs rounded-full capitalize ${count === 3 ? 'bg-gradient-to-b' : 'bg-gradient-to-t'}`} onClick={()=>setCount(3)}>
+            {
+              count == 1 && <motion.div className="p-3 bg-white rounded-xl border text-[0.7rem]"
+              initial={{opacity:0,scaleY:0}}
+              transition={{duration:0.3}}
+              animate={{opacity:1, scaleY:1}}
+              >
+                Partner Store Discounts: 10%
+              </motion.div>
+            }
+            <div className={`to-[#FF4700] from-[#611C00] hover:scale-105 mb-2 transition-all cursor-pointer px-2 py-2 text-xs rounded-full bg-gradient-to-t capitalize ${count === 3 ? 'scale-105' : 'scale-100'}`} onClick={() => setCount(3)}>
               03 Free Accumulating entries package
             </div>
-            <div className={`to-[#00ECFF] from-[#006168] hover:scale-105 transition-all cursor-pointer px-2 py-2 text-xs rounded-full capitalize ${count === 10 ? 'bg-gradient-to-b' : 'bg-gradient-to-t'}`} onClick={()=>setCount(10)}>
+            {
+              count == 3 && <motion.div className="p-3 bg-white rounded-xl border text-[0.7rem]"
+              initial={{opacity:0,scaleY:0}}
+              transition={{duration:0.3}}
+              animate={{opacity:1, scaleY:1}}
+              >
+                Access to Winlad Store Cash Back program
+              </motion.div>
+            }
+            <div className={`to-[#00ECFF] from-[#006168] hover:scale-105 mb-2 transition-all cursor-pointer px-2 py-2 text-xs rounded-full bg-gradient-to-t capitalize ${count === 10 ? 'scale-105' : 'scale-100'}`} onClick={() => setCount(10)}>
               10 Free Accumulating entries package
             </div>
-            <div className={`to-[#FFBE00] from-[#766000] hover:scale-105 transition-all cursor-pointer px-2 py-2 text-xs rounded-full capitalize ${count === 25 ? 'bg-gradient-to-b' : 'bg-gradient-to-t'}`} onClick={()=>setCount(25)}>
+            {
+              count == 10 && <motion.div className="p-3 bg-white rounded-xl border text-[0.7rem]"
+              initial={{opacity:0,scaleY:0}}
+              transition={{duration:0.3}}
+              animate={{opacity:1, scaleY:1}}
+              >
+                Access to Winlads Public Events
+              </motion.div>
+            }
+            <div className={`to-[#FFBE00] from-[#766000] hover:scale-105 mb-2 transition-all cursor-pointer px-2 py-2 text-xs rounded-full bg-gradient-to-t capitalize ${count === 25 ? 'scale-105' : 'scale-100'}`} onClick={() => setCount(25)}>
               25 Free Accumulating entries package
             </div>
-            <div className={`to-[#22272C] from-[#23282E] hover:scale-105 transition-all cursor-pointer px-2 py-2 text-xs rounded-full capitalize ${count === 150 ? 'bg-gradient-to-b' : 'bg-gradient-to-t'} text-white`} onClick={()=>setCount(150)}>
+            {
+              count == 25 && <motion.div className="p-3 bg-white rounded-xl border text-[0.7rem]"
+              initial={{opacity:0,scaleY:0}}
+              transition={{duration:0.3}}
+              animate={{opacity:1, scaleY:1}}
+              >
+                Be Eligible to Apply for Winlad GOLD Card
+              </motion.div>
+            }
+            <div className={`to-[#22272C] from-[#23282E] hover:scale-105 mb-2 transition-all cursor-pointer px-2 py-2 text-xs rounded-full bg-gradient-to-t capitalize ${count === 150 ? 'scale-105' : 'scale-100'} text-white`} onClick={() => setCount(150)}>
               150 Free Accumulating entries package
             </div>
+            {
+              count == 150 && <motion.div className="p-3 bg-white rounded-xl border text-[0.7rem]"
+              initial={{opacity:0,scaleY:0}}
+              transition={{duration:0.3}}
+              animate={{opacity:1, scaleY:1}}
+              >
+                Access to Winlads Urgency Program
+              </motion.div>
+            }
 
           </div>
           <div className="flex justify-center items-center  flex-col space-y-2">
@@ -192,7 +235,7 @@ const SelectRafflePaymentMethod = ({
             </div> */}
             <input
               type="text"
-              className="rounded-2xl border border-solid border-black placeholder:text-xs text-xs px-4 py-2 placeholder:text-gray-700 w-48"
+              className="w-full rounded-2xl border border-solid border-black placeholder:text-xs text-xs px-4 py-2 placeholder:text-gray-700"
               placeholder="Coupon code"
               value={coupon}
               id="coupon"
@@ -213,7 +256,7 @@ const SelectRafflePaymentMethod = ({
                 />
                 <p className="text-xs md:block hidden">Pay by Subscription</p>
               </div>
-                <div className="bg-white hover:bg-black/5 rounded-xl p-2 flex justify-center items-center cursor-pointer lg:gap-2" onClick={()=> setButtonMode(0)}>
+                <div className="bg-white hover:bg-black/5 rounded-xl p-2 flex justify-center items-center cursor-pointer lg:gap-2" onClick={() => setButtonMode(0)}>
                   <img
                     src={Usd}
                     alt=""
