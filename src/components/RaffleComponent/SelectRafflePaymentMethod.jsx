@@ -16,12 +16,12 @@ const SelectRafflePaymentMethod = ({
   price,
   name,
   subPlane,
-  valUser
+  valUser,
 }) => {
   const [count, setCount] = useState(1);
   const [coupon, setCoupon] = useState("");
   const navigate = useNavigate();
-  const [buttonMode, setButtonMode] = useState(1);    //1 =  PaybySub + OneOff  \ 0 = PayBy Balance + PayBy Card
+  const [buttonMode, setButtonMode] = useState(1); //1 =  PaybySub + OneOff  \ 0 = PayBy Balance + PayBy Card
   const logDetailsToDataLayer = (valUser, giveawayId, price, name) => {
     const data = {
       user: valUser,
@@ -31,11 +31,11 @@ const SelectRafflePaymentMethod = ({
     };
 
     if (typeof localStorage !== "undefined") {
-      localStorage.setItem('paymentSuccessData', JSON.stringify(data));
+      localStorage.setItem("paymentSuccessData", JSON.stringify(data));
     }
 
     // Debugging log
-    console.log('Logging to localstorage one off payment:', data);
+    console.log("Logging to localstorage one off payment:", data);
   };
   const handleButtonClick = async () => {
     try {
@@ -107,14 +107,14 @@ const SelectRafflePaymentMethod = ({
   };
 
   const handleSubPlane = () => {
-    navigate("/subscription")
-  }
+    navigate("/subscription");
+  };
   return (
     <div
       className="popup-container bg-black/50 justify-center items-center"
-    //   onClick={handleBackdropClick}
+      //   onClick={handleBackdropClick}
     >
-      <div className="popup-content text-black flex flex-col bg-white shadow-lg space-y-4 special:space-y-12 2xl:space-y-8 justify-center py-4 special:py-8 2xl:py-6">
+      <div className="popup-content text-black flex flex-col bg-white shadow-lg space-y-4 w-[400px] special:space-y-12 2xl:space-y-8 justify-center py-4 special:py-8 2xl:py-6">
         <div className="flex justify-between items-center">
           <p className="text-black text-lg font-bold 2xl:text-xl special:text-4xl">
             {name}
@@ -159,7 +159,7 @@ const SelectRafflePaymentMethod = ({
               </p>
             </div>
           </div> */}
-          <div className="">
+          {/* <div className="">
             <div className={`to-[#0094FF] from-[#01819D] hover:scale-105 mb-2 transition-all cursor-pointer px-2 py-2 text-xs rounded-full bg-gradient-to-t capitalize ${count === 1 ? 'scale-105' : 'scale-100'}`} onClick={() => setCount(1)}>
               01 Free Accumulating entries package
             </div>
@@ -223,7 +223,84 @@ const SelectRafflePaymentMethod = ({
               </motion.div>
             }
 
+          </div> */}
+          <div className="flex overflow-x-auto gap-2">
+            <div
+              className={`bg-gradient-to-t to-[#0094FF] cursor-pointer from-[#00347C] hover:opacity-75 border-2 rounded-lg flex flex-col py-4 md:px-2 px-4 w-[350px]  ${
+                count === 1 ? "border-black" : "scale-100"
+              }`}
+              onClick={() => setCount(1)}
+            >
+              <p className="text-black font-semibold xl:text-lg md:text-xl text-lg xl:pb-12 pb-16 md:pb-8 text-center px-4">
+                01 Free<br/> Acuminating
+                <br /> Entry Packages
+              </p>
+              <div className="bg-white text-black rounded-lg md:py-4 py-2 text-center px-2 md:text-xs text-[8px]">
+                Partner Store Discounts: 10%
+              </div>
+            </div>
+            <div
+              className={`bg-gradient-to-t to-[#FC4701] cursor-pointer from-[#661E01] border-2 hover:opacity-75 rounded-lg flex flex-col py-4 md:px-2 px-4 w-[350px] ${
+                count === 3 ? "border-black" : "scale-100"
+              }`}
+              onClick={() => setCount(3)}
+            >
+              <p className="text-black font-semibold xl:text-lg md:text-xl text-lg xl:pb-12 pb-16 md:pb-8 text-center px-4">
+                01 Free
+                <br /> Acuminating
+                <br /> Entry Packages
+              </p>
+              <div className="bg-white text-black rounded-lg md:py-4 py-2 text-center px-2 md:text-xs text-[8px]">
+                Partner Store Discounts: 10%
+              </div>
+            </div>
+            <div
+              className={`bg-gradient-to-t to-[#01E9FC] cursor-pointer border-2 from-[#01666D] hover:opacity-75 rounded-lg flex flex-col py-4 md:px-2 px-4 w-[350px] ${
+                count === 10 ? " border-black" : "scale-100"
+              }`}
+              onClick={() => setCount(10)}
+            >
+              <p className="text-black font-semibold xl:text-lg md:text-xl text-lg xl:pb-12 pb-16 md:pb-8 text-center px-4">
+                01 Free
+                <br /> Acuminating
+                <br /> Entry Packages
+              </p>
+              <div className="bg-white text-black rounded-lg md:py-4 py-2 text-center px-2 md:text-xs text-[8px]">
+                Partner Store Discounts: 10%
+              </div>
+            </div>
+            <div
+              className={`bg-gradient-to-t to-[#F5B701] cursor-pointer border-2 from-[#796201] hover:opacity-75 rounded-lg flex flex-col py-4 md:px-2 px-4 w-[350px] ${
+                count === 25 ? "border-black" : "scale-100"
+              }`}
+              onClick={() => setCount(25)}
+            >
+              <p className="text-black font-semibold xl:text-lg md:text-xl text-lg xl:pb-12 pb-16 md:pb-8 text-center px-4">
+                01 Free
+                <br /> Acuminating
+                <br /> Entry Packages
+              </p>
+              <div className="bg-white text-black rounded-lg md:py-4 py-2 text-center px-2 md:text-xs text-[8px]">
+                Partner Store Discounts: 10%
+              </div>
+            </div>
+            <div
+              className={`bg-gradient-to-t to-[#22282D] cursor-pointer border-2 from-[#010101] hover:opacity-75 rounded-lg flex flex-col py-4 md:px-2 px-4 w-[350px] ${
+                count === 150 ? "border-black" : "scale-100"
+              }`}
+              onClick={() => setCount(150)}
+            >
+              <p className="text-white font-semibold xl:text-lg md:text-xl text-lg xl:pb-12 pb-16 md:pb-8 text-center px-4">
+                01 Free
+                <br /> Acuminating
+                <br /> Entry Packages
+              </p>
+              <div className="bg-white text-black rounded-lg md:py-4 py-2 text-center px-2 md:text-xs text-[8px]">
+                Partner Store Discounts: 10%
+              </div>
+            </div>
           </div>
+
           <div className="flex justify-center items-center  flex-col space-y-2">
             {/* <div className="rounded-2xl flex flex-row justify-between items-center px-4 w-48 border border-solid border-black bg-[##F3F3F3] py-1">
               <div onClick={handleMinus} className="cursor-pointer text-lg">
@@ -249,16 +326,24 @@ const SelectRafflePaymentMethod = ({
             Payment Methods
           </p>
           <div className="flex flex-row justify-center items-center lg:gap-4 gap-1 text-black">
-            {
-              buttonMode ? (<> <div className="bg-white hover:bg-black/5 rounded-xl p-2 flex justify-center items-center cursor-pointer lg:gap-2" onClick={handleSubPlane}>
-                <img
-                  src={Usd}
-                  alt=""
-                  className="w-7 h-7 special:h-14 special:w-14 2xl:h-9 2xl:w-9"
-                />
-                <p className="text-xs md:block hidden">Pay by Subscription</p>
-              </div>
-                <div className="bg-white hover:bg-black/5 rounded-xl p-2 flex justify-center items-center cursor-pointer lg:gap-2" onClick={() => setButtonMode(0)}>
+            {buttonMode ? (
+              <>
+                {" "}
+                <div
+                  className="bg-white hover:bg-black/5 rounded-xl p-2 flex justify-center items-center cursor-pointer lg:gap-2"
+                  onClick={handleSubPlane}
+                >
+                  <img
+                    src={Usd}
+                    alt=""
+                    className="w-7 h-7 special:h-14 special:w-14 2xl:h-9 2xl:w-9"
+                  />
+                  <p className="text-xs md:block hidden">Pay by Subscription</p>
+                </div>
+                <div
+                  className="bg-white hover:bg-black/5 rounded-xl p-2 flex justify-center items-center cursor-pointer lg:gap-2"
+                  onClick={() => setButtonMode(0)}
+                >
                   <img
                     src={Usd}
                     alt=""
@@ -267,33 +352,32 @@ const SelectRafflePaymentMethod = ({
                   <p className="text-xs md:block hidden">One Off Payment</p>
                 </div>
               </>
-              ) : (
-                <>
-                  <div
-                    className="bg-white hover:bg-black/5 rounded-xl p-2 flex justify-center items-center cursor-pointer lg:gap-2"
-                    onClick={handlePointsButtonClick}
-                  >
-                    <img
-                      src={Usd}
-                      alt=""
-                      className="w-7 h-7 special:h-14 special:w-14 2xl:h-9 2xl:w-9"
-                    />
-                    <p className="text-xs md:block hidden">Pay by Balance </p>
-                  </div>
-                  <div
-                    className="bg-white hover:bg-black/5 rounded-xl p-2 flex justify-center items-center cursor-pointer lg:gap-2"
-                    onClick={handleButtonClick}
-                  >
-                    <img
-                      src={Visa}
-                      alt=""
-                      className="w-7 h-7 special:h-14 special:w-14 2xl:h-9 2xl:w-9"
-                    />
-                    <p className="text-xs md:block hidden">Pay by Card</p>
-                  </div>
-                </>
-              )
-            }
+            ) : (
+              <>
+                <div
+                  className="bg-white hover:bg-black/5 rounded-xl p-2 flex justify-center items-center cursor-pointer lg:gap-2"
+                  onClick={handlePointsButtonClick}
+                >
+                  <img
+                    src={Usd}
+                    alt=""
+                    className="w-7 h-7 special:h-14 special:w-14 2xl:h-9 2xl:w-9"
+                  />
+                  <p className="text-xs md:block hidden">Pay by Balance </p>
+                </div>
+                <div
+                  className="bg-white hover:bg-black/5 rounded-xl p-2 flex justify-center items-center cursor-pointer lg:gap-2"
+                  onClick={handleButtonClick}
+                >
+                  <img
+                    src={Visa}
+                    alt=""
+                    className="w-7 h-7 special:h-14 special:w-14 2xl:h-9 2xl:w-9"
+                  />
+                  <p className="text-xs md:block hidden">Pay by Card</p>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>
