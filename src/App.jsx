@@ -40,6 +40,7 @@ import SubDone from "./pages/SubDone";
 import PastGiveaways from "./pages/PastGiveaways/PastGiveaways";
 import OngoingGiveaways from "./pages/OngoingGiveaways/OngoingGiveaways";
 import UpcomingGiveaways from "./pages/UpcomingGiveaways/UpcomingGiveaways";
+import RegisterOld from "./pages/register/RegisterOld";
 
 
 function App() {
@@ -175,7 +176,10 @@ TagManager.initialize(tagManagerArgs)
       path: "*",
       element: <NotFound />,
     },
-
+    {
+      path: "/registerQr",
+      element: <RegisterOld />,
+    },
     {
       path: "/register/:selectedPackage?",
       element: <Register />,
