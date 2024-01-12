@@ -381,6 +381,7 @@ function Subscription() {
                       }
                       planeId={valUser.sub_id}
                       showUnSubModal={handleShowUnsub}
+                      trailUserTest={valUser.trial}
                     />
                   ))}
                   <div className=" flex justify-center items-center  ">

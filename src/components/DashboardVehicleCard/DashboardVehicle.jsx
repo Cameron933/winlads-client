@@ -18,6 +18,7 @@ const DashboardVehicleCard = ({
   id,
   eligeble,
   oneOffPackage,
+  checkTrial,
 }) => {
   const [eligebleOne, setEligebleOne] = useState(true);
   const [onePackage, setOnePackage] = useState(true);
@@ -48,7 +49,7 @@ const DashboardVehicleCard = ({
 
   const handleNavigateWon = () => {
     navigate(`/won/${id}`);
-  }
+  };
 
   return (
     <>
@@ -61,14 +62,26 @@ const DashboardVehicleCard = ({
         }}
         onClick={handleNavigateWon}
       >
-        {eligebleOne && !isSubscribed && type != "max" && (
+        {checkTrial ? (
           <div className="text-center bg-gradient-to-t from-black to-transparent absolute top-0 left-0 w-full h-full flex items-center justify-center cursor-not-allowed z-20">
             <p className="text-xs md:text-lg font-semibold text-white capitalize">
-              You are not eligeble,
-              <br /> please subscribe first !
+              You remain ineligible until
+              <br /> the end of the trial !
             </p>
           </div>
+        ) : (
+          eligebleOne &&
+          !isSubscribed &&
+          type != "max" && (
+            <div className="text-center bg-gradient-to-t from-black to-transparent absolute top-0 left-0 w-full h-full flex items-center justify-center cursor-not-allowed z-20">
+              <p className="text-xs md:text-lg font-semibold text-white capitalize">
+                You are not eligeble,
+                <br /> please subscribe first !
+              </p>
+            </div>
+          )
         )}
+
         <div className="flex flex-row items-center justify-between px-1">
           {/* <Link to={`/won/${id}`}>
             <LuInfo className="text-white" />
@@ -98,9 +111,9 @@ const DashboardVehicleCard = ({
             {onePackage && (
               <div>
                 <button
-                  onClick={(e) => { 
-                    e.stopPropagation(); 
-                    handleClick() // Replace 'childPage' with the appropriate destination for the child div
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleClick(); // Replace 'childPage' with the appropriate destination for the child div
                   }}
                   className="rounded-md border-2 capitalize hover:bg-black bg-white text-black cursor-pointer border-white  py-1 hover:scale-105 hover:transition-transform ease-out duration-300 mt-auto hover:text-white text-sm px-1"
                 >
