@@ -36,7 +36,7 @@ const SubCard = ({
   chosenPlan,
   isShowDetails = false,
 }) => {
-  const [showmore, setShowmore] = useState(false);
+  const [initial, setShowmore] = useState(1);
   const [btnBgColor, setBtnBgColor] = useState(buttonColor);
 
   const switchBtnColor = () => {
@@ -47,7 +47,12 @@ const SubCard = ({
     }
   };
   const handleClick = () => {
-    setShowmore(!showmore);
+    if(initial == 1){
+      setShowmore(desc1.length);
+    }else{
+      setShowmore(1);
+    }
+    
   };
 
   return (
@@ -86,24 +91,36 @@ const SubCard = ({
           className={`font-bold text-lg 2xl:text-xl`}
           style={{ color: titleColor2 }}
         >
-          <span className="text-4xl lg:text-5xl">{title2}</span>{" "}
+          <span className="text-4xl lg:text-5xl">{title2} <span className="text-xs uppercase">Free</span></span>{" "}<br/>
           <span className="text-xs uppercase">
             Accumulating {title2 == "01" ? "Entry" : "Entries"}
           </span>
         </p>
       </div>
       {isShowDetails && (
-        <div className="relative flex flex-col space-y-2  border-2 border-black bg-white px-2 py-4 rounded-xl md:mb-10 mb-5 h-full">
-          <div className="flex flex-row items-start gap-2">
+        <div className="relative flex flex-col  border-2 border-black bg-white px-1 py-4 rounded-xl md:mb-10 mb-5 h-full">
+          {/* <div className="flex flex-row items-start gap-2">
             <img src={Correct} alt="" />
             <p
               className={`text-${descColor} text-[8px] 2xl:text-[16px] leading-5`}
             >
               {desc1}
             </p>
+          </div> */}
+          {
+            desc1.slice(0, initial).map((el)=>(
+              <div className="flex flex-row items-start gap-2">
+            <img src={Correct} alt="" />
+            <p
+              className={`text-${descColor} text-[8px] 2xl:text-[16px]`}
+            >
+              {el}
+            </p>
           </div>
+            ))
+          }
 
-          {showmore && (
+          {/* {showmore && (
             // desc3 && (
             <>
               <div className="flex flex-row items-start gap-2">
@@ -125,7 +142,7 @@ const SubCard = ({
             </>
 
             // )
-          )}
+          )} */}
           {/* {desc3 && (
           <div className="flex flex-row items-start gap-2">
             <img src={Correct} alt="" />
@@ -208,17 +225,17 @@ const SubCard = ({
             )}
           </div>
         )} */}
-          {desc2 && (
+
             <div className="absolute bottom-2 right-2">
               <p
                 className="capitalize flex justify-end text-[8px] cursor-pointer text-black"
                 // style={{ color: buttonColor }}
                 onClick={handleClick}
               >
-                {showmore ? "See Less" : "See More"}
+                {initial == 1 ? "See More" : "See Less"}
               </p>
             </div>
-          )}
+
         </div>
       )}
       <div

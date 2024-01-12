@@ -92,7 +92,7 @@ const Register = ({ location }) => {
     const checkAbility = searchParams.get("ability");
     if (checkAbility == "WINACCESSEN") {
       setEligible(true);
-      navigate(`/registerQr?ability=${checkAbility}`)
+     // navigate(`/registerQr?ability=${checkAbility}`)
     }
     getFreeEntry();
   }, []);
@@ -140,7 +140,7 @@ const Register = ({ location }) => {
       setEligible(true);
       coupen = "MAZDABT50S";
       console.log("co", coupen);
-     // setMemType('trial')
+      setMemType('trial')
     }
     console.log(coupen);
     
@@ -421,8 +421,6 @@ const Register = ({ location }) => {
                         title2={plan.raffle_count}
                         titleColor2={plan.name == "Black" ? "white" : "black"}
                         desc1={plan.desc[0]}
-                        desc2={plan.desc[1]}
-                        desc3={plan.desc[2]}
                         buttonColor={
                           plan.name == "Starter"
                             ? "black"
