@@ -197,7 +197,7 @@ const Dashboard = () => {
                             raffleimage={giveaway.raffle?.raffleimage}
                             eligeble={true}
                             oneOffPackage={
-                              giveaway.raffle?.name === "Vehicle" ? true : false
+                              giveaway.raffle?.name === "Vehicle" || valUser.trial ? true : false
                             }
                             checkTrial={valUser.trial}
                             onButton={() => {
@@ -312,7 +312,7 @@ const Dashboard = () => {
                             raffleimage={giveaway.raffle?.raffleimage}
                             eligeble={true}
                             oneOffPackage={
-                              giveaway.raffle?.name === "Vehicle" ? true : false
+                              giveaway.raffle?.name === "Vehicle" || valUser.trial ? true : false
                             }
                             checkTrial={valUser.trial}
                             onButton={() => {
