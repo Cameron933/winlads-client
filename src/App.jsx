@@ -100,11 +100,11 @@ TagManager.initialize(tagManagerArgs)
           path: "/messages",
           element: <Messages />,
         },
-        {
-          path: "/subscription-done",
-          element: <SubDone />,
-          // subscription-done?suc=0&fail=1&sub_id=ds Sample Done Route
-        },
+        // {
+        //   path: "/subscription-done",
+        //   element: <SubDone />,
+        //   subscription-done?suc=0&fail=1&sub_id=ds Sample Done Route
+        // },
         {
           path: "/payment-done",
           element: <PaymentSuccess />,
@@ -193,7 +193,7 @@ TagManager.initialize(tagManagerArgs)
       element: <Welcome />,
     },
     {
-      path: "/subscription-done-out",
+      path: "/subscription-done",
       element: <SubDone />,
     },
   
