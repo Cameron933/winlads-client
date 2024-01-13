@@ -6,9 +6,9 @@ const FreeEntryCardDashboard2 = () => {
   };
 
   return (
-    <div className="rounded-[16px] md:w-full md:h-full w-[220px]  shadow-lg bg-[#F7B928] shadow-gray-400 relative flex flex-col ">
+    <div className="rounded-[16px] md:w-full md:h-full w-[220px] shadow-lg bg-[#F7B928] shadow-gray-400 relative flex flex-col ">
       <div className="md:h-full md:w-full">
-        <img src={FreeEntry3} alt="" className="2xl:w-9/12 xl:w-full lg:w-10/12 md:w-10/12 rounded-[10px] " />
+        <img src={FreeEntry3} alt="" className="2xl:w-full xl:w-full lg:w-10/12 md:w-10/12 rounded-[10px] " />
       </div>
       <div className="absolute bottom-2 left-0 right-0 mx-2 flex justify-center ">
         <div
