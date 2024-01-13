@@ -6,7 +6,7 @@ const FreeEntryCardDashboard = () => {
   };
 
   return (
-    <div className="rounded-[10px] w-full h-full  shadow-lg bg-[#F7B928] shadow-gray-400 relative flex flex-col ">
+    <div className="rounded-[10px] w-full h-full shadow-lg bg-[#F7B928] shadow-gray-400 relative flex flex-col ">
       <div className="h-full w-full">
         <img src={FreeEntry3} alt="" className="2xl:w-9/12 xl:w-full lg:w-10/12 md:w-10/12 sm:w-9/12   w-full h-full  rounded-[10px] " />
       </div>

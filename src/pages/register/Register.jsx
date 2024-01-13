@@ -33,6 +33,7 @@ import {
 import Card from "../../components/SubCard/CardToReg.jsx";
 import DashboardVehicleCard from "../../components/DashboardVehicleCard/DashboardVehicle.jsx";
 import VehicleCardForReg from "../../components/DashboardVehicleCard/VehicleCardForReg.jsx";
+import FreeEntryCardDashboard2 from "../../components/FreeEntry/FreeEntryCardDashboard2.jsx";
 
 const inputStyle = {
   border: "1px solid #000000",
@@ -69,6 +70,7 @@ const Register = ({ location }) => {
   const [count, setCount] = useState("");
   const [select, setSelect] = useState(null);
   const [selectOffName, setSelectOffName] = useState("");
+  const [showFreeEntry, setShowFreeEntry] = useState(false);
 
   // set loading
   useEffect(() => {
@@ -97,6 +99,7 @@ const Register = ({ location }) => {
     if (checkAbility == "WINACCESSEN") {
       setEligible(true);
       setShowOneOff(false);
+      setShowFreeEntry(true);
       // navigate(`/registerQr?ability=${checkAbility}`)
     }
     getFreeEntry();
@@ -415,7 +418,7 @@ const Register = ({ location }) => {
               </div>
 
               {/* SUB PLANS SHOW DESKTOP */}
-              <div className="hidden md:flex items-stretch md:flex-wrap justify-start gap-3">
+              <div className="hidden md:grid xl:grid-cols-3 md:grid-cols-2 justify-start gap-3">
                 {memberShipType == "subscription" ? (
                   <>
                     {plans.map((plan, key) => (
@@ -456,6 +459,11 @@ const Register = ({ location }) => {
                         popular={plan.name === "Platinum" ? true : false}
                       />
                     ))}
+                    {showFreeEntry && (
+                      <div className="flex justify-center items-center">
+                        <FreeEntryCardDashboard2 />
+                      </div>
+                    )}
                   </>
                 ) : (
                   <div className="hidden md:flex">
@@ -715,6 +723,12 @@ const Register = ({ location }) => {
                               chosenPlan={chosenPlan}
                             />
                           ))}
+
+                          {showFreeEntry && (
+                            <div className="">
+                              <FreeEntryCardDashboard2 />
+                            </div>
+                          )}
                         </div>
                       ) : (
                         // <div className="flex items-center justify-center w-max gap-2">
