@@ -419,6 +419,11 @@ const Register = ({ location }) => {
 
               {/* SUB PLANS SHOW DESKTOP */}
               <div className="hidden md:grid xl:grid-cols-3 md:grid-cols-2 justify-start gap-3">
+                {showFreeEntry && (
+                  <div className="flex justify-center items-center">
+                    <FreeEntryCardDashboard2 />
+                  </div>
+                )}
                 {memberShipType == "subscription" ? (
                   <>
                     {plans.map((plan, key) => (
@@ -459,11 +464,6 @@ const Register = ({ location }) => {
                         popular={plan.name === "Platinum" ? true : false}
                       />
                     ))}
-                    {showFreeEntry && (
-                      <div className="flex justify-center items-center">
-                        <FreeEntryCardDashboard2 />
-                      </div>
-                    )}
                   </>
                 ) : (
                   <div className="hidden md:flex">
@@ -686,6 +686,11 @@ const Register = ({ location }) => {
                     <div className="md:hidden w-[80vw] overflow-x-scroll">
                       {memberShipType == "subscription" ? (
                         <div className="w-max gap-2 flex items-stretch justify-between">
+                          {showFreeEntry && (
+                            <div className="">
+                              <FreeEntryCardDashboard2 />
+                            </div>
+                          )}
                           {plans.map((plan, key) => (
                             <Card
                               key={key}
@@ -723,12 +728,6 @@ const Register = ({ location }) => {
                               chosenPlan={chosenPlan}
                             />
                           ))}
-
-                          {showFreeEntry && (
-                            <div className="">
-                              <FreeEntryCardDashboard2 />
-                            </div>
-                          )}
                         </div>
                       ) : (
                         // <div className="flex items-center justify-center w-max gap-2">
