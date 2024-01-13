@@ -196,7 +196,7 @@ const MyEntries = () => {
                             {/* <PiBookmarkSimpleLight className="text-white" /> */}
                           </div>
                         </div>
-                        <div className="md:w-1/3 w-full hidden xl:block">
+                        <div className="w-full hidden xl:block">
                           <p className="capitalize">{giveaway.round.name}</p>
                         </div>
                         <div className="py-3 text-xs 2xl:text-sm pl-2 pr-2 xl:rounded-b-none rounded-b-2xl xl:flex col-span-3 xl:items-center justify-between space-y-1 xl:space-y-0">
