@@ -21,9 +21,9 @@ import FundTransferForm from "../../components/fundTransfer/FundTransferForm";
 import BG from "../../assets/images/HomesideBg.png";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 import Line from "../../assets/images/line.png";
-import NewBalance from "../../assets/images/new/balance.png"
-import NewEarning from "../../assets/images/new/earnings.png"
-import NewPurcahase from "../../assets/images/new/purchase.png"
+import NewBalance from "../../assets/images/new/balance.png";
+import NewEarning from "../../assets/images/new/earnings.png";
+import NewPurcahase from "../../assets/images/new/purchase.png";
 
 const Transaction = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -186,8 +186,9 @@ const Transaction = () => {
               </p> */}
           </div>
           <div className="flex xl:flex-row md:flex-row flex-col gap-1 xl:gap-2 md:gap-6 2xl:text-2xl special:text-3xl">
-            <div className="from-[#005887] to-black bg-gradient-to-r justify-between items-center rounded-2xl gap-1 py-2 xl:px-3 md:px-4 flex flex-1 flex-row px-2 cursor-default hover:bg-green-600/75"
-            style={{}}
+            <div
+              className="from-[#005887] to-black bg-gradient-to-r justify-between items-center rounded-2xl gap-1 py-2 xl:px-3 md:px-4 flex flex-1 flex-row px-2 cursor-default hover:bg-green-600/75"
+              style={{}}
             >
               <img
                 src={NewBalance}
@@ -196,7 +197,7 @@ const Transaction = () => {
               />
               <div className="flex flex-col w-full">
                 <p className="text-white text-lg md:text-xl xl:text-xl 2xl:text-2xl special:text-3xl">
-                  $&nbsp;{ Math.floor((wallet.balance * 100))/100 || "0.00"}
+                  $&nbsp;{Math.floor(wallet.balance * 100) / 100 || "0.00"}
                 </p>
                 <p className="text-white text-sm md:text-lg xl:text-sm 2xl:text-xl special:text-2xl">
                   Balance
@@ -211,7 +212,10 @@ const Transaction = () => {
               />
               <div className="flex flex-col w-full">
                 <p className="text-white text-lg md:text-xl xl:text-xl 2xl:text-2xl special:text-3xl">
-                  $&nbsp;{wallet.earning || "0.00"}
+                  $&nbsp;
+                  {wallet.earning
+                    ? Math.floor(wallet.earning * 100) / 100
+                    : "0.00"}
                 </p>
                 <p className="text-white text-sm md:text-lg xl:text-sm 2xl:text-xl special:text-2xl">
                   Earning
@@ -227,7 +231,10 @@ const Transaction = () => {
               />
               <div className="flex flex-col w-full">
                 <p className="text-white text-lg md:text-xl xl:text-xl 2xl:text-2xl special:text-3xl">
-                  $&nbsp;{wallet.purchase || "0.00"}
+                  $&nbsp;
+                  {wallet.purchase
+                    ? Math.floor(wallet.purchase * 100) / 100
+                    : "0.00"}
                 </p>
                 <p className="text-white text-sm md:text-lg xl:text-sm 2xl:text-xl special:text-2xl">
                   Purchase
@@ -395,7 +402,9 @@ const Transaction = () => {
                             : "green-400"
                         } text-lg`}
                       >
-                        $ {transaction.amount}
+                        $ {Math.floor((transaction.amount * 100))/100}
+          
+                        
                       </p>
                     </div>
                   </div>
