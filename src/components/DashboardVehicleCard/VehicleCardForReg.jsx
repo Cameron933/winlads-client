@@ -163,9 +163,7 @@ const VehicleCardForReg = ({
           }
         >
           <p className="text-black font-semibold xl:text-2xl md:text-xl text-lg xl:pb-12 pb-16 md:pb-8 text-center">
-            01 Free
-            <br /> Acuminating
-            <br /> Entry Packages
+            1 Free Entry Package
           </p>
           <div className="bg-white text-black rounded-lg md:py-4 py-2 text-center px-2 md:text-xs text-[8px]">
             Partner Store Discounts: 10%
@@ -180,9 +178,7 @@ const VehicleCardForReg = ({
           }
         >
           <p className="text-black font-semibold xl:text-2xl md:text-xl text-lg xl:pb-12 pb-16 md:pb-8 text-center">
-            03 Free
-            <br /> Acuminating
-            <br /> Entry Packages
+            3 Free Entry Package
           </p>
           <div className="bg-white text-black rounded-lg md:py-4 py-2 text-center px-2  md:text-xs text-[8px]">
             Access to Winlad Store Cash Back program
@@ -197,9 +193,7 @@ const VehicleCardForReg = ({
           }
         >
           <p className="text-black font-semibold xl:text-2xl md:text-xl text-lg xl:pb-12 pb-16 md:pb-8 text-center">
-            10 Free
-            <br /> Acuminating
-            <br /> Entry Packages
+            10 Free Entry Package
           </p>
           <div className="bg-white text-black rounded-lg md:py-4 py-2 text-center px-2  md:text-xs text-[8px]">
             Access to Winlads Public Events
@@ -214,9 +208,7 @@ const VehicleCardForReg = ({
           }
         >
           <p className="text-black font-semibold xl:text-2xl md:text-xl text-lg xl:pb-12 pb-16 md:pb-8 text-center">
-            25 Free
-            <br /> Acuminating
-            <br /> Entry Packages
+            25 Free Entry Package
           </p>
           <div className="bg-white text-black rounded-lg md:py-4 py-2 text-center px-2  md:text-xs text-[8px]">
             Be Eligible to Apply for Winlad GOLD Card
@@ -231,9 +223,7 @@ const VehicleCardForReg = ({
           }
         >
           <p className="text-white font-semibold xl:text-2xl md:text-xl text-lg xl:pb-12 pb-16 md:pb-8 text-center">
-            150 Free
-            <br /> Acuminating
-            <br /> Entry Packages
+            150 Free Entry Package
           </p>
           <div className="bg-white text-black rounded-lg md:py-4 py-2 text-center px-2  md:text-xs text-[8px]">
             Access to Winlads Urgency Program
