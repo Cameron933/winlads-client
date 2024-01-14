@@ -41,6 +41,8 @@ import PastGiveaways from "./pages/PastGiveaways/PastGiveaways";
 import OngoingGiveaways from "./pages/OngoingGiveaways/OngoingGiveaways";
 import UpcomingGiveaways from "./pages/UpcomingGiveaways/UpcomingGiveaways";
 import RegisterOld from "./pages/register/RegisterOld";
+import AdminLogin from "./pages/Admin/Login"
+import AdminRounds from "./pages/Admin/Giveaway"
 
 
 function App() {
@@ -210,6 +212,14 @@ TagManager.initialize(tagManagerArgs)
     {
       path: "/privacy",
       element: <Privacy />,
+    },
+    {
+      path: "/admin",
+      element: <AdminLogin />,
+    },
+    {
+      path: "/admin-rounds",
+      element: <AdminRounds />,
     },
   ]);
 
