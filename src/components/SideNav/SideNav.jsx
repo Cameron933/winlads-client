@@ -179,7 +179,7 @@ const SideNav = ({ screen }) => {
                 <div className="flex flex-row space-x-2 items-center">
                   <img src={Ongoing} alt="" className="w-[18px]" />
                   <p className="cursor-pointer hover:bg-[#36383b] px-2 py-1 hidden xl:block">
-                    Ongoing
+                    Active
                   </p>
                 </div>
               </Link>
