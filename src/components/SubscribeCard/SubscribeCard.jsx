@@ -1,21 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Blue from "../../assets/images/subscribers/blue.png";
-import Green from "../../assets/images/subscribers/green.png";
-import Yellow from "../../assets/images/subscribers/yellow.png";
-import Red from "../../assets/images/subscribers/red.png";
-import wallet from "../../assets/images/rafflesImages/wallet.png";
-import savelotto from "../../assets/images/rafflesImages/savelotto.png";
-import bitcoin from "../../assets/images/rafflesImages/bitcoin.png";
-import { ImCancelCircle } from "react-icons/im";
-import { IoCloseSharp } from "react-icons/io5";
-import Visa from "../../assets/images/subcription/visa.png";
-import BitCoin from "../../assets/images/subcription/bitcoin.png";
-import Save from "../../assets/images/subcription/save.png";
 import GreenCorrect from "../../assets/images/subcription/Icons.png";
 import { FaStar } from "react-icons/fa";
 import Cookies from "universal-cookie";
-import { toast } from "react-toastify";
-import axios from "axios";
+
 
 const PaymentModal = ({ handleClose, show }) => {
   return (
@@ -32,15 +19,9 @@ const PaymentModal = ({ handleClose, show }) => {
 function SubscribeCard({
   isPopular,
   name,
-  price,
-  desc1,
-  desc2,
-  desc3,
-  bgColor,
   gradientFrom,
   gradientTo,
   textColor,
-  borderColor,
   buttonColor,
   buttonText,
   buttonHoverText,
@@ -151,8 +132,8 @@ function SubscribeCard({
         {descL.length > 3 && (
           <button
             onClick={() => handleShowMore()}
-            className="absolute bottom-1 right-1 text-xs font-semibold"
-            style={{ color: color }}
+            className="absolute bottom-1 right-1 text-xs font-semibold text-black"
+            // style={{ color: color }}
           >
             {initialShow == 3 ? "View More" : "View Less"}
           </button>

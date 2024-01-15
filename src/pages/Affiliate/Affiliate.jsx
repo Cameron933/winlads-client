@@ -386,7 +386,7 @@ const Affiliate = () => {
                           <div className="flex justify-center pt-12">
                             <ItemLoader />
                           </div>
-                        ) : refferals.length > 0 ? (
+                        ) : refferals?.length > 0 ? (
                           refferals?.map((refferal, key) => (
                             <div
                               className="flex flex-row items-center justify-between pt-2 text-xs md:text-md pl-4"
@@ -572,7 +572,7 @@ const Affiliate = () => {
                     <div className="flex justify-center pt-12">
                       <ItemLoader />
                     </div>
-                  ) : refferals.length > 0 ? (
+                  ) : refferals?.length > 0 ? (
                     refferals?.map((refferal, key) => (
                       <div
                         className="flex flex-row items-center justify-between pt-2 text-xs md:text-md pl-4"

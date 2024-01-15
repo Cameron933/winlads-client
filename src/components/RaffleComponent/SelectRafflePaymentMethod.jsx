@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { LuInfo } from "react-icons/lu";
 
 const SelectRafflePaymentMethod = ({
   onClose,
@@ -160,69 +161,102 @@ const SelectRafflePaymentMethod = ({
             </div>
           </div> */}
           {/* <div className="">
-            <div className={`to-[#0094FF] from-[#01819D] hover:scale-105 mb-2 transition-all cursor-pointer px-2 py-2 text-xs rounded-full bg-gradient-to-t capitalize ${count === 1 ? 'scale-105' : 'scale-100'}`} onClick={() => setCount(1)}>
-              01 Free Accumulating entries package
+            <div
+              className={`to-[#0094FF] flex flex-row justify-center gap-4 items-center from-[#01819D] hover:scale-105 mb-2 transition-all cursor-pointer px-2 py-2 text-xs rounded-full bg-gradient-to-t capitalize ${
+                count === 1 ? "scale-105" : "scale-100"
+              }`}
+              onClick={() => setCount(1)}
+            >
+              <p>01 Free Accumulating entries package</p>
+              <div  data-tip="Your tooltip content">
+                sadsad
+              </div>
+              <LuInfo className="text-white" />
             </div>
-            {
-              count == 1 && <motion.div className="p-3 bg-white rounded-xl border text-[0.7rem]"
-              initial={{opacity:0,scaleY:0}}
-              transition={{duration:0.3}}
-              animate={{opacity:1, scaleY:1}}
+            {count == 1 && (
+              <motion.div
+                className="p-3 bg-white rounded-xl border text-[0.7rem]"
+                initial={{ opacity: 0, scaleY: 0 }}
+                transition={{ duration: 0.3 }}
+                animate={{ opacity: 1, scaleY: 1 }}
               >
                 Partner Store Discounts: 10%
               </motion.div>
-            }
-            <div className={`to-[#FF4700] from-[#611C00] hover:scale-105 mb-2 transition-all cursor-pointer px-2 py-2 text-xs rounded-full bg-gradient-to-t capitalize ${count === 3 ? 'scale-105' : 'scale-100'}`} onClick={() => setCount(3)}>
+            )}
+            <div
+              className={`to-[#FF4700] from-[#611C00] hover:scale-105 mb-2 transition-all cursor-pointer px-2 py-2 text-xs rounded-full bg-gradient-to-t capitalize ${
+                count === 3 ? "scale-105" : "scale-100"
+              }`}
+              onClick={() => setCount(3)}
+            >
               03 Free Accumulating entries package
             </div>
-            {
-              count == 3 && <motion.div className="p-3 bg-white rounded-xl border text-[0.7rem]"
-              initial={{opacity:0,scaleY:0}}
-              transition={{duration:0.3}}
-              animate={{opacity:1, scaleY:1}}
+            {count == 3 && (
+              <motion.div
+                className="p-3 bg-white rounded-xl border text-[0.7rem]"
+                initial={{ opacity: 0, scaleY: 0 }}
+                transition={{ duration: 0.3 }}
+                animate={{ opacity: 1, scaleY: 1 }}
               >
                 Access to Winlad Store Cash Back program
               </motion.div>
-            }
-            <div className={`to-[#00ECFF] from-[#006168] hover:scale-105 mb-2 transition-all cursor-pointer px-2 py-2 text-xs rounded-full bg-gradient-to-t capitalize ${count === 10 ? 'scale-105' : 'scale-100'}`} onClick={() => setCount(10)}>
+            )}
+            <div
+              className={`to-[#00ECFF] from-[#006168] hover:scale-105 mb-2 transition-all cursor-pointer px-2 py-2 text-xs rounded-full bg-gradient-to-t capitalize ${
+                count === 10 ? "scale-105" : "scale-100"
+              }`}
+              onClick={() => setCount(10)}
+            >
               10 Free Accumulating entries package
             </div>
-            {
-              count == 10 && <motion.div className="p-3 bg-white rounded-xl border text-[0.7rem]"
-              initial={{opacity:0,scaleY:0}}
-              transition={{duration:0.3}}
-              animate={{opacity:1, scaleY:1}}
+            {count == 10 && (
+              <motion.div
+                className="p-3 bg-white rounded-xl border text-[0.7rem]"
+                initial={{ opacity: 0, scaleY: 0 }}
+                transition={{ duration: 0.3 }}
+                animate={{ opacity: 1, scaleY: 1 }}
               >
                 Access to Winlads Public Events
               </motion.div>
-            }
-            <div className={`to-[#FFBE00] from-[#766000] hover:scale-105 mb-2 transition-all cursor-pointer px-2 py-2 text-xs rounded-full bg-gradient-to-t capitalize ${count === 25 ? 'scale-105' : 'scale-100'}`} onClick={() => setCount(25)}>
+            )}
+            <div
+              className={`to-[#FFBE00] from-[#766000] hover:scale-105 mb-2 transition-all cursor-pointer px-2 py-2 text-xs rounded-full bg-gradient-to-t capitalize ${
+                count === 25 ? "scale-105" : "scale-100"
+              }`}
+              onClick={() => setCount(25)}
+            >
               25 Free Accumulating entries package
             </div>
-            {
-              count == 25 && <motion.div className="p-3 bg-white rounded-xl border text-[0.7rem]"
-              initial={{opacity:0,scaleY:0}}
-              transition={{duration:0.3}}
-              animate={{opacity:1, scaleY:1}}
+            {count == 25 && (
+              <motion.div
+                className="p-3 bg-white rounded-xl border text-[0.7rem]"
+                initial={{ opacity: 0, scaleY: 0 }}
+                transition={{ duration: 0.3 }}
+                animate={{ opacity: 1, scaleY: 1 }}
               >
                 Be Eligible to Apply for Winlad GOLD Card
               </motion.div>
-            }
-            <div className={`to-[#22272C] from-[#23282E] hover:scale-105 mb-2 transition-all cursor-pointer px-2 py-2 text-xs rounded-full bg-gradient-to-t capitalize ${count === 150 ? 'scale-105' : 'scale-100'} text-white`} onClick={() => setCount(150)}>
-            <div className="col-span-1 bg-gradient-to-t text-black to-[#FFBE00] from-[#766000] rounded-full py-2 px-4 text-center">
+            )}
+            <div
+              className={`to-[#22272C] from-[#23282E] hover:scale-105 mb-2 transition-all cursor-pointer px-2 py-2 text-xs rounded-full bg-gradient-to-t capitalize ${
+                count === 150 ? "scale-105" : "scale-100"
+              } text-white`}
+              onClick={() => setCount(150)}
+            >
+              <div className="col-span-1 bg-gradient-to-t text-black to-[#FFBE00] from-[#766000] rounded-full py-2 px-4 text-center">
                 25 Free Accumulating entries package
               </div>
             </div>
-            {
-              count == 150 && <motion.div className="p-3 bg-white rounded-xl border text-[0.7rem]"
-              initial={{opacity:0,scaleY:0}}
-              transition={{duration:0.3}}
-              animate={{opacity:1, scaleY:1}}
+            {count == 150 && (
+              <motion.div
+                className="p-3 bg-white rounded-xl border text-[0.7rem]"
+                initial={{ opacity: 0, scaleY: 0 }}
+                transition={{ duration: 0.3 }}
+                animate={{ opacity: 1, scaleY: 1 }}
               >
                 Access to Winlads Urgency Program
               </motion.div>
-            }
-
+            )}
           </div> */}
           <div className="flex overflow-x-auto gap-2">
             <div
