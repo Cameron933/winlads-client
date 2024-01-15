@@ -72,7 +72,7 @@ const UpcomingGiveaways = () => {
   const getGiveaways = async (valuid) => {
     await axios
       .get(
-        `${import.meta.env.VITE_SERVER_API}/raffleRoundsFuture`
+        `${import.meta.env.VITE_SERVER_API}/raffleRoundsOngoing`
       )
       .then((response) => {
         console.log(response.data.data, "data raffle");
