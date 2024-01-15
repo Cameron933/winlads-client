@@ -26,7 +26,7 @@ const Affiliate = () => {
   const [userData, setUserData] = useState({});
   const navigate = useNavigate();
   const [valUser, setValUser] = useState({});
-
+  const [activeButton, setActiveButton] = useState(1);
   const [name, setName] = useState("");
   const [userId, setUserId] = useState("");
   const [email, setEmail] = useState("");
@@ -45,11 +45,11 @@ const Affiliate = () => {
   const [license, setLicense] = useState("");
   const [isChecked, setIsChecked] = useState(false);
   const [refferalId, setRefferalId] = useState();
-  const [refferals, setRefferals] = useState({});
+  const [refferals, setRefferals] = useState([]);
+  const [loading2, setLoading2] = useState(false);
   // const [refresh, setRefresh] = useState(false);
   useEffect(() => {
     getUserData();
-
   }, [refreshCount]);
 
   const onCheckboxChange = (e) => {
@@ -64,20 +64,101 @@ const Affiliate = () => {
     }
   };
 
-  const getAffiliats = async (valuid) => {
+  useEffect(() => {
+    currentUserValidation();
+  }, []);
+
+  const currentUserValidation = async () => {
+    const validator = await validateCurrentUser();
+    if (validator.validatorBl) {
+      console.log("Session OK", validator.user);
+      setValUser(validator.user);
+      getReffeles(validator.user.uid);
+    } else {
+      navigate("/login");
+    }
+  };
+
+  // useEffect(() => {
+  //   // Load Level 01 data by default when the component mounts
+  //   getReffeles();
+  // }, []);
+
+  const getReffeles = async (uid) => {
+    setLoading2(true);
     await axios
-      .get(`${import.meta.env.VITE_SERVER_API}/getRefferals?uid=${valuid}`)
+      .get(`${import.meta.env.VITE_SERVER_API}/getRefferals?uid=${uid}`)
       .then((response) => {
-        console.log(response.data)
-        setRefferals(response.data)
-        setLoading(false);
+        console.log(response.data.l1);
+        setRefferals(response.data.l1);
+        setLoading2(false);
       })
       .catch((error) => {
         console.log(error);
-        setLoading(false);
+        setLoading2(false);
       });
   };
 
+  const handleLevel01ButtonClick = async () => {
+    setActiveButton(1);
+    setLoading2(true);
+    await axios
+      .get(`${import.meta.env.VITE_SERVER_API}/getRefferals?uid=${valUser.uid}`)
+      .then((response) => {
+        console.log(response.data.l1);
+        setRefferals(response.data.l1);
+        setLoading2(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading2(false);
+      });
+  };
+
+  const handleLevel02ButtonClick = async () => {
+    setActiveButton(2);
+    setLoading2(true);
+    await axios
+      .get(`${import.meta.env.VITE_SERVER_API}/getRefferals?uid=${valUser.uid}`)
+      .then((response) => {
+        setRefferals(response.data.l2);
+        setLoading2(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading2(false);
+      });
+  };
+
+  const handleLevel03ButtonClick = async () => {
+    setActiveButton(3);
+    setLoading2(true);
+    await axios
+      .get(`${import.meta.env.VITE_SERVER_API}/getRefferals?uid=${valUser.uid}`)
+      .then((response) => {
+        setRefferals(response.data.l3);
+        setLoading2(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading2(false);
+      });
+  };
+
+  const handleLevel04ButtonClick = async () => {
+    setActiveButton(4);
+    setLoading2(true);
+    await axios
+      .get(`${import.meta.env.VITE_SERVER_API}/getRefferals?uid=${valUser.uid}`)
+      .then((response) => {
+        setRefferals(response.data.l4);
+        setLoading2(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading2(false);
+      });
+  };
 
   const getUserData = async () => {
     setLoading(true);
@@ -104,7 +185,6 @@ const Affiliate = () => {
         if (response?.data?.data.image != undefined) {
           getProfileImage(response?.data?.data.image);
         }
-        getAffiliats(response?.data?.data.uid);
         setLoading(false);
       })
       .catch((error) => {
@@ -189,30 +269,13 @@ const Affiliate = () => {
       });
   }
 
-  useEffect(() => {
-    currentUserValidation();
-  }, []);
-
-  const currentUserValidation = async () => {
-    const validator = await validateCurrentUser();
-    if (validator.validatorBl) {
-      console.log("Session OK", validator.user);
-      setValUser(validator.user);
-    } else {
-      navigate("/login");
-    }
-  };
-
   // Function to handle copying the input value to clipboard
   const handleCopyToClipboard = async (txt) => {
     try {
       await navigator.clipboard.writeText(txt);
-      toast.success('Copied to Clipboard')
+      toast.success("Copied to Clipboard");
     } catch (err) {
-      console.error(
-        "Unable to copy to clipboard.",
-        err
-      );
+      console.error("Unable to copy to clipboard.", err);
       alert("Copy to clipboard failed.");
     }
   };
@@ -260,26 +323,90 @@ const Affiliate = () => {
                   </div>
                   <div className="hidden xl:block">
                     <AffiliateCard />
-
                   </div>
+                  <div className="hidden xl:block">
+                    <h3 style={{ fontWeight: "bold" }}>Affiliate List</h3>
+                    <div className="flex flex-col space-y-4 pt-4">
+                      <div className="flex flex-row md:gap-4 gap-1 items-center">
+                        <button
+                          className={`rounded-lg text-xs md:text-sm py-2 px-2 ${
+                            activeButton === 1
+                              ? "bg-black text-white"
+                              : "bg-[#F3F3F3]"
+                          }`}
+                          onClick={handleLevel01ButtonClick}
+                        >
+                          Level 01
+                        </button>
+                        <button
+                          className={`rounded-lg text-xs md:text-sm py-2 px-2 ${
+                            activeButton === 2
+                              ? "bg-black text-white"
+                              : "bg-[#F3F3F3]"
+                          }`}
+                          onClick={handleLevel02ButtonClick}
+                        >
+                          Level 02
+                        </button>
+                        <button
+                          className={`rounded-lg text-xs md:text-sm py-2 px-2 ${
+                            activeButton === 3
+                              ? "bg-black text-white"
+                              : "bg-[#F3F3F3]"
+                          }`}
+                          onClick={handleLevel03ButtonClick}
+                        >
+                          Level 03
+                        </button>
+                        <button
+                          className={`rounded-lg text-xs md:text-sm py-2 px-2 ${
+                            activeButton === 4
+                              ? "bg-black text-white"
+                              : "bg-[#F3F3F3]"
+                          }`}
+                          onClick={handleLevel04ButtonClick}
+                        >
+                          Level 04
+                        </button>
+                      </div>
+                      <div className="flex flex-col">
+                        <div className="flex flex-row justify-between">
+                          <p className="bg-[#F3F3F3] font-semibold py-2 px-4 text-xs md:text-md">
+                            Name
+                          </p>
+                          <p className="bg-[#F3F3F3] font-semibold py-2 px-4 text-xs md:text-md">
+                            Email
+                          </p>
+                          {/* <p className="bg-[#F3F3F3] font-semibold py-2 px-4 text-xs md:text-md">
+                            Subscription Plans
+                          </p> */}
+                        </div>
 
-                  {valUser.subscripton &&
-                    <div className="pt-6">
-                      <h3 style={{ fontWeight: 'bold' }}>Affiliate List</h3>
-                      <br />
-                      {
-                        refferals?.data?.length > 0 ? refferals?.data?.map((ref, key) => (
-                          <div style={{ display: 'flex', flexDirection: 'row', gap: 50, flexWrap: 'wrap', backgroundColor: '#FFFFFF', borderRadius: 10, padding: 5, marginBottom: 5 }}>
-                            <h6>{key + 1}</h6>
-                            <h3>{ref.firstname}</h3>
-                            <span>{ref.email}</span>
+                        {loading2 ? (
+                          <div className="flex justify-center pt-12">
+                            <ItemLoader />
                           </div>
-                        )) : <p>You have no affiliates</p>
-                      }
+                        ) : refferals.length > 0 ? (
+                          refferals?.map((refferal, key) => (
+                            <div
+                              className="flex flex-row items-center justify-between pt-2 text-xs md:text-md pl-4"
+                              key={key}
+                            >
+                              <p>{refferal.firstname}</p>
+                              <p>{refferal.email}</p>
+                              {/* <p>{refferal.subscripton.name}</p> */}
+                            </div>
+                          ))
+                        ) : (
+                          <div className="pt-4 flex justify-center">
+                            <p className="text-xs md:text-sm">
+                              You have no affiliates
+                            </p>
+                          </div>
+                        )}
+                      </div>
                     </div>
-                  }
-                  {!valUser.subscripton && <p className="text-xs md:text-lg font-semibold text-center capitalize">You are not eligeble <span className="text-red-500">Please Subscribe First !</span></p>}
-
+                  </div>
                 </>
               )}
             </div>
@@ -310,7 +437,11 @@ const Affiliate = () => {
                     type="text"
                     onChange={(e) => setName(e.target.value)}
                     disabled
-                    value={ userData.firstname &&(userData?.firstname + ' ' + userData?.lastname) || ""}
+                    value={
+                      (userData.firstname &&
+                        userData?.firstname + " " + userData?.lastname) ||
+                      ""
+                    }
                   ></input>
                 </div>
 
@@ -336,13 +467,16 @@ const Affiliate = () => {
                       className="bg-white font-bold rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3 w-full"
                       placeholder="loading..."
                       type="text"
-                      value={valUser.subscripton ? userId || "N/A" : 'N/A'}
+                      value={valUser.subscripton ? userId || "N/A" : "N/A"}
                       disabled
                     />
-                    <button onClick={() => handleCopyToClipboard(userId)} className="absolute right-1 bottom-0 text-xl p-3 hover:bg-gray-300 rounded-full bg-white"><FaRegCopy /></button>
-
+                    <button
+                      onClick={() => handleCopyToClipboard(userId)}
+                      className="absolute right-1 bottom-0 text-xl p-3 hover:bg-gray-300 rounded-full bg-white"
+                    >
+                      <FaRegCopy />
+                    </button>
                   </div>
-
                 </div>
 
                 <div className="flex flex-col space-y-2">
@@ -356,10 +490,106 @@ const Affiliate = () => {
                       type="tel"
                       disabled
                       onChange={(e) => setMobile(e.target.value)}
-                      value={valUser.subscripton ? `https://www.winlads.com/register?ref=${userId}` : 'N/A'}
+                      value={
+                        valUser.subscripton
+                          ? `https://www.winlads.com/register?ref=${userId}`
+                          : "N/A"
+                      }
                     ></input>
-                    <button onClick={() => handleCopyToClipboard(`https://www.winlads.com/register?ref=${userId}`)} className="absolute right-1 bottom-0 text-xl p-3 hover:bg-gray-300 rounded-full bg-white"><FaRegCopy /></button>
+                    <button
+                      onClick={() =>
+                        handleCopyToClipboard(
+                          `https://www.winlads.com/register?ref=${userId}`
+                        )
+                      }
+                      className="absolute right-1 bottom-0 text-xl p-3 hover:bg-gray-300 rounded-full bg-white"
+                    >
+                      <FaRegCopy />
+                    </button>
                   </div>
+                </div>
+              </div>
+            </div>
+            <div className="block xl:hidden pt-4">
+              <h3 style={{ fontWeight: "bold" }}>Affiliate List</h3>
+              <div className="flex flex-col space-y-4 pt-4">
+                <div className="flex flex-row md:gap-4 gap-1 items-center">
+                  <button
+                    className={`rounded-lg text-xs md:text-sm py-2 px-2 ${
+                      activeButton === 1
+                        ? "bg-black text-white"
+                        : "bg-[#F3F3F3]"
+                    }`}
+                    onClick={handleLevel01ButtonClick}
+                  >
+                    Level 01
+                  </button>
+                  <button
+                    className={`rounded-lg text-xs md:text-sm py-2 px-2 ${
+                      activeButton === 2
+                        ? "bg-black text-white"
+                        : "bg-[#F3F3F3]"
+                    }`}
+                    onClick={handleLevel02ButtonClick}
+                  >
+                    Level 02
+                  </button>
+                  <button
+                    className={`rounded-lg text-xs md:text-sm py-2 px-2 ${
+                      activeButton === 3
+                        ? "bg-black text-white"
+                        : "bg-[#F3F3F3]"
+                    }`}
+                    onClick={handleLevel03ButtonClick}
+                  >
+                    Level 03
+                  </button>
+                  <button
+                    className={`rounded-lg text-xs md:text-sm py-2 px-2 ${
+                      activeButton === 4
+                        ? "bg-black text-white"
+                        : "bg-[#F3F3F3]"
+                    }`}
+                    onClick={handleLevel04ButtonClick}
+                  >
+                    Level 04
+                  </button>
+                </div>
+                <div className="flex flex-col">
+                  <div className="flex flex-row justify-between">
+                    <p className="bg-[#F3F3F3] font-semibold py-2 px-4 text-xs md:text-md">
+                      Name
+                    </p>
+                    <p className="bg-[#F3F3F3] font-semibold py-2 px-4 text-xs md:text-md">
+                      Email
+                    </p>
+                    {/* <p className="bg-[#F3F3F3] font-semibold py-2 px-4 text-xs md:text-md">
+                      Subscription Plans
+                    </p> */}
+                  </div>
+
+                  {loading2 ? (
+                    <div className="flex justify-center pt-12">
+                      <ItemLoader />
+                    </div>
+                  ) : refferals.length > 0 ? (
+                    refferals?.map((refferal, key) => (
+                      <div
+                        className="flex flex-row items-center justify-between pt-2 text-xs md:text-md pl-4"
+                        key={key}
+                      >
+                        <p>{refferal.firstname}</p>
+                        <p>{refferal.email}</p>
+                        {/* <p>{refferal.subscripton.name}</p> */}
+                      </div>
+                    ))
+                  ) : (
+                    <div className="pt-4 flex justify-center">
+                      <p className="text-xs md:text-sm">
+                        You have no affiliates
+                      </p>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

@@ -384,9 +384,9 @@ function Subscription() {
                       trailUserTest={valUser.trial}
                     />
                   ))}
-                  <div className=" flex justify-center items-center  ">
+                  {/* <div className=" flex justify-center items-center  ">
                     <FreeEntryCardDashboard />
-                  </div>
+                  </div> */}
                 </div>
               </div>
             ) : (

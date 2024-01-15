@@ -466,7 +466,7 @@ const Register = ({ location }) => {
                     ))}
                   </>
                 ) : (
-                  <div className="hidden md:flex">
+                  <div className="">
                     <VehicleCardForReg
                       type={"vehicle"}
                       name={"2023 MAZDA BT-50"}

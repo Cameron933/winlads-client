@@ -82,14 +82,14 @@ const DashboardVehicleCard = ({
           )
         )}
 
-        <div className="flex flex-row items-center justify-between px-1">
+        <div className="flex justify-end px-1">
           {/* <Link to={`/won/${id}`}>
             <LuInfo className="text-white" />
           </Link> */}
           <img
             src={icon}
             alt=""
-            className="2xl:w-20 xl:w-16 w-16 special:w-28 "
+            className="2xl:w-24 xl:w-24 w-16 special:w-28 "
           />
         </div>
         <div className="flex flex-row justify-between items-center">
