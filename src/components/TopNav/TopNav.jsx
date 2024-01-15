@@ -18,7 +18,7 @@ const TopNav = ({ textColor }) => {
     setNotShow(!notShow);
   };
 
-  // notification?id=6570517d8ea78575c11be760
+
 
   return (
     <>

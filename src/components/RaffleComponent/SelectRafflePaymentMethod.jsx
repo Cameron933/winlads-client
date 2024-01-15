@@ -134,7 +134,7 @@ const SelectRafflePaymentMethod = ({
           </p> */}
 
           <p className="font-bold text-black text-center xl:text-5xl 2xl:text-6xl special:text-9xl md:5xl text-3xl">
-            $ {price * count}
+            $&nbsp;{price * count}
           </p>
           {/* <p className="text-white text-center special:text-4xl">User/Month</p> */}
           {/* <div className="flex justify-center flex-col space-y-2 special:space-y-6 2xl:space-y-4">
@@ -160,20 +160,21 @@ const SelectRafflePaymentMethod = ({
               </p>
             </div>
           </div> */}
-          {/* <div className="">
+          <div className="flex flex-col space-y-2">
             <div
-              className={`to-[#0094FF] flex flex-row justify-center gap-4 items-center from-[#01819D] hover:scale-105 mb-2 transition-all cursor-pointer px-2 py-2 text-xs rounded-full bg-gradient-to-t capitalize ${
-                count === 1 ? "scale-105" : "scale-100"
+              className={`to-[#0094FF] border-2 flex flex-row justify-between px-4 items-center from-[#01819D] hover:opacity-85 cursor-pointer  py-2 text-xs rounded-full bg-gradient-to-t capitalize ${
+                count === 1 ? "border-black" : ""
               }`}
               onClick={() => setCount(1)}
             >
               <p>01 Free Accumulating entries package</p>
-              <div  data-tip="Your tooltip content">
-                sadsad
-              </div>
-              <LuInfo className="text-white" />
+
+              <LuInfo
+                className="text-white"
+                title="Partner Store Discounts: 10%"
+              />
             </div>
-            {count == 1 && (
+            {/* {count == 1 && (
               <motion.div
                 className="p-3 bg-white rounded-xl border text-[0.7rem]"
                 initial={{ opacity: 0, scaleY: 0 }}
@@ -182,16 +183,20 @@ const SelectRafflePaymentMethod = ({
               >
                 Partner Store Discounts: 10%
               </motion.div>
-            )}
+            )} */}
             <div
-              className={`to-[#FF4700] from-[#611C00] hover:scale-105 mb-2 transition-all cursor-pointer px-2 py-2 text-xs rounded-full bg-gradient-to-t capitalize ${
-                count === 3 ? "scale-105" : "scale-100"
+              className={`to-[#FF4700] flex border-2 flex-row justify-between px-4 from-[#611C00]  hover:opacity-85 cursor-pointer py-2 text-xs rounded-full bg-gradient-to-t capitalize ${
+                count === 3 ? "border-black" : ""
               }`}
               onClick={() => setCount(3)}
             >
-              03 Free Accumulating entries package
+              <p>03 Free Accumulating entries package</p>
+              <LuInfo
+                className="text-white"
+                title="Access to Winlad Store Cash Back program"
+              />
             </div>
-            {count == 3 && (
+            {/* {count == 3 && (
               <motion.div
                 className="p-3 bg-white rounded-xl border text-[0.7rem]"
                 initial={{ opacity: 0, scaleY: 0 }}
@@ -200,16 +205,21 @@ const SelectRafflePaymentMethod = ({
               >
                 Access to Winlad Store Cash Back program
               </motion.div>
-            )}
+            )} */}
             <div
-              className={`to-[#00ECFF] from-[#006168] hover:scale-105 mb-2 transition-all cursor-pointer px-2 py-2 text-xs rounded-full bg-gradient-to-t capitalize ${
-                count === 10 ? "scale-105" : "scale-100"
+              className={`to-[#00ECFF] flex border-2 flex-row justify-between px-4 from-[#006168]  hover:opacity-85 cursor-pointer py-2 text-xs rounded-full bg-gradient-to-t capitalize ${
+                count === 10 ? "border-black" : ""
               }`}
               onClick={() => setCount(10)}
             >
-              10 Free Accumulating entries package
+              <p>10 Free Accumulating entries package</p>
+              <LuInfo
+                className="text-white"
+                title="Access to Winlads Public Events"
+              />
+           
             </div>
-            {count == 10 && (
+            {/* {count == 10 && (
               <motion.div
                 className="p-3 bg-white rounded-xl border text-[0.7rem]"
                 initial={{ opacity: 0, scaleY: 0 }}
@@ -218,16 +228,20 @@ const SelectRafflePaymentMethod = ({
               >
                 Access to Winlads Public Events
               </motion.div>
-            )}
+            )} */}
             <div
-              className={`to-[#FFBE00] from-[#766000] hover:scale-105 mb-2 transition-all cursor-pointer px-2 py-2 text-xs rounded-full bg-gradient-to-t capitalize ${
-                count === 25 ? "scale-105" : "scale-100"
+              className={`to-[#FFBE00] flex border-2 flex-row justify-between px-4 from-[#766000] hover:opacity-85 cursor-pointer  py-2 text-xs rounded-full bg-gradient-to-t capitalize ${
+                count === 25 ? "border-black" : ""
               }`}
               onClick={() => setCount(25)}
             >
-              25 Free Accumulating entries package
+              <p>25 Free Accumulating entries package</p>
+              <LuInfo
+                className="text-white"
+                title="Be Eligible to Apply for Winlad GOLD Card"
+              />
             </div>
-            {count == 25 && (
+            {/* {count == 25 && (
               <motion.div
                 className="p-3 bg-white rounded-xl border text-[0.7rem]"
                 initial={{ opacity: 0, scaleY: 0 }}
@@ -236,18 +250,20 @@ const SelectRafflePaymentMethod = ({
               >
                 Be Eligible to Apply for Winlad GOLD Card
               </motion.div>
-            )}
+            )} */}
             <div
-              className={`to-[#22272C] from-[#23282E] hover:scale-105 mb-2 transition-all cursor-pointer px-2 py-2 text-xs rounded-full bg-gradient-to-t capitalize ${
-                count === 150 ? "scale-105" : "scale-100"
+              className={`to-[#22272C] flex border-2 flex-row justify-between px-4 from-[#23282E] hover:opacity-85 cursor-pointer py-2 text-xs rounded-full bg-gradient-to-t capitalize ${
+                count === 150 ? "border-black" : ""
               } text-white`}
               onClick={() => setCount(150)}
             >
-              <div className="col-span-1 bg-gradient-to-t text-black to-[#FFBE00] from-[#766000] rounded-full py-2 px-4 text-center">
-                25 Free Accumulating entries package
-              </div>
+              <p>150 Free Accumulating entries package</p>
+              <LuInfo
+                className="text-white"
+                title="Access to Winlads Urgency Program"
+              />
             </div>
-            {count == 150 && (
+            {/* {count == 150 && (
               <motion.div
                 className="p-3 bg-white rounded-xl border text-[0.7rem]"
                 initial={{ opacity: 0, scaleY: 0 }}
@@ -256,9 +272,9 @@ const SelectRafflePaymentMethod = ({
               >
                 Access to Winlads Urgency Program
               </motion.div>
-            )}
-          </div> */}
-          <div className="flex overflow-x-auto gap-2">
+            )} */}
+          </div>
+          {/* <div className="flex overflow-x-auto gap-2">
             <div
               className={`bg-gradient-to-t to-[#0094FF] cursor-pointer from-[#00347C] hover:opacity-75 border-2 rounded-lg flex flex-col py-4 md:px-2 px-4 w-[350px]  ${
                 count === 1 ? "border-black" : "scale-100"
@@ -333,7 +349,7 @@ const SelectRafflePaymentMethod = ({
               Access to Winlads Urgency Program
               </div>
             </div>
-          </div>
+          </div> */}
 
           <div className="flex justify-center items-center  flex-col space-y-2">
             {/* <div className="rounded-2xl flex flex-row justify-between items-center px-4 w-48 border border-solid border-black bg-[##F3F3F3] py-1">

@@ -47,6 +47,7 @@ const Affiliate = () => {
   const [refferalId, setRefferalId] = useState();
   const [refferals, setRefferals] = useState([]);
   const [loading2, setLoading2] = useState(false);
+  const [affCount, setAffCount] = useState([])
   // const [refresh, setRefresh] = useState(false);
   useEffect(() => {
     getUserData();
@@ -74,6 +75,7 @@ const Affiliate = () => {
       console.log("Session OK", validator.user);
       setValUser(validator.user);
       getReffeles(validator.user.uid);
+      getAffiliatsCount(validator.user.uid)
     } else {
       navigate("/login");
     }
@@ -96,6 +98,20 @@ const Affiliate = () => {
       .catch((error) => {
         console.log(error);
         setLoading2(false);
+      });
+  };
+
+  const getAffiliatsCount = async (uid) => {
+    await axios
+      .get(`${import.meta.env.VITE_SERVER_API}/getRefferals?uid=${uid}`)
+      .then((response) => {
+        console.log(response.data)
+        setAffCount(response.data)
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false);
       });
   };
 
@@ -292,7 +308,7 @@ const Affiliate = () => {
                 <img className="" src={MainCar} alt="main" />
               </div>
             </div>
-            <CardComponent />
+            <AffiliateCard />
           </div>
           <div className="flex flex-col space-y-4 flex-1 xl:mx-4">
             <div className="flex flex-col space-y-3">
@@ -319,7 +335,8 @@ const Affiliate = () => {
                     )}
                   </form> */}
                   <div className="md:mt-10 mt-5">
-                    <Count count={refferals?.data?.length} />
+                    <Count count={affCount?.l1count+affCount?.l2count+affCount?.l3count+affCount?.l4count || 0} />
+
                   </div>
                   <div className="hidden xl:block">
                     <AffiliateCard />

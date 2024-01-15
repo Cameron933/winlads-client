@@ -208,6 +208,11 @@ TagManager.initialize(tagManagerArgs)
       // payment-done?suc=1&round_id=sadc  Sample Success Route
       // payment-done?suc=0&fail=1&round_id=ds  Sample Fail Route
     },
+
+    {
+      path: "/payment-failed",
+      element: <PaymentSuccess />,
+    },
   
     {
       path: "/privacy",

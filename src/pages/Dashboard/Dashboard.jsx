@@ -20,6 +20,7 @@ import BG from "../../assets/images/HomesideBg.png";
 import { FaAngleDoubleDown, FaAngleDoubleUp } from "react-icons/fa";
 import Cookies from "universal-cookie";
 import FreeEntries from "../../assets/images/freeEntries.png";
+import ActiveBanner from "../../assets/images/activeBanner.png"
 
 const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -174,7 +175,8 @@ const Dashboard = () => {
                   <SmallGoldCard />
                 </div>
                 <div>
-                  <p className="text-xl font-semibold">Next Giveaways</p>
+                  <p className="text-xl font-semibold pb-4">Upcoming Giveaways</p>
+            
                   {loading ? (
                     <div className="flex justify-center">
                       <ItemLoader />
@@ -287,8 +289,9 @@ const Dashboard = () => {
 
                 <div className="flex flex-col space-y-2 w-full xl:w-web pt-4">
                   <p className="text-2xl 2xl:text-2xl special:text-5xl font-semibold mb-2">
-                    Active Giveaways
+                    Upcoming Giveaways
                   </p>
+               
                   {loading ? (
                     <div className="flex justify-center">
                       <ItemLoader />
@@ -324,7 +327,7 @@ const Dashboard = () => {
                             }}
                           />
                         ))}
-                      {/* {
+                      {
                         giveaways.length > 7 && (initialLength == 7 ?
                           <button onClick={() => handleSeeMore(true)}
                             className="flex flex-row justify-center items-center rounded-3xl 2xl:rounded-[30px] special:rounded-[40px] w-full py-2 shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:brightness-75 cursor-pointer bg-gradient-to-br from-blue-400 to-blue-600 text-white">
@@ -334,7 +337,7 @@ const Dashboard = () => {
                             className="flex flex-row justify-center items-center rounded-3xl 2xl:rounded-[30px] special:rounded-[40px] w-full py-2 shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:brightness-75 cursor-pointer bg-gradient-to-br from-blue-400 to-blue-600 text-white">
                             See Less
                           </button>)
-                      } */}
+                      }
                     </div>
                   ) : (
                     <div className="flex flex-col items-center space-y-2 pt-12">
