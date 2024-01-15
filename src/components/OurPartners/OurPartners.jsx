@@ -2,10 +2,11 @@ import { motion } from "framer-motion";
 import React from "react";
 import nontera from "../../assets/images/partners/partner-1.png";
 import stripe from "../../assets/images/partners/partner-2.png";
+import NewPart from "../../assets/images/partners/partners7.png";
 
 const OurPartners = () => {
   return (
-    <div className="bg-service py-5">
+    <div className="bg-service py-5" id="partners">
       <motion.p
         initial={{ opacity: 0, y: "-40%" }}
         whileInView={{ opacity: 1, y: "0" }}
@@ -15,7 +16,10 @@ const OurPartners = () => {
       >
         PARTNERS
       </motion.p>
-      <div className="flex items-center justify-center gap-5 md:flex-row flex-col md:px-20 px-10">
+      <div className="flex justify-center gap-4 md:flex-row flex-col md:px-20 px-10">
+        <div className="md:w-1/2 w-full">
+          <img src={NewPart} className="w-full h-full object-contain" />
+        </div>
         <div className="md:w-1/2 w-full">
           <img src={nontera} className="w-full h-full object-contain" />
         </div>
