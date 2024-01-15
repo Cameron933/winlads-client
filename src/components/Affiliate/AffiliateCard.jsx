@@ -4,6 +4,7 @@ import Money from "../../assets/images/affiliate/earnings.png";
 import { validateCurrentUser } from "../../utils/validateuser";
 import axios from "axios";
 import ItemLoader from "../../components/Loader/ItemLoader";
+import NewEarning from "../../assets/images/new/earnings.png"
 
 import { useNavigate } from "react-router";
 
@@ -74,30 +75,32 @@ const AffiliateCard = () => {
       ) : (
         <div className="flex flex-col p-2 space-y-4 2xl:space-y-4">
           <div className="flex flex-row border-black border-2 rounded-2xl">
-            <div className="from-[#008767] to-black bg-gradient-to-r rounded-l-xl flex flex-row flex-1 py-4 md:justify-center xl:justify-center justify-between md:gap-6 xl:gap-6 px-2">
+            <div className="from-[#008767] to-black items-center gap-1 bg-gradient-to-r rounded-l-xl flex flex-row flex-1 py-4 md:justify-center xl:justify-center justify-between md:gap-6 xl:gap-6 px-2">
               <div className="w-10 h-10">
                 <img
-                  src={Money}
+                  src={NewEarning}
                   alt=""
                   className="w-full h-full object-contain"
                 />
               </div>
-              <div className="flex flex-col text-white">
+              <div className="flex flex-col text-white items-center">
                 <p className="font-semibold 2xl:text-xl special:text-2xl text-lg">
-                  $ {wallet.earning || "0.00"}
+                  $&nbsp;{typeof wallet.earning === "number"
+                    ? wallet.earning.toFixed(2)
+                    : "0.00"}
                 </p>
-                <p className="capitalize text-sm">Total Earnings</p>
+                <p className="capitalize md:ext-sm text-[10px]">Total Earnings</p>
               </div>
             </div>
-            <div className="to-[#CBAD11] from-black bg-gradient-to-r rounded-r-xl flex flex-row flex-1 py-4 md:justify-center xl:justify-center justify-between md:gap-6 xl:gap-6 px-2">
+            <div className="to-[#CBAD11] from-black bg-gradient-to-r items-center gap-1 rounded-r-xl flex flex-row flex-1 py-4 md:justify-center xl:justify-center justify-between md:gap-6 xl:gap-6 px-2">
               <div className="w-10 h-10">
                 <img src={Ticket} className="w-full h-full object-contain" />
               </div>
               <div className="flex flex-col text-white">
                 <p className="font-semibold 2xl:text-xl special:text-2xl text-lg">
-                  {refferals?.refcount || 0}
+                  {refferals?.l1count+refferals?.l2count+refferals?.l3count+refferals?.l4count || 0}
                 </p>
-                <p className="capitalize text-sm">Total Affiliates</p>
+                <p className="capitalize md:ext-sm text-[10px]">Total Affiliates</p>
               </div>
             </div>
           </div>
@@ -107,7 +110,9 @@ const AffiliateCard = () => {
                 your balance
               </p>
               <p className="font-bold text-4xl">
-                $ {valUser.balance || "0.00"}
+                $&nbsp;{typeof valUser.balance === "number"
+                  ? valUser.balance.toFixed(2)
+                  : "0.00"}
               </p>
             </div>
             <div className="flex flex-col space-x-1">

@@ -220,11 +220,11 @@ const OngoingGiveaways = () => {
               if (giveaway?.raffle?.name === "Vehicle") {
                 return (
                   <div
-                    className="absolute xl:bottom-10 xl:right-72 bottom-2 right-12 md:right-36"
+                    className="absolute xl:bottom-10 2xl:right-96 xl:right-72 bottom-2 right-12 md:right-36"
                     key={key}
                   >
                     <button
-                      className="capitalize bg-white text-[10px] md:text-xs xl:text-sm xl:py-2 xl:px-4 px-2 py-1 hover:opacity-75 rounded-lg"
+                      className="capitalize bg-white text-[10px] 2xl:text-lg md:text-xs xl:text-sm xl:py-2 xl:px-4 px-2 py-1 hover:opacity-75 rounded-lg"
                       onClick={() =>
                         handleButton({
                           id: giveaway?._id,
