@@ -57,7 +57,7 @@ const Showcase2 = () => {
           </span>
           <span
             className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl hover:text-[#0184EA]"
-            onClick={() => scrollTo("our-partners")}
+            onClick={() => scrollTo("partners")}
           >
             <Link>Our Partners</Link>
           </span>
