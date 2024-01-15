@@ -377,9 +377,9 @@ const Affiliate = () => {
                           <p className="bg-[#F3F3F3] font-semibold py-2 px-4 text-xs md:text-md">
                             Email
                           </p>
-                          <p className="bg-[#F3F3F3] font-semibold py-2 px-4 text-xs md:text-md">
+                          {/* <p className="bg-[#F3F3F3] font-semibold py-2 px-4 text-xs md:text-md">
                             Subscription Plans
-                          </p>
+                          </p> */}
                         </div>
 
                         {loading2 ? (
@@ -393,7 +393,7 @@ const Affiliate = () => {
                               key={key}
                             >
                               <p>{refferal.firstname}</p>
-                              {/* <p>{refferal.email}</p> */}
+                              <p>{refferal.email}</p>
                               {/* <p>{refferal.subscripton.name}</p> */}
                             </div>
                           ))
@@ -563,9 +563,9 @@ const Affiliate = () => {
                     <p className="bg-[#F3F3F3] font-semibold py-2 px-4 text-xs md:text-md">
                       Email
                     </p>
-                    <p className="bg-[#F3F3F3] font-semibold py-2 px-4 text-xs md:text-md">
+                    {/* <p className="bg-[#F3F3F3] font-semibold py-2 px-4 text-xs md:text-md">
                       Subscription Plans
-                    </p>
+                    </p> */}
                   </div>
 
                   {loading2 ? (
@@ -579,7 +579,7 @@ const Affiliate = () => {
                         key={key}
                       >
                         <p>{refferal.firstname}</p>
-                        {/* <p>{refferal.email}</p> */}
+                        <p>{refferal.email}</p>
                         {/* <p>{refferal.subscripton.name}</p> */}
                       </div>
                     ))
