@@ -35,7 +35,7 @@ const ChoosePlane = () => {
               buttonColor="#0082E1"
               arrowColor="[#01819D]"
               buttonTextColor={"white"}
-              btnword="SIGN UP NOW"
+              btnword="SIGN UP / $9.99 PER MONTH"
               bgColorFrom="#0094FF"
               bgColorTo="#00347C"
               titleColor="black"
@@ -62,7 +62,7 @@ const ChoosePlane = () => {
               buttonColor="#CF3A00"
               arrowColor="white"
               buttonTextColor="white"
-              btnword="SIGN UP NOW"
+              btnword="SIGN UP / $19.99 PER MONTH"
               planId={'657c757b8406aeb95f876ca7'}
             />
             <Card
@@ -87,12 +87,7 @@ const ChoosePlane = () => {
               arrowColor="white"
               mostPopular={true}
               buttonTextColor="white"
-              btnword="SIGN UP NOW"
-              // point1={Correct}
-              // point2={Correct}
-              // point3={Correct}
-              // point4={Correct}
-              // point5={Correct}
+              btnword="SIGN UP / $49.99 PER MONTH"
               planId={'657c766e8406aeb95f876cac'}
             />
             <Card
@@ -106,18 +101,19 @@ const ChoosePlane = () => {
               // price="$ 100"
               desc1="$ 100 per month"
               // desc2="Premium Tier"
-              desc2="Referral Commission: 25% Partner Store Discounts: 15%-20%"
-              desc3="Be Eligible to Apply for Winlad GOLD Card"
-              desc4="Access to Winlad Store Cash Back program"
-              desc5="Access to Winlads Urgency Program"
-              desc6="Access to Winlads Public Events"
-              desc7="Access to upcoming Winlad Apps & Tools"
+              desc2="Referral Commission: 25%"
+              desc3="Partner Store Discounts: 15%-20%"
+              desc4="Be Eligible to Apply for Winlad GOLD Card"
+              desc5="Access to Winlad Store Cash Back program"
+              desc6="Access to Winlads Urgency Program"
+              desc7="Access to Winlads Public Events"
+              desc8="Access to upcoming Winlad Apps & Tools"
               desc10="25"
               // descColor="white"
               buttonColor="#000000"
               arrowColor="[#01819D]"
               buttonTextColor={"white"}
-              btnword="SIGN UP NOW"
+              btnword="SIGN UP / $100 PER MONTH"
               planId={'657c775f8406aeb95f876cb1'}
             />
             <Card
@@ -143,7 +139,7 @@ const ChoosePlane = () => {
               buttonColor="#475A79"
               arrowColor="[#01819D]"
               buttonTextColor={"white"}
-              btnword="SIGN UP NOW"
+              btnword="SIGN UP / $500 PER MONTH"
               classNames={""}
               planId={'657c77b68406aeb95f876cb6'}
             />
