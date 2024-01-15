@@ -175,9 +175,9 @@ const Dashboard = () => {
                   <SmallGoldCard />
                 </div>
                 <div>
-                  <p className="text-xl font-semibold pb-4">Active Giveaways</p>
-                  <img src={ActiveBanner} alt="" />
-                  {/* {loading ? (
+                  <p className="text-xl font-semibold pb-4">Upcoming Giveaways</p>
+            
+                  {loading ? (
                     <div className="flex justify-center">
                       <ItemLoader />
                     </div>
@@ -236,7 +236,7 @@ const Dashboard = () => {
                         No More Giveaways
                       </p>
                     </div>
-                  )} */}
+                  )}
                 </div>
               </div>
               <div className="hidden xl:flex flex-col space-y-4 items-end">
@@ -289,10 +289,10 @@ const Dashboard = () => {
 
                 <div className="flex flex-col space-y-2 w-full xl:w-web pt-4">
                   <p className="text-2xl 2xl:text-2xl special:text-5xl font-semibold mb-2">
-                    Active Giveaways
+                    Upcoming Giveaways
                   </p>
-                  <img src={ActiveBanner} alt="" />
-                  {/* {loading ? (
+               
+                  {loading ? (
                     <div className="flex justify-center">
                       <ItemLoader />
                     </div>
@@ -364,7 +364,7 @@ const Dashboard = () => {
                           See Less <FaAngleDoubleUp />
                         </button>
                       ))}
-                  </div> */}
+                  </div>
                 </div>
               </div>
             </div>

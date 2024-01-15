@@ -18,7 +18,7 @@ import Cookies from "universal-cookie";
 import DashboardVehicleCard from "../../components/DashboardVehicleCard/DashboardVehicle";
 import { FaAngleDoubleDown, FaAngleDoubleUp } from "react-icons/fa";
 import SelectRafflePaymentMethod from "../../components/RaffleComponent/SelectRafflePaymentMethod";
-import ActiveBanner from "../../assets/images/activeBanner.png"
+import ActiveBanner from "../../assets/images/activeBanner.png";
 
 const OngoingGiveaways = () => {
   const iframeStyle = {
@@ -42,17 +42,18 @@ const OngoingGiveaways = () => {
   const [initialLength, setInitSize] = useState(8);
 
   useEffect(() => {
+    currentUserValidation();
+  }, []);
+
+  useEffect(() => {
     const sortedArray = [...giveaways];
     sortedArray.sort(
       (a, b) => new Date(a.startingtime) - new Date(b.startingtime)
     );
     setSortedGiveaways(sortedArray);
     checkCoupen();
+    console.log(sortedArray, "dasd");
   }, [giveaways]);
-
-  useEffect(() => {
-    currentUserValidation();
-  }, []);
 
   const currentUserValidation = async () => {
     const validator = await validateCurrentUser();
@@ -69,9 +70,7 @@ const OngoingGiveaways = () => {
 
   const getGiveaways = async (valuid) => {
     await axios
-      .get(
-        `${import.meta.env.VITE_SERVER_API}/raffleRoundsOngoing`
-      )
+      .get(`${import.meta.env.VITE_SERVER_API}/raffleRoundsOngoing`)
       .then((response) => {
         console.log(response.data.data, "data raffle");
         setGiveaways(response?.data?.data);
@@ -163,9 +162,10 @@ const OngoingGiveaways = () => {
                         Earning Balance
                       </p>
                       <p className="special:text-6xl">
-                        $&nbsp;{typeof valUser.balance === "number"
-                        ? valUser.balance.toFixed(2)
-                        : "0.00"}
+                        $&nbsp;
+                        {typeof valUser.balance === "number"
+                          ? valUser.balance.toFixed(2)
+                          : "0.00"}
                       </p>
                     </div>
                   </div>
@@ -213,7 +213,36 @@ const OngoingGiveaways = () => {
           <p className="font-semibold text-lg xl:text-xl 2xl:text-2xl special:text-4xl">
             Active Giveaways
           </p>
-          <img src={ActiveBanner} alt="" />
+          <div className="relative">
+            <img src={ActiveBanner} alt="" />
+
+            {giveaways?.map((giveaway, key) => {
+              if (giveaway?.raffle?.name === "Vehicle") {
+                return (
+                  <div
+                    className="absolute xl:bottom-10 xl:right-72 bottom-2 right-12 md:right-36"
+                    key={key}
+                  >
+                    <button
+                      className="capitalize bg-white text-[10px] md:text-xs xl:text-sm xl:py-2 xl:px-4 px-2 py-1 hover:opacity-75 rounded-lg"
+                      onClick={() =>
+                        handleButton({
+                          id: giveaway?._id,
+                          price: giveaway?.price,
+                          name: giveaway?.name,
+                        })
+                      }
+                    >
+                      One Off Packages
+                    </button>
+                  </div>
+                );
+              } else {
+                return <div key={key}></div>;
+              }
+            })}
+          </div>
+
           {/* {loading ? (
             <div className="flex justify-center">
               <ItemLoader />
