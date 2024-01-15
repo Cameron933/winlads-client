@@ -18,6 +18,7 @@ import Cookies from "universal-cookie";
 import DashboardVehicleCard from "../../components/DashboardVehicleCard/DashboardVehicle";
 import { FaAngleDoubleDown, FaAngleDoubleUp } from "react-icons/fa";
 import SelectRafflePaymentMethod from "../../components/RaffleComponent/SelectRafflePaymentMethod";
+import ActiveBanner from "../../assets/images/activeBanner.png"
 
 const OngoingGiveaways = () => {
   const iframeStyle = {
@@ -210,9 +211,10 @@ const OngoingGiveaways = () => {
         </div>
         <div className="flex flex-col space-y-2 special:space-y-6 2xl:space-y-4">
           <p className="font-semibold text-lg xl:text-xl 2xl:text-2xl special:text-4xl">
-            Ongoing Giveaways
+            Active Giveaways
           </p>
-          {loading ? (
+          <img src={ActiveBanner} alt="" />
+          {/* {loading ? (
             <div className="flex justify-center">
               <ItemLoader />
             </div>
@@ -266,7 +268,7 @@ const OngoingGiveaways = () => {
                 No More Giveaways
               </p>
             </div>
-          )}
+          )} */}
           {selectPayment && (
             <SelectRafflePaymentMethod
               onClose={() => setSelectPayment(false)}
