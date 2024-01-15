@@ -224,7 +224,7 @@ const OngoingGiveaways = () => {
                     key={key}
                   >
                     <button
-                      className="capitalize bg-white text-[10px] 2xl:text-lg md:text-xs xl:text-sm xl:py-2 xl:px-4 px-2 py-1 hover:opacity-75 rounded-lg"
+                      className="capitalize bg-white text-[10px] 2xl:text-xl md:text-xs xl:text-sm xl:py-2 xl:px-4 px-2 py-1 hover:opacity-75 rounded-lg"
                       onClick={() =>
                         handleButton({
                           id: giveaway?._id,

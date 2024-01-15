@@ -4,7 +4,7 @@ import Money from "../../assets/images/affiliate/earnings.png";
 import { validateCurrentUser } from "../../utils/validateuser";
 import axios from "axios";
 import ItemLoader from "../../components/Loader/ItemLoader";
-import NewEarning from "../../assets/images/new/earnings.png"
+import NewEarning from "../../assets/images/new/earnings.png";
 
 import { useNavigate } from "react-router";
 
@@ -14,7 +14,7 @@ const AffiliateCard = () => {
   const [wallet, setWallet] = useState([]);
   const [refferals, setRefferals] = useState({});
   const navigate = useNavigate();
-  const [formattedDate, setDate] = useState('');
+  const [formattedDate, setDate] = useState("");
 
   useEffect(() => {
     currentUserValidation();
@@ -32,7 +32,7 @@ const AffiliateCard = () => {
       if (validator.user.transaction?.endfrom) {
         const dateObject = new Date(validator.user.transaction.endfrom);
         const options = { year: "numeric", month: "long", day: "numeric" };
-        setDate(dateObject.toLocaleString("en-US", options))
+        setDate(dateObject.toLocaleString("en-US", options));
       }
     } else {
       setLoading(false);
@@ -55,8 +55,8 @@ const AffiliateCard = () => {
     await axios
       .get(`${import.meta.env.VITE_SERVER_API}/getRefferals?uid=${valuid}`)
       .then((response) => {
-        console.log(response.data)
-        setRefferals(response.data)
+        console.log(response.data);
+        setRefferals(response.data);
         setLoading(false);
       })
       .catch((error) => {
@@ -64,7 +64,6 @@ const AffiliateCard = () => {
         setLoading(false);
       });
   };
-
 
   return (
     <div className="bg-white border-gray-300 border border-solid rounded-xl mt-5">
@@ -85,11 +84,14 @@ const AffiliateCard = () => {
               </div>
               <div className="flex flex-col text-white items-center">
                 <p className="font-semibold 2xl:text-xl special:text-2xl text-lg">
-                  $&nbsp;{typeof wallet.earning === "number"
-                    ? wallet.earning.toFixed(2)
+                  $&nbsp;{" "}
+                  {wallet.earning
+                    ? Math.floor(wallet.earning * 100) / 100
                     : "0.00"}
                 </p>
-                <p className="capitalize md:ext-sm text-[10px]">Total Earnings</p>
+                <p className="capitalize md:ext-sm text-[10px]">
+                  Total Earnings
+                </p>
               </div>
             </div>
             <div className="to-[#CBAD11] from-black bg-gradient-to-r items-center gap-1 rounded-r-xl flex flex-row flex-1 py-4 md:justify-center xl:justify-center justify-between md:gap-6 xl:gap-6 px-2">
@@ -98,9 +100,14 @@ const AffiliateCard = () => {
               </div>
               <div className="flex flex-col text-white">
                 <p className="font-semibold 2xl:text-xl special:text-2xl text-lg">
-                  {refferals?.l1count+refferals?.l2count+refferals?.l3count+refferals?.l4count || 0}
+                  {refferals?.l1count +
+                    refferals?.l2count +
+                    refferals?.l3count +
+                    refferals?.l4count || 0}
                 </p>
-                <p className="capitalize md:ext-sm text-[10px]">Total Affiliates</p>
+                <p className="capitalize md:ext-sm text-[10px]">
+                  Total Affiliates
+                </p>
               </div>
             </div>
           </div>
@@ -110,7 +117,8 @@ const AffiliateCard = () => {
                 your balance
               </p>
               <p className="font-bold text-4xl">
-                $&nbsp;{typeof valUser.balance === "number"
+                $&nbsp;
+                {typeof valUser.balance === "number"
                   ? valUser.balance.toFixed(2)
                   : "0.00"}
               </p>
@@ -121,7 +129,7 @@ const AffiliateCard = () => {
                   style={{
                     color:
                       !valUser.subscripton?.color ||
-                        valUser.subscripton?.color === "#22272C"
+                      valUser.subscripton?.color === "#22272C"
                         ? "white"
                         : valUser.subscripton?.color,
                   }}
@@ -133,10 +141,12 @@ const AffiliateCard = () => {
             </div>
           </div>
           <button
-            className={`bg-black py-2 text-center rounded-xl hover:bg-black/75 ${!valUser.subscripton ? 'cursor-not-allowed' : 'cursor-pointer'}`}
+            className={`bg-black py-2 text-center rounded-xl hover:bg-black/75 ${
+              !valUser.subscripton ? "cursor-not-allowed" : "cursor-pointer"
+            }`}
             onClick={() => navigate("/withdraw")}
             disabled={!valUser.subscripton}
-            >
+          >
             <p className="text-white font-semibold">Withdraw</p>
           </button>
         </div>

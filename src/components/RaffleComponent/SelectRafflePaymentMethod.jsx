@@ -160,10 +160,10 @@ const SelectRafflePaymentMethod = ({
               </p>
             </div>
           </div> */}
-          <div className="">
+          <div className="flex flex-col space-y-2">
             <div
-              className={`to-[#0094FF] flex flex-row justify-between px-4 items-center from-[#01819D] hover:scale-105 mb-2 transition-all cursor-pointer  py-2 text-xs rounded-full bg-gradient-to-t capitalize ${
-                count === 1 ? "scale-105" : "scale-100"
+              className={`to-[#0094FF] border-2 flex flex-row justify-between px-4 items-center from-[#01819D] hover:opacity-85 cursor-pointer  py-2 text-xs rounded-full bg-gradient-to-t capitalize ${
+                count === 1 ? "border-black" : ""
               }`}
               onClick={() => setCount(1)}
             >
@@ -185,8 +185,8 @@ const SelectRafflePaymentMethod = ({
               </motion.div>
             )} */}
             <div
-              className={`to-[#FF4700] flex flex-row justify-between px-4 from-[#611C00] hover:scale-105 mb-2 transition-all cursor-pointer py-2 text-xs rounded-full bg-gradient-to-t capitalize ${
-                count === 3 ? "scale-105" : "scale-100"
+              className={`to-[#FF4700] flex border-2 flex-row justify-between px-4 from-[#611C00]  hover:opacity-85 cursor-pointer py-2 text-xs rounded-full bg-gradient-to-t capitalize ${
+                count === 3 ? "border-black" : ""
               }`}
               onClick={() => setCount(3)}
             >
@@ -207,8 +207,8 @@ const SelectRafflePaymentMethod = ({
               </motion.div>
             )} */}
             <div
-              className={`to-[#00ECFF] flex flex-row justify-between px-4 from-[#006168] hover:scale-105 mb-2 transition-all cursor-pointer px-2 py-2 text-xs rounded-full bg-gradient-to-t capitalize ${
-                count === 10 ? "scale-105" : "scale-100"
+              className={`to-[#00ECFF] flex border-2 flex-row justify-between px-4 from-[#006168]  hover:opacity-85 cursor-pointer py-2 text-xs rounded-full bg-gradient-to-t capitalize ${
+                count === 10 ? "border-black" : ""
               }`}
               onClick={() => setCount(10)}
             >
@@ -230,8 +230,8 @@ const SelectRafflePaymentMethod = ({
               </motion.div>
             )} */}
             <div
-              className={`to-[#FFBE00] flex flex-row justify-between px-4 from-[#766000] hover:scale-105 mb-2 transition-all cursor-pointer  py-2 text-xs rounded-full bg-gradient-to-t capitalize ${
-                count === 25 ? "scale-105" : "scale-100"
+              className={`to-[#FFBE00] flex border-2 flex-row justify-between px-4 from-[#766000] hover:opacity-85 cursor-pointer  py-2 text-xs rounded-full bg-gradient-to-t capitalize ${
+                count === 25 ? "border-black" : ""
               }`}
               onClick={() => setCount(25)}
             >
@@ -252,8 +252,8 @@ const SelectRafflePaymentMethod = ({
               </motion.div>
             )} */}
             <div
-              className={`to-[#22272C] flex flex-row justify-between px-4 from-[#23282E] hover:scale-105 mb-2 transition-all cursor-pointer py-2 text-xs rounded-full bg-gradient-to-t capitalize ${
-                count === 150 ? "scale-105" : "scale-100"
+              className={`to-[#22272C] flex border-2 flex-row justify-between px-4 from-[#23282E] hover:opacity-85 cursor-pointer py-2 text-xs rounded-full bg-gradient-to-t capitalize ${
+                count === 150 ? "border-black" : ""
               } text-white`}
               onClick={() => setCount(150)}
             >
