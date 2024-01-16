@@ -122,7 +122,7 @@ const PastGiveaways = () => {
             {/* <div className="mt-4 xl:pt-0 pb-4 xl:pb-0">
               <SearchField />
             </div> */}
-            <div className="flex flex-row justify-between items-center pt-2">
+            <div className="flex flex-row justify-between items-center pt-4">
                 <div className="flex flex-col space-y-2 special:space-y-8 flex-1">
                   <div className="flex flex-row items-center gap-2 special:gap-4">
                     {userImage ? (
