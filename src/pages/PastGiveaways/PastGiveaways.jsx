@@ -129,7 +129,7 @@ const PastGiveaways = () => {
                       <div className="w-12 h-12 special:w-36 special:h-36 rounded-full aspect-square">
                       <img
                         src={userImage}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover rounded-full"
                         alt="user"
                       />
                       </div>

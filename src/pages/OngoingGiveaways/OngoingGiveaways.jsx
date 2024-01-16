@@ -270,7 +270,7 @@ const OngoingGiveaways = () => {
               title="YouTube Video"
               src="https://player.vimeo.com/video/899812267?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
               frameBorder="0"
-              className="w-full"
+              className="w-full rounded-xl"
               allow="autoplay; fullscreen; picture-in-picture;muted"
               style={iframeStyle}
             ></iframe>
