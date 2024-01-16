@@ -49,7 +49,7 @@ const Service = () => {
                 viewport={{ once: true }}
                 whileHover={{ padding: '10px', background: 'white' }}
               >
-                <p className=" mb-3 lg:mb-5 xl:mb-6 special:mb-8 text-center lg:text-end text-xs sm:text-sm md:text-base xl:text-base special:text-lg  font-bold">
+                <p className=" mb-3 lg:mb-5 xl:mb-6 special:mb-8 text-center lg:text-end text-xs sm:text-sm md:text-base xl:text-base special:text-lg  font-bold"         id="partners">
                   Exclusive Luxury Draw Experience
                 </p>
                 <p className=" text-center lg:text-end text-xs sm:text-sm md:text-base xl:text-base special:text-lg ">
