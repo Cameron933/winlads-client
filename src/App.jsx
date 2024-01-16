@@ -158,13 +158,14 @@ TagManager.initialize(tagManagerArgs)
           path:'/upcomingGiveaways',
           element:<UpcomingGiveaways/>
         },
+        {
+          path:'/won/:id',
+          element:<Won/>
+        },
        
       ],
     },
-    {
-      path:'/won/:id',
-      element:<Won/>
-    },
+
 
     {
       path: "/:id?",

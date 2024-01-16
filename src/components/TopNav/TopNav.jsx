@@ -21,6 +21,10 @@ const TopNav = ({ textColor }) => {
     setNotShow(!notShow);
   };
 
+  const handleShowMenu = ()=>{
+    handleMenu(false)
+  }
+
 
 
   return (
@@ -48,7 +52,7 @@ const TopNav = ({ textColor }) => {
         </span> */}
                 <span className="navlinks text-2xl w-fit xl:hidden">
           {
-            showMenu ? <HiBars3 className="" onClick={() => handleMenu(false)} />
+            showMenu ? <HiBars3 className="" onClick={()=>handleShowMenu()} />
               : <HiBars3BottomRight />
           }
         </span>

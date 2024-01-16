@@ -35,7 +35,7 @@ const Won = () => {
     getRound();
   }, []);
   return (
-    <div className="flex items-stretch h-screen py-4">
+    <div className="flex items-stretch h-screen py-4 overflow-hidden relative w-full">
       <div className="w-full">
         <div className="flex flex-col xl:px-6 px-4 special:px-12 2xl:space-y-8 special:space-y-24 overflow-hidden">
           <div className="flex flex-col flex-1 ">
@@ -306,13 +306,13 @@ const Won = () => {
               </div>
             </div>
           )}
-          <img
+        </div>
+      </div>
+      <img
             src={BG}
             alt=""
             className="absolute right-0 -z-20 bottom-0 2xl:top-2 w-52 xl:w-96 md:w-96 special:w-1/6 2xl:w-2/6 opacity-60 max-xl:hidden"
           />
-        </div>
-      </div>
     </div>
   );
 };
