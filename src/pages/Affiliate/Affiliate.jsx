@@ -47,7 +47,7 @@ const Affiliate = () => {
   const [refferalId, setRefferalId] = useState();
   const [refferals, setRefferals] = useState([]);
   const [loading2, setLoading2] = useState(false);
-  const [affCount, setAffCount] = useState([])
+  const [affCount, setAffCount] = useState([]);
   // const [refresh, setRefresh] = useState(false);
   useEffect(() => {
     getUserData();
@@ -75,7 +75,7 @@ const Affiliate = () => {
       console.log("Session OK", validator.user);
       setValUser(validator.user);
       getReffeles(validator.user.uid);
-      getAffiliatsCount(validator.user.uid)
+      getAffiliatsCount(validator.user.uid);
     } else {
       navigate("/login");
     }
@@ -105,8 +105,8 @@ const Affiliate = () => {
     await axios
       .get(`${import.meta.env.VITE_SERVER_API}/getRefferals?uid=${uid}`)
       .then((response) => {
-        console.log(response.data)
-        setAffCount(response.data)
+        console.log(response.data);
+        setAffCount(response.data);
         setLoading(false);
       })
       .catch((error) => {
@@ -335,8 +335,14 @@ const Affiliate = () => {
                     )}
                   </form> */}
                   <div className="md:mt-10 mt-5">
-                    <Count count={affCount?.l1count+affCount?.l2count+affCount?.l3count+affCount?.l4count || 0} />
-
+                    <Count
+                      count={
+                        affCount?.l1count +
+                          affCount?.l2count +
+                          affCount?.l3count +
+                          affCount?.l4count || 0
+                      }
+                    />
                   </div>
                   <div className="hidden xl:block">
                     <AffiliateCard />
@@ -394,9 +400,9 @@ const Affiliate = () => {
                           <p className="bg-[#F3F3F3] font-semibold py-2 px-4 text-xs md:text-md">
                             Email
                           </p>
-                          {/* <p className="bg-[#F3F3F3] font-semibold py-2 px-4 text-xs md:text-md">
+                          <p className="bg-[#F3F3F3] font-semibold py-2 px-4 text-xs md:text-md">
                             Subscription Plans
-                          </p> */}
+                          </p>
                         </div>
 
                         {loading2 ? (
@@ -405,14 +411,19 @@ const Affiliate = () => {
                           </div>
                         ) : refferals?.length > 0 ? (
                           refferals?.map((refferal, key) => (
-                            <div
-                              className="flex flex-row items-center justify-between pt-2 text-xs md:text-md pl-4"
-                              key={key}
-                            >
-                              <p>{refferal.firstname}</p>
-                              <p>{refferal.email}</p>
-                              {/* <p>{refferal.subscripton.name}</p> */}
-                            </div>
+                            <>
+                              <div
+                                className="flex flex-row items-center justify-between pt-2 text-xs md:text-md px-4 mb-2"
+                                key={key}
+                              >
+                                <p>{refferal.firstname}</p>
+                                <p>{refferal.email}</p>
+                                <p>
+                                  {refferal?.sub1?.data?.name ? "" : "no plan"}
+                                </p>
+                              </div>
+                              <hr />
+                            </>
                           ))
                         ) : (
                           <div className="pt-4 flex justify-center">
@@ -580,9 +591,9 @@ const Affiliate = () => {
                     <p className="bg-[#F3F3F3] font-semibold py-2 px-4 text-xs md:text-md">
                       Email
                     </p>
-                    {/* <p className="bg-[#F3F3F3] font-semibold py-2 px-4 text-xs md:text-md">
+                    <p className="bg-[#F3F3F3] font-semibold py-2 px-4 text-xs md:text-md">
                       Subscription Plans
-                    </p> */}
+                    </p>
                   </div>
 
                   {loading2 ? (
@@ -591,14 +602,17 @@ const Affiliate = () => {
                     </div>
                   ) : refferals?.length > 0 ? (
                     refferals?.map((refferal, key) => (
-                      <div
-                        className="flex flex-row items-center justify-between pt-2 text-xs md:text-md pl-4"
-                        key={key}
-                      >
-                        <p>{refferal.firstname}</p>
-                        <p>{refferal.email}</p>
-                        {/* <p>{refferal.subscripton.name}</p> */}
-                      </div>
+                      <>
+                        <div
+                          className="flex flex-row items-center justify-between pt-2 text-xs md:text-md px-4 mb-2"
+                          key={key}
+                        >
+                          <p>{refferal.firstname}</p>
+                          <p>{refferal.email}</p>
+                          <p>{refferal?.sub1?.data?.name ? "" : "no plan"}</p>
+                        </div>
+                        <hr />
+                      </>
                     ))
                   ) : (
                     <div className="pt-4 flex justify-center">
