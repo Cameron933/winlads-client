@@ -252,7 +252,7 @@ const OngoingGiveaways = () => {
               <img src={ActiveBanner1} alt="" />
             </div>
 
-            <div className="absolute xl:bottom-10 2xl:right-[260px] xl:right-[220px] bottom-8 md:bottom-4 right-[80px] md:right-[120px]">
+            <div className="absolute xl:bottom-10 2xl:right-[260px] xl:right-[240px] bottom-8 md:bottom-4 right-[80px] md:right-[120px]">
               <Link
                 to="https://winladsgiveaway.com/#packages"
                 target="_blank"
