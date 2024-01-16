@@ -466,7 +466,7 @@ const Register = ({ location }) => {
                     ))}
                   </>
                 ) : (
-                  <div className="">
+                  <>
                     <VehicleCardForReg
                       type={"vehicle"}
                       name={"2023 MAZDA BT-50"}
@@ -482,7 +482,7 @@ const Register = ({ location }) => {
                       setSelPlanPrice={setSelPlanPrice}
                     />
                     {/* <button className="md:text-sm text-xs text-blue-500">See More</button> */}
-                  </div>
+                  </>
                 )}
               </div>
             </div>
@@ -731,7 +731,7 @@ const Register = ({ location }) => {
                         </div>
                       ) : (
                         // <div className="flex items-center justify-center w-max gap-2">
-                        <div className="">
+                        <div className="w-max gap-2 flex items-stretch justify-between">
                           <VehicleCardForReg
                             isSubscribed={true}
                             type={"vehicle"}
@@ -750,7 +750,7 @@ const Register = ({ location }) => {
                             setSelectedPlanName={setSelectedPlanName}
                             setSelPlanPrice={setSelPlanPrice}
                           />
-                        </div>
+                         </div>
                       )}
                     </div>
                     <p className="text-sm font-bold border-b">
@@ -841,7 +841,7 @@ const Register = ({ location }) => {
                         className="yellow-text"
                       >
                         <p className="text-[10px] xl:text-sm  special:text-lg cursor-pointer">
-                          terms of use
+                          Terms of use
                         </p>
                       </Link>
                     </div>
