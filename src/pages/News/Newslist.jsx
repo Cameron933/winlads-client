@@ -86,7 +86,7 @@ function Newslist() {
             </div>
           </div>
           {/* <SearchField /> */}
-
+          <h1 className="font-bold text-xl special:text-4xl 2xl:text-2xl">News</h1>
           {loading ? (
             <div className="flex justify-center">
               <ItemLoader/>
