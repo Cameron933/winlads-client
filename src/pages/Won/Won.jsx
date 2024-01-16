@@ -35,9 +35,9 @@ const Won = () => {
     getRound();
   }, []);
   return (
-    <div className="flex items-stretch h-screen py-4 overflow-hidden relative w-full">
+    <div className={`flex items-stretch h-screen py-4 relative w-full ${round.youtubeLink ? '' : 'overflow-hidden'}`}>
       <div className="w-full">
-        <div className="flex flex-col xl:px-6 px-4 special:px-12 2xl:space-y-8 special:space-y-24 overflow-hidden">
+        <div className="flex flex-col xl:px-6 px-4 special:px-12 2xl:space-y-8 special:space-y-24">
           <div className="flex flex-col flex-1 ">
             <div className="block xl:hidden space-y-4">
               <div className="rounded-b-3xl py-4">

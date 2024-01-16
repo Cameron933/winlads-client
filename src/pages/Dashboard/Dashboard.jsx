@@ -190,7 +190,7 @@ const Dashboard = () => {
                             isSubscribed={valUser.subscripton}
                             key={key}
                             id={giveaway._id}
-                            type={giveaway.raffle.type}
+                            type={giveaway.raffle?.type}
                             name={giveaway.name}
                             date={giveaway?.startingtime}
                             fromColor={giveaway.raffle?.color}
@@ -304,7 +304,7 @@ const Dashboard = () => {
                           <DashboardVehicleCard
                             isSubscribed={valUser.subscripton}
                             key={key}
-                            type={giveaway.raffle.type}
+                            type={giveaway.raffle?.type}
                             id={giveaway._id}
                             name={giveaway.name}
                             date={giveaway?.endtime}
