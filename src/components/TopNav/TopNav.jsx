@@ -57,7 +57,7 @@ const TopNav = ({ textColor }) => {
         </span>
 
         <span className="navlinks">
-          <Link to="/" target="_blank" rel="noopener noreferrer">FAQ</Link>
+          <Link to="/faq"  rel="noopener noreferrer">FAQ</Link>
         </span>
 
 

@@ -34,6 +34,7 @@ const Withdraw = () => {
   const [bankName, setBankName] = useState("");
   const [accountNumber, setAccountNumber] = useState("");
   const [bnbnumber, setBnbnumber] = useState("")
+  
   useEffect(() => {
     currentUserValidation();
   }, []);
@@ -58,30 +59,67 @@ const Withdraw = () => {
   };
 
   const setTransactions = async (ud) => {
-    const response = await axios.post(
-      `${import.meta.env.VITE_SERVER_API}/requestFundTransfer`,
-      {
-        uid: valUser.uid,
-        method: selectMethod || "bank",
-        bank: bankName,
-        accountnumber: accountNumber,
-        amount: amount,
-        bnbnumber: bnbnumber
+    try {
+      if (!amount) {
+        throw Error('')
       }
-    );
-    if (response.data.status == 200) {
-      toast.success(response.data.message, {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-      });
-    } else {
-      toast.error(response.data.message, {
+      if (selectMethod == "bank") {
+        if (!accountNumber || !bnbnumber || !bankName) {
+          throw Error('All fields required!')
+
+        }
+      }
+      const response = await axios.post(
+        `${import.meta.env.VITE_SERVER_API}/requestFundTransfer`,
+        {
+          uid: valUser.uid,
+          method: selectMethod || "bank",
+          bank: bankName,
+          accountnumber: accountNumber,
+          amount: amount,
+          bnbnumber: bnbnumber
+        }
+      );
+      console.log(response);
+      if (response.data.status == 200) {
+        toast.success('Withdraw request success', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+        //window.location.reload()
+      } else {
+        toast.error(response.data.data.message, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      }
+
+    } catch (error) {
+      if (error.message) {
+        toast.error(error.message, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      }
+      toast.error(response.data?.data?.message, {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -105,7 +143,7 @@ const Withdraw = () => {
     }
   };
 
-  const handleBackward = ()=>{
+  const handleBackward = () => {
     navigate(-1);
   }
 
@@ -123,7 +161,7 @@ const Withdraw = () => {
             </div>
             <CardComponentNoWithdraw />
           </div>
-          <button className="absolute top-2 left-2 text-3xl rounded-full bg-white hover:bg-gray-200 cursor-pointer p-2" onClick={()=>handleBackward()}><IoIosArrowBack/></button>
+          <button className="absolute top-2 left-2 text-3xl rounded-full bg-white hover:bg-gray-200 cursor-pointer p-2" onClick={() => handleBackward()}><IoIosArrowBack /></button>
           <div className="flex flex-col space-y-4 flex-1 xl:mx-12 ">
             <div className="flex flex-col space-y-3 md:mt-20 mt-0">
               <div className="flex items-center justify-start gap-2">
@@ -135,7 +173,7 @@ const Withdraw = () => {
                 Payout Amount
               </p>
               <div className="w-full relative flex items-center">
-              
+
                 <input
                   className="bg-[#ECECEC] w-full rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
                   placeholder="Payout Amount ($)"
@@ -144,6 +182,9 @@ const Withdraw = () => {
                   onChange={(e) => setAmount(e.target.value)}
                 />
               </div>
+              {
+                !amount && <span className="text-red-500 text-xs">This field is required!</span>
+              }
             </div>
             <div className="flex flex-col space-y-2 relative">
               <p className="text-black text-sm xl:text-md special:text-xl">
@@ -160,7 +201,7 @@ const Withdraw = () => {
                 <div className="absolute top-14 rounded-lg border left-0 w-full p-2 bg-white">
                   <div
                     className="flex flex-col justify-start gap-4 px-3 py-2"
-                    // onClick={() => handleDrowpdownChange("bank")}
+                  // onClick={() => handleDrowpdownChange("bank")}
                   >
                     <div
                       className="flex flex-row items-center gap-2 hover:bg-gray-200 cursor-pointer p-1 rounded-xl"
@@ -194,6 +235,9 @@ const Withdraw = () => {
                     value={bankName}
                     onChange={(e) => setBankName(e.target.value)}
                   ></input>
+                  {
+                    !bankName && <span className="text-red-500 text-xs">This field is required!</span>
+                  }
                 </div>
 
                 <div className="flex flex-col space-y-2 mb-4">
@@ -210,6 +254,9 @@ const Withdraw = () => {
                     style={{ WebkitAppearance: "", MozAppearance: "textfield" }}
                     onChange={(e) => setAccountNumber(e.target.value)}
                   ></input>
+                  {
+                    !accountNumber && <span className="text-red-500 text-xs">This field is required!</span>
+                  }
                 </div>
                 <div className="flex flex-col space-y-2 mb-4">
                   <p className="text-black text-sm xl:text-md special:text-xl">
@@ -225,6 +272,9 @@ const Withdraw = () => {
                     style={{ WebkitAppearance: "", MozAppearance: "textfield" }}
                     onChange={(e) => setBnbnumber(e.target.value)}
                   ></input>
+                  {
+                    !bnbnumber && <span className="text-red-500 text-xs">This field is required!</span>
+                  }
                 </div>
                 <br />
               </div>
@@ -249,7 +299,7 @@ const Withdraw = () => {
             <div className="bg-black rounded-b-3xl py-4">
               <TopNav textColor={"white"} />
               <div className="pt-10">
-              <motion.img
+                <motion.img
                   initial={{ x: 80, opacity: 0 }}
                   animate={{ x: 80, opacity: 1 }}
                   transition={{ type: "tween", duration: 1, delay: 1 }}

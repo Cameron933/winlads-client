@@ -5,17 +5,24 @@ import { validateCurrentUser } from "../../utils/validateuser";
 import axios from "axios";
 import ItemLoader from "../../components/Loader/ItemLoader";
 import Ticket from "../../assets/images/affiliate/affiliate.png";
-import Money from "../../assets/images/affiliate/earnings.png";
+import Money from "../../assets/images/new/earnings.png";
 
-const CardComponentNoWithdraw = () => {
+
+const CardComponentNoWithdraw = ({triggerRefresh}) => {
   const [valUser, setValUser] = useState({});
   const [loading, setLoading] = useState(true);
   const [loadingWallet, loadingSetWallet] = useState(true);
   const [wallet, setWallet] = useState([]);
+  const [refferals, setRefferals] = useState(0);
+  const [refresh, setRefresh] = useState(true);
 
   useEffect(() => {
     currentUserValidation();
-  }, []);
+  }, [refresh]);
+
+  const triggerRefresh = ()=>{
+    setRefresh((prev)=> !prev);
+  }
 
   const currentUserValidation = async () => {
     const validator = await validateCurrentUser();
@@ -23,6 +30,7 @@ const CardComponentNoWithdraw = () => {
       console.log("Session OK", validator.user);
       setValUser(validator.user);
       getEarning(validator.user.uid);
+      getAffiliats(validator.user.uid);
       // getTransactionsFunction();
     } else {
       setLoading(false);
@@ -42,6 +50,19 @@ const CardComponentNoWithdraw = () => {
       });
   };
 
+  const getAffiliats = async (valuid) => {
+    await axios
+      .get(`${import.meta.env.VITE_SERVER_API}/getRefferals?uid=${valuid}`)
+      .then((response) => {
+        console.log(response.data);
+        setRefferals(response.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false);
+      });
+  };
   // const getTransactionsFunction = async () => {
   //   await axios
   //     .get(
@@ -88,7 +109,7 @@ const CardComponentNoWithdraw = () => {
                   style={{
                     color:
                       !valUser.subscripton?.color ||
-                      valUser.subscripton?.color === "#000000"
+                        valUser.subscripton?.color === "#000000"
                         ? "white"
                         : valUser.subscripton?.color,
                   }}
@@ -104,24 +125,28 @@ const CardComponentNoWithdraw = () => {
               <img src={Money} alt="" className="w-10 h-10" />
               <div className="flex flex-col text-white">
                 <p className="font-semibold 2xl:text-xl special:text-2xl text-lg">
-                  $&nbsp;
-                  {typeof wallet.earning === "number"
-                    ? wallet.earning.toFixed(2)
+                  $&nbsp;{" "}
+                  {wallet.earning
+                    ? Math.floor(wallet.earning * 100) / 100
                     : "0.00"}
                 </p>
-                <p className="capitalize text-sm">Earning</p>
+                <p className="capitalize md:ext-sm text-[10px]">
+                  Total Earnings
+                </p>
               </div>
             </div>
             <div className="to-[#CBAD11] from-black bg-gradient-to-r rounded-r-xl flex flex-row flex-1 py-4 md:justify-center xl:justify-center justify-between md:gap-6 xl:gap-6 px-2">
               <img src={Ticket} alt="" className="w-10 h-10" />
               <div className="flex flex-col text-white">
                 <p className="font-semibold 2xl:text-xl special:text-2xl text-lg">
-                  $&nbsp;{" "}
-                  {typeof wallet.purchase === "number"
-                    ? wallet.purchase.toFixed(2)
-                    : "0.00"}
+                  {refferals?.l1count +
+                    refferals?.l2count +
+                    refferals?.l3count +
+                    refferals?.l4count || 0}
                 </p>
-                <p className="capitalize text-sm">Purchase</p>
+                <p className="capitalize md:ext-sm text-[10px]">
+                  Total Affiliates
+                </p>
               </div>
             </div>
           </div>

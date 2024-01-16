@@ -174,7 +174,7 @@ const Register = ({ location }) => {
     const response = await axios.get(
       `${import.meta.env.VITE_SERVER_API}/checkEmail?email=${values.email}`
     );
-    handleSEOReg(data);
+   /// handleSEOReg(data);
     if (!response.data.exists) {
       try {
         const response = await axios.post(
@@ -310,7 +310,7 @@ const Register = ({ location }) => {
 
         // navigate("/welcome");
         // SIGN UP SUCCESS
-        handleSEOReg();
+       // handleSEOReg();
       })
       .catch((err) => {});
   };
