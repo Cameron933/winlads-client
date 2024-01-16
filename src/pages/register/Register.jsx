@@ -654,7 +654,7 @@ const Register = ({ location }) => {
                         }
                         onBlur={handleBlur}
                         id="mobile"
-                        className="placeholder:text-[16px]  border borer-solid focus:outline-none xl:w-96 w-64 border-black"
+                        className="placeholder:text-[16px]  border borer-solid focus:outline-none xl:w-96 w-full border-black"
                         disabled={fieldDis}
                       />
                       <small className="text-error">
