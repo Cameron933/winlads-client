@@ -44,6 +44,7 @@ import RegisterOld from "./pages/register/RegisterOld";
 import AdminLogin from "./pages/Admin/Login"
 import AdminRounds from "./pages/Admin/Giveaway"
 import UnderDev from "./pages/UnderDev/UnderDev";
+import Forum from "./pages/Forum/Forum"
 
 
 function App() {
@@ -103,6 +104,10 @@ TagManager.initialize(tagManagerArgs)
         {
           path: "/messages",
           element: <Messages />,
+        },
+        {
+          path: "/forum",
+          element: <Forum />,
         },
         // {
         //   path: "/subscription-done",

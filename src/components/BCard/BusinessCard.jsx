@@ -20,7 +20,7 @@ function BusinessCard() {
   const navigate = useNavigate();
   const [isOrderNow, setOrderNow] = useState(false);
   const [valUser, setValUser] = useState({});
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [address, setAddress] = useState("");
   const [addres2, setAddress2] = useState("");
   const [city, setCity] = useState("");
@@ -45,6 +45,7 @@ function BusinessCard() {
     const validator = await validateCurrentUser();
     if (validator.validatorBl) {
       setValUser(validator.user);
+      setLoading(false);
     } else {
       navigate("/login");
     }
@@ -203,16 +204,21 @@ function BusinessCard() {
                 <>
                   <button
                     className={`text-sm capitalize md:text-md pro:text-lg xl:text-md special:text-lg p-3 rounded-[20px] bg-black text-white hover:bg-white  hover:text-black border-2 hover:border-black ${
-                      !valUser.subscripton || valUser.subscripton?.name === "Starter" && "cursor-not-allowed"
+                      !valUser.subscripton ||
+                      (valUser.subscripton?.name === "Starter" &&
+                        "cursor-not-allowed")
                     }`}
                     onClick={handleShareClick}
-                    disabled={!valUser.subscripton || valUser.subscripton?.name === "Starter"}
+                    disabled={
+                      !valUser.subscripton ||
+                      valUser.subscripton?.name === "Starter"
+                    }
                   >
                     {/* <MdPersonAddAlt1 /> */} Apply for a Business Card
                   </button>
 
                   <Link
-                    className={`text-xs capitalize md:text-xs pro:text-xs xl:text-sm special:text-sm px-3 py-2 my-0 rounded-[20px] hover:text-blue-500`}
+                    className={`text-xs md:text-xs pro:text-xs xl:text-sm special:text-sm px-3 py-2 my-0 rounded-[20px] hover:text-blue-500`}
                   >
                     {/* <MdPersonAddAlt1 /> */}How to use the card?
                   </Link>
@@ -223,12 +229,17 @@ function BusinessCard() {
               </label> */}
             </div>
           </div>
-          {!valUser.subscripton && (
-            <p className="text-xs md:text-lg font-semibold text-center capitalize">
-              You are not eligeble,{" "}
-              <span className="text-red-500">please subscribe first (Above Starter) !</span>
-            </p>
-          )}
+          {loading
+            ? ""
+            : !valUser.subscripton && (
+                <p className="text-xs md:text-lg font-semibold text-center capitalize">
+                  You are not eligeble,{" "}
+                  <span className="text-red-500">
+                    please subscribe first (Above Starter) !
+                  </span>
+                </p>
+              )}
+
           {valUser.subscripton?.name === "Starter" && (
             <p className="text-xs md:text-lg font-semibold text-center capitalize">
               You are not eligeble,{" "}

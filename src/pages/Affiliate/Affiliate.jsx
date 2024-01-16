@@ -29,29 +29,17 @@ const Affiliate = () => {
   const [activeButton, setActiveButton] = useState(1);
   const [name, setName] = useState("");
   const [userId, setUserId] = useState("");
-  const [email, setEmail] = useState("");
   const [mobile, setMobile] = useState("");
-  const [nic, setNic] = useState("");
-  const [tin, setTin] = useState("");
-  const [dob, setDob] = useState("");
-  const [address, setAddress] = useState("");
-  const [address2, setAddress2] = useState("");
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("");
-  const [postalcode, setPostalcode] = useState("");
   const [profile, setProfile] = useState("");
   const [loading, setLoading] = useState(false);
-  const [userImage, setUserImage] = useState("");
-  const [license, setLicense] = useState("");
   const [isChecked, setIsChecked] = useState(false);
-  const [refferalId, setRefferalId] = useState();
   const [refferals, setRefferals] = useState([]);
   const [loading2, setLoading2] = useState(false);
   const [affCount, setAffCount] = useState([]);
   // const [refresh, setRefresh] = useState(false);
-  useEffect(() => {
-    getUserData();
-  }, [refreshCount]);
+  // useEffect(() => {
+  //   getUserData();
+  // }, [refreshCount]);
 
   const onCheckboxChange = (e) => {
     setIsChecked(e.target.checked);
@@ -176,114 +164,6 @@ const Affiliate = () => {
       });
   };
 
-  const getUserData = async () => {
-    setLoading(true);
-    await axios
-      .get(`${import.meta.env.VITE_SERVER_API}/validate?id=${id}`)
-      .then((response) => {
-        console.log(response.data.data);
-        setUserData(response?.data?.data);
-        setMobile(response?.data?.data.mobile);
-        setName(response?.data?.data.name);
-        setUserId(response?.data?.data.uid);
-        setEmail(response?.data?.data.email);
-        setNic(response?.data?.data.nic);
-        setTin(response?.data?.data.tin);
-        setDob(response?.data?.data.dob);
-        setAddress(response?.data?.data.address);
-        setAddress2(response?.data?.data.address2);
-        setCity(response?.data?.data.city);
-        setState(response?.data?.data.state);
-        setPostalcode(response?.data?.data.postalcode);
-        setUserImage(response?.data?.data.image);
-        setRefferalId(response?.data?.data.rafflesId);
-        console.log(response?.data?.data.image);
-        if (response?.data?.data.image != undefined) {
-          getProfileImage(response?.data?.data.image);
-        }
-        setLoading(false);
-      })
-      .catch((error) => {
-        setLoading(false);
-        toast.error(error.message, {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-        });
-        console.log(error);
-      });
-  };
-
-  const updateUserDatails = async () => {
-    const profileImageName = `${userId}_username`;
-    const storageRef = ref(storage, profileImageName);
-    const image = await uploadBytes(storageRef, profile).then((snapshot) => {
-      console.log("profile image upload");
-      refresh();
-    });
-    setLoading(true);
-    const response = await axios.post(
-      `${import.meta.env.VITE_SERVER_API}/editUser`,
-      {
-        id: userData._id,
-        name,
-        email,
-        mobile,
-        nic,
-        tin,
-        dob,
-        address,
-        address2,
-        city,
-        state,
-        postalcode,
-        image: profileImageName,
-      }
-    );
-    if (response.data.status == 200) {
-      toast.success("Profile details updated!", {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-      });
-      setLoading(false);
-    } else {
-      toast.error("Cannot update your profile. Please try again later", {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-      });
-      setLoading(false);
-    }
-  };
-
-  function getProfileImage(img) {
-    getDownloadURL(ref(storage, img))
-      .then((url) => {
-        setUserImage(url);
-        console.log(url, "imgg");
-        setLoading(false);
-      })
-      .catch((error) => {
-        setLoading(false);
-        // Handle any errors
-      });
-  }
 
   // Function to handle copying the input value to clipboard
   const handleCopyToClipboard = async (txt) => {
@@ -419,7 +299,9 @@ const Affiliate = () => {
                                 <p>{refferal.firstname}</p>
                                 <p>{refferal.email}</p>
                                 <p>
-                                  {refferal?.sub?.data?.name ? refferal?.sub?.data?.name : "no plan"}
+                                  {refferal?.sub?.data?.name
+                                    ? refferal?.sub?.data?.name
+                                    : "no plan"}
                                 </p>
                               </div>
                               <hr />
@@ -466,9 +348,11 @@ const Affiliate = () => {
                     onChange={(e) => setName(e.target.value)}
                     disabled
                     value={
-                      (userData.firstname &&
-                        userData?.firstname + " " + userData?.lastname) ||
-                      ""
+                      valUser
+                        ? (valUser.firstname || "") +
+                          " " +
+                          (valUser.lastname || "")
+                        : ""
                     }
                   ></input>
                 </div>
@@ -479,10 +363,10 @@ const Affiliate = () => {
                   </p>
                   <input
                     className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
-                    placeholder="Loading..."
+                    // placeholder="Loading..."
                     type="email"
-                    onChange={(e) => setEmail(e.target.value)}
-                    value={email || ""}
+                    // onChange={(e) => setEmail(e.target.value)}
+                    value={valUser?.email}
                     disabled
                   ></input>
                 </div>
@@ -493,16 +377,20 @@ const Affiliate = () => {
                   <div className="w-full relative">
                     <input
                       className="bg-white font-bold rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3 w-full"
-                      placeholder="loading..."
+                      // placeholder="loading..."
                       type="text"
-                      value={valUser.subscripton ? userId || "N/A" : "N/A"}
+                      value={valUser?.uid}
                       disabled
                     />
                     <button
-                      onClick={() => handleCopyToClipboard(userId)}
-                      className="absolute right-1 bottom-0 text-xl p-3 hover:bg-gray-300 rounded-full bg-white"
+                      onClick={() => handleCopyToClipboard(valUser?.uid)}
+                      className="absolute right-1 bottom-0 text-xl pb-2 pr-2"
                     >
-                      <FaRegCopy />
+                      {valUser.uid ? (
+                        <FaRegCopy className="hover:opacity-75" />
+                      ) : (
+                        ""
+                      )}
                     </button>
                   </div>
                 </div>
@@ -513,26 +401,30 @@ const Affiliate = () => {
                   </p>
                   <div className="w-full relative">
                     <input
-                      className="bg-white w-full rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
-                      placeholder="Enter Phone Number"
+                      className="bg-white w-full rounded-xl px-2 py-3 focus:outline-none md:text-sm text-[9px] font-bold placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                      // placeholder="Enter Phone Number"
                       type="tel"
                       disabled
                       onChange={(e) => setMobile(e.target.value)}
                       value={
-                        valUser.subscripton
-                          ? `https://www.winlads.com/register?ref=${userId}`
-                          : "N/A"
+                        valUser.uid
+                          ? `https://www.winlads.com/?ref=${valUser?.uid}`
+                          : ""
                       }
                     ></input>
                     <button
                       onClick={() =>
                         handleCopyToClipboard(
-                          `https://www.winlads.com/register?ref=${userId}`
+                          `https://www.winlads.com/register?ref=${valUser?.uid}`
                         )
                       }
-                      className="absolute right-1 bottom-0 text-xl p-3 hover:bg-gray-300 rounded-full bg-white"
+                      className="absolute right-1 bottom-0 text-xl pb-3 pr-2"
                     >
-                      <FaRegCopy />
+                      {valUser.uid ? (
+                        <FaRegCopy className="hover:opacity-75" />
+                      ) : (
+                        ""
+                      )}
                     </button>
                   </div>
                 </div>
@@ -609,7 +501,11 @@ const Affiliate = () => {
                         >
                           <p>{refferal.firstname}</p>
                           <p>{refferal.email}</p>
-                          <p>{refferal?.sub?.data?.name ? refferal?.sub?.data?.name : "no plan"}</p>
+                          <p>
+                            {refferal?.sub?.data?.name
+                              ? refferal?.sub?.data?.name
+                              : "no plan"}
+                          </p>
                         </div>
                         <hr />
                       </>

@@ -196,14 +196,14 @@ const MyEntries = () => {
                             {/* <PiBookmarkSimpleLight className="text-white" /> */}
                           </div>
                         </div>
-                        <div className="w-full hidden xl:block">
+                        <div className="w-full hidden xl:block pl-2">
                           <p className="capitalize text-xs">{giveaway.round.name}</p>
                         </div>
                         <div className="py-3 text-xs 2xl:text-sm pl-2 pr-2 xl:rounded-b-none rounded-b-2xl xl:flex col-span-3 xl:items-center justify-between space-y-1 xl:space-y-0">
                           <div className=" md:w-1/3 w-full block xl:hidden">
                             <p className="capitalize">{giveaway.round.name}</p>
                           </div>
-                          <div className="md:w-1/3 justify-center items-center rounded-full hidden xl:flex">
+                          <div className="md:w-1/3 justify-center items-center rounded-full hidden xl:flex xl:pr-16 2xl:pr-36 special:pr-[600px]">
                             <div className="justify-center items-center py-2 flex">
                               <img
                                 src={giveaway.raffle?.raffleimage}

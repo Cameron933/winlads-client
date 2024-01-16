@@ -331,8 +331,8 @@ const SideNav = () => {
           </div>
 
           <div onClick={expandSidebar}>
-            <Link to="/messages">
-              <button className={`flex flex-row items-center justify-start px-5 gap-2 hover:bg-[#36383b] py-2 w-full ${isNavLinkActive('/messages') ? 'bg-[#36383b]' : ''}`}>
+            <Link to="/forum">
+              <button className={`flex flex-row items-center justify-start px-5 gap-2 hover:bg-[#36383b] py-2 w-full ${isNavLinkActive('/forum') ? 'bg-[#36383b]' : ''}`}>
                 <img src={Form} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
                   <p className="link-no-underlin  xl:flex text-white">
