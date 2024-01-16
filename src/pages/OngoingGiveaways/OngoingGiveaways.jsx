@@ -19,8 +19,7 @@ import DashboardVehicleCard from "../../components/DashboardVehicleCard/Dashboar
 import { FaAngleDoubleDown, FaAngleDoubleUp } from "react-icons/fa";
 import SelectRafflePaymentMethod from "../../components/RaffleComponent/SelectRafflePaymentMethod";
 import ActiveBanner from "../../assets/images/activeBanner.png";
-import OngoingBanner from "../../assets/images/ongoing/bg.png";
-import OngoingBanner1 from "../../assets/images/ongoing/bg1.png";
+import ActiveBanner1 from "../../assets/images/activeBanner1.png";
 
 const OngoingGiveaways = () => {
   const iframeStyle = {
@@ -117,7 +116,6 @@ const OngoingGiveaways = () => {
       navigate("/requestEntries");
     }
   };
-
 
   return (
     <>
@@ -247,17 +245,23 @@ const OngoingGiveaways = () => {
             Active Giveaways
           </p>
           <div className="relative">
-            <img src={ActiveBanner} alt="" />
+            <div className="hidden md:block">
+              <img src={ActiveBanner} alt="" />
+            </div>
+            <div className="block md:hidden">
+              <img src={ActiveBanner1} alt="" />
+            </div>
 
-            <div className="absolute xl:bottom-10 2xl:right-[350px] xl:right-72 bottom-2 md:bottom-4 right-[80px] md:right-[160px]">
-              <Link to="https://winladsgiveaway.com/#packages" target="_blank" rel="noopener noreferrer">
-              <button
-                className="capitalize bg-white text-[10px] font-semibold 2xl:text-xl md:text-lg xl:text-xl xl:py-2 xl:px-8 px-2 py-1 hover:opacity-75 rounded-lg"
+            <div className="absolute xl:bottom-10 2xl:right-[350px] xl:right-72 bottom-8 md:bottom-4 right-[80px] md:right-[140px]">
+              <Link
+                to="https://winladsgiveaway.com/#packages"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                Enter Now
-              </button>
+                <button className="capitalize bg-white text-lg font-semibold 2xl:text-xl md:text-lg xl:text-xl xl:py-2 xl:px-8 px-8 py-1 hover:opacity-75 rounded-lg">
+                  Enter Now
+                </button>
               </Link>
-             
             </div>
           </div>
 
