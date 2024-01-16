@@ -8,7 +8,7 @@ import Ticket from "../../assets/images/affiliate/affiliate.png";
 import Money from "../../assets/images/new/earnings.png";
 
 
-const CardComponentNoWithdraw = ({triggerRefresh}) => {
+const CardComponentNoWithdraw = () => {
   const [valUser, setValUser] = useState({});
   const [loading, setLoading] = useState(true);
   const [loadingWallet, loadingSetWallet] = useState(true);
