@@ -513,7 +513,7 @@ const Affiliate = () => {
                   </p>
                   <div className="w-full relative">
                     <input
-                      className="bg-white w-full rounded-xl px-2 py-2 focus:outline-none text-sm font-bold placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                      className="bg-white w-full rounded-xl px-2 py-3 focus:outline-none md:text-sm text-[9px] font-bold placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
                       placeholder="Enter Phone Number"
                       type="tel"
                       disabled
@@ -530,7 +530,7 @@ const Affiliate = () => {
                           `https://www.winlads.com/register?ref=${userId}`
                         )
                       }
-                      className="absolute right-1 bottom-0 text-xl pb-2 pr-2"
+                      className="absolute right-1 bottom-0 text-xl pb-3 pr-2"
                     >
                       <FaRegCopy className="hover:opacity-75" />
                     </button>
