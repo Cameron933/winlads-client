@@ -17,10 +17,10 @@ import OurPartners from "../../components/OurPartners/OurPartners";
 const Home = () => {
   return (
     <div className="pageBgColor">
-      {/* <Showcase2 /> */}
+      <Showcase2 />
       <WelcomeHome2 />
       <Youtube/>
-      {/* <GetStart /> */}
+      <GetStart />
       <ChoosePlane/>
       <Service/>
       <OurPartners/>
@@ -29,7 +29,7 @@ const Home = () => {
       <Faq/>
       <Contact />
       <Footer />
-      <MessengerCustomerChat pageId="171684687116166" />
+      {/* <MessengerCustomerChat pageId="171684687116166" /> */}
 
     </div>
   );
