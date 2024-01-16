@@ -181,7 +181,7 @@ const Dashboard = () => {
                     <div className="flex justify-center">
                       <ItemLoader />
                     </div>
-                  ) : sortedGiveaways.length > 0 ? (
+                  ) : sortedGiveaways?.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2">
                       {sortedGiveaways
                         .slice(0, initialLength)
@@ -189,8 +189,8 @@ const Dashboard = () => {
                           <DashboardVehicleCard
                             isSubscribed={valUser.subscripton}
                             key={key}
-                            id={giveaway._id}
-                            type={giveaway.raffle.type}
+                            id={giveaway?._id}
+                            type={giveaway?.raffle?.type}
                             name={giveaway.name}
                             date={giveaway?.startingtime}
                             fromColor={giveaway.raffle?.color}
@@ -304,7 +304,7 @@ const Dashboard = () => {
                           <DashboardVehicleCard
                             isSubscribed={valUser.subscripton}
                             key={key}
-                            type={giveaway.raffle.type}
+                            type={giveaway?.raffle?.type}
                             id={giveaway._id}
                             name={giveaway.name}
                             date={giveaway?.endtime}

@@ -158,7 +158,8 @@ const OngoingGiveaways = () => {
               </div> */}
               <div className="flex flex-row justify-between items-center">
                 <div className="flex flex-col space-y-2 special:space-y-8 flex-1">
-                  <div className="flex flex-row items-center gap-2 special:gap-4">
+                  
+                  {/* <div className="flex flex-row items-center gap-2 special:gap-4">
                     {userImage ? (
                       <div className="w-12 h-12 special:w-36 special:h-36 rounded-full aspect-square">
                         <img
@@ -186,7 +187,7 @@ const OngoingGiveaways = () => {
                           : "0.00"}
                       </p>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
               <div className="flex flex-col gap-5">
@@ -200,14 +201,14 @@ const OngoingGiveaways = () => {
                     style={iframeStyle}
                   ></iframe>
                 </div>
-                {liveLink ? (
+                {/* {liveLink ? (
                   <Link to="/live">
                     <LiveCard />
                   </Link>
                 ) : (
-                  // <NoLive />
+             
                   <NoLiveCard />
-                )}
+                )} */}
               </div>
             </div>
           </div>
