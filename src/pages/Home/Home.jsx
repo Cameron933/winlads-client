@@ -26,11 +26,13 @@ const Home = () => {
     }
   };
   useEffect(() => {
-    console.log(id);
-    if (id) {
-      scrollTo(id)
-    }
-  },[])
+    console.log('ID IS : ' + id);
+  if (id !== undefined) {
+    scrollTo(id);
+  } else {
+    console.log('No ID in the URL');
+  }
+  },[id])
   return (
     <div className="pageBgColor">
       <Showcase2 />
