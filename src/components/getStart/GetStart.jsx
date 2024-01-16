@@ -34,14 +34,14 @@ const GetStart = () => {
       </motion.p>
       <div className="flex items-start py-20 lg:flex-row flex-col justify-center bg-welcome2 md:px-14 px-4">
         <div style={containerStyle} className="flex flex-col space-y-4">
-          <iframe
+          {/* <iframe
             title="Winlads"
             src="https://player.vimeo.com/video/899812267?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
             frameborder="0"
             allow="autoplay; fullscreen; picture-in-picture;muted"
             style={iframeStyle}
           />
-          <script src="https://player.vimeo.com/api/player.js"></script>
+          <script src="https://player.vimeo.com/api/player.js"></script> */}
           <motion.p
             initial={{ opacity: 0, y: "40%" }}
             whileInView={{ opacity: 1, y: "0" }}
