@@ -79,7 +79,7 @@ const Filters = ({
             onClick={handleCategoryShow}
           >
             <p className="2xl:text-sm xl:text-xs text-black">
-              Giveaway Category
+              Category
             </p>
             <IoIosOptions className="2xl:text-xl xl:text-sm m-1 cursor-pointer flex-shrink-0 text-black" />
           </div>
@@ -119,7 +119,7 @@ const Filters = ({
               onClick={handleCategoryShow}
             >
               <p className="2xl:text-sm xl:text-xs text-black">
-                Giveaway Category
+                Category
               </p>
               <IoIosOptions className="2xl:text-xl xl:text-sm m-1 cursor-pointer flex-shrink-0 text-black" />
             </div>

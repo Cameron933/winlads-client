@@ -49,9 +49,9 @@ const Affiliate = () => {
   const [loading2, setLoading2] = useState(false);
   const [affCount, setAffCount] = useState([]);
   // const [refresh, setRefresh] = useState(false);
-  useEffect(() => {
-    getUserData();
-  }, [refreshCount]);
+  // useEffect(() => {
+  //   getUserData();
+  // }, [refreshCount]);
 
   const onCheckboxChange = (e) => {
     setIsChecked(e.target.checked);
@@ -219,58 +219,7 @@ const Affiliate = () => {
       });
   };
 
-  const updateUserDatails = async () => {
-    const profileImageName = `${userId}_username`;
-    const storageRef = ref(storage, profileImageName);
-    const image = await uploadBytes(storageRef, profile).then((snapshot) => {
-      console.log("profile image upload");
-      refresh();
-    });
-    setLoading(true);
-    const response = await axios.post(
-      `${import.meta.env.VITE_SERVER_API}/editUser`,
-      {
-        id: userData._id,
-        name,
-        email,
-        mobile,
-        nic,
-        tin,
-        dob,
-        address,
-        address2,
-        city,
-        state,
-        postalcode,
-        image: profileImageName,
-      }
-    );
-    if (response.data.status == 200) {
-      toast.success("Profile details updated!", {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-      });
-      setLoading(false);
-    } else {
-      toast.error("Cannot update your profile. Please try again later", {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-      });
-      setLoading(false);
-    }
-  };
+
 
   function getProfileImage(img) {
     getDownloadURL(ref(storage, img))
@@ -419,7 +368,9 @@ const Affiliate = () => {
                                 <p>{refferal.firstname}</p>
                                 <p>{refferal.email}</p>
                                 <p>
-                                  {refferal?.sub?.data?.name ? refferal?.sub?.data?.name : "no plan"}
+                                  {refferal?.sub?.data?.name
+                                    ? refferal?.sub?.data?.name
+                                    : "no plan"}
                                 </p>
                               </div>
                               <hr />
@@ -466,9 +417,11 @@ const Affiliate = () => {
                     onChange={(e) => setName(e.target.value)}
                     disabled
                     value={
-                      (userData.firstname &&
-                        userData?.firstname + " " + userData?.lastname) ||
-                      ""
+                      valUser
+                        ? (valUser.firstname || "") +
+                          " " +
+                          (valUser.lastname || "")
+                        : ""
                     }
                   ></input>
                 </div>
@@ -479,10 +432,10 @@ const Affiliate = () => {
                   </p>
                   <input
                     className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
-                    placeholder="Loading..."
+                    // placeholder="Loading..."
                     type="email"
-                    onChange={(e) => setEmail(e.target.value)}
-                    value={email || ""}
+                    // onChange={(e) => setEmail(e.target.value)}
+                    value={valUser?.email}
                     disabled
                   ></input>
                 </div>
@@ -493,16 +446,20 @@ const Affiliate = () => {
                   <div className="w-full relative">
                     <input
                       className="bg-white font-bold rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3 w-full"
-                      placeholder="loading..."
+                      // placeholder="loading..."
                       type="text"
-                      value={valUser.subscripton ? userId || "N/A" : "N/A"}
+                      value={valUser?.uid}
                       disabled
                     />
                     <button
                       onClick={() => handleCopyToClipboard(userId)}
                       className="absolute right-1 bottom-0 text-xl pb-2 pr-2"
                     >
-                      <FaRegCopy className="hover:opacity-75" />
+                      {valUser.uid ? (
+                        <FaRegCopy className="hover:opacity-75" />
+                      ) : (
+                        ""
+                      )}
                     </button>
                   </div>
                 </div>
@@ -514,14 +471,14 @@ const Affiliate = () => {
                   <div className="w-full relative">
                     <input
                       className="bg-white w-full rounded-xl px-2 py-3 focus:outline-none md:text-sm text-[9px] font-bold placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
-                      placeholder="Enter Phone Number"
+                      // placeholder="Enter Phone Number"
                       type="tel"
                       disabled
                       onChange={(e) => setMobile(e.target.value)}
                       value={
-                        valUser.subscripton
-                          ? `https://www.winlads.com/register?ref=${userId}`
-                          : "N/A"
+                        valUser.uid
+                          ? `https://www.winlads.com/?ref=${valUser?.uid}`
+                          : ""
                       }
                     ></input>
                     <button
@@ -532,7 +489,11 @@ const Affiliate = () => {
                       }
                       className="absolute right-1 bottom-0 text-xl pb-3 pr-2"
                     >
-                      <FaRegCopy className="hover:opacity-75" />
+                      {valUser.uid ? (
+                        <FaRegCopy className="hover:opacity-75" />
+                      ) : (
+                        ""
+                      )}
                     </button>
                   </div>
                 </div>
@@ -609,7 +570,11 @@ const Affiliate = () => {
                         >
                           <p>{refferal.firstname}</p>
                           <p>{refferal.email}</p>
-                          <p>{refferal?.sub?.data?.name ? refferal?.sub?.data?.name : "no plan"}</p>
+                          <p>
+                            {refferal?.sub?.data?.name
+                              ? refferal?.sub?.data?.name
+                              : "no plan"}
+                          </p>
                         </div>
                         <hr />
                       </>
