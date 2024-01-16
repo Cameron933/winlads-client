@@ -37,6 +37,7 @@ const PastGiveaways = () => {
 
 
   useEffect(() => {
+    getGiveaways()
     currentUserValidation();
   }, []);
 
@@ -59,7 +60,7 @@ const PastGiveaways = () => {
       console.log("Session OK");
       setValUser(validator.user);
       getProfileImage(validator.user.image);
-      getGiveaways()
+   
     } else {
       navigate("/login");
     }
