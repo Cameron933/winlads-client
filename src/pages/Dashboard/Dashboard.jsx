@@ -59,16 +59,16 @@ const Dashboard = () => {
     if (validator.validatorBl) {
       console.log("Session OK", validator.user);
       setValUser(validator.user);
-      getGiveaways(validator.user.uid);
+      getGiveaways();
       getRaffleCount(validator.user.uid);
     } else {
       navigate("/login");
     }
   };
 
-  const getGiveaways = async (valuid) => {
+  const getGiveaways = async () => {
     await axios
-      .get(`${import.meta.env.VITE_SERVER_API}/raffleRoundsOngoing`)
+      .get(`${import.meta.env.VITE_SERVER_API}/raffleRoundsUpcoming`)
       .then((response) => {
         console.log(response.data.data, "data raffle");
         setGiveaways(response?.data?.data);
