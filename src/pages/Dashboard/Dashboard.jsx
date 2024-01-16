@@ -20,7 +20,7 @@ import BG from "../../assets/images/HomesideBg.png";
 import { FaAngleDoubleDown, FaAngleDoubleUp } from "react-icons/fa";
 import Cookies from "universal-cookie";
 import FreeEntries from "../../assets/images/freeEntries.png";
-import ActiveBanner from "../../assets/images/activeBanner.png"
+import ActiveBanner from "../../assets/images/activeBanner.png";
 
 const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -166,17 +166,20 @@ const Dashboard = () => {
                       Earning Balance
                     </p>
                     <p className="text-3xl text-black">
-                      <span className="text-base">$</span>&nbsp;
-                      {valUser.balance
-                        ?  Math.floor((valUser.balance * 100))/100
+                      <span className="text-base">$</span>
+
+                      {typeof valUser.balance === "number"
+                        ? valUser.balance.toFixed(2)
                         : "0.00"}
                     </p>
                   </div>
                   <SmallGoldCard />
                 </div>
                 <div>
-                  <p className="text-xl font-semibold pb-4">Upcoming Giveaways</p>
-            
+                  <p className="text-xl font-semibold pb-4">
+                    Upcoming Giveaways
+                  </p>
+
                   {loading ? (
                     <div className="flex justify-center">
                       <ItemLoader />
@@ -201,7 +204,13 @@ const Dashboard = () => {
                             oneOffPackage={
                               giveaway.raffle?.name === "Vehicle" ? true : false
                             }
-                            checkTrial={valUser.trial ? giveaway.raffle?.name === "Vehicle" ? false : true : false}
+                            checkTrial={
+                              valUser.trial
+                                ? giveaway.raffle?.name === "Vehicle"
+                                  ? false
+                                  : true
+                                : false
+                            }
                             onButton={() => {
                               handleButton({
                                 id: giveaway?._id,
@@ -242,9 +251,7 @@ const Dashboard = () => {
               <div className="hidden xl:flex flex-col space-y-4 items-end">
                 <div className="bg-black rounded-b-3xl space-y-4 relative w-web">
                   <div className="grid grid-cols-2 gap-4 m-2">
-                    <div className="col-span-1 ">
-                      {/* <SearchField /> */}
-                    </div>
+                    <div className="col-span-1 ">{/* <SearchField /> */}</div>
                     <div className="col-span-1  flex flex-col justify-center ">
                       <TopNav textColor={"white"} />
                     </div>
@@ -255,10 +262,10 @@ const Dashboard = () => {
                         Earning Balance
                       </p>
                       <p className="text-3xl text-white">
-                        <span className="text-base">$</span>&nbsp;
+                        <span className="text-base">$</span>
                         {typeof valUser.balance === "number"
-                          ? Math.floor((valUser.balance * 100))/100
-                          : "0.00"}
+                        ? valUser.balance.toFixed(2)
+                        : "0.00"}
                       </p>
                     </div>
                     <SmallGoldCard />
@@ -291,7 +298,7 @@ const Dashboard = () => {
                   <p className="text-2xl 2xl:text-2xl special:text-5xl font-semibold mb-2">
                     Upcoming Giveaways
                   </p>
-               
+
                   {loading ? (
                     <div className="flex justify-center">
                       <ItemLoader />
@@ -315,9 +322,18 @@ const Dashboard = () => {
                             raffleimage={giveaway.raffle?.raffleimage}
                             eligeble={true}
                             oneOffPackage={
-                              giveaway.raffle?.name === "Vehicle" || valUser.trial ? true : false
+                              giveaway.raffle?.name === "Vehicle" ||
+                              valUser.trial
+                                ? true
+                                : false
                             }
-                            checkTrial={valUser.trial ? giveaway.raffle?.name === "Vehicle" ? false : true : false}
+                            checkTrial={
+                              valUser.trial
+                                ? giveaway.raffle?.name === "Vehicle"
+                                  ? false
+                                  : true
+                                : false
+                            }
                             onButton={() => {
                               handleButton({
                                 id: giveaway?._id,
@@ -327,17 +343,22 @@ const Dashboard = () => {
                             }}
                           />
                         ))}
-                      {
-                        giveaways.length > 7 && (initialLength == 7 ?
-                          <button onClick={() => handleSeeMore(true)}
-                            className="flex flex-row justify-center items-center rounded-3xl 2xl:rounded-[30px] special:rounded-[40px] w-full py-2 shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:brightness-75 cursor-pointer bg-gradient-to-br from-blue-400 to-blue-600 text-white">
+                      {giveaways.length > 7 &&
+                        (initialLength == 7 ? (
+                          <button
+                            onClick={() => handleSeeMore(true)}
+                            className="flex flex-row justify-center items-center rounded-3xl 2xl:rounded-[30px] special:rounded-[40px] w-full py-2 shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:brightness-75 cursor-pointer bg-gradient-to-br from-blue-400 to-blue-600 text-white"
+                          >
                             See More
-                          </button> :
-                          <button onClick={() => handleSeeMore(false)}
-                            className="flex flex-row justify-center items-center rounded-3xl 2xl:rounded-[30px] special:rounded-[40px] w-full py-2 shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:brightness-75 cursor-pointer bg-gradient-to-br from-blue-400 to-blue-600 text-white">
+                          </button>
+                        ) : (
+                          <button
+                            onClick={() => handleSeeMore(false)}
+                            className="flex flex-row justify-center items-center rounded-3xl 2xl:rounded-[30px] special:rounded-[40px] w-full py-2 shadow-lg hover:transition hover:duration-300 hover:ease-in-out hover:brightness-75 cursor-pointer bg-gradient-to-br from-blue-400 to-blue-600 text-white"
+                          >
                             See Less
-                          </button>)
-                      }
+                          </button>
+                        ))}
                     </div>
                   ) : (
                     <div className="flex flex-col items-center space-y-2 pt-12">
