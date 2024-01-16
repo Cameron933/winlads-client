@@ -218,7 +218,7 @@ function BusinessCard() {
                   </button>
 
                   <Link
-                    className={`text-xs capitalize md:text-xs pro:text-xs xl:text-sm special:text-sm px-3 py-2 my-0 rounded-[20px] hover:text-blue-500`}
+                    className={`text-xs md:text-xs pro:text-xs xl:text-sm special:text-sm px-3 py-2 my-0 rounded-[20px] hover:text-blue-500`}
                   >
                     {/* <MdPersonAddAlt1 /> */}How to use the card?
                   </Link>
