@@ -18,7 +18,6 @@ import { useEffect } from "react";
 
 const Home = () => {
   const { id } = useParams();
-  
   const scrollTo = (target) => {
     const otherComponentElement = document.getElementById(target);
 
@@ -27,10 +26,11 @@ const Home = () => {
     }
   };
   useEffect(() => {
+    console.log(id);
     if (id) {
       scrollTo(id)
     }
-  })
+  },[])
   return (
     <div className="pageBgColor">
       <Showcase2 />
