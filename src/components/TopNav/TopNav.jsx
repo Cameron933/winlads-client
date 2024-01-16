@@ -6,13 +6,16 @@ import { IoCloseSharp } from "react-icons/io5";
 // import { messaging } from "../../firebase.config";
 import { getMessaging, getToken } from "firebase/messaging";
 import OutsideClickHandler from "react-outside-click-handler";
-
+import { useRefresh } from "../../utils/RefreshContext";
+import { HiBars3BottomRight } from "react-icons/hi2";
+import { HiBars3 } from "react-icons/hi2";
 // const messaging = getMessaging();
 // // Add the public key generated from the console here.
 // getToken(messaging, {vapidKey: import.meta.env.FIREBASE_NOTIFICATIONS});
 
 const TopNav = ({ textColor }) => {
   const [notShow, setNotShow] = useState(false);
+  const { handleMenu, showMenu } = useRefresh();
 
   const handleClick = () => {
     setNotShow(!notShow);
@@ -43,6 +46,12 @@ const TopNav = ({ textColor }) => {
         <span className="navlinks">
           <Link to="/support">Support</Link>
         </span> */}
+                <span className="navlinks text-2xl w-fit xl:hidden">
+          {
+            showMenu ? <HiBars3 className="" onClick={() => handleMenu(false)} />
+              : <HiBars3BottomRight />
+          }
+        </span>
 
         <span className="navlinks">
           <Link to="/" target="_blank" rel="noopener noreferrer">Cashback</Link>
@@ -57,7 +66,7 @@ const TopNav = ({ textColor }) => {
         </span>
 
         <span className="navlinks">
-          <Link to="/faq"  rel="noopener noreferrer">FAQ</Link>
+          <Link to="/faq" rel="noopener noreferrer">FAQ</Link>
         </span>
 
 
@@ -67,15 +76,15 @@ const TopNav = ({ textColor }) => {
 
       </div>
       {notShow ? (
-        <OutsideClickHandler onOutsideClick={()=>setNotShow(false)}>
-        <div className="absolute right-8">
-          <div className="bg-white flex flex-col mt-8 rounded-xl p-2 w-72 border border-solid border-black">
-            {/* <div className="flex justify-end">
+        <OutsideClickHandler onOutsideClick={() => setNotShow(false)}>
+          <div className="absolute right-8">
+            <div className="bg-white flex flex-col mt-8 rounded-xl p-2 w-72 border border-solid border-black">
+              {/* <div className="flex justify-end">
               <IoCloseSharp onClick={() => setNotShow(false)} size={20} className="hover:scale-110" />
             </div> */}
-            <p className="text-center">No more notification</p>
+              <p className="text-center">No more notification</p>
+            </div>
           </div>
-        </div>
         </OutsideClickHandler>
       ) : (
         ""

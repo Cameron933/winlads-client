@@ -4,13 +4,17 @@ const RefreshContext = createContext();
 
 export const RefreshProvider = ({ children }) => {
   const [refreshCount, setRefreshCount] = useState(true);
+  const [showMenu, setShowMenu] = useState(true);
 
   const refresh = () => {
     setRefreshCount((prev) => !prev);
   };
+  const handleMenu = (val)=>{
+    setShowMenu(val);
+  }
 
   return (
-    <RefreshContext.Provider value={{ refreshCount, refresh }}>
+    <RefreshContext.Provider value={{ refreshCount, refresh ,showMenu, handleMenu}}>
       {children}
     </RefreshContext.Provider>
   );
@@ -23,3 +27,4 @@ export const useRefresh = () => {
   }
   return context;
 };
+
