@@ -419,7 +419,7 @@ const Affiliate = () => {
                                 <p>{refferal.firstname}</p>
                                 <p>{refferal.email}</p>
                                 <p>
-                                  {refferal?.sub1?.data?.name ? "" : "no plan"}
+                                  {refferal?.sub?.data?.name ? refferal?.sub?.data?.name : "no plan"}
                                 </p>
                               </div>
                               <hr />
@@ -609,7 +609,7 @@ const Affiliate = () => {
                         >
                           <p>{refferal.firstname}</p>
                           <p>{refferal.email}</p>
-                          <p>{refferal?.sub1?.data?.name ? "" : "no plan"}</p>
+                          <p>{refferal?.sub?.data?.name ? refferal?.sub?.data?.name : "no plan"}</p>
                         </div>
                         <hr />
                       </>
