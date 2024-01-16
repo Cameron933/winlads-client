@@ -29,7 +29,7 @@ const Home = () => {
       <Faq/>
       <Contact />
       <Footer />
-      <MessengerCustomerChat pageId="171684687116166" />
+      {/* <MessengerCustomerChat pageId="171684687116166" /> */}
 
     </div>
   );
