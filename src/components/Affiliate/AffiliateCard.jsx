@@ -83,8 +83,8 @@ const AffiliateCard = () => {
                 />
               </div>
               <div className="flex flex-col text-white items-center">
-                <p className="font-semibold 2xl:text-xl special:text-2xl text-lg">
-                  $&nbsp;{" "}
+                <p className="font-semibold 2xl:text-xl special:text-2xl text-lg text-center">
+                  $
                   {wallet.earning
                     ? Math.floor(wallet.earning * 100) / 100
                     : "0.00"}
@@ -99,11 +99,13 @@ const AffiliateCard = () => {
                 <img src={Ticket} className="w-full h-full object-contain" />
               </div>
               <div className="flex flex-col text-white">
-                <p className="font-semibold 2xl:text-xl special:text-2xl text-lg">
-                  {refferals?.l1count +
-                    refferals?.l2count +
-                    refferals?.l3count +
-                    refferals?.l4count || 0}
+                <p className="font-semibold 2xl:text-xl special:text-2xl text-lg text-center">
+                  {String(
+                    refferals?.l1count +
+                      refferals?.l2count +
+                      refferals?.l3count +
+                      refferals?.l4count || 0
+                  ).padStart(2, "0")}
                 </p>
                 <p className="capitalize md:ext-sm text-[10px]">
                   Total Affiliates
@@ -117,7 +119,7 @@ const AffiliateCard = () => {
                 your balance
               </p>
               <p className="font-bold text-4xl">
-                $&nbsp;
+                $
                 {typeof valUser.balance === "number"
                   ? valUser.balance.toFixed(2)
                   : "0.00"}
