@@ -167,7 +167,7 @@ TagManager.initialize(tagManagerArgs)
     },
 
     {
-      path: "/",
+      path: "/:id?",
       element: <Home />,
     },
     {
