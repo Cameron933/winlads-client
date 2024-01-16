@@ -29,22 +29,10 @@ const Affiliate = () => {
   const [activeButton, setActiveButton] = useState(1);
   const [name, setName] = useState("");
   const [userId, setUserId] = useState("");
-  const [email, setEmail] = useState("");
   const [mobile, setMobile] = useState("");
-  const [nic, setNic] = useState("");
-  const [tin, setTin] = useState("");
-  const [dob, setDob] = useState("");
-  const [address, setAddress] = useState("");
-  const [address2, setAddress2] = useState("");
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("");
-  const [postalcode, setPostalcode] = useState("");
   const [profile, setProfile] = useState("");
   const [loading, setLoading] = useState(false);
-  const [userImage, setUserImage] = useState("");
-  const [license, setLicense] = useState("");
   const [isChecked, setIsChecked] = useState(false);
-  const [refferalId, setRefferalId] = useState();
   const [refferals, setRefferals] = useState([]);
   const [loading2, setLoading2] = useState(false);
   const [affCount, setAffCount] = useState([]);
@@ -176,63 +164,6 @@ const Affiliate = () => {
       });
   };
 
-  const getUserData = async () => {
-    setLoading(true);
-    await axios
-      .get(`${import.meta.env.VITE_SERVER_API}/validate?id=${id}`)
-      .then((response) => {
-        console.log(response.data.data);
-        setUserData(response?.data?.data);
-        setMobile(response?.data?.data.mobile);
-        setName(response?.data?.data.name);
-        setUserId(response?.data?.data.uid);
-        setEmail(response?.data?.data.email);
-        setNic(response?.data?.data.nic);
-        setTin(response?.data?.data.tin);
-        setDob(response?.data?.data.dob);
-        setAddress(response?.data?.data.address);
-        setAddress2(response?.data?.data.address2);
-        setCity(response?.data?.data.city);
-        setState(response?.data?.data.state);
-        setPostalcode(response?.data?.data.postalcode);
-        setUserImage(response?.data?.data.image);
-        setRefferalId(response?.data?.data.rafflesId);
-        console.log(response?.data?.data.image);
-        if (response?.data?.data.image != undefined) {
-          getProfileImage(response?.data?.data.image);
-        }
-        setLoading(false);
-      })
-      .catch((error) => {
-        setLoading(false);
-        toast.error(error.message, {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-        });
-        console.log(error);
-      });
-  };
-
-
-
-  function getProfileImage(img) {
-    getDownloadURL(ref(storage, img))
-      .then((url) => {
-        setUserImage(url);
-        console.log(url, "imgg");
-        setLoading(false);
-      })
-      .catch((error) => {
-        setLoading(false);
-        // Handle any errors
-      });
-  }
 
   // Function to handle copying the input value to clipboard
   const handleCopyToClipboard = async (txt) => {
@@ -452,7 +383,7 @@ const Affiliate = () => {
                       disabled
                     />
                     <button
-                      onClick={() => handleCopyToClipboard(userId)}
+                      onClick={() => handleCopyToClipboard(valUser?.uid)}
                       className="absolute right-1 bottom-0 text-xl pb-2 pr-2"
                     >
                       {valUser.uid ? (
@@ -484,7 +415,7 @@ const Affiliate = () => {
                     <button
                       onClick={() =>
                         handleCopyToClipboard(
-                          `https://www.winlads.com/register?ref=${userId}`
+                          `https://www.winlads.com/register?ref=${valUser?.uid}`
                         )
                       }
                       className="absolute right-1 bottom-0 text-xl pb-3 pr-2"

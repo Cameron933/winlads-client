@@ -35,24 +35,10 @@ const Promo = () => {
   const navigate = useNavigate();
   const [valUser, setValUser] = useState({});
 
-  const [name, setName] = useState("");
-  const [userId, setUserId] = useState("");
-  const [email, setEmail] = useState("");
-  const [mobile, setMobile] = useState("");
-  const [nic, setNic] = useState("");
-  const [tin, setTin] = useState("");
-  const [dob, setDob] = useState("");
-  const [address, setAddress] = useState("");
-  const [address2, setAddress2] = useState("");
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("");
-  const [postalcode, setPostalcode] = useState("");
   const [profile, setProfile] = useState("");
   const [loading, setLoading] = useState(false);
   const [userImage, setUserImage] = useState("");
-  const [license, setLicense] = useState("");
   const [isChecked, setIsChecked] = useState(false);
-  const [refferalId, setRefferalId] = useState();
   // const [refresh, setRefresh] = useState(false);
   // useEffect(() => {
   //   getUserData();
@@ -85,62 +71,6 @@ const Promo = () => {
       setProfile(file);
     }
   };
-
-  const getUserData = async () => {
-    setLoading(true);
-    await axios
-      .get(`${import.meta.env.VITE_SERVER_API}/validate?id=${id}`)
-      .then((response) => {
-        console.log(response.data.data);
-        setUserData(response?.data?.data);
-        setMobile(response?.data?.data.mobile);
-        setName(response?.data?.data.name);
-        setUserId(response?.data?.data.uid);
-        setEmail(response?.data?.data.email);
-        setNic(response?.data?.data.nic);
-        setTin(response?.data?.data.tin);
-        setDob(response?.data?.data.dob);
-        setAddress(response?.data?.data.address);
-        setAddress2(response?.data?.data.address2);
-        setCity(response?.data?.data.city);
-        setState(response?.data?.data.state);
-        setPostalcode(response?.data?.data.postalcode);
-        setUserImage(response?.data?.data.image);
-        setRefferalId(response?.data?.data.rafflesId);
-        console.log(response?.data?.data.image);
-        if (response?.data?.data.image != undefined) {
-          getProfileImage(response?.data?.data.image);
-        }
-        setLoading(false);
-      })
-      .catch((error) => {
-        setLoading(false);
-        toast.error(error.message, {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-        });
-        console.log(error);
-      });
-  };
-
-  function getProfileImage(img) {
-    getDownloadURL(ref(storage, img))
-      .then((url) => {
-        setUserImage(url);
-        console.log(url, "imgg");
-        setLoading(false);
-      })
-      .catch((error) => {
-        setLoading(false);
-        // Handle any errors
-      });
-  }
 
   // Function to handle copying the input value to clipboard
   const handleCopyToClipboard = async (tex) => {
@@ -211,7 +141,11 @@ const Promo = () => {
                     onClick={() => handleCopyToClipboard(valUser?.uid)}
                     className="absolute right-1 bottom-0 text-xl px-2 py-3"
                   >
-                   {valUser.uid ? <FaRegCopy className="hover:opacity-75" /> : ""}
+                    {valUser.uid ? (
+                      <FaRegCopy className="hover:opacity-75" />
+                    ) : (
+                      ""
+                    )}
                   </button>
                 </div>
               </div>
@@ -223,10 +157,8 @@ const Promo = () => {
                 <div className="w-full relative">
                   <input
                     className="bg-white font-bold w-full md:text-sm text-[9px] rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
-                    placeholder="Enter Phone Number"
                     type="tel"
                     disabled
-                    onChange={(e) => setMobile(e.target.value)}
                     value={
                       valUser.uid
                         ? `https://www.winlads.com/?ref=${valUser?.uid}`
@@ -241,7 +173,11 @@ const Promo = () => {
                     }
                     className="absolute right-1 bottom-0 text-xl px-2 py-3"
                   >
-                     {valUser.uid ? <FaRegCopy className="hover:opacity-75" /> : ""}
+                    {valUser.uid ? (
+                      <FaRegCopy className="hover:opacity-75" />
+                    ) : (
+                      ""
+                    )}
                   </button>
                 </div>
               </div>
@@ -262,13 +198,25 @@ const Promo = () => {
                       <p className="text-black text-sm xl:text-md special:text-xl">
                         Banner (468*60)
                       </p>
-                      <input
-                        className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
-                        placeholder="Enter First Name"
-                        type="text"
-                        disabled
-                        value={banner1Url}
-                      ></input>
+                      <div className="w-full relative">
+                        <input
+                          className="bg-white w-full rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                          placeholder="Enter First Name"
+                          type="text"
+                          disabled
+                          value={banner1Url}
+                        ></input>
+                        <button
+                          onClick={() => handleCopyToClipboard(banner1Url)}
+                          className="absolute right-1 bottom-0 text-xl pb-3 pr-2"
+                        >
+                          {valUser.uid ? (
+                            <FaRegCopy className="hover:opacity-75" />
+                          ) : (
+                            ""
+                          )}
+                        </button>
+                      </div>
                     </div>
                     <div className="w-full">
                       <img
@@ -281,13 +229,25 @@ const Promo = () => {
                       <p className="text-black text-sm xl:text-md special:text-xl">
                         Banner (728*90)
                       </p>
-                      <input
-                        className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
-                        placeholder="Enter Valid EMail"
-                        type="text"
-                        value={banner2Url}
-                        disabled
-                      ></input>
+                      <div className="w-full relative">
+                        <input
+                          className="bg-white w-full rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                          placeholder="Enter Valid EMail"
+                          type="text"
+                          value={banner2Url}
+                          disabled
+                        ></input>
+                        <button
+                          onClick={() => handleCopyToClipboard(banner2Url)}
+                          className="absolute right-1 bottom-0 text-xl pb-3 pr-2"
+                        >
+                          {valUser.uid ? (
+                            <FaRegCopy className="hover:opacity-75" />
+                          ) : (
+                            ""
+                          )}
+                        </button>
+                      </div>
                     </div>
                     <div className="w-full h-32">
                       <img
@@ -299,13 +259,25 @@ const Promo = () => {
                       <p className="text-black text-sm xl:text-md special:text-xl">
                         Banner (250*250)
                       </p>
-                      <input
-                        className="bg-white rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
-                        placeholder="Enter User Name"
-                        type="text"
-                        value={banner3Url}
-                        disabled
-                      ></input>
+                      <div className="w-full relative">
+                        <input
+                          className="bg-white w-full rounded-xl px-2 py-2 focus:outline-none placeholder:text-xs placeholder:xl:text-sm placeholder:special:text-xl special:py-3"
+                          placeholder="Enter User Name"
+                          type="text"
+                          value={banner3Url}
+                          disabled
+                        ></input>
+                         <button
+                          onClick={() => handleCopyToClipboard(banner3Url)}
+                          className="absolute right-1 bottom-0 text-xl pb-3 pr-2"
+                        >
+                          {valUser.uid ? (
+                            <FaRegCopy className="hover:opacity-75" />
+                          ) : (
+                            ""
+                          )}
+                        </button>
+                      </div>
                     </div>
                     <div className="w-32 h-32 mr-auto">
                       <img
@@ -378,7 +350,11 @@ const Promo = () => {
                       onClick={() => handleCopyToClipboard(valUser?.uid)}
                       className="absolute right-1 bottom-0 text-xl px-2 py-3"
                     >
-                      {valUser.uid ? <FaRegCopy className="hover:opacity-75" /> : ""}
+                      {valUser.uid ? (
+                        <FaRegCopy className="hover:opacity-75" />
+                      ) : (
+                        ""
+                      )}
                     </button>
                   </div>
                 </div>
@@ -406,7 +382,11 @@ const Promo = () => {
                       }
                       className="absolute right-1 bottom-0 text-xl px-2 py-3"
                     >
-                      {valUser.uid ? <FaRegCopy className="hover:opacity-75" /> : ""}
+                      {valUser.uid ? (
+                        <FaRegCopy className="hover:opacity-75" />
+                      ) : (
+                        ""
+                      )}
                     </button>
                   </div>
                 </div>
