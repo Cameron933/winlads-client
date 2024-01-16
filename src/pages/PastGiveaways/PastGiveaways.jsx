@@ -119,9 +119,9 @@ const PastGiveaways = () => {
             </div>
           </div>
           <div className="flex flex-col 2xl:space-y-8 space-y-6 special:space-y-12">
-            <div className="mt-4 xl:pt-0 pb-4 xl:pb-0">
+            {/* <div className="mt-4 xl:pt-0 pb-4 xl:pb-0">
               <SearchField />
-            </div>
+            </div> */}
             <div className="flex flex-row justify-between items-center">
                 <div className="flex flex-col space-y-2 special:space-y-8 flex-1">
                   <div className="flex flex-row items-center gap-2 special:gap-4">

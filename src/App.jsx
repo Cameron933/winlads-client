@@ -43,6 +43,7 @@ import UpcomingGiveaways from "./pages/UpcomingGiveaways/UpcomingGiveaways";
 import RegisterOld from "./pages/register/RegisterOld";
 import AdminLogin from "./pages/Admin/Login"
 import AdminRounds from "./pages/Admin/Giveaway"
+import UnderDev from "./pages/UnderDev/UnderDev";
 
 
 function App() {
@@ -158,16 +159,17 @@ TagManager.initialize(tagManagerArgs)
           path:'/upcomingGiveaways',
           element:<UpcomingGiveaways/>
         },
+        {
+          path:'/won/:id',
+          element:<Won/>
+        },
        
       ],
     },
-    {
-      path:'/won/:id',
-      element:<Won/>
-    },
+
 
     {
-      path: "/",
+      path: "/:id?",
       element: <Home />,
     },
     {
@@ -225,6 +227,10 @@ TagManager.initialize(tagManagerArgs)
     {
       path: "/admin-rounds",
       element: <AdminRounds />,
+    }, 
+    {
+      path: "/under-dev",
+      element: <UnderDev />,
     },
   ]);
 

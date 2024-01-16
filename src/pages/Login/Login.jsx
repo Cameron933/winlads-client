@@ -149,7 +149,7 @@ const Login = () => {
     const validator = await validateCurrentUser();
     if (validator.validatorBl) {
       console.log("Session OK", validator.user);
-      handleSEOLogin();
+     // handleSEOLogin();
       navigate("/dashboard");
     } else {
       console.log("");

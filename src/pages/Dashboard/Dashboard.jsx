@@ -59,16 +59,16 @@ const Dashboard = () => {
     if (validator.validatorBl) {
       console.log("Session OK", validator.user);
       setValUser(validator.user);
-      getGiveaways(validator.user.uid);
+      getGiveaways();
       getRaffleCount(validator.user.uid);
     } else {
       navigate("/login");
     }
   };
 
-  const getGiveaways = async (valuid) => {
+  const getGiveaways = async () => {
     await axios
-      .get(`${import.meta.env.VITE_SERVER_API}/raffleRoundsOngoing`)
+      .get(`${import.meta.env.VITE_SERVER_API}/raffleRoundsUpcoming`)
       .then((response) => {
         console.log(response.data.data, "data raffle");
         setGiveaways(response?.data?.data);
@@ -181,7 +181,7 @@ const Dashboard = () => {
                     <div className="flex justify-center">
                       <ItemLoader />
                     </div>
-                  ) : sortedGiveaways.length > 0 ? (
+                  ) : sortedGiveaways?.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2">
                       {sortedGiveaways
                         .slice(0, initialLength)
@@ -189,8 +189,8 @@ const Dashboard = () => {
                           <DashboardVehicleCard
                             isSubscribed={valUser.subscripton}
                             key={key}
-                            id={giveaway._id}
-                            type={giveaway.raffle.type}
+                            id={giveaway?._id}
+                            type={giveaway?.raffle?.type}
                             name={giveaway.name}
                             date={giveaway?.startingtime}
                             fromColor={giveaway.raffle?.color}
@@ -243,7 +243,7 @@ const Dashboard = () => {
                 <div className="bg-black rounded-b-3xl space-y-4 relative w-web">
                   <div className="grid grid-cols-2 gap-4 m-2">
                     <div className="col-span-1 ">
-                      <SearchField />
+                      {/* <SearchField /> */}
                     </div>
                     <div className="col-span-1  flex flex-col justify-center ">
                       <TopNav textColor={"white"} />
@@ -304,7 +304,7 @@ const Dashboard = () => {
                           <DashboardVehicleCard
                             isSubscribed={valUser.subscripton}
                             key={key}
-                            type={giveaway.raffle.type}
+                            type={giveaway?.raffle?.type}
                             id={giveaway._id}
                             name={giveaway.name}
                             date={giveaway?.endtime}

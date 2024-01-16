@@ -27,6 +27,11 @@ input::-webkit-inner-spin-button {
   }
 }
 
+.ongoing-bg{
+  background-image: url('../src/assets//images/ongoing/bg.png');
+  object-position: cover;
+}
+
 /* input[type="date"]::-webkit-calendar-picker-indicator {
   display: none;
 } */

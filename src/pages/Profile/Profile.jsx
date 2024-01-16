@@ -15,7 +15,7 @@ import { storage } from "../../firebase.config";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { Link, useNavigate } from "react-router-dom";
 import { validateCurrentUser } from "../../utils/validateuser";
-import CardComponent from "../../components/cardComponent/CardComponent";
+import AffiliateCard from "../../components/Affiliate/AffiliateCard";
 import { useRefresh } from "../../utils/RefreshContext";
 
 const Profile = () => {
@@ -200,7 +200,7 @@ const Profile = () => {
                 <img className="" src={MainCar} alt="main" />
               </div>
             </div>
-            <CardComponent />
+            <AffiliateCard />
           </div>
           <div className="flex flex-col space-y-4 flex-1 xl:mx-4">
             <div className="flex flex-col space-y-3">
@@ -542,7 +542,7 @@ const Profile = () => {
               <GoldCard />
             </div> */}
             <div>
-              <CardComponent />
+              <AffiliateCard />
             </div>
           </div>
         </div>

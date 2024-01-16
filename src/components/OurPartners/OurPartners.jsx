@@ -6,7 +6,7 @@ import NewPart from "../../assets/images/partners/partners7.png";
 
 const OurPartners = () => {
   return (
-    <div className="bg-service py-5" id="partners">
+    <div className="bg-service py-5" >
       <motion.p
         initial={{ opacity: 0, y: "-40%" }}
         whileInView={{ opacity: 1, y: "0" }}

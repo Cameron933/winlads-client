@@ -19,6 +19,8 @@ import DashboardVehicleCard from "../../components/DashboardVehicleCard/Dashboar
 import { FaAngleDoubleDown, FaAngleDoubleUp } from "react-icons/fa";
 import SelectRafflePaymentMethod from "../../components/RaffleComponent/SelectRafflePaymentMethod";
 import ActiveBanner from "../../assets/images/activeBanner.png";
+import OngoingBanner from "../../assets/images/ongoing/bg.png";
+import OngoingBanner1 from "../../assets/images/ongoing/bg1.png";
 
 const OngoingGiveaways = () => {
   const iframeStyle = {
@@ -70,7 +72,7 @@ const OngoingGiveaways = () => {
 
   const getGiveaways = async (valuid) => {
     await axios
-      .get(`${import.meta.env.VITE_SERVER_API}/raffleRoundsOngoing`)
+      .get(`${import.meta.env.VITE_SERVER_API}/raffleRoundsActive`)
       .then((response) => {
         console.log(response.data.data, "data raffle");
         setGiveaways(response?.data?.data);
@@ -116,31 +118,50 @@ const OngoingGiveaways = () => {
     }
   };
 
+  const handleClickButton = () => {
+    window.location.href = "https://winladsgiveaway.com/#packages";
+  };
+
   return (
     <>
-      <div className="flex flex-col xl:px-6 px-4 special:px-12 special:space-y-24 space-y-8 overflow-hidden relative">
-        <div className="xl:flex xl:flex-row flex-col xl:justify-between xl:gap-4 space-y-4 xl:space-y-0">
+      <div className="flex flex-col xl:px-6 px-4 special:px-12 special:space-y-24 overflow-hidden relative">
+        <div className="xl:flex xl:flex-row flex-col xl:justify-between xl:gap-4">
           <img
             src={BG}
             alt=""
-            className="absolute right-0 -z-10 top-10 w-72 xl:w-96 md:w-96 special:w-1/4 2xl:w-1/4 special:top-40 opacity-60"
+            className="absolute right-0 -z-10 top-10 w-72 xl:w-96 md:w-96 special:w-1/4 2xl:w-1/4 special:top-40 opacity-60 hidden xl:block"
           />
           <div className="flex flex-col flex-1">
             <div className="block xl:hidden space-y-4">
-              <div className="bg-black rounded-b-3xl py-4">
+              <div
+                className="bg-black rounded-b-xl py-4"
+                // style={{
+                //   backgroundImage: `url(${OngoingBanner1})`,
+                //   backgroundSize: "cover",
+                //   backgroundPosition: "center",
+                // }}
+              >
                 <TopNav textColor={"white"} />
-                <div className="pt-10">
+                {/* <div className="pt-10">
                   <img className="" src={MainCar} alt="main" />
-                </div>
+                </div> */}
+                {/* <div className="pt-96 flex justify-end pr-12 pb-8">
+                  <button
+                    className="capitalize bg-white text-[10px] 2xl:text-xl md:text-xs xl:text-sm xl:py-2 xl:px-8 px-2 py-1 hover:opacity-75 rounded-lg"
+                    onClick={handleClickButton}
+                  >
+                    Enter Now
+                  </button>
+                </div> */}
               </div>
             </div>
             <div className="flex flex-col 2xl:space-y-8 space-y-6 special:space-y-12">
-              <div className="mt-4 xl:pt-0 pb-4 xl:pb-0">
+              {/* <div className="mt-4 xl:pt-0 pb-4 xl:pb-0">
                 <SearchField />
-              </div>
+              </div> */}
               <div className="flex flex-row justify-between items-center">
                 <div className="flex flex-col space-y-2 special:space-y-8 flex-1">
-                  <div className="flex flex-row items-center gap-2 special:gap-4">
+                  {/* <div className="flex flex-row items-center gap-2 special:gap-4">
                     {userImage ? (
                       <div className="w-12 h-12 special:w-36 special:h-36 rounded-full aspect-square">
                         <img
@@ -168,10 +189,10 @@ const OngoingGiveaways = () => {
                           : "0.00"}
                       </p>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
-              <div className="flex flex-col gap-5">
+              {/* <div className="flex flex-col gap-5">
                 <div className="w-full">
                   <iframe
                     title="YouTube Video"
@@ -187,16 +208,23 @@ const OngoingGiveaways = () => {
                     <LiveCard />
                   </Link>
                 ) : (
-                  // <NoLive />
+             
                   <NoLiveCard />
                 )}
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="flex-col flex-1 space-y-4 hidden xl:flex">
-            <div className="bg-black rounded-b-[50px] py-4">
+            <div
+              className="rounded-b-lg py-4 bg-black"
+              // style={{
+              //   backgroundImage: `url(${OngoingBanner})`,
+              //   backgroundSize: "cover",
+              //   backgroundPosition: "center",
+              // }}
+            >
               <TopNav textColor={"white"} />
-              <div className="pt-10">
+              {/* <div className="pt-10">
                 <motion.img
                   initial={{ x: 80, opacity: 0 }} // Initial position and opacity (hidden)
                   animate={{ x: 60, opacity: 1 }} // Move and fade in when in view
@@ -205,42 +233,44 @@ const OngoingGiveaways = () => {
                   src={MainCar}
                   alt="main"
                 />
-              </div>
+              </div> */}
+              {/* <div className="pt-96 special:pt-[1000px] flex justify-end pr-12 special:pr-16 pb-8">
+                <button
+                  className="capitalize bg-white text-[10px] 2xl:text-xl md:text-xs special:text-4xl xl:text-sm xl:py-2 xl:px-8 px-2 py-1 hover:opacity-75 rounded-lg"
+                  onClick={handleClickButton}
+                >
+                  Enter Now
+                </button>
+              </div> */}
             </div>
           </div>
         </div>
         <div className="flex flex-col space-y-2 special:space-y-6 2xl:space-y-4">
-          <p className="font-semibold text-lg xl:text-xl 2xl:text-2xl special:text-4xl">
+          <p className="font-semibold text-lg xl:text-xl 2xl:text-2xl special:text-4xl pt-4 xl:pt-0">
             Active Giveaways
           </p>
           <div className="relative">
             <img src={ActiveBanner} alt="" />
 
-            {giveaways?.map((giveaway, key) => {
-              if (giveaway?.raffle?.name === "Vehicle") {
-                return (
-                  <div
-                    className="absolute xl:bottom-10 2xl:right-96 xl:right-72 bottom-2 right-12 md:right-36"
-                    key={key}
-                  >
-                    <button
-                      className="capitalize bg-white text-[10px] 2xl:text-xl md:text-xs xl:text-sm xl:py-2 xl:px-4 px-2 py-1 hover:opacity-75 rounded-lg"
-                      onClick={() =>
-                        handleButton({
-                          id: giveaway?._id,
-                          price: giveaway?.price,
-                          name: giveaway?.name,
-                        })
-                      }
-                    >
-                      One Off Packages
-                    </button>
-                  </div>
-                );
-              } else {
-                return <div key={key}></div>;
-              }
-            })}
+            <div className="absolute xl:bottom-10 2xl:right-[350px] xl:right-72 bottom-2 md:bottom-4 right-[80px] md:right-[160px]">
+              <button
+                className="capitalize bg-white text-[10px] font-semibold 2xl:text-xl md:text-lg xl:text-xl xl:py-2 xl:px-8 px-2 py-1 hover:opacity-75 rounded-lg"
+                onClick={handleClickButton}
+              >
+                Enter Now
+              </button>
+            </div>
+          </div>
+
+          <div className="xl:w-2/3 pt-8 w-full">
+            <iframe
+              title="YouTube Video"
+              src="https://player.vimeo.com/video/899812267?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+              frameBorder="0"
+              className="w-full"
+              allow="autoplay; fullscreen; picture-in-picture;muted"
+              style={iframeStyle}
+            ></iframe>
           </div>
 
           {/* {loading ? (

@@ -1,11 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player';
 import Apple from '../../assets/images/welcomehome/apple.png';
 import Google from '../../assets/images/welcomehome/google.png';
 import { motion } from 'framer-motion';
 import video from '../../assets/video.mp4';
 import { toast } from 'react-toastify';
+import axios from 'axios';
 const WelcomeHome2 = () => {
+  const [uCount , setUserCount]= useState(0);
+
+  const getUserCount = async()=>{
+    try {
+      const userCount = await axios.get(`${import.meta.env.VITE_SERVER_API}/getUserCount`)
+      setUserCount(userCount.data?.users);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(()=>{
+    getUserCount();
+  },[])
 
 
 
@@ -40,7 +55,7 @@ const WelcomeHome2 = () => {
               viewport={{ once: true }}
               className="text-[#00F0FF] font-bold text-2xl lg:text3xl xl:text-4xl 2xl:text-6xl"
             >
-              104 <span className="text-white">+</span>
+              {uCount} <span className="text-white">+</span>
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: "40%" }}

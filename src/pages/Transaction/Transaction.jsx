@@ -63,6 +63,7 @@ const Transaction = () => {
     await axios
       .get(`${import.meta.env.VITE_SERVER_API}/getPointBalances?uid=${valuid}`)
       .then((response) => {
+        console.log(response.data);
         setWallet(response?.data?.data);
       })
       .catch((error) => {
