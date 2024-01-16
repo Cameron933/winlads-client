@@ -34,6 +34,9 @@ const Withdraw = () => {
   const [bankName, setBankName] = useState("");
   const [accountNumber, setAccountNumber] = useState("");
   const [bnbnumber, setBnbnumber] = useState("")
+
+  const [amountError, setAmountError] = useState(false);
+  const [otherError, setOtherError] = useState(false);
   
   useEffect(() => {
     currentUserValidation();
@@ -61,10 +64,12 @@ const Withdraw = () => {
   const setTransactions = async (ud) => {
     try {
       if (!amount) {
+        setAmountError(true);
         throw Error('')
       }
       if (selectMethod == "bank") {
         if (!accountNumber || !bnbnumber || !bankName) {
+          setOtherError(true);
           throw Error('All fields required!')
 
         }
@@ -92,6 +97,11 @@ const Withdraw = () => {
           progress: undefined,
           theme: "colored",
         });
+        setAmount("");
+        setBankName("");
+        setAccountNumber("")
+        setBnbnumber("");
+
         //window.location.reload()
       } else {
         toast.error(response.data.data.message, {
@@ -129,6 +139,11 @@ const Withdraw = () => {
         progress: undefined,
         theme: "colored",
       });
+    }finally{
+      setTimeout(()=>{
+          setOtherError(false)
+          setAmountError(false)
+      },3000)
     }
   };
 
@@ -183,7 +198,7 @@ const Withdraw = () => {
                 />
               </div>
               {
-                !amount && <span className="text-red-500 text-xs">This field is required!</span>
+                amountError && <span className="text-red-500 text-xs">This field is required!</span>
               }
             </div>
             <div className="flex flex-col space-y-2 relative">
@@ -236,7 +251,7 @@ const Withdraw = () => {
                     onChange={(e) => setBankName(e.target.value)}
                   ></input>
                   {
-                    !bankName && <span className="text-red-500 text-xs">This field is required!</span>
+                    otherError && <span className="text-red-500 text-xs">This field is required!</span>
                   }
                 </div>
 
@@ -255,7 +270,7 @@ const Withdraw = () => {
                     onChange={(e) => setAccountNumber(e.target.value)}
                   ></input>
                   {
-                    !accountNumber && <span className="text-red-500 text-xs">This field is required!</span>
+                    otherError && <span className="text-red-500 text-xs">This field is required!</span>
                   }
                 </div>
                 <div className="flex flex-col space-y-2 mb-4">
@@ -273,7 +288,7 @@ const Withdraw = () => {
                     onChange={(e) => setBnbnumber(e.target.value)}
                   ></input>
                   {
-                    !bnbnumber && <span className="text-red-500 text-xs">This field is required!</span>
+                    otherError && <span className="text-red-500 text-xs">This field is required!</span>
                   }
                 </div>
                 <br />

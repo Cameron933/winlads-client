@@ -4,7 +4,7 @@ import Credit from "../../assets/images/side-bar/Credit.png";
 
 import User from "../../assets/images/side-bar/User3.png";
 import OutsideClickHandler from "react-outside-click-handler";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import Logout from "../../assets/images/side-bar/icons/logout1.png";
 import Transaction from "../../assets/images/side-bar/icons/transaction1.png";
@@ -51,6 +51,12 @@ const SideNav = () => {
   const [userImage, setUserImage] = useState("");
   const [loading, setLoading] = useState(true);
   const { refreshCount, refresh, showMenu, handleMenu } = useRefresh();
+  const location = useLocation();
+
+  const isNavLinkActive = (path) => {
+    // Check if the current route matches the path of the navigation link
+    return location.pathname === path;
+  };
 
   const expandSidebar = () => {
     setExpanded((pre) => true);
@@ -154,7 +160,7 @@ const SideNav = () => {
 
           <div onClick={expandSidebar}>
             <Link to="/dashboard">
-              <button className="flex flex-row items-center  xl:justify-start justify-start px-5  gap-2 hover:bg-[#36383b] py-2  w-full  ">
+              <button className={`flex flex-row items-center  xl:justify-start justify-start px-5  gap-2 hover:bg-[#36383b] py-2  w-full  ${isNavLinkActive('/dashboard') ? 'bg-[#36383b]' : ''}`}>
                 <img src={Home} className="w-[18px]" alt="protect" />
 
                 <span className="">
@@ -168,7 +174,7 @@ const SideNav = () => {
           </div>
 
           <div onClick={expandSidebar}>
-            <button className="flex gap-2 space-y-2 xl:space-y-0 items-center justify-start px-5 hover:bg-[#36383b] py-2 w-full">
+            <button className={`flex gap-2 space-y-2 xl:space-y-0 items-center justify-start px-5 hover:bg-[#36383b] py-2 w-full `}>
               <img src={Giv} className="w-[18px]" alt="protect" />
               <div
                 className=" flex  gap-2 items-center"
@@ -184,27 +190,27 @@ const SideNav = () => {
           </div>
 
           {showDropdown && (
-            <div className="bg-black flex flex-col space-y-2 text-xs text-white text-start xl:ml-10 ml-4">
+            <div className={`bg-black flex flex-col space-y-2 text-xs text-white text-start xl:ml-10 ml-4`}>
               <Link to="/ongoingGiveaways">
-                <div className="flex flex-row space-x-2 items-center">
+                <div className={`flex flex-row space-x-2 items-center hover:bg-[#36383b] ${isNavLinkActive('/ongoingGiveaways') ? 'bg-[#36383b]' : ''} `}>
                   <img src={Ongoing} alt="" className="w-[18px]" />
-                  <p className="cursor-pointer hover:bg-[#36383b] px-2 py-1">
+                  <p className="cursor-pointer  px-2 py-1">
                     Active
                   </p>
                 </div>
               </Link>
               <Link to="/upcomingGiveaways">
-                <div className="flex flex-row space-x-2 items-center">
+                <div className={`flex flex-row space-x-2 items-center hover:bg-[#36383b] ${isNavLinkActive('/upcomingGiveaways') ? 'bg-[#36383b]' : ''}`}>
                   <img src={Upcoming} alt="" className="w-[18px]" />
-                  <p className="cursor-pointer hover:bg-[#36383b] px-2 py-1">
+                  <p className="cursor-pointer px-2 py-1">
                     Upcoming
                   </p>
                 </div>
               </Link>
               <Link to="/pastGiveaways">
-                <div className="flex flex-row space-x-2 items-center">
+                <div className={`flex flex-row space-x-2 items-center hover:bg-[#36383b] ${isNavLinkActive('/pastGiveaways') ? 'bg-[#36383b]' : ''}`}>
                   <img src={Past} alt="" className="w-[18px]" />
-                  <p className="cursor-pointer hover:bg-[#36383b] px-2 py-1">
+                  <p className="cursor-pointer px-2 py-1">
                     Past
                   </p>
                 </div>
@@ -214,7 +220,7 @@ const SideNav = () => {
 
           <div onClick={expandSidebar}>
             <Link to="/subscription">
-              <button className="flex flex-row items-center justify-start px-5 gap-2 hover:bg-[#36383b] py-2 w-full">
+              <button className={`flex flex-row items-center justify-start px-5 gap-2 hover:bg-[#36383b] py-2 w-full ${isNavLinkActive('/subscription') ? 'bg-[#36383b]' : ''}`}>
                 <img src={SubIcon} className="w-[18px]" alt="protect" />
                 <span className="">
                   <p className="link-no-underlin  flex text-white">
@@ -227,7 +233,7 @@ const SideNav = () => {
 
           <div onClick={expandSidebar}>
             <Link to="/myentries">
-              <button className="flex flex-row items-center justify-start px-5 gap-2 hover:bg-[#36383b] py-2 w-full">
+              <button className= {`flex flex-row items-center justify-start px-5 gap-2 hover:bg-[#36383b] py-2 w-full ${isNavLinkActive('/myentries') ? 'bg-[#36383b]' : ''}`}>
                 <img src={EntryIcon} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
                   <p className="link-no-underlin  xl:flex text-white">
@@ -240,7 +246,7 @@ const SideNav = () => {
 
           <div onClick={expandSidebar}>
             <Link to="/transaction">
-              <button className="flex flex-row items-center  justify-start px-5  gap-2 hover:bg-[#36383b] py-2  w-full  ">
+              <button className={`flex flex-row items-center  justify-start px-5  gap-2 hover:bg-[#36383b] py-2  w-full ${isNavLinkActive('/transaction') ? 'bg-[#36383b]' : ''}`}>
                 <img src={Trans} className="w-[14px]" alt="protect" />
                 <span className="mobile-hide">
                   <p className="link-no-underlin   xl:flex text-white ">
@@ -257,7 +263,7 @@ const SideNav = () => {
 
           <div onClick={expandSidebar}>
             <Link to="/affiliate">
-              <button className="flex flex-row items-center justify-start px-5 gap-2 hover:bg-[#36383b] py-2 w-full">
+              <button className={`flex flex-row items-center justify-start px-5 gap-2 hover:bg-[#36383b] py-2 w-full ${isNavLinkActive('/affiliate') ? 'bg-[#36383b]' : ''}`}>
                 <img src={Aff} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
                   <p className="link-no-underlin   xl:flex text-white">
@@ -270,7 +276,7 @@ const SideNav = () => {
 
           <div onClick={expandSidebar}>
             <Link to="/promo">
-              <button className="flex flex-row items-center justify-start px-5 gap-2 hover:bg-[#36383b] py-2 w-full">
+              <button className={`flex flex-row items-center justify-start px-5 gap-2 hover:bg-[#36383b] py-2 w-full ${isNavLinkActive('/promo') ? 'bg-[#36383b]' : ''}`}>
                 <img src={PromoIcon} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
                   <p className="link-no-underlin   xl:flex text-white">
@@ -283,7 +289,7 @@ const SideNav = () => {
 
           <div onClick={expandSidebar}>
             <Link to="/business-card">
-              <button className="flex flex-row items-center justify-start px-5 gap-2 hover:bg-[#36383b] py-2 w-full">
+              <button className={`flex flex-row items-center justify-start px-5 gap-2 hover:bg-[#36383b] py-2 w-full ${isNavLinkActive('/business-card') ? 'bg-[#36383b]' : ''}`}>
                 <img src={BC} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
                   <p className="link-no-underlin   xl:flex text-white">
@@ -300,7 +306,7 @@ const SideNav = () => {
 
           <div onClick={expandSidebar}>
             <Link to="/newslist">
-              <button className="flex flex-row items-center justify-start px-5 gap-2 hover:bg-[#36383b] py-2 w-full">
+              <button className={`flex flex-row items-center justify-start px-5 gap-2 hover:bg-[#36383b] py-2 w-full ${isNavLinkActive('/newslist') ? 'bg-[#36383b]' : ''}`}>
                 <img src={NewsIcon} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
                   <p className="link-no-underlin  xl:flex text-white">
@@ -313,7 +319,7 @@ const SideNav = () => {
 
           <div onClick={expandSidebar}>
             <Link to="/messages">
-              <button className="flex flex-row items-center justify-start px-5 gap-2 hover:bg-[#36383b] py-2 w-full">
+              <button className={`flex flex-row items-center justify-start px-5 gap-2 hover:bg-[#36383b] py-2 w-full ${isNavLinkActive('/messages') ? 'bg-[#36383b]' : ''}`}>
                 <img src={Messages} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
                   <p className="link-no-underlin  xl:flex text-white">
@@ -326,7 +332,7 @@ const SideNav = () => {
 
           <div onClick={expandSidebar}>
             <Link to="/messages">
-              <button className="flex flex-row items-center justify-start px-5 gap-2 hover:bg-[#36383b] py-2 w-full">
+              <button className={`flex flex-row items-center justify-start px-5 gap-2 hover:bg-[#36383b] py-2 w-full ${isNavLinkActive('/messages') ? 'bg-[#36383b]' : ''}`}>
                 <img src={Form} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
                   <p className="link-no-underlin  xl:flex text-white">
@@ -354,7 +360,7 @@ const SideNav = () => {
 
           <div onClick={expandSidebar}>
             <Link to="/profile">
-              <button className="flex flex-row items-center justify-start px-5 gap-2 hover:bg-[#36383b] py-2 w-full">
+              <button className={`flex flex-row items-center justify-start px-5 gap-2 hover:bg-[#36383b] py-2 w-full ${isNavLinkActive('/profile') ? 'bg-[#36383b]' : ''}`}>
                 <img src={Setting} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
                   <p className="link-no-underlin   xl:flex text-white">
