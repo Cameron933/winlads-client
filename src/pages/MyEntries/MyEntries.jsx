@@ -203,7 +203,7 @@ const MyEntries = () => {
                           <div className=" md:w-1/3 w-full block xl:hidden">
                             <p className="capitalize">{giveaway.round.name}</p>
                           </div>
-                          <div className="md:w-1/3 justify-center items-center rounded-full hidden xl:flex">
+                          <div className="md:w-1/3 justify-center items-center rounded-full hidden xl:flex xl:pr-16 2xl:pr-36 special:pr-[600px]">
                             <div className="justify-center items-center py-2 flex">
                               <img
                                 src={giveaway.raffle?.raffleimage}
