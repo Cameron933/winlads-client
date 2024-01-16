@@ -28,7 +28,9 @@ const Home = () => {
   useEffect(() => {
     console.log('ID IS : ' + id);
   if (id !== undefined) {
-    scrollTo(id);
+    setTimeout(()=>{
+      scrollTo(id);
+    },2000)
   } else {
     console.log('No ID in the URL');
   }
