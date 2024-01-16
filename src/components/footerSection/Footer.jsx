@@ -6,7 +6,7 @@ import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6"
 function Footer() {
   return (
-    <div className="flex items-start justify-center  bg-[#000]">
+    <div className="flex items-start justify-center  bg-[#000]" id="footer">
       <div className="mx-auto max-w-[2400px]  bg-[#000] w-full">
         <div className="md:pl-0   px-3 sm:py-5 py-3">
           <div className="flex flex-col md:flex-row md:px-14">
