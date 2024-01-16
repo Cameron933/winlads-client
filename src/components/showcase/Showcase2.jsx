@@ -45,7 +45,7 @@ const Showcase2 = () => {
         <nav className="lg:flex items-center justify-end gap-3 xl:gap-5 special:gap-8 hidden">
           <span
             className="font-bold text-base xl:text-lg 2xl:text-xl special:text-3xl hover:text-[#0184EA]"
-            onClick={() => toast.warning('Cashback under maintainence')}
+            onClick={() => navigate('/under-dev')}
           >
             <Link>Cashback</Link>
           </span>
