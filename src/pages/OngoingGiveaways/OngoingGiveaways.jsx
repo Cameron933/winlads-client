@@ -118,9 +118,6 @@ const OngoingGiveaways = () => {
     }
   };
 
-  const handleClickButton = () => {
-    window.location.href = "https://winladsgiveaway.com/#packages";
-  };
 
   return (
     <>
@@ -253,12 +250,14 @@ const OngoingGiveaways = () => {
             <img src={ActiveBanner} alt="" />
 
             <div className="absolute xl:bottom-10 2xl:right-[350px] xl:right-72 bottom-2 md:bottom-4 right-[80px] md:right-[160px]">
+              <Link to="https://winladsgiveaway.com/#packages" target="_blank" rel="noopener noreferrer">
               <button
                 className="capitalize bg-white text-[10px] font-semibold 2xl:text-xl md:text-lg xl:text-xl xl:py-2 xl:px-8 px-2 py-1 hover:opacity-75 rounded-lg"
-                onClick={handleClickButton}
               >
                 Enter Now
               </button>
+              </Link>
+             
             </div>
           </div>
 
