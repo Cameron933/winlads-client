@@ -62,11 +62,11 @@ const TopNav = ({ textColor }) => {
         </span>
 
         <span className="navlinks">
-          <Link to="https://winlads.com/#contactUs" target="_blank" rel="noopener noreferrer">Be a Partner</Link>
+          <Link to="https://winlads.com/contactUs" target="_blank" rel="noopener noreferrer">Be a Partner</Link>
         </span>
 
         <span className="navlinks">
-          <Link to="https://winlads.com/#partners" target="_blank" rel="noopener noreferrer">Our Partners</Link>
+          <Link to="https://winlads.com/partners" target="_blank" rel="noopener noreferrer">Our Partners</Link>
         </span>
 
         <span className="navlinks">
