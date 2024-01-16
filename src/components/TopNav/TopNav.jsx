@@ -58,7 +58,7 @@ const TopNav = ({ textColor }) => {
         </span>
 
         <span className="navlinks">
-          <Link to="/" target="_blank" rel="noopener noreferrer">Cashback</Link>
+          <Link to="/messages" rel="noopener noreferrer">Cashback</Link>
         </span>
 
         <span className="navlinks">
