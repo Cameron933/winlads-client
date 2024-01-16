@@ -32,7 +32,7 @@ const Home = () => {
   } else {
     console.log('No ID in the URL');
   }
-  },[id])
+  },[])
   return (
     <div className="pageBgColor">
       <Showcase2 />
