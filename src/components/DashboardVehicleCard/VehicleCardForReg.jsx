@@ -147,15 +147,15 @@ const VehicleCardForReg = ({
           </div>
         </div>
       </div> */}
-      <motion.div
+      {/* <motion.div
         initial={{ y: yValue, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1, delay: 0.5 }}
-        className="flex items-stretch md:flex-wrap justify-start gap-3 "
-      >
+        className="flex items-stretch md:flex-wrap justify-start gap-3"
+      > */}
         <div
-          className={`bg-gradient-to-t border-2 to-[#0094FF] from-[#00347C] hover:opacity-75 rounded-lg flex flex-col py-4 md:px-2 px-4 w-[350px] ${
+          className={`bg-gradient-to-t border-2 to-[#0094FF] from-[#00347C] hover:opacity-75 rounded-lg flex flex-col py-4 md:px-2 px-4  ${
             select === "01" ? "border-black" : ""
           }`}
           onClick={() =>
@@ -163,14 +163,14 @@ const VehicleCardForReg = ({
           }
         >
           <p className="text-black font-semibold xl:text-2xl md:text-xl text-lg xl:pb-12 pb-16 md:pb-8 text-center">
-            1 Free Entry Package
+            1 Free Entry<br/> Package
           </p>
           <div className="bg-white text-black rounded-lg md:py-4 py-2 text-center px-2 md:text-xs text-[8px]">
             Partner Store Discounts: 10%
           </div>
         </div>
         <div
-          className={`bg-gradient-to-t border-2 to-[#FC4701] from-[#661E01] hover:opacity-75 rounded-lg flex flex-col py-4 md:px-2 px-4 w-[350px] ${
+          className={`bg-gradient-to-t border-2 to-[#FC4701] from-[#661E01] hover:opacity-75 rounded-lg flex flex-col py-4 md:px-2 px-4  ${
             select === "03" ? " border-black" : ""
           }`}
           onClick={() =>
@@ -178,14 +178,14 @@ const VehicleCardForReg = ({
           }
         >
           <p className="text-black font-semibold xl:text-2xl md:text-xl text-lg xl:pb-12 pb-16 md:pb-8 text-center">
-            3 Free Entry Packages
+            3 Free Entry<br/> Packages
           </p>
           <div className="bg-white text-black rounded-lg md:py-4 py-2 text-center px-2  md:text-xs text-[8px]">
-            Access to Winlad Store Cash Back program
+            Access to Winlad Store Cashback program
           </div>
         </div>
         <div
-          className={`bg-gradient-to-t border-2 to-[#01E9FC] from-[#01666D] hover:opacity-75 rounded-lg flex flex-col py-4 md:px-2 px-4 w-[350px] ${
+          className={`bg-gradient-to-t border-2 to-[#01E9FC] from-[#01666D] hover:opacity-75 rounded-lg flex flex-col py-4 md:px-2 px-4  ${
             select === "10" ? "border-black" : ""
           }`}
           onClick={() =>
@@ -193,14 +193,14 @@ const VehicleCardForReg = ({
           }
         >
           <p className="text-black font-semibold xl:text-2xl md:text-xl text-lg xl:pb-12 pb-16 md:pb-8 text-center">
-            10 Free Entry Packages
+            10 Free Entry<br/> Packages
           </p>
           <div className="bg-white text-black rounded-lg md:py-4 py-2 text-center px-2  md:text-xs text-[8px]">
             Access to Winlads Public Events
           </div>
         </div>
         <div
-          className={`bg-gradient-to-t border-2 to-[#F5B701] from-[#796201] hover:opacity-75 rounded-lg flex flex-col py-4 md:px-2 px-4 w-[350px] ${
+          className={`bg-gradient-to-t border-2 to-[#F5B701] from-[#796201] hover:opacity-75 rounded-lg flex flex-col py-4 md:px-2 px-4  ${
             select === "25" ? "border-black" : ""
           }`}
           onClick={() =>
@@ -208,14 +208,14 @@ const VehicleCardForReg = ({
           }
         >
           <p className="text-black font-semibold xl:text-2xl md:text-xl text-lg xl:pb-12 pb-16 md:pb-8 text-center">
-            25 Free Entry Packages
+            25 Free Entry<br/> Packages
           </p>
           <div className="bg-white text-black rounded-lg md:py-4 py-2 text-center px-2  md:text-xs text-[8px]">
             Be Eligible to Apply for Winlad GOLD Card
           </div>
         </div>
         <div
-          className={`bg-gradient-to-t border-2 to-[#22282D] from-[#010101] hover:opacity-75 rounded-lg flex flex-col py-4 md:px-2 px-4 w-[350px] ${
+          className={`bg-gradient-to-t border-2 to-[#22282D] from-[#010101] hover:opacity-75 rounded-lg flex flex-col py-4 md:px-2 px-4  ${
             select === "150" ? "border-black" : ""
           }`}
           onClick={() =>
@@ -223,13 +223,13 @@ const VehicleCardForReg = ({
           }
         >
           <p className="text-white font-semibold xl:text-2xl md:text-xl text-lg xl:pb-12 pb-16 md:pb-8 text-center">
-            150 Free Entry Packages
+            150 Free Entry<br/> Packages
           </p>
           <div className="bg-white text-black rounded-lg md:py-4 py-2 text-center px-2  md:text-xs text-[8px]">
             Access to Winlads Urgency Program
           </div>
         </div>
-      </motion.div>
+      {/* </motion.div> */}
     </>
   );
 };
