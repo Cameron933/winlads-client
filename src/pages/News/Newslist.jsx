@@ -85,7 +85,7 @@ function Newslist() {
               </div>
             </div>
           </div>
-          <SearchField />
+          {/* <SearchField /> */}
 
           {loading ? (
             <div className="flex justify-center">

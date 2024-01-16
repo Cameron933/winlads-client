@@ -243,7 +243,7 @@ const Dashboard = () => {
                 <div className="bg-black rounded-b-3xl space-y-4 relative w-web">
                   <div className="grid grid-cols-2 gap-4 m-2">
                     <div className="col-span-1 ">
-                      <SearchField />
+                      {/* <SearchField /> */}
                     </div>
                     <div className="col-span-1  flex flex-col justify-center ">
                       <TopNav textColor={"white"} />

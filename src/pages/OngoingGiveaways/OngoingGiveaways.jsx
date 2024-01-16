@@ -19,6 +19,8 @@ import DashboardVehicleCard from "../../components/DashboardVehicleCard/Dashboar
 import { FaAngleDoubleDown, FaAngleDoubleUp } from "react-icons/fa";
 import SelectRafflePaymentMethod from "../../components/RaffleComponent/SelectRafflePaymentMethod";
 import ActiveBanner from "../../assets/images/activeBanner.png";
+import OngoingBanner from "../../assets/images/ongoing/bg.png";
+import OngoingBanner1 from "../../assets/images/ongoing/bg1.png";
 
 const OngoingGiveaways = () => {
   const iframeStyle = {
@@ -116,6 +118,10 @@ const OngoingGiveaways = () => {
     }
   };
 
+  const handleClickButton = () => {
+    window.location.href = "https://winlads.com";
+  };
+
   return (
     <>
       <div className="flex flex-col xl:px-6 px-4 special:px-12 special:space-y-24 space-y-8 overflow-hidden relative">
@@ -127,17 +133,29 @@ const OngoingGiveaways = () => {
           />
           <div className="flex flex-col flex-1">
             <div className="block xl:hidden space-y-4">
-              <div className="bg-black rounded-b-3xl py-4">
+              <div
+                className="bg-black rounded-b-3xl py-4"
+                style={{
+                  backgroundImage: `url(${OngoingBanner1})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              >
                 <TopNav textColor={"white"} />
-                <div className="pt-10">
+                {/* <div className="pt-10">
                   <img className="" src={MainCar} alt="main" />
+                </div> */}
+                <div className="pt-96 flex justify-end pr-12 pb-8">
+                  <button className="capitalize bg-white text-[10px] 2xl:text-xl md:text-xs xl:text-sm xl:py-2 xl:px-8 px-2 py-1 hover:opacity-75 rounded-lg" onClick={handleClickButton}>
+                    Enter Now
+                  </button>
                 </div>
               </div>
             </div>
             <div className="flex flex-col 2xl:space-y-8 space-y-6 special:space-y-12">
-              <div className="mt-4 xl:pt-0 pb-4 xl:pb-0">
+              {/* <div className="mt-4 xl:pt-0 pb-4 xl:pb-0">
                 <SearchField />
-              </div>
+              </div> */}
               <div className="flex flex-row justify-between items-center">
                 <div className="flex flex-col space-y-2 special:space-y-8 flex-1">
                   <div className="flex flex-row items-center gap-2 special:gap-4">
@@ -194,9 +212,16 @@ const OngoingGiveaways = () => {
             </div>
           </div>
           <div className="flex-col flex-1 space-y-4 hidden xl:flex">
-            <div className="bg-black rounded-b-[50px] py-4">
+            <div
+              className="rounded-b-[50px] py-4 object-cover"
+              style={{
+                backgroundImage: `url(${OngoingBanner})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
               <TopNav textColor={"white"} />
-              <div className="pt-10">
+              {/* <div className="pt-10">
                 <motion.img
                   initial={{ x: 80, opacity: 0 }} // Initial position and opacity (hidden)
                   animate={{ x: 60, opacity: 1 }} // Move and fade in when in view
@@ -205,6 +230,14 @@ const OngoingGiveaways = () => {
                   src={MainCar}
                   alt="main"
                 />
+              </div> */}
+              <div className="pt-96 special:pt-[1000px] flex justify-end pr-12 special:pr-16 pb-8">
+                <button
+                  className="capitalize bg-white text-[10px] 2xl:text-xl md:text-xs special:text-4xl xl:text-sm xl:py-2 xl:px-8 px-2 py-1 hover:opacity-75 rounded-lg"
+                  onClick={handleClickButton}
+                >
+                  Enter Now
+                </button>
               </div>
             </div>
           </div>
