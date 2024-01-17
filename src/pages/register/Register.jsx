@@ -419,6 +419,7 @@ const Register = ({ location }) => {
     } else {
       const checkAbility = searchParams.get("ability");
       if (checkAbility == "CHNCEOFF") {
+        setEligible(true);
         coupen = "CHNCEOFF";
       }
       setChosenPlan("");
