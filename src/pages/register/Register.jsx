@@ -73,7 +73,8 @@ const Register = ({ location }) => {
   const [showFreeEntry, setShowFreeEntry] = useState(false);
 
   const [buttonDis, setBtnDis] = useState(false); //To disable the register button after submitted the request
-  const [planDis, setPlanDis] = useState(false); //To disable the left side plans
+  const [planDis, setPlanDis] = useState(false);
+  const [abilityCoupen, setAbilityCoupen] = useState("");
 
   // set loading
   useEffect(() => {
@@ -166,11 +167,8 @@ const Register = ({ location }) => {
     const checkAbility = searchParams.get("ability");
     if (checkAbility == "WINACCESSEN") {
       setEligible(true);
-      coupen = "MAZDABT50S";
-      //console.log("co", coupen);
-      // setMemType('trial')
+      setAbilityCoupen("MAZDABT50S");
     }
-    //console.log(coupen);
 
     const data = {
       firstname: values.firstname,
@@ -182,14 +180,14 @@ const Register = ({ location }) => {
       tin: values.tin,
       refferalId: values.refferalId,
       uid: uid,
-      coupen: coupen,
+      coupen: checkAbility == "WINACCESSEN" ? "MAZDABT50S" : abilityCoupen,
       subid: selectedSubId,
       type: eligible ? "trial" : memberShipType,
       count: select,
       roundid: selectedSubId, //Used the same variable for store roundid OR subid
     };
 
-    //console.log(data);
+    console.log(data);
 
     const response = await axios.get(
       `${import.meta.env.VITE_SERVER_API}/checkEmail?email=${values.email}`
@@ -396,6 +394,11 @@ const Register = ({ location }) => {
       cookies.set("COUPEN", "WINFREE");
       console.log(coupen, "copen");
     }
+    const checkAbility = searchParams.get("ability");
+    if (checkAbility == "CHNCEOFF") {
+      setAbilityCoupen("CHNCEOFF");
+    }
+
     console.log(coupen, "copen 2");
   };
 
@@ -410,16 +413,16 @@ const Register = ({ location }) => {
   const handleMemType = (e) => {
     setMemType(e.target.value);
     let coupen = "";
-
+    const checkAbility = searchParams.get("ability");
     if (e.target.value == "round") {
       setChosenPlan("");
       setSelectedPlanName("One off round");
       setSelectedSubId("6582b82ea332291cc7752d92");
       setSelPlanPrice(10);
+      setAbilityCoupen("");
     } else {
-      const checkAbility = searchParams.get("ability");
       if (checkAbility == "CHNCEOFF") {
-        coupen = "CHNCEOFF";
+        setAbilityCoupen("CHNCEOFF");
       }
       setChosenPlan("");
       setSelectedPlanName("");
