@@ -167,7 +167,7 @@ const SelectRafflePaymentMethod = ({
               }`}
               onClick={() => setCount(1)}
             >
-              <p>01 Free Accumulating entries package</p>
+              <p>01 Free entry package</p>
 
               <LuInfo
                 className="text-white"
@@ -190,7 +190,7 @@ const SelectRafflePaymentMethod = ({
               }`}
               onClick={() => setCount(3)}
             >
-              <p>03 Free Accumulating entries package</p>
+              <p>03 Free entries package</p>
               <LuInfo
                 className="text-white"
                 title="Access to Winlad Store Cash Back program"
@@ -212,7 +212,7 @@ const SelectRafflePaymentMethod = ({
               }`}
               onClick={() => setCount(10)}
             >
-              <p>10 Free Accumulating entries package</p>
+              <p>10 Free entries package</p>
               <LuInfo
                 className="text-white"
                 title="Access to Winlads Public Events"
@@ -235,7 +235,7 @@ const SelectRafflePaymentMethod = ({
               }`}
               onClick={() => setCount(25)}
             >
-              <p>25 Free Accumulating entries package</p>
+              <p>25 Free entries package</p>
               <LuInfo
                 className="text-white"
                 title="Be Eligible to Apply for Winlad GOLD Card"
@@ -257,7 +257,7 @@ const SelectRafflePaymentMethod = ({
               } text-white`}
               onClick={() => setCount(150)}
             >
-              <p>150 Free Accumulating entries package</p>
+              <p>150 Free entries package</p>
               <LuInfo
                 className="text-white"
                 title="Access to Winlads Urgency Program"
