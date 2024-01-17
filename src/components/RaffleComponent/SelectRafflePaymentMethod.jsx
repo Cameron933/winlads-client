@@ -160,17 +160,17 @@ const SelectRafflePaymentMethod = ({
               </p>
             </div>
           </div> */}
-          <div className="flex flex-col space-y-2">
+          <div className="flex flex-col space-y-2 items-center">
             <div
-              className={`to-[#0094FF] border-2 flex flex-row justify-between px-4 items-center from-[#01819D] hover:opacity-85 cursor-pointer  py-2 text-xs rounded-full bg-gradient-to-t capitalize ${
+              className={`to-[#0094FF] border-2 text-center flex flex-row gap-12 justify-between items-center  px-4  from-[#01819D] hover:opacity-85 cursor-pointer  py-2 text-xs rounded-full bg-gradient-to-t capitalize ${
                 count === 1 ? "border-black" : ""
               }`}
               onClick={() => setCount(1)}
             >
-              <p>01 Free entry package</p>
+              <p className="text-center">1 Free entry package</p>
 
               <LuInfo
-                className="text-white"
+                className="text-white flex items-end"
                 title="Partner Store Discounts: 10%"
               />
             </div>
@@ -185,12 +185,12 @@ const SelectRafflePaymentMethod = ({
               </motion.div>
             )} */}
             <div
-              className={`to-[#FF4700] flex border-2 flex-row justify-between px-4 from-[#611C00]  hover:opacity-85 cursor-pointer py-2 text-xs rounded-full bg-gradient-to-t capitalize ${
+              className={`to-[#FF4700] flex border-2 flex-row items-center justify-between gap-10 px-4 from-[#611C00]  hover:opacity-85 cursor-pointer py-2 text-xs rounded-full bg-gradient-to-t capitalize ${
                 count === 3 ? "border-black" : ""
               }`}
               onClick={() => setCount(3)}
             >
-              <p>03 Free entries package</p>
+              <p>3 Free entries package</p>
               <LuInfo
                 className="text-white"
                 title="Access to Winlad Store Cash Back program"
@@ -207,7 +207,7 @@ const SelectRafflePaymentMethod = ({
               </motion.div>
             )} */}
             <div
-              className={`to-[#00ECFF] flex border-2 flex-row justify-between px-4 from-[#006168]  hover:opacity-85 cursor-pointer py-2 text-xs rounded-full bg-gradient-to-t capitalize ${
+              className={`to-[#00ECFF] flex border-2 flex-row justify-between gap-8 px-4 from-[#006168]  hover:opacity-85 cursor-pointer py-2 text-xs rounded-full bg-gradient-to-t capitalize ${
                 count === 10 ? "border-black" : ""
               }`}
               onClick={() => setCount(10)}
@@ -230,7 +230,7 @@ const SelectRafflePaymentMethod = ({
               </motion.div>
             )} */}
             <div
-              className={`to-[#FFBE00] flex border-2 flex-row justify-between px-4 from-[#766000] hover:opacity-85 cursor-pointer  py-2 text-xs rounded-full bg-gradient-to-t capitalize ${
+              className={`to-[#FFBE00] flex border-2 flex-row justify-between gap-8 px-4 from-[#766000] hover:opacity-85 cursor-pointer  py-2 text-xs rounded-full bg-gradient-to-t capitalize ${
                 count === 25 ? "border-black" : ""
               }`}
               onClick={() => setCount(25)}
@@ -252,7 +252,7 @@ const SelectRafflePaymentMethod = ({
               </motion.div>
             )} */}
             <div
-              className={`to-[#22272C] flex border-2 flex-row justify-between px-4 from-[#23282E] hover:opacity-85 cursor-pointer py-2 text-xs rounded-full bg-gradient-to-t capitalize ${
+              className={`to-[#22272C] flex border-2 flex-row justify-between gap-6 px-4 from-[#23282E] hover:opacity-85 cursor-pointer py-2 text-xs rounded-full bg-gradient-to-t capitalize ${
                 count === 150 ? "border-black" : ""
               } text-white`}
               onClick={() => setCount(150)}
@@ -364,7 +364,7 @@ const SelectRafflePaymentMethod = ({
             </div> */}
             <input
               type="text"
-              className="w-full rounded-2xl border border-solid border-black placeholder:text-xs text-xs px-4 py-2 placeholder:text-gray-700"
+              className="rounded-2xl w-[210px] border border-solid border-black placeholder:text-xs text-xs px-4 py-2 placeholder:text-gray-700"
               placeholder="Coupon code"
               value={coupon}
               id="coupon"
