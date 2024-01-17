@@ -437,6 +437,15 @@ const Register = ({ location }) => {
         <Loader />
       ) : (
         <div className="min-h-screen flex flex-col items-center justify-center bg-image">
+          {/* {abilityCoupen === "CHNCEOFF" && (
+            <div className="py-4 w-full bg-yellow-300 text-center">
+              <p className="text-black font-semibold">
+                Congratulations! You are eligible for free entry on this
+                registration.
+              </p>
+            </div>
+          )} */}
+
           {eligible && (
             <div className="py-4 w-full bg-yellow-300 text-center">
               <p className="text-black font-semibold">
