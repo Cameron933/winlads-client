@@ -129,14 +129,21 @@ const Register = ({ location }) => {
     setIsChecked(e.target.checked);
   };
 
-  const logDetailsToDataLayer = (data) => {
+  const logDetailsToLocal = (valUser, giveawayId, price, name, planeId) => {
+    const data = {
+      user: valUser,
+      giveawayId: giveawayId || "",
+      price: price || "",
+      plan_name: name || "",
+      plan_id: planeId || "",
+    };
 
     if (typeof localStorage !== "undefined") {
       localStorage.setItem("paymentSuccessData", JSON.stringify(data));
     }
 
     // Debugging log
-    console.log("Logging to localstorage one off payment:", data);
+    console.log("Logging to localstorage:", data);
   };
 
   const saveFormData = async (temp_values, uid) => {
@@ -185,7 +192,7 @@ const Register = ({ location }) => {
         //cookies.set("wr_token", response.data?.data?._id);
         console.log(response.data, "data");
         if (response.data?.payurl) {
-          logDetailsToDataLayer(data)
+          logDetailsToLocal(data,selectedSubId,selectedPlanPrice,selectedPlanName,selectedSubId)
           window.location.href = response.data?.payurl;
         } else {
           console.log("NO PAY");
