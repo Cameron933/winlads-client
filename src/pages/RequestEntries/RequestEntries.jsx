@@ -112,11 +112,11 @@ const RequestEntries = () => {
                 <img src={Instagram} alt="" className="w-16 min-w-16" />
               </div>
               <div className="flex flex-col space-y-2">
-                <p className="text-xs">
+                <p className="text-sm font-semibold">
                 Congratulations!
                 </p>
                 <p className="text-xs">
-                You've earned an exclusive invitation for a complimentary entry to the incredible <span className="font-bold text-sm">Mazda BT50</span>.<br/> Embrace the thrill of the road ahead! Don't forget to like, share, and follow WinLads for more exciting opportunities
+                You've earned an exclusive invitation for a <span className="font-bold">free entry </span>to the incredible <span className="font-bold text-sm">Mazda BT50</span>.<br/> Embrace the thrill of the road ahead! Don't forget to like, share, and follow WinLads for more exciting opportunities
                 </p>
               </div>
             </div>
