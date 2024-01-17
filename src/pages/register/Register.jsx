@@ -73,7 +73,7 @@ const Register = ({ location }) => {
   const [showFreeEntry, setShowFreeEntry] = useState(false);
 
   const [buttonDis, setBtnDis] = useState(false); //To disable the register button after submitted the request
-  const [planDis, setPlanDis] = useState(false);  //To disable the left side plans
+  const [planDis, setPlanDis] = useState(false); //To disable the left side plans
 
   // set loading
   useEffect(() => {
@@ -137,12 +137,10 @@ const Register = ({ location }) => {
     window.dataLayer.push({
       event: "sign_up",
       method: "google", //it can be email,facebook, or google. This value is optional
-      data:data
+      data: data,
     });
   };
 
-  const saveFormData = async (temp_values, uid, coupen) => {
-    
   const logDetailsToLocal = (valUser, giveawayId, price, name, planeId) => {
     const data = {
       user: valUser,
@@ -160,7 +158,7 @@ const Register = ({ location }) => {
     console.log("Logging to localstorage:", data);
   };
 
-  const saveFormData = async (temp_values, uid) => {
+  const saveFormData = async (temp_values, uid, coupen) => {
     console.log(temp_values, uid);
 
     // let coupen = "";
@@ -190,7 +188,6 @@ const Register = ({ location }) => {
       count: select,
       roundid: selectedSubId, //Used the same variable for store roundid OR subid
     };
-    
 
     //console.log(data);
 
@@ -207,7 +204,13 @@ const Register = ({ location }) => {
         //cookies.set("wr_token", response.data?.data?._id);
         console.log(response.data, "data");
         if (response.data?.payurl) {
-          logDetailsToLocal(data,selectedSubId,selectedPlanPrice,selectedPlanName,selectedSubId)
+          logDetailsToLocal(
+            data,
+            selectedSubId,
+            selectedPlanPrice,
+            selectedPlanName,
+            selectedSubId
+          );
           window.location.href = response.data?.payurl;
         } else {
           console.log("NO PAY");
@@ -225,7 +228,7 @@ const Register = ({ location }) => {
           theme: "colored",
         });
         console.error("Error submitting form:", error);
-        setBtnDis(false)
+        setBtnDis(false);
       }
     } else {
       toast.error("Email already registered!", {
@@ -238,7 +241,7 @@ const Register = ({ location }) => {
         progress: undefined,
         theme: "colored",
       });
-      setBtnDis(false)
+      setBtnDis(false);
     }
   };
 
@@ -260,9 +263,9 @@ const Register = ({ location }) => {
     }
 
     if (buttonText === "Register") {
-      setBtnDis(true)
-       ValidateOtp();
-     // setBtnDis(false);
+      setBtnDis(true);
+      ValidateOtp();
+      // setBtnDis(false);
     } else {
       setButtonText("Sending...");
       window.recaptchaVerifier = new RecaptchaVerifier(
@@ -339,7 +342,7 @@ const Register = ({ location }) => {
 
         // navigate("/welcome");
         // SIGN UP SUCCESS
-       // handleSEOReg();
+        // handleSEOReg();
       })
       .catch((err) => {
         console.log(err);
@@ -356,7 +359,6 @@ const Register = ({ location }) => {
         setBtnDis(false);
       });
   };
-
 
   const { values, handleChange, handleBlur, handleSubmit, errors, touched } =
     useFormik({
@@ -415,7 +417,6 @@ const Register = ({ location }) => {
       setSelectedSubId("6582b82ea332291cc7752d92");
       setSelPlanPrice(10);
     } else {
-  
       const checkAbility = searchParams.get("ability");
       if (checkAbility == "CHNCEOFF") {
         coupen = "CHNCEOFF";
@@ -424,7 +425,6 @@ const Register = ({ location }) => {
       setSelectedPlanName("");
       setSelectedSubId("");
       setSelPlanPrice(0);
-
     }
     saveFormData(temp_values, uid, coupen);
   };
@@ -803,7 +803,7 @@ const Register = ({ location }) => {
                             setSelectedPlanName={setSelectedPlanName}
                             setSelPlanPrice={setSelPlanPrice}
                           />
-                         </div>
+                        </div>
                       )}
                     </div>
                     <p className="text-sm font-bold border-b">
