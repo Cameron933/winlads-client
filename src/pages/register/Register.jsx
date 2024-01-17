@@ -137,11 +137,30 @@ const Register = ({ location }) => {
     window.dataLayer.push({
       event: "sign_up",
       method: "google", //it can be email,facebook, or google. This value is optional
-      data: data,
+      data:data
     });
   };
 
   const saveFormData = async (temp_values, uid, coupen) => {
+    
+  const logDetailsToLocal = (valUser, giveawayId, price, name, planeId) => {
+    const data = {
+      user: valUser,
+      giveawayId: giveawayId || "",
+      price: price || "",
+      plan_name: name || "",
+      plan_id: planeId || "",
+    };
+
+    if (typeof localStorage !== "undefined") {
+      localStorage.setItem("paymentSuccessData", JSON.stringify(data));
+    }
+
+    // Debugging log
+    console.log("Logging to localstorage:", data);
+  };
+
+  const saveFormData = async (temp_values, uid) => {
     console.log(temp_values, uid);
 
     // let coupen = "";
@@ -178,7 +197,7 @@ const Register = ({ location }) => {
     const response = await axios.get(
       `${import.meta.env.VITE_SERVER_API}/checkEmail?email=${values.email}`
     );
-   /// handleSEOReg(data);
+    handleSEOReg(data);
     if (!response.data.exists) {
       try {
         const response = await axios.post(
@@ -188,6 +207,7 @@ const Register = ({ location }) => {
         //cookies.set("wr_token", response.data?.data?._id);
         console.log(response.data, "data");
         if (response.data?.payurl) {
+          logDetailsToLocal(data,selectedSubId,selectedPlanPrice,selectedPlanName,selectedSubId)
           window.location.href = response.data?.payurl;
         } else {
           console.log("NO PAY");
@@ -337,6 +357,7 @@ const Register = ({ location }) => {
       });
   };
 
+
   const { values, handleChange, handleBlur, handleSubmit, errors, touched } =
     useFormik({
       initialValues: {
@@ -483,7 +504,7 @@ const Register = ({ location }) => {
                         buttonTextColor={
                           plan.name == "Black" ? "black" : "white"
                         }
-                        btnword="CHOSE PLAN"
+                        btnword="CHOOSE PLAN"
                         handleChosePlan={handleChosePlan}
                         bgColorFrom={plan.color}
                         bgColorTo={plan.colorFrom}
@@ -749,7 +770,7 @@ const Register = ({ location }) => {
                               buttonTextColor={
                                 plan.name == "Black" ? "black" : "white"
                               }
-                              btnword="CHOSE PLAN"
+                              btnword="CHOOSE PLAN"
                               handleChosePlan={handleChosePlan}
                               bgColorFrom={plan.color}
                               bgColorTo={plan.colorFrom}
