@@ -129,6 +129,15 @@ const Register = ({ location }) => {
     setIsChecked(e.target.checked);
   };
 
+  const handleSEOReg = (data) => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "sign_up",
+      method: "google", //it can be email,facebook, or google. This value is optional
+      data:data
+    });
+  };
+
   const logDetailsToLocal = (valUser, giveawayId, price, name, planeId) => {
     const data = {
       user: valUser,
@@ -182,7 +191,7 @@ const Register = ({ location }) => {
     const response = await axios.get(
       `${import.meta.env.VITE_SERVER_API}/checkEmail?email=${values.email}`
     );
-   /// handleSEOReg(data);
+    handleSEOReg(data);
     if (!response.data.exists) {
       try {
         const response = await axios.post(
