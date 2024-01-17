@@ -72,6 +72,9 @@ const Register = ({ location }) => {
   const [selectOffName, setSelectOffName] = useState("");
   const [showFreeEntry, setShowFreeEntry] = useState(false);
 
+  const [buttonDis, setBtnDis] = useState(false); //To disable the register button after submitted the request
+  const [planDis, setPlanDis] = useState(false);  //To disable the left side plans
+
   // set loading
   useEffect(() => {
     // if (selectedPackage) {
@@ -219,6 +222,7 @@ const Register = ({ location }) => {
           theme: "colored",
         });
         console.error("Error submitting form:", error);
+        setBtnDis(false)
       }
     } else {
       toast.error("Email already registered!", {
@@ -231,11 +235,13 @@ const Register = ({ location }) => {
         progress: undefined,
         theme: "colored",
       });
+      setBtnDis(false)
     }
   };
 
   function onSignup(e) {
     setFieldDis(true);
+    setPlanDis(true);
     if (!isChecked) {
       toast.error("Please confirm terms and conditions", {
         position: "top-center",
@@ -251,7 +257,9 @@ const Register = ({ location }) => {
     }
 
     if (buttonText === "Register") {
-      ValidateOtp();
+      setBtnDis(true)
+       ValidateOtp();
+     // setBtnDis(false);
     } else {
       setButtonText("Sending...");
       window.recaptchaVerifier = new RecaptchaVerifier(
@@ -330,7 +338,20 @@ const Register = ({ location }) => {
         // SIGN UP SUCCESS
        // handleSEOReg();
       })
-      .catch((err) => {});
+      .catch((err) => {
+        console.log(err);
+        toast.error("Incorrect or Expired OTP, Please try again!.", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+        setBtnDis(false);
+      });
   };
 
 
@@ -453,6 +474,7 @@ const Register = ({ location }) => {
                         title2={plan.raffle_count}
                         titleColor2={plan.name == "Black" ? "white" : "black"}
                         desc1={plan.desc[0]}
+                        isDisabled={planDis}
                         buttonColor={
                           plan.name == "Starter"
                             ? "black"
@@ -835,6 +857,7 @@ const Register = ({ location }) => {
                       <small className="text-error">
                         {errors.otp && touched.opt && errors.otp}
                       </small>
+                      {/* <small onClick={resendOTP}>Resend</small> */}
                     </div>
                   )}
 
@@ -869,12 +892,12 @@ const Register = ({ location }) => {
                   {!final && <div id="recaptcha-container"></div>}
 
                   <button
-                    className={`text-white rounded-xl justify-center px-12 py-2 flex flex-row items-center font-semibold special:text-xl bg-${
+                    className={`text-white rounded-xl justify-center px-12 py-2 flex flex-row items-center font-semibold special:text-xl disabled:bg-gray-500 bg-${
                       isChecked ? "black" : "gray-500"
                     } hover:bg-${isChecked ? "black/50" : ""}`}
                     onClick={(e) => onSignup(e)}
                     // onClick={(e) => onSignup(e)}
-                    disabled={!isChecked}
+                    disabled={!isChecked || buttonDis}
                     type="submit"
                   >
                     <span className="xl:text-xl md:text-xl special:text-2xl text-lg text-white font-bold">
