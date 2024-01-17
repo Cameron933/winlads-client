@@ -36,6 +36,7 @@ const SubCard = ({
   chosenPlan,
   isShowDetails = false,
   popular,
+  isDisabled = false
 }) => {
   const [initial, setShowmore] = useState(1);
   const [btnBgColor, setBtnBgColor] = useState(buttonColor);
@@ -241,20 +242,22 @@ const SubCard = ({
           </div>
         </div>
       )}
-      <div
-        className={`rounded-md border-2 hover:bg-white hover:text-black cursor-pointer border-white flex flex-row justify-center py-2 hover:scale-105 hover:transition-transform ease-out duration-300 mt-auto text-${buttonTextColor}`}
+      <button
+        className={`rounded-md border-2 hover:bg-white disabled:bg-gray-500 hover:text-black cursor-pointer border-white flex flex-row justify-center py-2 hover:scale-105 hover:transition-transform ease-out duration-300 mt-auto text-${buttonTextColor}`}
         style={{ backgroundColor: btnBgColor }}
         onClick={() => handleChosePlan(planId)}
         onMouseEnter={() => switchBtnColor()}
         onMouseLeave={() => switchBtnColor()}
+        disabled={isDisabled}
       >
-        <button className="flex flex-row items-center gap-2">
-          <p className={` text-xs 2xl:text-lg`}>
-            {chosenPlan == planId ? "SELECTED" : btnword}
+        <div className={`flex flex-row items-center gap-2`} disabled={isDisabled}>
+          <p className={`text-xs 2xl:text-lg`}>
+            {chosenPlan === planId ? "SELECTED" : btnword}
           </p>
           {/* <MdKeyboardArrowRight className={`text-${arrowColor}`} /> */}
-        </button>
-      </div>
+        </div>
+      </button>
+
     </motion.div>
   );
 };

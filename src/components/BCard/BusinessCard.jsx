@@ -45,6 +45,11 @@ function BusinessCard() {
     const validator = await validateCurrentUser();
     if (validator.validatorBl) {
       setValUser(validator.user);
+      setAddress(validator.user.address)
+      setAddress2(validator.user.address2)
+      setCity(validator.user.city)
+      setState(validator.user.state)
+      setPostalCode(validator.user.postalcode)
       setLoading(false);
     } else {
       navigate("/login");
@@ -156,15 +161,15 @@ function BusinessCard() {
               lastName={valUser.lastname}
               nic={valUser.nic}
               phone={valUser.mobile}
-              address={valUser.address}
+              address={address}
               setAddress={setAddress}
-              address2={valUser.address2}
+              address2={addres2}
               setAddress2={setAddress2}
-              city={valUser.city}
+              city={city}
               setCity={setCity}
-              state={valUser.state}
+              state={state}
               setState={setState}
-              postalCode={valUser.postalcode}
+              postalCode={postalCode}
               setPostalCode={setPostalCode}
             />
           ) : (
@@ -280,6 +285,7 @@ function ShareForm({
     setState(state);
     setPostalCode(postalCode);
   }, []);
+
   const handlePostalAddressChange = (e) => {
     setAddress(e.target.value);
     setAddress2(e.target.value);
