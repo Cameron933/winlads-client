@@ -1,5 +1,4 @@
 import "./Home.css";
-import { redirect, useNavigate } from "react-router-dom";
 // import Footer from "../../components/Footer/footer";
 import Footer from "../../components/footerSection/Footer";
 import Showcase2 from "../../components/showcase/Showcase2";
@@ -19,7 +18,6 @@ import { useEffect } from "react";
 
 const Home = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
 
   const scrollTo = (target) => {
     const otherComponentElement = document.getElementById(target);
@@ -29,7 +27,6 @@ const Home = () => {
     }
   };
   useEffect(() => {
-   redirect("/login");
     console.log("ID IS : " + id);
     if (id !== undefined) {
       setTimeout(() => {
