@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
 
 import Home from "./pages/Home/Home";
 import Dashboard from "./pages/Dashboard/Dashboard";
@@ -175,7 +175,7 @@ TagManager.initialize(tagManagerArgs)
 
     {
       path: "/:id?",
-      element: <Home />,
+      element:<Navigate to="/login" replace />
     },
     {
       path: "/conditions",

@@ -132,7 +132,6 @@ const Register = ({ location }) => {
   const onCheckboxChange = (e) => {
     setIsChecked(e.target.checked);
   };
-
   const handleSEOReg = (data) => {
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
