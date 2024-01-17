@@ -129,13 +129,14 @@ const Register = ({ location }) => {
     setIsChecked(e.target.checked);
   };
 
-  const handleSEOReg = (data) => {
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      event: "sign_up",
-      method: "google", //it can be email,facebook, or google. This value is optional
-      data: data,
-    });
+  const logDetailsToDataLayer = (data) => {
+
+    if (typeof localStorage !== "undefined") {
+      localStorage.setItem("paymentSuccessData", JSON.stringify(data));
+    }
+
+    // Debugging log
+    console.log("Logging to localstorage one off payment:", data);
   };
 
   const saveFormData = async (temp_values, uid) => {
@@ -184,6 +185,7 @@ const Register = ({ location }) => {
         //cookies.set("wr_token", response.data?.data?._id);
         console.log(response.data, "data");
         if (response.data?.payurl) {
+          logDetailsToDataLayer(data)
           window.location.href = response.data?.payurl;
         } else {
           console.log("NO PAY");
@@ -314,6 +316,7 @@ const Register = ({ location }) => {
       })
       .catch((err) => {});
   };
+
 
   const { values, handleChange, handleBlur, handleSubmit, errors, touched } =
     useFormik({
