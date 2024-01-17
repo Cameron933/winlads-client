@@ -48,9 +48,8 @@ const SideNav = () => {
   const [expanded, setExpanded] = useState(true);
   const navigate = useNavigate();
   const [valUser, setValUser] = useState({});
-  const [userImage, setUserImage] = useState("");
   const [loading, setLoading] = useState(true);
-  const { refreshCount, refresh, showMenu, handleMenu } = useRefresh();
+  const { refreshCount, refresh, showMenu, handleMenu, userImage, setUserImage } = useRefresh();
   const location = useLocation();
 
   const isNavLinkActive = (path) => {

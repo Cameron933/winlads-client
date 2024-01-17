@@ -20,12 +20,11 @@ import { useRefresh } from "../../utils/RefreshContext";
 
 const Profile = () => {
   const cookies = new Cookies(null, { path: "/" });
-  const { refreshCount, refresh } = useRefresh();
+  const { refreshCount, refresh, userImage, setUserImage } = useRefresh();
   const id = cookies.get("wr_token");
   const [userData, setUserData] = useState({});
   const navigate = useNavigate();
   const [valUser, setValUser] = useState({});
-
   const [name, setName] = useState("");
   const [userId, setUserId] = useState("");
   const [email, setEmail] = useState("");
@@ -40,7 +39,6 @@ const Profile = () => {
   const [postalcode, setPostalcode] = useState("");
   const [profile, setProfile] = useState("");
   const [loading, setLoading] = useState(false);
-  const [userImage, setUserImage] = useState("");
   const [license, setLicense] = useState("");
   const [isChecked, setIsChecked] = useState(false);
   const [refferalId, setRefferalId] = useState();
