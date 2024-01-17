@@ -141,10 +141,10 @@ const Register = ({ location }) => {
     });
   };
 
-  const saveFormData = async (temp_values, uid) => {
+  const saveFormData = async (temp_values, uid, coupen) => {
     console.log(temp_values, uid);
 
-    let coupen = "";
+    // let coupen = "";
 
     const checkAbility = searchParams.get("ability");
     if (checkAbility == "WINACCESSEN") {
@@ -385,17 +385,26 @@ const Register = ({ location }) => {
 
   const handleMemType = (e) => {
     setMemType(e.target.value);
+    let coupen = "";
+
     if (e.target.value == "round") {
       setChosenPlan("");
       setSelectedPlanName("One off round");
       setSelectedSubId("6582b82ea332291cc7752d92");
       setSelPlanPrice(10);
     } else {
+  
+      const checkAbility = searchParams.get("ability");
+      if (checkAbility == "CHNCEOFF") {
+        coupen = "CHNCEOFF";
+      }
       setChosenPlan("");
       setSelectedPlanName("");
       setSelectedSubId("");
       setSelPlanPrice(0);
+
     }
+    saveFormData(temp_values, uid, coupen);
   };
 
   return (
