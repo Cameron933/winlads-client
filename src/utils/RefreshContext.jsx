@@ -5,6 +5,7 @@ const RefreshContext = createContext();
 export const RefreshProvider = ({ children }) => {
   const [refreshCount, setRefreshCount] = useState(true);
   const [showMenu, setShowMenu] = useState(true);
+  const [userImage, setUserImage] = useState("");
 
   const refresh = () => {
     setRefreshCount((prev) => !prev);
@@ -14,7 +15,7 @@ export const RefreshProvider = ({ children }) => {
   }
 
   return (
-    <RefreshContext.Provider value={{ refreshCount, refresh ,showMenu, handleMenu}}>
+    <RefreshContext.Provider value={{ refreshCount, refresh ,showMenu, handleMenu, userImage, setUserImage}}>
       {children}
     </RefreshContext.Provider>
   );
