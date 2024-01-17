@@ -454,7 +454,7 @@ const Register = ({ location }) => {
                         buttonTextColor={
                           plan.name == "Black" ? "black" : "white"
                         }
-                        btnword="CHOSE PLAN"
+                        btnword="CHOOSE PLAN"
                         handleChosePlan={handleChosePlan}
                         bgColorFrom={plan.color}
                         bgColorTo={plan.colorFrom}
@@ -720,7 +720,7 @@ const Register = ({ location }) => {
                               buttonTextColor={
                                 plan.name == "Black" ? "black" : "white"
                               }
-                              btnword="CHOSE PLAN"
+                              btnword="CHOOSE PLAN"
                               handleChosePlan={handleChosePlan}
                               bgColorFrom={plan.color}
                               bgColorTo={plan.colorFrom}
