@@ -36,7 +36,8 @@ const SubCard = ({
   chosenPlan,
   isShowDetails = false,
   popular,
-  isDisabled = false
+  isDisabled = false,
+  specDesc,
 }) => {
   const [initial, setShowmore] = useState(1);
   const [btnBgColor, setBtnBgColor] = useState(buttonColor);
@@ -124,6 +125,14 @@ const SubCard = ({
               </p>
             </div>
           ))}
+          {specDesc && (
+            <div className="flex flex-row  gap-2 items-center">
+              <img src={Correct} alt="" />
+              <p className={`text-${descColor} text-[8px] 2xl:text-[16px]`}>
+                {specDesc}
+              </p>
+            </div>
+          )}
 
           {/* {showmore && (
             // desc3 && (
@@ -250,14 +259,16 @@ const SubCard = ({
         onMouseLeave={() => switchBtnColor()}
         disabled={isDisabled}
       >
-        <div className={`flex flex-row items-center gap-2`} disabled={isDisabled}>
+        <div
+          className={`flex flex-row items-center gap-2`}
+          disabled={isDisabled}
+        >
           <p className={`text-xs 2xl:text-lg`}>
             {chosenPlan === planId ? "SELECTED" : btnword}
           </p>
           {/* <MdKeyboardArrowRight className={`text-${arrowColor}`} /> */}
         </div>
       </button>
-
     </motion.div>
   );
 };
