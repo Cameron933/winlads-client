@@ -305,7 +305,7 @@ const Login = () => {
               {/* <div className="img-container scale-150 mb-9 md:mb-0 prevent"> */}
               {/* Dekstop VIew Jeep */}
 
-              <div className="hidden md:block transform scale-x-[-1]">
+              <div className="hidden md:block transform">
                 <motion.img
                   initial={{ opacity: 0, x: "40%" }}
                   whileInView={{ opacity: 1, x: "0%" }}
@@ -316,7 +316,7 @@ const Login = () => {
                 />
               </div>
               {/* Mobile View Jeep */}
-              <div className="block md:hidden w-full transform scale-x-[-1]">
+              <div className="block md:hidden w-full transform">
                 <motion.img
                   initial={{ opacity: 0, x: "40%" }}
                   whileInView={{ opacity: 1, x: "0%" }}

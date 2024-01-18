@@ -456,7 +456,7 @@ const Register = ({ location }) => {
           <div className="flex items-start justify-between gap-12 md:flex-row flex-col px-10 xl:px-20 max-w-[1440px]">
             {/* <div className="login-contain flex items-center justify-center md:flex-row xl:flex-row 4xl:flex-row flex-col"> */}
             <div className="">
-              <div className="hidden md:block  transform scale-x-[-1]">
+              <div className="hidden md:block  transform">
                 <motion.img
                   initial={{ opacity: 0, x: "40%" }}
                   whileInView={{ opacity: 1, x: "0%" }}
@@ -467,7 +467,7 @@ const Register = ({ location }) => {
                 />
               </div>
               {/* Mobile View Jeep */}
-              <div className="block md:hidden w-full transform scale-x-[-1]">
+              <div className="block md:hidden w-full transform">
                 <motion.img
                   initial={{ opacity: 0, x: "40%" }}
                   whileInView={{ opacity: 1, x: "0%" }}

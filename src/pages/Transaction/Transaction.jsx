@@ -188,7 +188,7 @@ const Transaction = () => {
           </div>
           <div className="flex xl:flex-row md:flex-row flex-col gap-1 xl:gap-2 md:gap-6 2xl:text-2xl special:text-3xl">
             <div
-              className="from-[#005887] to-black bg-gradient-to-r justify-between items-center rounded-2xl gap-1 py-2 xl:px-3 md:px-4 flex flex-1 flex-row px-2 cursor-default hover:bg-green-600/75"
+              className="from-[#005887] gap-4 to-black bg-gradient-to-r justify-between items-center rounded-2xl py-2 xl:px-3 md:px-4 flex flex-1 flex-row px-2 cursor-default hover:bg-green-600/75"
               style={{}}
             >
               <img
@@ -198,14 +198,14 @@ const Transaction = () => {
               />
               <div className="flex flex-col w-full">
                 <p className="text-white text-lg md:text-xl xl:text-xl 2xl:text-2xl special:text-3xl">
-                  $&nbsp;{Math.floor(wallet.balance * 100) / 100 || "0.00"}
+                  ${Math.floor(wallet.balance * 100) / 100 || "0.00"}
                 </p>
                 <p className="text-white text-sm md:text-lg xl:text-sm 2xl:text-xl special:text-2xl">
                   Balance
                 </p>
               </div>
             </div>
-            <div className="from-[#008767] to-black bg-gradient-to-r justify-between items-center rounded-2xl gap-1 py-2 xl:px-4 md:px-4 flex flex-1 flex-row px-2 cursor-default hover:bg-[#52A0DF]/75">
+            <div className="from-[#008767] to-black bg-gradient-to-r justify-between items-center rounded-2xl gap-4 py-2 xl:px-4 md:px-4 flex flex-1 flex-row px-2 cursor-default hover:bg-[#52A0DF]/75">
               <img
                 src={NewEarning}
                 alt=""
@@ -213,9 +213,8 @@ const Transaction = () => {
               />
               <div className="flex flex-col w-full">
                 <p className="text-white text-lg md:text-xl xl:text-xl 2xl:text-2xl special:text-3xl">
-                  $&nbsp;
-                  {wallet.earning
-                    ? Math.floor(wallet.earning * 100) / 100
+                  ${wallet.earning
+                    ? Math.floor(wallet.earning * 100) / 100 || "0.00"
                     : "0.00"}
                 </p>
                 <p className="text-white text-sm md:text-lg xl:text-sm 2xl:text-xl special:text-2xl">
@@ -224,7 +223,7 @@ const Transaction = () => {
               </div>
             </div>
 
-            <div className="from-[#CBAD11] to-black bg-gradient-to-r justify-between items-center rounded-2xl gap-1 py-2 xl:px-3 md:px-4 flex flex-1 flex-row px-2 cursor-default hover:bg-[#DF7E59]/75">
+            <div className="from-[#CBAD11] to-black bg-gradient-to-r justify-between items-center rounded-2xl gap-4 py-2 xl:px-3 md:px-4 flex flex-1 flex-row px-2 cursor-default hover:bg-[#DF7E59]/75">
               <img
                 src={NewPurcahase}
                 alt=""
@@ -232,9 +231,9 @@ const Transaction = () => {
               />
               <div className="flex flex-col w-full">
                 <p className="text-white text-lg md:text-xl xl:text-xl 2xl:text-2xl special:text-3xl">
-                  $&nbsp;
+                  $
                   {wallet.purchase
-                    ? Math.floor(wallet.purchase * 100) / 100
+                    ? Math.floor(wallet.purchase * 100) / 100 || "0.00"
                     : "0.00"}
                 </p>
                 <p className="text-white text-sm md:text-lg xl:text-sm 2xl:text-xl special:text-2xl">
@@ -403,7 +402,7 @@ const Transaction = () => {
                             : "green-400"
                         } text-lg`}
                       >
-                        $ {Math.floor((transaction.amount * 100))/100}
+                        ${Math.floor((transaction.amount * 100))/100}
           
                         
                       </p>
