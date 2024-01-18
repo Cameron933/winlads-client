@@ -31,6 +31,7 @@ const Login = () => {
   const [wrToken, setWrToken] = useState('');
   const [email, setEmail] = useState("");
   const cookies = new Cookies(null, { path: "/" });
+  const [userId, setUserId] = useState("");
 
   const [password, setPassword] = useState("");
 
@@ -102,6 +103,7 @@ const Login = () => {
               setWrToken(response.data.data._id);
               if (response.data.data.otpVerified == 0) {
                 // LOGIC IF USER NOT VERIFIED
+                setUserId(response.data.data._id)
                 setFieldDis(true);
                 setButtonText("Sending...");
                 window.recaptchaVerifier = new RecaptchaVerifier(
@@ -211,15 +213,16 @@ const Login = () => {
         const uid = result.user.uid;
 
         //CREATE THE LOGIC FOR MAKE otpVerified: true in DATABASE
-        // axios.post(`${import.meta.env.VITE_SERVER_API}/editUser?uid=${uid}`, response.data.data).then((response) => {
-        //   console.log("success");
-        //   cookies.set("wr_token", response.data.data._id);
-        //   navigate("/dashboard");
-        // }).catch((err) => {
-        //   console.log(err);
-        // })
-        cookies.set("wr_token", wrToken);
-        navigate("/dashboard");
+        axios.post(`${import.meta.env.VITE_SERVER_API}/editUser`, {id:userId,otpVerified:1}).then((response) => {
+          console.log("success");
+          cookies.set("wr_token", wrToken);
+          console.log(response);
+          navigate("/dashboard");
+        }).catch((err) => {
+          console.log(err);
+        })
+        // cookies.set("wr_token", wrToken);
+        // navigate("/dashboard");
 
 
         // axios
