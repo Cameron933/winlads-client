@@ -281,7 +281,7 @@ const Affiliate = () => {
                             Email
                           </p>
                           <p className="bg-[#F3F3F3] font-semibold py-2 px-4 text-xs md:text-md">
-                            Subscription Plans
+                            Subscription Plan
                           </p>
                         </div>
 
@@ -484,7 +484,7 @@ const Affiliate = () => {
                       Email
                     </p>
                     <p className="bg-[#F3F3F3] font-semibold py-2 px-4 text-xs md:text-md">
-                      Subscription Plans
+                      Subscription Plan
                     </p>
                   </div>
 
