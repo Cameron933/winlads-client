@@ -158,7 +158,7 @@ const Register = ({ location }) => {
     console.log("Logging to localstorage:", data);
   };
 
-  const saveFormData = async (uid) => {
+  const saveFormData = async (temp_values, uid) => {
     // console.log(temp_values, uid);
 
     // let coupen = "";
