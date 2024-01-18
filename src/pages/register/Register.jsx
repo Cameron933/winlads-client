@@ -855,7 +855,7 @@ const Register = ({ location }) => {
                       Amount
                     </p>
                     <div className="flex items-start justify-between text-xs text-gray-500 border-b border-gray-500">
-                      <p>{selectedPlanName} Tier</p> <p>${selectedPlanPrice}</p>
+                      <p>{selectedPlanName} {memberShipType === "subscription" ? "Tier" : ""}</p> <p>${selectedPlanPrice}</p>
                     </div>
                     <div className="flex items-start justify-between text-xs font-bold">
                       <p>Order Total</p> <p>${selectedPlanPrice}</p>
