@@ -100,13 +100,13 @@ const Register = ({ location }) => {
       setRefId(ref);
       values.refferalId = ref;
     }
-    // const checkAbility = searchParams.get("ability");
-    // if (checkAbility == "WINACCESSEN") {
-    //   setEligible(true);
-    //   setShowOneOff(false);
-    //   setShowFreeEntry(true);
-    // }
-    // getFreeEntry();
+    const checkAbility = searchParams.get("ability");
+    if (checkAbility == "WINACCESSEN") {
+      setEligible(true);
+      setShowOneOff(false);
+      setShowFreeEntry(true);
+    }
+    getFreeEntry();
   }, []);
 
   const getPlanes = async () => {
@@ -158,7 +158,7 @@ const Register = ({ location }) => {
     console.log("Logging to localstorage:", data);
   };
 
-  const saveFormData = async (uid, coupen) => {
+  const saveFormData = async (uid) => {
     // console.log(temp_values, uid);
 
     // let coupen = "";
@@ -411,7 +411,6 @@ const Register = ({ location }) => {
 
   const handleMemType = (e) => {
     setMemType(e.target.value);
-    let coupen = "";
     const checkAbility = searchParams.get("ability");
     if (e.target.value == "round") {
       setChosenPlan("");
@@ -428,7 +427,6 @@ const Register = ({ location }) => {
       setSelectedSubId("");
       setSelPlanPrice(0);
     }
-    saveFormData(coupen);
   };
 
   return (
