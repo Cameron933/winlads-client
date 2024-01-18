@@ -116,7 +116,7 @@ const RequestEntries = () => {
                 Congratulations!
                 </p>
                 <p className="text-xs">
-                You've earned an exclusive invitation for a <span className="font-bold">free entry </span>to the incredible <span className="font-bold text-sm">Mazda BT50</span>.<br/> Embrace the thrill of the road ahead! Don't forget to like, share, and follow WinLads for more exciting opportunities
+                You've earned an exclusive invitation for a <span className="font-bold">free entry </span>to the incredible <span className="font-bold text-sm">Mazda BT50</span>.<br/> Embrace the thrill of the road ahead! Don't forget to <span className="font-bold">like</span>, <span className="font-bold">share</span>, and follow <span className="font-bold">WinLads</span> for more exciting opportunities
                 </p>
               </div>
             </div>
