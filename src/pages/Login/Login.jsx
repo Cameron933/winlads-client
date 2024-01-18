@@ -63,7 +63,7 @@ const Login = () => {
 
     if (buttonText == 'Verify') {
       setLoginDisable(false)
-      ValidateOtp()
+      // ValidateOtp()
     } else {
       //setIsLoading(true);
       setButtonText("Login...");
