@@ -357,7 +357,7 @@ const ForgotPassword = () => {
                       <span>New Member? </span>
                       <span>
                         <Link to="/login" className="react-link text-[#157D98]">
-                          login
+                          Login
                         </Link>
                       </span>
                     </div>

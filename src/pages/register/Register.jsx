@@ -132,7 +132,6 @@ const Register = ({ location }) => {
   const onCheckboxChange = (e) => {
     setIsChecked(e.target.checked);
   };
-
   const handleSEOReg = (data) => {
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
@@ -438,6 +437,15 @@ const Register = ({ location }) => {
         <Loader />
       ) : (
         <div className="min-h-screen flex flex-col items-center justify-center bg-image">
+          {/* {abilityCoupen === "CHNCEOFF" && (
+            <div className="py-4 w-full bg-yellow-300 text-center">
+              <p className="text-black font-semibold">
+                Congratulations! You are eligible for free entry on this
+                registration.
+              </p>
+            </div>
+          )} */}
+
           {eligible && (
             <div className="py-4 w-full bg-yellow-300 text-center">
               <p className="text-black font-semibold">
@@ -847,7 +855,7 @@ const Register = ({ location }) => {
                       Amount
                     </p>
                     <div className="flex items-start justify-between text-xs text-gray-500 border-b border-gray-500">
-                      <p>{selectedPlanName} Tier</p> <p>${selectedPlanPrice}</p>
+                      <p>{selectedPlanName} {memberShipType === "subscription" ? "Tier" : ""}</p> <p>${selectedPlanPrice}</p>
                     </div>
                     <div className="flex items-start justify-between text-xs font-bold">
                       <p>Order Total</p> <p>${selectedPlanPrice}</p>

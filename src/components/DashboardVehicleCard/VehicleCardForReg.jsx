@@ -155,11 +155,11 @@ const VehicleCardForReg = ({
         className="flex items-stretch md:flex-wrap justify-start gap-3"
       > */}
         <div
-          className={`bg-gradient-to-t border-2 to-[#0094FF] from-[#00347C] hover:opacity-75 rounded-lg flex flex-col py-4 md:px-2 px-4  ${
+          className={`bg-gradient-to-t border-2 cursor-pointer to-[#0094FF] from-[#00347C] hover:opacity-75 rounded-lg flex flex-col py-4 md:px-2 px-4  ${
             select === "01" ? "border-black" : ""
           }`}
           onClick={() =>
-            handleClickOneOff("01", "01 Free Accumulating entries package")
+            handleClickOneOff("1", "1 Free entry package")
           }
         >
           <p className="text-black font-semibold xl:text-2xl md:text-xl text-lg xl:pb-12 pb-16 md:pb-8 text-center">
@@ -174,11 +174,11 @@ const VehicleCardForReg = ({
             select === "03" ? " border-black" : ""
           }`}
           onClick={() =>
-            handleClickOneOff("03", "03 Free Accumulating entries package")
+            handleClickOneOff("3", "3 Free entries package")
           }
         >
-          <p className="text-black font-semibold xl:text-2xl md:text-xl text-lg xl:pb-12 pb-16 md:pb-8 text-center">
-            3 Free Entry<br/> Packages
+          <p className="text-black font-semibold cursor-pointer xl:text-2xl md:text-xl text-lg xl:pb-12 pb-16 md:pb-8 text-center">
+            3 Free Entries<br/> Package
           </p>
           <div className="bg-white text-black rounded-lg md:py-4 py-2 text-center px-2  md:text-xs text-[8px]">
             Access to Winlad Store Cashback program
@@ -189,11 +189,11 @@ const VehicleCardForReg = ({
             select === "10" ? "border-black" : ""
           }`}
           onClick={() =>
-            handleClickOneOff("10", "10 Free Accumulating entries package")
+            handleClickOneOff("10", "10 Free entries package")
           }
         >
-          <p className="text-black font-semibold xl:text-2xl md:text-xl text-lg xl:pb-12 pb-16 md:pb-8 text-center">
-            10 Free Entry<br/> Packages
+          <p className="text-black font-semibold cursor-pointer xl:text-2xl md:text-xl text-lg xl:pb-12 pb-16 md:pb-8 text-center">
+            10 Free Entries<br/> Package
           </p>
           <div className="bg-white text-black rounded-lg md:py-4 py-2 text-center px-2  md:text-xs text-[8px]">
             Access to Winlads Public Events
@@ -204,11 +204,11 @@ const VehicleCardForReg = ({
             select === "25" ? "border-black" : ""
           }`}
           onClick={() =>
-            handleClickOneOff("25", "25 Free Accumulating entries package")
+            handleClickOneOff("25", "25 Free entries package")
           }
         >
-          <p className="text-black font-semibold xl:text-2xl md:text-xl text-lg xl:pb-12 pb-16 md:pb-8 text-center">
-            25 Free Entry<br/> Packages
+          <p className="text-black font-semibold cursor-pointer xl:text-2xl md:text-xl text-lg xl:pb-12 pb-16 md:pb-8 text-center">
+            25 Free Entries<br/> Package
           </p>
           <div className="bg-white text-black rounded-lg md:py-4 py-2 text-center px-2  md:text-xs text-[8px]">
             Be Eligible to Apply for Winlad GOLD Card
@@ -219,11 +219,11 @@ const VehicleCardForReg = ({
             select === "150" ? "border-black" : ""
           }`}
           onClick={() =>
-            handleClickOneOff("150", "150 Free Accumulating entries package")
+            handleClickOneOff("150", "150 Free entries package")
           }
         >
-          <p className="text-white font-semibold xl:text-2xl md:text-xl text-lg xl:pb-12 pb-16 md:pb-8 text-center">
-            150 Free Entry<br/> Packages
+          <p className="text-white font-semibold cursor-pointer xl:text-2xl md:text-xl text-lg xl:pb-12 pb-16 md:pb-8 text-center">
+            150 Free Entries<br/> Package
           </p>
           <div className="bg-white text-black rounded-lg md:py-4 py-2 text-center px-2  md:text-xs text-[8px]">
             Access to Winlads Urgency Program

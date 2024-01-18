@@ -23,7 +23,7 @@ const ChoosePlane = () => {
             <Card
               title="Starter Tier"
               // titleColor="white"
-              title2="01 ENTRY"
+              title2="1 ENTRY"
               titleColor2="black"
               // price="$ 9.99"
               desc1="$ 9.99 per month"
@@ -48,7 +48,7 @@ const ChoosePlane = () => {
               title="Boomer Tier"
               titleColor="black"
               // titleColor="white"
-              title2="03 ENTRIES"
+              title2="3 ENTRIES"
               titleColor2="black"
               // price="$ 19.99"
               desc1="$ 19.99 per month"
