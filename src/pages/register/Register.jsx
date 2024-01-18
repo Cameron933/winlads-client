@@ -159,8 +159,8 @@ const Register = ({ location }) => {
     console.log("Logging to localstorage:", data);
   };
 
-  const saveFormData = async (temp_values, uid, coupen) => {
-    console.log(temp_values, uid);
+  const saveFormData = async ( coupen) => {
+    // console.log(temp_values, uid);
 
     // let coupen = "";
 
@@ -429,7 +429,7 @@ const Register = ({ location }) => {
       setSelectedSubId("");
       setSelPlanPrice(0);
     }
-    saveFormData(temp_values, uid, coupen);
+    saveFormData(coupen);
   };
 
   return (
