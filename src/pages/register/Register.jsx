@@ -100,14 +100,13 @@ const Register = ({ location }) => {
       setRefId(ref);
       values.refferalId = ref;
     }
-    const checkAbility = searchParams.get("ability");
-    if (checkAbility == "WINACCESSEN") {
-      setEligible(true);
-      setShowOneOff(false);
-      setShowFreeEntry(true);
-      // navigate(`/registerQr?ability=${checkAbility}`)
-    }
-    getFreeEntry();
+    // const checkAbility = searchParams.get("ability");
+    // if (checkAbility == "WINACCESSEN") {
+    //   setEligible(true);
+    //   setShowOneOff(false);
+    //   setShowFreeEntry(true);
+    // }
+    // getFreeEntry();
   }, []);
 
   const getPlanes = async () => {
@@ -159,7 +158,7 @@ const Register = ({ location }) => {
     console.log("Logging to localstorage:", data);
   };
 
-  const saveFormData = async ( coupen) => {
+  const saveFormData = async (uid, coupen) => {
     // console.log(temp_values, uid);
 
     // let coupen = "";
