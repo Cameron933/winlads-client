@@ -100,13 +100,7 @@ const Register = ({ location }) => {
       setRefId(ref);
       values.refferalId = ref;
     }
-    const checkAbility = searchParams.get("ability");
-    if (checkAbility == "WINACCESSEN") {
-      setEligible(true);
-      setShowOneOff(false);
-      setShowFreeEntry(true);
-      // navigate(`/registerQr?ability=${checkAbility}`)
-    }
+
     getFreeEntry();
   }, []);
 
@@ -397,6 +391,12 @@ const Register = ({ location }) => {
     const checkAbility = searchParams.get("ability");
     if (checkAbility == "CHNCEOFF") {
       setAbilityCoupen("CHNCEOFF");
+    }
+    if (checkAbility == "WINACCESSEN") {
+      setEligible(true);
+      setShowOneOff(false);
+      setShowFreeEntry(true);
+      // navigate(`/registerQr?ability=${checkAbility}`)
     }
 
     console.log(coupen, "copen 2");
