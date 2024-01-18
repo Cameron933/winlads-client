@@ -497,6 +497,7 @@ const Register = ({ location }) => {
                         title2={plan.raffle_count}
                         titleColor2={plan.name == "Black" ? "white" : "black"}
                         desc1={plan.desc[0]}
+                        specDesc={abilityCoupen === "CHNCEOFF" ? plan.name === "Starter" ? "Entries for Mazz booth only" : "Free entries for DJ & MAZZ booths" : ""}
                         isDisabled={planDis}
                         buttonColor={
                           plan.name == "Starter"
@@ -764,6 +765,7 @@ const Register = ({ location }) => {
                               planId={plan._id}
                               title={plan.name + " Tier"}
                               title2={plan.raffle_count}
+                              specDesc={abilityCoupen === "CHNCEOFF" ? plan.name === "Starter" ? "Entries for Mazz booth only" : "Free entries for DJ & MAZZ booths" : ""}
                               titleColor2={
                                 plan.name == "Black" ? "white" : "black"
                               }
