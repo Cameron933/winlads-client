@@ -27,9 +27,11 @@ const Login = () => {
   const [show, setshow] = useState(false);
   const [showOTPBox, setShowOTPBox] = useState(false);
   const [buttonText, setButtonText] = useState("Login");
-
+  const [fieldDis, setFieldDis] = useState(false);
+  const [wrToken, setWrToken] = useState('');
   const [email, setEmail] = useState("");
   const cookies = new Cookies(null, { path: "/" });
+  const [userId, setUserId] = useState("");
 
   const [password, setPassword] = useState("");
 
@@ -58,47 +60,104 @@ const Login = () => {
   };
 
   async function onSignup(e) {
-    setIsLoading(true);
-    setButtonText("Login...");
 
-    try {
-      console.log("signup called");
+    if (buttonText == 'Verify') {
+      setLoginDisable(false)
+      ValidateOtp()
+    } else {
+      //setIsLoading(true);
+      setButtonText("Login...");
 
-      // console.log(`${import.meta.env.VITE_SERVER_API}/checkMobile?mobile=${ph}, "ccc"`)
-      const response = await axios.get(
-        `${import.meta.env.VITE_SERVER_API}/checkEmail?email=${email}`
-      );
-      if (!response.data.exists) {
-        setIsLoading(false)
-        // alert("Mobile number is not registered. Please register first.");
-        toast.error("Email is not registered. Please register first.", {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-        });
-      } else {
-        try {
-          const data = {
-            email: email,
-            password: password,
-          };
+      try {
+        console.log("signup called");
 
-          const response = await axios.post(
-            `${import.meta.env.VITE_SERVER_API}/loginWithPassword`,
-            data
-          );
-          if (response.data.status == 200) {
-            cookies.set("wr_token", response.data.data._id);
-            navigate("/dashboard");
+        // console.log(`${import.meta.env.VITE_SERVER_API}/checkMobile?mobile=${ph}, "ccc"`)
+        const response = await axios.get(
+          `${import.meta.env.VITE_SERVER_API}/checkEmail?email=${email}`
+        );
+        if (!response.data.exists) {
+          setIsLoading(false)
+          // alert("Mobile number is not registered. Please register first.");
+          toast.error("Email is not registered. Please register first.", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          });
+        } else {
+          try {
+            const data = {
+              email: email,
+              password: password,
+            };
+
+            const response = await axios.post(
+              `${import.meta.env.VITE_SERVER_API}/loginWithPassword`,
+              data
+            );
+            if (response.data.status == 200) {
+              setWrToken(response.data.data._id);
+              if (response.data.data.otpVerified == 0) {
+                // LOGIC IF USER NOT VERIFIED
+                setUserId(response.data.data._id)
+                setFieldDis(true);
+                setButtonText("Sending...");
+                window.recaptchaVerifier = new RecaptchaVerifier(
+                  auth,
+                  "recaptcha-container",
+                  {}
+                );
+                let verify = window.recaptchaVerifier;
+                signInWithPhoneNumber(auth, response.data.data.mobile, verify)
+                  .then((result) => {
+                    setfinal(result);
+                    setshow(true);
+                    setShowOTPBox(true);
+                    setPh(response.data.data.mobile);
+                    setButtonText("Verify");
+                  })
+                  .catch((err) => {
+                    toast.error(err.message, {
+                      position: "top-center",
+                      autoClose: 5000,
+                      hideProgressBar: false,
+                      closeOnClick: true,
+                      pauseOnHover: true,
+                      draggable: true,
+                      progress: undefined,
+                      theme: "colored",
+                    });
+                    //window.location.reload();
+                    setButtonText("Get OTP");
+                  });
+                // navigate("/otp");
+              } else {
+                cookies.set("wr_token", response.data.data._id);
+                navigate("/dashboard");
+              }
+              // navigate("/dashboard");
+              setIsLoading(false);
+            } else {
+              setIsLoading(false);
+              toast.error("Invalid email or password", {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+              });
+            }
+          } catch (error) {
+            console.log(error);
             setIsLoading(false);
-          } else {
-            setIsLoading(false);
-            toast.error("Invalid email or password", {
+            toast.error("Something went wrong, Please try again!", {
               position: "top-center",
               autoClose: 5000,
               hideProgressBar: false,
@@ -109,35 +168,23 @@ const Login = () => {
               theme: "colored",
             });
           }
-        } catch (error) {
-          console.log(error);
-          setIsLoading(false);
-          toast.error("Something went wrong, Please try again!", {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-          });
         }
+      } catch (error) {
+        setIsLoading(false);
+        setLoginDisable(true)
+        console.error("Error checking mobile:", error);
+        // alert("An error occurred while checking the mobile number.");
+        toast.error("An error occurred while checking the mobile number.", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
       }
-    } catch (error) {
-      setIsLoading(false);
-      console.error("Error checking mobile:", error);
-      // alert("An error occurred while checking the mobile number.");
-      toast.error("An error occurred while checking the mobile number.", {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-      });
     }
   }
 
@@ -149,68 +196,85 @@ const Login = () => {
     const validator = await validateCurrentUser();
     if (validator.validatorBl) {
       console.log("Session OK", validator.user);
-     // handleSEOLogin();
+      // handleSEOLogin();
       navigate("/dashboard");
     } else {
       console.log("");
     }
   };
 
-  // const ValidateOtp = () => {
-  //   if (otp === null || final === null) return;
-  //   final
-  //     .confirm(otp)
-  //     .then((result) => {
-  //       // success
-  //       const uid = result.user.uid;
+  const ValidateOtp = () => {
+    if (otp === null || final === null) return;
+    final
+      .confirm(otp)
+      .then((result) => {
+        // success
+        console.log('OTP Verified Success');
+        const uid = result.user.uid;
 
-  //       axios
-  //         .get(`${import.meta.env.VITE_SERVER_API}/login?uid=${uid}`)
-  //         .then((response) => {
-  //           if (response.data.exists) {
-  //             console.log("success");
-  //             cookies.set("wr_token", response.data.data._id);
-  //             navigate("/dashboard");
-  //           }
-  //           if (response.data.status !== 200) {
-  //             toast.error("Login failed", {
-  //               position: "top-center",
-  //               autoClose: 5000,
-  //               hideProgressBar: false,
-  //               closeOnClick: true,
-  //               pauseOnHover: true,
-  //               draggable: true,
-  //               progress: undefined,
-  //               theme: "colored",
-  //             });
-  //           }
-  //         })
-  //         .catch((error) => {
-  //           toast.error("Error checking mobile number. Please try again", {
-  //             position: "top-center",
-  //             autoClose: 5000,
-  //             hideProgressBar: false,
-  //             closeOnClick: true,
-  //             pauseOnHover: true,
-  //             draggable: true,
-  //             progress: undefined,
-  //             theme: "colored",
-  //           });
-  //         });
-  //     })
-  //     .catch((err) => {
-  //       toast.error("Invalid OTP Code", {
-  //         position: "top-center",
-  //         autoClose: 5000,
-  //         hideProgressBar: false,
-  //         closeOnClick: true,
-  //         pauseOnHover: true,
-  //         draggable: true,
-  //         progress: undefined,
-  //         theme: "colored",
-  //       });
-  //     });
-  // };
+        //CREATE THE LOGIC FOR MAKE otpVerified: true in DATABASE
+        axios.post(`${import.meta.env.VITE_SERVER_API}/editUser`, {id:userId,otpVerified:1}).then((response) => {
+          console.log("success");
+          cookies.set("wr_token", wrToken);
+          console.log(response);
+          navigate("/dashboard");
+        }).catch((err) => {
+          console.log(err);
+        })
+        // cookies.set("wr_token", wrToken);
+        // navigate("/dashboard");
+
+
+        // axios
+        //   .get(`${import.meta.env.VITE_SERVER_API}/login?uid=${uid}`)
+        //   .then((response) => {
+        //     if (response.data.exists) {
+        //       response.data.data.otpVerified = 1;
+
+        //       alert('Success')
+
+        //     }
+        //     if (response.data.status !== 200) {
+        //       toast.error("Login failed", {
+        //         position: "top-center",
+        //         autoClose: 5000,
+        //         hideProgressBar: false,
+        //         closeOnClick: true,
+        //         pauseOnHover: true,
+        //         draggable: true,
+        //         progress: undefined,
+        //         theme: "colored",
+        //       });
+        //     }
+        //   })
+        //   .catch((error) => {
+        //     console.log(error);
+        //     setLoginDisable(true);
+        //     toast.error("Error checking mobile number. Please try again", {
+        //       position: "top-center",
+        //       autoClose: 5000,
+        //       hideProgressBar: false,
+        //       closeOnClick: true,
+        //       pauseOnHover: true,
+        //       draggable: true,
+        //       progress: undefined,
+        //       theme: "colored",
+        //     });
+        //   });
+      })
+      .catch((err) => {
+        toast.error("Invalid OTP Code", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      });
+  };
 
   // Set loading
   useEffect(() => {
@@ -241,7 +305,7 @@ const Login = () => {
               {/* <div className="img-container scale-150 mb-9 md:mb-0 prevent"> */}
               {/* Dekstop VIew Jeep */}
 
-              <div className="hidden md:block transform scale-x-[-1]">
+              <div className="hidden md:block transform">
                 <motion.img
                   initial={{ opacity: 0, x: "40%" }}
                   whileInView={{ opacity: 1, x: "0%" }}
@@ -252,7 +316,7 @@ const Login = () => {
                 />
               </div>
               {/* Mobile View Jeep */}
-              <div className="block md:hidden w-full transform scale-x-[-1]">
+              <div className="block md:hidden w-full transform">
                 <motion.img
                   initial={{ opacity: 0, x: "40%" }}
                   whileInView={{ opacity: 1, x: "0%" }}
@@ -285,6 +349,7 @@ const Login = () => {
                         value={values.email}
                         onChange={(e) => setEmail(e.target.value)}
                         id="email"
+                        disabled={fieldDis}
                         className="placeholder:text-[16px]"
                       />
                       <small className="text-error">
@@ -299,13 +364,30 @@ const Login = () => {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         id="passport"
+                        disabled={fieldDis}
                         className="placeholder:text-[16px]"
                       />
-                      {/* <small className="text-error">
-                      {errors.passport && touched.passport && errors.passport}
-                    </small> */}
+                      <small className="text-error">
+                        {errors.passport && touched.passport && errors.passport}
+                      </small>
                     </div>
-                    {/* {showOTPBox && (
+                    {
+                      ph && <div className="input-div">
+                        <FcUnlock size={20} />
+                        <input
+                          type="text"
+                          placeholder="Mobile"
+                          value={ph.slice(0, 3) + '*******' + ph.slice(ph.length - 2, ph.length)}
+                          id="mobile"
+                          disabled={fieldDis}
+                          className="placeholder:text-[16px]"
+                        />
+                        <small className="text-error">
+                          {errors.mobile && touched.mobile && errors.mobile}
+                        </small>
+                      </div>
+                    }
+                    {showOTPBox && (
                       <div
                         className={
                           errors.otp && touched.opt
@@ -324,9 +406,9 @@ const Login = () => {
                           {errors.otp && touched.opt && errors.otp}
                         </small>
                       </div>
-                    )} */}
+                    )}
 
-                    {/* {!final && <div id="recaptcha-container"></div>} */}
+                    {!final && <div id="recaptcha-container"></div>}
                     <div className="flex flex-col space-y-1">
                       <button
                         className={`px-12 w-full py-2 flex justify-center flex-row items-center rounded-lg bg-${loginDisable ? "black" : "gray-500"
