@@ -503,14 +503,14 @@ const Register = ({ location }) => {
                           plan.name == "Starter"
                             ? "black"
                             : "" | (plan.name == "Boomer")
-                            ? "black"
-                            : "" | (plan.name == "Platinum")
-                            ? "black"
-                            : "" | (plan.name == "Gold")
-                            ? "black"
-                            : "" | (plan.name == "Black")
-                            ? "white"
-                            : "black"
+                              ? "black"
+                              : "" | (plan.name == "Platinum")
+                                ? "black"
+                                : "" | (plan.name == "Gold")
+                                  ? "black"
+                                  : "" | (plan.name == "Black")
+                                    ? "white"
+                                    : "black"
                         }
                         arrowColor="[#01819D]"
                         buttonTextColor={
@@ -562,11 +562,10 @@ const Register = ({ location }) => {
               >
                 <div className="flex flex-col justify-center space-y-4 mx-auto xl:mt-4 md:mt-10 mt-4 special:mt-20">
                   <div
-                    className={`flex flex-col space-y-4 ${
-                      buttonText == "Sending..." || buttonText == "Register"
+                    className={`flex flex-col space-y-4 ${buttonText == "Sending..." || buttonText == "Register"
                         ? "blur-sm"
                         : ""
-                    }`}
+                      }`}
                   >
                     <div
                       className={
@@ -773,14 +772,14 @@ const Register = ({ location }) => {
                                 plan.name == "Starter"
                                   ? "black"
                                   : "" | (plan.name == "Boomer")
-                                  ? "black"
-                                  : "" | (plan.name == "Platinum")
-                                  ? "black"
-                                  : "" | (plan.name == "Gold")
-                                  ? "black"
-                                  : "" | (plan.name == "Black")
-                                  ? "white"
-                                  : "black"
+                                    ? "black"
+                                    : "" | (plan.name == "Platinum")
+                                      ? "black"
+                                      : "" | (plan.name == "Gold")
+                                        ? "black"
+                                        : "" | (plan.name == "Black")
+                                          ? "white"
+                                          : "black"
                               }
                               arrowColor="[#01819D]"
                               buttonTextColor={
@@ -884,7 +883,7 @@ const Register = ({ location }) => {
                         placeholder="OTP Code"
                         value={otp}
                         onChange={(e) => setOtp(e.target.value)}
-                        // id="tin"
+                      // id="tin"
                       />
                       <small className="text-error">
                         {errors.otp && touched.opt && errors.otp}
@@ -924,9 +923,8 @@ const Register = ({ location }) => {
                   {!final && <div id="recaptcha-container"></div>}
 
                   <button
-                    className={`text-white rounded-xl justify-center px-12 py-2 flex flex-row items-center font-semibold special:text-xl disabled:bg-gray-500 bg-${
-                      isChecked ? "black" : "gray-500"
-                    } hover:bg-${isChecked ? "black/50" : ""}`}
+                    className={`text-white rounded-xl justify-center px-12 py-2 flex flex-row items-center font-semibold special:text-xl disabled:bg-gray-500 bg-${isChecked ? "black" : "gray-500"
+                      } hover:bg-${isChecked ? "black/50" : ""}`}
                     onClick={(e) => onSignup(e)}
                     // onClick={(e) => onSignup(e)}
                     disabled={!isChecked || buttonDis}
