@@ -292,7 +292,7 @@ const SideNav = () => {
                 <img src={BC} className="w-[18px]" alt="protect" />
                 <span className="mobile-hide">
                   <p className="link-no-underlin   xl:flex text-white">
-                    Business card
+                    Business Card
                   </p>
                 </span>
               </button>
