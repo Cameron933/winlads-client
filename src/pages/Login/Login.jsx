@@ -307,7 +307,7 @@ const Login = () => {
 
               <div className="hidden md:block transform">
                 <motion.img
-                  initial={{ opacity: 0, x: "40%" }}
+                  initial={{ opacity: 0, x: "-40%" }}
                   whileInView={{ opacity: 1, x: "0%" }}
                   transition={{ duration: 0.8 }}
                   src={LoginImg}
@@ -318,7 +318,7 @@ const Login = () => {
               {/* Mobile View Jeep */}
               <div className="block md:hidden w-full transform">
                 <motion.img
-                  initial={{ opacity: 0, x: "40%" }}
+                  initial={{ opacity: 0, x: "-40%" }}
                   whileInView={{ opacity: 1, x: "0%" }}
                   transition={{ duration: 0.8 }}
                   src={LoginImg}
