@@ -505,8 +505,8 @@ const Register = ({ location }) => {
                               </>
                             ) : (
                               <>
-                                Free entries for DJ &{" "}
-                                <strong>Mazz Booths</strong>
+                                Free entries for{" "}
+                                <strong> DJ & Mazz Booths</strong>
                               </>
                             )
                           ) : (
@@ -781,11 +781,20 @@ const Register = ({ location }) => {
                               title={plan.name + " Tier"}
                               title2={plan.raffle_count}
                               specDesc={
-                                abilityCoupen === "CHNCEOFF"
-                                  ? plan.name === "Starter"
-                                    ? "Entries for Mazz booth only"
-                                    : "Free entries for DJ & MAZZ booths"
-                                  : ""
+                                abilityCoupen === "CHNCEOFF" ? (
+                                  plan.name === "Starter" ? (
+                                    <>
+                                      Entries for <strong>Mazz Booth</strong> only
+                                    </>
+                                  ) : (
+                                    <>
+                                      Free entries for{" "}
+                                      <strong> DJ & Mazz Booths</strong>
+                                    </>
+                                  )
+                                ) : (
+                                  ""
+                                )
                               }
                               titleColor2={
                                 plan.name == "Black" ? "white" : "black"
