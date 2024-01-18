@@ -34,6 +34,7 @@ import Card from "../../components/SubCard/CardToReg.jsx";
 import DashboardVehicleCard from "../../components/DashboardVehicleCard/DashboardVehicle.jsx";
 import VehicleCardForReg from "../../components/DashboardVehicleCard/VehicleCardForReg.jsx";
 import FreeEntryCardDashboard2 from "../../components/FreeEntry/FreeEntryCardDashboard2.jsx";
+import FreeEntryCardDashboard3 from "../../components/FreeEntry/FreeEntryCardDashboard3.jsx";
 
 const inputStyle = {
   border: "1px solid #000000",
@@ -437,14 +438,14 @@ const Register = ({ location }) => {
         <Loader />
       ) : (
         <div className="min-h-screen flex flex-col items-center justify-center bg-image">
-          {/* {abilityCoupen === "CHNCEOFF" && (
+          {abilityCoupen === "CHNCEOFF" && (
             <div className="py-4 w-full bg-yellow-300 text-center">
               <p className="text-black font-semibold">
-                Congratulations! You are eligible for free entry on this
+                Congratulations! You are eligible for free chance on this
                 registration.
               </p>
             </div>
-          )} */}
+          )}
 
           {eligible && (
             <div className="py-4 w-full bg-yellow-300 text-center">
@@ -482,6 +483,8 @@ const Register = ({ location }) => {
 
               {/* SUB PLANS SHOW DESKTOP */}
               <div className="hidden md:grid xl:grid-cols-3 md:grid-cols-2 justify-start gap-3">
+                {abilityCoupen === "CHNCEOFF" && <FreeEntryCardDashboard3 />}
+
                 {showFreeEntry && (
                   <div className="flex justify-center items-center">
                     <FreeEntryCardDashboard2 />
@@ -750,6 +753,9 @@ const Register = ({ location }) => {
                     <div className="md:hidden w-[80vw] overflow-x-scroll">
                       {memberShipType == "subscription" ? (
                         <div className="w-max gap-2 flex items-stretch justify-between">
+                          {abilityCoupen === "CHNCEOFF" && (
+                            <FreeEntryCardDashboard3 />
+                          )}
                           {showFreeEntry && (
                             <div className="">
                               <FreeEntryCardDashboard2 />
@@ -855,7 +861,11 @@ const Register = ({ location }) => {
                       Amount
                     </p>
                     <div className="flex items-start justify-between text-xs text-gray-500 border-b border-gray-500">
-                      <p>{selectedPlanName} {memberShipType === "subscription" ? "Tier" : ""}</p> <p>${selectedPlanPrice}</p>
+                      <p>
+                        {selectedPlanName}{" "}
+                        {memberShipType === "subscription" ? "Tier" : ""}
+                      </p>{" "}
+                      <p>${selectedPlanPrice}</p>
                     </div>
                     <div className="flex items-start justify-between text-xs font-bold">
                       <p>Order Total</p> <p>${selectedPlanPrice}</p>
