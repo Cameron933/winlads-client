@@ -4,7 +4,7 @@ const FreeEntryCardDashboard3 = () => {
 
 
   return (
-    <div className="rounded-[16px] md:w-full md:h-full w-[220px] shadow-lg bg-[#F7B928] shadow-gray-400 relative flex flex-col ">
+    <div className="rounded-[16px] md:w-full md:h-full w-[220px] relative flex flex-col ">
       <div className="md:h-full md:w-full">
         <img src={FreeEntry3} alt="" className="2xl:w-full xl:w-full lg:w-10/12 md:w-10/12 rounded-[10px] " />
       </div>
