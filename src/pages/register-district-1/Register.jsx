@@ -13,7 +13,7 @@ import Cookies from "universal-cookie";
 import "../Login/Login.css";
 import { motion } from "framer-motion";
 import { validateCurrentUser } from "../../utils/validateuser.js";
-import LoginImg from "../../assets/images/MainCar.png";
+import LoginImg from "../../assets/images/dist1.jpg";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import {
@@ -447,7 +447,7 @@ const DisOneRegister = ({ location }) => {
                   whileInView={{ opacity: 1, x: "0%" }}
                   transition={{ duration: 0.8 }}
                   src={LoginImg}
-                  className="w-full h-full"
+                  className="w-full h-full pb-4"
                   alt="main-img"
                 />
               </div>
@@ -458,7 +458,7 @@ const DisOneRegister = ({ location }) => {
                   whileInView={{ opacity: 1, x: "0%" }}
                   transition={{ duration: 0.8 }}
                   src={LoginImg}
-                  className="w-full h-full"
+                  className="w-full h-full pb-4"
                   alt="main-img"
                 />
               </div>

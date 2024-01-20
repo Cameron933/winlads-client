@@ -100,7 +100,7 @@ const DisOneCard = ({
         </p>
       </div>
       {isShowDetails && (
-        <div className="relative flex flex-col  border-2 border-black bg-white px-1 py-4 rounded-xl md:mb-10 mb-5 h-full text-md 2xl:text-lg">
+        <div className="relative flex flex-col border-2 border-black bg-white px-1 py-4 rounded-xl md:mb-10 mb-5 h-full text-md 2xl:text-lg">
           {desc1.slice(0, initial).map((el, key) => (
             <div className="flex flex-row  gap-2 items-center" key={key}>
               <img src={Correct} alt="" />
