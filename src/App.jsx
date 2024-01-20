@@ -1,9 +1,14 @@
-import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate,
+} from "react-router-dom";
 
 import Home from "./pages/Home/Home";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Login from "./pages/Login/Login";
 import Register from "./pages/register/Register";
+import DisOneRegister from "./pages/register-district-1/Register";
 import Authentication from "./pages/Authentication/Authentication";
 import Loader from "./components/Loader/Loader";
 import News from "./pages/News/News";
@@ -32,27 +37,26 @@ import Withdraw from "./pages/Withdraw/Withdraw";
 import Affiliate from "./pages/Affiliate/Affiliate";
 import Promo from "./pages/Promo/Promo";
 import RefCount from "./pages/Affiliate/RefferalCount";
-import Won from "./pages/Won/Won"
+import Won from "./pages/Won/Won";
 import ForgotPassword from "./pages/ForgotPW/ForgotPassword";
 import RequestEntries from "./pages/RequestEntries/RequestEntries";
-import TagManager from 'react-gtm-module'
+import TagManager from "react-gtm-module";
 import SubDone from "./pages/SubDone";
 import PastGiveaways from "./pages/PastGiveaways/PastGiveaways";
 import OngoingGiveaways from "./pages/OngoingGiveaways/OngoingGiveaways";
 import UpcomingGiveaways from "./pages/UpcomingGiveaways/UpcomingGiveaways";
 import RegisterOld from "./pages/register/RegisterOld";
-import AdminLogin from "./pages/Admin/Login"
-import AdminRounds from "./pages/Admin/Giveaway"
+import AdminLogin from "./pages/Admin/Login";
+import AdminRounds from "./pages/Admin/Giveaway";
 import UnderDev from "./pages/UnderDev/UnderDev";
-import Forum from "./pages/Forum/Forum"
-
+import Forum from "./pages/Forum/Forum";
 
 function App() {
   const tagManagerArgs = {
-    gtmId: 'GTM-P2DVFZVB'
-}
+    gtmId: "GTM-P2DVFZVB",
+  };
 
-TagManager.initialize(tagManagerArgs)
+  TagManager.initialize(tagManagerArgs);
   const router = createBrowserRouter([
     {
       element: <Layout />,
@@ -95,7 +99,7 @@ TagManager.initialize(tagManagerArgs)
         },
         {
           path: "/profile",
-          element: <Profile/>,
+          element: <Profile />,
         },
         {
           path: "/live",
@@ -137,45 +141,43 @@ TagManager.initialize(tagManagerArgs)
           element: <Support />,
         },
         {
-          path:'/affiliate',
-          element:<Affiliate/>
+          path: "/affiliate",
+          element: <Affiliate />,
         },
         {
-          path:'/promo',
-          element:<Promo/>
+          path: "/promo",
+          element: <Promo />,
         },
         {
-          path:'/ref',
-          element:<RefCount/>
+          path: "/ref",
+          element: <RefCount />,
         },
         {
-          path:'/requestEntries',
-          element:<RequestEntries/>
+          path: "/requestEntries",
+          element: <RequestEntries />,
         },
         {
-          path:'/pastGiveaways',
-          element:<PastGiveaways/>
+          path: "/pastGiveaways",
+          element: <PastGiveaways />,
         },
         {
-          path:'/ongoingGiveaways',
-          element:<OngoingGiveaways/>
+          path: "/ongoingGiveaways",
+          element: <OngoingGiveaways />,
         },
         {
-          path:'/upcomingGiveaways',
-          element:<UpcomingGiveaways/>
+          path: "/upcomingGiveaways",
+          element: <UpcomingGiveaways />,
         },
         {
-          path:'/won/:id',
-          element:<Won/>
+          path: "/won/:id",
+          element: <Won />,
         },
-       
       ],
     },
 
-
     {
       path: "/:id?",
-      element:<Navigate to="/login" replace />
+      element: <Navigate to="/login" replace />,
     },
     {
       path: "/conditions",
@@ -192,6 +194,10 @@ TagManager.initialize(tagManagerArgs)
     {
       path: "/register/:selectedPackage?",
       element: <Register />,
+    },
+    {
+      path: "/register-district-1/:selectedPackage?",
+      element: <DisOneRegister />,
     },
     {
       path: "/login",
@@ -220,7 +226,7 @@ TagManager.initialize(tagManagerArgs)
       path: "/payment-failed",
       element: <PaymentSuccess />,
     },
-  
+
     {
       path: "/privacy",
       element: <Privacy />,
@@ -232,7 +238,7 @@ TagManager.initialize(tagManagerArgs)
     {
       path: "/admin-rounds",
       element: <AdminRounds />,
-    }, 
+    },
     {
       path: "/under-dev",
       element: <UnderDev />,
